@@ -1,6 +1,6 @@
 const tailwindcss = require('tailwindcss');
 
-module.exports = {
+const environment = {
   plugins: [
     tailwindcss('./app/javascript/stylesheets/tailwind.config.js'),
     require('postcss-import'),
@@ -13,3 +13,19 @@ module.exports = {
     })
   ]
 }
+
+if (process.env.RAILS_ENV === "production") {
+  environment.plugins.push(
+    require('@fullhuman/postcss-purgecss')({
+      content: [
+        './app/**/*.html.erb',
+        './app/helpers/**/*.rb',
+        './app/javascript/**/*.js',
+        './app/javascript/**/*.jsx',
+      ],
+      defaultExtractor: content => content.match(/[\w-/.:]+(?<!:)/g) || []
+    })
+  )
+}
+
+module.exports = environment
