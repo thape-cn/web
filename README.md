@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Steps to build the local dev.
 
-Things you may want to cover:
+### Generate dummy settings
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+yarn install
+RAILS_ENV=production bin/webpack
+bin/webpack-dev-server
+bin/rails s # run in seperate console
+```
