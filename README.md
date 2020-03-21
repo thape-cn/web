@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/thape-cn/web.svg?style=svg)](https://circleci.com/gh/thape-cn/web)
+
 # README
 
 ## Steps to build the local dev.
