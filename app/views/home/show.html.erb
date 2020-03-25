@@ -1,12 +1,12 @@
 <div class="w-screen h-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/01_background.jpg') -%>')">
 
-  <div x-data="{ open: false }" class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+  <div x-data="{ open: false }" class="relative pt-3">
+    <div class="w-full mx-auto px-4 sm:px-6">
       <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
         <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
           <div class="flex items-left justify-between w-full md:w-auto">
             <a href="#">
-              <%= render partial: 'shared/logo', locals: { className: 'fill-current text-white inline-block h-6 p2 mt-2' } -%>
+              <%= render partial: 'shared/logo', locals: { className: 'fill-current text-white h-8 w-48 sm:h-10' } -%>
             </a>
             <div class="-mr-2 flex items-center md:hidden">
               <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
