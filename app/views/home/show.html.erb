@@ -79,5 +79,29 @@
     <div class="hidden sm:hidden md:block lg:block xl:block"><%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full' -%></div>
     <div class="hidden sm:hidden md:block lg:block xl:block"><%= image_pack_tag 'media/images/grid-2-4.jpg', class: 'w-full h-full' -%></div>
   </div>
+
+  <header class="bg-white">
+    <div class="max-w-7xl p-4 mt-7 mb-7">
+      <h1 class="text-3xl font-bold text-gray-900">
+        天华新闻
+      </h1>
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+    <div class="relative">
+      <%= image_pack_tag 'media/images/news_r1.jpg', class: 'w-full h-full' -%>
+      <div class="absolute top-0 left-0 w-24 p-9">
+        <p class="text-4xl text-left leading-below-zero">Dec</p>
+        <p class="text-6xl text-left leading-below-zero">31</p>
+      </div>
+      <div class="absolute bottom-0 left-0 w-72 p-9">
+        <p class="text-2xl text-left pb-1">我们的2019@天华</p>
+        <p class="text-left leading-snug">我们的2019，在传承中发展， 在感恩中前行。</p>
+      </div>
+    </div>
+    <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
+    <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
+  </div>
 </div>
 

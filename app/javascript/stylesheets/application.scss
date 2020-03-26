@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.leading-below-zero {
+  line-height: .75;
+}
