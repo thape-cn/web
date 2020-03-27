@@ -103,5 +103,52 @@
     <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
     <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
   </div>
+
+  <div class="p-12 md:p-18 lg:p-24 xl:p-32">
+    <div class="px-4 py-5 sm:px-6">
+      <h1 class="text-3xl font-bold text-gray-900">
+        访客留言
+      </h1>
+    </div>
+    <div class="px-4 py-5 sm:p-6">
+
+      <form action="#" method="POST">
+          <div class="grid grid-cols-4 gap-5">
+            <div class="col-span-4 sm:col-span-2 row-span-3">
+              <div class="max-w-lg flex rounded-md">
+                <textarea id="comment" rows="10" placeholder="请填写您的留言" class="p-3 rounded-xl form-textarea resize-none block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+              </div>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1">
+              <div class="max-w-lg flex rounded-md">
+                <input id="last_name" placeholder="请填写您的姓名" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md shadow-xl focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1">
+              <div class="max-w-lg flex rounded-md">
+                <input id="last_name" placeholder="请填写您的公司" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-4 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <input id="last_name" placeholder="请填写您的联系方式" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-4 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <button class="py-3 px-6 border border-transparent text-sm leading-5 font-medium rounded-full text-black bg-gray-100 shadow-sm hover:bg-white focus:outline-none focus:shadow-outline-blue active:bg-white transition duration-150 ease-in-out">
+                  确认提交
+                </button>
+              </div>
+            </div>
+          </div>
+      </form>
+
+    </div>
+  </div>
 </div>
 
