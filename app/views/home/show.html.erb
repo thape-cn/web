@@ -19,11 +19,11 @@
         </div>
         <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 text-white">
           <a href="#" class="font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">介绍</a>
-          <a href="#" class="ml-10 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">作品</a>
-          <a href="#" class="ml-10 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">服务</a>
-          <a href="#" class="ml-10 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">新闻</a>
-          <a href="#" class="ml-10 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">招聘</a>
-          <a href="#" class="ml-10 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">联系我们</a>
+          <a href="#" class="ml-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">作品</a>
+          <a href="#" class="ml-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">服务</a>
+          <a href="#" class="ml-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">新闻</a>
+          <a href="#" class="ml-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">招聘</a>
+          <a href="#" class="ml-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">联系我们</a>
         </div>
       </nav>
     </div>
@@ -104,7 +104,7 @@
     <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
   </div>
 
-  <div class="p-12 md:p-18 lg:p-24 xl:p-32">
+  <div class="p-4 sm:p-8 md:p-18 lg:p-24 xl:p-32">
     <div class="px-4 py-5 sm:px-6">
       <h1 class="text-3xl font-bold text-gray-900">
         访客留言
@@ -155,20 +155,19 @@
 <div class="bg-gray-200">
   <div class="w-full mx-auto py-6 px-4 sm:px-6 border-b border-gray-300">
     <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
-      <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-        <div class="flex items-left justify-between w-full md:w-auto">
+      <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+        <div class="hidden md:flex items-left justify-between w-full md:w-auto">
           <a href="#">
             <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black h-8 w-48 sm:h-10' } -%>
           </a>
         </div>
       </div>
-      <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 text-black">
-        <a href="#" class="font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">介绍</a>
-        <a href="#" class="ml-10 font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">联系方式</a>
-        <a href="#" class="ml-10 font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">网站声明</a>
-        <a href="#" class="ml-10 font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">隐私政策</a>
-        <a href="#" class="ml-10 font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">免责条款</a>
-        <a href="#" class="ml-10 font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">职业发展</a>
+      <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-black">
+        <a href="#" class="md:font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">联系方式</a>
+        <a href="#" class="ml-3 md:font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">网站声明</a>
+        <a href="#" class="ml-3 md:font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">隐私政策</a>
+        <a href="#" class="ml-3 md:font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">免责条款</a>
+        <a href="#" class="ml-3 md:font-medium hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">职业发展</a>
       </div>
     </nav>
   </div>
@@ -177,7 +176,11 @@
       <p>总机：021-64281588   设计项目接洽及投诉热线：400-8366606</p>
       <p>© 2019 天华集团，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
     </div>
-    <div class="text-gray-700 text-center px-4 py-6 m-2">
+
+    <div class="text-gray-700 text-center px-1 sm:px-4 py-6 sm:m-2 sm:w-40">
+      <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-6' %>
+      <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-6' %>
+      <%= image_pack_tag 'media/images/zhihu.png', class: 'inline-block h-6' %>
     </div>
   </div>
 </div>
