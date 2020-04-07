@@ -5,22 +5,32 @@ import { Controller } from "stimulus"
 const scroller = scrollama();
 
 export default class extends Controller {
-  static targets = [ "output" ]
+  static targets = [ "navBar" ]
 
   connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
+    // scrollama event handlers
+    function handleStepEnter(response) {
+      const { direction } = response;
+      if (direction == 'down') {
+        this.navBarTarget.classList.add("bg-black");
+      }
+    }
+
+    function handleStepExit(response) {
+      // response = { element, direction, index }
+      const { direction } = response;
+      if (direction == 'up') {
+        this.navBarTarget.classList.remove("bg-black");
+      }
+    }
 
     // setup the instance, pass callback functions
     scroller
       .setup({
         step: ".scroller-step"
       })
-      .onStepEnter(response => {
-        console.log(response);
-      })
-      .onStepExit(response => {
-        console.log(response);
-      });
+      .onStepEnter(handleStepEnter.bind(this))
+      .onStepExit(handleStepExit.bind(this));
   }
 
   layout() {
