@@ -10,9 +10,14 @@
   border-radius: 1.25rem;
 }
 
-.nav-background-color {
+.nav-background-initial {
+  animation: animation-to-initial 1s;
+  background: initial;
+}
+
+.nav-background-white {
+  animation: animation-to-white 1s;
   background: white;
-  animation: animation-to-white 3s;
 }
 
 @keyframes animation-to-white {
@@ -21,5 +26,14 @@
   }
   100% {
     background-color: rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes animation-to-initial {
+  0% {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  100% {
+    background-color: initial;
   }
 }

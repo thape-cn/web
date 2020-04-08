@@ -15,7 +15,8 @@ export default class extends Controller {
         const thapeLogo = document.getElementById('thape-nav-logo');
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
-        this.navBarTarget.classList.add("nav-background-color");
+        this.navBarTarget.classList.remove("nav-background-initial");
+        this.navBarTarget.classList.add("nav-background-white");
         thapeLogo.classList.remove("text-white");
         thapeNavContainer.classList.remove("text-white");
         thapeNavContainer.classList.add("text-black");
@@ -32,7 +33,8 @@ export default class extends Controller {
         thapeNavContainer.classList.remove("text-black");
         thapeNavContainer.classList.add("text-white");
         thapeLogo.classList.add("text-white");
-        this.navBarTarget.classList.remove("nav-background-color");
+        this.navBarTarget.classList.remove("nav-background-white");
+        this.navBarTarget.classList.add("nav-background-initial");
       }
     }
 
