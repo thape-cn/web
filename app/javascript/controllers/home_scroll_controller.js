@@ -5,14 +5,20 @@ import { Controller } from "stimulus"
 const scroller = scrollama();
 
 export default class extends Controller {
-  static targets = [ "navBar" ]
+  static targets = [ "navBar" ];
 
   connect() {
     // scrollama event handlers
     function handleStepEnter(response) {
       const { direction } = response;
       if (direction == 'down') {
-        this.navBarTarget.classList.add("bg-black");
+        const thapeLogo = document.getElementById('thape-nav-logo');
+        const thapeNavContainer = document.getElementById('thape-nav-container');
+
+        this.navBarTarget.classList.add("nav-background-color");
+        thapeLogo.classList.remove("text-white");
+        thapeNavContainer.classList.remove("text-white");
+        thapeNavContainer.classList.add("text-black");
       }
     }
 
@@ -20,7 +26,13 @@ export default class extends Controller {
       // response = { element, direction, index }
       const { direction } = response;
       if (direction == 'up') {
-        this.navBarTarget.classList.remove("bg-black");
+        const thapeLogo = document.getElementById('thape-nav-logo');
+        const thapeNavContainer = document.getElementById('thape-nav-container');
+
+        thapeNavContainer.classList.remove("text-black");
+        thapeNavContainer.classList.add("text-white");
+        thapeLogo.classList.add("text-white");
+        this.navBarTarget.classList.remove("nav-background-color");
       }
     }
 
