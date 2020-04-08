@@ -20,18 +20,32 @@
   background: white;
 }
 
+.nav-background-black {
+  animation: animation-to-black 1s;
+  background: black;
+}
+
+@keyframes animation-to-black {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
 @keyframes animation-to-white {
   0% {
     background-color: initial;
   }
   100% {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: white;
   }
 }
 
 @keyframes animation-to-initial {
   0% {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: white;
   }
   100% {
     background-color: initial;

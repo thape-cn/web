@@ -18,13 +18,13 @@
         </div>
       </div>
       <div id="thape-nav-container" class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 text-white cursor-pointer">
-        <a href="#" class="mr-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">介绍</a>·
-        <a href="#" class="mx-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">作品</a>·
-        <a href="#" class="mx-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">服务</a>·
-        <a href="#" class="mx-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">新闻</a>·
-        <a href="#" class="mx-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">招聘</a>·
-        <a href="#" class="mx-3 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">联系我们</a>·
-        <svg class="ml-3 fill-current hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out" width="25" height="25" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <a href="#" class="mr-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">介绍</a>·
+        <a href="#" class="mx-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">作品</a>·
+        <a href="#" class="mx-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">服务</a>·
+        <a href="#" class="mx-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">新闻</a>·
+        <a href="#" class="mx-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">招聘</a>·
+        <a href="#" class="mx-3 font-medium hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">联系我们</a>·
+        <svg class="ml-3 fill-current hover:text-gray-500 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out" width="25" height="25" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
         </svg>
       </div>
@@ -62,7 +62,7 @@
 <div class="w-screen h-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/01_background.jpg') -%>')">
 </div>
 
-<div class="scroller-step w-full mx-auto lg:p4 xl:p-6" data-step="new-projects">
+<div class="scroller-step w-full mx-auto lg:p4 xl:p-6" id="thape-new-projects">
   <header class="bg-white">
     <div class="max-w-7xl p-4">
       <h1 class="text-3xl font-bold text-gray-900">
@@ -92,7 +92,7 @@
     </div>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+  <div class="scroller-step grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2" id="thape-news">
     <div class="bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/news_r1.jpg') -%>')">
       <div class="w-24 p-9">
         <p class="text-4xl text-left leading-below-zero">Dec</p>
