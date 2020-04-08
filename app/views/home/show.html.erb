@@ -90,13 +90,12 @@
   </header>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-    <div class="relative">
-      <%= image_pack_tag 'media/images/news_r1.jpg', class: 'w-full h-full' -%>
-      <div class="absolute top-0 left-0 w-24 p-9">
+    <div class="bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/news_r1.jpg') -%>')">
+      <div class="w-24 p-9">
         <p class="text-4xl text-left leading-below-zero">Dec</p>
         <p class="text-6xl text-left leading-below-zero">31</p>
       </div>
-      <div class="absolute bottom-0 left-0 w-72 p-9">
+      <div class="w-72 p-9 mt-32">
         <p class="text-2xl text-left pb-1">我们的2019@天华</p>
         <p class="text-left leading-snug">我们的2019，在传承中发展， 在感恩中前行。</p>
       </div>
