@@ -6,7 +6,7 @@
       <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <div class="flex items-left justify-between w-full md:w-auto">
           <a href="#">
-            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-white h-8 w-48 sm:h-10' } -%>
+            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-white h-8 w-48 sm:h-10', svgId: 'thape-nav-logo' } -%>
           </a>
           <div class="-mr-2 flex items-center md:hidden">
             <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -161,7 +161,7 @@
       <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <div class="hidden md:flex items-left justify-between w-full md:w-auto">
           <a href="#">
-            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black h-8 w-48 sm:h-10' } -%>
+            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black h-8 w-48 sm:h-10', svgId: 'thape-footer-logo' } -%>
           </a>
         </div>
       </div>
