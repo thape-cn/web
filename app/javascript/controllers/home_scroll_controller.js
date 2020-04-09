@@ -21,12 +21,6 @@ export default class extends Controller {
           thapeLogo.classList.remove("text-white");
           thapeNavContainer.classList.remove("text-white");
           thapeNavContainer.classList.add("text-black");
-        } else if (element.id == 'thape-news') {
-          this.navBarTarget.classList.remove("nav-background-white");
-          this.navBarTarget.classList.add("nav-background-black");
-          thapeLogo.classList.add("text-white");
-          thapeNavContainer.classList.remove("text-black");
-          thapeNavContainer.classList.add("text-white");
         }
       }
     }
@@ -44,12 +38,6 @@ export default class extends Controller {
           thapeLogo.classList.add("text-white");
           this.navBarTarget.classList.remove("nav-background-white");
           this.navBarTarget.classList.add("nav-background-initial");
-        } else if (element.id == 'thape-news') {
-          thapeNavContainer.classList.remove("text-white");
-          thapeNavContainer.classList.add("text-black");
-          thapeLogo.classList.remove("text-white");
-          this.navBarTarget.classList.remove("nav-background-black");
-          this.navBarTarget.classList.add("nav-background-white");
         }
       }
     }

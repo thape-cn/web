@@ -28,20 +28,6 @@
   background: white;
 }
 
-.nav-background-black {
-  animation: animation-to-black 1s;
-  background: black;
-}
-
-@keyframes animation-to-black {
-  0% {
-    background-color: white;
-  }
-  100% {
-    background-color: black;
-  }
-}
-
 @keyframes animation-to-white {
   0% {
     background-color: initial;
