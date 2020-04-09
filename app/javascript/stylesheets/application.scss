@@ -11,6 +11,13 @@
   border-radius: 1.25rem;
 }
 
+@media (-moz-os-version: windows-xp), (-moz-os-version: windows-vista),
+(-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10) {
+  windows-right-4 {
+    right: 1rem;
+  }
+}
+
 .nav-background-initial {
   animation: animation-to-initial 1s;
   background: initial;
