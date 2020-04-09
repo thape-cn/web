@@ -1073,6 +1073,11 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
+"@webwingscz/googlefont-montserrat@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/@webwingscz/googlefont-montserrat/download/@webwingscz/googlefont-montserrat-1.0.5.tgz#f0a49101b0d0e67f51a1fc984d2ba6d3bf0d3aa5"
+  integrity sha1-8KSRAbDQ5n9RofyYTSum078NOqU=
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/@xtuc/ieee754/download/@xtuc/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
