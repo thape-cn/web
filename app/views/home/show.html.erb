@@ -115,8 +115,9 @@
   </header>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-    <div class="relative bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/news_r1.jpg') -%>')">
-      <div class="w-32 p-6 ">
+    <div class="relative">
+      <%= image_pack_tag 'media/images/news_r1.jpg', class: 'w-full h-full' -%>
+      <div class="w-32 p-6 absolute top-0 left-0">
         <p class="text-3xl text-justify font-medium">Dec</p>
         <p class="text-5xl text-justify tracking-widest font-medium leading-9">31</p>
       </div>
