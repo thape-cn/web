@@ -5,12 +5,18 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web</title>
+    <title>天华新首页</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript" src="https://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+       $webfont.load("body", "99fa44f87ea544219dd9db25af4e6c5f", "Source-Han-Light");
+       $webfont.draw();
+    </script>
   </head>
 
   <body class="bg-white overflow-x-hidden">
