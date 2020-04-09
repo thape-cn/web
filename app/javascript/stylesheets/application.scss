@@ -25,7 +25,7 @@
 
 .nav-background-white {
   animation: animation-to-white 1s;
-  background: white;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 @keyframes animation-to-white {
@@ -33,13 +33,13 @@
     background-color: initial;
   }
   100% {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
   }
 }
 
 @keyframes animation-to-initial {
   0% {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
   }
   100% {
     background-color: initial;
