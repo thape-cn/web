@@ -18,9 +18,17 @@ export default class extends Controller {
         if (element.id == 'thape-new-projects') {
           this.navBarTarget.classList.remove("nav-background-initial");
           this.navBarTarget.classList.add("nav-background-white");
-          thapeLogo.classList.remove("text-white");
-          thapeNavContainer.classList.remove("text-white");
-          thapeNavContainer.classList.add("text-black");
+          thapeLogo.classList.add("text-thape-copyright-gray");
+          thapeLogo.classList.remove("text-thape-white-t80");
+          for (let a of thapeNavContainer.children) {
+            const c=a.classList;
+            c.add("hover:text-black6c");
+            c.add("focus:text-black6c");
+            c.remove("hover:text-white");
+            c.remove("focus:text-white");
+          }
+          thapeNavContainer.classList.remove("text-thape-white-t80");
+          thapeNavContainer.classList.add("text-thape-copyright-gray");
         }
       }
     }
@@ -33,9 +41,17 @@ export default class extends Controller {
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
         if (element.id == 'thape-new-projects') {
-          thapeNavContainer.classList.remove("text-black");
-          thapeNavContainer.classList.add("text-white");
-          thapeLogo.classList.add("text-white");
+          thapeNavContainer.classList.remove("text-thape-copyright-gray");
+          thapeNavContainer.classList.add("text-thape-white-t80");
+          for (let a of thapeNavContainer.children) {
+            const c=a.classList;
+            c.remove("hover:text-black6c");
+            c.remove("focus:text-black6c");
+            c.add("hover:text-white");
+            c.add("focus:text-white");
+          }
+          thapeLogo.classList.add("text-thape-white-t80");
+          thapeLogo.classList.remove("text-thape-copyright-gray");
           this.navBarTarget.classList.remove("nav-background-white");
           this.navBarTarget.classList.add("nav-background-initial");
         }
