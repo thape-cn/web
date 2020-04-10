@@ -3,8 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.rounded-xl {
-  border-radius: 1.25rem;
+@responsive {
+  .rounded-xl {
+    border-radius: 1.25rem;
+  }
 }
 
 .nav-background-initial {
