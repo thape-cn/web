@@ -9,6 +9,10 @@
   }
 }
 
+.filter-blur {
+  filter: blur(2px);
+}
+
 .nav-background-initial {
   animation: animation-to-initial 1s;
   background: initial;
