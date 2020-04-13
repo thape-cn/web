@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       colors: {
         'black6c': '#101820',
+        'black6c-t70': 'rgb(16,24,32,0.7)',
         'gray1c': '#d9d9d6',
         'thape-white-t80': 'rgb(255,255,255,0.8)',
         'thape-guest-gray': 'rgb(184,184,184,1)',
