@@ -21,6 +21,10 @@ export default class extends Controller {
           const tc = thapeLogo.classList;
           tc.add("text-thape-copyright-gray");
           tc.remove("text-thape-white-t80");
+          tc.add("hover:text-black6c");
+          tc.add("focus:text-black6c");
+          tc.remove("hover:text-white");
+          tc.remove("focus:text-white");
 
           for (let a of thapeNavContainer.children) {
             const c=a.classList;
@@ -55,6 +59,10 @@ export default class extends Controller {
           const tc = thapeLogo.classList;
           tc.add("text-thape-white-t80");
           tc.remove("text-thape-copyright-gray");
+          tc.remove("hover:text-black6c");
+          tc.remove("focus:text-black6c");
+          tc.add("hover:text-white");
+          tc.add("focus:text-white");
           this.navBarTarget.classList.remove("nav-background-white");
           this.navBarTarget.classList.add("nav-background-initial");
         }
