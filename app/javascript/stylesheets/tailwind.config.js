@@ -6,7 +6,7 @@ module.exports = {
         'black6c-t70': 'rgb(16,24,32,0.7)',
         'gray1c': '#d9d9d6',
         'thape-white-t80': 'rgb(255,255,255,0.8)',
-        'thape-white-t90': 'rgb(255,255,255,0.9)',
+        'thape-white-t95': 'rgb(255,255,255,0.95)',
         'thape-guest-gray': 'rgb(184,184,184,1)',
         'thape-copyright-gray': 'rgb(140,140,140,1)',
         'thape-icon-gray': 'rgb(149,149,149,1)'
