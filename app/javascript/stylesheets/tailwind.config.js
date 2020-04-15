@@ -15,7 +15,8 @@ module.exports = {
         sans: ['Montserrat', 'Source Han Sans SC', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'sans-serif'],
       },
       screens: {
-        'xxl': '1536px',
+        'xxl': '1500px',
+        'xxxl': '1800px',
       },
       spacing: {
         '72': '18rem',

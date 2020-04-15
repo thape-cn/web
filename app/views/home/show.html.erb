@@ -1,7 +1,7 @@
 <div data-controller="home-scroll"
      data-action="resize@window->home-scroll#layout">
-<div x-data="{ open: false }" class="fixed z-50 py-1 lg:py-2 xl:py-3 xxl:py-4 w-screen nav-background-initial" data-target="home-scroll.navBar">
-  <div class="w-full mx-auto px-6 xxl:px-12">
+<div x-data="{ open: false }" class="fixed z-50 py-1 xxl:py-2 xxxl:py-3 w-screen nav-background-initial" data-target="home-scroll.navBar">
+  <div class="w-full mx-auto px-6 xl:px-12 xxl:px-20 xxxl:px-28">
     <nav class="relative flex items-center justify-between h-10 md:justify-center">
       <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <div class="flex items-left justify-between w-full md:w-auto">
@@ -52,11 +52,11 @@
 <div class="w-screen h-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/01_background.jpg') -%>')">
 </div>
 
-<div class="sticky top-0 scroller-step w-full mx-auto lg:p4 xl:p-6 xxl:px-12" id="thape-new-projects">
+<div class="sticky top-0 scroller-step w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-20 xxxl:px-28" id="thape-new-projects">
   <%# 最新项目 %>
   <div class="h-screen-150">
     <header class="bg-white">
-      <div class="w-full py-12">
+      <div class="w-full pt-10 pb-2">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
           <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">最新项目</a>
         </h1>
@@ -112,11 +112,11 @@
 </div>
 
 
-<div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 xxl:px-12 bg-white">
+<div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-20 xxxl:px-28 bg-white">
   <%# 天华新闻 %>
   <div class="h-screen-150">
     <header>
-      <div class="w-full py-12">
+      <div class="w-full pt-10 pb-2">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
           <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
         </h1>
@@ -160,7 +160,7 @@
 
 <div class="sticky top-0">
 
-  <div class="w-full mx-auto lg:p4 xl:p-6 xxl:px-12 bg-white">
+  <div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-20 xxxl:px-28 bg-white">
     <%# 访客留言 %>
     <div class="p-4 sm:p-8 md:px-12 lg:px-16 xl:px-24">
       <div class="px-4 py-5 sm:px-6 mt-28">
@@ -211,7 +211,7 @@
     </div>
   </div>
   <div class="bg-gray-200 py-4">
-    <div class="w-full mx-auto py-6 px-4 sm:px-6 border-b border-gray-300">
+    <div class="w-full mx-auto py-6 px-4 sm:px-6 xl:px-12 xxl:px-20 xxxl:px-28 border-b border-gray-300">
       <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
         <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
           <div class="hidden md:flex items-left justify-between w-full md:w-auto">
@@ -229,13 +229,13 @@
         </div>
       </nav>
     </div>
-    <div class="flex justify-between">
-      <div class="text-thape-copyright-gray px-4 py-4 m-2">
+    <div class="w-full flex justify-between px-4 sm:px-6 xl:px-12 xxl:px-20 xxxl:px-28">
+      <div class="text-thape-copyright-gray py-4 my-2">
         <p>总机：021-64281588   设计项目接洽及投诉热线：400-8366606</p>
         <p class="leading-loose">© 2019 天华集团，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
       </div>
 
-      <div class="text-thape-icon-gray text-center sm:text-right px-1 md:px-6 pt-10 pb-8 sm:w-48">
+      <div class="text-thape-icon-gray text-center sm:text-right pt-10 pb-8 sm:w-48">
         <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-8 mx-2 sm:mr-2 sm:ml-0' %>
         <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-8 mx-2' %>
         <%= image_pack_tag 'media/images/zhihu.png', class: 'inline-block h-8 mx-2 sm:ml-2 sm:mr-0' %>
