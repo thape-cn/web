@@ -54,7 +54,7 @@
 
 <div class="sticky top-0 scroller-step w-full mx-auto lg:p4 xl:p-6" id="thape-new-projects">
   <%# 最新项目 %>
-  <div class="h-carousel lg:h-carousel xl:h-carousel xxl:h-carousel">
+  <div class="h-screen-150">
     <header class="bg-white">
       <div class="w-full py-12">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
@@ -114,7 +114,7 @@
 
 <div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 bg-white">
   <%# 天华新闻 %>
-  <div class="h-carousel lg:h-carousel xl:h-carousel xxl:h-carousel">
+  <div class="h-screen-150">
     <header>
       <div class="w-full py-12">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
@@ -158,10 +158,10 @@
   </div>
 </div>
 
-<div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 bg-white">
+<div class="sticky top-0">
 
-  <%# 访客留言 %>
-  <div class="h-carousel lg:h-carousel xl:h-carousel xxl:h-carousel">
+  <div class="w-full mx-auto lg:p4 xl:p-6 bg-white">
+    <%# 访客留言 %>
     <div class="p-4 sm:p-8 md:px-12 lg:px-16 xl:px-24">
       <div class="px-4 py-5 sm:px-6 mt-28">
         <h1 class="inline-block text-3xl font-bold text-black6c">
@@ -210,37 +210,36 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="sticky top-0 bg-gray-200 py-4">
-  <div class="w-full mx-auto py-6 px-4 sm:px-6 border-b border-gray-300">
-    <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
-      <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-        <div class="hidden md:flex items-left justify-between w-full md:w-auto">
-          <a href="#">
-            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c h-8 w-48 sm:h-10', svgId: 'thape-footer-logo' } -%>
-          </a>
+  <div class="bg-gray-200 py-4">
+    <div class="w-full mx-auto py-6 px-4 sm:px-6 border-b border-gray-300">
+      <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+        <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+          <div class="hidden md:flex items-left justify-between w-full md:w-auto">
+            <a href="#">
+              <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c h-8 w-48 sm:h-10', svgId: 'thape-footer-logo' } -%>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
-        <a href="#" class="mr-2 sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>|
-        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>|
-        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>|
-        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>|
-        <a href="#" class="ml-2 sm:ml-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
-      </div>
-    </nav>
-  </div>
-  <div class="flex justify-between">
-    <div class="text-thape-copyright-gray px-4 py-4 m-2">
-      <p>总机：021-64281588   设计项目接洽及投诉热线：400-8366606</p>
-      <p class="leading-loose">© 2019 天华集团，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+        <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
+          <a href="#" class="mr-2 sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>|
+          <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>|
+          <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>|
+          <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>|
+          <a href="#" class="ml-2 sm:ml-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
+        </div>
+      </nav>
     </div>
+    <div class="flex justify-between">
+      <div class="text-thape-copyright-gray px-4 py-4 m-2">
+        <p>总机：021-64281588   设计项目接洽及投诉热线：400-8366606</p>
+        <p class="leading-loose">© 2019 天华集团，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+      </div>
 
-    <div class="text-thape-icon-gray text-center sm:text-right px-1 md:px-6 pt-10 pb-8 sm:w-48">
-      <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-8 mx-2 sm:mr-2 sm:ml-0' %>
-      <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-8 mx-2' %>
-      <%= image_pack_tag 'media/images/zhihu.png', class: 'inline-block h-8 mx-2 sm:ml-2 sm:mr-0' %>
+      <div class="text-thape-icon-gray text-center sm:text-right px-1 md:px-6 pt-10 pb-8 sm:w-48">
+        <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-8 mx-2 sm:mr-2 sm:ml-0' %>
+        <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-8 mx-2' %>
+        <%= image_pack_tag 'media/images/zhihu.png', class: 'inline-block h-8 mx-2 sm:ml-2 sm:mr-0' %>
+      </div>
     </div>
   </div>
 </div>
