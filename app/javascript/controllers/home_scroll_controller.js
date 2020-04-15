@@ -72,7 +72,8 @@ export default class extends Controller {
     // setup the instance, pass callback functions
     scroller
       .setup({
-        step: ".scroller-step"
+        step: ".scroller-step",
+        offset: 0.33
       })
       .onStepEnter(handleStepEnter.bind(this))
       .onStepExit(handleStepExit.bind(this));
