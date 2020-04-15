@@ -11,24 +11,24 @@
 
 h-carousel {
   // 100vh - nav padding - height
-  height: calc(100vh - 0.5rem - 2.5rem);
+  min-height: calc(100vh - 0.5rem - 2.5rem);
 }
 
 @media (min-width: 1024px) {
   .lg\:h-carousel {
-    height: calc(100vh - 1rem - 2.5rem);
+    min-height: calc(100vh - 1rem - 2.5rem);
   }
 }
 
 @media (min-width: 1280px) {
   .xl\:h-carousel {
-    height: calc(100vh - 1.5rem - 2.5rem);
+    min-height: calc(100vh - 1.5rem - 2.5rem);
   }
 }
 
 @media (min-width: 1536px) {
   .xxl\:h-carousel {
-    height: calc(100vh - 2rem - 2.5rem);
+    min-height: calc(100vh - 2rem - 2.5rem);
   }
 }
 
