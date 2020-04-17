@@ -78,8 +78,7 @@ export default class extends Controller {
     scroller
       .setup({
         step: ".scroller-step",
-        progress: true,
-        debug: true
+        progress: true
       })
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit)
