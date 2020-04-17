@@ -72,6 +72,10 @@ export default class extends Controller {
       const { element, direction, progress, index } = response;
       const debugProgress = document.getElementById('debug-progress');
       debugProgress.innerHTML = element.id + ' ' + Math.round(progress * 100) + '%';
+
+      if (element.id === 'thape-projects') {
+        element.style.opacity = progress * 3;
+      }
     }
 
     // setup the instance, pass callback functions
