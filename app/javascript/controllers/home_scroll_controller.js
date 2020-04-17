@@ -5,19 +5,17 @@ import { Controller } from "stimulus"
 const scroller = scrollama();
 
 export default class extends Controller {
-  static targets = [ "navBar" ];
-
   connect() {
-    // scrollama event handlers
     function handleStepEnter(response) {
       const { element, direction, index } = response;
       if (direction == 'down') {
         const thapeLogo = document.getElementById('thape-nav-logo');
+        const thapeNavBar = document.getElementById('thape-nav-bar');
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
         if (element.id == 'thape-projects') {
-          this.navBarTarget.classList.remove("nav-background-initial");
-          this.navBarTarget.classList.add("nav-background-white");
+          thapeNavBar.classList.remove("nav-background-initial");
+          thapeNavBar.classList.add("nav-background-white");
           const tc = thapeLogo.classList;
           tc.add("text-black6c");
           tc.remove("text-thape-white-t80");
@@ -43,6 +41,7 @@ export default class extends Controller {
       const { element, direction, index } = response;
       if (direction == 'up') {
         const thapeLogo = document.getElementById('thape-nav-logo');
+        const thapeNavBar = document.getElementById('thape-nav-bar');
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
         if (element.id == 'thape-projects') {
@@ -62,8 +61,8 @@ export default class extends Controller {
           tc.remove("focus:text-black6c-t70");
           tc.add("hover:text-white");
           tc.add("focus:text-white");
-          this.navBarTarget.classList.remove("nav-background-white");
-          this.navBarTarget.classList.add("nav-background-initial");
+          thapeNavBar.classList.remove("nav-background-white");
+          thapeNavBar.classList.add("nav-background-initial");
         }
       }
     }
@@ -82,8 +81,8 @@ export default class extends Controller {
         progress: true,
         debug: true
       })
-      .onStepEnter(handleStepEnter.bind(this))
-      .onStepExit(handleStepExit.bind(this))
+      .onStepEnter(handleStepEnter)
+      .onStepExit(handleStepExit)
       .onStepProgress(handleStepProgress);;
 
     scroller.resize();
