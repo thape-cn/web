@@ -10,12 +10,12 @@ export default class extends Controller {
   connect() {
     // scrollama event handlers
     function handleStepEnter(response) {
-      const { element, direction } = response;
+      const { element, direction, index } = response;
       if (direction == 'down') {
         const thapeLogo = document.getElementById('thape-nav-logo');
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
-        if (element.id == 'thape-new-projects') {
+        if (element.id == 'thape-projects') {
           this.navBarTarget.classList.remove("nav-background-initial");
           this.navBarTarget.classList.add("nav-background-white");
           const tc = thapeLogo.classList;
@@ -40,13 +40,12 @@ export default class extends Controller {
     }
 
     function handleStepExit(response) {
-      // response = { element, direction, index }
-      const { element, direction } = response;
+      const { element, direction, index } = response;
       if (direction == 'up') {
         const thapeLogo = document.getElementById('thape-nav-logo');
         const thapeNavContainer = document.getElementById('thape-nav-container');
 
-        if (element.id == 'thape-new-projects') {
+        if (element.id == 'thape-projects') {
           thapeNavContainer.classList.remove("text-thape-copyright-gray");
           thapeNavContainer.classList.add("text-thape-white-t80");
           for (let a of thapeNavContainer.children) {
@@ -69,14 +68,25 @@ export default class extends Controller {
       }
     }
 
+    function handleStepProgress(response) {
+      console.log(response);
+      const { element, direction, progress, index } = response;
+      const debugProgress = document.getElementById('debug-progress');
+      debugProgress.innerHTML = element.id + ' ' + Math.round(progress * 100) + '%';
+    }
+
     // setup the instance, pass callback functions
     scroller
       .setup({
         step: ".scroller-step",
-        offset: 0.33
+        progress: true,
+        debug: true
       })
       .onStepEnter(handleStepEnter.bind(this))
-      .onStepExit(handleStepExit.bind(this));
+      .onStepExit(handleStepExit.bind(this))
+      .onStepProgress(handleStepProgress);;
+
+    scroller.resize();
   }
 
   layout() {

@@ -17,6 +17,8 @@
           </div>
         </div>
       </div>
+      <p id="debug-progress"></p>
+
       <%= render partial: 'shared/thape_nav_container' -%>
     </nav>
   </div>
@@ -49,10 +51,10 @@
   </div>
 </div>
 
-<div class="w-screen h-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= asset_pack_path('media/images/01_background.jpg') -%>')">
+<div class="w-screen h-screen bg-fixed bg-cover bg-no-repeat scroller-step" style="background-image: url('<%= asset_pack_path('media/images/01_background.jpg') -%>')" id="thape-background">
 </div>
 
-<div class="sticky top-0 scroller-step w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32" id="thape-new-projects">
+<div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 scroller-step" id="thape-projects">
   <%# 最新项目 %>
   <div class="h-screen-150">
     <header class="bg-white">
@@ -112,7 +114,7 @@
 </div>
 
 
-<div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
+<div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" id="thape-news">
   <%# 天华新闻 %>
   <div class="h-screen">
     <header>
@@ -158,8 +160,7 @@
   </div>
 </div>
 
-<div class="sticky top-0">
-
+<div class="scroller-step" id="thape-form">
   <div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
     <%# 访客留言 %>
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
