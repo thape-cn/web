@@ -86,7 +86,8 @@ export default class extends Controller {
     function handleStepProgress(response) {
       const { element, progress, index } = response;
       const debugProgress = document.getElementById('debug-progress');
-      debugProgress.innerHTML = element.id + ' ' + progress;
+      if (debugProgress)
+        debugProgress.innerHTML = element.id + ' ' + progress;
 
       const eo = ((progress - 0.40) <= 0 ? 0 : progress - 0.40) * 2.2;
       if (element.id === 'thape-projects') {
