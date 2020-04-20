@@ -13,6 +13,10 @@
   width: 4.5rem;
 }
 
+.h-project-grid {
+  height: calc(100vh - 12rem);
+}
+
 .filter-blur {
   filter: blur(2px);
 }

@@ -55,7 +55,7 @@
 
 <div class="sticky top-0 w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" style="opacity: 0;" id="thape-projects">
   <%# 最新项目 %>
-  <div class="h-screen">
+  <div>
     <header>
       <div class="w-full pt-10 py-2 md:pb-2 clearfix">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
@@ -69,7 +69,7 @@
         </a>
       </div>
     </header>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" x-data="{ show_grid_1_3_text: false }">
+    <div class="h-project-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" x-data="{ show_grid_1_3_text: false }">
       <div class="overflow-hidden">
         <%= image_pack_tag 'media/images/grid-1-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
       </div>
