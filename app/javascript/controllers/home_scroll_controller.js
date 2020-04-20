@@ -88,6 +88,7 @@ export default class extends Controller {
       .setup({
         step: ".scroller-step",
         offset: 0.90,
+        threshold: 2,
         progress: true
       })
       .onStepEnter(handleStepEnter)
