@@ -33,14 +33,6 @@ export default class extends Controller {
           }
           thapeNavContainer.classList.remove("text-thape-white-t80");
           thapeNavContainer.classList.add("text-thape-copyright-gray");
-        } else if (element.id === 'thape-news') {
-          const project = document.getElementById('thape-projects');
-          project.classList.remove("sticky");
-          project.classList.remove("top-0");
-        } else if (element.id === 'thape-form') {
-          const news = document.getElementById('thape-news');
-          news.classList.remove("sticky");
-          news.classList.remove("top-0");
         }
       }
     }
@@ -71,14 +63,6 @@ export default class extends Controller {
           tc.add("focus:text-white");
           thapeNavBar.classList.remove("nav-background-white");
           thapeNavBar.classList.add("nav-background-initial");
-        } else if (element.id === 'thape-news') {
-          const project = document.getElementById('thape-projects');
-          project.classList.add("sticky");
-          project.classList.add("top-0");
-        } else if (element.id === 'thape-form') {
-          const news = document.getElementById('thape-news');
-          news.classList.add("sticky");
-          news.classList.add("top-0");
         }
       }
     }
@@ -89,25 +73,13 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = ((progress - 0.40) <= 0 ? 0 : progress - 0.40) * 2.2;
+      const eo = ((progress - 0.40) <= 0 ? 0 : progress - 0.40) * 2.1;
       if (element.id === 'thape-projects') {
         if (eo >= 1) {
           element.style.opacity = 1;
-          element.classList.add("sticky");
-          element.classList.add("top-0");
         } else {
           element.style.opacity = eo;
-          element.classList.remove("sticky");
-          element.classList.remove("top-0");
         }
-      } else if (element.id === 'thape-news') {
-        const project = document.getElementById('thape-projects');
-        project.classList.remove("sticky");
-        project.classList.remove("top-0");
-      } else if (element.id === 'thape-form') {
-        const news = document.getElementById('thape-news');
-        news.classList.remove("sticky");
-        news.classList.remove("top-0");
       }
     }
 
@@ -116,8 +88,7 @@ export default class extends Controller {
       .setup({
         step: ".scroller-step",
         offset: 0.95,
-        progress: true,
-        debug: true
+        progress: true
       })
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit)
