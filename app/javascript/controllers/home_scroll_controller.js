@@ -16,6 +16,9 @@ export default class extends Controller {
         if (element.id == 'thape-projects') {
           thapeNavBar.classList.remove("nav-background-initial");
           thapeNavBar.classList.add("nav-background-white");
+          thapeNavBar.classList.add("border-gray-200");
+          thapeNavBar.classList.add("border-solid");
+          thapeNavBar.classList.add("border-b");
           const tc = thapeLogo.classList;
           tc.add("text-black6c");
           tc.remove("text-thape-white-t80");
@@ -62,6 +65,9 @@ export default class extends Controller {
           tc.add("hover:text-white");
           tc.add("focus:text-white");
           thapeNavBar.classList.remove("nav-background-white");
+          thapeNavBar.classList.remove("border-gray-200");
+          thapeNavBar.classList.remove("border-solid");
+          thapeNavBar.classList.remove("border-b");
           thapeNavBar.classList.add("nav-background-initial");
         }
       }
