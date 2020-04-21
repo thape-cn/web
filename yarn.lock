@@ -786,27 +786,27 @@
     postcss "7.0.27"
     purgecss "^2.1.2"
 
-"@rails/actioncable@^6.0.0":
+"@rails/actioncable@^6.0.2":
   version "6.0.2"
   resolved "https://registry.npm.taobao.org/@rails/actioncable/download/@rails/actioncable-6.0.2.tgz#bcba9bcd6ee09a47c6628336e07399a68ca87814"
   integrity sha1-vLqbzW7gmkfGYoM24HOZpoyoeBQ=
 
-"@rails/activestorage@^6.0.0":
+"@rails/activestorage@^6.0.2":
   version "6.0.2"
   resolved "https://registry.npm.taobao.org/@rails/activestorage/download/@rails/activestorage-6.0.2.tgz#3882da2716d1f21091840fc52b71091d406a9c43"
   integrity sha1-OILaJxbR8hCRhA/FK3EJHUBqnEM=
   dependencies:
     spark-md5 "^3.0.0"
 
-"@rails/ujs@^6.0.0":
+"@rails/ujs@^6.0.2":
   version "6.0.2"
   resolved "https://registry.npm.taobao.org/@rails/ujs/download/@rails/ujs-6.0.2.tgz#8d32452d51c5e115374a218fb5475803dc17f4c0"
   integrity sha1-jTJFLVHF4RU3SiGPtUdYA9wX9MA=
 
-"@rails/webpacker@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npm.taobao.org/@rails/webpacker/download/@rails/webpacker-5.1.0.tgz#1583d192027222492f22a1d858270b78af636663"
-  integrity sha1-FYPRkgJyIkkvIqHYWCcLeK9jZmM=
+"@rails/webpacker@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.npm.taobao.org/@rails/webpacker/download/@rails/webpacker-5.1.1.tgz#3c937aa719e46341f037a3f37349ef58085950df"
+  integrity sha1-PJN6pxnkY0HwN6Pzc0nvWAhZUN8=
   dependencies:
     "@babel/core" "^7.9.0"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
