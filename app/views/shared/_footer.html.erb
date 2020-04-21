@@ -1,0 +1,32 @@
+<div class="bg-gray-200 py-4">
+  <div class="w-full mx-auto my-1 py-6 px-4 sm:px-6 xl:px-12 xxl:px-24 xxxl:px-32 border-b border-gray-300">
+    <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+      <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+        <div class="hidden md:flex items-left justify-between w-full md:w-auto">
+          <a href="<%= root_path -%>">
+            <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c h-8 w-48 sm:h-10', svgId: 'thape-footer-logo' } -%>
+          </a>
+        </div>
+      </div>
+      <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
+        <a href="#" class="mr-2 sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>|
+        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>|
+        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>|
+        <a href="#" class="mx-2 sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>|
+        <a href="#" class="ml-2 sm:ml-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
+      </div>
+    </nav>
+  </div>
+  <div class="w-full flex justify-between px-4 sm:px-6 xl:px-12 xxl:px-24 xxxl:px-32">
+    <div class="text-thape-copyright-gray py-4 my-2">
+      <p>总机：021-64281588   设计项目接洽及投诉热线：400-8366606</p>
+      <p class="leading-loose">© 2019 天华集团，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+    </div>
+
+    <div class="text-thape-icon-gray text-center sm:text-right pt-10 pb-8 sm:w-48">
+      <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-8 mx-2 sm:mr-2 sm:ml-0' %>
+      <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-8 mx-2' %>
+      <%= image_pack_tag 'media/images/zhihu.png', class: 'inline-block h-8 mx-2 sm:ml-2 sm:mr-0' %>
+    </div>
+  </div>
+</div>
