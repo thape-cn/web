@@ -67,51 +67,52 @@
 
 
 <div class="sticky top-0">
-<div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
-  <%# 天华新闻 %>
-  <div>
-    <header>
-      <div class="w-full pt-10 py-2 md:pb-2 ">
-        <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
-        </h1>
-        <h2 class="inline-block text-2xl text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
-        </h2>
-      </div>
-    </header>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-      <div class="relative" x-data="{ show_new1_text: false }" x-on:mouseenter="show_new1_text = true" x-on:mouseleave="show_new1_text = false">
-        <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
-        <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
-          x-show="show_new1_text"
-          x-transition:enter="transition ease-linear duration-300"
-          x-transition:enter-start="opacity-0 transform -translate-x-1/2"
-          x-transition:enter-end="opacity-100 transform translate-x-0"
-          x-transition:leave="transition ease-linear duration-300"
-          x-transition:leave-start="opacity-100 transform translate-x-0"
-          x-transition:leave-end="opacity-0 transform -translate-x-1/2"
-        >
-          <div class="my-6 mx-6">
-            <p class="text-3xl text-justify font-medium">Dec</p>
-            <p class="text-5xl text-justify tracking-widest font-medium leading-9">31</p>
-          </div>
-          <div class="mb-12 mx-6">
-            <p class="font-medium text-2xl text-left pb-1">我们的2019@天华</p>
-            <p class="font-light text-left leading-6 mt-2">我们的2019，在传承中发展， 在感恩中前行。</p>
+
+  <div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
+    <%# 天华新闻 %>
+    <div>
+      <header>
+        <div class="w-full pt-10 py-2 md:pb-2 ">
+          <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
+            <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
+          </h1>
+          <h2 class="inline-block text-2xl text-black6c">
+            <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
+          </h2>
+        </div>
+      </header>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div class="relative" x-data="{ show_new1_text: false }" x-on:mouseenter="show_new1_text = true" x-on:mouseleave="show_new1_text = false">
+          <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
+          <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
+            x-show="show_new1_text"
+            x-transition:enter="transition ease-linear duration-300"
+            x-transition:enter-start="opacity-0 transform -translate-x-1/2"
+            x-transition:enter-end="opacity-100 transform translate-x-0"
+            x-transition:leave="transition ease-linear duration-300"
+            x-transition:leave-start="opacity-100 transform translate-x-0"
+            x-transition:leave-end="opacity-0 transform -translate-x-1/2"
+          >
+            <div class="my-6 mx-6">
+              <p class="text-3xl text-justify font-medium">Dec</p>
+              <p class="text-5xl text-justify tracking-widest font-medium leading-9">31</p>
+            </div>
+            <div class="mb-12 mx-6">
+              <p class="font-medium text-2xl text-left pb-1">我们的2019@天华</p>
+              <p class="font-light text-left leading-6 mt-2">我们的2019，在传承中发展， 在感恩中前行。</p>
+            </div>
           </div>
         </div>
+        <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
+        <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
       </div>
-      <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
-      <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
-    </div>
-    <div class="w-full mx-auto text-center pt-10">
-      <a class="inline-block py-1 md:py-2 px-4 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
-        MORE+
-      </a>
+      <div class="w-full mx-auto text-center pt-10">
+        <a class="inline-block py-1 md:py-2 px-4 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
+          MORE+
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="w-full mx-auto lg:p4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
     <%# 访客留言 %>
