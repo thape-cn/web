@@ -15,9 +15,9 @@
           <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">最新项目</a>
         </h1>
         <h2 class="inline-block text-2xl text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
+          <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
         </h2>
-        <a class="inline-block float-right py-1 md:py-2 px-4 m-2 xl:m-0 border-2 border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
+        <a class="inline-block float-right py-1 md:py-2 px-5 m-2 xl:m-0 border-2 border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
           MORE+
         </a>
       </div>
@@ -31,7 +31,8 @@
       </div>
       <div class="relative col-span-2 sm:block md:block lg:hidden xl:hidden overflow-hidden" x-on:mouseenter="show_grid_1_3_text = true" x-on:mouseleave="show_grid_1_3_text = false">
         <%= image_pack_tag 'media/images/grid-1-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_3_text">
+        <div class="absolute bottom-4 left-6 text-white pointer-events-none"
+        x-show="show_grid_1_3_text">
           <p class="text-left pb-1 font-medium">文化空间</p>
           <p class="text-xl text-left leading-snug">苏州高新区文体中心</p>
         </div>
@@ -77,7 +78,7 @@
             <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
           </h1>
           <h2 class="inline-block text-2xl text-black6c">
-            <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
+            <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
           </h2>
         </div>
       </header>
@@ -86,12 +87,12 @@
           <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
           <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
             x-show="show_new1_text"
-            x-transition:enter="transition ease-linear duration-300"
-            x-transition:enter-start="opacity-0 transform -translate-x-1/2"
-            x-transition:enter-end="opacity-100 transform translate-x-0"
-            x-transition:leave="transition ease-linear duration-300"
-            x-transition:leave-start="opacity-100 transform translate-x-0"
-            x-transition:leave-end="opacity-0 transform -translate-x-1/2"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-90"
           >
             <div class="my-6 mx-6">
               <p class="text-3xl text-justify font-medium">Dec</p>
@@ -107,7 +108,7 @@
         <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
       </div>
       <div class="w-full mx-auto text-center pt-10">
-        <a class="inline-block py-1 md:py-2 px-4 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
+        <a class="inline-block py-1 md:py-2 px-5 border border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
           MORE+
         </a>
       </div>
@@ -122,7 +123,7 @@
           <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
         </h1>
         <h2 class="inline-block text-2xl text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
+          <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
         </h2>
       </div>
       <div class="px-4 py-5 sm:p-6">
