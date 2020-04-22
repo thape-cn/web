@@ -79,7 +79,7 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = (progress <= 0 ? 0 : progress) * 2.7;
+      const eo = (progress <= 0 ? 0 : progress) * 8;
       if (element.id === 'thape-projects') {
         if (eo >= 1) {
           element.style.opacity = 1;
@@ -93,7 +93,7 @@ export default class extends Controller {
     scroller
       .setup({
         step: ".scroller-step",
-        offset: 0.45,
+        offset: 0.35,
         threshold: 2,
         progress: true
       })
