@@ -22,8 +22,8 @@
         </a>
       </div>
     </header>
-    <div class="h-project-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
-      x-data="{ show_grid_1_1_text: false, show_grid_1_2_text: false, show_grid_2_1_text: false, show_grid_1_3_text: false, show_grid_2_4_text: false }">
+    <div class="xl:h-project-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+      x-data="{ show_grid_1_1_text: false, show_grid_1_2_text: false, show_grid_2_1_text: false, show_grid_1_3_text: false, show_grid_2_3_text: false, show_grid_2_4_text: false }">
       <div class="relative overflow-hidden"
         x-on:mouseenter="show_grid_1_1_text = true"
         x-on:mouseleave="show_grid_1_1_text = false">
@@ -60,8 +60,14 @@
           <p class="text-xl text-right leading-snug">济南万科望岳中心</p>
         </div>
       </div>
-      <div class="md:hidden lg:hidden xl:hidden overflow-hidden">
+      <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
+        x-on:mouseenter="show_grid_2_3_text = true"
+        x-on:mouseleave="show_grid_2_3_text = false">
         <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
+          <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
+          <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
+        </div>
       </div>
       <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
         x-on:mouseenter="show_grid_2_4_text = true"
@@ -88,8 +94,14 @@
           <p class="text-xl text-left leading-snug">金科 · 龙里国学艺术馆</p>
         </div>
       </div>
-      <div class="hidden sm:hidden md:block lg:block xl:block overflow-hidden">
+      <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
+        x-on:mouseenter="show_grid_2_3_text = true"
+        x-on:mouseleave="show_grid_2_3_text = false">
         <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
+          <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
+          <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
+        </div>
       </div>
       <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
         x-on:mouseenter="show_grid_2_4_text = true"
