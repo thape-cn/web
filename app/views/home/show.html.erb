@@ -3,213 +3,213 @@
 
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-  <div class="h-screen">
-  </div>
+<div class="h-screen">
+</div>
 
-  <%# 最新项目 %>
-  <div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" style="opacity: 0;" id="thape-projects">
+<%# 最新项目 %>
+<div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" style="opacity: 0;" id="thape-projects">
+  <header>
+    <div class="w-full pt-10 pb-2 clearfix">
+      <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
+        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">最新项目</a>
+      </h1>
+      <h2 class="inline-block text-2xl text-black6c">
+        <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
+      </h2>
+      <a class="inline-block float-right py-1 md:py-2 px-5 m-2 xl:m-0 border-2 border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
+        MORE+
+      </a>
+    </div>
+  </header>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+    x-data="{ show_grid_1_1_text: false, show_grid_1_2_text: false, show_grid_2_1_text: false, show_grid_1_3_text: false, show_grid_2_3_text: false, show_grid_2_4_text: false }">
+    <div class="relative overflow-hidden"
+      x-on:mouseenter="show_grid_1_1_text = true"
+      x-on:mouseleave="show_grid_1_1_text = false">
+      <%= image_pack_tag 'media/images/grid-1-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_1_text">
+        <p class="text-left pb-1 font-medium">精品住宅</p>
+        <p class="text-xl text-left leading-snug">金科 · 九曲河</p>
+      </div>
+    </div>
+    <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
+      x-on:mouseenter="show_grid_2_1_text = true"
+      x-on:mouseleave="show_grid_2_1_text = false">
+      <%= image_pack_tag 'media/images/grid-2-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_1_text">
+        <p class="text-left pb-1 font-medium">展示区 | 示范区</p>
+        <p class="text-xl text-left leading-snug">金科 · 龙里国学艺术馆</p>
+      </div>
+    </div>
+    <div class="relative col-span-2 sm:block md:block lg:hidden xl:hidden overflow-hidden"
+      x-on:mouseenter="show_grid_1_3_text = true"
+      x-on:mouseleave="show_grid_1_3_text = false">
+      <%= image_pack_tag 'media/images/grid-1-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_3_text">
+        <p class="text-left pb-1 font-medium">文化空间</p>
+        <p class="text-xl text-left leading-snug">苏州高新区文体中心</p>
+      </div>
+    </div>
+    <div class="relative row-span-2 overflow-hidden"
+      x-on:mouseenter="show_grid_1_2_text = true"
+      x-on:mouseleave="show_grid_1_2_text = false">
+      <%= image_pack_tag 'media/images/grid-1-2.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute top-4 right-2 text-white pointer-events-none" x-show="show_grid_1_2_text">
+        <p class="text-right pb-1 font-medium">商务办公 | 超高层</p>
+        <p class="text-xl text-right leading-snug">济南万科望岳中心</p>
+      </div>
+    </div>
+    <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
+      x-on:mouseenter="show_grid_2_3_text = true"
+      x-on:mouseleave="show_grid_2_3_text = false">
+      <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
+        <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
+        <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
+      </div>
+    </div>
+    <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
+      x-on:mouseenter="show_grid_2_4_text = true"
+      x-on:mouseleave="show_grid_2_4_text = false">
+      <%= image_pack_tag 'media/images/grid-2-4.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
+        <p class="text-left pb-1 font-medium">租赁住房</p>
+        <p class="text-xl text-left leading-snug">上海城投康桥工业区租赁住宅</p>
+      </div>
+    </div>
+    <div class="relative col-span-2 hidden sm:hidden md:hidden lg:block xl:block overflow-hidden" x-on:mouseenter="show_grid_1_3_text = true" x-on:mouseleave="show_grid_1_3_text = false">
+      <%= image_pack_tag 'media/images/grid-1-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_3_text">
+        <p class="text-left pb-1 font-medium">文化空间</p>
+        <p class="text-xl text-left leading-snug">苏州高新区文体中心</p>
+      </div>
+    </div>
+    <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
+      x-on:mouseenter="show_grid_2_1_text = true"
+      x-on:mouseleave="show_grid_2_1_text = false">
+      <%= image_pack_tag 'media/images/grid-2-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_1_text">
+        <p class="text-left pb-1 font-medium">展示区/示范区</p>
+        <p class="text-xl text-left leading-snug">金科 · 龙里国学艺术馆</p>
+      </div>
+    </div>
+    <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
+      x-on:mouseenter="show_grid_2_3_text = true"
+      x-on:mouseleave="show_grid_2_3_text = false">
+      <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
+        <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
+        <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
+      </div>
+    </div>
+    <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
+      x-on:mouseenter="show_grid_2_4_text = true"
+      x-on:mouseleave="show_grid_2_4_text = false">
+      <%= image_pack_tag 'media/images/grid-2-4.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
+        <p class="text-left pb-1 font-medium">租赁住房</p>
+        <p class="text-xl text-left leading-snug">上海城投康桥工业区租赁住宅</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" id="thape-news">
+  <%# 天华新闻 %>
+  <div>
     <header>
-      <div class="w-full pt-10 pb-2 clearfix">
+      <div class="w-full pt-10 py-2 md:pb-2 ">
         <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">最新项目</a>
+          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
         </h1>
         <h2 class="inline-block text-2xl text-black6c">
-          <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
+          <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
         </h2>
-        <a class="inline-block float-right py-1 md:py-2 px-5 m-2 xl:m-0 border-2 border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
-          MORE+
-        </a>
       </div>
     </header>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
-      x-data="{ show_grid_1_1_text: false, show_grid_1_2_text: false, show_grid_2_1_text: false, show_grid_1_3_text: false, show_grid_2_3_text: false, show_grid_2_4_text: false }">
-      <div class="relative overflow-hidden"
-        x-on:mouseenter="show_grid_1_1_text = true"
-        x-on:mouseleave="show_grid_1_1_text = false">
-        <%= image_pack_tag 'media/images/grid-1-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_1_text">
-          <p class="text-left pb-1 font-medium">精品住宅</p>
-          <p class="text-xl text-left leading-snug">金科 · 九曲河</p>
-        </div>
-      </div>
-      <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
-        x-on:mouseenter="show_grid_2_1_text = true"
-        x-on:mouseleave="show_grid_2_1_text = false">
-        <%= image_pack_tag 'media/images/grid-2-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_1_text">
-          <p class="text-left pb-1 font-medium">展示区 | 示范区</p>
-          <p class="text-xl text-left leading-snug">金科 · 龙里国学艺术馆</p>
-        </div>
-      </div>
-      <div class="relative col-span-2 sm:block md:block lg:hidden xl:hidden overflow-hidden"
-        x-on:mouseenter="show_grid_1_3_text = true"
-        x-on:mouseleave="show_grid_1_3_text = false">
-        <%= image_pack_tag 'media/images/grid-1-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_3_text">
-          <p class="text-left pb-1 font-medium">文化空间</p>
-          <p class="text-xl text-left leading-snug">苏州高新区文体中心</p>
-        </div>
-      </div>
-      <div class="relative row-span-2 overflow-hidden"
-        x-on:mouseenter="show_grid_1_2_text = true"
-        x-on:mouseleave="show_grid_1_2_text = false">
-        <%= image_pack_tag 'media/images/grid-1-2.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute top-4 right-2 text-white pointer-events-none" x-show="show_grid_1_2_text">
-          <p class="text-right pb-1 font-medium">商务办公 | 超高层</p>
-          <p class="text-xl text-right leading-snug">济南万科望岳中心</p>
-        </div>
-      </div>
-      <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
-        x-on:mouseenter="show_grid_2_3_text = true"
-        x-on:mouseleave="show_grid_2_3_text = false">
-        <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
-          <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
-          <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
-        </div>
-      </div>
-      <div class="relative md:hidden lg:hidden xl:hidden overflow-hidden"
-        x-on:mouseenter="show_grid_2_4_text = true"
-        x-on:mouseleave="show_grid_2_4_text = false">
-        <%= image_pack_tag 'media/images/grid-2-4.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
-          <p class="text-left pb-1 font-medium">租赁住房</p>
-          <p class="text-xl text-left leading-snug">上海城投康桥工业区租赁住宅</p>
-        </div>
-      </div>
-      <div class="relative col-span-2 hidden sm:hidden md:hidden lg:block xl:block overflow-hidden" x-on:mouseenter="show_grid_1_3_text = true" x-on:mouseleave="show_grid_1_3_text = false">
-        <%= image_pack_tag 'media/images/grid-1-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_1_3_text">
-          <p class="text-left pb-1 font-medium">文化空间</p>
-          <p class="text-xl text-left leading-snug">苏州高新区文体中心</p>
-        </div>
-      </div>
-      <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
-        x-on:mouseenter="show_grid_2_1_text = true"
-        x-on:mouseleave="show_grid_2_1_text = false">
-        <%= image_pack_tag 'media/images/grid-2-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_1_text">
-          <p class="text-left pb-1 font-medium">展示区/示范区</p>
-          <p class="text-xl text-left leading-snug">金科 · 龙里国学艺术馆</p>
-        </div>
-      </div>
-      <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
-        x-on:mouseenter="show_grid_2_3_text = true"
-        x-on:mouseleave="show_grid_2_3_text = false">
-        <%= image_pack_tag 'media/images/grid-2-3.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_3_text">
-          <p class="text-left pb-1 font-medium">城市设计 | 更新</p>
-          <p class="text-xl text-left leading-snug">新世界百货大楼改造</p>
-        </div>
-      </div>
-      <div class="relative hidden sm:hidden md:block lg:block xl:block overflow-hidden"
-        x-on:mouseenter="show_grid_2_4_text = true"
-        x-on:mouseleave="show_grid_2_4_text = false">
-        <%= image_pack_tag 'media/images/grid-2-4.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
-        <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
-          <p class="text-left pb-1 font-medium">租赁住房</p>
-          <p class="text-xl text-left leading-snug">上海城投康桥工业区租赁住宅</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" id="thape-news">
-    <%# 天华新闻 %>
-    <div>
-      <header>
-        <div class="w-full pt-10 py-2 md:pb-2 ">
-          <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
-            <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
-          </h1>
-          <h2 class="inline-block text-2xl text-black6c">
-            <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
-          </h2>
-        </div>
-      </header>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-        <div class="relative" x-data="{ show_new1_text: false }" x-on:mouseenter="show_new1_text = true" x-on:mouseleave="show_new1_text = false">
-          <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
-          <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
-            x-show="show_new1_text"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform scale-90"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-90"
-          >
-            <div class="my-6 mx-6">
-              <p class="text-3xl text-justify font-medium">Dec</p>
-              <p class="text-5xl text-justify tracking-widest font-medium leading-9">31</p>
-            </div>
-            <div class="mb-12 mx-6">
-              <p class="font-medium text-2xl text-left pb-1">我们的2019@天华</p>
-              <p class="font-light text-left leading-6 mt-2">我们的2019，在传承中发展， 在感恩中前行。</p>
-            </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div class="relative" x-data="{ show_new1_text: false }" x-on:mouseenter="show_new1_text = true" x-on:mouseleave="show_new1_text = false">
+        <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
+        <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
+          x-show="show_new1_text"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-90"
+        >
+          <div class="my-6 mx-6">
+            <p class="text-3xl text-justify font-medium">Dec</p>
+            <p class="text-5xl text-justify tracking-widest font-medium leading-9">31</p>
+          </div>
+          <div class="mb-12 mx-6">
+            <p class="font-medium text-2xl text-left pb-1">我们的2019@天华</p>
+            <p class="font-light text-left leading-6 mt-2">我们的2019，在传承中发展， 在感恩中前行。</p>
           </div>
         </div>
-        <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
-        <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
       </div>
-      <div class="w-full mx-auto text-center pt-10">
-        <a class="inline-block py-1 md:py-2 px-5 border border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
-          MORE+
-        </a>
-      </div>
+      <div><%= image_pack_tag 'media/images/news_r2.jpg', class: 'w-full h-full' -%></div>
+      <div><%= image_pack_tag 'media/images/news_r3.jpg', class: 'w-full h-full' -%></div>
+    </div>
+    <div class="w-full mx-auto text-center pt-10">
+      <a class="inline-block py-1 md:py-2 px-5 border border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">
+        MORE+
+      </a>
     </div>
   </div>
+</div>
 
-  <div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
-    <%# 访客留言 %>
-    <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-      <div class="px-4 py-5 sm:px-6 mt-8">
-        <h1 class="inline-block text-3xl font-bold text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
-        </h1>
-        <h2 class="inline-block text-2xl text-black6c">
-          <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
-        </h2>
-      </div>
-      <div class="px-4 py-5 sm:p-6">
-        <form action="#" method="POST">
-            <div class="grid grid-cols-4 gap-7 xl:gap-10">
-              <div class="col-span-4 sm:col-span-2 row-span-3">
-                <div class="max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-md">
-                  <textarea id="comment" rows="10" placeholder="请填写您的留言" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c bg-gray-50 hover:shadow-xl focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
-                </div>
-              </div>
-
-              <div class="col-span-2 sm:col-span-1">
-                <div class="w-full flex rounded-md">
-                  <input id="last_name" placeholder="请填写您的姓名" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                </div>
-              </div>
-
-              <div class="col-span-2 sm:col-span-1">
-                <div class="w-full flex rounded-md">
-                  <input id="last_name" placeholder="请填写您的公司" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                </div>
-              </div>
-
-              <div class="col-span-4 sm:col-span-2">
-                <div class="w-full flex rounded-md">
-                  <input id="last_name" placeholder="请填写您的联系方式" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                </div>
-              </div>
-
-              <div class="col-span-4 sm:col-span-2">
-                <div class="w-full flex rounded-md">
-                  <button class="mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
-                    确认提交
-                  </button>
-                </div>
+<div class="w-full mx-auto lg:p-4 xl:p-6 xl:px-12 xxl:px-24 xxxl:px-32 bg-white">
+  <%# 访客留言 %>
+  <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+    <div class="px-4 py-5 sm:px-6 mt-8">
+      <h1 class="inline-block text-3xl font-bold text-black6c">
+        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
+      </h1>
+      <h2 class="inline-block text-2xl text-black6c">
+        <a href="#" class="font-light hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
+      </h2>
+    </div>
+    <div class="px-4 py-5 sm:p-6">
+      <form action="#" method="POST">
+          <div class="grid grid-cols-4 gap-7 xl:gap-10">
+            <div class="col-span-4 sm:col-span-2 row-span-3">
+              <div class="max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-md">
+                <textarea id="comment" rows="10" placeholder="请填写您的留言" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c bg-gray-50 hover:shadow-xl focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
               </div>
             </div>
-        </form>
-      </div>
+
+            <div class="col-span-2 sm:col-span-1">
+              <div class="w-full flex rounded-md">
+                <input id="last_name" placeholder="请填写您的姓名" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1">
+              <div class="w-full flex rounded-md">
+                <input id="last_name" placeholder="请填写您的公司" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-4 sm:col-span-2">
+              <div class="w-full flex rounded-md">
+                <input id="last_name" placeholder="请填写您的联系方式" class="form-input block w-full py-3 px-6 rounded-full border border-gray-300 rounded-md text-black6c bg-gray-50 hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+              </div>
+            </div>
+
+            <div class="col-span-4 sm:col-span-2">
+              <div class="w-full flex rounded-md">
+                <button class="mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-normal rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
+                  确认提交
+                </button>
+              </div>
+            </div>
+          </div>
+      </form>
     </div>
   </div>
-  <%= render partial: 'shared/footer' %>
+</div>
+<%= render partial: 'shared/footer' %>
 
 </div>
