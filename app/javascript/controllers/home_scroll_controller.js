@@ -9,11 +9,11 @@ export default class extends Controller {
     function handleStepEnter(response) {
       const { element, direction, index } = response;
       if (direction == 'down') {
-        const thapeLogo = document.getElementById('thape-nav-logo');
-        const thapeNavBar = document.getElementById('thape-nav-bar');
-        const thapeNavContainer = document.getElementById('thape-nav-container');
-
         if (element.id == 'thape-projects') {
+          const thapeLogo = document.getElementById('thape-nav-logo');
+          const thapeNavBar = document.getElementById('thape-nav-bar');
+          const thapeNavContainer = document.getElementById('thape-nav-container');
+
           thapeNavBar.classList.remove("nav-background-initial");
           thapeNavBar.classList.add("nav-background-white");
           thapeNavBar.classList.add("border-gray-200");
@@ -36,6 +36,9 @@ export default class extends Controller {
           }
           thapeNavContainer.classList.remove("text-thape-white-t80");
           thapeNavContainer.classList.add("text-thape-copyright-gray");
+        } else if (element.id == 'thape-news') {
+          const thapeProjects = document.getElementById('thape-projects');
+          thapeLogo.style.opacity = 1;
         }
       }
     }
@@ -43,11 +46,11 @@ export default class extends Controller {
     function handleStepExit(response) {
       const { element, direction, index } = response;
       if (direction == 'up') {
-        const thapeLogo = document.getElementById('thape-nav-logo');
-        const thapeNavBar = document.getElementById('thape-nav-bar');
-        const thapeNavContainer = document.getElementById('thape-nav-container');
-
         if (element.id == 'thape-projects') {
+          const thapeLogo = document.getElementById('thape-nav-logo');
+          const thapeNavBar = document.getElementById('thape-nav-bar');
+          const thapeNavContainer = document.getElementById('thape-nav-container');
+
           thapeNavContainer.classList.remove("text-thape-copyright-gray");
           thapeNavContainer.classList.add("text-thape-white-t80");
           for (let a of thapeNavContainer.children) {
@@ -79,7 +82,7 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = ((progress - 0.40) <= 0 ? 0 : progress - 0.40) * 2.05;
+      const eo = ((progress - 0.45) <= 0 ? 0 : progress - 0.45) * 2.05;
       if (element.id === 'thape-projects') {
         if (eo >= 1) {
           element.style.opacity = 1;
@@ -93,7 +96,7 @@ export default class extends Controller {
     scroller
       .setup({
         step: ".scroller-step",
-        offset: 0.85,
+        offset: 0.95,
         threshold: 2,
         progress: true
       })
