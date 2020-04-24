@@ -41,6 +41,50 @@
         </form>
       </div>
   </header>
+
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-5">
+    <div class="flex justify-center items-center bg-gray-200">
+      <div class="m-auto w-3/4 text-black6c-t70 pointer-events-none">
+        <p class="text-2xl text-center font-medium">创意与技术完美融合</p>
+        <p class="text-xl text-center leading-snug">ENGINEERING POWERED. DESIGN ACHIEVED.</p>
+      </div>
+    </div>
+    <div class="relative col-span-2 overflow-hidden">
+      <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none">
+        <p class="text-left pb-1 font-medium">居住</p>
+        <p class="text-xl text-left leading-snug">RESIDENTIAL</p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <%= image_pack_tag 'media/images/works-2-1.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
+        <p class="text-left pb-1 font-medium">展示区/示范区</p>
+        <p class="text-xl text-left leading-snug">DEMONSTRATION ZONE</p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <%= image_pack_tag 'media/images/works-2-2.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none" x-show="show_grid_2_4_text">
+        <p class="text-left pb-1 font-medium">商务办公</p>
+        <p class="text-xl text-left leading-snug">OFFICE</p>
+      </div>
+    </div>
+    <div class="relative row-span-2 overflow-hidden">
+      <%= image_pack_tag 'media/images/works-2-3l.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none">
+        <p class="text-left pb-1 font-medium">超高层</p>
+        <p class="text-xl text-left leading-snug">SUPERTALL</p>
+      </div>
+    </div>
+    <div class="relative col-span-2 overflow-hidden">
+      <%= image_pack_tag 'media/images/works-3-1w.jpg', class: 'w-full h-full transition duration-1000 ease-in-out transform hover:scale-105' -%>
+      <div class="absolute bottom-4 left-6 text-white pointer-events-none">
+        <p class="text-left pb-1 font-medium">综合体/TOD</p>
+        <p class="text-xl text-left leading-snug">MIXED-USED/TOD</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= render partial: 'shared/footer' %>
