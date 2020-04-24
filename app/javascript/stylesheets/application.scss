@@ -9,6 +9,14 @@
   }
 }
 
+.grid-image {
+  @apply w-full h-full transition duration-1000 ease-in-out transform;
+}
+
+.grid-text-container {
+  @apply absolute bottom-4 left-6 text-white pointer-events-none;
+}
+
 .w-18 {
   width: 4.5rem;
 }
