@@ -1,0 +1,48 @@
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: true } -%>
+
+<div class="w-full mx-auto sm:py-2 md:py-4 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
+  <header class="pt-12 pb-3 clearfix border-gray-200 border-solid border-b">
+      <h1 class="inline-block text-3xl font-bold text-black6c">
+        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">
+          <span class="pb-3 border-gray-900 border-solid border-b-4">居</span>住
+        </a>
+      </h1>
+      <h2 class="inline-block text-2xl text-black6c">
+        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">RESIDENTIAL</a>
+      </h2>
+      <div class="inline-block float-right">
+        <%= render partial: 'form' %>
+      </div>
+  </header>
+
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-5">
+    <div class="relative overflow-hidden">
+      <%= image_pack_tag 'media/images/residential-1.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-left">
+          <span class="font-medium text-2xl">精品住宅</span>
+          <span class="ml-2 text-xl">RESIDENCE</span>
+        </p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <%= image_pack_tag 'media/images/residential-2.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-left">
+          <span class="font-medium text-2xl">综合社区</span>
+          <span class="ml-2 text-xl">COMMUNITY</span>
+        </p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+      <%= image_pack_tag 'media/images/residential-3.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-left">
+          <span class="font-medium text-2xl">租赁住房</span>
+          <span class="ml-2 text-xl">RENTAL</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'shared/footer' %>

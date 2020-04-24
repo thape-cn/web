@@ -11,34 +11,7 @@
         <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">PROJECTS</a>
       </h2>
       <div class="inline-block float-right">
-        <form action="#" method="POST">
-          <div class="inline-block mt-1 relative rounded-md shadow-sm">
-            <select aria-label="Country" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
-              <option value="">类型</option>
-              <option>建筑</option>
-              <option>规划</option>
-            </select>
-          </div>
-          <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-            <select aria-label="Country" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
-              <option value="">地区</option>
-              <option>USA</option>
-              <option>China</option>
-            </select>
-          </div>
-          <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-            <input class="form-input block w-36 sm:w-40 pr-10" placeholder="关键词搜索" />
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <svg class="h-6 w-6 text-gray-400" fill="currentColor">
-                <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
-              </svg>
-            </div>
-          </div>
-          <div class="inline-block mt-1 ml-5 rounded-md shadow-sm">
-            <input type="reset" class="inline-flex items-center px-4 py-2 border border-gray-400 text-sm leading-5 font-medium rounded-md text-thape-copyright-gray bg-white hover:text-black6c focus:outline-none focus:text-black6c transition ease-in-out duration-150"
-              value="重置">
-          </div>
-        </form>
+        <%= render partial: 'form' %>
       </div>
   </header>
 
@@ -50,11 +23,13 @@
       </div>
     </div>
     <div class="relative col-span-2 overflow-hidden">
-      <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="grid-text-container">
-        <p class="text-3xl text-left pb-1 font-medium">居住</p>
-        <p class="text-xl text-left leading-snug">RESIDENTIAL</p>
-      </div>
+      <a href="<%= residential_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="grid-text-container">
+          <p class="text-3xl text-left pb-1 font-medium">居住</p>
+          <p class="text-xl text-left leading-snug">RESIDENTIAL</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden">
       <%= image_pack_tag 'media/images/works-2-1.jpg', class: 'grid-image hover:scale-105' -%>
