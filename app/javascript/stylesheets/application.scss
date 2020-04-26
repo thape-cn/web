@@ -17,6 +17,18 @@
   @apply absolute bottom-4 left-6 text-white pointer-events-none;
 }
 
+.breadcrumb-item {
+  display: inline-block;
+  padding-left: .125rem;
+
+  &::before {
+    content: '>';
+    display: inline-block; // Suppress underlining of the separator in modern browsers
+    color: rgba(16,24,32,0.7);
+    padding-right: .125rem;
+  }
+}
+
 .w-18 {
   width: 4.5rem;
 }

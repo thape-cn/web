@@ -15,7 +15,19 @@
       </div>
   </header>
 
-  <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-5">
+  <ol class="pt-3">
+    <li class="inline-block">
+      <a href="<%= root_path -%>" class="text-black6c">首页</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="<%= works_path -%>" class="text-black6c">所有项目</a>
+    </li>
+    <li class="breadcrumb-item" class="text-black6c">
+      <a href="<%= residential_works_path -%>">居住</a>
+    </li>
+  </ol>
+
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 mt-2">
     <div class="relative overflow-hidden">
       <%= image_pack_tag 'media/images/residential-1.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container" x-show="show_grid_2_4_text">
