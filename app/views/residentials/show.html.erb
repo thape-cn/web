@@ -11,7 +11,7 @@
         <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">RESIDENTIAL</a>
       </h2>
       <div class="inline-block float-right">
-        <%= render partial: 'form' %>
+        <%= render partial: 'shared/search_form' %>
       </div>
   </header>
 
@@ -23,7 +23,7 @@
       <a href="<%= works_path -%>" class="text-black6c">所有项目</a>
     </li>
     <li class="breadcrumb-item" class="text-black6c">
-      <a href="<%= residential_works_path -%>">居住</a>
+      <a href="<%= works_residential_path -%>">居住</a>
     </li>
   </ol>
 

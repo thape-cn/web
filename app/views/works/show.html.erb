@@ -11,7 +11,7 @@
         <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">PROJECTS</a>
       </h2>
       <div class="inline-block float-right">
-        <%= render partial: 'form' %>
+        <%= render partial: 'shared/search_form' %>
       </div>
   </header>
 
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="relative col-span-2 overflow-hidden">
-      <a href="<%= residential_works_path -%>" class="cursor-pointer">
+      <a href="<%= works_residential_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'grid-image hover:scale-105' -%>
         <div class="grid-text-container">
           <p class="text-3xl text-left pb-1 font-medium">居住</p>
@@ -121,7 +121,7 @@
     <div class="relative col-span-2 overflow-hidden">
       <%= image_pack_tag 'media/images/works-6-2w.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">旅局/酒店</p>
+        <p class="text-3xl text-left pb-1 font-medium">旅居/酒店</p>
         <p class="text-xl text-left leading-snug">SOJOURN/HOSPITALITY</p>
       </div>
     </div>

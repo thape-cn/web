@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resource :works, only: %i[show] do
-    get :residential
+    resource :residential, only: %i[show] do
+    end
   end
   root 'home#show'
 end
