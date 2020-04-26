@@ -13,6 +13,11 @@
   @apply w-full h-full transition duration-1000 ease-in-out transform;
 }
 
+.h1-cap {
+  @apply border-gray-900 border-solid border-b-4;
+  padding-bottom: .65rem;
+}
+
 .grid-text-container {
   @apply absolute bottom-4 left-6 text-white pointer-events-none;
 }
