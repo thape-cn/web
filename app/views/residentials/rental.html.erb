@@ -4,11 +4,11 @@
   <header class="pt-12 pb-2 clearfix border-gray-200 border-solid border-b">
       <h1 class="inline-block text-3xl font-bold text-black6c">
         <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">
-          <span class="h1-cap">居</span>住
+          <span class="h1-cap">租</span>赁住房
         </a>
       </h1>
       <h2 class="inline-block text-2xl text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">RESIDENTIAL</a>
+        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70"></a>
       </h2>
       <div class="inline-block float-right">
         <%= render partial: 'shared/search_form' %>
@@ -25,36 +25,26 @@
     <li class="breadcrumb-item" class="text-black6c">
       <a href="<%= works_residential_path -%>">居住</a>
     </li>
+    <li class="breadcrumb-item" class="text-black6c">
+      <a href="<%= rental_works_residential_path -%>">租赁住房</a>
+    </li>
   </ol>
 
-  <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 my-2">
+  <div class="grid grid-cols-2 gap-2 my-2">
     <div class="relative overflow-hidden">
-      <%= image_pack_tag 'media/images/residential-1.jpg', class: 'grid-image hover:scale-105' -%>
+      <%= image_pack_tag 'media/images/2c-item-1.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container">
-        <p class="text-left">
-          <span class="font-medium text-2xl">精品住宅</span>
-          <span class="ml-2 text-xl">RESIDENCE</span>
-        </p>
-      </div>
-    </div>
-    <div class="relative overflow-hidden">
-      <%= image_pack_tag 'media/images/residential-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="grid-text-container">
-        <p class="text-left">
-          <span class="font-medium text-2xl">综合社区</span>
-          <span class="ml-2 text-xl">COMMUNITY</span>
-        </p>
+        <p class="text-xl text-left pb-1 font-medium">上海城投康桥工业区租赁住宅 </p>
+        <p class="text-lg text-left leading-snug">GHENGTOU INDUSTRIAL ZONE RENTAL HOUSING  </p>
       </div>
     </div>
     <div class="relative overflow-hidden">
       <a href="<%= rental_works_residential_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/residential-3.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="grid-text-container">
-        <p class="text-left">
-          <span class="font-medium text-2xl">租赁住房</span>
-          <span class="ml-2 text-xl">RENTAL</span>
-        </p>
-      </div>
+        <%= image_pack_tag 'media/images/2c-item-2.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="grid-text-container">
+          <p class="text-xl text-left pb-1 font-medium">上海城投康桥工业区租赁住宅 </p>
+          <p class="text-lg text-left leading-snug">GHENGTOU INDUSTRIAL ZONE RENTAL HOUSING  </p>
+        </div>
       </a>
     </div>
   </div>
