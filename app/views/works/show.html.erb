@@ -52,6 +52,20 @@
         <p class="text-xl text-left leading-snug">SUPERTALL</p>
       </div>
     </div>
+    <div class="relative overflow-hidden lg:hidden">
+      <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
+        <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden lg:hidden">
+      <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-3xl text-left pb-1 font-medium">景观</p>
+        <p class="text-xl text-left leading-snug">LANDSCAPE</p>
+      </div>
+    </div>
     <div class="relative col-span-2 overflow-hidden">
       <%= image_pack_tag 'media/images/works-3-1w.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container">
@@ -64,6 +78,16 @@
       <div class="grid-text-container" x-show="show_grid_2_4_text">
         <p class="text-3xl text-left pb-1 font-medium">商业空间</p>
         <p class="text-xl text-left leading-snug">COMMERCIAL</p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden lg:hidden">
+      <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="grid-text-container" x-show="show_grid_2_4_text">
+        <p class="text-3xl text-left pb-1 font-medium">室内<span class="text-lg">（天华易筑）</span></p>
+        <p class="text-xl text-left leading-snug">INTERIOR</p>
+      </div>
+      <div class="absolute bottom-4 right-6 text-white" x-show="show_grid_2_4_text">
+        <p class="text-sm text-right leading-snug border-b border-white cursor-pointer"><a href="https://www.thape.com/" target="_blank">天华易筑官网</a></p>
       </div>
     </div>
     <div class="relative col-span-2 overflow-hidden">
@@ -101,21 +125,21 @@
         <p class="text-xl text-left leading-snug">SOJOURN/HOSPITALITY</p>
       </div>
     </div>
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-hidden hidden lg:block">
       <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container" x-show="show_grid_2_4_text">
         <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
         <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
       </div>
     </div>
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-hidden hidden lg:block">
       <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container" x-show="show_grid_2_4_text">
         <p class="text-3xl text-left pb-1 font-medium">景观</p>
         <p class="text-xl text-left leading-snug">LANDSCAPE</p>
       </div>
     </div>
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-hidden hidden lg:block">
       <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
       <div class="grid-text-container" x-show="show_grid_2_4_text">
         <p class="text-3xl text-left pb-1 font-medium">室内<span class="text-lg">（天华易筑）</span></p>
