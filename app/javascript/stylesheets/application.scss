@@ -13,6 +13,11 @@
   @apply w-full h-full transition duration-1000 ease-in-out transform;
 }
 
+.grid-mask-image {
+  @apply w-full h-full transition duration-1000 ease-in-out transform;
+  -webkit-mask-image: -webkit-gradient(linear, left 75%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+
 .h1-cap {
   @apply border-gray-900 border-solid border-b-4;
   padding-bottom: .65rem;
