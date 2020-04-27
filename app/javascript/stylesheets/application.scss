@@ -22,6 +22,10 @@
   -webkit-mask-image: -webkit-gradient(linear, left 75%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
+.header-mask {
+  -webkit-mask-image: -webkit-gradient(linear, left top, left 7%, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,1)));
+}
+
 .h1-cap {
   @apply border-gray-900 border-solid border-b-4;
   padding-bottom: .65rem;
