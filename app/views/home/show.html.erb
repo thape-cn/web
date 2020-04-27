@@ -21,7 +21,7 @@
       </a>
     </div>
   </header>
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2"
     x-data="{ show_grid_1_1_text: false, show_grid_1_2_text: false, show_grid_2_1_text: false, show_grid_1_3_text: false, show_grid_2_3_text: false, show_grid_2_4_text: false }">
     <div class="relative overflow-hidden bg-black"
       x-on:mouseenter="show_grid_1_1_text = true"
@@ -127,7 +127,7 @@
         </h2>
       </div>
     </header>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2">
       <div class="relative" x-data="{ show_new1_text: false }" x-on:mouseenter="show_new1_text = true" x-on:mouseleave="show_new1_text = false">
         <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_new1_text }" />
         <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
@@ -173,9 +173,9 @@
     </div>
     <div class="px-4 py-5 sm:p-6">
       <form action="#" method="POST">
-          <div class="grid grid-cols-4 gap-7 xl:gap-10">
+          <div class="grid grid-cols-4 gap-4 sm:gap-7 xl:gap-10">
             <div class="col-span-4 sm:col-span-2 row-span-3">
-              <div class="max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-md">
+              <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-md">
                 <textarea id="comment" rows="10" placeholder="请填写您的留言" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c bg-gray-50 hover:shadow-xl focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
               </div>
             </div>
