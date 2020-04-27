@@ -96,7 +96,7 @@ export default class extends Controller {
     scroller
       .setup({
         step: ".scroller-step",
-        offset: 0.95,
+        offset: 0.90,
         threshold: 2,
         progress: true
       })
