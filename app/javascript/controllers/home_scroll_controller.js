@@ -38,7 +38,7 @@ export default class extends Controller {
           thapeNavContainer.classList.add("text-thape-copyright-gray");
         } else if (element.id == 'thape-news') {
           const thapeProjects = document.getElementById('thape-projects');
-          thapeLogo.style.opacity = 1;
+          thapeProjects.style.opacity = 1;
         }
       }
     }
