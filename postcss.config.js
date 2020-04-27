@@ -14,7 +14,7 @@ const environment = {
   ]
 }
 
-if (process.env.RAILS_ENV === "production") {
+if (process.env.RAILS_ENV === "production" || process.env.RAILS_ENV === "staging") {
   environment.plugins.push(
     require('@fullhuman/postcss-purgecss')({
       content: [
