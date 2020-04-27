@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resource :works, only: %i[show] do
-    resource :residential, only: %i[show] do
-      get :rental
+  resources :works, only: %i[index show] do
+    collection do
+      get :residential
+      get :"residential-rental"
     end
   end
   root 'home#show'

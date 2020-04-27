@@ -23,10 +23,10 @@
       <a href="<%= works_path -%>" class="text-black6c">所有项目</a>
     </li>
     <li class="breadcrumb-item" class="text-black6c">
-      <a href="<%= works_residential_path -%>">居住</a>
+      <a href="<%= residential_works_path -%>">居住</a>
     </li>
     <li class="breadcrumb-item" class="text-black6c">
-      <a href="<%= rental_works_residential_path -%>">租赁住房</a>
+      <a href="<%= residential_rental_works_path -%>">租赁住房</a>
     </li>
   </ol>
 
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="relative overflow-hidden bg-black">
-      <a href="<%= rental_works_residential_path -%>" class="cursor-pointer">
+      <a href="<%= work_path(id: 1) -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/2c-item-2.jpg', class: 'grid-mask-image hover:scale-105' -%>
         <div class="grid-text-container">
           <p class="text-xl text-left pb-1 font-medium">上海城投康桥工业区租赁住宅 </p>
