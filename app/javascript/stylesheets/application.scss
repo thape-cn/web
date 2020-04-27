@@ -40,10 +40,40 @@
   padding-left: .125rem;
 
   &::before {
+    color: rgba(16,24,32,0.7);
     content: '>';
     display: inline-block; // Suppress underlining of the separator in modern browsers
-    color: rgba(16,24,32,0.7);
     padding-right: .125rem;
+  }
+}
+
+.header-item {
+  display: inline-block;
+  padding-left: .125rem;
+
+  &::before {
+    color: rgba(16,24,32,0.7);
+    content: '|';
+    display: inline-block;
+    padding-right: .125rem;
+  }
+}
+
+.header-item-last {
+  display: inline-block;
+
+  &::before {
+    color: rgba(16,24,32,0.7);
+    content: '|';
+    display: inline-block;
+    padding-right: .125rem;
+  }
+
+  &::after {
+    color: rgba(16,24,32,0.7);
+    content: '|';
+    display: inline-block;
+    padding-left: .125rem;
   }
 }
 
