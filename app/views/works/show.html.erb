@@ -14,7 +14,7 @@
           QINGDAO WORLD FINANCIAL CENTER 
         </h2>
       </div>
-      <div class="inline-block float-right text-sm">
+      <div class="inline-block w-64 float-right text-sm">
         <ol>
           <li class="header-item">
             <a href="<%= root_path -%>" class="text-black6c">青岛 QINGDAO</a>
@@ -25,8 +25,8 @@
         </ol>
       </div>
   </header>
-  <main class="my-8">
-    <div class="float-left space-y-4 mr-8">
+  <div class="my-8">
+    <div class="inline-block float-left space-y-4 mr-8">
       <div>
         <label class="text-sm font-light text-thape-copyright-gray">客户名称 CLIENT</label>
         <p class="font-normal">青岛南信控股集团 </p>
@@ -60,13 +60,34 @@
         <p class="font-normal">/</p>
       </div>
     </div>
-    <div>
+    <main class="inline-block">
       <div class="mb-4">
         <label class="text-sm font-light text-thape-copyright-gray">获奖 AWARDS</label>
         <p>2019 上海建筑学会建筑创作奖 佳作奖 </p>
         <p>2019 地产设计大奖·中国 优秀奖 </p>
         <p>2015 全国人居经典建筑 金奖</p>
       </div>
-    </div>
-  </main>
+    </main>
+    <aside class="inline-block w-64 sm:float-right">
+      <div class="space-y-8 pb-6 border-gray-200 border-solid border-b">
+        <h3>推荐阅读</h3>
+        <figure class="space-y-2">
+          <%= image_pack_tag 'media/images/work-item-aside-1.jpg', class: 'header-mask' -%>
+          <figcaption class="pt-2 text-black6c">合肥旭辉甜甜圈幼儿园  </figcaption>
+          <p class="text-sm text-gray1c">2019年12月28日</p>
+        </figure>
+        <figure class="space-y-2">
+          <%= image_pack_tag 'media/images/work-item-aside-2.jpg', class: 'header-mask' -%>
+          <figcaption class="pt-2 text-black6c">合肥万科北城中央公园中小学  </figcaption>
+          <p class="text-sm text-gray1c">2019年12月28日</p>
+        </figure>
+      </div>
+      <nav class="pt-6">
+        <ol class="space-y-4">
+            <li class=""><a href="#"><span class="circle-border border border-black text-center">&lt;</span> 华润石家庄万象城  </a></li>
+            <li class=""><a href="#"><span class="circle-border border border-black text-center">&gt;</span> 青岛WFC协信中心  </a></li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
 </div>
