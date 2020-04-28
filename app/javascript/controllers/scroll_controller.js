@@ -7,9 +7,9 @@ const scroller = scrollama();
 export default class extends Controller {
   connect() {
     function handleStepEnter(response) {
-      const { element, direction, index } = response;
+      const { direction, index } = response;
       if (direction == 'down') {
-        if (element.id == 'thape-projects') {
+        if (index === 0) {
           const thapeLogo = document.getElementById('thape-nav-logo');
           const thapeNavBar = document.getElementById('thape-nav-bar');
           const thapeNavContainer = document.getElementById('thape-nav-container');
@@ -36,17 +36,17 @@ export default class extends Controller {
           }
           thapeNavContainer.classList.remove("text-thape-white-t80");
           thapeNavContainer.classList.add("text-thape-copyright-gray");
-        } else if (element.id == 'thape-news') {
-          const thapeProjects = document.getElementById('thape-projects');
+        } else if (index === 1) {
+          const thapeProjects = document.getElementById('thape-fadein');
           thapeProjects.style.opacity = 1;
         }
       }
     }
 
     function handleStepExit(response) {
-      const { element, direction, index } = response;
+      const { direction, index } = response;
       if (direction == 'up') {
-        if (element.id == 'thape-projects') {
+        if (index === 0) {
           const thapeLogo = document.getElementById('thape-nav-logo');
           const thapeNavBar = document.getElementById('thape-nav-bar');
           const thapeNavContainer = document.getElementById('thape-nav-container');
@@ -83,7 +83,7 @@ export default class extends Controller {
         debugProgress.innerHTML = element.id + ' ' + progress;
 
       const eo = ((progress - 0.45) <= 0 ? 0 : progress - 0.45) * 2.05;
-      if (element.id === 'thape-projects') {
+      if (index === 0) {
         if (eo >= 1) {
           element.style.opacity = 1;
         } else {

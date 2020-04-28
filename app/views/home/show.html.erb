@@ -1,5 +1,5 @@
-<div data-controller="home-scroll"
-     data-action="resize@window->home-scroll#layout">
+<div data-controller="scroll"
+     data-action="resize@window->scroll#layout">
 
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
@@ -7,7 +7,7 @@
 </div>
 
 <%# 最新项目 %>
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" style="opacity: 0;" id="thape-projects">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" style="opacity: 0;" id="thape-fadein">
   <header>
     <div class="w-full pt-10 pb-2 clearfix">
       <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
@@ -114,7 +114,7 @@
   </div>
 </div>
 
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step" id="thape-news">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 bg-white scroller-step">
   <%# 天华新闻 %>
   <div>
     <header>
