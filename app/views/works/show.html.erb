@@ -4,13 +4,13 @@
   <%= image_pack_tag 'media/images/work-item-1.jpg', class: 'header-mask' -%>
 </div>
 
-<div class="w-full mx-auto sm:py-2 md:py-4 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
+<div class="w-full mx-auto clearfix sm:py-2 md:py-4 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
   <header class="py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block">
         <h1 class="text-2xl font-bold text-black6c">
           青岛协信环球金融中心
         </h1>
-        <h2 class="text-1xl text-black6c">
+        <h2 class="text-1xl font-medium text-black6c">
           QINGDAO WORLD FINANCIAL CENTER 
         </h2>
       </div>
@@ -91,3 +91,44 @@
     </aside>
   </div>
 </div>
+
+<div class="w-full mx-auto sm:py-2 md:py-4 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
+  <h2 class="text-2xl font-bold text-black6c">相关项目</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 my-3">
+  <div class="relative overflow-hidden">
+    <%= image_pack_tag 'media/images/work-item-b1.jpg', class: 'grid-image hover:scale-105' -%>
+    <div class="grid-text-container">
+      <p class="text-left pb-1 font-medium text-xl">武汉龙湖葛洲坝国际广场 </p>
+      <p class="text-left font-light text-sm">WUHAN LONGFOR INTERNATIONAL PLAZA</p>
+    </div>
+  </div>
+  <div class="relative overflow-hidden">
+    <%= image_pack_tag 'media/images/work-item-b2.jpg', class: 'grid-image hover:scale-105' -%>
+    <div class="grid-text-container">
+      <p class="text-left pb-1 font-medium text-xl">南昌新力中心 </p>
+      <p class="text-left font-light">SINIC CENTER</p>
+    </div>
+  </div>
+  <div class="relative overflow-hidden">
+    <a href="<%= residential_rental_works_path -%>" class="cursor-pointer">
+    <%= image_pack_tag 'media/images/work-item-b3.jpg', class: 'grid-image hover:scale-105' -%>
+    <div class="grid-text-container">
+      <p class="text-left pb-1 font-medium text-xl">济南万科望岳中心 </p>
+      <p class="text-left font-light text-sm">JINAN VANKE WANGYUE CENTRAL</p>
+    </div>
+    </a>
+  </div>
+  <div class="relative overflow-hidden">
+    <a href="<%= residential_rental_works_path -%>" class="cursor-pointer">
+    <%= image_pack_tag 'media/images/work-item-b4.jpg', class: 'grid-image hover:scale-105' -%>
+    <div class="grid-text-container">
+      <p class="text-left pb-1 font-medium text-xl">上海创智天地综合社区 </p>
+      <p class="text-left font-light text-sm">SHANGHAI KNOWLEDGE & INNOVATION COMMUNITY</p>
+    </div>
+    </a>
+  </div>
+</div>
+
+<%= render partial: 'shared/footer' %>
+
