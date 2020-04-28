@@ -1,10 +1,14 @@
+<div data-controller="scroll"
+     data-action="resize@window->scroll#layout"
+     data-scroll-offset="0.6"
+     data-scroll-threshold="0">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<div>
+<div class="bg-fixed">
   <%= image_pack_tag 'media/images/work-item-1.jpg' -%>
 </div>
 
-<div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
+<div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 scroller-step" style="opacity: 0;" id="thape-fadein">
   <header class="py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block">
         <h1 class="text-2xl font-bold text-black6c">
@@ -92,7 +96,7 @@
   </div>
 </div>
 
-<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32">
+<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-12 xxl:px-24 xxxl:px-32 scroller-step">
   <h2 class="text-2xl font-bold text-black6c">相关项目</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 mt-8 mb-4">
@@ -131,4 +135,5 @@
 </div>
 
 <%= render partial: 'shared/footer' %>
+</div>
 

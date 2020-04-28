@@ -6,6 +6,9 @@ const scroller = scrollama();
 
 export default class extends Controller {
   connect() {
+    const scrollama_offset = parseFloat(this.data.get("offset"));
+    const starting_threshold = parseFloat(this.data.get("threshold"));
+
     function handleStepEnter(response) {
       const { direction, index } = response;
       if (direction == 'down') {
@@ -82,7 +85,7 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = ((progress - 0.45) <= 0 ? 0 : progress - 0.45) * 2.05;
+      const eo = ((progress - starting_threshold) <= 0 ? 0 : progress - starting_threshold) * 2.05;
       if (index === 0) {
         if (eo >= 1) {
           element.style.opacity = 1;
@@ -96,7 +99,7 @@ export default class extends Controller {
     scroller
       .setup({
         step: ".scroller-step",
-        offset: 0.90,
+        offset: scrollama_offset,
         threshold: 2,
         progress: true
       })
