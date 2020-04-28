@@ -101,7 +101,8 @@ export default class extends Controller {
         step: ".scroller-step",
         offset: scrollama_offset,
         threshold: 2,
-        progress: true
+        progress: true,
+        order: false
       })
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit)
