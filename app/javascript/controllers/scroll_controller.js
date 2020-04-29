@@ -8,6 +8,7 @@ export default class extends Controller {
   connect() {
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
+    const amplify_rate = parseFloat(this.data.get("amplify_rate"));
     const hide_element_id = this.data.get("hide_element_id");
 
     function handleStepEnter(response) {
@@ -92,7 +93,7 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = ((progress - starting_threshold) <= 0 ? 0 : progress - starting_threshold) * 2.05;
+      const eo = ((progress - starting_threshold) <= 0 ? 0 : progress - starting_threshold) * amplify_rate;
       if (index === 0) {
         if (eo >= 1) {
           element.style.opacity = 1;
