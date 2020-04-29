@@ -1,7 +1,8 @@
 <div data-controller="scroll"
      data-action="resize@window->scroll#layout"
-     data-scroll-offset="0.6"
-     data-scroll-threshold="0">
+     data-scroll-offset="0.65"
+     data-scroll-threshold="0.15"
+     data-scroll-hide_element_id="carousel-switch">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
 <div x-data="{ activeSlide: 1, slides: [1, 2, 3] }">
@@ -9,7 +10,7 @@
   <%= image_pack_tag 'media/images/work-item-h2.jpg', 'x-show': 'activeSlide === 2' -%>
   <%= image_pack_tag 'media/images/work-item-h3.jpg', 'x-show': 'activeSlide === 3' -%>
 
-  <div class="w-full flex items-center justify-center px-48 mt-8">
+  <div class="w-full flex items-center justify-center px-48 mt-4" id="carousel-switch">
     <button
       class="bg-gray-100 text-black6c hover:text-grey-500 font-bold hover:shadow-lg rounded-full w-12 h-12 -ml-6"
       x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
@@ -113,8 +114,8 @@
       </div>
       <nav class="pt-6">
         <ol class="space-y-4">
-            <li class=""><a href="#"><span class="circle-border border border-black text-center">&lt;</span> 华润石家庄万象城  </a></li>
-            <li class=""><a href="#"><span class="circle-border border border-black text-center">&gt;</span> 青岛WFC协信中心  </a></li>
+            <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&lt;</span> 华润石家庄万象城</a></li>
+            <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&gt;</span> 青岛WFC协信中心</a></li>
         </ol>
       </nav>
     </aside>

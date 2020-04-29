@@ -8,6 +8,7 @@ export default class extends Controller {
   connect() {
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
+    const hide_element_id = this.data.get("hide_element_id");
 
     function handleStepEnter(response) {
       const { direction, index } = response;
@@ -39,6 +40,9 @@ export default class extends Controller {
           }
           thapeNavContainer.classList.remove("text-thape-white-t80");
           thapeNavContainer.classList.add("text-thape-copyright-gray");
+          if(hide_element_id) {
+            document.getElementById(hide_element_id).classList.add("hidden");
+          }
         } else if (index === 1) {
           const thapeProjects = document.getElementById('thape-fadein');
           thapeProjects.style.opacity = 1;
@@ -75,6 +79,9 @@ export default class extends Controller {
           thapeNavBar.classList.remove("border-solid");
           thapeNavBar.classList.remove("border-b");
           thapeNavBar.classList.add("nav-background-initial");
+          if(hide_element_id) {
+            document.getElementById(hide_element_id).classList.remove("hidden");
+          }
         }
       }
     }
