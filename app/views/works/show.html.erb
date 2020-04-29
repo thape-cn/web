@@ -11,9 +11,13 @@
   <%= image_pack_tag 'media/images/work-item-h2.jpg', 'x-show': 'activeSlide === 2' -%>
   <%= image_pack_tag 'media/images/work-item-h3.jpg', 'x-show': 'activeSlide === 3' -%>
 
-  <div class="w-full flex items-center justify-center px-48 mt-4" id="carousel-switch">
+  <div class="w-full flex items-center justify-center px-48 mt-4"
+    data-controller="carousel"
+    data-carousel-refresh-interval="5000"
+    id="carousel-switch">
     <button
       class="bg-gray-100 text-black6c hover:text-grey-500 font-bold hover:shadow-lg rounded-full w-12 h-12 -ml-6"
+      data-action="click->carousel#start_rotate"
       x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
       &#8592;
     </button>
@@ -24,11 +28,13 @@
             'bg-black6c': activeSlide === slide,
             'bg-gray-300': activeSlide !== slide
         }"
+        data-action="click->carousel#stop_rotate"
         x-on:click="console.log(slide);activeSlide = slide"
       ></button>
     </template>
     <button
       class="bg-gray-100 text-black6c hover:text-grey-500 font-bold hover:shadow rounded-full w-12 h-12 -mr-6"
+      data-target="carousel.nextSlide"
       x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
       &#8594;
     </button>
