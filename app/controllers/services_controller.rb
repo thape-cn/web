@@ -1,4 +1,6 @@
 class ServicesController < ApplicationController
+  layout 'service_page'
+
   def building
   end
 
