@@ -1,11 +1,8 @@
-<div data-controller="service"
-     data-action="resize@window->service#layout"
-     data-service-offset="0.95">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<div class="relative h-screen" id="service-section">
+<div class="relative h-screen">
   <%= image_pack_tag 'media/images/building.jpg' -%>
-  <div class="absolute bottom-0 inset-x-0 bg-white opacity-75" id="service-intro">
+  <div class="absolute bottom-0 inset-x-0 bg-white opacity-75">
     <div class="flex px-20 sm:px-24 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
       <dt class="font-medium text-black6c pt-7 pb-4 px-5">
         <h1 class="text-3xl font-bold">建筑设计</h1>
@@ -17,7 +14,4 @@
       </dd>
     </div>
   </div>
-</div>
-
-<%= render partial: 'shared/footer', locals: { need_scroller_step: true }%>
 </div>
