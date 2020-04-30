@@ -10,6 +10,7 @@ export default class extends Controller {
     const starting_threshold = parseFloat(this.data.get("threshold"));
     const amplify_rate = parseFloat(this.data.get("amplify_rate"));
     const hide_element_id = this.data.get("hide_element_id");
+    const enable_progress = this.data.get("enable_progress");
 
     function handleStepEnter(response) {
       const { direction, index } = response;
@@ -45,8 +46,10 @@ export default class extends Controller {
             document.getElementById(hide_element_id).classList.add("hidden");
           }
         } else if (index === 1) {
-          const thapeProjects = document.getElementById('thape-fadein');
-          thapeProjects.style.opacity = 1;
+          const thapeFadein = document.getElementById('thape-fadein');
+          if(thapeFadein) {
+            thapeFadein.style.opacity = 1;
+          }
         }
       }
     }
@@ -110,9 +113,13 @@ export default class extends Controller {
         offset: scrollama_offset,
         threshold: 2,
         progress: true,
-        order: false,
+        order: true,
       })
-      .onStepProgress(handleStepProgress)
+
+    if(enable_progress) {
+      scroller.onStepProgress(handleStepProgress)
+    }
+    scroller
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit);
 
