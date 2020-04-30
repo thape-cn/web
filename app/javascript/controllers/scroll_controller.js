@@ -93,7 +93,7 @@ export default class extends Controller {
       if (debugProgress)
         debugProgress.innerHTML = element.id + ' ' + progress;
 
-      const eo = ((progress - starting_threshold) <= 0 ? 0 : progress - starting_threshold) * amplify_rate;
+      const eo = ((progress - starting_threshold) <= 0 ? 0.001 : progress - starting_threshold) * amplify_rate;
       if (index === 0) {
         if (eo >= 1) {
           element.style.opacity = 1;
@@ -110,11 +110,11 @@ export default class extends Controller {
         offset: scrollama_offset,
         threshold: 2,
         progress: true,
-        order: false
+        order: false,
       })
+      .onStepProgress(handleStepProgress)
       .onStepEnter(handleStepEnter)
-      .onStepExit(handleStepExit)
-      .onStepProgress(handleStepProgress);;
+      .onStepExit(handleStepExit);
 
     scroller.resize();
   }
