@@ -1,0 +1,10 @@
+<div class="<%= prj_class -%>"
+  x-data="{ show_grid_text: false }"
+  x-on:mouseenter="show_grid_text = true"
+  x-on:mouseleave="show_grid_text = false">
+  <%= image_pack_tag prj_image, class: 'grid-image hover:mask hover:scale-105' -%>
+  <div class="grid-text-container" x-show="show_grid_text">
+    <p class="text-left pb-1 font-medium"><%= title -%></p>
+    <p class="text-xl text-left leading-snug"><%= sub_title -%></p>
+  </div>
+</div>

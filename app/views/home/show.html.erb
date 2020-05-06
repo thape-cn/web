@@ -26,16 +26,9 @@
     </div>
   </header>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2">
-    <div class="relative overflow-hidden bg-black"
-      x-data="{ show_grid_text: false }"
-      x-on:mouseenter="show_grid_text = true"
-      x-on:mouseleave="show_grid_text = false">
-      <%= image_pack_tag 'media/images/grid-1-1.jpg', class: 'grid-image hover:mask hover:scale-105' -%>
-      <div class="grid-text-container" x-show="show_grid_text">
-        <p class="text-left pb-1 font-medium">精品住宅</p>
-        <p class="text-xl text-left leading-snug">金科 · 九曲河</p>
-      </div>
-    </div>
+    <%= render partial: 'project_square',
+      locals: { prj_image: 'media/images/grid-1-1.jpg', prj_class: 'relative overflow-hidden bg-black',
+                title: '精品住宅', sub_title: '金科 · 九曲河' } %>
     <div class="relative md:hidden overflow-hidden bg-black"
       x-data="{ show_grid_text: false }"
       x-on:mouseenter="show_grid_text = true"
