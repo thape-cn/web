@@ -1,0 +1,22 @@
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
+
+<div data-controller="service"
+     data-action="resize@window->service#layout">
+
+<div class="relative h-screen">
+  <%= image_pack_tag 'media/images/landscape.jpg', data: { target: "service.bgImg" } -%>
+  <div class="absolute bottom-0 inset-x-0 bg-white opacity-75" data-target="service.introDiv">
+    <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+      <dt class="font-medium text-black6c pt-7 pb-4 px-5">
+        <h1 class="text-3xl font-bold">景观设计</h1>
+        <h2 class="text-xl font-medium">LANDSCAPE</h2>
+      </dt>
+      <dd class="text-sm font-light text-black6c pt-7 pb-4 px-5">
+        <p>天华景观凭借优秀的设计水准及专业完善的服务赢得业界好评，积累了众多知名客户长期合作伙伴，项目涵盖居住区景观、公建景观、绿地公园等各领域。全新打造的天华景观团队，具有国际化的队伍组合，完善的技术力量，全程化的总体服务，严谨的工作流程。</p>
+        <p>设计聚焦于项目的本质，最大化场地潜力，基于科学的分析，创新的想法以及合理的工作流程，提供最合理、最经济、最可持续发展的设计方案。</p>
+      </dd>
+    </div>
+  </div>
+</div>
+
+</div>
