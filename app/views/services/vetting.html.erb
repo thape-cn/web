@@ -1,0 +1,21 @@
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
+
+<div data-controller="service"
+     data-action="resize@window->service#layout">
+
+<div class="relative h-screen">
+  <%= image_pack_tag 'media/images/vetting.jpg', data: { target: "service.bgImg" } -%>
+  <div class="absolute bottom-0 inset-x-0 bg-white opacity-75" data-target="service.introDiv">
+    <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+      <dt class="font-medium text-black6c pt-7 pb-4 px-5">
+        <h1 class="text-3xl font-bold">审图</h1>
+        <h2 class="text-xl font-medium">DRAWING REVIEW</h2>
+      </dt>
+      <dd class="text-sm font-light text-black6c pt-7 pb-4 px-5">
+        <p>虹核审图业务团队主营建设工程审图，2001年获得上海市建交委员会颁发的上海市建设工程施工图设计文件审查（一类含超限高层）机构认定资质，是上海市最早的11家审图机构之一。并于2006年12月获得ISO9001质量体系认证证书，建有一套质量保证体系和管理标准。审查总量在全市审查机构中名列前茅，并多年被主管部门评为先进单位。</p>
+      </dd>
+    </div>
+  </div>
+</div>
+
+</div>
