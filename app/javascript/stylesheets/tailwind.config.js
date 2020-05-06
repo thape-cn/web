@@ -11,6 +11,7 @@ module.exports = {
         'thape-guest-gray-t50': 'rgba(184,184,184,0.5)',
         'thape-guest-gray': 'rgba(184,184,184,1)',
         'thape-copyright-gray': 'rgba(140,140,140,1)',
+        'thape-footer-gray': 'rgba(235,235,235,1)',
         'thape-icon-gray': 'rgba(149,149,149,1)'
       },
       fontFamily: {
