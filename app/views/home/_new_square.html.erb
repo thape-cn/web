@@ -1,4 +1,4 @@
-<div class="relative overflow-hidden" x-data="{ show_text: false }" x-on:mouseenter="show_text = true" x-on:mouseleave="show_text = false">
+<div class="relative overflow-hidden border border-thape-guest-gray-t50" x-data="{ show_text: false }" x-on:mouseenter="show_text = true" x-on:mouseleave="show_text = false">
   <img src="<%= asset_pack_path('media/images/news_r1.jpg') -%>" class="w-full h-full" x-bind:class="{ 'filter-blur': show_text }" />
   <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
     x-show="show_text"
