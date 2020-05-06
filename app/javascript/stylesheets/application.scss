@@ -9,6 +9,10 @@
   }
 }
 
+.grid-div {
+  @apply relative overflow-hidden bg-black;
+}
+
 .grid-image {
   @apply w-full h-full transition duration-700 delay-100 ease-in-out transform;
 }
