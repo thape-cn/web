@@ -1,0 +1,22 @@
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
+
+<div data-controller="service"
+     data-action="resize@window->service#layout">
+
+<div class="relative h-screen">
+  <%= image_pack_tag 'media/images/interior.jpg', data: { target: "service.bgImg" } -%>
+  <div class="absolute bottom-0 inset-x-0 bg-white opacity-75" data-target="service.introDiv">
+    <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+      <dt class="font-medium text-black6c pt-7 pb-4 px-5">
+        <h1 class="text-3xl font-bold">室内设计</h1>
+        <h2 class="text-xl font-medium">INTERIOR</h2>
+      </dt>
+      <dd class="text-sm font-light text-black6c pt-7 pb-4 px-5">
+        <p>“天华·易筑”是天华集团创意业务板块室内设计与工程业务的重要组成部分，凭借其独特的创意设计能力、技术落地能力、项目管理能力、成本控制能力以及服务响应能力赢得了业界的一致认可和信任。为了满足不断增加的业务需求，“天华·易筑”在2013年初独立成为上海天华室内设计有限公司，并于2018年成立深圳和武汉区域子公司负责拓展华南和华中市场。 “天华·易筑”致力于办公空间、居住空间、商业零售空间、会所和售楼处等的高端室内空间的营造。</p>
+        <p>“天华”秉承着天华集团一贯的富有特色的创新能力；“易筑”代表着强大的技术和完美的工程落地能力；“天华·易筑”科学地统筹“咨询、设计、技术、管理”互联的高效服务模式，因地制宜地为不同室内空间提供具有创新性和经济性的解决方案。</p>
+      </dd>
+    </div>
+  </div>
+</div>
+
+</div>
