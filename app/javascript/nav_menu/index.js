@@ -4,14 +4,21 @@ function turnNavBarTo(bar_style) {
   if (bar_style == 'white') {
     thapeNavBar.classList.remove("nav-background-initial");
     thapeNavBar.classList.add("nav-background-white");
-    thapeNavBar.classList.add("border-gray-200");
-    thapeNavBar.classList.add("border-solid");
-    thapeNavBar.classList.add("border-b");
+    for (let a of thapeNavBar.children) {
+      const c=a.classList;
+      c.add("border-gray-200");
+      c.add("border-solid");
+      c.add("border-b");
+    }
   } else if (bar_style == 'transparent') {
+    for (let a of thapeNavBar.children) {
+      const c=a.classList;
+      c.remove("border-gray-200");
+      c.remove("border-solid");
+      c.remove("border-b");
+    }
+
     thapeNavBar.classList.remove("nav-background-white");
-    thapeNavBar.classList.remove("border-gray-200");
-    thapeNavBar.classList.remove("border-solid");
-    thapeNavBar.classList.remove("border-b");
     thapeNavBar.classList.add("nav-background-initial");
   }
 }
