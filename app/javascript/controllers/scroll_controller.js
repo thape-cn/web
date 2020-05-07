@@ -21,6 +21,7 @@ export default class extends Controller {
             document.getElementById(hide_element_id).classList.add("hidden");
           }
         } else if (index === 1) {
+          nav_menu.turnWhite();
           const thapeFadein = document.getElementById('thape-fadein');
           if(thapeFadein) {
             thapeFadein.style.opacity = 1;
@@ -37,6 +38,8 @@ export default class extends Controller {
           if(hide_element_id) {
             document.getElementById(hide_element_id).classList.remove("hidden");
           }
+        } else if (index === 1) {
+          nav_menu.turnTransparent();
         }
       }
     }
