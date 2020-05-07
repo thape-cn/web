@@ -67,9 +67,11 @@ function turnWhite() {
   turnNavBarTo('white');
   turnLogoTo('white');
   turnNavContainer('thape-nav-container','white');
+  turnNavContainer('thape-services-container','white');
 }
 
 function turnTransparent() {
+  turnNavContainer('thape-services-container','transparent');
   turnNavContainer('thape-nav-container','transparent');
   turnLogoTo('transparent');
   turnNavBarTo('transparent');
