@@ -6,7 +6,10 @@ else
 end
 %>
 
-<div x-data="{ open: false }" class="fixed z-50 py-1 xxl:py-2 xxxl:py-3 w-screen <%= nav_background == 'white' ? 'nav-background-white' : 'nav-background-initial' -%>" id="thape-nav-bar">
+<div class="fixed z-50 py-1 xxl:py-2 xxxl:py-3 w-screen <%= nav_background == 'white' ? 'nav-background-white' : 'nav-background-initial' -%>"
+  x-data="{ aside_menu_open: false, show_service_menu: false }"
+  id="thape-nav-bar">
+
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 <%= nav_background == 'white' ? 'border-gray-200 border-solid border-b' : '' -%>">
     <nav class="relative flex items-center justify-between h-10 md:justify-center">
       <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
@@ -15,7 +18,7 @@ end
             <%= render partial: 'shared/logo', locals: { className: nav_background == 'white' ? 'fill-current text-black6c hover:text-black6c-t70 focus:text-black6c-t70 h-8 w-48 h-10' : 'fill-current text-thape-white-t80 hover:text-white focus:text-white h-8 w-48 h-10', svgId: 'thape-nav-logo' } -%>
           </a>
           <div class="-mr-2 flex items-center md:hidden">
-            <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+            <button @click="aside_menu_open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
               <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -31,7 +34,9 @@ end
   </div>
 
   <%# 服务子菜单 %>
-  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+    x-on:mouseleave="show_service_menu = false"
+    x-show="show_service_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
         <a href="<%= building_path -%>" class="mr-3 font-medium <%= a_link_class -%>">建筑</a>
@@ -45,15 +50,15 @@ end
     </nav>
   </div>
 
-  <div x-show="open" style="display: none;" class="absolute top-0 inset-x-0 p-2 md:hidden">
-    <div class="rounded-lg shadow-md transition transform origin-top-right" x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+  <div x-show="aside_menu_open" style="display: none;" class="absolute top-0 inset-x-0 p-2 md:hidden">
+    <div class="rounded-lg shadow-md transition transform origin-top-right" x-show="aside_menu_open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
       <div class="rounded-lg bg-white shadow-xs overflow-hidden">
         <div class="px-5 pt-4 flex items-center justify-between">
           <div>
             <img class="h-6 w-auto" src="<%= asset_pack_path('media/images/logo.svg') -%>" alt="" />
           </div>
           <div class="-mr-2">
-            <button @click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+            <button @click="aside_menu_open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
               <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>

@@ -1,7 +1,8 @@
 <div id="thape-nav-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
   <a href="#" class="mr-3 font-medium <%= a_link_class -%>">介绍</a>·
   <a href="<%= works_path -%>" class="mx-3 font-medium <%= a_link_class -%>">作品</a>·
-  <a href="#" class="mx-3 font-medium <%= a_link_class -%>">服务</a>·
+  <a href="#" class="mx-3 font-medium <%= a_link_class -%>"
+    x-on:mouseenter="show_service_menu = true">服务</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">新闻</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">招聘</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">联系我们</a>
