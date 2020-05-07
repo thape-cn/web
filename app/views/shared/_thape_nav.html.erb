@@ -35,7 +35,7 @@ end
 
   <%# 服务子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
-    x-on:mouseleave="show_service_menu = false; nav_menu.turnTransparent();"
+    x-on:mouseleave="show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
     x-show="show_service_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">

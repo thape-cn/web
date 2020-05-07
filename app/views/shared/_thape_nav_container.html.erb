@@ -2,7 +2,7 @@
   <a href="#" class="mr-3 font-medium <%= a_link_class -%>">介绍</a>·
   <a href="<%= works_path -%>" class="mx-3 font-medium <%= a_link_class -%>">作品</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>"
-    x-on:mouseenter="show_service_menu = true; nav_menu.turnWhite();">服务</a>·
+    x-on:mouseenter="show_service_menu = true; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">服务</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">新闻</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">招聘</a>·
   <a href="#" class="mx-3 font-medium <%= a_link_class -%>">联系我们</a>
