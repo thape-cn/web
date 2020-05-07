@@ -1,10 +1,3 @@
-<%
-a_link_class = if nav_background == 'white'
-  'hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out'
-else
-  'hover:text-white focus:outline-none focus:text-white transition duration-150 ease-in-out'
-end
-%>
 <div id="thape-nav-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
   <a href="#" class="mr-3 font-medium <%= a_link_class -%>">介绍</a>·
   <a href="<%= works_path -%>" class="mx-3 font-medium <%= a_link_class -%>">作品</a>·
