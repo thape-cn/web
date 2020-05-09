@@ -36,16 +36,16 @@ end
   <%# 作品子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
     x-on:mouseleave="show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out duration-200"
-    x-transition:enter-start="opacity-0 -translate-y-1"
+    x-transition:enter="transition ease-out delay-100 duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
     x-transition:leave="transition ease-in duration-150"
     x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-1"
+    x-transition:leave-end="opacity-0 -translate-y-4"
     x-show="show_works_menu">
-    <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> py-4 hidden md:flex md:justify-end cursor-pointer">
+    <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end cursor-pointer">
       <nav>
-        <p class="px-2 xxl:px-3"><a href="<%= building_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
+        <p class="px-2 xxl:px-3 pb-1"><a href="<%= building_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
         <div class="flex justify-between">
           <dl class="px-2 xxl:px-3">
               <dt>居住</dt>
@@ -54,14 +54,14 @@ end
               <dt>综合体 / TOD</dt>
               <dt>超高层</dt>
           </dl>
-          <dl class="px-2 xxl:px-3">
+          <dl class="pr-2 xxl:pr-3">
               <dt>商业空间</dt>
               <dt>文化空间</dt>
               <dt>城市设计 / 更新</dt>
               <dt>教育</dt>
               <dt>医疗康养</dt>
           </dl>
-          <dl class="px-2 xxl:px-3">
+          <dl class="pr-2 xxl:pr-3">
               <dt>旅居 / 酒店</dt>
               <dt>城市规划</dt>
               <dt>景观</dt>
@@ -70,9 +70,9 @@ end
         </div>
       </nav>
       <nav>
-        <p class="px-4"><a href="<%= planning_path -%>" class="font-medium <%= a_link_class -%>">地区</a></p>
+        <p class="px-6 pb-1"><a href="<%= planning_path -%>" class="font-medium <%= a_link_class -%>">地区</a></p>
         <div class="flex justify-between">
-          <dl class="pl-4 pr-3 xxl:pr-5">
+          <dl class="pl-6 pr-3 xxl:pr-7">
               <dt>华东</dt>
               <dt>华北</dt>
               <dt>华南</dt>
@@ -80,7 +80,7 @@ end
               <dt>西南</dt>
               <dt>西北</dt>
           </dl>
-          <dl class="pl-4 text-right">
+          <dl class="pl-6 text-right">
               <dt>上海</dt>
               <dt>杭州</dt>
               <dt>南京</dt>
@@ -96,7 +96,7 @@ end
   <%# 服务子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
     x-on:mouseleave="show_service_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter="transition ease-out delay-100 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-1"
     x-transition:enter-end="opacity-100 translate-y-0"
     x-transition:leave="transition ease-in duration-150"
