@@ -12,5 +12,14 @@ Rails.application.routes.draw do
   get 'vetting', to: "services#vetting"
   get 'consluting', to: "services#consluting"
   get 'vr-tech', to: "services#vrtech"
+
+  resources :sites, only: [] do
+    collection do
+      get :statement
+      get :privacy
+      get :disclaimer
+    end
+  end
+
   root 'home#show'
 end
