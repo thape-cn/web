@@ -36,7 +36,7 @@
 }
 
 .thape-input {
-  @apply form-input block w-full py-3 px-6 rounded-full border border-thape-guest-gray-t50 rounded-md text-black6c bg-form-background transition duration-150 ease-in-out;
+  @apply form-input block w-full py-3 px-6 rounded-full border border-form-border-color rounded-md text-black6c bg-form-background transition duration-150 ease-in-out;
 }
 
 .breadcrumb-item {
