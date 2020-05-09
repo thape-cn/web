@@ -35,6 +35,10 @@
   @apply absolute bottom-4 left-6 text-white pointer-events-none;
 }
 
+.thape-input {
+  @apply form-input block w-full py-3 px-6 rounded-full border border-thape-guest-gray-t50 rounded-md text-black6c bg-form-background transition duration-150 ease-in-out;
+}
+
 .breadcrumb-item {
   display: inline-block;
   padding-left: .125rem;

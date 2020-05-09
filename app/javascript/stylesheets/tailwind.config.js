@@ -5,7 +5,7 @@ module.exports = {
         'black6c': '#101820',
         'black6c-t70': 'rgba(16,24,32,0.7)',
         'gray1c': '#d9d9d6',
-        'form-background': '#fcfdff',
+        'form-background': '#ebebeb',
         'thape-white-t80': 'rgba(255,255,255,0.8)',
         'thape-white-t95': 'rgba(255,255,255,0.95)',
         'thape-guest-gray-t50': 'rgba(184,184,184,0.5)',
