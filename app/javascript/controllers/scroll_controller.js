@@ -1,4 +1,3 @@
-import "intersection-observer";
 import scrollama from "scrollama";
 import { Controller } from "stimulus"
 
