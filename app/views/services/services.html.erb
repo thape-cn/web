@@ -9,7 +9,12 @@
     <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
       <dt class="font-medium text-black6c py-4 px-5">
         <h1 class="text-3xl font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
-        <h2 class="text-xl font-medium"><%= english_title -%></h2>
+        <h2 class="text-xl font-medium whitespace-no-wrap"><%= english_title -%></h2>
+        <% if defined? link_site_url %>
+          <div class="pt-8">
+            <a href="<%= link_site_url -%>" class="font-light pb-1 border-black6c border-solid border-b"><%= link_site_title -%></a>
+          </div>
+        <% end  %>
       </dt>
       <dd class="text-sm font-light text-black6c pt-7 px-5 pb-12 sm:pb-4">
         <p><%= p1 -%></p>
