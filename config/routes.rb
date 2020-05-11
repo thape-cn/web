@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :news, only: [:show]
+
   root 'home#show'
 end
