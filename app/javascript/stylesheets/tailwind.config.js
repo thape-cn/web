@@ -2,11 +2,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'black6c': '#101820',
+        'black6c': 'rgba(16,24,32,1)',
         'black6c-t70': 'rgba(16,24,32,0.7)',
-        'gray1c': '#d9d9d6',
-        'thape-dark-gray': '#ebebeb',
-        'form-background': '#fcfdff',
+        'gray1c': 'rgba(217,217,214,1)',
+        'thape-dark-gray': 'rgba(235,235,235,1)',
+        'form-background': 'rgba(252,253,255,1)',
         'thape-white-t80': 'rgba(255,255,255,0.8)',
         'thape-white-t95': 'rgba(255,255,255,0.95)',
         'thape-guest-gray': 'rgba(184,184,184,1)',
