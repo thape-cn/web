@@ -85,6 +85,10 @@
   width: 18rem;
 }
 
+.screen-min-height {
+  min-height: calc(100vh - 14.125rem);
+}
+
 .filter-blur {
   filter: blur(2px);
 }
