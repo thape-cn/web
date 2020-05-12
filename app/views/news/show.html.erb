@@ -4,7 +4,7 @@
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
   <div class="my-6">
-    <aside class="w-3/12 sm:float-right xl:text-lg xxl:text-xl xxxl:text-2xl">
+    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl">
       <div class="space-y-8 pb-6 border-gray-200 border-solid border-b">
         <h3>推荐阅读</h3>
         <figure class="space-y-2">
@@ -25,8 +25,24 @@
         </ol>
       </nav>
     </aside>
-    <main class="w-9/12 pr-4">
-      <div class="max-w-screen-md mb-4 md:mx-auto">
+    <main class="w-full md:w-9/12 pr-4">
+      <div class="max-w-screen-md md:mx-auto">
+        <header class="flex mb-10">
+          <div class="bg-thape-footer-gray mx-2 my-1 w-24 h-24">
+            <p class="px-3 text-black6c-t70 text-5xl text-justify font-bold tracking-thape leading-none">31</p>
+            <p class="py-1 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
+            <p class="py-2 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= @info.created_at.year -%></p>
+          </div>
+          <div class="m-1">
+            <h1 class="p-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-none">
+              <%= @info.title -%>
+            </h1>
+            <h2 class="p-1 text-xl xxxl:text-2xl text-justify">
+              <%= @info.seo_description -%>
+            </h2>
+          </div>
+
+        </header>
         <%= raw @info.content %>
       </div>
     </main>
