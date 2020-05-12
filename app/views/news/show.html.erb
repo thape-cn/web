@@ -2,12 +2,9 @@
 
 <%= image_pack_tag 'media/images/article-banner.jpg' -%>
 
-<div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
+<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
   <div class="my-6">
-    <main class="inline-block">
-      <%= raw @info.content %>
-    </main>
-    <aside class="inline-block w-80 sm:float-right xl:text-lg xxl:text-xl xxxl:text-2xl">
+    <aside class="w-3/12 sm:float-right xl:text-lg xxl:text-xl xxxl:text-2xl">
       <div class="space-y-8 pb-6 border-gray-200 border-solid border-b">
         <h3>推荐阅读</h3>
         <figure class="space-y-2">
@@ -28,6 +25,11 @@
         </ol>
       </nav>
     </aside>
+    <main class="w-9/12 pr-4">
+      <div class="max-w-screen-md mb-4 md:mx-auto">
+        <%= raw @info.content %>
+      </div>
+    </main>
   </div>
 </div>
 
