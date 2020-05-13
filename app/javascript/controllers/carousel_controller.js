@@ -2,6 +2,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = [ "nextSlide" ]
+
   connect() {
     if (this.data.has("refreshInterval")) {
       this.start_rotate()
