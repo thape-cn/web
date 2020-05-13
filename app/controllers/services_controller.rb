@@ -67,7 +67,7 @@ class ServicesController < ApplicationController
     render 'services', locals: {
       background_img: 'media/images/vrtech.jpg',
       chinese_title: 'VR技术',
-      english_title: 'VR technology',
+      english_title: 'VR TECHNOLOGY',
       p1: 'VR（虚拟现实）是当下最热门的前沿技术之一，VR在建筑领域的应用将给地产行业带来全新的思维模式和工作流程。易术家是建筑VR内容领域的先行者，定位于包括 VR / AR 在内的各种新技术在房地产市场和设计表现领域的垂直细分市场，致力于结合新兴的科技手段和集团在业内领先的建筑美学表达经验，提供高品质的VR产品和服务，着力解决行业需求和改革现有的表达方式。',
       p2: '依托于天华集团对地产行业全方位的了解，易术家能够最为准确地把握行业需求，并在各环节中提出创新的工作模式和高效的解决方案，帮助提升整个行业的工作效率。',
       link_site_url: 'http://www.evartech.com/',
