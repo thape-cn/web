@@ -8,7 +8,6 @@ export default class extends Controller {
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
     const amplify_rate = parseFloat(this.data.get("amplify_rate"));
-    const hide_element_id = this.data.get("hide_element_id");
     const enable_progress = this.data.get("enable_progress");
 
     function handleStepEnter(response) {
@@ -16,9 +15,6 @@ export default class extends Controller {
       if (direction == 'down') {
         if (index === 0) {
           nav_menu.turnWhite();
-          if(hide_element_id) {
-            document.getElementById(hide_element_id).classList.add("hidden");
-          }
         } else if (index === 1) {
           nav_menu.turnWhite();
           const thapeFadein = document.getElementById('thape-fadein');
@@ -34,9 +30,6 @@ export default class extends Controller {
       if (direction == 'up') {
         if (index === 0) {
           nav_menu.turnTransparent();
-          if(hide_element_id) {
-            document.getElementById(hide_element_id).classList.remove("hidden");
-          }
         } else if (index === 1) {
           nav_menu.turnTransparent();
         }
