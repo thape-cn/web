@@ -1,6 +1,27 @@
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<%= image_pack_tag 'media/images/interior.jpg' -%>
+<div class="relative">
+  <%= image_pack_tag 'media/images/interior.jpg' -%>
+  <div class="absolute bottom-0 inset-x-0 w-full flex items-center bg-white h-32 opacity-75">
+    <div class="w-full flex justify-between items-center px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
+      <div class="w-1/3 text-center">
+        <h1 class="text-xl">总机</h1>
+        <h2 class="text-sm">SWITCHBOARD</h2>
+        <p class="text-lg pt-1"><a href="tel:021-64281588">021-64281588</a></p>
+      </div>
+      <div class="w-1/3 text-center">
+        <h1 class="text-xl">项目接洽及投诉</h1>
+        <h2 class="text-sm">MARKETING & COMPLAIN</h2>
+        <p class="text-lg pt-1"><a href="tel:400-8366606">400-8366606</a></p>
+      </div>
+      <div class="w-1/3 text-center">
+        <h1 class="text-xl">媒体</h1>
+        <h2 class="text-sm">MEDIA</h2>
+        <p class="text-lg pt-1"><a href="tel:021-64281588-p8847">021-64281588-8847</a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <%= render partial: 'shared/footer' %>
