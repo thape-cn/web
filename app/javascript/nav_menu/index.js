@@ -71,17 +71,23 @@ function turnNavContainer(container_id, container_style) {
 }
 
 function turnWhite() {
+  const thapeNavLangswitch = document.getElementById('thape-nav-langswitch');
+
   turnNavBarTo('white');
   turnLogoTo('white');
   turnNavContainer('thape-nav-container','white');
+  thapeNavLangswitch.classList.add("text-thape-guest-gray");
   turnNavContainer('thape-services-container','white');
   turnNavContainer('thape-works-container','white');
 }
 
 function turnTransparent() {
+  const thapeNavLangswitch = document.getElementById('thape-nav-langswitch');
+
   turnNavContainer('thape-works-container','transparent');
   turnNavContainer('thape-services-container','transparent');
   turnNavContainer('thape-nav-container','transparent');
+  thapeNavLangswitch.classList.remove("text-thape-guest-gray");
   turnLogoTo('transparent');
   turnNavBarTo('transparent');
 }
