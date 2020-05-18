@@ -91,57 +91,9 @@
   </div>
 </div>
 
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white">
-  <%# 访客留言 %>
-  <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-    <div class="px-4 py-5 sm:px-6 mt-8">
-      <h1 class="inline-block text-3xl font-bold text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
-      </h1>
-      <h2 class="ml-2 inline-block text-2xl text-black6c">
-        <a href="#" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
-      </h2>
-    </div>
-    <div class="px-4 py-5 sm:p-6">
-      <form action="#" method="POST">
-          <div class="grid grid-cols-4 gap-4 sm:gap-7 xl:gap-10">
-            <div class="col-span-4 sm:col-span-2 row-span-3">
-              <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-xl">
-                <textarea id="comment" rows="10" placeholder="请填写您的留言" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c border border-thape-dark-gray bg-form-background hover:shadow-lg focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
-              </div>
-            </div>
+<%# 访客留言 %>
+<%= render partial: 'shared/guest_form' %>
 
-            <div class="col-span-2 sm:col-span-1">
-              <div class="w-full flex rounded-full">
-                <%# can not extract below class using @apply %>
-                <input id="last_name" placeholder="请填写您的姓名" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
-              </div>
-            </div>
-
-            <div class="col-span-2 sm:col-span-1">
-              <div class="w-full flex rounded-full">
-                <input id="last_name" placeholder="请填写您的公司" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
-              </div>
-            </div>
-
-            <div class="col-span-4 sm:col-span-2">
-              <div class="w-full flex rounded-full">
-                <input id="last_name" placeholder="请填写您的联系方式" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
-              </div>
-            </div>
-
-            <div class="col-span-4 sm:col-span-2">
-              <div class="w-full flex rounded-md">
-                <button class="mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
-                  确认提交
-                </button>
-              </div>
-            </div>
-          </div>
-      </form>
-    </div>
-  </div>
-</div>
 <%= render partial: 'shared/footer' %>
 
 </div>
