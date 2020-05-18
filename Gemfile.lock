@@ -113,6 +113,10 @@ GEM
     ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    globalize (6.0.0.alpha.1)
+      activemodel (>= 4.2, < 7.0)
+      activerecord (>= 4.2, < 7.0)
+      request_store (~> 1.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -190,6 +194,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.0)
+    request_store (1.5.0)
+      rack (>= 1.4)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -263,6 +269,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   carrierwave-aliyun
+  globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   puma (~> 4.1)
