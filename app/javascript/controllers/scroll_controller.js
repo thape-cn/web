@@ -69,7 +69,10 @@ export default class extends Controller {
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit);
 
-    scroller.resize();
+
+    setTimeout(() => {
+      scroller.resize();
+    }, 200)
   }
 
   layout() {
