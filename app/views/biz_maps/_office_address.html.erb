@@ -1,3 +1,4 @@
+<% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
 <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
   <% if m.alt_name.present? %>
     <h1 class="text-2xl font-medium leading-tight"><%= m.long_name -%></h1>
@@ -6,25 +7,25 @@
     <h1 class="text-2xl font-medium leading-tight <%= defined?(pb) ? pb : 'pb-2' -%>"><%= m.long_name -%></h1>
   <% end %>
   <label class="float-left">地址：</label>
-    <p class="ml-20"><%= m.address -%></p>
+    <p class="<%= mlp -%>"><%= m.address -%></p>
   <% if m.tel.present? %>
     <label class="float-left">电话：</label>
-      <p class="ml-20"><%= m.tel -%></p>
+      <p class="<%= mlp -%>"><%= m.tel -%></p>
   <% end %>
   <% if m.marketing_phone.present? %>
     <label class="float-left">市场营销：</label>
-      <p class="ml-20"><%= m.marketing_phone -%></p>
+      <p class="<%= mlp -%>"><%= m.marketing_phone -%></p>
   <% end %>
   <% if m.media_phone.present? %>
     <label class="float-left">媒体：</label>
-      <p class="ml-20"><%= m.media_phone -%></p>
+      <p class="<%= mlp -%>"><%= m.media_phone -%></p>
   <% end %>
   <% if m.fax.present? %>
     <label class="float-left">传真：</label>
-      <p class="ml-20"><%= m.fax -%></p>
+      <p class="<%= mlp -%>"><%= m.fax -%></p>
   <% end %>
   <% if m.website_name.present? %>
     <label class="float-left">网址：</label>
-      <p class="ml-20"><%= link_to m.website_name, m.website_url -%></p>
+      <p class="<%= mlp -%>"><%= link_to m.website_name, m.website_url -%></p>
   <% end %>
 </div>
