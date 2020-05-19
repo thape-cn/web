@@ -1,4 +1,6 @@
-<dl class="w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 px-2 py-1 m-1 text-white bg-gray-400 hover:text-black6c hover:bg-gray-50 cursor-pointer">
+<dl class="w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 px-2 py-1 m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer"
+  x-bind:class="{ 'bg-gray-500': show_city == '<%= c -%>', 'bg-gray-400': show_city != '<%= c -%>' }"
+  x-on:click="show_city = '<%= c -%>'">
   <dt class="font-medium text-lg lg:text-xl text-center"><%= c -%></dt>
   <dd class="font-light text-center text-xs xxl:text-sm"><%= e -%></dd>
 </dl>
