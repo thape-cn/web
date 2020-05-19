@@ -20,5 +20,10 @@ class BizMapsController < ApplicationController
     @m_沈阳天华 = MapContact.find(2)
     @m_厦门天华 = MapContact.find(8)
     @m_青岛天华 = MapContact.find(12)
+    @m_南京天华 = MapContact.find(13)
+    @m_郑州天华 = MapContact.find(15)
+    @m_杭州天华 = MapContact.find(16)
+    @m_合肥天华 = MapContact.find(18)
+    @m_济南天华 = MapContact.find(10)
   end
 end
