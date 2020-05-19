@@ -4,7 +4,7 @@
     <h1 class="text-2xl font-medium leading-tight"><%= m.long_name -%></h1>
     <h1 class="text-2xl font-medium pb-1"><%= m.alt_name -%></h1>
   <% else %>
-    <h1 class="text-2xl font-medium leading-tight <%= defined?(pb) ? pb : 'pb-2' -%>"><%= m.long_name -%></h1>
+    <h1 class="text-2xl font-medium leading-tight pb-2"><%= m.long_name -%></h1>
   <% end %>
   <label class="float-left">地址：</label>
     <p class="<%= mlp -%>"><%= m.address -%></p>
