@@ -13,5 +13,6 @@ class BizMapsController < ApplicationController
     @m_深圳天华 = MapContact.find(9)
     @m_广州天华 = MapContact.find(17)
     @m_天津天华 = MapContact.find(11)
+    @m_重庆天华 = MapContact.find(6)
   end
 end
