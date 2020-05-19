@@ -10,5 +10,8 @@ class BizMapsController < ApplicationController
     @m_易衡光伏 = MapContact.find(30)
     @m_易湃环境 = MapContact.find(31)
     @m_北京天华 = MapContact.find(3)
+    @m_深圳天华 = MapContact.find(9)
+    @m_广州天华 = MapContact.find(17)
+    @m_天津天华 = MapContact.find(11)
   end
 end
