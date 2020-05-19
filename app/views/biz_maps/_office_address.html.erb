@@ -1,11 +1,30 @@
-<div class="w-1/2 leading-loose">
-  <h1 class="text-2xl font-medium"><%= m.long_name -%></h1>
+<div class="w-1/2 leading-loose my-6">
+  <% if m.alt_name.present? %>
+    <h1 class="text-2xl font-medium leading-snug"><%= m.long_name -%></h1>
+    <h1 class="text-2xl font-medium"><%= m.alt_name -%></h1>
+  <% else %>
+    <h1 class="text-2xl font-medium"><%= m.long_name -%></h1>
+  <% end %>
   <label class="float-left">地址：</label>
     <p class="ml-20"><%= m.address -%></p>
-  <label class="float-left">电话：</label>
-    <p class="ml-20"><%= m.tel -%></p>
+  <% if m.tel.present? %>
+    <label class="float-left">电话：</label>
+      <p class="ml-20"><%= m.tel -%></p>
+  <% end %>
+  <% if m.marketing_phone.present? %>
+    <label class="float-left">市场营销：</label>
+      <p class="ml-20"><%= m.marketing_phone -%></p>
+  <% end %>
+  <% if m.media_phone.present? %>
+    <label class="float-left">媒体：</label>
+      <p class="ml-20"><%= m.media_phone -%></p>
+  <% end %>
   <% if m.fax.present? %>
-  <label class="float-left">传真：</label>
-    <p class="ml-20"><%= m.fax -%></p>
+    <label class="float-left">传真：</label>
+      <p class="ml-20"><%= m.fax -%></p>
+  <% end %>
+  <% if m.website_name.present? %>
+    <label class="float-left">网址：</label>
+      <p class="ml-20"><%= link_to m.website_name, m.website_url -%></p>
   <% end %>
 </div>
