@@ -778,7 +778,7 @@
   resolved "https://registry.npm.taobao.org/@csstools/convert-colors/download/@csstools/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha1-rUldxBsS511YjG24uYNPCPoTHrc=
 
-"@fullhuman/postcss-purgecss@^2.1.2":
+"@fullhuman/postcss-purgecss@^2.1.2", "@fullhuman/postcss-purgecss@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/@fullhuman/postcss-purgecss/download/@fullhuman/postcss-purgecss-2.2.0.tgz#2b3699287163ff515f25ccdae5b96a244eebb41a"
   integrity sha1-KzaZKHFj/1FfJcza5blqJE7rtBo=
@@ -1158,7 +1158,7 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.npm.taobao.org/alphanum-sort/download/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-alpinejs@^2.3.3:
+alpinejs@^2.3.5:
   version "2.3.5"
   resolved "https://registry.npm.taobao.org/alpinejs/download/alpinejs-2.3.5.tgz#f077d535979cc7e565d8af3365779cee3b5246e1"
   integrity sha1-8HfVNZecx+Vl2K8zZXec7jtSRuE=
