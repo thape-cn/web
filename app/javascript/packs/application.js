@@ -17,7 +17,8 @@ const images = require.context('../images', false, /\.(png|jpe?g|svg)$/i)
 importAll(images)
 const imagePath = (name) => images(name, true)
 
-import 'alpinejs'
+import "intersection-observer"
+import "alpinejs"
 import "controllers"
 import "stylesheets/application"
 
