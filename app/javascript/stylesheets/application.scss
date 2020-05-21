@@ -115,6 +115,22 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
+.map-dot-b::before {
+  content: "•";
+}
+
+.map-dot-a::after {
+  content: "•";
+}
+
+.map-star-b::before {
+  content: "★";
+}
+
+.map-star-a::after {
+  content: "★";
+}
+
 @keyframes animation-to-white {
   0% {
     background-color: initial;
