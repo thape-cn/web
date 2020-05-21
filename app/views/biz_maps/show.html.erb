@@ -1,3 +1,8 @@
+<div data-controller="scroll"
+     data-action="resize@window->scroll#layout"
+     data-scroll-offset="0.55"
+     data-scroll-threshold="0.15"
+     data-scroll-amplify_rate="3">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
 <div class="relative">
@@ -24,7 +29,7 @@
 </div>
 
 <div x-data="{ show_city: '上海' }">
-  <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16">
+  <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
     <div class="w-1/2" >
       <%= image_pack_tag 'media/images/china_map.png' -%>
     </div>
@@ -145,7 +150,9 @@
       </div>
     </div>
   </div>
+</div>
 
+<div x-data="{ show_city: '上海' }">
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-footer-gray">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
       <header class="px-4 pt-2 pb-1 sm:px-6">
@@ -245,3 +252,4 @@
 <%= render partial: 'shared/guest_form' %>
 
 <%= render partial: 'shared/footer' %>
+</div>
