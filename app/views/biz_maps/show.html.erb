@@ -53,6 +53,15 @@
       <%= render partial: 'map_address', locals: {c: '太原', m: @m_太原天华 } -%>
       <%= render partial: 'map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
       <%= render partial: 'map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海城规', m: @m_上海城规 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
+      <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
+      <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
+      <%= render partial: 'map_address', locals: {c: '易衡光伏', m: @m_易衡光伏 } -%>
+      <%= render partial: 'map_address', locals: {c: '易湃环境', m: @m_易湃环境 } -%>
 
       <div class="absolute" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
@@ -177,38 +186,38 @@
           x-bind:class="{ 'bg-gray-100': show_city == '香港', 'bg-gray-50': show_city != '香港' }"
           x-on:click="show_city = '香港'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">易<br />爱<br />迪<br />︵<br />上<br />海<br />︶</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海易爱迪', 'bg-gray-50': show_city != '上海易爱迪' }"
+          x-on:click="show_city = '上海易爱迪'">易<br />爱<br />迪<br />︵<br />上<br />海<br />︶</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上<br />海<br />A<br />I<br />C<br />O<br />建<br />筑</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海爱坤', 'bg-gray-50': show_city != '上海爱坤' }"
+          x-on:click="show_city = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />建<br />筑</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上<br />海<br />A<br />I<br />C<br />O<br />室<br />内</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海爱坤', 'bg-gray-50': show_city != '上海爱坤' }"
+          x-on:click="show_city = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />室<br />内</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海天华规划</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海城规', 'bg-gray-50': show_city != '上海城规' }"
+          x-on:click="show_city = '上海城规'">上海天华规划</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海天华室内</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海室内', 'bg-gray-50': show_city != '上海室内' }"
+          x-on:click="show_city = '上海室内'">上海天华室内</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">易术家互娱科技</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '易术家互娱', 'bg-gray-50': show_city != '易术家互娱' }"
+          x-on:click="show_city = '易术家互娱'">易术家互娱科技</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海易衡光伏</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '易衡光伏', 'bg-gray-50': show_city != '易衡光伏' }"
+          x-on:click="show_city = '易衡光伏'">上海易衡光伏</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海天华景观</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '上海园林', 'bg-gray-50': show_city != '上海园林' }"
+          x-on:click="show_city = '上海园林'">上海天华景观</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海易湃环境工程</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '易湃环境', 'bg-gray-50': show_city != '易湃环境' }"
+          x-on:click="show_city = '易湃环境'">上海易湃环境工程</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海虹核审图</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '虹核审图', 'bg-gray-50': show_city != '虹核审图' }"
+          x-on:click="show_city = '虹核审图'">上海虹核审图</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海', 'bg-gray-50': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海环境研究中心</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '易湃环境', 'bg-gray-50': show_city != '易湃环境' }"
+          x-on:click="show_city = '易湃环境'">上海环境研究中心</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
           x-bind:class="{ 'bg-gray-100': show_city == '武汉', 'bg-gray-50': show_city != '武汉' }"
           x-on:click="show_city = '武汉'">武汉天华易筑室内</div>
