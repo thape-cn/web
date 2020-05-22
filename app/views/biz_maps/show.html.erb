@@ -32,6 +32,28 @@
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
     <div class="relative w-1/2" >
       <%= image_pack_tag 'media/images/china_map.png' -%>
+      <%= render partial: 'map_address', locals: {c: '北京', m: @m_北京天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '深圳', m: @m_深圳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '广州', m: @m_广州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '天津', m: @m_天津天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '重庆', m: @m_重庆天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '武汉', m: @m_武汉天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '成都', m: @m_成都天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '西安', m: @m_西安天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '沈阳', m: @m_沈阳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '厦门', m: @m_厦门天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '青岛', m: @m_青岛天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '南京', m: @m_南京天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '郑州', m: @m_郑州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '杭州', m: @m_杭州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '合肥', m: @m_合肥天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '济南', m: @m_济南天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '贵阳', m: @m_贵阳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '太原', m: @m_太原天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+
       <div class="absolute" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
       <div class="absolute" style="left:65%;top:38%;"
