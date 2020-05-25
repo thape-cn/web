@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news, only: [:show]
+  resources :news, only: %i[index show]
 
   root 'home#show'
 end
