@@ -56,4 +56,37 @@
   </div>
 </div>
 
+<div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 my-2">
+  <div class="relative overflow-hidden bg-black">
+    <%= image_pack_tag 'media/images/about-g1.jpg', class: 'grid-mask-image hover:scale-105' -%>
+    <div class="absolute text-white left-6 bottom-4">
+      <p class="text-xl text-left pb-1 font-medium">研究</p>
+      <p class="text-lg text-left leading-snug">RESEARCH</p>
+    </div>
+  </div>
+  <div class="relative overflow-hidden bg-black">
+    <%= image_pack_tag 'media/images/about-g2.jpg', class: 'grid-mask-image hover:scale-105' -%>
+    <div class="absolute text-white left-6 bottom-4">
+      <p class="text-xl text-left pb-1 font-medium">THDL</p>
+      <p class="text-lg text-left leading-snug">Tianhua Design Lab</p>
+    </div>
+  </div>
+  <div class="relative overflow-hidden bg-black">
+    <%= image_pack_tag 'media/images/about-g3.jpg', class: 'grid-mask-image hover:scale-105' -%>
+    <div class="absolute text-white left-6 bottom-4">
+      <p class="text-xl text-left pb-1 font-medium">T+ </p>
+      <p class="text-lg text-left leading-snug">T Plus</p>
+    </div>
+  </div>
+  <div class="relative overflow-hidden bg-black">
+    <a href="<%= work_path(id: 1) -%>" class="cursor-pointer">
+      <%= image_pack_tag 'media/images/about-g4.jpg', class: 'grid-mask-image hover:scale-105' -%>
+      <div class="absolute text-white left-6 bottom-4">
+        <p class="text-xl text-left pb-1 font-medium">黑标住宅</p>
+        <p class="text-lg text-left leading-snug">PERFECTION PURSUER</p>
+      </div>
+    </a>
+  </div>
+</div>
+
 <%= render partial: 'shared/footer' %>
