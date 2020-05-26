@@ -1,5 +1,5 @@
 <div id="thape-nav-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-  <a href="#" class="mr-3 font-medium <%= a_link_class -%>">介绍</a>·
+  <a href="<%= about_path -%>" class="mr-3 font-medium <%= a_link_class -%>">介绍</a>·
   <a href="<%= works_path -%>" class="mx-3 font-medium <%= a_link_class -%>"
     x-on:mouseenter="show_works_menu = true; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">作品</a>·
   <a href="<%= building_path -%>" class="mx-3 font-medium <%= a_link_class -%>"

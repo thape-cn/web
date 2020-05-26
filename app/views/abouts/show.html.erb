@@ -1,3 +1,42 @@
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: false } -%>
 
+<div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6], show_left_btn: false, show_right_btn: false }"
+  data-controller="carousel"
+  data-carousel-refresh-interval="5000">
+  <%= image_pack_tag 'media/images/about-h1.jpg', 'x-show': 'activeSlide === 1' -%>
+  <%= image_pack_tag 'media/images/work-item-h2.jpg', 'x-show': 'activeSlide === 2' -%>
+  <%= image_pack_tag 'media/images/work-item-h3.jpg', 'x-show': 'activeSlide === 3' -%>
+
+  <div class="absolute inset-0 w-full flex">
+      <div class="w-1/4 flex justify-start items-center"
+        x-on:mouseenter="show_left_btn = true"
+        x-on:mouseleave="show_left_btn = false">
+        <button
+          x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+          <svg class="ml-2 pt-1 w-8 h-12 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+            x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
+              <g transform="matrix(1,0,0,1,-136,-229)">
+                  <path d="M158.061,231.969L140.029,250L158.061,268.031C158.646,268.617 158.646,269.567 158.061,270.153C157.475,270.738 156.525,270.738 155.939,270.153L136.847,251.061C136.262,250.475 136.262,249.525 136.847,248.939L155.939,229.847C156.525,229.262 157.475,229.262 158.061,229.847C158.646,230.433 158.646,231.383 158.061,231.969Z" />
+              </g>
+          </svg>
+        </button>
+      </div>
+      <div class="w-2/4" data-action="mouseenter->carousel#stop_rotate mouseleave->carousel#start_rotate"></div>
+      <div class="w-1/4 flex justify-end items-center"
+        x-on:mouseenter="show_right_btn = true"
+        x-on:mouseleave="show_right_btn = false">
+        <button
+          data-target="carousel.nextSlide"\
+          x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
+          <svg class="pt-1 w-8 h-12 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+            x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
+              <g transform="matrix(1,0,0,1,-334,-229)">
+                  <path d="M355.561,250.539L336.577,269.53C335.995,270.113 335.05,270.113 334.468,269.53C333.885,268.947 333.885,268.003 334.468,267.42L352.397,249.484L334.468,231.549C333.885,230.966 333.885,230.022 334.468,229.439C335.05,228.856 335.995,228.856 336.577,229.439L355.561,248.429C356.144,249.012 356.144,249.957 355.561,250.539Z" />
+              </g>
+          </svg>
+        </button>
+      </div>
+  </div>
+</div>
+
 <%= render partial: 'shared/footer' %>
