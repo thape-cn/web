@@ -3,9 +3,12 @@
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6], show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
   data-carousel-refresh-interval="5000">
-  <%= image_pack_tag 'media/images/about-h1.jpg', 'x-show': 'activeSlide === 1' -%>
-  <%= image_pack_tag 'media/images/work-item-h2.jpg', 'x-show': 'activeSlide === 2' -%>
-  <%= image_pack_tag 'media/images/work-item-h3.jpg', 'x-show': 'activeSlide === 3' -%>
+  <%= image_pack_tag 'media/images/about-h1.jpg', 'x-show': 'activeSlide === 1', class: "pt-12" -%>
+  <%= image_pack_tag 'media/images/about-h2.jpg', 'x-show': 'activeSlide === 2', class: "pt-12" -%>
+  <%= image_pack_tag 'media/images/about-h3.jpg', 'x-show': 'activeSlide === 3', class: "pt-12" -%>
+  <%= image_pack_tag 'media/images/about-h4.jpg', 'x-show': 'activeSlide === 4', class: "pt-12" -%>
+  <%= image_pack_tag 'media/images/about-h5.jpg', 'x-show': 'activeSlide === 5', class: "pt-12" -%>
+  <%= image_pack_tag 'media/images/about-h6.jpg', 'x-show': 'activeSlide === 6', class: "pt-12" -%>
 
   <div class="absolute inset-0 w-full flex">
       <div class="w-1/4 flex justify-start items-center"
