@@ -59,7 +59,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 my-2">
   <div class="relative overflow-hidden bg-black" x-data="{ show_g1: false }" x-on:mouseenter="show_g1 = true" x-on:mouseleave="show_g1 = false">
     <%= image_pack_tag 'media/images/about-g1.jpg', class: 'grid-mask-image hover:scale-105' -%>
-    <div class="absolute text-white left-6 bottom-4">
+    <div class="absolute text-white left-6 bottom-4" x-show="!show_g1">
       <p class="text-xl text-left pb-1 font-medium">研究</p>
       <p class="text-lg text-left leading-snug">RESEARCH</p>
     </div>
