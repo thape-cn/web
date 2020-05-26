@@ -1,7 +1,7 @@
 <div class="<%= news_class -%>">
-  <%= image_tag news_image_url, class: 'grid-image' -%>
-  <div class="grid-text-container left-2 bottom-2">
-    <p class="text-left pb-1 font-medium"><%= title -%></p>
-    <p class="text-sm text-left font-light leading-snug"><%= sub_title -%></p>
+  <%= image_tag info.snapshot.url, class: 'grid-image grid-mask-image hover:scale-105' -%>
+  <div class="absolute text-white left-2 bottom-2">
+    <p class="text-left pb-1 font-medium"><%= link_to info.title, news_path(id: info.id) -%></p>
+    <p class="text-sm text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
   </div>
 </div>
