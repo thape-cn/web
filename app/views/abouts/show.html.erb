@@ -57,11 +57,25 @@
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 my-2">
-  <div class="relative overflow-hidden bg-black">
+  <div class="relative overflow-hidden bg-black" x-data="{ show_g1: false }" x-on:mouseenter="show_g1 = true" x-on:mouseleave="show_g1 = false">
     <%= image_pack_tag 'media/images/about-g1.jpg', class: 'grid-mask-image hover:scale-105' -%>
     <div class="absolute text-white left-6 bottom-4">
       <p class="text-xl text-left pb-1 font-medium">研究</p>
       <p class="text-lg text-left leading-snug">RESEARCH</p>
+    </div>
+    <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g1"
+      x-transition:enter="transition ease-linear duration-200"
+      x-transition:enter-start="opacity-0 transform -translate-x-1/2"
+      x-transition:enter-end="opacity-100 transform translate-x-0"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100 transform translate-x-0"
+      x-transition:leave-end="opacity-0 transform -translate-x-1/2">
+      <div class="w-7/12 xxl:w-2/3 mt-32 ml-10">
+        <h1 class="text-2xl xl:text-3xl text-left pb-1 font-semibold">研究</h1>
+        <h2 class="text-xl xl:text-2xl text-left leading-snug">RESEARCH</h2>
+        <h3 class="mt-8 xl:mt-10 xxl:mt-12 text-base xl:text-lg xxl:text-xl font-bold text-left">技术赋能设计——基于创新的研究</h3>
+        <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify">基于社会责任感和对设计品质的执着追求，天华近年相继前瞻性地成立了八大研究中心，积极探索和研发相关课题，发挥大型综合设计企业的优势，与境内外高校联合展开多项探索性研究，策略和实践双轮驱动，在上述领域积累了丰富的策略、技术和实践成果，组建了天华的专家团队。</p>
+      </div>
     </div>
   </div>
   <div class="relative overflow-hidden bg-black">
