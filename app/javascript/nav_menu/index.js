@@ -79,11 +79,13 @@ function turnWhite() {
   thapeNavLangswitch.classList.add("text-thape-guest-gray");
   turnNavContainer('thape-services-container','white');
   turnNavContainer('thape-works-container','white');
+  turnNavContainer('thape-about-container','white');
 }
 
 function turnTransparent() {
   const thapeNavLangswitch = document.getElementById('thape-nav-langswitch');
 
+  turnNavContainer('thape-about-container','transparent');
   turnNavContainer('thape-works-container','transparent');
   turnNavContainer('thape-services-container','transparent');
   turnNavContainer('thape-nav-container','transparent');
