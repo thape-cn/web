@@ -2,7 +2,13 @@
   x-data="{ show_grid_text: false }"
   x-on:mouseenter="show_grid_text = true"
   x-on:mouseleave="show_grid_text = false">
-  <%= image_pack_tag prj_image, class: 'grid-image hover:mask hover:scale-105' -%>
+  <picture class="grid-image hover:mask hover:scale-105">
+    <% if prj_webp.present? %>
+      <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
+    <% end %>
+    <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
+    <img src="<%= asset_pack_path(prj_image) -%>" class="grid-image hover:mask hover:scale-105">
+  </picture>
   <div class="absolute text-white left-6 bottom-4"
     x-transition:enter="transition ease-linear duration-200"
     x-transition:enter-start="opacity-0 transform translate-y-4"

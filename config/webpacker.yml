@@ -30,6 +30,7 @@ default: &default
     - .eot
     - .otf
     - .ttf
+    - .webp
     - .woff
     - .woff2
 

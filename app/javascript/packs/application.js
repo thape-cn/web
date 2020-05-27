@@ -13,7 +13,7 @@ require("channels")
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 const importAll = (r) => r.keys().map(r)
-const images = require.context('../images', false, /\.(png|jpe?g|svg)$/i)
+const images = require.context('../images', false, /\.(png|jpe?g|svg|webp)$/i)
 importAll(images)
 const imagePath = (name) => images(name, true)
 
