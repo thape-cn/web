@@ -17,14 +17,15 @@
       <%= render partial: 'search_form' %>
     </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT', header_path: managements_path } %>
+  <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT', header_path: managements_path, header_class: 'pt-0' } %>
 </div>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
+
 </div>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'SPECIALITY', header_path: managements_path } %>
+  <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'SPECIALITY', header_path: managements_path, header_class: 'pt-16' } %>
 </div>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
