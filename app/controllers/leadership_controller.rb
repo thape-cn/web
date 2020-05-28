@@ -1,0 +1,14 @@
+class LeadershipController < ApplicationController
+  def index
+    @management_people = Person.where(leaving_date: nil).where(category: 1)
+      .order(position: :asc).limit(12)
+
+    @speciality_people = Person.where(leaving_date: nil).where(category: 2)
+      .order(position: :asc).limit(12)
+  end
+
+  def show
+    @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
+      || Person.where(leaving_date: nil).find_by!(url_name: params[:id])
+  end
+end

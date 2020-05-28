@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :managements, only: [:index, :show]
+  resources :leadership, only: [:index, :show]
 
   resource :about, only: %i[show]
   get 'about-us', to: 'abouts#about_us'
