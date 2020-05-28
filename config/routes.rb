@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       get :"residential-rental"
     end
   end
-  resources :management, only: [:index, :show]
+  resources :managements, only: [:index, :show]
 
   resource :about, only: %i[show]
   get 'about-us', to: 'abouts#about_us'

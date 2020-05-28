@@ -1,4 +1,4 @@
-class ManagementController < ApplicationController
+class ManagementsController < ApplicationController
   def index
     @people = Person.where(leaving_date: nil).where(category: 1)
       .order(position: :asc)
