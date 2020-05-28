@@ -1,19 +1,12 @@
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: false } -%>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <header class="pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
-      <h1 class="inline-block text-3xl font-bold text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">
-          <span class="h1-cap">租</span>赁住房
-        </a>
-      </h1>
-      <h2 class="inline-block text-2xl text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70"></a>
-      </h2>
-      <div class="inline-block float-right">
-        <%= render partial: 'shared/search_form' %>
-      </div>
-  </header>
+  <%- content_for :header_right do %>
+    <div class="inline-block float-right">
+      <%= render partial: 'shared/search_form' %>
+    </div>
+  <% end %>
+  <%= render partial: 'shared/header', locals: { c: '租赁住房', e: 'RENTAL', header_path: residential_rental_works_path } %>
 
   <ol class="pt-3">
     <li class="inline-block">

@@ -1,16 +1,8 @@
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: false } -%>
 
 <div class="w-full screen-min-height mx-auto sm:py-4 md:py-8 px-24 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
-  <header class="pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
-      <h1 class="inline-block text-3xl font-bold text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">
-          <span class="h1-cap">网</span>站声明
-        </a>
-      </h1>
-      <h2 class="inline-block text-2xl text-black6c">
-        <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">WEBSITE STATEMENT</a>
-      </h2>
-  </header>
+  <%= render partial: 'shared/header', locals: { c: '网站声明', e: 'WEBSITE STATEMENT', header_path: statement_sites_path } %>
+
   <main class="my-4 lg:my-2 xl:my-0">
     <h1 class="text-xl font-bold text-black6c py-2 my-2">1.访问条件</h1>
     <p class="text-base font-normal leading-relaxed">本网站中的信息和材料由上海天华建筑设计有限公司（以下简称天华）提供，仅供参考。请在访问、使用本网站之前，仔细阅读下述条款和条件。一旦访问、使用本网站或下载本网站材料，即被视为同意遵守下文及本网站其他地方载明的条款和条件。如果不同意这些条款和条件，请停止访问本网站或下载本网站材料。如果继续访问本网站，将视为已阅读、理解并同意遵守条款和条件，遵守所有相关法律法规。天华有权不时修订与本网站有关的条款和条件。建议您间或重新阅读，以便了解条款和条件的变动。 一旦您在我们张贴条款变动后访问网站，即视为您确认同意修订后的条款。</p>
