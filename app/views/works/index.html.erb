@@ -3,7 +3,7 @@
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <%- content_for :header_right do %>
     <div class="inline-block float-right">
-      <%= render partial: 'shared/search_form' %>
+      <%= render partial: 'search_form' %>
     </div>
   <% end %>
   <%= render partial: 'shared/header', locals: { c: '所有项目', e: 'PROJECTS', header_path: works_path } %>
