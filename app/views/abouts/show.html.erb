@@ -2,6 +2,7 @@
 
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6], show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
+  data-carousel-turn-white="true"
   data-carousel-refresh-interval="5000">
   <%= image_pack_tag 'media/images/about-h1.jpg', 'x-show': 'activeSlide === 1', class: "pt-12" -%>
   <%= image_pack_tag 'media/images/about-h2.jpg', 'x-show': 'activeSlide === 2', class: "pt-12" -%>

@@ -7,6 +7,7 @@
 
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3], show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
+  data-carousel-turn-transparent="true"
   data-carousel-refresh-interval="5000">
   <%= image_pack_tag 'media/images/work-item-h1.jpg', 'x-show': 'activeSlide === 1' -%>
   <%= image_pack_tag 'media/images/work-item-h2.jpg', 'x-show': 'activeSlide === 2' -%>
