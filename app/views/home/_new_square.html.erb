@@ -10,12 +10,12 @@
     x-transition:leave-end="opacity-0 transform -translate-x-1/2"
   >
     <div class="my-6 mx-6">
-      <p class="text-3xl text-justify font-medium"><%= Date::ABBR_MONTHNAMES[news_date.month] -%></p>
-      <p class="text-5xl text-justify tracking-widest font-medium leading-9"><%= news_date.day -%></p>
+      <p class="text-3xl text-justify font-bold"><%= Date::ABBR_MONTHNAMES[news_date.month] -%></p>
+      <p class="text-5xl text-justify tracking-widest font-bold leading-9"><%= news_date.day -%></p>
     </div>
     <div class="mb-10 mx-6">
-      <p class="font-medium text-2xl text-left pb-1 leading-snug text-justify"><%= title -%></p>
-      <p class="font-light text-left leading-6 mt-2"><%= sub_title -%></p>
+      <p class="font-medium text-2xl xxl:text-3xl text-left pb-1 leading-snug text-justify"><%= title -%></p>
+      <p class="font-light xxl:text-lg text-left leading-6 mt-2"><%= sub_title -%></p>
     </div>
   </div>
 </div>
