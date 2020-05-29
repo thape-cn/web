@@ -4,7 +4,7 @@
     x-on:mouseenter.debounce="show_about_menu = true">介绍</a>·
   <a href="<%= works_path -%>" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>"
-    x-on:mouseenter.debounce="show_works_menu = true">作品</a>·
+    x-on:mouseenter.debounce="show_works_menu = true" id="nav-works-item">作品</a>·
   <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>"
     x-on:mouseenter.debounce="show_service_menu = true">服务</a>·
