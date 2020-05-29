@@ -46,6 +46,7 @@ function turnLogoTo(logo_style) {
 
 function turnNavContainer(container_id, container_style) {
   const thapeNavContainer = document.getElementById(container_id);
+  const current_path = window.location.href;
 
   if (container_style == 'white') {
     for (let a of thapeNavContainer.children) {
@@ -54,6 +55,9 @@ function turnNavContainer(container_id, container_style) {
       c.add("focus:text-black6c");
       c.remove("hover:text-white");
       c.remove("focus:text-white");
+      if (a.href == current_path) {
+        c.add("text-black6c");
+      }
     }
     thapeNavContainer.classList.remove("text-thape-white-t80");
     thapeNavContainer.classList.add("text-thape-copyright-gray");
@@ -66,6 +70,9 @@ function turnNavContainer(container_id, container_style) {
       c.remove("focus:text-black6c");
       c.add("hover:text-white");
       c.add("focus:text-white");
+      if (a.href == current_path) {
+        c.remove("text-black6c");
+      }
     }
   }
 }
