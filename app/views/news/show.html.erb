@@ -10,7 +10,7 @@
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
   <div class="my-6">
     <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl">
-      <div class="space-y-8 pb-6 border-gray-200 border-solid border-b">
+      <div class="space-y-8 w-2/3 pb-6 border-gray-200 border-solid border-b">
         <h3>推荐阅读</h3>
         <figure class="space-y-2">
           <%= image_pack_tag 'media/images/aside-1.jpg', class: 'w-full' -%>
@@ -39,12 +39,18 @@
             <p class="py-2 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= @info.created_at.year -%></p>
           </div>
           <div class="m-1">
-            <h1 class="p-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-none">
-              <%= @info.title -%>
-            </h1>
-            <h2 class="p-1 text-xl xxxl:text-2xl text-justify">
-              <%= @info.seo_description -%>
-            </h2>
+            <% if @info.seo_description.present? %>
+              <h1 class="p-1 text-2xl xxxl:text-3xl text-justify font-bold break-all leading-none">
+                <%= @info.title -%>
+              </h1>
+              <h2 class="p-1 text-lg xxxl:text-xl text-justify">
+                <%= @info.seo_description -%>
+              </h2>
+            <% else %>
+              <h1 class="p-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-none">
+                <%= @info.title -%>
+              </h1>
+            <% end %>
           </div>
 
         </header>
