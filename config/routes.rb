@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resource :about, only: %i[show]
   get 'about-us', to: 'abouts#about_us'
+  get 'culture', to: 'abouts#culture'
 
   get 'building', to: "services#building"
   get 'interior', to: "services#interior"
