@@ -5,23 +5,22 @@
 
 <div class="relative h-screen">
   <%= image_pack_tag background_img, data: { target: "service.bgImg" } -%>
-  <div class="absolute bottom-0 inset-x-0 bg-white h-48 opacity-75" data-target="service.introDiv">
-    <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
-      <dt class="font-medium text-black6c py-4 px-5">
-        <h1 class="text-3xl font-bold whitespace-no-wrap opacity-100"><%= chinese_title -%></h1>
-        <h2 class="text-xl font-medium whitespace-no-wrap opacity-100"><%= english_title -%></h2>
+  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-48" data-target="service.introDiv">
+    <div class="text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+      <dt class="flex flex-col justify-center font-medium px-5">
+        <h1 class="text-3xl font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
+        <h2 class="text-xl font-medium whitespace-no-wrap"><%= english_title -%></h2>
         <% if defined? link_site_url %>
           <div class="pt-8">
-            <a href="<%= link_site_url -%>" class="font-light pb-1 border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
+            <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
           </div>
-        <% end  %>
+        <% end %>
       </dt>
-      <dd class="text-sm font-light text-black6c text-justify pt-5 px-5 sm:pb-4">
-        <p class="opacity-100"><%= p1 -%></p>
-        <p class="opacity-100"><%= p2 -%></p>
+      <dd class="flex flex-col justify-center items-center text-sm font-light text-justify px-5">
+        <p class="font-semibold"><%= p1 -%></p>
+        <p class="font-semibold"><%= p2 -%></p>
       </dd>
     </div>
   </div>
 </div>
-
 </div>

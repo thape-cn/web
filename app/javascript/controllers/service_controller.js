@@ -5,9 +5,9 @@ export default class extends Controller {
 
   resize() {
     if (this.bgImgTarget.height >= window.innerHeight) {
-      this.introDivTarget.classList.add("opacity-75");
+      this.introDivTarget.classList.add("bg-thape-white-t80");
     } else {
-      this.introDivTarget.classList.remove("opacity-75");
+      this.introDivTarget.classList.remove("bg-thape-white-t80");
     }
   }
 
