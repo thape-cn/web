@@ -65,22 +65,14 @@
     h1: 'THDL', h2: 'TIANHUA DESIGN LAB', h3: 'Tianhua Design Lab (THDL) ——关于设计与人的研究室、实验室和孵化器',
     p1: 'THDL是专门为青年建筑师量身打造的平台，为他们架起梦想与现实之间的桥，呵护他们的锐气和对建筑的热情，也让他们的梦想和创新与扎实的专业能力提升相辅相成，不会成为脱离市场需求的空中楼阁。',
     p2: '建筑设计有很多只可意会不可言传的隐性知识的传承，而世界正以从未有过的速度日新月异地变化，60后到90后的成员结构，是THDL的黄金组合。' } %>
-  <div class="relative overflow-hidden bg-black">
-    <%= image_pack_tag 'media/images/about-g3.jpg', class: 'grid-mask-image hover:scale-105' -%>
-    <div class="absolute text-white left-6 bottom-4">
-      <p class="text-xl text-left pb-1 font-medium">T+ </p>
-      <p class="text-lg text-left leading-snug">T Plus</p>
-    </div>
-  </div>
-  <div class="relative overflow-hidden bg-black">
-    <a href="<%= work_path(id: 1) -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/about-g4.jpg', class: 'grid-mask-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4">
-        <p class="text-xl text-left pb-1 font-medium">黑标住宅</p>
-        <p class="text-lg text-left leading-snug">PERFECTION PURSUER</p>
-      </div>
-    </a>
-  </div>
+  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g3.jpg',
+    h1: 'T+ ', h2: 'T Plus', h3: '技术赋能设计；综合设计+创意',
+    p1: 'T+的目标：综合设计的完整实现+研发驱动创新体验设计。',
+    p2: 'T+的核心：以公司VP为核心的工作方式+雄厚的人才储备（70%名校精英）+一流国际事务所认可的专业水平，在天华建筑设计品牌的积淀下成立的集专业与创意的高端公建综合设计平台。' } %>
+  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g4.jpg',
+    h1: '黑标住宅 ', h2: 'PERFECTION PURSUER', h3: '',
+    p1: '通过全球视野与本地文化的融会贯通在天华建筑设计品牌的积淀下成立的集专业与创意的高端居住产品线。',
+    p2: '' } %>
 </div>
 
 <%= render partial: 'shared/footer' %>
