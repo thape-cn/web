@@ -5,9 +5,9 @@
 
 <div class="relative h-screen">
   <%= image_pack_tag background_img, data: { target: "service.bgImg" } -%>
-  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-48" data-target="service.introDiv">
+  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-56 xxl:h-48" data-target="service.introDiv">
     <div class="text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
-      <dt class="flex flex-col justify-center font-medium px-5">
+      <dt class="<%= service_mt -%> flex flex-col font-medium px-5">
         <h1 class="text-3xl font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
         <h2 class="text-xl font-medium whitespace-no-wrap"><%= english_title -%></h2>
         <% if defined? link_site_url %>
@@ -16,9 +16,9 @@
           </div>
         <% end %>
       </dt>
-      <dd class="flex flex-col justify-center font-light text-justify px-5">
-        <p class="xxl:text-lg text-justify font-semibold"><%= p1 -%></p>
-        <p class="xxl:text-lg text-justify font-semibold"><%= p2 -%></p>
+      <dd class="flex flex-col justify-center font-normal text-justify xxxl:text-lg text-base px-5">
+        <p><%= p1 -%></p>
+        <p><%= p2 -%></p>
       </dd>
     </div>
   </div>
