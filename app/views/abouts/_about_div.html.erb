@@ -16,7 +16,9 @@
       <h2 class="text-xl xl:text-2xl text-left leading-snug"><%= h2 -%></h2>
       <h3 class="mt-8 xl:mt-10 xxl:mt-12 text-base xl:text-lg xxl:text-xl font-bold text-left"><%= h3 -%></h3>
       <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify"><%= p1 -%></p>
-      <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify"><%= p2 -%></p>
+      <% if p2.present? %>
+        <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify"><%= p2 -%></p>
+      <% end %>
     </div>
   </div>
 </div>
