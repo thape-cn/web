@@ -2,7 +2,7 @@
 
 <div class="w-3/4 mx-auto flex pt-28">
   <div class="w-1/3">
-    <%= image_tag(@person.photo.url) %>
+    <%= image_tag(@person.photo.url), class: 'w-full' %>
     <div class="pt-10">
       <% if @infos.present? %>
           <h3 class="text-black6c text-sm">相关阅读</h3>
