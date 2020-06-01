@@ -1,11 +1,11 @@
 <div id="thape-nav-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-  <a href="<%= about_path -%>" class="mr-3 xxl:mr-4 font-medium <%= a_link_class -%>"
+  <a href="<%= about_path -%>" class="mr-3 xxl:mr-4 <%= controller_name == 'abouts' ? 'font-bold' : 'font-medium' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = true; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">介绍</a>·
-  <a href="<%= works_path -%>" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
+  <a href="<%= works_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'works' ? 'font-bold' : 'font-medium' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_works_menu = true; show_about_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>" id="nav-works-item">作品</a>·
-  <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
+  <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'services' ? 'font-bold' : 'font-medium' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_service_menu = true; show_about_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">服务</a>·
-  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
+  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'news' ? 'font-bold' : 'font-medium' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">新闻</a>·
   <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition" class="mx-3 xxl:mx-4 font-medium <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">招聘</a>·
