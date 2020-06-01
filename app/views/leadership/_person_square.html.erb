@@ -6,6 +6,8 @@
     <p class="text-sm text-center font-light leading-none"><%= titles.first -%></p>
     <% if titles.length > 1 %>
       <p class="text-sm text-center font-light leading-none">...</p>
+    <% else %>
+      <p class="text-sm text-center font-light leading-none">&nbsp</p>
     <% end %>
   </div>
 </div>
