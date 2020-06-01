@@ -1,4 +1,4 @@
-<div class="bg-thape-footer-gray py-3">
+<div class="bg-thape-footer-gray py-6">
   <div class="w-full mx-auto my-1 pt-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
     <nav class="relative flex items-center justify-between h-5 sm:h-10 md:justify-center">
       <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
@@ -24,10 +24,11 @@
       <p class="leading-loose">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
     </div>
 
-    <div class="text-thape-icon-gray text-center sm:text-right pt-4 sm:pt-10 pb-8 sm:w-48">
-      <%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-7 mx-2 sm:mr-2 sm:ml-0' %>
-      <%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-7 mx-2' %>
-      <%= image_pack_tag 'media/images/zhihu.svg', class: 'inline-block h-7 mx-2 sm:ml-2 sm:mr-0' %>
+    <div class="relative text-thape-icon-gray text-center sm:text-right pt-4 sm:pt-10 pb-8 sm:w-48" x-data="{ show_wechat_qr: false }">
+      <%= image_pack_tag 'media/images/wechat-qr.png', class: 'absolute bottom-0 right-36', "x-show": 'show_wechat_qr' %>
+      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-7 mx-2 sm:mr-2 sm:ml-0' -%></a>
+      <a href="http://weibo.com/thape" target="_blank"><%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-7 mx-2' %></a>
+      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank"><%= image_pack_tag 'media/images/zhihu.svg', class: 'inline-block h-7 mx-2 sm:ml-2 sm:mr-0' %></a>
     </div>
   </div>
 </div>
