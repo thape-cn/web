@@ -33,21 +33,21 @@
     <main class="w-full md:w-9/12 pr-4">
       <div class="max-w-screen-md md:mx-auto">
         <header class="flex mb-10">
-          <div class="bg-thape-footer-gray mx-2 my-1 w-24 h-24">
+          <div class="bg-thape-footer-gray w-24 h-24">
             <p class="px-3 text-black6c-t70 text-5xl text-justify font-bold tracking-thape leading-none">31</p>
             <p class="py-1 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
             <p class="py-2 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= @info.created_at.year -%></p>
           </div>
           <div class="m-1">
             <% if @info.seo_description.present? %>
-              <h1 class="p-1 text-2xl xxxl:text-3xl text-justify font-bold break-all leading-none">
+              <h1 class="p-1 text-2xl xxxl:text-3xl text-justify font-bold break-all leading-tight">
                 <%= @info.title -%>
               </h1>
               <h2 class="p-1 text-lg xxxl:text-xl text-justify">
                 <%= @info.seo_description -%>
               </h2>
             <% else %>
-              <h1 class="p-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-none">
+              <h1 class="p-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-tight">
                 <%= @info.title -%>
               </h1>
             <% end %>

@@ -3,11 +3,11 @@
   <div class="absolute text-white inset-x-0 bottom-0 mb-1">
     <p class="text-lg text-center font-medium"><%= link_to person.name, leadership_path(id: person.url_name) -%></p>
     <% titles = person.title.split(' ')  %>
-    <p class="text-sm text-center font-light leading-none"><%= titles.first -%></p>
+    <p class="text-sm text-center font-light leading-tight"><%= titles.first -%></p>
     <% if titles.length > 1 %>
-      <p class="text-sm text-center font-light leading-none">...</p>
+      <p class="text-sm text-center font-light leading-tight">...</p>
     <% else %>
-      <p class="text-sm text-center font-light leading-none">&nbsp</p>
+      <p class="text-sm text-center font-light leading-tight">&nbsp</p>
     <% end %>
   </div>
 </div>
