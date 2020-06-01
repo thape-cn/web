@@ -46,10 +46,9 @@ end
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-about-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
         <a href="<%= about_path -%>" class="mr-8 xxl:mr-8 font-medium <%= a_link_class -%>">关于天华</a>
-        <a href="<%= about_path -%>" class="ml-5 mr-6 xxl:mr-8 font-medium <%= a_link_class -%>">组织架构</a>
         <a href="<%= culture_path -%>" class="ml-5 mr-6 xxl:mr-10 font-medium <%= a_link_class -%>">企业文化</a>
         <a href="<%= leadership_index_path -%>" class="ml-5 mr-6 xxl:mr-8 font-medium <%= a_link_class -%>">集团高管</a>
-        <a href="<%= leadership_path(id: 'shanghai') -%>" class="ml-6 xxl:ml-8 font-medium <%= a_link_class -%>">区域团队</a>
+        <a href="<%= leadership_path(id: 'shanghai') -%>" class="ml-6 xxl:ml-8 mr-28 xxl:mr-32 font-medium <%= a_link_class -%>">区域团队</a>
       </div>
     </nav>
   </div>
