@@ -8,10 +8,10 @@
           <h3 class="text-black6c text-sm">相关阅读</h3>
           <% @infos.each do |info| %>
             <figure class="flex mt-1 mb-4">
-              <div class="w-1/3">
+              <div class="w-1/2">
                 <%= image_tag info.snapshot.url -%>
               </div>
-              <div class="w-2/3 flex flex-col justify-between">
+              <div class="w-1/2 flex flex-col justify-between">
                 <figcaption class="ml-2 text-xs text-gray-700 text-justify"><%= info.title -%></figcaption>
                 <p class="ml-2 font-light text-xs text-gray-700"><%= info.created_at.to_date -%></p>
               </div>
