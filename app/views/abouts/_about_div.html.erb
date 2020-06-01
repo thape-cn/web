@@ -1,0 +1,22 @@
+<div class="relative overflow-hidden bg-black" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
+  <%= image_pack_tag g_image, class: 'grid-mask-image hover:scale-105' -%>
+  <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
+    <h1 class="text-xl text-left pb-1 font-medium"><%= h1 -%></h1>
+    <h2 class="text-lg text-left leading-snug"><%= h2 -%></h2>
+  </div>
+  <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
+    x-transition:enter="transition ease-linear duration-200"
+    x-transition:enter-start="opacity-0 transform -translate-x-1/2"
+    x-transition:enter-end="opacity-100 transform translate-x-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 transform translate-x-0"
+    x-transition:leave-end="opacity-0 transform -translate-x-1/2">
+    <div class="w-7/12 xxl:w-2/3 mt-32 ml-10">
+      <h1 class="text-2xl xl:text-3xl text-left pb-1 font-semibold"><%= h1 -%></h1>
+      <h2 class="text-xl xl:text-2xl text-left leading-snug"><%= h2 -%></h2>
+      <h3 class="mt-8 xl:mt-10 xxl:mt-12 text-base xl:text-lg xxl:text-xl font-bold text-left"><%= h3 -%></h3>
+      <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify"><%= p1 -%></p>
+      <p class="mt-2 text-xs xl:text-sm xxl:text-base text-justify"><%= p2 -%></p>
+    </div>
+  </div>
+</div>

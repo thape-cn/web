@@ -56,15 +56,14 @@
     </div>
   </div>
 </div>
-
 <div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 my-2">
-  <div class="relative overflow-hidden bg-black" x-data="{ show_g1: false }" x-on:mouseenter="show_g1 = true" x-on:mouseleave="show_g1 = false">
+  <div class="relative overflow-hidden bg-black" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
     <%= image_pack_tag 'media/images/about-g1.jpg', class: 'grid-mask-image hover:scale-105' -%>
-    <div class="absolute text-white left-6 bottom-4" x-show="!show_g1">
+    <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
       <p class="text-xl text-left pb-1 font-medium">研究</p>
       <p class="text-lg text-left leading-snug">RESEARCH</p>
     </div>
-    <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g1"
+    <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left"
       x-transition:enter="transition ease-linear duration-200"
       x-transition:enter-start="opacity-0 transform -translate-x-1/2"
       x-transition:enter-end="opacity-100 transform translate-x-0"
@@ -79,13 +78,10 @@
       </div>
     </div>
   </div>
-  <div class="relative overflow-hidden bg-black">
-    <%= image_pack_tag 'media/images/about-g2.jpg', class: 'grid-mask-image hover:scale-105' -%>
-    <div class="absolute text-white left-6 bottom-4">
-      <p class="text-xl text-left pb-1 font-medium">THDL</p>
-      <p class="text-lg text-left leading-snug">Tianhua Design Lab</p>
-    </div>
-  </div>
+  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g2.jpg',
+    h1: 'THDL', h2: 'TIANHUA DESIGN LAB', h3: 'Tianhua Design Lab (THDL) ——关于设计与人的研究室、实验室和孵化器',
+    p1: 'THDL是专门为青年建筑师量身打造的平台，为他们架起梦想与现实之间的桥，呵护他们的锐气和对建筑的热情，也让他们的梦想和创新与扎实的专业能力提升相辅相成，不会成为脱离市场需求的空中楼阁。',
+    p2: '建筑设计有很多只可意会不可言传的隐性知识的传承，而世界正以从未有过的速度日新月异地变化，60后到90后的成员结构，是THDL的黄金组合。' } %>
   <div class="relative overflow-hidden bg-black">
     <%= image_pack_tag 'media/images/about-g3.jpg', class: 'grid-mask-image hover:scale-105' -%>
     <div class="absolute text-white left-6 bottom-4">
