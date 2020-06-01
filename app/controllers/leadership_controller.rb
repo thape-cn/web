@@ -1,10 +1,10 @@
 class LeadershipController < ApplicationController
   def index
     @management_people = Person.where(leaving_date: nil).where(category: 1)
-      .order(position: :asc).limit(12)
+      .order(position: :asc)
 
     @speciality_people = Person.where(leaving_date: nil).where(category: 2)
-      .order(position: :asc).limit(12)
+      .order(position: :asc)
   end
 
   def show
