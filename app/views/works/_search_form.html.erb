@@ -1,20 +1,38 @@
-<form action="#" method="POST">
-  <div class="inline-block mt-1 relative rounded-md shadow-sm">
-    <select aria-label="Country" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
-      <option value="">类型</option>
-      <option>建筑</option>
-      <option>规划</option>
-    </select>
+<form action="#" method="POST" class="inline-block">
+  <div class="inline-block mt-1 relative rounded-md shadow-sm" x-data="{ show_drop_menu: false }">
+    <button type="button" class="inline-flex justify-between w-24 sm:w-28 rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu = !show_drop_menu">
+      类型
+      <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <div class="origin-top-right absolute right-0 mt-1 w-24 sm:w-28 rounded-md shadow-lg z-10" x-show="show_drop_menu">
+      <div class="rounded-md bg-white shadow-xs">
+        <div class="py-1">
+          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">建筑</a>
+          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">规划</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm" x-data="{ show_drop_menu: false }">
+    <button type="button" class="inline-flex justify-between w-24 sm:w-28 rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu = !show_drop_menu">
+      地区
+      <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <div class="origin-top-right absolute right-0 mt-1 w-24 sm:w-28 rounded-md shadow-lg z-10" x-show="show_drop_menu">
+      <div class="rounded-md bg-white shadow-xs">
+        <div class="py-1">
+          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">USA</a>
+          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">China</a>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-    <select aria-label="Country" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
-      <option value="">地区</option>
-      <option>USA</option>
-      <option>China</option>
-    </select>
-  </div>
-  <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-    <input class="form-input block w-36 sm:w-40 pr-10" placeholder="关键词搜索" />
+    <input class="form-input block w-36 sm:w-40 pr-10 leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="关键词搜索" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
