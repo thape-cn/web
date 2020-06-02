@@ -41,7 +41,6 @@ export default class extends Controller {
         step: ".scroller-step",
         offset: scrollama_offset,
         threshold: 2,
-        progress: true,
         order: true,
       })
 
