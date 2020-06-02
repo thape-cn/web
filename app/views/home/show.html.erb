@@ -13,7 +13,7 @@
     <div class="w-1/4 flex justify-start items-center"
       x-on:mouseenter="show_left_btn = true"
       x-on:mouseleave="show_left_btn = false">
-      <button data-action="click->home#prev_slide">
+      <button data-action="click->home#prev_slide mouseenter->home#stop_rotate mouseleave->home#start_rotate">
         <svg class="ml-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
           x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
             <g transform="matrix(1,0,0,1,-35,-81)">
@@ -26,7 +26,7 @@
     <div class="w-1/4 flex justify-end items-center"
       x-on:mouseenter="show_right_btn = true"
       x-on:mouseleave="show_right_btn = false">
-      <button data-action="click->home#next_slide">
+      <button data-action="click->home#next_slide mouseenter->home#stop_rotate mouseleave->home#start_rotate">
         <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
           x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
             <g transform="matrix(1,0,0,1,-125,-81)">
