@@ -3,13 +3,15 @@ import { Controller } from "stimulus"
 
 const scroller = scrollama();
 
-export default class extends Controller {
-  static targets = [ "nextSlide" ]
+let wallPapers = [];
+let activeSlide = 0;
 
+export default class extends Controller {
   connect() {
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
     const amplify_rate = parseFloat(this.data.get("amplify_rate"));
+    wallPapers = JSON.parse(this.data.get("wallpapers"));
 
     function handleStepEnter(response) {
       const { direction, index } = response;
@@ -88,9 +90,22 @@ export default class extends Controller {
     this.stop_rotate();
   }
 
+  prev_slide() {
+    activeSlide = activeSlide === 0 ? (wallPapers.length - 1) : activeSlide - 1;
+
+    const wp = wallPapers[activeSlide];
+    console.log(wp);
+  }
+
+  next_slide() {
+    activeSlide = activeSlide === (wallPapers.length - 1) ? 0 : activeSlide + 1;
+    const wp = wallPapers[activeSlide];
+    console.log(wp);
+  }
+
   start_rotate() {
     this.refreshTimer = setInterval(() => {
-      this.nextSlideTarget.click();
+      this.next_slide();
     }, this.data.get("refreshInterval"))
   }
 

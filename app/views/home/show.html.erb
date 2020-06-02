@@ -3,6 +3,7 @@
      data-home-offset="0.75"
      data-home-amplify_rate="2.5"
      data-home-threshold="0.05"
+     data-home-wallpapers="<%= @wallpapers.to_json -%>"
      data-home-refresh-interval="5000">
 
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
@@ -12,7 +13,7 @@
     <div class="w-1/4 flex justify-start items-center"
       x-on:mouseenter="show_left_btn = true"
       x-on:mouseleave="show_left_btn = false">
-      <button>
+      <button data-action="click->home#prev_slide">
         <svg class="ml-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
           x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
             <g transform="matrix(1,0,0,1,-35,-81)">
@@ -25,7 +26,7 @@
     <div class="w-1/4 flex justify-end items-center"
       x-on:mouseenter="show_right_btn = true"
       x-on:mouseleave="show_right_btn = false">
-      <button data-target="home.nextSlide">
+      <button data-action="click->home#next_slide">
         <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
           x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
             <g transform="matrix(1,0,0,1,-125,-81)">
