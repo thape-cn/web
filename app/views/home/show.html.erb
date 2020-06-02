@@ -1,13 +1,40 @@
 <div data-controller="home"
      data-action="resize@window->home#layout"
      data-home-offset="0.75"
-     data-home-amplify_rate="2.6"
-     data-home-threshold="0.05">
+     data-home-amplify_rate="2.5"
+     data-home-threshold="0.05"
+     data-home-refresh-interval="5000">
 
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<div class="h-screen">
-
+<div class="h-screen relative" x-data="{ show_left_btn: false, show_right_btn: false }">
+  <div class="absolute inset-0 w-full flex">
+    <div class="w-1/4 flex justify-start items-center"
+      x-on:mouseenter="show_left_btn = true"
+      x-on:mouseleave="show_left_btn = false">
+      <button>
+        <svg class="ml-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+          x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
+            <g transform="matrix(1,0,0,1,-35,-81)">
+                <path d="M50.061,84.04L39.101,95L50.061,105.96C50.646,106.546 50.646,107.496 50.061,108.081C49.475,108.667 48.525,108.667 47.939,108.081L35.919,96.061C35.333,95.475 35.333,94.525 35.919,93.939L47.939,81.919C48.525,81.333 49.475,81.333 50.061,81.919C50.646,82.504 50.646,83.454 50.061,84.04Z" />
+            </g>
+        </svg>
+      </button>
+    </div>
+    <div class="w-2/4" data-action="mouseenter->home#stop_rotate mouseleave->home#start_rotate"></div>
+    <div class="w-1/4 flex justify-end items-center"
+      x-on:mouseenter="show_right_btn = true"
+      x-on:mouseleave="show_right_btn = false">
+      <button data-target="home.nextSlide">
+        <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+          x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
+            <g transform="matrix(1,0,0,1,-125,-81)">
+              <path d="M139.582,96.544L127.587,108.551C127.002,109.136 126.054,109.136 125.47,108.551C124.885,107.966 124.885,107.017 125.47,106.432L136.407,95.484L125.47,84.537C124.885,83.952 124.885,83.003 125.47,82.418C126.054,81.833 127.002,81.833 127.587,82.418L139.582,94.425C140.167,95.01 140.167,95.959 139.582,96.544Z" />
+            </g>
+        </svg>
+      </button>
+    </div>
+  </div>
 </div>
 
 <%# 最新项目 %>

@@ -4,6 +4,8 @@ import { Controller } from "stimulus"
 const scroller = scrollama();
 
 export default class extends Controller {
+  static targets = [ "nextSlide" ]
+
   connect() {
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
@@ -67,9 +69,14 @@ export default class extends Controller {
       .onStepExit(handleStepExit);
 
 
+    if (this.data.has("refreshInterval")) {
+      this.start_rotate()
+    }
+
     setTimeout(() => {
       scroller.resize();
     }, 200)
+
   }
 
   layout() {
@@ -78,5 +85,18 @@ export default class extends Controller {
 
   disconnect() {
     scroller.destroy();
+    this.stop_rotate();
+  }
+
+  start_rotate() {
+    this.refreshTimer = setInterval(() => {
+      this.nextSlideTarget.click();
+    }, this.data.get("refreshInterval"))
+  }
+
+  stop_rotate() {
+    if (this.refreshTimer) {
+      clearInterval(this.refreshTimer)
+    }
   }
 }
