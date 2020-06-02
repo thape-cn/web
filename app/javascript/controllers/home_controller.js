@@ -35,6 +35,22 @@ export default class extends Controller {
       }
     }
 
+    function handleStepProgress(response) {
+      const { element, progress, index } = response;
+      const debugProgress = document.getElementById('debug-progress');
+      if (debugProgress)
+        debugProgress.innerHTML = element.id + ' ' + progress;
+
+      const eo = ((progress - starting_threshold) <= 0 ? 0.001 : progress - starting_threshold) * amplify_rate;
+      if (index === 0) {
+        if (eo >= 1) {
+          element.style.opacity = 1;
+        } else {
+          element.style.opacity = eo;
+        }
+      }
+    }
+
     // setup the instance, pass callback functions
     scroller
       .setup({
@@ -46,6 +62,7 @@ export default class extends Controller {
       })
 
     scroller
+      .onStepProgress(handleStepProgress)
       .onStepEnter(handleStepEnter)
       .onStepExit(handleStepExit);
 
