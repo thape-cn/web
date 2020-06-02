@@ -13,7 +13,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-white overflow-x-hidden w-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= @support_webp ? asset_pack_path('media/images/01_background.webp') : asset_pack_path('media/images/01_background.jpg') -%>')">
+  <body class="bg-white overflow-x-hidden w-screen bg-fixed bg-cover bg-no-repeat" style="background-image: url('<%= @wallpapers.sample -%>')">
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
         <div class="bg-red-500">
