@@ -94,13 +94,13 @@ export default class extends Controller {
     activeSlide = activeSlide === 0 ? (wallPapers.length - 1) : activeSlide - 1;
 
     const wp = wallPapers[activeSlide];
-    console.log(wp);
+    document.body.style.backgroundImage = `url('${wp}')`;
   }
 
   next_slide() {
     activeSlide = activeSlide === (wallPapers.length - 1) ? 0 : activeSlide + 1;
     const wp = wallPapers[activeSlide];
-    console.log(wp);
+    document.body.style.backgroundImage = `url('${wp}')`;
   }
 
   start_rotate() {
