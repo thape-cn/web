@@ -35,7 +35,7 @@
 <div x-data="{ show_city: '' }">
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
     <div class="relative w-1/2" >
-      <%= image_pack_tag 'media/images/china_map.png' -%>
+      <%= image_pack_tag 'media/images/china_map.png', class: 'pt-20 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
       <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_city == '上海'">
         <div class="w-full mx-auto pt-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
           <div class="w-full leading-loose">
@@ -78,52 +78,52 @@
       <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
       <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
 
-      <div class="absolute" style="left:80%;top:60%;"
+      <div class="absolute text-sm xxl:text-base" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
-      <div class="absolute" style="left:65%;top:38%;"
+      <div class="absolute text-sm xxl:text-base" style="left:65%;top:38%;"
         x-bind:class="{ 'map-star-a': show_city == '北京', 'map-dot-a': show_city != '北京' }">北京</div>
-      <div class="absolute" style="left:64%;top:83%;"
+      <div class="absolute text-sm xxl:text-base" style="left:64%;top:83%;"
         x-bind:class="{ 'map-star-a': show_city == '深圳', 'map-dot-a': show_city != '深圳' }">深圳</div>
-      <div class="absolute" style="left:61%;top:86%;"
+      <div class="absolute text-sm xxl:text-base" style="left:61%;top:86%;"
         x-bind:class="{ 'map-star-a': show_city == '广州', 'map-dot-a': show_city != '广州' }">广州</div>
-      <div class="absolute" style="left:70%;top:40%;"
+      <div class="absolute text-sm xxl:text-base" style="left:70%;top:40%;"
         x-bind:class="{ 'map-star-b': show_city == '天津', 'map-dot-b': show_city != '天津' }">天津</div>
-      <div class="absolute" style="left:44%;top:68%;"
+      <div class="absolute text-sm xxl:text-base" style="left:44%;top:68%;"
         x-bind:class="{ 'map-star-a': show_city == '重庆', 'map-dot-a': show_city != '重庆' }">重庆</div>
 
-      <div class="absolute" style="left:61%;top:66%;"
+      <div class="absolute text-sm xxl:text-base" style="left:61%;top:66%;"
         x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
-      <div class="absolute" style="left:34%;top:65%;"
+      <div class="absolute text-sm xxl:text-base" style="left:34%;top:65%;"
         x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
-      <div class="absolute" style="left:49%;top:51%;"
+      <div class="absolute text-sm xxl:text-base" style="left:49%;top:51%;"
         x-bind:class="{ 'map-star-a': show_city == '西安', 'map-dot-a': show_city != '西安' }">西安</div>
-      <div class="absolute" style="left:80%;top:32%;"
+      <div class="absolute text-sm xxl:text-base" style="left:80%;top:32%;"
         x-bind:class="{ 'map-star-b': show_city == '沈阳', 'map-dot-b': show_city != '沈阳' }">沈阳</div>
-      <div class="absolute" style="left:77%;top:76%;"
+      <div class="absolute text-sm xxl:text-base" style="left:77%;top:76%;"
         x-bind:class="{ 'map-star-b': show_city == '厦门', 'map-dot-b': show_city != '厦门' }">厦门</div>
-      <div class="absolute" style="left:75%;top:48%;"
+      <div class="absolute text-sm xxl:text-base" style="left:75%;top:48%;"
         x-bind:class="{ 'map-star-b': show_city == '青岛', 'map-dot-b': show_city != '青岛' }">青岛</div>
 
-      <div class="absolute" style="left:73%;top:57%;"
+      <div class="absolute text-sm xxl:text-base" style="left:73%;top:57%;"
         x-bind:class="{ 'map-star-b': show_city == '南京', 'map-dot-b': show_city != '南京' }">南京</div>
-      <div class="absolute" style="left:58%;top:50%;"
+      <div class="absolute text-sm xxl:text-base" style="left:58%;top:50%;"
         x-bind:class="{ 'map-star-a': show_city == '郑州', 'map-dot-a': show_city != '郑州' }">郑州</div>
-      <div class="absolute" style="left:74%;top:63%;"
+      <div class="absolute text-sm xxl:text-base" style="left:74%;top:63%;"
         x-bind:class="{ 'map-star-a': show_city == '杭州', 'map-dot-a': show_city != '杭州' }">杭州</div>
-      <div class="absolute" style="left:67%;top:59%;"
+      <div class="absolute text-sm xxl:text-base" style="left:67%;top:59%;"
         x-bind:class="{ 'map-star-a': show_city == '合肥', 'map-dot-a': show_city != '合肥' }">合肥</div>
-      <div class="absolute" style="left:68%;top:47%;"
+      <div class="absolute text-sm xxl:text-base" style="left:68%;top:47%;"
         x-bind:class="{ 'map-star-a': show_city == '济南', 'map-dot-a': show_city != '济南' }">济南</div>
-      <div class="absolute" style="left:48%;top:77%;"
+      <div class="absolute text-sm xxl:text-base" style="left:48%;top:77%;"
         x-bind:class="{ 'map-star-b': show_city == '贵阳', 'map-dot-b': show_city != '贵阳' }">贵阳</div>
 
-      <div class="absolute" style="left:38%;top:80%;"
+      <div class="absolute text-sm xxl:text-base" style="left:38%;top:80%;"
         x-bind:class="{ 'map-star-a': show_city == '昆明', 'map-dot-a': show_city != '昆明' }">昆明</div>
-      <div class="absolute" style="left:57%;top:44%;"
+      <div class="absolute text-sm xxl:text-base" style="left:57%;top:44%;"
         x-bind:class="{ 'map-star-a': show_city == '太原', 'map-dot-a': show_city != '太原' }">太原</div>
-      <div class="absolute" style="left:55%;top:70%;"
+      <div class="absolute text-sm xxl:text-base" style="left:55%;top:70%;"
         x-bind:class="{ 'map-star-b': show_city == '长沙', 'map-dot-b': show_city != '长沙' }">长沙</div>
-      <div class="absolute" style="left:68%;top:85%;"
+      <div class="absolute text-sm xxl:text-base" style="left:68%;top:85%;"
         x-bind:class="{ 'map-star-b': show_city == '香港', 'map-dot-b': show_city != '香港' }">香港</div>
     </div>
     <div class="w-1/2">
