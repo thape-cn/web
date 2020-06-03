@@ -8,6 +8,10 @@
 
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
+<% @wallpapers.each do |preload_image| %>
+  <link rel="preload" as="image" href="<%= preload_image -%>">
+<% end %>
+
 <div class="h-screen relative" x-data="{ show_left_btn: false, show_right_btn: false }">
   <div class="absolute inset-0 w-full flex">
     <div class="w-1/4 flex justify-start items-center"
