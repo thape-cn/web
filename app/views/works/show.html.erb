@@ -5,7 +5,7 @@
      data-scroll-amplify_rate="3">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3], show_left_btn: false, show_right_btn: false }"
+<div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3], direction_to_right: true, show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
   data-carousel-turn-transparent="true"
   data-carousel-refresh-interval="7000">
@@ -13,11 +13,11 @@
     <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide}",
           'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{slide} }",
           'x-transition:enter-start': 'opacity-0 transform -translate-x-1/2',
-          'x-transition:enter': 'transition ease-linear duration-700',
+          'x-transition:enter': 'transition ease-linear duration-500',
           'x-transition:enter-end': 'opacity-100 transform translate-x-0',
           'x-transition:leave-start': 'opacity-100 transform translate-x-0',
-          'x-transition:leave': 'transition ease-in duration-700',
-          'x-transition:leave-end': 'opacity-0 transform translate-x-1/2' -%>
+          'x-transition:leave': 'transition ease-in duration-500',
+          'x-transition:leave-end': 'opacity-75 transform translate-x-1/2' -%>
   <% end %>
 
   <div class="absolute inset-0 w-full flex">
@@ -25,7 +25,7 @@
         x-on:mouseenter="show_left_btn = true"
         x-on:mouseleave="show_left_btn = false">
         <button
-          x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+          x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1; direction_to_right = false">
           <svg class="ml-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
             x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
               <g transform="matrix(1,0,0,1,-35,-81)">
@@ -40,7 +40,7 @@
         x-on:mouseleave="show_right_btn = false">
         <button
           data-target="carousel.nextSlide"\
-          x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
+          x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1; direction_to_right = true">
           <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
             x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
               <g transform="matrix(1,0,0,1,-125,-81)">
