@@ -13,18 +13,18 @@
     <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide} && direction_to_right",
           'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{slide} }",
           'x-transition:enter-start': 'opacity-0 transform -translate-x-1/2',
-          'x-transition:enter': 'transition ease-linear duration-500',
+          'x-transition:enter': 'transition ease-linear duration-300',
           'x-transition:enter-end': 'opacity-100 transform translate-x-0',
           'x-transition:leave-start': 'opacity-100 transform translate-x-0',
-          'x-transition:leave': 'transition ease-in duration-500',
+          'x-transition:leave': 'transition ease-in duration-300',
           'x-transition:leave-end': 'opacity-50 transform translate-x-1/2' -%>
     <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide} && !direction_to_right",
           'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{slide} }",
           'x-transition:enter-start': 'opacity-0 transform translate-x-1/2',
-          'x-transition:enter': 'transition ease-linear duration-500',
+          'x-transition:enter': 'transition ease-linear duration-300',
           'x-transition:enter-end': 'opacity-100 transform translate-x-0',
           'x-transition:leave-start': 'opacity-100 transform translate-x-0',
-          'x-transition:leave': 'transition ease-in duration-500',
+          'x-transition:leave': 'transition ease-in duration-300',
           'x-transition:leave-end': 'opacity-50 transform -translate-x-1/2' -%>
   <% end %>
 
@@ -49,7 +49,7 @@
         x-on:mouseleave="show_right_btn = false">
         <button
           data-action="mouseenter->carousel#stop_rotate mouseleave->carousel#start_rotate"
-          data-target="carousel.nextSlide"\
+          data-target="carousel.nextSlide"
           x-on:click="direction_to_right = true; activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
           <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
             x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
