@@ -4,6 +4,7 @@
   data-controller="carousel"
   data-carousel-turn-white="true"
   data-carousel-refresh-interval="5000">
+
   <%= image_pack_tag 'media/images/about-h1.jpg', 'x-show': 'activeSlide === 1', class: "pt-12" -%>
   <%= image_pack_tag 'media/images/about-h2.jpg', 'x-show': 'activeSlide === 2', class: "pt-12" -%>
   <%= image_pack_tag 'media/images/about-h3.jpg', 'x-show': 'activeSlide === 3', class: "pt-12" -%>
@@ -42,13 +43,13 @@
       </div>
   </div>
   <div class="absolute bottom-0 inset-x-0 bg-white opacity-75">
-    <div class="sm:flex px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
-      <dt class="w-1/4 flex flex-col justify-center font-medium text-black6c">
+    <div class="sm:flex justify-between px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+      <dt class="flex flex-col justify-center font-medium text-black6c">
         <h1 class="text-3xl font-bold whitespace-no-wrap">创意与技术完美融合</h1>
         <h2 class="text-xl font-medium whitespace-no-wrap">ENGINEERING POWERED. </h2>
         <h2 class="text-xl font-medium whitespace-no-wrap">DESIGN ACHIEVED.</h2>
       </dt>
-      <dd class="w-3/4 text-black6c font-normal text-justify xxxl:text-lg text-base p-3">
+      <dd class="ml-4 text-black6c font-normal text-justify xxxl:text-lg text-base p-3">
         <p>上海天华建筑设计有限公司（以下简称天华）创立于1997年，由上海天祥实业有限公司控股，是中国首批甲级民营建筑设计公司之一，专注于提供城市建设领域的专业服务，为政府和企业客户等提供全面而专业的综合解决方案与全程卓越客户体验。</p>
         <p>天华服务范围涵盖城市规划、建筑设计、室内设计、景观设计等，以及技术咨询、建筑审图、可视化技术等全方位专业服务，通过科学统筹“咨询、设计、技术、管理”互联的高效服务模式，因地制宜地为不同城市建设项目提供具有创新性和经济性的解决方案。</p>
         <p>天华以客户需求和前沿发展理念及技术为驱动力，将富有特色的创意方案与强大的专业技术相结合，致力于追求高品质设计的完美实现，打造“创意与技术完美融合”的品牌理念。目前，天华35个子公司遍布于全国22个城市，汇聚了5600多位优秀人才，与广大客户及行业合作伙伴携手并进，助力城市持续发展。</p>
@@ -56,7 +57,7 @@
     </div>
   </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 my-2">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 my-2">
   <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g1.jpg',
     h1: '研究', h2: 'RESEARCH', h3s: ['技术赋能设计——基于创新的研究'],
     p1: '基于社会责任感和对设计品质的执着追求，立足于城市的可持续发展，天华前瞻性地成立了八大研究中心，组建天华专家团队，发挥大型综合设计企业的优势，策略和实践双轮驱动，积极探索和研发相关课题，并与境内外高校联合展开多项探索性研究，在应对城市问题的解决方案和相关专业领域积累了丰富的策略、技术和实践成果。',
