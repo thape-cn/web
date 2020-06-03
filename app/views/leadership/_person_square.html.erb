@@ -1,13 +1,15 @@
 <div class="<%= person_class -%>">
+<a href="<%= leadership_path(id: person.url_name) -%>">
   <%= image_tag person.avatar.url, class: 'grid-image grid-mask-image' -%>
-  <div class="absolute text-white inset-x-0 bottom-0 mb-1">
-    <p class="text-lg text-center font-medium"><%= link_to person.name, leadership_path(id: person.url_name) -%></p>
+  <div class="absolute text-white inset-x-0 bottom-0">
+    <p class="text-lg text-center font-medium"><%= person.name -%></p>
     <% titles = person.title.split(' ')  %>
     <p class="text-sm text-center font-light leading-tight"><%= titles.first -%></p>
     <% if titles.length > 1 %>
-      <p class="text-sm text-center font-light leading-tight">...</p>
+      <p class="text-sm text-center font-light leading-none">...</p>
     <% else %>
-      <p class="text-sm text-center font-light leading-tight">&nbsp</p>
+      <p class="text-sm text-center font-light leading-none">&nbsp</p>
     <% end %>
   </div>
+</a>
 </div>
