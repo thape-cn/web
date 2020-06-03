@@ -36,12 +36,9 @@ end
   <%# 介绍子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
     x-on:mouseleave="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-100 duration-200"
+    x-transition:enter="transition ease-out delay-150 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-4"
     x-show="show_about_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-about-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
@@ -56,12 +53,9 @@ end
   <%# 作品子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
     x-on:mouseleave="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-100 duration-200"
+    x-transition:enter="transition ease-out delay-150 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-4"
     x-show="show_works_menu">
     <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end cursor-pointer">
       <nav>
@@ -116,21 +110,18 @@ end
   <%# 服务子菜单 %>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
     x-on:mouseleave="show_about_menu = false; show_service_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-100 duration-200"
-    x-transition:enter-start="opacity-0 -translate-y-1"
+    x-transition:enter="transition ease-out delay-150 duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-1"
     x-show="show_service_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-        <a href="<%= building_path -%>" class="mr-3 xxl:mr-4 font-medium <%= a_link_class -%>">建筑</a>
-        <a href="<%= interior_path -%>" class="mx-3 xxl:mr-4 font-medium <%= a_link_class -%>">室内</a>
-        <a href="<%= planning_path -%>" class="mx-3 xxl:mr-4 font-medium <%= a_link_class -%>">规划</a>
-        <a href="<%= landscape_path -%>" class="mx-3 xxl:mr-4 font-medium <%= a_link_class -%>">景观</a>
-        <a href="<%= vetting_path -%>" class="mx-3 xxl:mr-4 font-medium <%= a_link_class -%>">审图</a>
-        <a href="<%= consluting_path -%>" class="mx-3 xxl:mr-4 font-medium <%= a_link_class -%>">技术咨询</a>
+        <a href="<%= building_path -%>" class="mr-3 font-medium <%= a_link_class -%>">建筑</a>
+        <a href="<%= interior_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">室内</a>
+        <a href="<%= planning_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">规划</a>
+        <a href="<%= landscape_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">景观</a>
+        <a href="<%= vetting_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">审图</a>
+        <a href="<%= consluting_path -%>" class="mx-2 font-medium <%= a_link_class -%>">技术咨询</a>
         <a href="<%= vr_tech_path -%>" class="ml-2 xxl:ml-3 font-medium <%= a_link_class -%>">可视化</a>
       </div>
     </nav>
