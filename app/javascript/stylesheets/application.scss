@@ -85,6 +85,16 @@
   width: 18rem;
 }
 
+.mr-45x {
+  margin-right: 9.75rem;
+}
+
+@responsive {
+  .mr-51x {
+    margin-right: 12.875rem;
+  }
+}
+
 .screen-min-height {
   min-height: calc(100vh - 14.125rem);
 }
