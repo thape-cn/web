@@ -116,13 +116,13 @@ end
     x-show="show_service_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-        <a href="<%= building_path -%>" class="mr-3 font-medium <%= a_link_class -%>">建筑</a>
-        <a href="<%= interior_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">室内</a>
-        <a href="<%= planning_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">规划</a>
-        <a href="<%= landscape_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">景观</a>
-        <a href="<%= vetting_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%>">审图</a>
-        <a href="<%= consluting_path -%>" class="mx-2 font-medium <%= a_link_class -%>">技术咨询</a>
-        <a href="<%= vr_tech_path -%>" class="ml-2 xxl:ml-3 font-medium <%= a_link_class -%>">可视化</a>
+        <a href="<%= building_path -%>" class="mr-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'building') ? 'text-black6c' : '' -%>">建筑</a>
+        <a href="<%= interior_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'interior') ? 'text-black6c' : '' -%>">室内</a>
+        <a href="<%= planning_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'planning') ? 'text-black6c' : '' -%>">规划</a>
+        <a href="<%= landscape_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'landscape') ? 'text-black6c' : '' -%>">景观</a>
+        <a href="<%= vetting_path -%>" class="ml-2 mr-3 xxl:mx-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'vetting') ? 'text-black6c' : '' -%>">审图</a>
+        <a href="<%= consluting_path -%>" class="mx-2 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'consluting') ? 'text-black6c' : '' -%>">技术咨询</a>
+        <a href="<%= vr_tech_path -%>" class="ml-2 xxl:ml-3 font-medium <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'vrtech') ? 'text-black6c' : '' -%>">可视化</a>
       </div>
     </nav>
   </div>
