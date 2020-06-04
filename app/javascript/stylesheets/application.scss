@@ -133,6 +133,10 @@
   content: "★";
 }
 
+p {
+  text-align: justify;
+}
+
 @keyframes animation-to-white {
   0% {
     background-color: initial;
