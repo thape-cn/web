@@ -1,7 +1,7 @@
 <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_city == '<%= c -%>'">
-  <div class="w-full mx-auto pt-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
+  <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
     <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
-    <div class="w-full leading-loose">
+    <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
       <% if m.alt_name.present? %>
         <h1 class="text-2xl font-medium leading-tight"><%= m.long_name -%></h1>
         <h1 class="text-2xl font-medium pb-1"><%= m.alt_name -%></h1>
