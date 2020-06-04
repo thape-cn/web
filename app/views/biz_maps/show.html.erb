@@ -35,7 +35,7 @@
 <div x-data="{ show_city: '' }">
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
     <div class="relative w-1/2" >
-      <%= image_pack_tag 'media/images/china_map.png', class: 'pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
+      <%= image_pack_tag 'media/images/china_map.png', class: 'pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = ''" -%>
       <div class="absolute text-sm xxl:text-base" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海' || show_city == '上海爱坤' || show_city == '上海城规' || show_city == '上海室内' || show_city == '易术家互娱' || show_city == '上海园林' || show_city == '虹核审图', 'map-dot-b': !(show_city == '上海' || show_city == '上海爱坤' || show_city == '上海城规' || show_city == '上海室内' || show_city == '易术家互娱' || show_city == '上海园林' || show_city == '虹核审图') }">上海</div>
       <div class="absolute text-sm xxl:text-base" style="left:65%;top:38%;"
@@ -229,7 +229,7 @@
 
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-      <header class="px-4 pt-2 pb-1 sm:px-6">
+      <header class="px-4 pt-2 pb-1 sm:px-6" x-on:click="show_city = ''">
         <h1 class="inline-block text-2xl xxxl:text-3xl font-bold text-black6c">
           <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>
