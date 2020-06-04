@@ -42,10 +42,10 @@ end
     x-show="show_about_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-about-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-        <a href="<%= about_path -%>" class="mr-4 font-medium <%= a_link_class -%>">天华介绍</a>
-        <a href="<%= culture_path -%>" class="mx-4 font-medium <%= a_link_class -%>">企业文化</a>
-        <a href="<%= leadership_index_path -%>" class="mx-4 font-medium <%= a_link_class -%>">集团高管</a>
-        <a href="<%= leadership_path(id: 'shanghai') -%>" class="ml-4 mr-45x xxl:mr-51x font-medium <%= a_link_class -%>">区域团队</a>
+        <a href="<%= about_path -%>" class="mr-4 font-medium <%= a_link_class -%> <%= current_page?(controller: 'abouts', action: 'show') ? 'text-black6c' : '' -%>">天华介绍</a>
+        <a href="<%= culture_path -%>" class="mx-4 font-medium <%= a_link_class -%> <%= current_page?(controller: 'abouts', action: 'culture') ? 'text-black6c' : '' -%>">企业文化</a>
+        <a href="<%= leadership_index_path -%>" class="mx-4 font-medium <%= a_link_class -%> <%= current_page?(controller: 'leadership', action: 'index') ? 'text-black6c' : '' -%>">集团高管</a>
+        <a href="<%= leadership_path(id: 'shanghai') -%>" class="ml-4 mr-45x xxl:mr-51x font-medium <%= a_link_class -%> <%= current_page?(controller: 'leadership', action: 'show', id: 'shanghai') ? 'text-black6c' : '' -%>">区域团队</a>
       </div>
     </nav>
   </div>
