@@ -33,10 +33,10 @@
     <main class="w-full md:w-9/12 pr-4">
       <div class="max-w-screen-md xxl:max-w-screen-lg md:mx-auto">
         <header class="flex mb-10">
-          <div class="bg-thape-footer-gray w-24 h-24">
+          <div class="bg-thape-footer-gray w-24 h-20">
             <p class="px-3 text-black6c-t70 text-5xl text-justify font-bold tracking-widest leading-none">31</p>
-            <p class="py-1 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
-            <p class="py-2 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= @info.created_at.year -%></p>
+            <p class="px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
+            <p class="py-1 px-3 text-black6c-t70 text-sm text-justify font-light tracking-wider leading-none"><%= @info.created_at.year -%></p>
           </div>
           <div class="mx-2">
             <% if @info.seo_description.present? %>
