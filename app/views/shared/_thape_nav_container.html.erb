@@ -5,7 +5,7 @@
     x-on:mouseenter="show_works_menu = true; show_about_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>" id="nav-works-item">作品</a>·
   <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'services' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_service_menu = true; show_about_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">服务</a>·
-  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'news' ? 'font-semibold' : 'font-normal' -%> <%= controller_name == 'news' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
+  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'news' ? 'font-semibold' : 'font-normal' -%> <%= controller_name == 'news' && controller.action_name != 'show' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">新闻</a>·
   <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition" class="mx-3 xxl:mx-4 font-normal <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">招聘</a>·
