@@ -1,15 +1,15 @@
 <div id="thape-nav-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-  <a href="<%= about_path -%>" class="mr-3 xxl:mr-4 <%= controller_name == 'leadership' || controller_name == 'abouts' ? 'font-medium' : '' -%> <%= (controller_name == 'abouts' || controller_name == 'leadership') ? 'text-black6c' : '' -%> <%= a_link_class -%>"
+  <a href="<%= about_path -%>" class="mr-3 xxl:mr-4 <%= controller_name == 'leadership' || controller_name == 'abouts' ? 'font-medium' : 'font-normal' -%> <%= (controller_name == 'abouts' || controller_name == 'leadership') ? 'text-black6c' : '' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = true; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">介绍</a>·
-  <a href="<%= works_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'works' ? 'font-medium' : '' -%> <%= controller.controller_name == 'works' && controller.action_name != 'show' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
+  <a href="<%= works_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'works' ? 'font-medium' : 'font-normal' -%> <%= controller.controller_name == 'works' && controller.action_name != 'show' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_works_menu = true; show_about_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>" id="nav-works-item">作品</a>·
-  <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'services' ? 'font-medium' : '' -%> <%= a_link_class -%>"
+  <a href="<%= building_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'services' ? 'font-medium' : 'font-normal' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_service_menu = true; show_about_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">服务</a>·
-  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'services' ? 'font-medium' : '' -%> <%= controller_name == 'news' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
+  <a href="<%= news_index_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'news' ? 'font-medium' : 'font-normal' -%> <%= controller_name == 'news' ? 'text-black6c' : '' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">新闻</a>·
-  <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition" class="mx-3 xxl:mx-4 <%= a_link_class -%>"
+  <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition" class="mx-3 xxl:mx-4 font-normal <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">招聘</a>·
-  <a href="<%= biz_map_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'biz_maps' ? 'font-medium' : '' -%> <%= a_link_class -%>"
+  <a href="<%= biz_map_path -%>" class="mx-3 xxl:mx-4 <%= controller_name == 'biz_maps' ? 'font-medium' : 'font-normal' -%> <%= a_link_class -%>"
     x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnWhite();' -%>">联系我们</a>
   <svg class="mx-3 xxl:mx-4 fill-current h-6 w-6 <%= a_link_class -%>" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
