@@ -7,16 +7,6 @@ export default class extends Controller {
     if (this.data.has("refreshInterval")) {
       this.start_rotate()
     }
-    if (this.data.has("turnWhite")) {
-      setTimeout(() => {
-        nav_menu.turnWhite();
-      }, 200);
-    }
-    if (this.data.has("turnTransparent")) {
-      setTimeout(() => {
-        nav_menu.turnTransparent();
-      }, 200);
-    }
   }
 
   disconnect() {

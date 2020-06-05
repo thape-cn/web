@@ -7,7 +7,6 @@
 
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3], direction_to_right: true, show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
-  data-carousel-turn-transparent="true"
   data-carousel-refresh-interval="7000">
   <% [1, 2, 3].each do |slide| %>
     <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide} && direction_to_right",
