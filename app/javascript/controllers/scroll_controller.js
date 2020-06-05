@@ -8,7 +8,6 @@ export default class extends Controller {
     const nav_id_name = this.data.get("nav_active_item");
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
-    const amplify_rate = parseFloat(this.data.get("amplify_rate"));
 
     function handleStepEnter(response) {
       const { direction, index } = response;
