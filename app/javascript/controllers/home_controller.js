@@ -21,9 +21,7 @@ export default class extends Controller {
         } else if (index === 1) {
           nav_menu.turnWhite();
           const thapeFadein = document.getElementById('thape-fadein');
-          if(thapeFadein) {
-            thapeFadein.style.opacity = 1;
-          }
+          thapeFadein.style.opacity = 1;
         }
       }
     }
