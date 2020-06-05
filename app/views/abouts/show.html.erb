@@ -1,4 +1,11 @@
-<%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: false } -%>
+<div data-controller="scroll"
+     data-action="resize@window->scroll#layout"
+     data-scroll-nav_active_item="nav-about"
+     data-scroll-offset="0.55"
+     data-scroll-threshold="0.15"
+     data-scroll-amplify_rate="3">
+
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6], direction_to_right: true, show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
@@ -72,7 +79,7 @@
     </div>
   </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 my-2">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 my-2 scroller-step">
   <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g1.jpg',
     h1: '研究', h2: 'RESEARCH', h3s: ['技术赋能设计——基于创新的研究'],
     p1: '基于社会责任感和对设计品质的执着追求，立足于城市的可持续发展，天华前瞻性地成立了八大研究中心，组建天华专家团队，发挥大型综合设计企业的优势，策略和实践双轮驱动，积极探索和研发相关课题，并与境内外高校联合展开多项探索性研究，在应对城市问题的解决方案和相关专业领域积累了丰富的策略、技术和实践成果。',
@@ -92,3 +99,5 @@
 </div>
 
 <%= render partial: 'shared/footer' %>
+</div>
+
