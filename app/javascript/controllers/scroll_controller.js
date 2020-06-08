@@ -14,6 +14,10 @@ export default class extends Controller {
       const navWorksItem = document.getElementById(nav_id_name);
       if (direction == 'down') {
         if (index === 0) {
+          const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel');
+          if (carousel_controller) {
+            carousel_controller.stop_rotate();
+          }
           nav_menu.turnWhite();
           navWorksItem.classList.add("text-black6c");
         } else if (index === 1) {
@@ -28,6 +32,10 @@ export default class extends Controller {
       const navWorksItem = document.getElementById(nav_id_name);
       if (direction == 'up') {
         if (index === 0) {
+          const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel');
+          if (carousel_controller) {
+            carousel_controller.start_rotate();
+          }
           navWorksItem.classList.remove("text-black6c");
           nav_menu.turnTransparent();
         } else if (index === 1) {
