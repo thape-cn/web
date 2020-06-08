@@ -11,10 +11,11 @@ class LeadershipController < ApplicationController
   def show
     case params[:id]
     when "shanghai"
-      @management_people = Person.where(leaving_date: nil).where(category: 1).where(belong_area: '上海')
+      shanghai_people = Person.includes(city_people: :city).where(cities: { name: '上海'})
+      @management_people = shanghai_people.where(leaving_date: nil).where(category: 1).where(belong_area: '上海')
         .order(position: :asc).limit(12)
 
-      @speciality_people = Person.where(leaving_date: nil).where(category: 2).where(belong_area: '上海')
+      @speciality_people = shanghai_people.where(leaving_date: nil).where(category: 2).where(belong_area: '上海')
         .order(position: :asc).limit(12)
       render 'area_leadership', locals: { c: '上海', e: 'SHANGHAI' }
     else
