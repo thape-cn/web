@@ -1,4 +1,7 @@
 class Person < ApplicationRecord
+  has_many :city_people, dependent: :destroy
+  has_many :cities, through: :city_people
+
   translates :name, :title, :introduce
   validates_uniqueness_of :url_name
 
