@@ -1,9 +1,10 @@
 class LeadershipController < ApplicationController
   def index
-    @management_people = Person.where(leaving_date: nil).where(category: 1)
+    jituan_people = Person.includes(city_people: :city).where(cities: { name: '集团'})
+    @management_people = jituan_people.where(leaving_date: nil).where(category: 1)
       .order(position: :asc).limit(12)
 
-    @speciality_people = Person.where(leaving_date: nil).where(category: 2)
+    @speciality_people = jituan_people.where(leaving_date: nil).where(category: 2)
       .order(position: :asc).limit(12)
   end
 
