@@ -6,6 +6,7 @@
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
 <div class="relative">
+
   <picture>
     <source srcset="<%= asset_pack_path('media/images/contact.webp') -%>" type="image/webp">
     <source srcset="<%= asset_pack_path('media/images/contact.jpg') -%>" type="image/jpeg">
@@ -118,6 +119,8 @@
       <%= render partial: 'map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
       <%= render partial: 'map_address', locals: {c: '太原', m: @m_太原天华 } -%>
       <%= render partial: 'map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
       <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
       <%= render partial: 'map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
       <%= render partial: 'map_address', locals: {c: '上海城规', m: @m_上海城规 } -%>
@@ -196,6 +199,12 @@
       </div>
 
       <div class="mt-10 flex justify-center items-center text-center w-full text-sm lg:text-base">
+        <div class="mr-1 xl:mr-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
+          x-bind:class="{ 'bg-gray-100': show_city == '香港', 'bg-gray-50': show_city != '香港' }"
+          x-on:click="show_city = '香港'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
+        <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
+          x-bind:class="{ 'bg-gray-100': show_city == '上海易爱迪', 'bg-gray-50': show_city != '上海易爱迪' }"
+          x-on:click="show_city = '上海易爱迪'">易<br />爱<br />迪<br />︵<br />上<br />海<br />︶</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer"
           x-bind:class="{ 'bg-gray-100': show_city == '上海爱坤', 'bg-gray-50': show_city != '上海爱坤' }"
           x-on:click="show_city = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />建<br />筑</div>
