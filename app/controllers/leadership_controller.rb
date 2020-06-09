@@ -1,11 +1,20 @@
 class LeadershipController < ApplicationController
   def index
-    jituan_people = Person.includes(city_people: :city).where(cities: { name: '集团'})
-    @management_people = jituan_people.where(leaving_date: nil).where(category: 1)
-      .order(position: :asc).limit(12)
+    @search_name = params[:name].presence
+    jituan_people = Person.joins('INNER JOIN person_translations ON person_translations.person_id = people.id').includes(city_people: :city).where(cities: { name: '集团'})
+      .where(leaving_date: nil).order(position: :asc).limit(12)
+    @management_people = if @search_name.present?
+      jituan_people.where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
+    else
+      jituan_people.where(category: 1)
+    end
 
-    @speciality_people = jituan_people.where(leaving_date: nil).where(category: 2)
-      .order(position: :asc).limit(12)
+
+    @speciality_people = if @search_name.present?
+      jituan_people.where(category: 2).where('people.name like ?', "%#{@search_name}%")
+    else
+      jituan_people.where(category: 2)
+    end
   end
 
   def show
