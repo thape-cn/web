@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_015342) do
+ActiveRecord::Schema.define(version: 2020_06_09_061217) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -224,6 +224,13 @@ ActiveRecord::Schema.define(version: 2020_06_09_015342) do
     t.index ["info_id"], name: "index_pictures_on_info_id"
   end
 
+  create_table "project_types", force: :cascade do |t|
+    t.string "cn_name"
+    t.string "en_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "seos", force: :cascade do |t|
     t.string "home_title"
     t.text "description"
@@ -252,6 +259,45 @@ ActiveRecord::Schema.define(version: 2020_06_09_015342) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "work_project_types", force: :cascade do |t|
+    t.integer "work_id", null: false
+    t.integer "project_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_type_id"], name: "index_work_project_types_on_project_type_id"
+    t.index ["work_id"], name: "index_work_project_types_on_work_id"
+  end
+
+  create_table "work_translations", force: :cascade do |t|
+    t.integer "work_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "project_name"
+    t.string "client"
+    t.string "services"
+    t.string "team"
+    t.string "cooperation"
+    t.string "awards"
+    t.index ["locale"], name: "index_work_translations_on_locale"
+    t.index ["work_id"], name: "index_work_translations_on_work_id"
+  end
+
+  create_table "works", force: :cascade do |t|
+    t.date "design_completion"
+    t.date "construction_completion"
+    t.integer "city_id", null: false
+    t.integer "site_area"
+    t.integer "planning_area"
+    t.integer "architecture_area"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_works_on_city_id"
+  end
+
   add_foreign_key "case_pictures", "cases"
   add_foreign_key "pictures", "infos"
+  add_foreign_key "work_project_types", "project_types"
+  add_foreign_key "work_project_types", "works"
+  add_foreign_key "works", "cities"
 end
