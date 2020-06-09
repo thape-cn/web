@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 ProjectType.create(cn_name: '居住', en_name: 'RESIDENTIAL')
 ProjectType.create(cn_name: '展示区/示范区', en_name: 'DEMONSTRATION ZONE')
 ProjectType.create(cn_name: '商务办公', en_name: 'OFFICE')
@@ -19,3 +20,8 @@ ProjectType.create(cn_name: '城市设计/更新', en_name: 'URBAN DESIGN/RENOVA
 ProjectType.create(cn_name: '城市规划', en_name: 'URBAN PLANNING')
 ProjectType.create(cn_name: '景观', en_name: 'LANDSCAPE')
 ProjectType.create(cn_name: '室内', en_name: 'INTERIOR')
+
+ResidentialType.create(cn_name: '精品住宅', en_name: 'RESIDENCE')
+ResidentialType.create(cn_name: '综合社区', en_name: 'COMMUNITY')
+ResidentialType.create(cn_name: '租赁住房', en_name: 'RENTAL')
+

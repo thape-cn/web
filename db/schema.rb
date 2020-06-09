@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_061217) do
+ActiveRecord::Schema.define(version: 2020_06_09_082140) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_061217) do
     t.string "china_area_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url_name"
   end
 
   create_table "city_people", force: :cascade do |t|
@@ -231,6 +232,13 @@ ActiveRecord::Schema.define(version: 2020_06_09_061217) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "residential_types", force: :cascade do |t|
+    t.string "cn_name"
+    t.string "en_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "seos", force: :cascade do |t|
     t.string "home_title"
     t.text "description"
@@ -268,6 +276,15 @@ ActiveRecord::Schema.define(version: 2020_06_09_061217) do
     t.index ["work_id"], name: "index_work_project_types_on_work_id"
   end
 
+  create_table "work_residential_types", force: :cascade do |t|
+    t.integer "work_id", null: false
+    t.integer "residential_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["residential_type_id"], name: "index_work_residential_types_on_residential_type_id"
+    t.index ["work_id"], name: "index_work_residential_types_on_work_id"
+  end
+
   create_table "work_translations", force: :cascade do |t|
     t.integer "work_id", null: false
     t.string "locale", null: false
@@ -299,5 +316,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_061217) do
   add_foreign_key "pictures", "infos"
   add_foreign_key "work_project_types", "project_types"
   add_foreign_key "work_project_types", "works"
+  add_foreign_key "work_residential_types", "residential_types"
+  add_foreign_key "work_residential_types", "works"
   add_foreign_key "works", "cities"
 end
