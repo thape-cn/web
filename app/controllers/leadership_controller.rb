@@ -24,7 +24,7 @@ class LeadershipController < ApplicationController
     case params[:id]
     when "shanghai"
       shanghai_people = Person.includes(city_people: :city).where(cities: { name: '上海'})
-        .where(leaving_date: nil).where(belong_area: '上海')
+        .where(leaving_date: nil)
         .order(position: :asc).limit(12)
       @management_people = if @search_name.present?
         shanghai_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
