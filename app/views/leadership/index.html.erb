@@ -17,7 +17,8 @@
       <%= render partial: 'search_form' %>
     </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT', header_path: leadership_index_path, header_class: 'pt-0' } %>
+  <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT',
+    header_path: leadership_index_path, header_class: 'pt-0', show_header_right: true } %>
 </div>
 
 <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
@@ -30,7 +31,8 @@
 </div>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'PROFESSIONAL', header_path: leadership_index_path, header_class: 'pt-0' } %>
+  <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'PROFESSIONAL',
+    header_path: leadership_index_path, header_class: 'pt-0', show_header_right: false } %>
 </div>
 
 <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">

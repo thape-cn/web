@@ -7,5 +7,7 @@
   <h2 class="ml-2 inline-block text-2xl text-black6c">
     <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70"><%= e -%></a>
   </h2>
-  <%= yield :header_right %>
+  <% if show_header_right %>
+    <%= yield :header_right %>
+  <% end %>
 </header>

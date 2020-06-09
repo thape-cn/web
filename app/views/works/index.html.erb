@@ -7,7 +7,8 @@
       <%= render partial: 'search_form' %>
     </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '所有项目', e: 'PROJECTS', header_path: works_path, header_class: 'pt-16' } %>
+  <%= render partial: 'shared/header', locals: { c: '所有项目', e: 'PROJECTS',
+    header_path: works_path, header_class: 'pt-16', show_header_right: true } %>
 
   <div class="grid grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
     <div class="col-span-2 lg:col-auto flex justify-center items-center bg-thape-dark-gray">

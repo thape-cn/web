@@ -7,7 +7,8 @@
       <%= render partial: 'search_form' %>
     </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '租赁住房', e: 'RENTAL', header_path: residential_rental_works_path, header_class: 'pt-16' } %>
+  <%= render partial: 'shared/header', locals: { c: '租赁住房', e: 'RENTAL',
+    header_path: residential_rental_works_path, header_class: 'pt-16', show_header_right: true } %>
 
   <ol class="pt-3">
     <li class="inline-block">
