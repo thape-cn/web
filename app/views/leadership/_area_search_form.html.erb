@@ -1,14 +1,15 @@
-<form action="#" method="POST">
+<form action="<%= search_url -%>" method="GET" id="area-leadership-form" x-data="">
   <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-    <select aria-label="Country" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
+    <select aria-label="Area" name="city" class="form-select relative block w-24 sm:w-28 rounded-md text-black6c-t70 transition ease-in-out duration-150">
       <option value="">地区</option>
       <option>USA</option>
       <option>China</option>
     </select>
   </div>
   <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-    <input class="form-input block w-36 sm:w-40 pr-10" placeholder="关键词搜索" />
-    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+    <input class="form-input block w-36 sm:w-40 pr-10" name="name" placeholder="关键词搜索" value="<%= @search_name -%>" />
+    <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+      x-on:click="document.getElementById('area-leadership-form').submit();">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
       </svg>
