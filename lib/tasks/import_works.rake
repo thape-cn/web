@@ -8,34 +8,36 @@ namespace :import_works do
       大类别s = row['大类别'].split(',')
       小类别 = row['小类别']
 
-      中文项目名称 = row['项目名称（中文）']
-      英文项目名称 = row['项目名称（英文）']
+      中文项目名称 = row['中文项目名称']&.strip
+      英文项目名称 = row['英文项目名称']&.strip
 
-      客户名称 = row['客户名称']
-      CLIENT = row['CLIENT']
+      客户名称 = row['客户名称']&.strip
+      CLIENT = row['CLIENT']&.strip
 
-      设计完成时间 = row['设计完成时间']
-      竣工时间 = row['竣工时间']
+      设计完成时间 = row['设计完成时间']&.strip
+      竣工时间 = row['竣工时间']&.strip
 
-      所在城市 = row['所在城市']
-      所属区域 = row['区域']
-      LOCATION = row['LOCATION']
+      所在城市 = row['所在城市']&.strip
+      所属区域 = row['区域']&.strip
+      LOCATION = row['LOCATION']&.strip
 
-      用地面积 = row['用地面积']
-      规划面积 = row['规划面积']
-      建筑面积 = row['建筑面积']
+      用地面积 = row['用地面积']&.strip
+      规划面积 = row['规划面积']&.strip
+      建筑面积 = row['建筑面积']&.strip
 
-      服务范围 = row['服务范围']
-      SERVICES = row['SERVICES']
+      服务范围 = row['服务范围']&.strip
+      SERVICES = row['SERVICES']&.strip
 
-      设计团队 = row['设计团队']
-      TEAM = row['TEAM']
+      设计团队 = row['设计团队']&.strip
+      TEAM = row['TEAM']&.strip
 
-      合作单位 = row['合作单位']
-      COOPERATION = row['COOPERATION']
+      合作单位 = row['合作单位']&.strip
+      COOPERATION = row['COOPERATION']&.strip
 
-      获奖 = row['获奖']
-      AWARDS = row['AWARDS']
+      获奖 = row['获奖']&.strip
+      AWARDS = row['AWARDS']&.strip
+
+      I18n.locale = :cn
 
       work = Work.find_or_create_by(project_name: 中文项目名称) do |work|
         work.project_name = 中文项目名称
