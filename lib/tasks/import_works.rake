@@ -18,6 +18,8 @@ namespace :import_works do
       竣工时间 = row['竣工时间']
 
       所在城市 = row['所在城市']
+      所属区域 = row['区域']
+      LOCATION = row['LOCATION']
 
       用地面积 = row['用地面积']
       规划面积 = row['规划面积']
@@ -53,7 +55,7 @@ namespace :import_works do
       work.architecture_area = 建筑面积.to_i
 
       city = City.find_by(name: 所在城市)
-      city = City.create(name: 所在城市) if city.blank?
+      city = City.create(name: 所在城市, china_area_name: 所属区域, url_name: LOCATION.downcase) if city.blank?
       work.city_id = city.id
 
       I18n.locale = :en
