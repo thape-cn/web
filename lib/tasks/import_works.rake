@@ -51,8 +51,10 @@ namespace :import_works do
       work.site_area = 用地面积.to_i
       work.planning_area = 规划面积.to_i
       work.architecture_area = 建筑面积.to_i
-      puts 所在城市
-      work.city_id = City.find_by!(name: 所在城市).id
+
+      city = City.find_by(name: 所在城市)
+      city = City.create(name: 所在城市) if city.blank?
+      work.city_id = city.id
 
       I18n.locale = :en
 
