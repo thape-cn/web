@@ -5,6 +5,42 @@ class WorksController < ApplicationController
   def show
   end
 
+  def medical_care
+    @project_type = ProjectType.find_by cn_name: '医疗康养'
+    @self_path = education_works_path
+    render_project_type
+  end
+
+  def education
+    @project_type = ProjectType.find_by cn_name: '教育'
+    @self_path = education_works_path
+    render_project_type
+  end
+
+  def cultural
+    @project_type = ProjectType.find_by cn_name: '文化空间'
+    @self_path = cultural_works_path
+    render_project_type
+  end
+
+  def commercial
+    @project_type = ProjectType.find_by cn_name: '商业空间'
+    @self_path = commercial_works_path
+    render_project_type
+  end
+
+  def mixed_used_tod
+    @project_type = ProjectType.find_by cn_name: '综合体/TOD'
+    @self_path = mixed_used_tod_works_path
+    render_project_type
+  end
+
+  def supertall
+    @project_type = ProjectType.find_by cn_name: '超高层'
+    @self_path = supertall_works_path
+    render_project_type
+  end
+
   def office
     @project_type = ProjectType.find_by cn_name: '商务办公'
     @self_path = office_works_path

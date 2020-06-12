@@ -7,6 +7,12 @@ Rails.application.routes.draw do
       get :"residential-residence"
       get :"demonstration-zone"
       get :office
+      get :supertall
+      get :"mixed-used-tod"
+      get :commercial
+      get :cultural
+      get :education
+      get :"medical-care"
     end
   end
   resources :managements, only: [:index, :show]
