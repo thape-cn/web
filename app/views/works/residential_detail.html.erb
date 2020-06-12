@@ -7,8 +7,10 @@
       <%= render partial: 'search_form' %>
     </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '租赁住房', e: 'RENTAL',
-    header_path: residential_rental_works_path, header_class: 'pt-16', show_header_right: true } %>
+  <%= render partial: 'shared/header', locals: {
+    c: @residential_type.cn_name,
+    e: @residential_type.en_name,
+    header_path: @self_path, header_class: 'pt-16', show_header_right: true } %>
 
   <ol class="pt-3">
     <li class="inline-block">
@@ -21,7 +23,7 @@
       <a href="<%= residential_works_path -%>">居住</a>
     </li>
     <li class="breadcrumb-item" class="text-black6c">
-      <a href="<%= residential_rental_works_path -%>">租赁住房</a>
+      <a href="<%= @self_path -%>"><%= @residential_type.cn_name -%></a>
     </li>
   </ol>
 

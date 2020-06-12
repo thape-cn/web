@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     collection do
       get :residential
       get :"residential-rental"
+      get :"residential-community"
     end
   end
   resources :managements, only: [:index, :show]
