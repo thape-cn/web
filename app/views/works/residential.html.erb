@@ -24,11 +24,13 @@
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
     <div class="relative overflow-hidden">
+      <a href="<%= residential_residence_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/residential-1.jpg', class: 'grid-image hover:scale-105' -%>
         <div class="absolute text-white left-6 bottom-4">
           <p class="text-xl text-left pb-1 font-medium">精品住宅</p>
           <p class="text-lg text-left leading-snug">RESIDENCE</p>
         </div>
+      </a>
     </div>
     <div class="relative overflow-hidden">
       <a href="<%= residential_community_works_path -%>" class="cursor-pointer">
