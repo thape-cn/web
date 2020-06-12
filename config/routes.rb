@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :"residential-rental"
       get :"residential-community"
       get :"residential-residence"
+      get :"demonstration-zone"
     end
   end
   resources :managements, only: [:index, :show]
