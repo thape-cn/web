@@ -7,5 +7,10 @@ class Work < ApplicationRecord
 
   belongs_to :city
 
+  has_many :work_pictures
+
+  mount_uploader :snapshot_jpg, JpgUploader
+  mount_uploader :snapshot_webp, WebpUploader
+
   translates :project_name, :client, :services, :team, :cooperation, :awards
 end
