@@ -5,6 +5,36 @@ class WorksController < ApplicationController
   def show
   end
 
+  def interior
+    @project_type = ProjectType.find_by cn_name: '室内'
+    @self_path = interior_works_path
+    render_project_type
+  end
+
+  def landscape
+    @project_type = ProjectType.find_by cn_name: '景观'
+    @self_path = landscape_works_path
+    render_project_type
+  end
+
+  def urban_planning
+    @project_type = ProjectType.find_by cn_name: '城市规划'
+    @self_path = urban_planning_works_path
+    render_project_type
+  end
+
+  def hospitality
+    @project_type = ProjectType.find_by cn_name: '旅居/酒店'
+    @self_path = hospitality_works_path
+    render_project_type
+  end
+
+  def urban_design
+    @project_type = ProjectType.find_by cn_name: '城市设计/更新'
+    @self_path = urban_design_works_path
+    render_project_type
+  end
+
   def medical_care
     @project_type = ProjectType.find_by cn_name: '医疗康养'
     @self_path = education_works_path

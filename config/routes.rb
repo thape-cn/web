@@ -13,6 +13,11 @@ Rails.application.routes.draw do
       get :cultural
       get :education
       get :"medical-care"
+      get :"urban-design"
+      get :hospitality
+      get :"urban-planning"
+      get :landscape
+      get :interior
     end
   end
   resources :managements, only: [:index, :show]

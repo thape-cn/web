@@ -55,18 +55,22 @@
       </a>
     </div>
     <div class="relative overflow-hidden lg:hidden">
-      <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
-        <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
-      </div>
+      <a href="<%= urban_planning_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
+          <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden lg:hidden">
-      <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">景观</p>
-        <p class="text-xl text-left leading-snug">LANDSCAPE</p>
-      </div>
+      <a href="<%= landscape_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">景观</p>
+          <p class="text-xl text-left leading-snug">LANDSCAPE</p>
+        </div>
+      </a>
     </div>
     <div class="relative col-span-2 overflow-hidden">
       <a href="<%= mixed_used_tod_works_path -%>" class="cursor-pointer">
@@ -87,11 +91,13 @@
       </a>
     </div>
     <div class="relative overflow-hidden lg:hidden">
-      <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">室内</p>
-        <p class="text-xl text-left leading-snug">INTERIOR</p>
-      </div>
+      <a href="<%= interior_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">室内</p>
+          <p class="text-xl text-left leading-snug">INTERIOR</p>
+        </div>
+      </a>
     </div>
     <div class="relative col-span-2 overflow-hidden">
       <a href="<%= cultural_works_path -%>" class="cursor-pointer">
@@ -103,11 +109,13 @@
       </a>
     </div>
     <div class="relative row-span-2 overflow-hidden">
-      <%= image_pack_tag 'media/images/works-5-1l.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4">
-        <p class="text-3xl text-left pb-1 font-medium">城市设计/更新</p>
-        <p class="text-xl text-left leading-snug">URBAN DESIGN/RENOVATION</p>
-      </div>
+      <a href="<%= urban_design_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-5-1l.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4">
+          <p class="text-3xl text-left pb-1 font-medium">城市设计/更新</p>
+          <p class="text-xl text-left leading-snug">URBAN DESIGN/RENOVATION</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden">
       <a href="<%= education_works_path -%>" class="cursor-pointer">
@@ -128,32 +136,40 @@
       </a>
     </div>
     <div class="relative col-span-2 overflow-hidden">
-      <%= image_pack_tag 'media/images/works-6-2w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">旅居/酒店</p>
-        <p class="text-xl text-left leading-snug">SOJOURN/HOSPITALITY</p>
-      </div>
+      <a href="<%= hospitality_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-6-2w.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">旅居/酒店</p>
+          <p class="text-xl text-left leading-snug">SOJOURN/HOSPITALITY</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden hidden lg:block">
-      <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
-        <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
-      </div>
+      <a href="<%= urban_planning_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">城市规划</p>
+          <p class="text-xl text-left leading-snug">URBAN PLANNING</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden hidden lg:block">
-      <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">景观</p>
-        <p class="text-xl text-left leading-snug">LANDSCAPE</p>
-      </div>
+      <a href="<%= landscape_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">景观</p>
+          <p class="text-xl text-left leading-snug">LANDSCAPE</p>
+        </div>
+      </a>
     </div>
     <div class="relative overflow-hidden hidden lg:block">
-      <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 sbottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">室内</p>
-        <p class="text-xl text-left leading-snug">INTERIOR</p>
-      </div>
+      <a href="<%= interior_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">室内</p>
+          <p class="text-xl text-left leading-snug">INTERIOR</p>
+        </div>
+      </a>
     </div>
   </div>
 </div>
