@@ -6,11 +6,11 @@ class SearchController < ApplicationController
       .where('person_translations.name like ?', "%#{params[:q]}%").limit(15)
     @info_results = Info.where('title LIKE ?', "%#{params[:q]}%").order(position: :asc).limit(15)
 
-    if @works_results.present?
+    if @works_results.present? && (params[:tab].blank? || params[:tab] == 'work')
       render :works_result
-    elsif @people_results.present?
+    elsif @people_results.present? && (params[:tab].blank? || params[:tab] == 'person')
       render :people_result
-    elsif @info_results.present?
+    else
       render :info_result
     end
   end
