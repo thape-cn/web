@@ -88,43 +88,59 @@
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">客户名称 CLIENT</label>
         <p class="font-normal"><%= @work.client -%></p>
       </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
-        <p class="font-normal"><%= @work.design_completion -%></p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
-        <p class="font-normal"><%= @work.construction_completion -%></p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">所在城市 LOCATION</label>
-        <p class="font-normal"><%= @work.city&.name -%></p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
-        <p class="font-normal"><%= @work.site_area -%>㎡ </p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">服务范围 SERVICE</label>
-        <p class="font-normal"><%= @work.services -%></p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计团队 TEAM</label>
-        <p class="font-normal"><%= @work.team -%></p>
-      </div>
-      <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">合作单位 COOPERATION</label>
-        <p class="font-normal"><%= @work.cooperation -%></p>
-      </div>
+      <% if @work.design_completion.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
+          <p class="font-normal"><%= @work.design_completion -%></p>
+        </div>
+      <% end %>
+      <% if @work.construction_completion.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
+          <p class="font-normal"><%= @work.construction_completion -%></p>
+        </div>
+      <% end %>
+      <% if @work.city.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">所在城市 LOCATION</label>
+          <p class="font-normal"><%= @work.city.name -%></p>
+        </div>
+      <% end %>
+      <% if @work.site_area.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
+          <p class="font-normal"><%= @work.site_area -%>㎡ </p>
+        </div>
+      <% end %>
+      <% if @work.services.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">服务范围 SERVICE</label>
+          <p class="font-normal"><%= @work.services -%></p>
+        </div>
+      <% end %>
+      <% if @work.team.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计团队 TEAM</label>
+          <p class="font-normal"><%= @work.team -%></p>
+        </div>
+      <% end %>
+      <% if @work.cooperation.present? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">合作单位 COOPERATION</label>
+          <p class="font-normal"><%= @work.cooperation -%></p>
+        </div>
+      <% end %>
     </div>
-    <main class="inline-block">
-      <div class="mb-4">
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">获奖 AWARDS</label>
-        <% @work.awards.split('\n').each do |award| %>
-          <p><%= award %></p>
-        <% end %>
-      </div>
-    </main>
+    <% if @work.awards.present? %>
+      <main class="inline-block">
+        <div class="mb-4">
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">获奖 AWARDS</label>
+          <% @work.awards.split('\n').each do |award| %>
+            <p><%= award %></p>
+          <% end %>
+        </div>
+      </main>
+    <% end %>
     <aside class="inline-block w-80 sm:float-right">
       <div class="space-y-4 pb-6 border-gray-200 border-solid border-b w-2/3">
         <h3 class="text-black6c">推荐阅读</h3>
