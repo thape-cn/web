@@ -26,22 +26,15 @@
   </ol>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2 mt-8 mb-4">
-    <div class="relative overflow-hidden bg-black">
-      <%= image_pack_tag 'media/images/2c-item-1.jpg', class: 'grid-mask-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4">
-        <p class="text-xl text-left pb-1 font-medium">上海城投康桥工业区租赁住宅 </p>
-        <p class="text-lg text-left leading-snug">GHENGTOU INDUSTRIAL ZONE RENTAL HOUSING  </p>
-      </div>
-    </div>
-    <div class="relative overflow-hidden bg-black">
-      <a href="<%= work_path(id: 1) -%>" class="cursor-pointer">
-        <%= image_pack_tag 'media/images/2c-item-2.jpg', class: 'grid-mask-image hover:scale-105' -%>
+    <% @works.each do |work| %>
+      <div class="relative overflow-hidden bg-black">
+        <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
         <div class="absolute text-white left-6 bottom-4">
-          <p class="text-xl text-left pb-1 font-medium">上海城投康桥工业区租赁住宅 </p>
-          <p class="text-lg text-left leading-snug">GHENGTOU INDUSTRIAL ZONE RENTAL HOUSING  </p>
+          <p class="text-xl text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+          <p class="text-lg text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
         </div>
-      </a>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 <%= render partial: 'shared/footer' %>
