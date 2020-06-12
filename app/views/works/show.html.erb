@@ -90,16 +90,16 @@
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">客户名称 CLIENT</label>
         <p class="font-normal"><%= @work.client -%></p>
       </div>
-      <% if @work.design_completion.present? %>
+      <% if @work.design_completion.present? && !@work.design_completion.year.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
-          <p class="font-normal"><%= @work.design_completion -%></p>
+          <p class="font-normal"><%= @work.design_completion.year -%>年</p>
         </div>
       <% end %>
-      <% if @work.construction_completion.present? %>
+      <% if @work.construction_completion.present? && !@work.construction_completion.year.zero?  %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
-          <p class="font-normal"><%= @work.construction_completion -%></p>
+          <p class="font-normal"><%= @work.construction_completion.year -%>年</p>
         </div>
       <% end %>
       <% if @work.city.present? %>
@@ -108,7 +108,7 @@
           <p class="font-normal"><%= @work.city.name -%></p>
         </div>
       <% end %>
-      <% if @work.site_area.present? %>
+      <% if @work.site_area.present? && !@work.site_area.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
           <p class="font-normal"><%= @work.site_area -%>㎡ </p>
