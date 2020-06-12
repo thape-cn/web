@@ -65,10 +65,10 @@
   <header class="py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block">
         <h1 class="text-2xl xxl:text-3xl xxxl:text-4xl font-bold text-black6c">
-          青岛协信环球金融中心
+          <%= I18n.with_locale(:cn) { @work.project_name } -%>
         </h1>
         <h2 class="text-1xl xxl:text-2xl xxxl:text-3xl font-semibold text-black6c">
-          QINGDAO WORLD FINANCIAL CENTER 
+          <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
       <div class="inline-block w-80 float-right text-base">
@@ -86,43 +86,43 @@
     <div class="inline-block float-left space-y-4 mr-8">
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">客户名称 CLIENT</label>
-        <p class="font-normal">青岛南信控股集团 </p>
+        <p class="font-normal"><%= @work.client -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
-        <p class="font-normal">2018年10月 </p>
+        <p class="font-normal"><%= @work.design_completion -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
-        <p class="font-normal">2018年10月 </p>
+        <p class="font-normal"><%= @work.construction_completion -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">所在城市 LOCATION</label>
-        <p class="font-normal">青岛市崂山区金家岭金融商务区 </p>
+        <p class="font-normal"><%= @work.city&.name -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
-        <p class="font-normal">307400㎡ </p>
+        <p class="font-normal"><%= @work.site_area -%>㎡ </p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">服务范围 SERVICE</label>
-        <p class="font-normal">概念-方案-扩初 </p>
+        <p class="font-normal"><%= @work.services -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计团队 TEAM</label>
-        <p class="font-normal">上海天华建筑十所 </p>
+        <p class="font-normal"><%= @work.team -%></p>
       </div>
       <div>
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">合作单位 COOPERATION</label>
-        <p class="font-normal">如果空，也隐藏合作单位</p>
+        <p class="font-normal"><%= @work.cooperation -%></p>
       </div>
     </div>
     <main class="inline-block">
       <div class="mb-4">
         <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">获奖 AWARDS</label>
-        <p>2019 上海建筑学会建筑创作奖 佳作奖 </p>
-        <p>2019 地产设计大奖·中国 优秀奖 </p>
-        <p>2015 全国人居经典建筑 金奖</p>
+        <% @work.awards.split('\n').each do |award| %>
+          <p><%= award %></p>
+        <% end %>
       </div>
     </main>
     <aside class="inline-block w-80 sm:float-right">
