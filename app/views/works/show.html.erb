@@ -73,11 +73,13 @@
       </div>
       <div class="inline-block w-80 float-right text-base">
         <ol>
-          <li class="header-item">
-            <a href="<%= root_path -%>" class="text-black6c">青岛 QINGDAO</a>
-          </li>
+          <% @work.project_types.each do |project_type| %>
+            <li class="header-item">
+              <a href="<%= works_path -%>" class="text-black6c"><%= project_type.cn_name -%> <%= project_type.en_name -%></a>
+            </li>
+          <% end %>
           <li class="header-item-last">
-            <a href="<%= works_path -%>" class="text-black6c">商务办公 OFFICE</a>
+            <a href="<%= root_path -%>" class="text-black6c"><%= @work.city.name -%> <%= @work.city.url_name.upcase -%></a>
           </li>
         </ol>
       </div>
