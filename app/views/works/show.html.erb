@@ -5,20 +5,20 @@
      data-scroll-threshold="0.15">
 <%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
 
-<div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3], direction_to_right: true, show_left_btn: false, show_right_btn: false }"
+<div class="relative" x-data="{ activeSlide: 1, slidesLength: <%= @work.work_pictures.size -%>, direction_to_right: true, show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
   data-carousel-refresh-interval="7000">
-  <% [1, 2, 3].each do |slide| %>
-    <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide} && direction_to_right",
-          'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{slide} }",
+  <% @work.work_pictures.each_with_index do |work_picture, index| %>
+    <%= image_tag work_picture.album_jpg.url, 'x-show': "activeSlide === #{index + 1} && direction_to_right",
+          'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{index + 1} }",
           'x-transition:enter-start': 'opacity-0 transform -translate-x-1/2',
           'x-transition:enter': 'transition ease-linear duration-300',
           'x-transition:enter-end': 'opacity-100 transform translate-x-0',
           'x-transition:leave-start': 'opacity-100 transform translate-x-0',
           'x-transition:leave': 'transition ease-in duration-300',
           'x-transition:leave-end': 'opacity-50 transform translate-x-1/2' -%>
-    <%= image_pack_tag "media/images/work-item-h#{slide}.jpg", 'x-show': "activeSlide === #{slide} && !direction_to_right",
-          'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{slide} }",
+    <%= image_tag work_picture.album_jpg.url, 'x-show': "activeSlide === #{index + 1} && !direction_to_right",
+          'x-bind:class': "{ '': activeSlide === 1, 'absolute inset-0 w-full': activeSlide !== #{index + 1} }",
           'x-transition:enter-start': 'opacity-0 transform translate-x-1/2',
           'x-transition:enter': 'transition ease-linear duration-300',
           'x-transition:enter-end': 'opacity-100 transform translate-x-0',
@@ -33,7 +33,7 @@
         x-on:mouseleave="show_left_btn = false">
         <button
           data-action="mouseenter->carousel#stop_rotate mouseleave->carousel#start_rotate"
-          x-on:click="direction_to_right = false; activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+          x-on:click="direction_to_right = false; activeSlide = activeSlide === 1 ? slidesLength : activeSlide - 1">
           <svg class="ml-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
             x-bind:class="{ 'text-gray-300': show_left_btn, 'text-black6c-t70': !show_left_btn }">
               <g transform="matrix(1,0,0,1,-35,-81)">
@@ -49,7 +49,7 @@
         <button
           data-action="mouseenter->carousel#stop_rotate mouseleave->carousel#start_rotate"
           data-target="carousel.nextSlide"
-          x-on:click="direction_to_right = true; activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
+          x-on:click="direction_to_right = true; activeSlide = activeSlide === slidesLength ? 1 : activeSlide + 1">
           <svg class="mr-4 pt-1 w-6 h-8 fill-current" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
             x-bind:class="{ 'text-gray-300': show_right_btn, 'text-black6c-t70': !show_right_btn }">
               <g transform="matrix(1,0,0,1,-125,-81)">
