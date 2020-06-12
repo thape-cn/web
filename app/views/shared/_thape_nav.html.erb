@@ -7,11 +7,11 @@ end
 %>
 
 <div class="fixed z-50 w-screen <%= nav_background == 'white' ? 'nav-background-white' : 'nav-background-initial' -%>"
-  x-data="{ aside_menu_open: false, show_about_menu: false, show_works_menu: false, show_service_menu: false }"
+  x-data="{ aside_menu_open: false, show_about_menu: false, show_works_menu: false, show_service_menu: false, show_search_menu: false }"
   id="thape-nav-bar">
 
   <div class="w-full mx-auto py-1 xxl:py-2 xxxl:py-3 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 <%= nav_background == 'white' ? 'border-gray-200 border-solid border-b' : '' -%>">
-    <nav class="relative flex items-center justify-between h-10 md:justify-center">
+    <nav class="relative flex items-center justify-between h-10 md:justify-center" x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; show_search_menu = false">
       <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <div class="flex items-left justify-between w-full md:w-auto">
           <a href="<%= root_path -%>">
@@ -29,6 +29,19 @@ end
       <% if show_debug %>
         <p id="debug-progress"></p>
       <% end %>
+      <div class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg" x-show="show_search_menu">
+        <form action="<%= search_path -%>" method="GET" id="search-form" x-data="">
+          <div class="inline-block mt-1 ml-2 relative">
+            <input class="form-input block w-64 pr-10" name="q" placeholder="关键词搜索" value="<%= params[:q] -%>" />
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+              x-on:click="document.getElementById('search-form').submit();">
+              <svg class="h-6 w-6 text-gray-400" fill="currentColor">
+                <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
+              </svg>
+            </div>
+          </div>
+        </form>
+      </div>
       <%= render partial: 'shared/thape_nav_container', locals: { nav_background: nav_background, a_link_class: a_link_class }-%>
     </nav>
   </div>
@@ -39,7 +52,7 @@ end
     x-transition:enter="transition ease-out delay-150 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_about_menu">
+    x-show="show_about_menu && !show_search_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-about-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
         <a href="<%= about_path -%>" class="mr-4 <%= controller.controller_name == 'abouts' && controller.action_name == 'show' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'abouts', action: 'show') ? 'text-black6c' : '' -%>">天华介绍</a>
@@ -56,7 +69,7 @@ end
     x-transition:enter="transition ease-out delay-150 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_works_menu">
+    x-show="show_works_menu && !show_search_menu">
     <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end">
       <nav>
         <p class="px-2 xxl:px-4 pb-1"><a href="<%= works_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
@@ -113,7 +126,7 @@ end
     x-transition:enter="transition ease-out delay-150 duration-200"
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_service_menu">
+    x-show="show_service_menu && !show_search_menu">
     <nav class="relative flex items-center justify-between h-14 md:justify-center">
       <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
         <a href="<%= building_path -%>" class="mr-3 <%= controller.controller_name == 'services' && controller.action_name == 'building' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'building') ? 'text-black6c' : '' -%>">建筑</a>
