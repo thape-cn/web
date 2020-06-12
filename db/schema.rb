@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_082140) do
+ActiveRecord::Schema.define(version: 2020_06_12_023808) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -267,6 +267,15 @@ ActiveRecord::Schema.define(version: 2020_06_09_082140) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "work_pictures", force: :cascade do |t|
+    t.string "album_jpg"
+    t.string "album_webp"
+    t.integer "work_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["work_id"], name: "index_work_pictures_on_work_id"
+  end
+
   create_table "work_project_types", force: :cascade do |t|
     t.integer "work_id", null: false
     t.integer "project_type_id", null: false
@@ -309,11 +318,15 @@ ActiveRecord::Schema.define(version: 2020_06_09_082140) do
     t.integer "architecture_area"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "snapshot_jpg"
+    t.string "snapshot_webp"
+    t.boolean "published", default: true
     t.index ["city_id"], name: "index_works_on_city_id"
   end
 
   add_foreign_key "case_pictures", "cases"
   add_foreign_key "pictures", "infos"
+  add_foreign_key "work_pictures", "works"
   add_foreign_key "work_project_types", "project_types"
   add_foreign_key "work_project_types", "works"
   add_foreign_key "work_residential_types", "residential_types"
