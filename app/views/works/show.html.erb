@@ -71,15 +71,15 @@
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="inline-block w-80 float-right text-base">
+      <div class="inline-block float-right text-base">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
-              <a href="<%= works_path -%>" class="text-black6c"><%= project_type.cn_name -%> <%= project_type.en_name -%></a>
+              <a href="<%= works_path -%>" class="text-black6c"><%= project_type.cn_name -%>&nbsp;&nbsp;<%= project_type.en_name -%></a>
             </li>
           <% end %>
           <li class="header-item-last">
-            <a href="<%= root_path -%>" class="text-black6c"><%= @work.city.name -%> <%= @work.city.url_name.upcase -%></a>
+            <a href="<%= root_path -%>" class="text-black6c"><%= @work.city.name -%>&nbsp;&nbsp;<%= @work.city.url_name.upcase -%></a>
           </li>
         </ol>
       </div>
