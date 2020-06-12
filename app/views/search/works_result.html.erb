@@ -1,0 +1,37 @@
+<%= render partial: 'shared/thape_nav', locals: { nav_background: 'white', show_debug: false } -%>
+
+<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+  <header class="pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
+    <h3 class="inline-block text-xl font-bold text-black6c">
+      <a href="" class="hover:text-black6c-t70 focus:text-black6c-t70">
+        作品&nbsp;&nbsp;（<%= @works_results.count -%>）
+      </a>
+    </h3>
+    <h3 class="ml-10 inline-block text-xl text-thape-copyright-gray">
+      <a href="" class="hover:text-black6c-t70 focus:text-black6c-t70">
+        人物&nbsp;&nbsp;（<%= @people_results.count -%>）
+      </a>
+    </h3>
+    <h3 class="ml-10 inline-block text-xl text-thape-copyright-gray">
+      <a href="" class="hover:text-black6c-t70 focus:text-black6c-t70">
+        新闻&nbsp;&nbsp;（<%= @info_results.count -%>）
+      </a>
+    </h3>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
+    <% @works_results.each do |work| %>
+      <div class="relative overflow-hidden bg-black">
+        <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
+          <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
+          <div class="absolute text-white left-6 bottom-4">
+            <p class="text-xl text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+            <p class="text-lg text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'shared/footer' %>

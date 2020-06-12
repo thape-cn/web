@@ -46,5 +46,7 @@ Rails.application.routes.draw do
 
   resources :news, only: %i[index show]
 
+  get 'search', to: 'search#query'
+
   root 'home#show'
 end
