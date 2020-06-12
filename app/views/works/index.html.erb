@@ -37,11 +37,13 @@
       </a>
     </div>
     <div class="relative overflow-hidden">
-      <%= image_pack_tag 'media/images/works-2-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
-        <p class="text-3xl text-left pb-1 font-medium">商务办公</p>
-        <p class="text-xl text-left leading-snug">OFFICE</p>
-      </div>
+      <a href="<%= office_works_path -%>" class="cursor-pointer">
+        <%= image_pack_tag 'media/images/works-2-2.jpg', class: 'grid-image hover:scale-105' -%>
+        <div class="absolute text-white left-6 bottom-4" x-show="show_grid_2_4_text">
+          <p class="text-3xl text-left pb-1 font-medium">商务办公</p>
+          <p class="text-xl text-left leading-snug">OFFICE</p>
+        </div>
+      </a>
     </div>
     <div class="relative row-span-2 overflow-hidden">
       <%= image_pack_tag 'media/images/works-2-3l.jpg', class: 'grid-image hover:scale-105' -%>

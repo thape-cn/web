@@ -5,6 +5,12 @@ class WorksController < ApplicationController
   def show
   end
 
+  def office
+    @project_type = ProjectType.find_by cn_name: '商务办公'
+    @self_path = office_works_path
+    render_project_type
+  end
+
   def demonstration_zone
     @project_type = ProjectType.find_by cn_name: '展示区/示范区'
     @self_path = demonstration_zone_works_path

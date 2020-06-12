@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :"residential-community"
       get :"residential-residence"
       get :"demonstration-zone"
+      get :office
     end
   end
   resources :managements, only: [:index, :show]
