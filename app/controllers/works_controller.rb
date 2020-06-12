@@ -80,12 +80,14 @@ class WorksController < ApplicationController
     @works = Work.includes(:work_residential_types, work_project_types: :project_type)
       .where(work_project_types: { project_types: { cn_name: '居住' } })
       .where(work_residential_types: { residential_type_id: @residential_type.id })
+      .where(published: true)
     render :residential_detail
   end
 
   def render_project_type
     @works = Work.includes(:work_project_types)
       .where(work_project_types: { project_type_id: @project_type.id })
+      .where(published: true)
     render :works_detail
   end
 end
