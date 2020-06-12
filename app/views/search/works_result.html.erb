@@ -17,6 +17,16 @@
         新闻&nbsp;&nbsp;（<%= @info_results.count -%>）
       </a>
     </h3>
+    <div class="inline-block float-right">
+      <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
+        <input class="form-input block w-36 sm:w-40 pr-10 leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="关键词搜索" value="<%= params[:q] -%>" />
+        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+          <svg class="h-6 w-6 text-gray-400" fill="currentColor">
+            <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+    </div>
   </header>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
