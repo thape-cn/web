@@ -57,29 +57,29 @@ end
     x-transition:enter-start="opacity-0 -translate-y-4"
     x-transition:enter-end="opacity-100 translate-y-0"
     x-show="show_works_menu">
-    <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end cursor-pointer">
+    <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end">
       <nav>
-        <p class="px-2 xxl:px-4 pb-1"><a href="<%= building_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
+        <p class="px-2 xxl:px-4 pb-1"><a href="<%= works_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
         <div class="flex justify-between">
           <dl class="px-2 xxl:px-4">
-              <dt>居住</dt>
-              <dt>展示区 / 示范区</dt>
-              <dt>商务办公</dt>
-              <dt>综合体 / TOD</dt>
-              <dt>超高层</dt>
+              <dt><a href="<%= residential_works_path -%>">居住</a></dt>
+              <dt><a href="<%= demonstration_zone_works_path -%>">展示区 / 示范区</a></dt>
+              <dt><a href="<%= office_works_path -%>">商务办公</a></dt>
+              <dt><a href="<%= mixed_used_tod_works_path -%>">综合体 / TOD</a></dt>
+              <dt><a href="<%= supertall_works_path -%>">超高层</a></dt>
           </dl>
           <dl class="pr-2 xxl:pr-4">
-              <dt>商业空间</dt>
-              <dt>文化空间</dt>
-              <dt>城市设计 / 更新</dt>
-              <dt>教育</dt>
-              <dt>医疗康养</dt>
+              <dt><a href="<%= commercial_works_path -%>">商业空间</a></dt>
+              <dt><a href="<%= cultural_works_path -%>">文化空间</a></dt>
+              <dt><a href="<%= urban_design_works_path -%>">城市设计 / 更新</a></dt>
+              <dt><a href="<%= education_works_path -%>">教育</a></dt>
+              <dt><a href="<%= medical_care_works_path -%>">医疗康养</a></dt>
           </dl>
           <dl class="pr-2 xxl:pr-4">
-              <dt>旅居 / 酒店</dt>
-              <dt>城市规划</dt>
-              <dt>景观</dt>
-              <dt>室内</dt>
+              <dt><a href="<%= hospitality_works_path -%>">旅居 / 酒店</a></dt>
+              <dt><a href="<%= urban_planning_works_path -%>">城市规划</a></dt>
+              <dt><a href="<%= landscape_works_path -%>">景观</a></dt>
+              <dt><a href="<%= interior_works_path -%>">室内</a></dt>
           </dl>
         </div>
       </nav>
