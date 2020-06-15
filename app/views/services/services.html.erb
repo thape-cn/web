@@ -4,12 +4,12 @@
      data-action="resize@window->service#layout">
 
 <div class="relative h-screen">
-  <picture data-target="service.bgImg">
+  <picture>
     <% if background_img_webp.present? %>
       <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
     <% end %>
     <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
-    <img src="<%= asset_pack_path(background_img) -%>">
+    <img src="<%= asset_pack_path(background_img) -%>" data-target="service.bgImg">
   </picture>
   <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-64 xxl:h-56" data-target="service.introDiv">
     <div class="flex justify-center items-center text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
