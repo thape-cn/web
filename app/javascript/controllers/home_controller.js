@@ -102,6 +102,9 @@ export default class extends Controller {
   }
 
   start_rotate() {
+    if (this.refreshTimer) {
+      clearInterval(this.refreshTimer)
+    }
     this.refreshTimer = setInterval(() => {
       this.next_slide();
     }, this.data.get("refreshInterval"))
