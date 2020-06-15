@@ -75,7 +75,7 @@
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
-              <a href="<%= works_path -%>" class="text-black6c"><%= project_type.cn_name -%>&nbsp;&nbsp;<%= project_type.en_name -%></a>
+              <a href="<%= project_type_path(project_type) -%>" class="text-black6c"><%= project_type.cn_name -%>&nbsp;&nbsp;<%= project_type.en_name -%></a>
             </li>
           <% end %>
           <li class="header-item-last">
