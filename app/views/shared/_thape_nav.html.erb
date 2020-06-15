@@ -1,169 +1,336 @@
 <%
-a_link_class = if nav_background == 'white'
-  'hover:text-black6c hover:font-semibold focus:outline-none focus:text-black6c transition duration-150 ease-in-out'
-else
-  'hover:text-white hover:font-semibold focus:outline-none focus:text-white transition duration-150 ease-in-out'
-end
+isAboutShow = controller.controller_name == 'abouts' && controller.action_name == 'show';
+isCulture = controller.controller_name == 'abouts' && controller.action_name == 'culture';
+isJtgg = controller.controller_name == 'leadership' && controller.action_name == 'index';
+isQytd = controller.controller_name == 'leadership' && controller.action_name == 'show';
+isAbout = isAboutShow || isCulture || isJtgg || isQytd;
+
+isWorksIndex = controller.controller_name == 'works' && controller.action_name != 'show';
+isWorksShow = controller.controller_name == 'works' && controller.action_name == 'show';
+isWork = isWorksIndex || isWorksShow;
+
+isBuilding = controller.controller_name == 'services' && controller.action_name == 'building';
+isInterior = controller.controller_name == 'services' && controller.action_name == 'interior';
+isPlanning = controller.controller_name == 'services' && controller.action_name == 'planning';
+isLandscape = controller.controller_name == 'services' && controller.action_name == 'landscape';
+isVetting = controller.controller_name == 'services' && controller.action_name == 'vetting';
+isConsluting = controller.controller_name == 'services' && controller.action_name == 'consluting';
+isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
+isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech;
+
+headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
 %>
-
-<div class="fixed z-50 w-screen <%= nav_background == 'white' ? 'nav-background-white' : 'nav-background-initial' -%>"
-  x-data="{ aside_menu_open: false, show_about_menu: false, show_works_menu: false, show_service_menu: false, show_search_menu: false }"
-  id="thape-nav-bar">
-
-  <div class="w-full mx-auto py-1 xxl:py-2 xxxl:py-3 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 <%= nav_background == 'white' ? 'border-gray-200 border-solid border-b' : '' -%>">
-    <nav class="relative flex items-center justify-between h-10 md:justify-center" x-on:mouseenter="show_about_menu = false; show_works_menu = false; show_service_menu = false; show_search_menu = false">
-      <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-        <div class="flex items-left justify-between w-full md:w-auto">
-          <a href="<%= root_path -%>">
-            <%= render partial: 'shared/logo', locals: { className: nav_background == 'white' ? 'fill-current text-black6c hover:text-black6c-t70 focus:text-black6c-t70 h-8 w-48 h-10' : 'fill-current text-thape-white-t80 hover:text-white focus:text-white h-8 w-48 h-10', svgId: 'thape-nav-logo' } -%>
-          </a>
-          <div class="-mr-2 flex items-center md:hidden">
-            <button @click="aside_menu_open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+<header class="header <%= headerIsActive ? 'active' : '' -%>" id="header">
+  <div class="logo">
+    <a href="<%= root_path -%>">
+      <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
+    </a>
+  </div>
+  <nav class="level-1" style="display: flex;" id="nav_level_1">
+    <div class="nav-item">
+      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>">介绍</a>
+      <nav class="intro">
+        <div class="nav-item">
+          <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>">天华介绍</a>
         </div>
-      </div>
-      <% if show_debug %>
-        <p id="debug-progress"></p>
-      <% end %>
-      <div class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg" x-show="show_search_menu">
-        <form action="<%= search_path -%>" method="GET" id="search-form" x-data="">
-          <div class="inline-block mt-1 ml-2 relative">
-            <input class="form-input block w-64 pr-10" name="q" placeholder="关键词搜索" value="<%= params[:q] -%>" />
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-              x-on:click="document.getElementById('search-form').submit();">
-              <svg class="h-6 w-6 text-gray-400" fill="currentColor">
-                <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
-              </svg>
+        <div class="nav-item">
+          <a href="<%= culture_path -%>" class="<%= isCulture ? 'active' : '' -%>">企业文化</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= leadership_index_path -%>" class="<%= isJtgg ? 'active' : '' -%>">集团高管</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= leadership_path(id: 'shanghai') -%>" class="<%= isQytd ? 'active' : '' -%>">区域团队</a>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-point">
+      ·
+    </div>
+    <div class="nav-item">
+      <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>">作品</a>
+      <nav class="works">
+        <div class="nav-item">
+          <a href="#" style="pointer-events: none;">类型</a>
+          <div class="list">
+            <div class="list-item">
+              <div class="nav-item">
+                <a href="<%= residential_works_path -%>">居住</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= demonstration_zone_works_path -%>">展示区 / 示范区</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= office_works_path -%>">商务办公</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= mixed_used_tod_works_path -%>">综合体 / TOD</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= supertall_works_path -%>">超高层</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= hospitality_works_path -%>">旅居 / 酒店</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= urban_planning_works_path -%>">城市规划</a>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="nav-item">
+                <a href="<%= commercial_works_path -%>">商业空间</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= cultural_works_path -%>">文化空间</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= urban_design_works_path -%>">城市设计 / 更新</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= education_works_path -%>">教育</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= medical_care_works_path -%>">医疗康养</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= landscape_works_path -%>">景观</a>
+              </div>
+              <div class="nav-item">
+                <a href="<%= interior_works_path -%>">室内</a>
+              </div>
             </div>
           </div>
-        </form>
-      </div>
-      <%= render partial: 'shared/thape_nav_container', locals: { nav_background: nav_background, a_link_class: a_link_class }-%>
-    </nav>
-  </div>
-
-  <%# 介绍子菜单 %>
-  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
-    x-on:mouseleave="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-150 duration-200"
-    x-transition:enter-start="opacity-0 -translate-y-4"
-    x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_about_menu && !show_search_menu">
-    <nav class="relative flex items-center justify-between h-14 md:justify-center">
-      <div id="thape-about-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-        <a href="<%= about_path -%>" class="mr-4 <%= controller.controller_name == 'abouts' && controller.action_name == 'show' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'abouts', action: 'show') ? 'text-black6c' : '' -%>">天华介绍</a>
-        <a href="<%= culture_path -%>" class="mx-4 <%= controller.controller_name == 'abouts' && controller.action_name == 'culture' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'abouts', action: 'culture') ? 'text-black6c' : '' -%>">企业文化</a>
-        <a href="<%= leadership_index_path -%>" class="mx-4 <%= controller.controller_name == 'leadership' && controller.action_name == 'index' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'leadership', action: 'index') ? 'text-black6c' : '' -%>">集团高管</a>
-        <a href="<%= leadership_path(id: 'shanghai') -%>" class="ml-4 mr-45x xxl:mr-51x <%= controller.controller_name == 'leadership' && controller.action_name == 'show' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'leadership', action: 'show', id: 'shanghai') ? 'text-black6c' : '' -%>">区域团队</a>
-      </div>
-    </nav>
-  </div>
-
-  <%# 作品子菜单 %>
-  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
-    x-on:mouseleave="show_about_menu = false; show_works_menu = false; show_service_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-150 duration-200"
-    x-transition:enter-start="opacity-0 -translate-y-4"
-    x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_works_menu && !show_search_menu">
-    <div id="thape-works-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> pt-4 pb-3 hidden md:flex md:justify-end">
-      <nav>
-        <p class="px-2 xxl:px-4 pb-1"><a href="<%= works_path -%>" class="font-medium <%= a_link_class -%>">类型</a></p>
-        <div class="flex justify-between">
-          <dl class="px-2 xxl:px-4">
-              <dt><a href="<%= residential_works_path -%>">居住</a></dt>
-              <dt><a href="<%= demonstration_zone_works_path -%>">展示区 / 示范区</a></dt>
-              <dt><a href="<%= office_works_path -%>">商务办公</a></dt>
-              <dt><a href="<%= mixed_used_tod_works_path -%>">综合体 / TOD</a></dt>
-              <dt><a href="<%= supertall_works_path -%>">超高层</a></dt>
-          </dl>
-          <dl class="pr-2 xxl:pr-4">
-              <dt><a href="<%= commercial_works_path -%>">商业空间</a></dt>
-              <dt><a href="<%= cultural_works_path -%>">文化空间</a></dt>
-              <dt><a href="<%= urban_design_works_path -%>">城市设计 / 更新</a></dt>
-              <dt><a href="<%= education_works_path -%>">教育</a></dt>
-              <dt><a href="<%= medical_care_works_path -%>">医疗康养</a></dt>
-          </dl>
-          <dl class="pr-2 xxl:pr-4">
-              <dt><a href="<%= hospitality_works_path -%>">旅居 / 酒店</a></dt>
-              <dt><a href="<%= urban_planning_works_path -%>">城市规划</a></dt>
-              <dt><a href="<%= landscape_works_path -%>">景观</a></dt>
-              <dt><a href="<%= interior_works_path -%>">室内</a></dt>
-          </dl>
         </div>
-      </nav>
-      <nav>
-        <p class="px-6 xxl:px-10 pb-1"><a href="<%= planning_path -%>" class="font-medium <%= a_link_class -%>">地区</a></p>
-        <div class="flex justify-between">
-          <dl class="pl-6 pr-3 xxl:px-10">
-              <dt>华东</dt>
-              <dt>华北</dt>
-              <dt>华南</dt>
-              <dt>华中</dt>
-              <dt>西南</dt>
-              <dt>西北</dt>
-          </dl>
-          <dl class="pl-6 text-right">
-              <dt>上海</dt>
-              <dt>杭州</dt>
-              <dt>南京</dt>
-              <dt>合肥</dt>
-              <dt>济南</dt>
-              <dt>青岛</dt>
-          </dl>
+        <div class="nav-item">
+          <a href="#" style="pointer-events: none;">地区</a>
+          <div class="list">
+            <div class="list-item" style="width: 33%;height: 12rem;">
+              <div class="nav-item">
+                <a href="/intro">华东</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">福州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">杭州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">合肥</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">湖州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">济南</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">南昌</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">南京</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">南通</a>
+                  </div>
+                </nav>
+                <nav style="left: 200%;">
+                  <div class="nav-item">
+                    <a href="/intro">宁波</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">青岛</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">上海</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">苏州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">温州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">无锡</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">徐州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">张家港</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="nav-item">
+                <a href="/intro">华北</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">北京</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">石家庄</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">天津</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="nav-item">
+                <a href="/intro">华南</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">广州</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">海口</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="nav-item">
+                <a href="/intro">华中</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">武汉</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">襄阳</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="nav-item">
+                <a href="/intro">西南</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">成都</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">贵阳</a>
+                  </div>
+                  <div class="nav-item">
+                    <a href="/intro">重庆</a>
+                  </div>
+                </nav>
+              </div>
+              <div class="nav-item">
+                <a href="/intro">西北</a>
+                <nav>
+                  <div class="nav-item">
+                    <a href="/intro">西安</a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
-  </div>
-
-  <%# 服务子菜单 %>
-  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
-    x-on:mouseleave="show_about_menu = false; show_service_menu = false; show_works_menu = false; <%= nav_background == 'white' ? '' : 'nav_menu.turnTransparent();' -%>"
-    x-transition:enter="transition ease-out delay-150 duration-200"
-    x-transition:enter-start="opacity-0 -translate-y-4"
-    x-transition:enter-end="opacity-100 translate-y-0"
-    x-show="show_service_menu && !show_search_menu">
-    <nav class="relative flex items-center justify-between h-14 md:justify-center">
-      <div id="thape-services-container" class="<%= nav_background == 'white' ? 'text-thape-copyright-gray' : 'text-thape-white-t80' -%> hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 cursor-pointer xxl:text-lg">
-        <a href="<%= building_path -%>" class="mr-3 <%= controller.controller_name == 'services' && controller.action_name == 'building' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'building') ? 'text-black6c' : '' -%>">建筑</a>
-        <a href="<%= interior_path -%>" class="ml-2 mr-3 xxl:mx-3 <%= controller.controller_name == 'services' && controller.action_name == 'interior' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'interior') ? 'text-black6c' : '' -%>">室内</a>
-        <a href="<%= planning_path -%>" class="ml-2 mr-3 xxl:mx-3 <%= controller.controller_name == 'services' && controller.action_name == 'planning' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'planning') ? 'text-black6c' : '' -%>">规划</a>
-        <a href="<%= landscape_path -%>" class="ml-2 mr-3 xxl:mx-3 <%= controller.controller_name == 'services' && controller.action_name == 'landscape' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'landscape') ? 'text-black6c' : '' -%>">景观</a>
-        <a href="<%= vetting_path -%>" class="ml-2 mr-3 xxl:mx-3 <%= controller.controller_name == 'services' && controller.action_name == 'vetting' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'vetting') ? 'text-black6c' : '' -%>">审图</a>
-        <a href="<%= consluting_path -%>" class="mx-2  <%= controller.controller_name == 'services' && controller.action_name == 'consluting' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'consluting') ? 'text-black6c' : '' -%>">技术咨询</a>
-        <a href="<%= vr_tech_path -%>" class="ml-2 xxl:ml-3 <%= controller.controller_name == 'services' && controller.action_name == 'vrtech' ? 'font-semibold' : 'font-normal' -%> <%= a_link_class -%> <%= current_page?(controller: 'services', action: 'vrtech') ? 'text-black6c' : '' -%>">可视化</a>
-      </div>
-    </nav>
-  </div>
-
-  <div x-show="aside_menu_open" style="display: none;" class="absolute top-0 inset-x-0 p-2 md:hidden">
-    <div class="rounded-lg shadow-md transition transform origin-top-right" x-show="aside_menu_open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
-      <div class="rounded-lg bg-white shadow-xs overflow-hidden">
-        <div class="px-5 pt-4 flex items-center justify-between">
-          <div>
-            <img class="h-6 w-auto" src="<%= asset_pack_path('media/images/logo.svg') -%>" alt="" />
-          </div>
-          <div class="-mr-2">
-            <button @click="aside_menu_open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-              <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="px-2 pt-2 pb-3">
-          <a href="<%= about_path -%>" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">介绍</a>
-          <a href="<%= works_path -%>" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">作品</a>
-          <a href="<%= building_path -%>" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">服务</a>
-          <a href="<%= news_index_path -%>" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">新闻</a>
-          <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">招聘</a>
-          <a href="<%= biz_map_path -%>" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">联系我们</a>
-        </div>
-      </div>
+    <div class="nav-point">
+      ·
     </div>
+    <div class="nav-item">
+      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>">服务</a>
+      <nav class="service">
+        <div class="nav-item">
+          <a href="<%= building_path -%>" class="<%= isBuilding ? 'active' : '' -%>">建筑</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= interior_path -%>" class="<%= isInterior ? 'active' : '' -%>">室内</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= planning_path -%>" class="<%= isPlanning ? 'active' : '' -%>">规划</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= landscape_path -%>" class="<%= isLandscape ? 'active' : '' -%>">景观</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= vetting_path -%>" class="<%= isVetting ? 'active' : '' -%>">审图</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= consluting_path -%>" class="<%= isConsluting ? 'active' : '' -%>">技术咨询</a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= vr_tech_path -%>" class="<%= isVrtech ? 'active' : '' -%>">可视化</a>
+        </div>
+      </nav>
+    </div>
+    <div class="nav-point">
+      ·
+    </div>
+    <div class="nav-item">
+      <a href="<%= news_index_path -%>" class="<%= controller_name == 'news' || (controller_name == 'news' && controller.action_name != 'show') ? 'active' : '' -%>">新闻</a>
+    </div>
+    <div class="nav-point">
+      ·
+    </div>
+    <div class="nav-item">
+      <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition">招聘</a>
+    </div>
+    <div class="nav-point">
+      ·
+    </div>
+    <div class="nav-item">
+      <a href="<%= biz_map_path -%>" class="<%= controller_name == 'biz_maps' ? 'active' : '' -%>">联系我们</a>
+    </div>
+    <div class="nav-item">
+      <a href="javascript:void(0)"
+        onclick="
+          document.querySelector('#nav_level_1').style.display='none';
+          document.querySelector('#search-form').style.display='flex';
+          document.querySelector('#search-form').querySelector('input').focus();
+        ">
+        <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="nav-item">
+      <a href="#">
+        <svg class="ml-3 fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+          <g transform="matrix(1,0,0,1,-791,-523)">
+              <g id="cn">
+                  <g transform="matrix(1,0,0,1,795.87,543.475)">
+                      <path d="M0,-19C-1.93,-19 -3.5,-17.43 -3.5,-15.5L-3.5,-3.5C-3.5,-1.57 -1.93,0 0,0L62,0C63.93,0 65.5,-1.57 65.5,-3.5L65.5,-15.5C65.5,-17.43 63.93,-19 62,-19L0,-19ZM62,1L0,1C-2.481,1 -4.5,-1.019 -4.5,-3.5L-4.5,-15.5C-4.5,-17.981 -2.481,-20 0,-20L62,-20C64.481,-20 66.5,-17.981 66.5,-15.5L66.5,-3.5C66.5,-1.019 64.481,1 62,1" />
+                  </g>
+                  <g transform="matrix(1,0,0,1,804.839,529.59)">
+                      <path d="M0,8.77C0.885,8.761 1.72,8.361 2.28,7.677L3.15,8.699C2.366,9.656 1.187,10.203 -0.05,10.184C-2.65,10.184 -4.64,8.252 -4.64,4.875C-4.64,1.514 -2.59,-0.503 0.01,-0.503C1.126,-0.5 2.189,-0.028 2.94,0.797L2.06,1.834C1.547,1.255 0.813,0.92 0.04,0.91C-1.74,0.91 -2.97,2.395 -2.97,4.818C-2.97,7.271 -1.82,8.77 0,8.77M12.27,10.003L8.85,3.924L7.77,1.766L7.7,1.766C7.78,2.831 7.91,4.021 7.91,5.142L7.91,10.003L6.37,10.003L6.37,-0.308L8.03,-0.308L11.45,5.743L12.53,7.928L12.6,7.928C12.52,6.864 12.39,5.618 12.39,4.496L12.39,-0.304L13.93,-0.304L13.93,10.006L12.271,10.006L12.27,10.003ZM-8.97,-5.615L22.061,-5.615L22.061,14.385L-8.97,14.385C-11.179,14.385 -12.97,12.594 -12.97,10.385L-12.97,-1.615C-12.97,-3.824 -11.179,-5.615 -8.97,-5.615" />
+                  </g>
+                  <g transform="matrix(1,0,0,1,835.513,539.737)">
+                      <path d="M0,-10.31L6.093,-10.31L6.093,-8.952L1.624,-8.952L1.624,-6.08L5.406,-6.08L5.406,-4.707L1.624,-4.707L1.624,-1.373L6.247,-1.373L6.247,0L0,0L0,-10.31Z" />
+                  </g>
+                  <g transform="matrix(1,0,0,1,843.912,539.737)">
+                      <path d="M0,-10.31L1.667,-10.31L5.085,-4.258L6.163,-2.074L6.233,-2.074C6.149,-3.138 6.023,-4.385 6.023,-5.505L6.023,-10.31L7.564,-10.31L7.564,0L5.897,0L2.479,-6.08L1.4,-8.237L1.331,-8.237C1.415,-7.172 1.541,-5.982 1.541,-4.861L1.541,0L0,0L0,-10.31Z" />
+                  </g>
+              </g>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </nav>
+  <div class="relative" style="height: 100%; display: none; margin-right: 4rem; align-items: center;" id="search-form">
+    <form action="<%= search_path -%>" method="GET">
+      <input class="form-input w-64 pr-10" autofocus name="q" placeholder="关键词搜索" value="<%= params[:q] -%>"
+        onblur="
+          document.querySelector('#nav_level_1').style.display='flex';
+          document.querySelector('#search-form').style.display='none';
+        " />
+      <button type="submit" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer focus:outline-none">
+        <svg class="h-6 w-6 text-gray-400" fill="currentColor">
+          <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </form>
   </div>
-</div>
+</header>
+
+<% if !headerIsActive %>
+<script>
+  function setHeaderActive() {
+    const headerElem = document.querySelector('#header');
+    const scrollTop = document.documentElement.scrollTop;
+    if (headerElem) {
+      if (scrollTop > 200) headerElem.classList.add('active');
+      else headerElem.classList.remove('active');
+    }
+  }
+  document.addEventListener('scroll', setHeaderActive);
+</script>
+<% end %>

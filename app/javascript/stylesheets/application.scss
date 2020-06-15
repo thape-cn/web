@@ -154,3 +154,202 @@ p {
     background-color: initial;
   }
 }
+
+.header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  @apply nav-background-initial;
+  height: 50px;
+  z-index: 100;
+  a {
+    @apply text-thape-white-t80 font-normal transition duration-150 ease-in-out text-lg;
+    font-size: 1rem;
+    &:hover {
+      @apply text-white font-semibold;
+    }
+    &:focus {
+      @apply outline-none text-white;
+    }
+    &.active {
+      @apply text-white font-semibold;
+    }
+  }
+
+  &>.logo {
+    margin-left: 20px;
+    a {
+      @apply text-thape-white-t80;
+      &:hover, &:focus {
+        @apply text-white;
+      }
+    }
+    svg {
+      @apply fill-current h-8 w-48 h-10;
+    }
+  }
+  
+  nav {
+    display: flex;
+    &>.nav-item {
+      @apply ml-4 mr-4;
+    }
+    
+    &>.nav-point {
+      display: flex;
+      align-items: center;
+      @apply text-thape-white-t80;
+    }
+    
+    &.level-1 {
+      margin-right: 40px;
+      height: 100%;
+    }
+    
+    &.level-1>.nav-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .nav-item {
+      >nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50px;
+        @apply nav-background-initial border-gray-200 border-solid border-t;
+      }
+      &:hover {
+        >a {
+          @apply text-white font-semibold;
+        }
+        >nav {
+          display: flex;
+        }
+      }
+    }
+    
+    &.intro {
+      padding-right: 16.5rem;
+      height: 50px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &.works {
+      padding-right: 4.2rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      justify-content: flex-end;
+      >.nav-item {
+        &:hover>a {
+          @apply text-black6c font-semibold;
+        }
+        &:first-child {
+          width: 18rem;
+        }
+        &:nth-child(2) {
+          width: 10rem;
+        }
+        .list {
+          display: flex;
+          margin-top: .5rem;
+          .list-item {
+            position: relative;
+            width: 50%;
+            a {
+              font-size: .75rem;
+            }
+            nav {
+              position: absolute;
+              top: 0;
+              left: 100%;
+              width: 100%;
+              height: 100%;
+              border: none;
+              flex-direction: column;
+              .nav-item {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    &.service {
+      padding-right: 36px;
+      height: 50px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  &:hover {
+    @apply nav-background-white;
+    nav {
+      &>.nav-point {
+        @apply text-thape-copyright-gray;
+      }
+      nav {
+        @apply nav-background-white;
+      }
+    }
+    .nav-item:hover {
+      >a {
+        @apply text-black6c font-semibold;
+      }
+    }
+    a {
+      @apply text-thape-copyright-gray;
+      &:hover, &:focus {
+        @apply text-black6c font-semibold;
+      }
+      &.active {
+        @apply text-black6c font-semibold;
+      }
+    }
+    >.logo {
+      a {
+        @apply text-black6c;
+        &:hover, &:focus {
+          @apply text-black6c-t70;
+        }
+      }
+    }
+  }
+  
+  &.active {
+    @apply nav-background-white;
+    nav {
+      &>.nav-point {
+        @apply text-thape-copyright-gray;
+      }
+      nav {
+        @apply nav-background-white;
+      }
+    }
+    a {
+      @apply text-thape-copyright-gray;
+      &:hover, &:focus {
+        @apply text-black6c font-semibold;
+      }
+      &.active {
+        @apply text-black6c font-semibold;
+      }
+    }
+    >.logo {
+      a {
+        @apply text-black6c;
+        &:hover, &:focus{
+          @apply text-black6c-t70;
+        }
+      }
+    }
+  }
+}
