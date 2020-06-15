@@ -34,7 +34,6 @@ end
 gem "carrierwave"
 gem 'carrierwave-aliyun'
 
-gem 'route_translator'
 gem 'globalize', '~> 6.0.0.alpha.1'
 
 group :development do

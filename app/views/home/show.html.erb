@@ -60,10 +60,10 @@
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2">
     <%= render partial: 'project_square',
       locals: { prj_image: 'media/images/grid-1-1.jpg', prj_webp: 'media/images/grid-1-1.webp', prj_class: 'grid-div',
-                title: '精品住宅', sub_title: '金科 · 九曲河' } %>
+                title: @new_works_1.residential_types.first["#{I18n.locale}_name"], sub_title: @new_works_1.project_name } %>
     <%= render partial: 'project_square',
       locals: { prj_image: 'media/images/grid-2-1.jpg', prj_webp: 'media/images/grid-2-1.webp', prj_class: 'grid-div md:hidden',
-                title: '展示区 | 示范区', sub_title: '金科 · 龙里国学艺术馆' } %>
+                title: @new_works_2.project_types.first["#{I18n.locale}_name"], sub_title: @new_works_2.project_name } %>
     <%= render partial: 'project_square',
       locals: { prj_image: 'media/images/grid-1-3.jpg', prj_webp: '', prj_class: 'grid-div col-span-2 lg:hidden',
                 title: '文化空间', sub_title: '苏州高新区文体中心' } %>

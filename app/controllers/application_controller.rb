@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_ie_warning
-  around_action :set_locale_from_url
 
   private
 
     def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+      I18n.locale = params[:locale].presence || I18n.default_locale
     end
 
     def set_ie_warning

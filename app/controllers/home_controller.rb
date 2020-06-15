@@ -20,5 +20,9 @@ class HomeController < ApplicationController
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/06_background.jpg')
     end
     @wallpapers = @wallpapers.shuffle
+
+    @new_works_1 = Work.find 4
+    @new_works_2 = Work.find 18
+
   end
 end
