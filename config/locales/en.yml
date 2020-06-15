@@ -5,3 +5,10 @@ en:
     address: "Address"
     tel: "Tel"
     fax: "Fax"
+  menu:
+    about: "ABOUT"
+    works: "WORKS"
+    service: "SERVICE"
+    news: "NEWS"
+    careers: "CAREERS"
+    contact: "CONTACT"

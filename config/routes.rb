@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+localized do
   resources :works, only: %i[index show] do
     collection do
       get :residential
@@ -49,4 +50,5 @@ Rails.application.routes.draw do
   get 'search', to: 'search#query'
 
   root 'home#show'
+end
 end

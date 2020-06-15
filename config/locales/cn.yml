@@ -5,3 +5,10 @@ cn:
     address: "地址"
     tel: "电话"
     fax: "传真"
+  menu:
+    about: "介绍"
+    works: "作品"
+    service: "服务"
+    news: "新闻"
+    careers: "招聘"
+    contact: "联系我们"
