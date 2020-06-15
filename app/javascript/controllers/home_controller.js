@@ -16,10 +16,7 @@ export default class extends Controller {
     function handleStepEnter(response) {
       const { direction, index } = response;
       if (direction == 'down') {
-        if (index === 0) {
-          nav_menu.turnWhite();
-        } else if (index === 1) {
-          nav_menu.turnWhite();
+        if (index === 1) {
           const thapeFadein = document.getElementById('thape-fadein');
           thapeFadein.style.opacity = 1;
         }
@@ -29,11 +26,6 @@ export default class extends Controller {
     function handleStepExit(response) {
       const { direction, index } = response;
       if (direction == 'up') {
-        if (index === 0) {
-          nav_menu.turnTransparent();
-        } else if (index === 1) {
-          nav_menu.turnTransparent();
-        }
       }
     }
 

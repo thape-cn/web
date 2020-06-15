@@ -155,7 +155,7 @@ p {
   }
 }
 
-.header {
+#thape-top-header {
   position: fixed;
   width: 100%;
   display: flex;
@@ -166,7 +166,7 @@ p {
   height: 50px;
   z-index: 100;
   a {
-    @apply text-thape-white-t80 font-normal transition duration-150 ease-in-out text-lg;
+    @apply text-thape-white-t80 transition duration-150 ease-in-out text-lg;
     font-size: 1rem;
     &:hover {
       @apply text-white font-semibold;
@@ -180,7 +180,7 @@ p {
   }
 
   &>.logo {
-    margin-left: 20px;
+    margin-left: 2rem;
     a {
       @apply text-thape-white-t80;
       &:hover, &:focus {
@@ -195,7 +195,10 @@ p {
   nav {
     display: flex;
     &>.nav-item {
-      @apply ml-4 mr-4;
+      @apply px-4;
+      &:last-child {
+        padding-right: 0;
+      }
     }
     
     &>.nav-point {
@@ -205,7 +208,7 @@ p {
     }
     
     &.level-1 {
-      margin-right: 40px;
+      margin-right: 2rem;
       height: 100%;
     }
     
@@ -235,14 +238,14 @@ p {
     }
     
     &.intro {
-      padding-right: 16.5rem;
+      padding-right: 15.3rem;
       height: 50px;
       align-items: center;
       justify-content: flex-end;
     }
 
     &.works {
-      padding-right: 4.2rem;
+      padding-right: 5.8rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
       justify-content: flex-end;
@@ -275,6 +278,8 @@ p {
               flex-direction: column;
               .nav-item {
                 width: 100%;
+                padding-left: 0;
+                padding-right: 0;
               }
             }
           }
@@ -283,10 +288,17 @@ p {
     }
     
     &.service {
-      padding-right: 36px;
+      padding-right: 2rem;
       height: 50px;
       align-items: center;
       justify-content: flex-end;
+      >.nav-item {
+        padding-left: .8rem;
+        padding-right: .8rem;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
     }
   }
 
@@ -350,6 +362,33 @@ p {
           @apply text-black6c-t70;
         }
       }
+    }
+  }
+  #header-search-form {
+    position: relative;
+    display: none;
+    margin-right: 2rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 35rem;
+    height: calc(100% - 10px);
+    align-items: center;
+    padding: 1rem 0 .5rem 2rem;
+    @apply border-gray-200 border-solid border-b;
+    input {
+      flex: 1 1 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+    button {
+      position: absolute;
+      left: 0;
     }
   }
 }

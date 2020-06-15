@@ -18,9 +18,13 @@ isConsluting = controller.controller_name == 'services' && controller.action_nam
 isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
 isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech;
 
-headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
+isNewsIndex = controller_name == 'news' && controller.action_name != 'show';
+isNewsShow = controller_name == 'news' && controller.action_name == 'show';
+isNews = isNewsIndex || isNewsShow;
+
+headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
 %>
-<header class="header <%= headerIsActive ? 'active' : '' -%>" id="header">
+<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header">
   <div class="logo">
     <a href="<%= root_path -%>">
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
@@ -256,7 +260,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
       ·
     </div>
     <div class="nav-item">
-      <a href="<%= news_index_path -%>" class="<%= controller_name == 'news' || (controller_name == 'news' && controller.action_name != 'show') ? 'active' : '' -%>">新闻</a>
+      <a href="<%= news_index_path -%>" class="<%= isNews ? 'active' : '' -%>">新闻</a>
     </div>
     <div class="nav-point">
       ·
@@ -274,8 +278,8 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
       <a href="javascript:void(0)"
         onclick="
           document.querySelector('#nav_level_1').style.display='none';
-          document.querySelector('#search-form').style.display='flex';
-          document.querySelector('#search-form').querySelector('input').focus();
+          document.querySelector('#header-search-form').style.display='flex';
+          document.querySelector('#header-search-form').querySelector('input').focus();
         ">
         <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
@@ -284,7 +288,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
     </div>
     <div class="nav-item">
       <a href="#">
-        <svg class="ml-3 fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <g transform="matrix(1,0,0,1,-791,-523)">
               <g id="cn">
                   <g transform="matrix(1,0,0,1,795.87,543.475)">
@@ -305,26 +309,24 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex;
       </a>
     </div>
   </nav>
-  <div class="relative" style="height: 100%; display: none; margin-right: 4rem; align-items: center;" id="search-form">
-    <form action="<%= search_path -%>" method="GET">
-      <input class="form-input w-64 pr-10" autofocus name="q" placeholder="关键词搜索" value="<%= params[:q] -%>"
-        onblur="
-          document.querySelector('#nav_level_1').style.display='flex';
-          document.querySelector('#search-form').style.display='none';
-        " />
-      <button type="submit" class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer focus:outline-none">
-        <svg class="h-6 w-6 text-gray-400" fill="currentColor">
-          <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
-        </svg>
-      </button>
-    </form>
-  </div>
+  <form action="<%= search_path -%>" method="GET" id="header-search-form">
+    <input autofocus name="q" placeholder="关键词搜索" value="<%= params[:q] -%>"
+      onblur="
+        document.querySelector('#nav_level_1').style.display='flex';
+        document.querySelector('#header-search-form').style.display='none';
+      " />
+    <button type="submit">
+      <svg class="h-6 w-6 text-gray-400" fill="currentColor">
+        <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </form>
 </header>
 
 <% if !headerIsActive %>
 <script>
   function setHeaderActive() {
-    const headerElem = document.querySelector('#header');
+    const headerElem = document.querySelector('#thape-top-header');
     const scrollTop = document.documentElement.scrollTop;
     if (headerElem) {
       if (scrollTop > 200) headerElem.classList.add('active');

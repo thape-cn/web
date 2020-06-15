@@ -20,6 +20,3 @@ import "intersection-observer"
 import "alpinejs"
 import "controllers"
 import "stylesheets/application"
-
-import nav_menu from 'nav_menu'
-window.nav_menu = nav_menu;

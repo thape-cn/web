@@ -5,42 +5,29 @@ const scroller = scrollama();
 
 export default class extends Controller {
   connect() {
-    const nav_id_name = this.data.get("nav_active_item");
     const scrollama_offset = parseFloat(this.data.get("offset"));
     const starting_threshold = parseFloat(this.data.get("threshold"));
 
     function handleStepEnter(response) {
       const { direction, index } = response;
-      const navWorksItem = document.getElementById(nav_id_name);
       if (direction == 'down') {
         if (index === 0) {
           const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel');
           if (carousel_controller) {
             carousel_controller.stop_rotate();
           }
-          nav_menu.turnWhite();
-          navWorksItem.classList.add("text-black6c");
-        } else if (index === 1) {
-          nav_menu.turnWhite();
-          navWorksItem.classList.add("text-black6c");
         }
       }
     }
 
     function handleStepExit(response) {
       const { direction, index } = response;
-      const navWorksItem = document.getElementById(nav_id_name);
       if (direction == 'up') {
         if (index === 0) {
           const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel');
           if (carousel_controller) {
             carousel_controller.start_rotate();
           }
-          navWorksItem.classList.remove("text-black6c");
-          nav_menu.turnTransparent();
-        } else if (index === 1) {
-          navWorksItem.classList.remove("text-black6c");
-          nav_menu.turnTransparent();
         }
       }
     }
