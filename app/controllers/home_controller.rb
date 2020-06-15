@@ -21,15 +21,6 @@ class HomeController < ApplicationController
     end
     @wallpapers = @wallpapers.shuffle
 
-    @new_works_1 = Work.find 4
-    @new_works_2 = Work.find 18
-    @new_works_3 = Work.find 39
-    @new_works_4 = Work.find 31
-    @new_works_5 = Work.find 57
-
-    @info_1 = Info.find 623
-    @info_2 = Info.find 622
-    @info_3 = Info.find 620
-
+    @home_page_content = HomePageContent.first
   end
 end
