@@ -23,6 +23,9 @@ class HomeController < ApplicationController
 
     @new_works_1 = Work.find 4
     @new_works_2 = Work.find 18
+    @new_works_3 = Work.find 39
+    @new_works_4 = Work.find 31
+    @new_works_5 = Work.find 57
 
   end
 end
