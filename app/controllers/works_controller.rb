@@ -3,7 +3,12 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find params[:id]
+    @city = City.find_by url_name: params[:id]
+    if @city.present?
+      render :area_detail
+    else
+      @work = Work.find params[:id]
+    end
   end
 
   def interior
