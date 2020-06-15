@@ -109,14 +109,11 @@
     </header>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2">
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r1.jpg', news_date: Date.new(2019,12,31),
-                  title: '我们的2019@天华', sub_title: '我们的2019，在传承中发展， 在感恩中前行。' } %>
+        locals: { news_image: 'media/images/news_r1.jpg', info: @info_1, sub_title: '我们的2019，在传承中发展， 在感恩中前行。' } %>
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r2.jpg', news_date: Date.new(2019,12,26),
-                  title: '邀您共鉴 | 2019天华设计大奖系列活动正式开启！', sub_title: '秉持我们设计的核心价值 探究更卓越更有高度的设计' } %>
+        locals: { news_image: 'media/images/news_r2.jpg', info: @info_2, sub_title: '秉持我们设计的核心价值 探究更卓越更有高度的设计' } %>
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r3.jpg', news_date: Date.new(2019,12,26),
-                  title: '喜讯 | 天华黄向明荣获“全国勘察设计行业建国七十年杰出人物”称号', sub_title: '培养新锐青年建筑师，引领天华设计高度' } %>
+        locals: { news_image: 'media/images/news_r3.jpg', info: @info_3, sub_title: '培养新锐青年建筑师，引领天华设计高度' } %>
     </div>
   </div>
 </div>
