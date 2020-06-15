@@ -14,14 +14,13 @@ export default class extends Controller {
   }
 
   start_rotate() {
-    this.refreshTimer = setInterval(() => {
+    window.clearInterval(window.refreshTimer);
+    window.refreshTimer = window.setInterval(() => {
       this.nextSlideTarget.click();
     }, this.data.get("refreshInterval"))
   }
 
   stop_rotate() {
-    if (this.refreshTimer) {
-      clearInterval(this.refreshTimer)
-    }
+    window.clearInterval(window.refreshTimer);
   }
 }
