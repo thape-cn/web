@@ -79,7 +79,7 @@
             </li>
           <% end %>
           <li class="header-item-last">
-            <a href="<%= root_path -%>" class="text-black6c"><%= @work.city.name -%>&nbsp;&nbsp;<%= @work.city.url_name.upcase -%></a>
+            <a href="<%= work_path(id: @work.city.url_name) -%>" class="text-black6c"><%= @work.city.name -%>&nbsp;&nbsp;<%= @work.city.url_name.upcase -%></a>
           </li>
         </ol>
       </div>
