@@ -19,7 +19,6 @@ class HomeController < ApplicationController
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/05_background.jpg')
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/06_background.jpg')
     end
-    @wallpapers = @wallpapers.shuffle
 
     @home_page_content = HomePageContent.first
   end
