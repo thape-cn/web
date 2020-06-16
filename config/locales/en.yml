@@ -8,10 +8,10 @@ en:
   menu:
     about:
       text: "ABOUT"
-      about: "ABOUT THAPE"
+      about: "INTRODUCTION"
       culture: "CULTURE"
       leadership: "LEADERSHIP"
-      area_leadership: "AREA TEAM"
+      area_leadership: "TEAM"
     works:
       text: "WORKS"
       project_type: "CATEGORY"
@@ -44,7 +44,7 @@ en:
       landscape: "LANDSCAPE"
       drawing_review: "DRAWING REVIEW"
       consultation: "CONSULTATION"
-      vr_technology: "VR TECHNOLOGY"
+      vr_technology: "VISUALIZATION"
     news:
       text: "NEWS"
     careers:
