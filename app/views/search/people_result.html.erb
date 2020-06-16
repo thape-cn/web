@@ -9,7 +9,7 @@
     </h3>
     <h3 class="ml-10 inline-block text-xl text-black6c">
       <a href="<%= search_path(q: params[:q], tab: :person) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
-        人物&nbsp;&nbsp;（<%= @people_results.count -%>）
+        人物&nbsp;&nbsp;（<%= @people_results.count + @people_city_results.count -%>）
       </a>
     </h3>
     <h3 class="ml-10 inline-block text-xl text-thape-copyright-gray">
@@ -31,6 +31,10 @@
 
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2 mt-8 mb-4">
     <% @people_results.each do |person| %>
+      <%= render partial: 'leadership/person_square',
+        locals: { person: person, person_class: 'grid-div' } %>
+    <% end %>
+    <% @people_city_results.each do |person| %>
       <%= render partial: 'leadership/person_square',
         locals: { person: person, person_class: 'grid-div' } %>
     <% end %>
