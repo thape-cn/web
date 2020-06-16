@@ -29,6 +29,13 @@ en:
       urban_planning: "URBAN PLANNING"
       landscape: "LANDSCAPE"
       interior: "INTERIOR"
+      china_area: "AREA"
+      china_east: "EAST"
+      china_north: "NORTH"
+      china_south: "SOUTH"
+      china_centre: "CENTRE"
+      china_south_west: "SOUTH WEST"
+      china_north_west: "NORTH WEST"
     service:
       text: "SERVICE"
       architecture: "ARCHITECTURE"
