@@ -24,7 +24,9 @@ isNews = isNewsIndex || isNewsShow;
 
 isContact = controller.controller_name == 'biz_maps';
 
-headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
+isSearch = controller.controller_name == 'search';
+
+headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex || isSearch;
 %>
 <header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header">
   <div class="logo">
