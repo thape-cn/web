@@ -22,6 +22,8 @@ isNewsIndex = controller.controller_name == 'news' && controller.action_name != 
 isNewsShow = controller.controller_name == 'news' && controller.action_name == 'show';
 isNews = isNewsIndex || isNewsShow;
 
+isContact = controller.controller_name == 'biz_maps';
+
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
 %>
 <header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header">
@@ -262,7 +264,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
     </div>
     <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= biz_map_path -%>" class="<%= controller.controller_name == 'biz_maps' ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
+      <a href="<%= biz_map_path -%>" class="<%= isContact ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item">
       <a href="javascript:void(0)"
