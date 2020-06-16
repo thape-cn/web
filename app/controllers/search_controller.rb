@@ -7,6 +7,8 @@ class SearchController < ApplicationController
           .where('person_translations.name like ?', "%#{params[:q]}%").limit(15)
     @people_city_results = if city.present?
       Person.includes(:city_people).where(city_people: {city_id: city.id}).order(position: :asc)
+    else
+      []
     end
 
     @info_results = Info.where('title LIKE ?', "%#{params[:q]}%").order(position: :asc).limit(15)
