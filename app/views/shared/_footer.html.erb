@@ -9,11 +9,11 @@
         </div>
       </div>
       <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
-        <a href="<%= biz_map_path -%>" class="mr-2 xxl:text-lg sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>|
-        <a href="<%= statement_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>|
-        <a href="<%= privacy_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>|
-        <a href="<%= disclaimer_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>|
-        <a href="https://tianhua.gllue.com/portal/AllPosition" class="ml-2 sm:ml-3 xxl:text-lg md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
+        <a href="<%= biz_map_path -%>" class="mr-2 xxl:text-lg sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>|
+        <a href="<%= statement_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>|
+        <a href="<%= privacy_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>|
+        <a href="<%= disclaimer_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>|
+        <a href="https://tianhua.gllue.com/portal/AllPosition" class="ml-2 sm:ml-3 xxl:text-lg md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
       </div>
     </nav>
     <div class="h-2 sm:h-6 border-b border-gray-300"></div>
@@ -21,7 +21,7 @@
   <div class="w-full flex justify-between px-2 sm:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
     <div class="text-thape-copyright-gray py-2 sm:py-4 my-2">
       <p>总机：021-64281588 &nbsp;&nbsp;&nbsp;设计项目接洽及投诉热线：400-8366606</p>
-      <p class="leading-loose">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+      <p class="leading-loose"><%= t("footer.corporation") -%></p>
     </div>
 
     <div class="relative text-thape-icon-gray text-center sm:text-right pt-4 sm:pt-10 pb-8 sm:w-48" x-data="{ show_wechat_qr: false }">
