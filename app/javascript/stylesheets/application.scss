@@ -267,7 +267,7 @@ p {
       justify-content: flex-end;
       @media screen {
         @media (min-width: 768px) {
-          padding-right: 11rem;
+          padding-right: 14.6rem;
         }
         @media (min-width: 1024px) {
           padding-right: 15.26rem;
@@ -276,10 +276,10 @@ p {
           padding-right: 15.8rem;
         }
         @media (min-width: 1500px) {
-          padding-right: 17.3rem;
+          padding-right: 18.2rem;
         }
         @media (min-width: 1800px) {
-          padding-right: 18.26rem;
+          padding-right: 19.2rem;
         }
       }
     }
@@ -513,22 +513,22 @@ p {
   &:lang(en) {
     nav {
       &.intro {
-        padding-right: 8rem;
+        padding-right: 10rem;
         @media screen {
           @media (min-width: 768px) {
-            padding-right: 7.48rem;
+            padding-right: 9.48rem;
           }
           @media (min-width: 1024px) {
-            padding-right: 18.36rem;
+            padding-right: 20.36rem;
           }
           @media (min-width: 1280px) {
-            padding-right: 18.8rem;
+            padding-right: 20.8rem;
           }
           @media (min-width: 1500px) {
-            padding-right: 21.4rem;
+            padding-right: 23.4rem;
           }
           @media (min-width: 1800px) {
-            padding-right: 22.4rem;
+            padding-right: 24.4rem;
           }
         }
       }
