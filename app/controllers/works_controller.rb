@@ -8,6 +8,11 @@ class WorksController < ApplicationController
       render :area_detail
     else
       @work = Work.find params[:id]
+
+      @relative_works = Work.includes(:work_project_types)
+        .where(work_project_types: { project_type_id: @work.work_project_types.pluck(:project_type_id) })
+        .where.not(id: @work.id)
+        .where(published: true).sample(4)
     end
   end
 
