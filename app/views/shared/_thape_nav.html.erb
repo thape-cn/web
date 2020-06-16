@@ -36,7 +36,7 @@ isEnglish = params[:locale] == 'en';
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
     </a>
   </div>
-  <nav class="level-1" style="display: flex;" id="nav_level_1">
+  <nav class="level-1" id="nav_level_1">
     <div class="nav-item">
       <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
@@ -287,7 +287,63 @@ isEnglish = params[:locale] == 'en';
       </svg>
     </button>
   </form>
+  <button type="button" class="aside-menu-button" id="aside-menu-button">
+    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+  <div class="aside-menu" style="display: none;" id="aside-menu">
+    <div class="aside-menu-container" id="aside-menu-container">
+      <div class="aside-menu-item">
+        <a href="<%= about_path -%>"><%= t('menu.about.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a href="<%= works_path -%>"><%= t('menu.works.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a href="<%= building_path -%>"><%= t('menu.service.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a href="<%= news_index_path -%>"><%= t('menu.news.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition"><%= t('menu.careers.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a href="<%= biz_map_path -%>"><%= t('menu.contact.text') -%></a>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  function toggleAsideMenu(event) {
+    const e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    const asideMenu = document.querySelector('#aside-menu');
+    if (asideMenu) {
+      asideMenu.style.display = asideMenu.style.display === 'none' ? 'block' : 'none';
+    }
+    return false;
+  }
+  const asideMenuButton = document.querySelector('#aside-menu-button');
+  if (asideMenuButton) {
+    asideMenuButton.addEventListener('click', toggleAsideMenu);
+  }
+  const asideMenuContainer = document.querySelector('#aside-menu-container');
+  if (asideMenuContainer) {
+    asideMenuContainer.addEventListener('click', function(event) {
+      const e = event || window.event;
+      e.stopPropagation && e.stopPropagation();
+    });
+  }
+  const asideMenu = document.querySelector('#aside-menu');
+  if (asideMenu) {
+    asideMenu.addEventListener('click', function(event) {
+      asideMenu.style.display = 'none';
+    });
+  }
+</script>
 
 <% if !headerIsActive %>
 <script>
