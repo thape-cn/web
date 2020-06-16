@@ -21,25 +21,25 @@ class LeadershipController < ApplicationController
 
   def show
     @search_name = params[:name].presence
-    case params[:id]
-    when "shanghai"
-      shanghai_people = Person.includes(city_people: :city).where(cities: { name: '上海'})
+    city_area = City.find_by url_name: params[:id]
+    if city_area.present?
+      city_area_people = Person.includes(:city_people).where(city_people: { city_id: city_area.id })
         .where(leaving_date: nil)
         .order(position: :asc).limit(12)
       @management_people = if @search_name.present?
-        shanghai_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
+        city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
       else
-        shanghai_people.where(category: 1)
+        city_area_people.where(category: 1)
       end
 
       @speciality_people = if @search_name.present?
-        shanghai_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
+        city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(category: 2).where('person_translations.name like ?', "%#{@search_name}%")
       else
-        shanghai_people.where(category: 2)
+        city_area_people.where(category: 2)
       end
-      render 'area_leadership', locals: { c: '上海', e: 'SHANGHAI' }
+      render 'area_leadership', locals: { c: city_area.name, e: city_area.url_name.upcase }
     else
       @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
         || Person.where(leaving_date: nil).find_by!(url_name: params[:id])
