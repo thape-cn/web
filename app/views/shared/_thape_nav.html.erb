@@ -18,8 +18,8 @@ isConsluting = controller.controller_name == 'services' && controller.action_nam
 isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
 isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech;
 
-isNewsIndex = controller_name == 'news' && controller.action_name != 'show';
-isNewsShow = controller_name == 'news' && controller.action_name == 'show';
+isNewsIndex = controller.controller_name == 'news' && controller.action_name != 'show';
+isNewsShow = controller.controller_name == 'news' && controller.action_name == 'show';
 isNews = isNewsIndex || isNewsShow;
 
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
@@ -32,85 +32,83 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
   </div>
   <nav class="level-1" style="display: flex;" id="nav_level_1">
     <div class="nav-item">
-      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>">介绍</a>
+      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
         <div class="nav-item">
-          <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>">天华介绍</a>
+          <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>"><%= t('menu.about.about') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= culture_path -%>" class="<%= isCulture ? 'active' : '' -%>">企业文化</a>
+          <a href="<%= culture_path -%>" class="<%= isCulture ? 'active' : '' -%>"><%= t('menu.about.culture') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= leadership_index_path -%>" class="<%= isJtgg ? 'active' : '' -%>">集团高管</a>
+          <a href="<%= leadership_index_path -%>" class="<%= isJtgg ? 'active' : '' -%>"><%= t('menu.about.leadership') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= leadership_path(id: 'shanghai') -%>" class="<%= isQytd ? 'active' : '' -%>">区域团队</a>
+          <a href="<%= leadership_path(id: 'shanghai') -%>" class="<%= isQytd ? 'active' : '' -%>"><%= t('menu.about.area_leadership') -%></a>
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>">作品</a>
+      <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>"><%= t('menu.works.text') -%></a>
       <nav class="works">
         <div class="nav-item">
-          <a href="#" style="pointer-events: none;">类型</a>
+          <a href="#" style="pointer-events: none;"><%= t('menu.works.project_type') -%></a>
           <div class="list">
             <div class="list-item">
               <div class="nav-item">
-                <a href="<%= residential_works_path -%>">居住</a>
+                <a href="<%= residential_works_path -%>"><%= t('menu.works.residential') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= demonstration_zone_works_path -%>">展示区 / 示范区</a>
+                <a href="<%= demonstration_zone_works_path -%>"><%= t('menu.works.demonstration_zone') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= office_works_path -%>">商务办公</a>
+                <a href="<%= office_works_path -%>"><%= t('menu.works.office') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= mixed_used_tod_works_path -%>">综合体 / TOD</a>
+                <a href="<%= mixed_used_tod_works_path -%>"><%= t('menu.works.mixed_used_tod') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= supertall_works_path -%>">超高层</a>
+                <a href="<%= supertall_works_path -%>"><%= t('menu.works.supertall') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= hospitality_works_path -%>">旅居 / 酒店</a>
+                <a href="<%= hospitality_works_path -%>"><%= t('menu.works.hospitality') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= urban_planning_works_path -%>">城市规划</a>
+                <a href="<%= urban_planning_works_path -%>"><%= t('menu.works.urban_planning') -%></a>
               </div>
             </div>
             <div class="list-item">
               <div class="nav-item">
-                <a href="<%= commercial_works_path -%>">商业空间</a>
+                <a href="<%= commercial_works_path -%>"><%= t('menu.works.commercial') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= cultural_works_path -%>">文化空间</a>
+                <a href="<%= cultural_works_path -%>"><%= t('menu.works.cultural') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= urban_design_works_path -%>">城市设计 / 更新</a>
+                <a href="<%= urban_design_works_path -%>"><%= t('menu.works.urban_design') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= education_works_path -%>">教育</a>
+                <a href="<%= education_works_path -%>"><%= t('menu.works.education') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= medical_care_works_path -%>">医疗康养</a>
+                <a href="<%= medical_care_works_path -%>"><%= t('menu.works.medical_care') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= landscape_works_path -%>">景观</a>
+                <a href="<%= landscape_works_path -%>"><%= t('menu.works.landscape') -%></a>
               </div>
               <div class="nav-item">
-                <a href="<%= interior_works_path -%>">室内</a>
+                <a href="<%= interior_works_path -%>"><%= t('menu.works.interior') -%></a>
               </div>
             </div>
           </div>
         </div>
         <div class="nav-item">
-          <a href="#" style="pointer-events: none;">地区</a>
+          <a href="#" style="pointer-events: none;"><%= t('menu.works.china_area') -%></a>
           <div class="list">
             <div class="list-item" style="width: 33%;height: 12rem;">
               <div class="nav-item">
-                <a href="/intro">华东</a>
+                <a href="/intro"><%= t('menu.works.china_east') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">福州</a>
@@ -165,7 +163,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro">华北</a>
+                <a href="/intro"><%= t('menu.works.china_north') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">北京</a>
@@ -179,7 +177,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro">华南</a>
+                <a href="/intro"><%= t('menu.works.china_south') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">广州</a>
@@ -190,7 +188,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro">华中</a>
+                <a href="/intro"><%= t('menu.works.china_centre') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">武汉</a>
@@ -201,7 +199,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro">西南</a>
+                <a href="/intro"><%= t('menu.works.china_south_west') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">成都</a>
@@ -215,7 +213,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro">西北</a>
+                <a href="/intro"><%= t('menu.works.china_north_west') -%></a>
                 <nav>
                   <div class="nav-item">
                     <a href="/intro">西安</a>
@@ -227,52 +225,44 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>">服务</a>
+      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>"><%= t('menu.service.text') -%></a>
       <nav class="service">
         <div class="nav-item">
-          <a href="<%= building_path -%>" class="<%= isBuilding ? 'active' : '' -%>">建筑</a>
+          <a href="<%= building_path -%>" class="<%= isBuilding ? 'active' : '' -%>"><%= t('menu.service.architecture') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= interior_path -%>" class="<%= isInterior ? 'active' : '' -%>">室内</a>
+          <a href="<%= interior_path -%>" class="<%= isInterior ? 'active' : '' -%>"><%= t('menu.service.interior') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= planning_path -%>" class="<%= isPlanning ? 'active' : '' -%>">规划</a>
+          <a href="<%= planning_path -%>" class="<%= isPlanning ? 'active' : '' -%>"><%= t('menu.service.urban_planning') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= landscape_path -%>" class="<%= isLandscape ? 'active' : '' -%>">景观</a>
+          <a href="<%= landscape_path -%>" class="<%= isLandscape ? 'active' : '' -%>"><%= t('menu.service.landscape') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= vetting_path -%>" class="<%= isVetting ? 'active' : '' -%>">审图</a>
+          <a href="<%= vetting_path -%>" class="<%= isVetting ? 'active' : '' -%>"><%= t('menu.service.drawing_review') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= consluting_path -%>" class="<%= isConsluting ? 'active' : '' -%>">技术咨询</a>
+          <a href="<%= consluting_path -%>" class="<%= isConsluting ? 'active' : '' -%>"><%= t('menu.service.consultation') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= vr_tech_path -%>" class="<%= isVrtech ? 'active' : '' -%>">可视化</a>
+          <a href="<%= vr_tech_path -%>" class="<%= isVrtech ? 'active' : '' -%>"><%= t('menu.service.vr_technology') -%></a>
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= news_index_path -%>" class="<%= isNews ? 'active' : '' -%>">新闻</a>
+      <a href="<%= news_index_path -%>" class="<%= isNews ? 'active' : '' -%>"><%= t('menu.news.text') -%></a>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition">招聘</a>
+      <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition"><%= t('menu.careers.text') -%></a>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= biz_map_path -%>" class="<%= controller_name == 'biz_maps' ? 'active' : '' -%>">联系我们</a>
+      <a href="<%= biz_map_path -%>" class="<%= controller.controller_name == 'biz_maps' ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item">
       <a href="javascript:void(0)"
@@ -287,7 +277,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
       </a>
     </div>
     <div class="nav-item">
-      <a href="#">
+      <%= link_to '?locale=en' do %>
         <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <g transform="matrix(1,0,0,1,-791,-523)">
               <g id="cn">
@@ -306,7 +296,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
               </g>
           </g>
         </svg>
-      </a>
+      <% end %>
     </div>
   </nav>
   <form action="<%= search_path -%>" method="GET" id="header-search-form">
