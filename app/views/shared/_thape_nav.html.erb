@@ -27,8 +27,10 @@ isContact = controller.controller_name == 'biz_maps';
 isSearch = controller.controller_name == 'search';
 
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex || isSearch;
+
+isEnglish = params[:locale] == 'en';
 %>
-<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header">
+<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header" lang="<%= isEnglish ? 'en' : '' -%>">
   <div class="logo">
     <a href="<%= root_path -%>">
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
@@ -110,7 +112,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex ||
         <div class="nav-item">
           <a href="#" style="pointer-events: none;"><%= t('menu.works.china_area') -%></a>
           <div class="list area">
-            <div class="list-item" style="width: 30%;height: 11rem;">
+            <div class="list-item" style="width: 25%;height: 11rem;">
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_east') -%></a>
                 <nav>

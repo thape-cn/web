@@ -162,9 +162,26 @@ p {
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  @apply nav-background-initial;
   height: 50px;
   z-index: 100;
+  @apply nav-background-initial px-2;
+  @media screen {
+    @media (min-width: 768px) {
+      @apply px-6;
+    }
+    @media (min-width: 1024px) {
+      @apply px-8;
+    }
+    @media (min-width: 1280px) {
+      @apply px-10;
+    }
+    @media (min-width: 1500px) {
+      @apply px-12;
+    }
+    @media (min-width: 1800px) {
+      @apply px-16;
+    }
+  }
   a {
     @apply text-thape-white-t80 transition duration-150 ease-in-out;
     font-size: 16px;
@@ -180,7 +197,6 @@ p {
   }
 
   &>.logo {
-    margin-left: 2rem;
     a {
       @apply text-thape-white-t80;
       &:hover, &:focus {
@@ -199,11 +215,10 @@ p {
       &:last-child {
         padding-right: 0;
       }
-    }
-
-    @media (min-width: 1500px) {
-      &>.nav-item {
-        @apply px-4;
+      @media screen {
+        @media (min-width: 1500px) {
+          @apply px-4;
+        }
       }
     }
     
@@ -214,7 +229,6 @@ p {
     }
     
     &.level-1 {
-      margin-right: 2rem;
       height: 100%;
     }
     
@@ -247,25 +261,49 @@ p {
     }
     
     &.intro {
-      padding-right: 15.3rem;
+      padding-right: 13.7rem;
       height: 50px;
       align-items: center;
       justify-content: flex-end;
-      @media (min-width: 1500px) {
-        & {
+      @media screen {
+        @media (min-width: 768px) {
+          padding-right: 11rem;
+        }
+        @media (min-width: 1024px) {
+          padding-right: 15.26rem;
+        }
+        @media (min-width: 1280px) {
+          padding-right: 15.8rem;
+        }
+        @media (min-width: 1500px) {
           padding-right: 17.3rem;
+        }
+        @media (min-width: 1800px) {
+          padding-right: 18.26rem;
         }
       }
     }
 
     &.works {
-      padding-right: 2.6rem;
+      padding-right: 1.16rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
       justify-content: flex-end;
-      @media (min-width: 1500px) {
-        & {
-          padding-right: 5.8rem;
+      @media screen {
+        @media (min-width: 768px) {
+          padding-right: 2.16rem;
+        }
+        @media (min-width: 1024px) {
+          padding-right: 2.66rem;
+        }
+        @media (min-width: 1280px) {
+          padding-right: 3.2rem;
+        }
+        @media (min-width: 1500px) {
+          padding-right: 6.88rem;
+        }
+        @media (min-width: 1800px) {
+          padding-right: 7.84rem;
         }
       }
       >.nav-item {
@@ -321,21 +359,48 @@ p {
     }
     
     &.service {
-      padding-right: 2rem;
       height: 50px;
       align-items: center;
       justify-content: flex-end;
+      @apply pr-2;
+      @media screen {
+        @media (min-width: 768px) {
+          @apply pr-6;
+        }
+        @media (min-width: 1024px) {
+          @apply pr-8;
+        }
+        @media (min-width: 1280px) {
+          @apply pr-10;
+        }
+        @media (min-width: 1500px) {
+          @apply pr-12;
+        }
+        @media (min-width: 1800px) {
+          @apply pr-16;
+        }
+      }
       >.nav-item {
-        padding-left: .78rem;
-        padding-right: .78rem;
+        padding: 0 .78rem;
         &:last-child {
           padding-right: 0;
         }
-      }
-      @media (min-width: 1500px) {
-        >.nav-item {
-          padding-left: .98rem;
-          padding-right: .98rem;
+        @media screen {
+          @media (min-width: 768px) {
+            padding: 0 .78rem;
+          }
+          @media (min-width: 1024px) {
+            padding: 0 .768rem;
+          }
+          @media (min-width: 1280px) {
+            padding: 0 .77rem;
+          }
+          @media (min-width: 1500px) {
+            padding: 0 .98rem;
+          }
+          @media (min-width: 1800px) {
+            padding: 0 .982rem;
+          }
         }
       }
     }
@@ -344,13 +409,12 @@ p {
   #header-search-form {
     position: relative;
     display: none;
-    margin-right: 2rem;
     margin-top: 5px;
     margin-bottom: 5px;
     width: 35rem;
     height: calc(100% - 10px);
     align-items: center;
-    padding: 0 0 0 1.5rem;
+    padding: 0 0 0 1.8rem;
     @apply border-gray-200 border-solid border-b;
     input {
       margin-top: 2px;
@@ -442,6 +506,60 @@ p {
     #header-search-form {
       input, input::placeholder, button {
         @apply text-thape-copyright-gray;
+      }
+    }
+  }
+
+  &:lang(en) {
+    nav {
+      &.intro {
+        padding-right: 8rem;
+        @media screen {
+          @media (min-width: 768px) {
+            padding-right: 7.48rem;
+          }
+          @media (min-width: 1024px) {
+            padding-right: 18.36rem;
+          }
+          @media (min-width: 1280px) {
+            padding-right: 18.8rem;
+          }
+          @media (min-width: 1500px) {
+            padding-right: 21.4rem;
+          }
+          @media (min-width: 1800px) {
+            padding-right: 22.4rem;
+          }
+        }
+      }
+  
+      &.works {
+        padding-right: 0.6rem;
+        >.nav-item {
+          &:first-child {
+            width: 26rem;
+          }
+          &:nth-child(2) {
+            width: 28rem;
+          }
+        }
+        @media screen {
+          @media (min-width: 768px) {
+            padding-right: 0.2rem;
+          }
+          @media (min-width: 1024px) {
+            padding-right: 2rem;
+          }
+          @media (min-width: 1280px) {
+            padding-right: 2.6rem;
+          }
+          @media (min-width: 1500px) {
+            padding-right: 2.8rem;
+          }
+          @media (min-width: 1800px) {
+            padding-right: 4rem;
+          }
+        }
       }
     }
   }
