@@ -51,3 +51,10 @@ en:
       text: "CAREERS"
     contact:
       text: "CONTACT"
+  footer:
+    contact: "CONTACT US"
+    statement: "WEBSITE STATEMENT"
+    privacy: "PRIVACY POLICY"
+    disclaimer: "DISCLAIMER"
+    careers: "CAREERS"
+    corporation: "© 2020 Tianhua Group，All Rights Reserved."

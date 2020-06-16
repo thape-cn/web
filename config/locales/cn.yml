@@ -51,3 +51,10 @@ cn:
       text: "招聘"
     contact:
       text: "联系我们"
+  footer:
+    contact: "联系方式"
+    statement: "网站声明"
+    privacy: "隐私政策"
+    disclaimer: "免责条款"
+    careers: "职业发展"
+    corporation: "© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733"
