@@ -6,9 +6,19 @@ cn:
     tel: "电话"
     fax: "传真"
   menu:
-    about: "介绍"
-    works: "作品"
-    service: "服务"
-    news: "新闻"
-    careers: "招聘"
-    contact: "联系我们"
+    about:
+      text: "介绍"
+      about: "关于天华"
+      culture: "企业文化"
+      leadership: "集团高管"
+      area_leadership: "区域团队"
+    works:
+      text: "作品"
+    service:
+      text: "服务"
+    news:
+      text: "新闻"
+    careers:
+      text: "招聘"
+    contact:
+      text: "联系我们"

@@ -32,27 +32,25 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
   </div>
   <nav class="level-1" style="display: flex;" id="nav_level_1">
     <div class="nav-item">
-      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>">介绍</a>
+      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
         <div class="nav-item">
-          <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>">天华介绍</a>
+          <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>"><%= t('menu.about.about') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= culture_path -%>" class="<%= isCulture ? 'active' : '' -%>">企业文化</a>
+          <a href="<%= culture_path -%>" class="<%= isCulture ? 'active' : '' -%>"><%= t('menu.about.culture') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= leadership_index_path -%>" class="<%= isJtgg ? 'active' : '' -%>">集团高管</a>
+          <a href="<%= leadership_index_path -%>" class="<%= isJtgg ? 'active' : '' -%>"><%= t('menu.about.leadership') -%></a>
         </div>
         <div class="nav-item">
-          <a href="<%= leadership_path(id: 'shanghai') -%>" class="<%= isQytd ? 'active' : '' -%>">区域团队</a>
+          <a href="<%= leadership_path(id: 'shanghai') -%>" class="<%= isQytd ? 'active' : '' -%>"><%= t('menu.about.area_leadership') -%></a>
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>">作品</a>
+      <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>"><%= t('menu.works.text') -%></a>
       <nav class="works">
         <div class="nav-item">
           <a href="#" style="pointer-events: none;">类型</a>
@@ -227,11 +225,9 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>">服务</a>
+      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>"><%= t('menu.service.text') -%></a>
       <nav class="service">
         <div class="nav-item">
           <a href="<%= building_path -%>" class="<%= isBuilding ? 'active' : '' -%>">建筑</a>
@@ -256,23 +252,17 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
         </div>
       </nav>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= news_index_path -%>" class="<%= isNews ? 'active' : '' -%>">新闻</a>
+      <a href="<%= news_index_path -%>" class="<%= isNews ? 'active' : '' -%>"><%= t('menu.news.text') -%></a>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition">招聘</a>
+      <a target="_blank" rel="nofollow" href="https://tianhua.gllue.com/portal/AllPosition"><%= t('menu.careers.text') -%></a>
     </div>
-    <div class="nav-point">
-      ·
-    </div>
+    <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= biz_map_path -%>" class="<%= controller_name == 'biz_maps' ? 'active' : '' -%>">联系我们</a>
+      <a href="<%= biz_map_path -%>" class="<%= controller_name == 'biz_maps' ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item">
       <a href="javascript:void(0)"
@@ -287,7 +277,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
       </a>
     </div>
     <div class="nav-item">
-      <a href="#">
+      <%= link_to '?locale=en' do %>
         <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <g transform="matrix(1,0,0,1,-791,-523)">
               <g id="cn">
@@ -306,7 +296,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
               </g>
           </g>
         </svg>
-      </a>
+      <% end %>
     </div>
   </nav>
   <form action="<%= search_path -%>" method="GET" id="header-search-form">

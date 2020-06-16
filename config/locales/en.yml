@@ -6,9 +6,19 @@ en:
     tel: "Tel"
     fax: "Fax"
   menu:
-    about: "ABOUT"
-    works: "WORKS"
-    service: "SERVICE"
-    news: "NEWS"
-    careers: "CAREERS"
-    contact: "CONTACT"
+    about:
+      text: "ABOUT"
+      about: "ABOUT THAPE"
+      culture: "CULTURE"
+      leadership: "LEADERSHIP"
+      area_leadership: "AREA TEAM"
+    works:
+      text: "WORKS"
+    service:
+      text: "SERVICE"
+    news:
+      text: "NEWS"
+    careers:
+      text: "CAREERS"
+    contact:
+      text: "CONTACT"
