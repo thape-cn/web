@@ -112,114 +112,75 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_east') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">福州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">杭州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">合肥</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">湖州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">济南</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">南昌</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">南京</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">南通</a>
-                  </div>
+                  <% City.where(china_area_name: '华东').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
                 <nav style="left: 200%;">
-                  <div class="nav-item">
-                    <a href="/intro">宁波</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">青岛</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">上海</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">苏州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">温州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">无锡</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">徐州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">张家港</a>
-                  </div>
+                  <% City.where(china_area_name: '华东').offset(7).limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
+                </nav>
+                <nav style="left: 300%;">
+                  <% City.where(china_area_name: '华东').offset(14).limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_north') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">北京</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">石家庄</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">天津</a>
-                  </div>
+                  <% City.where(china_area_name: '华北').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_south') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">广州</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">海口</a>
-                  </div>
+                  <% City.where(china_area_name: '华南').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_centre') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">武汉</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">襄阳</a>
-                  </div>
+                  <% City.where(china_area_name: '华中').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_south_west') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">成都</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">贵阳</a>
-                  </div>
-                  <div class="nav-item">
-                    <a href="/intro">重庆</a>
-                  </div>
+                  <% City.where(china_area_name: '西南').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
               <div class="nav-item">
                 <a href="/intro"><%= t('menu.works.china_north_west') -%></a>
                 <nav>
-                  <div class="nav-item">
-                    <a href="/intro">西安</a>
-                  </div>
+                  <% City.where(china_area_name: '西北').limit(7).each do |city| %>
+                    <div class="nav-item">
+                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+                    </div>
+                  <% end %>
                 </nav>
               </div>
             </div>
