@@ -166,8 +166,8 @@ p {
   height: 50px;
   z-index: 100;
   a {
-    @apply text-thape-white-t80 transition duration-150 ease-in-out text-lg;
-    font-size: 1rem;
+    @apply text-thape-white-t80 transition duration-150 ease-in-out;
+    font-size: 16px;
     &:hover {
       @apply text-white font-semibold;
     }
@@ -195,9 +195,15 @@ p {
   nav {
     display: flex;
     &>.nav-item {
-      @apply px-4;
+      @apply px-3;
       &:last-child {
         padding-right: 0;
+      }
+    }
+
+    @media (min-width: 1500px) {
+      &>.nav-item {
+        @apply px-4;
       }
     }
     
@@ -226,6 +232,9 @@ p {
         right: 0;
         top: 50px;
         @apply nav-background-initial border-gray-200 border-solid border-t;
+        a {
+          font-size: 14px;
+        }
       }
       &:hover {
         >a {
@@ -242,13 +251,23 @@ p {
       height: 50px;
       align-items: center;
       justify-content: flex-end;
+      @media (min-width: 1500px) {
+        & {
+          padding-right: 17.3rem;
+        }
+      }
     }
 
     &.works {
-      padding-right: 5.9rem;
+      padding-right: 2.6rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
       justify-content: flex-end;
+      @media (min-width: 1500px) {
+        & {
+          padding-right: 5.8rem;
+        }
+      }
       >.nav-item {
         &:hover>a {
           @apply text-black6c font-semibold;
@@ -266,7 +285,7 @@ p {
             position: relative;
             width: 50%;
             a {
-              font-size: .75rem;
+              font-size: 12px;
             }
             nav {
               position: absolute;
@@ -293,10 +312,16 @@ p {
       align-items: center;
       justify-content: flex-end;
       >.nav-item {
-        padding-left: .81rem;
-        padding-right: .81rem;
+        padding-left: .78rem;
+        padding-right: .78rem;
         &:last-child {
           padding-right: 0;
+        }
+      }
+      @media (min-width: 1500px) {
+        >.nav-item {
+          padding-left: .98rem;
+          padding-right: .98rem;
         }
       }
     }
