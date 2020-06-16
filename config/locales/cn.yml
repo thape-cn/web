@@ -31,6 +31,13 @@ cn:
       interior: "室内"
     service:
       text: "服务"
+      architecture: "建筑"
+      interior: "室内"
+      urban_planning: "规划"
+      landscape: "景观"
+      drawing_review: "审图"
+      consultation: "技术咨询"
+      vr_technology: "可视化"
     news:
       text: "新闻"
     careers:

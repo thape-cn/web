@@ -31,6 +31,13 @@ en:
       interior: "INTERIOR"
     service:
       text: "SERVICE"
+      architecture: "ARCHITECTURE"
+      interior: "INTERIOR"
+      urban_planning: "URBAN PLANNING"
+      landscape: "LANDSCAPE"
+      drawing_review: "DRAWING REVIEW"
+      consultation: "CONSULTATION"
+      vr_technology: "VR TECHNOLOGY"
     news:
       text: "NEWS"
     careers:
