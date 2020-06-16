@@ -77,7 +77,7 @@ class ServicesController < ApplicationController
       background_img: 'media/images/vrtech.jpg',
       background_img_webp: '',
       chinese_title: '可视化',
-      english_title: 'VR TECHNOLOGY',
+      english_title: 'VISUALIZATION',
       ps: ['可视化技术是是当下最热门的前沿技术之一，可视化技术在建筑领域的应用将给地产行业带来全新的思维模式和工作流程。易术家是建筑可视化技术领域的先行者，致力于为建筑工程行业提供可视化技术解决方案，利用1:1虚拟建造的方式赋能设计理念表达、设计验证、设计决策和工程管理。',
            '易术家定位于包括VR、AR等可视化技术在房地产市场和设计表现领域的垂直细分市场，致力于结合新兴的科技手段和集团在业内领先的建筑美学表达经验，提供高品质的可视化产品和服务，着力解决行业需求和改革现有的表达方式。',
            '依托于天华集团对地产行业全方位的了解，易术家能够最为准确地把握行业需求，并在各环节中提出创新的工作模式和高效的解决方案，帮助提升整个行业的工作效率。'],
