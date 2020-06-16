@@ -245,7 +245,7 @@ p {
     }
 
     &.works {
-      padding-right: 5.8rem;
+      padding-right: 5.9rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
       justify-content: flex-end;
@@ -293,12 +293,44 @@ p {
       align-items: center;
       justify-content: flex-end;
       >.nav-item {
-        padding-left: .8rem;
-        padding-right: .8rem;
+        padding-left: .81rem;
+        padding-right: .81rem;
         &:last-child {
           padding-right: 0;
         }
       }
+    }
+  }
+
+  #header-search-form {
+    position: relative;
+    display: none;
+    margin-right: 2rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 35rem;
+    height: calc(100% - 10px);
+    align-items: center;
+    padding: 1rem 0 .5rem 2rem;
+    @apply border-gray-200 border-solid border-b;
+    input {
+      flex: 1 1 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+      &:focus {
+        outline: none;
+        border: none;
+      }
+      &::placeholder {
+        @apply text-thape-white-t80
+      }
+    }
+    button {
+      position: absolute;
+      left: 0;
+      @apply text-thape-white-t80
     }
   }
 
@@ -334,6 +366,14 @@ p {
         }
       }
     }
+    #header-search-form {
+      input::placeholder {
+        @apply text-thape-copyright-gray;
+      }
+      button {
+        @apply text-thape-copyright-gray;
+      }
+    }
   }
   
   &.active {
@@ -363,32 +403,13 @@ p {
         }
       }
     }
-  }
-  #header-search-form {
-    position: relative;
-    display: none;
-    margin-right: 2rem;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 35rem;
-    height: calc(100% - 10px);
-    align-items: center;
-    padding: 1rem 0 .5rem 2rem;
-    @apply border-gray-200 border-solid border-b;
-    input {
-      flex: 1 1 100%;
-      width: 100%;
-      outline: none;
-      border: none;
-      background: transparent;
-      &:focus {
-        outline: none;
-        border: none;
+    #header-search-form {
+      input::placeholder {
+        @apply text-thape-copyright-gray;
       }
-    }
-    button {
-      position: absolute;
-      left: 0;
+      button {
+        @apply text-thape-copyright-gray;
+      }
     }
   }
 }
