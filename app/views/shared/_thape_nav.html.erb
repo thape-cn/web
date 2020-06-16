@@ -18,8 +18,8 @@ isConsluting = controller.controller_name == 'services' && controller.action_nam
 isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
 isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech;
 
-isNewsIndex = controller_name == 'news' && controller.action_name != 'show';
-isNewsShow = controller_name == 'news' && controller.action_name == 'show';
+isNewsIndex = controller.controller_name == 'news' && controller.action_name != 'show';
+isNewsShow = controller.controller_name == 'news' && controller.action_name == 'show';
 isNews = isNewsIndex || isNewsShow;
 
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
@@ -262,7 +262,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex;
     </div>
     <div class="nav-point">·</div>
     <div class="nav-item">
-      <a href="<%= biz_map_path -%>" class="<%= controller_name == 'biz_maps' ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
+      <a href="<%= biz_map_path -%>" class="<%= controller.controller_name == 'biz_maps' ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item">
       <a href="javascript:void(0)"
