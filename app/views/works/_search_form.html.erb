@@ -9,8 +9,9 @@
     <div class="origin-top-right absolute right-0 mt-1 w-24 sm:w-28 rounded-md shadow-lg z-10" x-show="show_drop_menu">
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
-          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">建筑</a>
-          <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900">规划</a>
+          <% ProjectType.all.each do |project_type| %>
+              <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
+          <% end %>
         </div>
       </div>
     </div>
