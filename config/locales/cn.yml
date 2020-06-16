@@ -14,6 +14,21 @@ cn:
       area_leadership: "区域团队"
     works:
       text: "作品"
+      project_type: "类型"
+      residential: "居住"
+      demonstration_zone: "展示区/示范区"
+      office: "商务办公"
+      supertall: "超高层"
+      commercial: "商业空间"
+      mixed_used_tod: "综合体/TOD"
+      cultural: "文化空间"
+      medical_care: "医疗康养"
+      hospitality: "旅居/酒店"
+      education: "教育"
+      urban_design: "城市设计/更新"
+      urban_planning: "城市规划"
+      landscape: "景观"
+      interior: "室内"
     service:
       text: "服务"
     news:

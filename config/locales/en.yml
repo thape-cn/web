@@ -14,6 +14,21 @@ en:
       area_leadership: "AREA TEAM"
     works:
       text: "WORKS"
+      project_type: "CATEGORY"
+      residential: "RESIDENTIAL"
+      demonstration_zone: "DEMONSTRATION ZONE"
+      office: "OFFICE"
+      supertall: "SUPERTALL"
+      commercial: "COMMERCIAL"
+      mixed_used_tod: "MIXED-USED/TOD"
+      cultural: "CULTURAL"
+      medical_care: "MEDICAL CARE"
+      hospitality: "SOJOURN/HOSPITALITY"
+      education: "EDUCATION"
+      urban_design: "URBAN DESIGN/RENOVATION"
+      urban_planning: "URBAN PLANNING"
+      landscape: "LANDSCAPE"
+      interior: "INTERIOR"
     service:
       text: "SERVICE"
     news:
