@@ -273,10 +273,10 @@ p {
           @apply text-black6c font-semibold;
         }
         &:first-child {
-          width: 18rem;
+          width: 16rem;
         }
         &:nth-child(2) {
-          width: 10rem;
+          width: 12rem;
         }
         .list {
           display: flex;
@@ -299,6 +299,20 @@ p {
                 width: 100%;
                 padding-left: 0;
                 padding-right: 0;
+              }
+            }
+          }
+          &.area {
+            .list-item {
+              .nav-item {
+                nav {
+                  align-items: flex-start;
+                  justify-content: flex-start;
+                  flex-wrap: wrap;
+                  .nav-item {
+                    padding-right: 10px;
+                  }
+                }
               }
             }
           }
@@ -336,9 +350,10 @@ p {
     width: 35rem;
     height: calc(100% - 10px);
     align-items: center;
-    padding: 1rem 0 .5rem 2rem;
+    padding: 0 0 0 1.5rem;
     @apply border-gray-200 border-solid border-b;
     input {
+      margin-top: 2px;
       flex: 1 1 100%;
       width: 100%;
       outline: none;
@@ -348,14 +363,13 @@ p {
         outline: none;
         border: none;
       }
-      &::placeholder {
-        @apply text-thape-white-t80
-      }
     }
     button {
       position: absolute;
       left: 0;
-      @apply text-thape-white-t80
+    }
+    input, input::placeholder, button {
+      @apply text-thape-white-t80;
     }
   }
 
@@ -392,10 +406,7 @@ p {
       }
     }
     #header-search-form {
-      input::placeholder {
-        @apply text-thape-copyright-gray;
-      }
-      button {
+      input, input::placeholder, button {
         @apply text-thape-copyright-gray;
       }
     }
@@ -429,10 +440,7 @@ p {
       }
     }
     #header-search-form {
-      input::placeholder {
-        @apply text-thape-copyright-gray;
-      }
-      button {
+      input, input::placeholder, button {
         @apply text-thape-copyright-gray;
       }
     }
