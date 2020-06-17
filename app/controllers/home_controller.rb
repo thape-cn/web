@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @support_webp = browser.chrome? || browser.firefox?
     @wallpapers = []
 
-    if browser.mobile?
+    if browser.device.mobile?
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/01_background_mobile.jpg')
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/02_background_mobile.jpg')
       @wallpapers << ActionController::Base.helpers.asset_pack_path('media/images/03_background_mobile.jpg')
