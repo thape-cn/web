@@ -1,8 +1,8 @@
 <div class="<%= news_class -%>">
 <a href="<%= news_path(id: info.id) -%>">
   <%= image_tag info.snapshot.url, class: 'grid-image grid-mask-image hover:scale-105' -%>
-  <div class="absolute text-white left-2 bottom-2">
-    <p class="text-left pb-1 font-medium"><%= info.title -%></p>
+  <div class="absolute text-white left-0 right-0 bottom-2 px-2">
+    <p class="text-left pb-1 font-medium max-sm:truncate max-sm:leading-none"><%= info.title -%></p>
     <p class="text-sm text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
   </div>
 </a>

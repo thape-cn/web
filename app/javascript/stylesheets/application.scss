@@ -20,6 +20,11 @@
 .grid-mask-image {
   @apply w-full h-full transition duration-700 delay-100 ease-in-out transform;
   -webkit-mask-image: -webkit-gradient(linear, left 75%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  @media screen {
+    @media (max-width: 640px) {
+      -webkit-mask-image: -webkit-gradient(linear, left 60%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    }
+  }
 }
 
 .hover\:mask:hover {
