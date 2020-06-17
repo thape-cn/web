@@ -349,7 +349,7 @@ isEnglish = params[:locale] == 'en';
 <script>
   function setHeaderActive() {
     const headerElem = document.querySelector('#thape-top-header');
-    const scrollTop = document.documentElement.scrollTop;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (headerElem) {
       if (scrollTop > 200) headerElem.classList.add('active');
       else headerElem.classList.remove('active');
