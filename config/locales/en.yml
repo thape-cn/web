@@ -1,5 +1,11 @@
 ---
 en:
+  guest_form:
+    comment_placeholder: "Please fill in your comment"
+    guest_name_placeholder: "Please fill in your name"
+    guest_company_placeholder: "Please fill in your company"
+    guest_contact_placeholder: "Please fill in your contact information"
+    submit_button: "Submit"
   map:
     tianhua-map: "Tianhua's office location"
     address: "Address"

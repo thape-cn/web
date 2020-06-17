@@ -1,5 +1,11 @@
 ---
 cn:
+  guest_form:
+    comment_placeholder: "请填写您的留言"
+    guest_name_placeholder: "请填写您的姓名"
+    guest_company_placeholder: "请填写您的公司"
+    guest_contact_placeholder: "请填写您的联系方式"
+    submit_button: "确认提交"
   map:
     tianhua-map: "天华的办公地点"
     address: "地址"
