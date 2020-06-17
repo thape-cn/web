@@ -39,7 +39,6 @@ export default class extends Controller {
         offset: scrollama_offset,
         threshold: 2,
         order: true,
-        container: document.querySelector('#scroll-scroller-div')
       })
 
     scroller
