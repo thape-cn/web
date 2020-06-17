@@ -1,6 +1,6 @@
 <form action="<%= leadership_index_path -%>" method="GET" id="leadership-form" x-data="">
   <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-    <input class="form-input block w-36 sm:w-40 pr-10" name="name" placeholder="关键词搜索" value="<%= @search_name -%>" />
+    <input class="form-input block w-36 sm:w-40 pr-10" name="name" placeholder="<%= t('ui.keyword_search') -%>" value="<%= @search_name -%>" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
       x-on:click="document.getElementById('leadership-form').submit();">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">

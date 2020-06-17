@@ -276,7 +276,7 @@ isEnglish = params[:locale] == 'en';
     </div>
   </nav>
   <form action="<%= search_path -%>" method="GET" id="header-search-form">
-    <input autofocus name="q" placeholder="关键词搜索" value="<%= params[:q] -%>"
+    <input autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>"
       onblur="
         document.querySelector('#nav_level_1').style.display='flex';
         document.querySelector('#header-search-form').style.display='none';

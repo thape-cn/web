@@ -11,6 +11,8 @@ en:
     address: "Address"
     tel: "Tel"
     fax: "Fax"
+  ui:
+    keyword_search: "Keyword search"
   menu:
     about:
       text: "ABOUT"

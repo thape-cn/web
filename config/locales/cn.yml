@@ -57,6 +57,8 @@ cn:
       text: "招聘"
     contact:
       text: "联系我们"
+  ui:
+    keyword_search: "关键词搜索"
   footer:
     contact: "联系方式"
     statement: "网站声明"
