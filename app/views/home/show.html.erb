@@ -6,7 +6,7 @@
      data-<%= home_controller -%>-wallpapers="<%= @wallpapers.to_json -%>"
      data-<%= home_controller -%>-refresh-interval="5000">
 
-<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
+<%= render partial: 'shared/thape_nav' -%>
 
 <% @wallpapers.each do |preload_image| %>
   <link rel="preload" as="image" href="<%= preload_image -%>">
