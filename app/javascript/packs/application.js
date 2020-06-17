@@ -21,6 +21,5 @@ importAll(images)
 const imagePath = (name) => images(name, true)
 
 import "intersection-observer"
-import "alpinejs"
 import "controllers"
 import "stylesheets/application"
