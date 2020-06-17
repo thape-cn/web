@@ -7,6 +7,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "@stimulus/polyfills";
 
+require("intersection-observer")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -20,6 +21,5 @@ const images = require.context('../images', false, /\.(png|jpe?g|svg|webp)$/i)
 importAll(images)
 const imagePath = (name) => images(name, true)
 
-import "intersection-observer"
 import "controllers"
 import "stylesheets/application"
