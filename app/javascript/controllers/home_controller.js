@@ -53,6 +53,7 @@ export default class extends Controller {
         threshold: 2,
         progress: true,
         order: true,
+        container: document.querySelector('#home-scroller-div')
       })
 
     scroller
