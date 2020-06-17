@@ -15,7 +15,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body class="bg-white overflow-hidden w-screen">
+  <body class="bg-white overflow-hidden">
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
         <div class="bg-red-500">
