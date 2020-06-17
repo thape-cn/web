@@ -10,39 +10,43 @@
     <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white text-center font-medium tracking-widest -mr-32">己欲达而达人</h1>
   </div>
 </div>
+<div>
+  <% if @management_people.size>0 %>
+  <div class="w-full mx-auto sm:my-4 md:my-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <%- content_for :header_right do %>
+      <div class="inline-block float-right">
+        <%= render partial: 'search_form' %>
+      </div>
+    <% end %>
+    <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT',
+      header_path: leadership_index_path, header_class: 'pt-0', show_header_right: true } %>
+  </div>
 
-<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <%- content_for :header_right do %>
-    <div class="inline-block float-right">
-      <%= render partial: 'search_form' %>
+  <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
+      <% @management_people.each do |person| %>
+        <%= render partial: 'person_square',
+          locals: { person: person, person_class: 'grid-div' } %>
+      <% end %>
     </div>
+  </div>
   <% end %>
-  <%= render partial: 'shared/header', locals: { c: '集团管理团队', e: 'MANAGEMENT',
-    header_path: leadership_index_path, header_class: 'pt-0', show_header_right: true } %>
-</div>
 
-<div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
-    <% @management_people.each do |person| %>
-      <%= render partial: 'person_square',
-        locals: { person: person, person_class: 'grid-div' } %>
-    <% end %>
+  <% if @speciality_people.size>0 %>
+  <div class="w-full mx-auto sm:my-4 md:my-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'PROFESSIONAL',
+      header_path: leadership_index_path, header_class: 'pt-0', show_header_right: false } %>
   </div>
-</div>
 
-<div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <%= render partial: 'shared/header', locals: { c: '集团专业团队', e: 'PROFESSIONAL',
-    header_path: leadership_index_path, header_class: 'pt-0', show_header_right: false } %>
-</div>
-
-<div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
-    <% @speciality_people.each do |person| %>
-      <%= render partial: 'person_square',
-        locals: { person: person, person_class: 'grid-div' } %>
-    <% end %>
+  <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
+      <% @speciality_people.each do |person| %>
+        <%= render partial: 'person_square',
+          locals: { person: person, person_class: 'grid-div' } %>
+      <% end %>
+    </div>
   </div>
-</div>
+  <% end %>
 
 
 <%= render partial: 'shared/footer' %>

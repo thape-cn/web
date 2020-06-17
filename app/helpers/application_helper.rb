@@ -1,4 +1,20 @@
 module ApplicationHelper
+  def home_controller
+    if browser.ie?
+      'home-ie11'
+    else
+      'home'
+    end
+  end
+
+  def scroll_controller
+    if browser.ie?
+      'scroll-ie11'
+    else
+      'scroll'
+    end
+  end
+
   def project_type_path(project_type)
     case project_type.cn_name
     when "居住"

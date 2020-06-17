@@ -20,6 +20,5 @@ const images = require.context('../images', false, /\.(png|jpe?g|svg|webp)$/i)
 importAll(images)
 const imagePath = (name) => images(name, true)
 
-import "intersection-observer"
 import "controllers"
 import "stylesheets/application"

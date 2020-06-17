@@ -1,10 +1,9 @@
-<div data-controller="scroll"
-     data-action="resize@window->scroll#layout"
-     data-scroll-nav_active_item="nav-about"
-     data-scroll-offset="0.65"
-     data-scroll-threshold="0.05">
+<div data-controller="<%= scroll_controller -%>"
+     data-action="resize@window-><%= scroll_controller -%>#layout"
+     data-scroll-offset="0.65">
 
-<%= render partial: 'shared/thape_nav', locals: { nav_background: 'transparent', show_debug: false } -%>
+<%= render partial: 'shared/thape_nav' -%>
+
 
 <div class="relative" x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5, 6], direction_to_right: true, show_left_btn: false, show_right_btn: false }"
   data-controller="carousel"
