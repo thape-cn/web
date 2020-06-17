@@ -6,7 +6,6 @@ const scroller = scrollama();
 export default class extends Controller {
   connect() {
     const scrollama_offset = parseFloat(this.data.get("offset"));
-    const starting_threshold = parseFloat(this.data.get("threshold"));
 
     function handleStepEnter(response) {
       const { direction, index } = response;
