@@ -892,6 +892,15 @@
   dependencies:
     "@stimulus/multimap" "^1.1.1"
 
+"@stimulus/polyfills@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/@stimulus/polyfills/download/@stimulus/polyfills-1.1.1.tgz#02bacbb8de1ff592200f20a440d382608160b1f5"
+  integrity sha1-ArrLuN4f9ZIgDyCkQNOCYIFgsfU=
+  dependencies:
+    core-js "^2.5.3"
+    element-closest "^2.0.2"
+    mutation-observer-inner-html-shim "^1.0.0"
+
 "@stimulus/webpack-helpers@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/@stimulus/webpack-helpers/download/@stimulus/webpack-helpers-1.1.1.tgz#eff60cd4e58b921d1a2764dc5215f5141510f2c2"
@@ -2152,6 +2161,11 @@ core-js-compat@^3.6.2:
     browserslist "^4.8.5"
     semver "7.0.0"
 
+core-js@^2.5.3:
+  version "2.6.11"
+  resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
+  integrity sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
+
 core-js@^3.6.4:
   version "3.6.5"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
@@ -2693,6 +2707,11 @@ electron-to-chromium@^1.3.413:
   version "1.3.473"
   resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.473.tgz?cache=0&sync_timestamp=1592062622849&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.473.tgz#d0cd5fe391046fb70674ec98149f0f97609d29b8"
   integrity sha1-0M1f45EEb7cGdOyYFJ8Pl2CdKbg=
+
+element-closest@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/element-closest/download/element-closest-2.0.2.tgz#72a740a107453382e28df9ce5dbb5a8df0f966ec"
+  integrity sha1-cqdAoQdFM4LijfnOXbtajfD5Zuw=
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.2"
@@ -4697,6 +4716,11 @@ multicast-dns@^6.0.1:
   dependencies:
     dns-packet "^1.3.1"
     thunky "^1.0.2"
+
+mutation-observer-inner-html-shim@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/mutation-observer-inner-html-shim/download/mutation-observer-inner-html-shim-1.0.1.tgz#84349f51dfc390d0af85011de8fa14e645fb400e"
+  integrity sha1-hDSfUd/DkNCvhQEd6PoU5kX7QA4=
 
 nan@^2.12.1, nan@^2.13.2:
   version "2.14.1"
