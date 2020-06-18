@@ -26,6 +26,22 @@ class WorksController < ApplicationController
       @first_work = Work.find two_random_works[0]
       @second_work = Work.find two_random_works[1]
 
+      work_id_in_sequence = @work.project_types.collect { |p| p.works.pluck(:id) }.flatten.uniq
+      previous_work_id = if work_id_in_sequence.first == @work.id
+        work_id_in_sequence.last
+      else
+        work_id_in_sequence[work_id_in_sequence.index(@work.id) - 1]
+      end
+
+      next_work_id = if work_id_in_sequence.last == @work.id
+        work_id_in_sequence.first
+      else
+        work_id_in_sequence[work_id_in_sequence.index(@work.id) + 1]
+      end
+
+      @previous_work = Work.find previous_work_id
+      @next_work = Work.find next_work_id
+
       @relative_works = Work.includes(:work_project_types)
         .where(work_project_types: { project_type_id: @work.work_project_types.pluck(:project_type_id) })
         .where.not(id: @work.id)
