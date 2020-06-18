@@ -23,8 +23,8 @@
       </div>
       <nav class="pt-6">
         <ol class="space-y-4">
-          <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&lt;</span> 华润石家庄万象城</a></li>
-          <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&gt;</span> 青岛WFC协信中心</a></li>
+          <li class="text-base"><a href="<%= news_path(id: @previous_info.id) -%>"><span class="circle-border border border-black text-center">&lt;</span> <%= @previous_info.title -%></a></li>
+          <li class="text-base"><a href="<%= news_path(id: @next_info.id) -%>"><span class="circle-border border border-black text-center">&gt;</span> <%= @next_info.title -%></a></li>
         </ol>
       </nav>
     </aside>
