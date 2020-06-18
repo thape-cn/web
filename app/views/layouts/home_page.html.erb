@@ -15,7 +15,7 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body class="bg-white overflow-x-hidden bg-fixed bg-w100 bg-no-repeat" style="background-image: url('<%= @wallpapers.first -%>')">
+  <body class="bg-white overflow-x-hidden bg-fixed bg-w100 sm:bg-cover bg-no-repeat" style="background-image: url('<%= @wallpapers.first -%>')">
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
         <div class="bg-red-500">
