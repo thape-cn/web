@@ -605,15 +605,21 @@ p {
     height: calc(100vh - 50px);
     background-color: transparent;
     .aside-menu-container {
-      @apply p-2 nav-background-white shadow-md border-gray-200 border-solid border-t;
+      @apply p-6 nav-background-white shadow-md border-gray-200 border-solid border-t;
+      .aside-menu-item {
+        a {
+          display: block;
+          margin-bottom: .5rem;
+        }
+        .aside-menu-children {
+          padding-left: 1rem;
+        }
+      }
     }
     @media screen {
       @media (max-width: 768px) {
         display: block;
       }
-    }
-    .aside-menu-item {
-      margin: 1rem;
     }
   }
 }

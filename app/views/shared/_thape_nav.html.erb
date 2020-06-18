@@ -295,13 +295,50 @@ isEnglish = params[:locale] == 'en';
   <div class="aside-menu" style="display: none;" id="aside-menu">
     <div class="aside-menu-container" id="aside-menu-container">
       <div class="aside-menu-item">
-        <a href="<%= about_path -%>"><%= t('menu.about.text') -%></a>
+        <a href="javascrpt:void(0)"><%= t('menu.about.text') -%></a>
+        <div class="aside-menu-children" style="display:none;">
+          <div class="aside-menu-item">
+            <a href="<%= about_path -%>"><%= t('menu.about.about') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= culture_path -%>"><%= t('menu.about.culture') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= leadership_index_path -%>"><%= t('menu.about.leadership') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= leadership_path(id: 'shanghai') -%>"><%= t('menu.about.area_leadership') -%></a>
+          </div>
+        </div>
       </div>
       <div class="aside-menu-item">
         <a href="<%= works_path -%>"><%= t('menu.works.text') -%></a>
       </div>
       <div class="aside-menu-item">
-        <a href="<%= building_path -%>"><%= t('menu.service.text') -%></a>
+        <a href="javascrpt:void(0)"><%= t('menu.service.text') -%></a>
+        <div class="aside-menu-children" style="display:none;">
+          <div class="aside-menu-item">
+            <a href="<%= building_path -%>"><%= t('menu.service.architecture') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= interior_path -%>"><%= t('menu.service.interior') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= planning_path -%>"><%= t('menu.service.urban_planning') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= landscape_path -%>"><%= t('menu.service.landscape') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= vetting_path -%>"><%= t('menu.service.drawing_review') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= consluting_path -%>"><%= t('menu.service.consultation') -%></a>
+          </div>
+          <div class="aside-menu-item">
+            <a href="<%= vr_tech_path -%>"><%= t('menu.service.vr_technology') -%></a>
+          </div>
+        </div>
       </div>
       <div class="aside-menu-item">
         <a href="<%= news_index_path -%>"><%= t('menu.news.text') -%></a>
@@ -317,44 +354,59 @@ isEnglish = params[:locale] == 'en';
 </header>
 
 <script>
-  function toggleAsideMenu(event) {
-    const e = event || window.event;
-    e.preventDefault && e.preventDefault();
+  (function(){
+    function toggleAsideMenu(event) {
+      const e = event || window.event;
+      e.preventDefault && e.preventDefault();
+      const asideMenu = document.querySelector('#aside-menu');
+      if (asideMenu) {
+        asideMenu.style.display = asideMenu.style.display === 'none' ? 'block' : 'none';
+      }
+      return false;
+    }
+    const asideMenuButton = document.querySelector('#aside-menu-button');
+    if (asideMenuButton) {
+      asideMenuButton.addEventListener('click', toggleAsideMenu);
+    }
+    const asideMenuContainer = document.querySelector('#aside-menu-container');
+    if (asideMenuContainer) {
+      asideMenuContainer.addEventListener('click', function(event) {
+        const e = event || window.event;
+        e.stopPropagation && e.stopPropagation();
+        if (e.target.tagName.toLowerCase() === 'a') {
+          const parent = e.target.parentElement;
+          if (parent) {
+            const asideMenuChildren = parent.querySelector('.aside-menu-children');
+            if (asideMenuChildren) {
+              e.preventDefault && e.preventDefault();
+              const display = asideMenuChildren.style.display;
+              asideMenuChildren.style.display = display === 'none' ? 'block' : 'none';
+            }
+          }
+        }
+      });
+    }
     const asideMenu = document.querySelector('#aside-menu');
     if (asideMenu) {
-      asideMenu.style.display = asideMenu.style.display === 'none' ? 'block' : 'none';
+      asideMenu.addEventListener('click', function(event) {
+        asideMenu.style.display = 'none';
+      });
     }
-    return false;
-  }
-  const asideMenuButton = document.querySelector('#aside-menu-button');
-  if (asideMenuButton) {
-    asideMenuButton.addEventListener('click', toggleAsideMenu);
-  }
-  const asideMenuContainer = document.querySelector('#aside-menu-container');
-  if (asideMenuContainer) {
-    asideMenuContainer.addEventListener('click', function(event) {
-      const e = event || window.event;
-      e.stopPropagation && e.stopPropagation();
-    });
-  }
-  const asideMenu = document.querySelector('#aside-menu');
-  if (asideMenu) {
-    asideMenu.addEventListener('click', function(event) {
-      asideMenu.style.display = 'none';
-    });
-  }
+  })()
 </script>
 
 <% if !headerIsActive %>
 <script>
-  function setHeaderActive() {
-    const headerElem = document.querySelector('#thape-top-header');
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if (headerElem) {
-      if (scrollTop > 200) headerElem.classList.add('active');
-      else headerElem.classList.remove('active');
+  (function(){
+    function setHeaderActive() {
+      const headerElem = document.querySelector('#thape-top-header');
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (headerElem) {
+        if (scrollTop > 200) headerElem.classList.add('active');
+        else headerElem.classList.remove('active');
+      }
     }
-  }
-  document.addEventListener('scroll', setHeaderActive);
+    document.addEventListener('scroll', setHeaderActive);
+  })()
 </script>
 <% end %>
