@@ -17,28 +17,28 @@
               </div>
             </div>
 
-            <div class="col-span-2 sm:col-span-1">
+            <div class="col-span-2 sm:col-span-1 max-sm:col-span-4">
               <div class="w-full flex rounded-full">
                 <%# can not extract below class using @apply %>
                 <input id="guest-name" name="guest[name]" placeholder="<%= t('guest_form.guest_name_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
             </div>
 
-            <div class="col-span-2 sm:col-span-1">
+            <div class="col-span-2 sm:col-span-1 max-sm:col-span-4">
               <div class="w-full flex rounded-full">
                 <input id="guest-company" name="guest[company]" placeholder="<%= t('guest_form.guest_company_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
             </div>
 
-            <div class="col-span-4 sm:col-span-2">
+            <div class="col-span-4 sm:col-span-2 max-sm:col-span-4">
               <div class="w-full flex rounded-full">
                 <input id="guest-contact" name="guest[contact_details]" placeholder="<%= t('guest_form.guest_contact_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
             </div>
 
-            <div class="col-span-4 sm:col-span-2">
+            <div class="col-span-4 sm:col-span-2 max-sm:col-span-4">
               <div class="w-full flex rounded-md">
-                <button id="guest-submit-btn" class="mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
+                <button id="guest-submit-btn" class="max-sm:w-full max-sm:mt-3 mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
                   <%= t('guest_form.submit_button') -%>
                 </button>
               </div>
