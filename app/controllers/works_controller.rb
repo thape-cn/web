@@ -2,6 +2,10 @@ class WorksController < ApplicationController
   def index
     @project_type = {}
     @self_path = works_path
+    if params[:q].present?
+      @works = works_query_scope(params[:q])
+      render :search_detail
+    end
   end
 
   def show
@@ -125,6 +129,16 @@ class WorksController < ApplicationController
   end
 
   private
+
+  def works_query_scope(q)
+    Work.where('work_translations.project_name LIKE ?', "%#{q}%")
+      .or(Work.where('work_translations.client LIKE ?', "%#{q}%"))
+      .or(Work.where('work_translations.team LIKE ?', "%#{q}%"))
+      .or(Work.where('work_translations.cooperation LIKE ?', "%#{q}%"))
+      .or(Work.where('work_translations.awards LIKE ?', "%#{q}%"))
+      .joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
+      .where(published: true)
+  end
 
   def render_residential
     @works = Work.includes(:work_residential_types, work_project_types: :project_type)
