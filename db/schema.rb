@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_060652) do
+ActiveRecord::Schema.define(version: 2020_06_18_010124) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 2020_06_15_060652) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_city_people_on_city_id"
     t.index ["person_id"], name: "index_city_people_on_person_id"
+  end
+
+  create_table "guest_messages", force: :cascade do |t|
+    t.text "message"
+    t.string "name"
+    t.string "company"
+    t.string "contact_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "home_page_contents", force: :cascade do |t|

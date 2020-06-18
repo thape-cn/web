@@ -1,0 +1,2 @@
+class GuestMessage < ApplicationRecord
+end
