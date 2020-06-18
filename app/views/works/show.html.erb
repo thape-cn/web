@@ -145,20 +145,20 @@
       <div class="space-y-4 pb-6 border-gray-200 border-solid border-b w-2/3">
         <h3 class="text-black6c">推荐阅读</h3>
         <figure class="space-y-1">
-          <%= image_pack_tag 'media/images/aside-1.jpg', class: 'w-full' -%>
-          <figcaption class="text-sm pt-2 text-black6c">合肥旭辉甜甜圈幼儿园  </figcaption>
-          <p class="text-xs text-gray1c">2019年12月28日</p>
+          <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
+          <figcaption class="text-sm pt-2 text-black6c"><%= @first_work.project_name -%></figcaption>
+          <p class="text-xs text-gray1c"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
         </figure>
         <figure class="space-y-1">
-          <%= image_pack_tag 'media/images/aside-2.jpg', class: 'w-full' -%>
-          <figcaption class="text-sm pt-2 text-black6c">合肥万科北城中央公园中小学  </figcaption>
-          <p class="text-xs text-gray1c">2019年12月28日</p>
+          <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
+          <figcaption class="text-sm pt-2 text-black6c"><%= @second_work.project_name -%></figcaption>
+          <p class="text-xs text-gray1c"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
         </figure>
       </div>
       <nav class="pt-6">
         <ol class="space-y-4">
-            <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&lt;</span> 华润石家庄万象城</a></li>
-            <li class="text-base"><a href="#"><span class="circle-border border border-black text-center">&gt;</span> 青岛WFC协信中心</a></li>
+            <li class="text-base"><a href="<%= work_path(id: @previous_work.id) -%>"><span class="circle-border border border-black text-center">&lt;</span> <%= @previous_work.project_name -%></a></li>
+            <li class="text-base"><a href="<%= work_path(id: @next_work.id) -%>"><span class="circle-border border border-black text-center">&gt;</span> <%= @next_work.project_name -%></a></li>
         </ol>
       </nav>
     </aside>
