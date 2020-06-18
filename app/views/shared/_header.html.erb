@@ -1,10 +1,11 @@
 <header class="<%= header_class -%> pb-2 clearfix border-gray-200 border-solid border-b">
-  <h1 class="inline-block text-3xl font-bold text-black6c mb-3">
+  <h1 class="max-sm:block inline-block text-3xl font-bold text-black6c max-sm:mb-0 max-sm:text-2xl">
     <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
-      <span class="h1-cap"><%= c[0] -%></span><%= c[1..] %>
+      <span class="h1-cap max-sm:hidden absolute" style="padding-bottom: .25rem">&emsp;</span>
+      <%= c -%>
     </a>
   </h1>
-  <h2 class="ml-2 inline-block text-2xl text-black6c">
+  <h2 class="max-sm:block max-sm:ml-0 ml-2 inline-block text-2xl text-black6c max-sm:text-xl">
     <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70"><%= e -%></a>
   </h2>
   <% if show_header_right %>
