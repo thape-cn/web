@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   def index
+    @project_type = {}
   end
 
   def show

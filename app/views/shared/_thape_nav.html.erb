@@ -5,9 +5,9 @@ isJtgg = controller.controller_name == 'leadership' && controller.action_name ==
 isQytd = controller.controller_name == 'leadership' && controller.action_name == 'show';
 isAbout = isAboutShow || isCulture || isJtgg || isQytd;
 
-isWorksIndex = controller.controller_name == 'works' && controller.action_name != 'show';
+isWorksIndex = controller.controller_name == 'works' && (controller.action_name != 'show' || @city.present?);
 isWorksShow = controller.controller_name == 'works' && controller.action_name == 'show';
-isWork = isWorksIndex || isWorksShow;
+isWork = controller.controller_name == 'works';
 
 isBuilding = controller.controller_name == 'services' && controller.action_name == 'building';
 isInterior = controller.controller_name == 'services' && controller.action_name == 'interior';
