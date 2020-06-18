@@ -22,6 +22,10 @@ class WorksController < ApplicationController
     else
       @work = Work.find params[:id]
 
+      two_random_works = Work.pluck(:id).sample(2)
+      @first_work = Work.find two_random_works[0]
+      @second_work = Work.find two_random_works[1]
+
       @relative_works = Work.includes(:work_project_types)
         .where(work_project_types: { project_type_id: @work.work_project_types.pluck(:project_type_id) })
         .where.not(id: @work.id)
