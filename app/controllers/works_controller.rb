@@ -145,6 +145,7 @@ class WorksController < ApplicationController
       .or(Work.where('work_translations.cooperation LIKE ?', "%#{q}%"))
       .or(Work.where('work_translations.awards LIKE ?', "%#{q}%"))
       .joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
+      .distinct
   end
 
   def render_residential
