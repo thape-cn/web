@@ -2,7 +2,7 @@ class LeadershipController < ApplicationController
   def index
     @search_name = params[:name].presence
     jituan_people = Person.includes(city_people: :city).where(cities: { name: '集团'})
-      .where(leaving_date: nil).order(position: :asc).limit(12)
+      .where(leaving_date: nil).order(position: :asc)
     @management_people = if @search_name.present?
       jituan_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
         .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
@@ -25,7 +25,7 @@ class LeadershipController < ApplicationController
     if city_area.present?
       city_area_people = Person.includes(:city_people).where(city_people: { city_id: city_area.id })
         .where(leaving_date: nil)
-        .order(position: :asc).limit(12)
+        .order(position: :asc)
       @management_people = if @search_name.present?
         city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
