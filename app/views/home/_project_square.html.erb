@@ -7,7 +7,8 @@
       <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
     <% end %>
     <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
-    <img src="<%= asset_pack_path(prj_image) -%>" class="grid-image hover:mask hover:scale-105 pointer-events-none">
+    <img src="<%= asset_pack_path(prj_image) -%>"
+      x-bind:class="{ 'grid-mask-image hover:scale-105': show_grid_text, 'grid-image': !show_grid_text }">
   </picture>
   <div class="absolute text-white left-6 bottom-4"
     x-transition:enter="transition ease-linear duration-200"
