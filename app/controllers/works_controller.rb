@@ -109,7 +109,7 @@ class WorksController < ApplicationController
 
   def residential
     @project_type = ProjectType.find_by cn_name: '居住'
-    @self_path = demonstration_zone_works_path
+    @self_path = residential_works_path
   end
 
   def residential_residence
@@ -146,7 +146,11 @@ class WorksController < ApplicationController
   end
 
   def render_residential
-    @works = Work.includes(:work_residential_types, work_project_types: :project_type)
+    @works = if params[:q].present?
+      works_query_scope(params[:q])
+    else
+      Work.all
+    end.includes(:work_residential_types, work_project_types: :project_type)
       .where(work_project_types: { project_types: { cn_name: '居住' } })
       .where(work_residential_types: { residential_type_id: @residential_type.id })
       .where(published: true)
