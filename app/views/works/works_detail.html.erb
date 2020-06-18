@@ -8,7 +8,7 @@
     </div>
   <% end %>
   <%= render partial: 'shared/header', locals: {
-    c: @project_type.cn_name,
+    c: params[:q].present? ? "搜索#{@project_type.cn_name}：#{params[:q]}" : @project_type.cn_name,
     e: @project_type.en_name,
     header_path: @self_path, header_class: 'pt-16', show_header_right: true } %>
 

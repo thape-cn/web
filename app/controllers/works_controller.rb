@@ -3,7 +3,7 @@ class WorksController < ApplicationController
     @project_type = {}
     @self_path = works_path
     if params[:q].present?
-      @works = works_query_scope(params[:q])
+      @works = works_query_scope(params[:q]).where(published: true)
       render :search_detail
     end
   end
@@ -14,7 +14,7 @@ class WorksController < ApplicationController
       @project_type = {}
       @self_path = work_path(id: @city.url_name)
       @works = if params[:q].present?
-        works_query_scope(params[:q]).where(city_id: @city.id)
+        works_query_scope(params[:q]).where(city_id: @city.id).where(published: true)
       else
         @city.works
       end
@@ -109,7 +109,10 @@ class WorksController < ApplicationController
 
   def residential
     @project_type = ProjectType.find_by cn_name: '居住'
-    @self_path = demonstration_zone_works_path
+    @self_path = residential_works_path
+    if params[:q].present?
+      render_project_type
+    end
   end
 
   def residential_residence
@@ -142,11 +145,15 @@ class WorksController < ApplicationController
       .or(Work.where('work_translations.cooperation LIKE ?', "%#{q}%"))
       .or(Work.where('work_translations.awards LIKE ?', "%#{q}%"))
       .joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
-      .where(published: true)
+      .distinct
   end
 
   def render_residential
-    @works = Work.includes(:work_residential_types, work_project_types: :project_type)
+    @works = if params[:q].present?
+      works_query_scope(params[:q])
+    else
+      Work.all
+    end.includes(:work_residential_types, work_project_types: :project_type)
       .where(work_project_types: { project_types: { cn_name: '居住' } })
       .where(work_residential_types: { residential_type_id: @residential_type.id })
       .where(published: true)
@@ -154,7 +161,11 @@ class WorksController < ApplicationController
   end
 
   def render_project_type
-    @works = Work.includes(:work_project_types)
+    @works = if params[:q].present?
+      works_query_scope(params[:q])
+    else
+      Work.all
+    end.includes(:work_project_types)
       .where(work_project_types: { project_type_id: @project_type.id })
       .where(published: true)
     render :works_detail
