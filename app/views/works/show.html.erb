@@ -147,12 +147,12 @@
         <figure class="space-y-1">
           <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
           <figcaption class="text-sm pt-2 text-black6c"><%= @first_work.project_name -%></figcaption>
-          <p class="text-xs text-gray1c"><%= @first_work.construction_completion&.year %></p>
+          <p class="text-xs text-gray1c"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
         </figure>
         <figure class="space-y-1">
           <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
           <figcaption class="text-sm pt-2 text-black6c"><%= @second_work.project_name -%></figcaption>
-          <p class="text-xs text-gray1c"><%= @second_work.construction_completion&.year %></p>
+          <p class="text-xs text-gray1c"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
         </figure>
       </div>
       <nav class="pt-6">
