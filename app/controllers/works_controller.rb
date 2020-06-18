@@ -5,6 +5,7 @@ class WorksController < ApplicationController
   def show
     @city = City.find_by url_name: params[:id]
     if @city.present?
+      @project_type = {}
       render :area_detail
     else
       @work = Work.find params[:id]
@@ -95,6 +96,7 @@ class WorksController < ApplicationController
   end
 
   def residential
+    @project_type = ProjectType.find_by cn_name: '居住'
   end
 
   def residential_residence

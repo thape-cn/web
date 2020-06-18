@@ -15,6 +15,19 @@ module ApplicationHelper
     end
   end
 
+  def search_form_project_type_width(project_type_name)
+    return 'w-56' if I18n.locale == :en
+    case project_type_name
+    when "展示区/示范区"
+      'w-48'
+    when "城市设计/更新"
+    when "综合体/TOD"
+      'w-40'
+    else
+      'w-32'
+    end
+  end
+
   def project_type_path(project_type)
     case project_type.cn_name
     when "居住"
