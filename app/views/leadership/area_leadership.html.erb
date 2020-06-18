@@ -1,11 +1,12 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
 <div class="relative">
-  <%= image_pack_tag 'media/images/people-banner.jpg', class: "pt-12" -%>
-  <div class="absolute inset-0 w-full flex justify-center items-center pt-12">
+  <%= image_pack_tag 'media/images/people-banner.jpg', class: "pt-12 max-sm:hidden" -%>
+  <%= image_pack_tag 'media/images/people-banner-mobile-1.jpg', class: "max-sm:block hidden pt-12" -%>
+  <div class="max-sm:hidden absolute inset-0 w-full flex justify-center items-center pt-12">
     <%= image_pack_tag 'media/images/people-title.png', class: 'h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64' -%>
   </div>
-  <div class="absolute inset-0 w-full flex flex-col justify-center items-center pt-12">
+  <div class="max-sm:hidden absolute inset-0 w-full flex flex-col justify-center items-center pt-12">
     <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white text-center font-medium tracking-widest -ml-32">引领生活方式</h1>
     <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white text-center font-medium tracking-widest -mr-32">助力城市发展</h1>
   </div>
