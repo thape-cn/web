@@ -28,7 +28,7 @@ isSearch = controller.controller_name == 'search';
 
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex || isSearch;
 
-isEnglish = params[:locale] == 'en';
+isEnglish = I18n.locale == :en;
 %>
 <header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header" lang="<%= isEnglish ? 'en' : '' -%>">
   <div class="logo">
