@@ -13,6 +13,11 @@ class WorksController < ApplicationController
     if @city.present?
       @project_type = {}
       @self_path = work_path(id: @city.url_name)
+      @works = if params[:q].present?
+        works_query_scope(params[:q]).where(city_id: @city.id)
+      else
+        @city.works
+      end
       render :area_detail
     else
       @work = Work.find params[:id]
