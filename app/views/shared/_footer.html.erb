@@ -1,30 +1,38 @@
 <div class="bg-thape-dark-gray py-6">
-  <div class="w-full mx-auto my-1 pt-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-    <nav class="relative flex items-center justify-between h-5 sm:h-10 md:justify-center">
-      <div class="md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+  <div class="max-sm:pt-0 w-full mx-auto my-1 pt-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <nav class="relative flex max-sm:justify-center items-center justify-between h-5 sm:h-10 max-sm:h-auto md:justify-center">
+      <div class="max-sm:hidden md:flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
         <div class="hidden md:flex items-left justify-between w-full md:w-auto">
           <a href="<%= root_path -%>">
             <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c h-8 w-48 sm:h-10', svgId: 'thape-footer-logo' } -%>
           </a>
         </div>
       </div>
-      <div class="flex text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
-        <a href="<%= biz_map_path -%>" class="mr-2 xxl:text-lg sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>|
-        <a href="<%= statement_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>|
-        <a href="<%= privacy_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>|
-        <a href="<%= disclaimer_sites_path -%>" class="mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>|
-        <a href="https://tianhua.gllue.com/portal/AllPosition" class="ml-2 sm:ml-3 xxl:text-lg md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
+      <div class="flex max-sm:justify-center max-sm:flex-wrap max-sm:w-48 text-sm sm:text-base md:absolute md:items-center md:justify-end md:inset-y-0 md:right-0 text-thape-copyright-gray cursor-pointer">
+        <a href="<%= biz_map_path -%>" class="max-sm:flex-none max-sm:m-2 mr-2 xxl:text-lg sm:mr-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>
+        <span class="max-sm:hidden">|</span>
+        <a href="<%= statement_sites_path -%>" class="max-sm:flex-none max-sm:m-2 mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>
+        <span class="max-sm:hidden">|</span>
+        <a href="<%= privacy_sites_path -%>" class="max-sm:flex-none max-sm:m-2 mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>
+        <span class="max-sm:hidden">|</span>
+        <a href="<%= disclaimer_sites_path -%>" class="max-sm:flex-none max-sm:m-2 mx-2 xxl:text-lg sm:mx-3 md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>
+        <span class="max-sm:hidden">|</span>
+        <a href="https://tianhua.gllue.com/portal/AllPosition" class="max-sm:flex-none max-sm:m-2 ml-2 sm:ml-3 xxl:text-lg md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
       </div>
     </nav>
     <div class="h-2 sm:h-6 border-b border-gray-300"></div>
   </div>
-  <div class="w-full flex justify-between px-2 sm:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-    <div class="text-thape-copyright-gray py-2 sm:py-4 my-2">
-      <p><%= t('footer.telephone_exchange') -%>：021-64281588 &nbsp;&nbsp;&nbsp;<%= t('footer.contact_hotline') -%>：400-8366606</p>
-      <p class="leading-loose"><%= t("footer.corporation") -%></p>
+  <div class="w-full flex justify-between max-sm:justify-center max-sm:flex-wrap px-2 sm:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <div class="max-sm:text-sm max-sm:flex-none max-sm:w-full max-sm:my-1 text-thape-copyright-gray py-2 sm:py-4 my-2">
+      <p class="max-sm:hidden"><%= t('footer.telephone_exchange') -%>：021-64281588 &nbsp;&nbsp;&nbsp;<%= t('footer.contact_hotline') -%>：400-8366606</p>
+      <p class="max-sm:hidden leading-loose"><%= t("footer.corporation") -%></p>
+
+      <p class="sm:hidden text-center"><%= t('footer.telephone_exchange') -%>：021-64281588</p>
+      <p class="sm:hidden text-center"><%= t('footer.contact_hotline') -%>：400-8366606</p>
+      <p class="sm:hidden text-center"><%= t("footer.corporation") -%></p>
     </div>
 
-    <div class="relative text-thape-icon-gray text-center sm:text-right pt-4 sm:pt-10 pb-8 sm:w-48" x-data="{ show_wechat_qr: false }">
+    <div class="max-sm:order-first max-sm:flex-none max-sm:w-full max-sm:pb-2 relative text-thape-icon-gray text-center sm:text-right pt-4 sm:pt-10 pb-8 sm:w-48" x-data="{ show_wechat_qr: false }">
       <%= image_pack_tag 'media/images/wechat-qr.png', class: 'absolute bottom-0 right-36', "x-show": 'show_wechat_qr' %>
       <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'media/images/wechat.svg', class: 'inline-block h-7 mx-2 sm:mr-2 sm:ml-0' -%></a>
       <a href="http://weibo.com/thape" target="_blank"><%= image_pack_tag 'media/images/weibo.svg', class: 'inline-block h-7 mx-2' %></a>
