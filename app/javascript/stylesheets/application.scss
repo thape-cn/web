@@ -173,6 +173,7 @@ p {
   @media screen {
     @media (min-width: 768px) {
       @apply px-6;
+      height: 60px;
     }
     @media (min-width: 1024px) {
       @apply px-8;
@@ -182,6 +183,7 @@ p {
     }
     @media (min-width: 1500px) {
       @apply px-12;
+      height: 80px;
     }
     @media (min-width: 1800px) {
       @apply px-16;
@@ -254,7 +256,7 @@ p {
         position: absolute;
         left: 0;
         right: 0;
-        top: 50px;
+        top: 100%;
         @apply nav-background-initial border-gray-200 border-solid border-t;
         a {
           font-size: 14px;
@@ -272,7 +274,7 @@ p {
     
     &.intro {
       padding-right: 13.7rem;
-      height: 50px;
+      height: calc(100% - 20px);
       align-items: center;
       justify-content: flex-end;
       @media screen {
@@ -369,7 +371,7 @@ p {
     }
     
     &.service {
-      height: 50px;
+      height: calc(100% - 20px);
       align-items: center;
       justify-content: flex-end;
       @apply pr-2;
