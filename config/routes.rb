@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   end
 
   resources :news, only: %i[index show]
+  resources :guest_messages, only: %i[create]
 
   get 'search', to: 'search#query'
 

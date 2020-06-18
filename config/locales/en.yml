@@ -6,6 +6,7 @@ en:
     guest_company_placeholder: "Please fill in your company"
     guest_contact_placeholder: "Please fill in your contact information"
     submit_button: "Submit"
+    submited_button: "Message has been recorded"
   map:
     tianhua-map: "Tianhua's office location"
     address: "Address"

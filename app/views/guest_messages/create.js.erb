@@ -1,0 +1,8 @@
+document.getElementById('guest-comment').disabled = true;
+document.getElementById('guest-name').disabled = true;
+document.getElementById('guest-company').disabled = true;
+document.getElementById('guest-contact').disabled = true;
+document.getElementById("guest-submit-btn").innerText = "<%= t('guest_form.submited_button') -%>";
+document.getElementById("guest-submit-btn").classList.remove("hover:bg-black6c");
+document.getElementById("guest-submit-btn").classList.remove("hover:text-white");
+document.getElementById("guest-submit-btn").disabled = true;
