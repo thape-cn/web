@@ -9,7 +9,10 @@
       </h2>
     </header>
     <div class="flex flex-wrap px-4 sm:px-6">
-      <%= render partial: 'office_address', locals: { m: m } %>
+      <%= render partial: 'office_address', locals: { m: m1 } %>
+      <% if m2.present? %>
+        <%= render partial: 'office_address', locals: { m: m2 } %>
+      <% end %>
     </div>
   </div>
 </div>

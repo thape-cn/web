@@ -40,7 +40,7 @@
       <div class="absolute text-sm xxl:text-base" style="left:65%;top:38%;"
         x-bind:class="{ 'map-star-a': show_city == '北京', 'map-dot-a': show_city != '北京' }">北京</div>
       <div class="absolute text-sm xxl:text-base" style="left:64%;top:83%;"
-        x-bind:class="{ 'map-star-a': show_city == '深圳', 'map-dot-a': show_city != '深圳' }">深圳</div>
+        x-bind:class="{ 'map-star-a': show_city == '深圳' || show_city == '深圳易筑', 'map-dot-a': !(show_city == '深圳' || show_city == '深圳易筑') }">深圳</div>
       <div class="absolute text-sm xxl:text-base" style="left:61%;top:86%;"
         x-bind:class="{ 'map-star-a': show_city == '广州', 'map-dot-a': show_city != '广州' }">广州</div>
       <div class="absolute text-sm xxl:text-base" style="left:70%;top:40%;"
@@ -49,7 +49,7 @@
         x-bind:class="{ 'map-star-a': show_city == '重庆', 'map-dot-a': show_city != '重庆' }">重庆</div>
 
       <div class="absolute text-sm xxl:text-base" style="left:61%;top:66%;"
-        x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
+        x-bind:class="{ 'map-star-b': show_city == '武汉' || show_city == '武汉易筑', 'map-dot-b': !(show_city == '武汉' || show_city == '武汉易筑') }">武汉</div>
       <div class="absolute text-sm xxl:text-base" style="left:38%;top:65%;"
         x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
       <div class="absolute text-sm xxl:text-base" style="left:49%;top:51%;"
@@ -125,6 +125,8 @@
       <%= render partial: 'map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
       <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
       <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
+      <%= render partial: 'map_address', locals: {c: '深圳易筑', m: @m_深圳易筑 } -%>
+      <%= render partial: 'map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
     </div>
     <div class="w-1/2 max-sm:order-first max-sm:flex-none max-sm:w-full">
       <div class="flex xxl:pt-12 xxxl:pt-20 max-sm:flex-wrap">
@@ -228,11 +230,11 @@
           x-bind:class="{ 'bg-gray-100': show_city == '虹核审图', 'bg-gray-50': show_city != '虹核审图' }"
           x-on:click="show_city = '虹核审图'">上海虹核审图</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '武汉', 'bg-gray-50': show_city != '武汉' }"
-          x-on:click="show_city = '武汉'">武汉天华易筑室内</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '武汉易筑', 'bg-gray-50': show_city != '武汉易筑' }"
+          x-on:click="show_city = '武汉易筑'">武汉天华易筑室内</div>
         <div class="ml-1 xl:ml-2 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '深圳', 'bg-gray-50': show_city != '深圳' }"
-          x-on:click="show_city = '深圳'">深圳天华易筑室内</div>
+          x-bind:class="{ 'bg-gray-100': show_city == '深圳易筑', 'bg-gray-50': show_city != '深圳易筑' }"
+          x-on:click="show_city = '深圳易筑'">深圳天华易筑室内</div>
       </div>
     </div>
   </div>
@@ -353,36 +355,37 @@
           </div>
         </div>
         <%= render partial: 'office_address', locals: { m: @m_爱坤 } %>
-        <%= render partial: 'office_address', locals: { m: @m_上海室内 } %>
+        <%= render partial: 'office_address', locals: { m: @m_易爱迪 } %>
         <%= render partial: 'office_address', locals: { m: @m_上海城规 } %>
+        <%= render partial: 'office_address', locals: { m: @m_上海室内 } %>
         <%= render partial: 'office_address', locals: { m: @m_上海园林 } %>
-        <%= render partial: 'office_address', locals: { m: @m_虹核审图 } %>
         <%= render partial: 'office_address', locals: { m: @m_易术家互娱 } %>
+        <%= render partial: 'office_address', locals: { m: @m_虹核审图 } %>
       </div>
     </div>
   </div>
 
-  <%= render partial: 'city_div', locals: {c: '北京', e: 'BEIJING', m: @m_北京天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '深圳', e: 'SHENZHEN', m: @m_深圳天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '广州', e: 'GUANGZHOU', m: @m_广州天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '天津', e: 'TIANJIN', m: @m_天津天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '重庆', e: 'CHONGQING', m: @m_重庆天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '武汉', e: 'WUHAN', m: @m_武汉天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '成都', e: 'CHENGDU', m: @m_成都天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '西安', e: "XI'AN", m: @m_西安天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '沈阳', e: 'SHENYANG', m: @m_沈阳天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '厦门', e: 'XIAMEN', m: @m_厦门天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '青岛', e: 'QINGDAO', m: @m_青岛天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '南京', e: 'NANJING', m: @m_南京天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '郑州', e: 'ZHENZHOU', m: @m_郑州天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '杭州', e: 'HANGZHOU', m: @m_杭州天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '合肥', e: 'HEFEI', m: @m_合肥天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '济南', e: "JI'NAN", m: @m_济南天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '贵阳', e: 'GUIYANG', m: @m_贵阳天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '昆明', e: 'KUNMING', m: @m_昆明天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '太原', e: 'TAIYUAN', m: @m_太原天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '长沙', e: 'CHANGSHA', m: @m_长沙天华 } -%>
-  <%= render partial: 'city_div', locals: {c: '香港', e: 'HONGKONG', m: @m_香港天华 } -%>
+  <%= render partial: 'city_div', locals: {c: '北京', e: 'BEIJING', m1: @m_北京天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '深圳', e: 'SHENZHEN', m1: @m_深圳天华, m2: @m_深圳易筑 } -%>
+  <%= render partial: 'city_div', locals: {c: '广州', e: 'GUANGZHOU', m1: @m_广州天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '天津', e: 'TIANJIN', m1: @m_天津天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '重庆', e: 'CHONGQING', m1: @m_重庆天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '武汉', e: 'WUHAN', m1: @m_武汉天华, m2: @m_武汉易筑 } -%>
+  <%= render partial: 'city_div', locals: {c: '成都', e: 'CHENGDU', m1: @m_成都天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '西安', e: "XI'AN", m1: @m_西安天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '沈阳', e: 'SHENYANG', m1: @m_沈阳天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '厦门', e: 'XIAMEN', m1: @m_厦门天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '青岛', e: 'QINGDAO', m1: @m_青岛天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '南京', e: 'NANJING', m1: @m_南京天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '郑州', e: 'ZHENZHOU', m1: @m_郑州天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '杭州', e: 'HANGZHOU', m1: @m_杭州天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '合肥', e: 'HEFEI', m1: @m_合肥天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '济南', e: "JI'NAN", m1: @m_济南天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '贵阳', e: 'GUIYANG', m1: @m_贵阳天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '昆明', e: 'KUNMING', m1: @m_昆明天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '太原', e: 'TAIYUAN', m1: @m_太原天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '长沙', e: 'CHANGSHA', m1: @m_长沙天华, m2: nil } -%>
+  <%= render partial: 'city_div', locals: {c: '香港', e: 'HONGKONG', m1: @m_香港天华, m2: nil } -%>
 
 </div>
 
