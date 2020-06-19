@@ -118,6 +118,18 @@
           <p class="font-normal"><%= @work.city.name -%></p>
         </div>
       <% end %>
+      <% if @work.planning_area.present? && !@work.planning_area.zero? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">规划面积 PLANNING SIZE</label>
+          <p class="font-normal"><%= @work.planning_area -%>k㎡ </p>
+        </div>
+      <% end %>
+      <% if @work.site_area.present? && !@work.site_area.zero? %>
+        <div>
+          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">用地面积 SITE SIZE</label>
+          <p class="font-normal"><%= @work.site_area -%>㎡ </p>
+        </div>
+      <% end %>
       <% if @work.architecture_area.present? && !@work.architecture_area.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
