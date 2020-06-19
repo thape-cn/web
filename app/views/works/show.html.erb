@@ -91,13 +91,25 @@
       <% if @work.design_completion.present? && !@work.design_completion.year.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
-          <p class="font-normal"><%= @work.design_completion.year -%>年</p>
+          <% if @work.design_completion_lines.present? %>
+            <% @work.design_completion_lines.split("\n").each do |design_completion| %>
+              <p class="font-normal"><%= design_completion %></p>
+            <% end %>
+          <% else %>
+            <p class="font-normal"><%= @work.design_completion.year -%>年</p>
+          <% end %>
         </div>
       <% end %>
       <% if @work.construction_completion.present? && !@work.construction_completion.year.zero?  %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
-          <p class="font-normal"><%= @work.construction_completion.year -%>年</p>
+          <% if @work.construction_completion_lines.present? %>
+            <% @work.construction_completion_lines.split("\n").each do |construction_completion| %>
+              <p class="font-normal"><%= construction_completion %></p>
+            <% end %>
+          <% else %>
+            <p class="font-normal"><%= @work.construction_completion.year -%>年</p>
+          <% end %>
         </div>
       <% end %>
       <% if @work.city.present? %>
@@ -106,10 +118,16 @@
           <p class="font-normal"><%= @work.city.name -%></p>
         </div>
       <% end %>
-      <% if @work.site_area.present? && !@work.site_area.zero? %>
+      <% if @work.architecture_area.present? && !@work.architecture_area.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
-          <p class="font-normal"><%= @work.site_area -%>㎡ </p>
+          <% if @work.architecture_area_lines.present? %>
+            <% @work.architecture_area_lines.split("\n").each do |architecture_area| %>
+              <p class="font-normal"><%= architecture_area %></p>
+            <% end %>
+          <% else %>
+            <p class="font-normal"><%= @work.architecture_area -%>㎡ </p>
+          <% end %>
         </div>
       <% end %>
       <% if @work.services.present? %>
