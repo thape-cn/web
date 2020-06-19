@@ -25,6 +25,9 @@
         locals: { info: info, news_class: 'grid-div' } %>
     <% end %>
   </div>
+
+  <%= paginate @infos %>
+
 </div>
 
 <%= render partial: 'shared/footer' %>

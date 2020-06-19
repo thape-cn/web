@@ -25,6 +25,6 @@ class NewsController < ApplicationController
   end
 
   def index
-    @infos = Info.where(hide_in_index_news: false).order(position: :asc).limit(20)
+    @infos = Info.where(hide_in_index_news: false).order(position: :asc).page(params[:page]).per(params[:per_page])
   end
 end
