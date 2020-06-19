@@ -1,6 +1,6 @@
-<dl class="w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 px-2 py-1 m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer"
+<dl class="w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 px-2 py-1 m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:p-0 max-sm:m-0 max-sm:flex max-sm:items-center max-sm:flex-wrap"
   x-bind:class="{ 'bg-gray-50 text-black6c': show_city == '<%= c -%>', 'bg-thape-city-gray text-white': show_city != '<%= c -%>' }"
   x-on:click="show_city = '<%= c -%>'">
-  <dt class="font-medium text-lg lg:text-xl text-center"><%= c -%></dt>
-  <dd class="font-light text-center text-xs xxl:text-sm"><%= e -%></dd>
+  <dt class="font-medium text-lg lg:text-xl text-center max-sm:text-base max-sm:flex-none max-sm:w-full"><%= c -%></dt>
+  <dd class="font-light text-center text-xs xxl:text-sm max-sm:text-xs max-sm:flex-none max-sm:w-full max-sm:tracking-tighter"><%= e -%></dd>
 </dl>
