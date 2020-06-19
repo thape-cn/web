@@ -3,7 +3,7 @@
 <div data-controller="service"
      data-action="resize@window->service#layout">
 
-<div class="relative h-screen overflow-auto">
+<div class="relative h-screen max-sm:overflow-auto">
   <picture>
     <% if background_img_webp.present? %>
       <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
