@@ -12,5 +12,6 @@ class Work < ApplicationRecord
   mount_uploader :snapshot_jpg, JpgUploader
   mount_uploader :snapshot_webp, WebpUploader
 
-  translates :project_name, :client, :services, :team, :cooperation, :awards
+  translates :project_name, :client, :services, :team, :cooperation, :awards,
+    :design_completion_lines, :construction_completion_lines, :architecture_area_lines
 end
