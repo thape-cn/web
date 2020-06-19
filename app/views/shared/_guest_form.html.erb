@@ -1,19 +1,19 @@
 <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white">
   <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-    <header class="p-4 sm:px-6 mt-4">
-      <h1 class="inline-block text-3xl font-bold text-black6c">
+    <header class="p-4 sm:px-6 mt-4 max-sm:mt-0">
+      <h1 class="inline-block text-3xl font-bold text-black6c max-sm:text-2xl">
         <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
       </h1>
-      <h2 class="ml-2 inline-block text-2xl text-black6c">
+      <h2 class="ml-2 inline-block text-2xl text-black6c max-sm:text-xl">
         <a href="#" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
       </h2>
     </header>
-    <div class="px-4 py-5 sm:p-6">
+    <div class="px-4 py-5 sm:p-6 max-sm:pt-0">
         <%= form_with url: guest_messages_path do |f| %>
           <div class="grid grid-cols-4 gap-4 sm:gap-7 xl:gap-10">
-            <div class="col-span-4 sm:col-span-2 row-span-3">
-              <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-xl">
-                <textarea id="guest-comment" rows="10" name="guest[message]" placeholder="<%= t('guest_form.comment_placeholder') -%>" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c border border-thape-dark-gray bg-form-background hover:shadow-lg focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
+            <div class="col-span-4 sm:col-span-2 row-span-3 max-sm:h-32">
+              <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-xl h-full">
+                <textarea id="guest-comment" name="guest[message]" placeholder="<%= t('guest_form.comment_placeholder') -%>" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c border border-thape-dark-gray bg-form-background hover:shadow-lg focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5 h-full"></textarea>
               </div>
             </div>
 
