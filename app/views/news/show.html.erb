@@ -6,8 +6,8 @@
 <%= image_pack_tag 'media/images/article-banner.jpg' -%>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
-  <div class="my-6">
-    <main class="w-full md:w-9/12 pr-4 max-sm:px-2">
+  <div class="my-6 flex max-sm:flex-wrap">
+    <main class="w-full md:w-9/12 pr-4 max-sm:px-2 max-sm:w-full">
       <div class="max-w-screen-md xxl:max-w-screen-lg md:mx-auto">
         <header class="flex mb-10">
           <div class="bg-thape-dark-gray w-24 h-20 max-sm:hidden">
@@ -35,7 +35,7 @@
         <%= raw @info.content %>
       </div>
     </main>
-    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:w-full max-sm:block max-sm:float-none">
+    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:w-full max-sm:block max-sm:float-none max-sm:w-full">
       <div class="space-y-8 w-2/3 pb-6 border-gray-200 border-solid border-b max-sm:w-full">
         <h3>推荐阅读</h3>
         <figure class="space-y-2 max-sm:flex">
