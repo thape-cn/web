@@ -2,14 +2,16 @@
   x-data="{ show_grid_text: false }"
   x-on:mouseenter="show_grid_text = true"
   x-on:mouseleave="show_grid_text = false">
-  <picture>
-    <% if prj_webp.present? %>
-      <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
-    <% end %>
-    <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
-    <img src="<%= asset_pack_path(prj_image) -%>"
-      x-bind:class="{ 'grid-mask-image hover:scale-105': show_grid_text, 'grid-image': !show_grid_text }">
-  </picture>
+  <a href="<%= work_path(id: work.id) -%>">
+    <picture>
+      <% if prj_webp.present? %>
+        <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
+      <% end %>
+      <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
+      <img src="<%= asset_pack_path(prj_image) -%>"
+        x-bind:class="{ 'grid-mask-image hover:scale-105': show_grid_text, 'grid-image': !show_grid_text }">
+    </picture>
+  </a>
   <div class="absolute text-white left-6 bottom-4"
     x-transition:enter="transition ease-linear duration-200"
     x-transition:enter-start="opacity-0 transform translate-y-4"

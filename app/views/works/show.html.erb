@@ -144,16 +144,20 @@
     <aside class="inline-block w-80 sm:float-right">
       <div class="space-y-4 pb-6 border-gray-200 border-solid border-b w-2/3">
         <h3 class="text-black6c">推荐阅读</h3>
-        <figure class="space-y-1">
-          <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
-          <figcaption class="text-sm pt-2 text-black6c"><%= @first_work.project_name -%></figcaption>
-          <p class="text-xs text-gray1c"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
-        </figure>
-        <figure class="space-y-1">
-          <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
-          <figcaption class="text-sm pt-2 text-black6c"><%= @second_work.project_name -%></figcaption>
-          <p class="text-xs text-gray1c"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
-        </figure>
+        <a href="<%= work_path(id: @first_work.id) -%>">
+          <figure class="space-y-1">
+            <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
+            <figcaption class="text-sm pt-2 text-black6c"><%= @first_work.project_name -%></figcaption>
+            <p class="text-xs text-gray1c"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
+          </figure>
+        </a>
+        <a href="<%= work_path(id: @second_work.id) -%>">
+          <figure class="space-y-1">
+            <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
+            <figcaption class="text-sm pt-2 text-black6c"><%= @second_work.project_name -%></figcaption>
+            <p class="text-xs text-gray1c"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
+          </figure>
+        </a>
       </div>
       <nav class="pt-6">
         <ol class="space-y-4">
