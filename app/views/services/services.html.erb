@@ -3,7 +3,7 @@
 <div data-controller="service"
      data-action="resize@window->service#layout">
 
-<div class="relative h-screen">
+<div class="relative h-screen overflow-auto">
   <picture>
     <% if background_img_webp.present? %>
       <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
@@ -11,19 +11,19 @@
     <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
     <img src="<%= asset_pack_path(background_img) -%>" data-target="service.bgImg">
   </picture>
-  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-64 xxl:h-56" data-target="service.introDiv">
-    <div class="flex justify-center items-center text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
-      <div class="flex">
-        <dt class="block font-medium px-5" style="margin-top: -5px">
-          <h1 class="text-3xl font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
-          <h2 class="text-xl font-medium whitespace-no-wrap"><%= english_title -%></h2>
+  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-64 xxl:h-56 max-sm:static max-sm:h-auto max-sm:pt-4" data-target="service.introDiv">
+    <div class="flex justify-center items-center text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64 max-sm:p-2">
+      <div class="flex max-sm:flex-wrap">
+        <dt class="block font-medium px-5 max-sm:w-full" style="margin-top: -5px">
+          <h1 class="text-3xl font-bold whitespace-no-wrap max-sm:text-2xl"><%= chinese_title -%></h1>
+          <h2 class="text-xl font-medium whitespace-no-wrap max-sm:text-base"><%= english_title -%></h2>
           <% if defined? link_site_url %>
-            <div class="pt-8">
+            <div class="pt-8 max-sm:pt-2">
               <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
             </div>
           <% end %>
         </dt>
-        <dd class="block font-normal text-justify xxxl:text-lg text-base px-5">
+        <dd class="block font-normal text-justify xxxl:text-lg text-base px-5 max-sm:w-full max-sm:text-left max-sm:text-sm max-sm:pt-4">
           <% ps.each do |p| %>
             <p><%= p -%></p>
           <% end %>
