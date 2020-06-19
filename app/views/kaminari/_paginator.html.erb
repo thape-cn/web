@@ -8,7 +8,7 @@
 -%>
 <%= paginator.render do -%>
   <nav class="border-t border-gray-200 px-4 flex items-center justify-between sm:px-0">
-    <%= prev_page_tag unless current_page.first? %>
+    <%= prev_page_tag %>
     <div class="hidden md:flex">
     <% each_page do |page| -%>
       <% if page.display_tag? -%>
@@ -19,7 +19,7 @@
     <% end -%>
     </div>
     <% unless current_page.out_of_range? %>
-      <%= next_page_tag unless current_page.last? %>
+      <%= next_page_tag  %>
     <% end %>
   </nav>
 <% end -%>
