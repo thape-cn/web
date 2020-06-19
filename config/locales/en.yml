@@ -1,5 +1,18 @@
 ---
 en:
+  views:
+    pagination:
+      first: "First"
+      last: "Last"
+      next: "Next"
+      previous: "Previous"
+      truncate: "&hellip;"
+  kaminari:
+    paginator:
+      display_total: "%{total} in total."
+      goto_page_before: "Goto"
+      goto_page_after: "page"
+      go: "Go"
   guest_form:
     comment_placeholder: "Please fill in your comment"
     guest_name_placeholder: "Please fill in your name"
