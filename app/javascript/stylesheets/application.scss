@@ -113,12 +113,12 @@
 }
 
 .nav-background-initial {
-  animation: animation-to-initial 1s;
+  animation: animation-to-initial .3s;
   background: initial;
 }
 
 .nav-background-white {
-  animation: animation-to-white 1s;
+  animation: animation-to-white .3s;
   background-color: rgba(255, 255, 255, 1);
 }
 
