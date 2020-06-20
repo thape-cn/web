@@ -625,3 +625,131 @@ p {
     }
   }
 }
+
+@keyframes slideLeftIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRightIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeftOut {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRightOut {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.thape-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .slide-images {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .image-item {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    
+    .image-item.active {
+      display: block;
+    }
+    
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      user-select: none;
+    }
+  }
+  
+  .action-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .action-area:hover {
+    opacity: 1;
+  }
+  
+  .action-left {
+    left: 0;
+    background-image: linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,0));
+  }
+  
+  .action-right {
+    right: 0;
+    background-image: linear-gradient(to left, rgba(0,0,0,.6), rgba(0,0,0,0));
+  }
+}
+
+.slide-animation {
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+  animation-direction: normal;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.slide-left-in {
+  animation-name: slideLeftIn;
+}
+
+.slide-right-in {
+  animation-name: slideRightIn;
+}
+
+.slide-left-out {
+  animation-name: slideLeftOut;
+}
+
+.slide-right-out {
+  animation-name: slideRightOut;
+}
