@@ -35,19 +35,19 @@
         <%= raw @info.content %>
       </div>
     </main>
-    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:w-full max-sm:block max-sm:float-none max-sm:w-full">
-      <div class="space-y-8 w-2/3 pb-6 border-gray-200 border-solid border-b max-sm:w-full">
+    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:w-full max-sm:block max-sm:float-none max-sm:w-full max-sm:mt-4">
+      <div class="sm:space-y-8 w-2/3 pb-6 border-gray-200 border-solid border-b max-sm:w-full max-sm:pb-3">
         <h3>推荐阅读</h3>
-        <figure class="space-y-2 max-sm:flex">
+        <figure class="space-y-2 max-sm:flex max-sm:my-2">
           <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full max-sm:w-1/3 max-sm:flex-none max-sm:block' -%>
-          <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:space-bewteen max-sm:flex-wrap">
+          <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:content-bewteen max-sm:flex-wrap">
             <figcaption class="text-sm pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @first_work.project_name, work_path(id: @first_work.id) -%></figcaption>
             <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
           </div>
         </figure>
-        <figure class="space-y-2 max-sm:flex">
+        <figure class="space-y-2 max-sm:flex max-sm:my-2">
           <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full max-sm:w-1/3 max-sm:flex-none max-sm:block' -%>
-          <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:space-bewteen max-sm:flex-wrap">
+          <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:content-bewteen max-sm:flex-wrap">
             <figcaption class="text-sm pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @second_work.project_name, work_path(id: @second_work.id) -%></figcaption>
             <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
           </div>
