@@ -1,6 +1,15 @@
 <%= render partial: 'shared/thape_nav' -%>
 
-<div class="fixed w-full h-screen left-0 top-0" style="z-index:-1;">
+<div
+     class="w-full"
+     data-controller="<%= home_controller -%>"
+     data-action="resize@window-><%= home_controller -%>#layout"
+     data-home-offset="0.75"
+     data-home-amplify_rate="2.8"
+     data-home-threshold="0.05"
+     data-<%= home_controller -%>-refresh-interval="5000">
+
+<div class="fixed w-full h-screen left-0 top-0" style="z-index: 0;">
   <div
     class="thape-slide"
     data-controller="carousel2"
@@ -63,7 +72,7 @@
           </g>
         </g>
         <g>
-          <title>Layer 1</title>
+          <title>上一张</title>
           <path transform="rotate(-180 20,20) " d="m9.12018,30.15023l10.15276,-10.15271l-10.15276,-10.15278l5.80282,-5.80219l15.95681,15.95497l-15.95681,15.95992" stroke-width="0" stroke="#000" fill="currentColor" />
         </g>
       </svg>
@@ -78,7 +87,7 @@
           </g>
         </g>
         <g>
-          <title>Layer 1</title>
+          <title>下一张</title>
           <path stroke-dasharray="5,2,2,2,2,2" d="m9.12019,30.15023l10.15276,-10.15271l-10.15276,-10.15278l5.80282,-5.80219l15.95681,15.95497l-15.95681,15.95992" stroke-width="0" stroke="#000" fill="currentColor" />
         </g>
       </svg>
@@ -86,15 +95,10 @@
   </div>
 </div>
 
-<div data-controller="<%= home_controller -%>"
-     data-action="resize@window-><%= home_controller -%>#layout"
-     data-home-offset="0.75"
-     data-home-amplify_rate="2.8"
-     data-home-threshold="0.05"
-     data-<%= home_controller -%>-refresh-interval="5000">
+<div class="relative" style="margin-top: 100vh; z-index: 1;">
 
 <%# 最新项目 %>
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" style="margin-top: 100vh; opacity: 0.001;" id="thape-fadein">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" style="opacity: 0.001;" id="thape-fadein">
   <header>
     <div class="w-full pt-10 pb-4 clearfix">
       <h1 class="inline-block pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c">
@@ -142,7 +146,7 @@
   </div>
 </div>
 
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step">
+<div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step">
   <%# 天华新闻 %>
   <div>
     <header>
@@ -171,7 +175,7 @@
 
 <%# 访客留言 %>
 <%= render partial: 'shared/guest_form' %>
-
 <%= render partial: 'shared/footer' %>
 
+</div>
 </div>

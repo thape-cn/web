@@ -160,6 +160,10 @@ p {
   }
 }
 
+body>* {
+  flex: none;
+}
+
 #thape-top-header {
   position: fixed;
   width: 100%;
