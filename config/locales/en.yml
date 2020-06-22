@@ -34,6 +34,8 @@ en:
       culture: "CULTURE"
       leadership: "GROUP LEADERSHIP"
       area_leadership: "REGIONAL TEAM"
+    leadership:
+      china_area_company: "COMPANY"
     works:
       text: "WORKS"
       project_type: "CATEGORY"
@@ -51,7 +53,7 @@ en:
       urban_planning: "URBAN PLANNING"
       landscape: "LANDSCAPE"
       interior: "INTERIOR"
-      china_area_company: "AREA COMPANY"
+      china_area_company: "AREA"
       china_east: "EAST"
       china_north: "NORTH"
       china_south: "SOUTH"

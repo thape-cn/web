@@ -32,6 +32,8 @@ cn:
       culture: "企业文化"
       leadership: "集团高管"
       area_leadership: "区域团队"
+    leadership:
+      china_area_company: "公司"
     works:
       text: "作品"
       project_type: "类型"
@@ -49,7 +51,7 @@ cn:
       urban_planning: "城市规划"
       landscape: "景观"
       interior: "室内"
-      china_area_company: "地区公司"
+      china_area_company: "地区"
       china_east: "华东"
       china_north: "华北"
       china_south: "华南"
