@@ -1,8 +1,8 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full screen-min-height mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <header class="pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
-    <h3 class="inline-block text-xl font-bold text-thape-copyright-gray">
+<div class="w-full flex flex-auto flex-col screen-min-height mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+  <header class="w-full flex-none pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
+    <h3 class="inline-block text-xl text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :work) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         作品&nbsp;&nbsp;（<%= @works_results.count -%>）
       </a>
@@ -17,18 +17,9 @@
         新闻&nbsp;&nbsp;（<%= @info_results.count -%>）
       </a>
     </h3>
-    <div class="inline-block float-right">
-      <div class="inline-block mt-1 ml-2 relative rounded-md shadow-sm">
-        <input class="form-input block w-36 sm:w-40 pr-10 leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" />
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-          <svg class="h-6 w-6 text-gray-400" fill="currentColor">
-            <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
-          </svg>
-        </div>
-      </div>
-    </div>
   </header>
 
+  <% if @people_results.present? || people_city_results.present? %>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 <%= @people_results.count + @people_city_results.count >= 6 ? 'xxl:grid-cols-6' : '' -%> gap-1 sm:gap-2 mt-8 mb-4">
     <% @people_results.each do |person| %>
       <%= render partial: 'leadership/person_square',
@@ -39,6 +30,12 @@
         locals: { person: person, person_class: 'grid-div' } %>
     <% end %>
   </div>
+  <% else %>
+  <div class="w-full flex flex-auto max-sm:mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
+    <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
+    <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
+  </div>
+  <% end %>
 </div>
 
 <%= render partial: 'shared/footer' %>

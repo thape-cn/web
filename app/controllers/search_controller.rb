@@ -13,9 +13,15 @@ class SearchController < ApplicationController
 
     @info_results = Info.where('title LIKE ?', "%#{params[:q]}%").order(position: :asc).limit(15)
 
-    if @works_results.present? && (params[:tab].blank? || params[:tab] == 'work')
+    if params[:tab].present? && params[:tab] == 'work'
       render :works_result
-    elsif (@people_results.present? || @people_city_results.present?) && (params[:tab].blank? || params[:tab] == 'person')
+    elsif params[:tab].present? && params[:tab] == 'person'
+      render :people_result
+    elsif params[:tab].present? && params[:tab] == 'info'
+      render :info_result
+    elsif params[:tab].blank? && @works_results.present?
+      render :works_result
+    elsif params[:tab].blank? && (@people_results.present? || @people_city_results.present?)
       render :people_result
     else
       render :info_result
