@@ -10,6 +10,7 @@ class Info < ApplicationRecord
   validates :content, presence: true
 
   before_create :set_new_position
+  paginates_per 12
 
   private
 

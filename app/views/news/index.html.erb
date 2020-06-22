@@ -5,19 +5,22 @@
     header_path: news_index_path, header_class: 'pt-16', show_header_right: false } %>
 </div>
 
-<div class="w-full relative">
-  <%= image_pack_tag 'media/images/new_hero.jpg', class: 'w-full' %>
-  <div class="absolute inset-y-0 right-0 bg-thape-white-t80 w-1/2 lg:w-1/3 xl:w-1/4">
-    <div class="mt-6 sm:mt-12 md:mt-24 lg:mt-32 xl:mt-40 xxl:mt-48 xxxl:mt-56 mx-10 xxl:mx-12 xxxl:mx-16 max-sm:flex max-sm:items-center max-sm:flex-wrap max-sm:mx-2 max-sm:my-0 max-sm:h-full">
-      <p class="font-medium text-2xl text-left pb-1 leading-snug text-justify max-sm:text-base max-sm:text-left max-sm:flex-none">
-        <span class="h1-cap" style="padding-bottom: .25rem;border-bottom-width: 2px;">我们</span>的2019@天华
-      </p>
+<% if params[:page].blank? %>
+  <a href="<%= news_path(id: 623) -%>">
+    <div class="w-full relative">
+      <%= image_pack_tag 'media/images/new_hero.jpg', class: 'w-full' %>
+      <div class="absolute inset-y-0 right-0 bg-thape-white-t80 w-1/2 lg:w-1/3 xl:w-1/4">
+        <div class="mt-6 sm:mt-12 md:mt-24 lg:mt-32 xl:mt-40 xxl:mt-48 xxxl:mt-56 mx-10 xxl:mx-12 xxxl:mx-16 max-sm:flex max-sm:items-center max-sm:flex-wrap max-sm:mx-2 max-sm:my-0 max-sm:h-full">
+          <p class="font-medium text-2xl text-left pb-1 leading-snug text-justify max-sm:text-base max-sm:text-left max-sm:flex-none">
+            <span class="h1-cap" style="padding-bottom: .25rem;border-bottom-width: 2px;">我们</span>的2019@天华
+          </p>
 
-      <p class="font-light text-left leading-6 mt-4 md:mt-12 text-justify max-sm:text-left max-sm:text-xs max-sm:m-0 max-sm:leading-4 max-sm:flex-none max-sm:w-full">我们的2019，是我们自我变革的一年，也是每一位天华人勠力同心、积蓄力量的一年。我们在传承中发展，在感恩中前行。</p>
+          <p class="font-light text-left leading-6 mt-4 md:mt-12 text-justify max-sm:text-left max-sm:text-xs max-sm:m-0 max-sm:leading-4 max-sm:flex-none max-sm:w-full">我们的2019，是我们自我变革的一年，也是每一位天华人勠力同心、积蓄力量的一年。我们在传承中发展，在感恩中前行。</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
+  </a>
+<% end %>
 <div class="w-full mx-auto p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16">
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-2 mb-4">
     <% @infos.each do |info| %>
