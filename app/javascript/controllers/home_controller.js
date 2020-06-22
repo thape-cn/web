@@ -12,7 +12,13 @@ export default class extends Controller {
     function handleStepEnter(response) {
       const { direction, index } = response;
       if (direction == 'down') {
-        if (index === 1) {
+        if (index === 0) {
+          const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel2');
+          if (carousel_controller) {
+            carousel_controller.stopAutoPlay();
+          }
+        }
+        else if (index === 1) {
           const thapeFadein = document.getElementById('thape-fadein');
           thapeFadein.style.opacity = 1;
         }
@@ -22,6 +28,12 @@ export default class extends Controller {
     function handleStepExit(response) {
       const { direction, index } = response;
       if (direction == 'up') {
+        if (index === 0) {
+          const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel2');
+          if (carousel_controller) {
+            carousel_controller.startAutoPlay();
+          }
+        }
       }
     }
 
