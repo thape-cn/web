@@ -3,7 +3,7 @@ class WorksController < ApplicationController
     @project_type = {}
     @self_path = works_path
     if params[:q].present?
-      @works = works_query_scope(params[:q]).where(published: true)
+      @works = works_query_scope(params[:q]).where(published: true).page(params[:page]).per(params[:per_page])
       render :search_detail
     end
   end
@@ -17,7 +17,7 @@ class WorksController < ApplicationController
         works_query_scope(params[:q]).where(city_id: @city.id).where(published: true)
       else
         @city.works
-      end
+      end.page(params[:page]).per(params[:per_page])
       render :area_detail
     else
       @work = Work.find params[:id]
@@ -176,7 +176,7 @@ class WorksController < ApplicationController
     end.includes(:work_residential_types, work_project_types: :project_type)
       .where(work_project_types: { project_types: { cn_name: '居住' } })
       .where(work_residential_types: { residential_type_id: @residential_type.id })
-      .where(published: true)
+      .where(published: true).page(params[:page]).per(params[:per_page])
     render :residential_detail
   end
 
@@ -187,7 +187,7 @@ class WorksController < ApplicationController
       Work.all
     end.includes(:work_project_types)
       .where(work_project_types: { project_type_id: @project_type.id })
-      .where(published: true)
+      .where(published: true).page(params[:page]).per(params[:per_page])
     render :works_detail
   end
 end
