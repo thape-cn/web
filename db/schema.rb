@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_064157) do
+ActiveRecord::Schema.define(version: 2020_06_22_064933) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_06_19_064157) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "url_name"
+    t.string "company_name"
   end
 
   create_table "city_people", force: :cascade do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_06_19_064157) do
     t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "city_title"
     t.index ["city_id"], name: "index_city_people_on_city_id"
     t.index ["person_id"], name: "index_city_people_on_person_id"
   end
