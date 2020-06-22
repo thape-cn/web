@@ -1,4 +1,14 @@
 module ApplicationHelper
+  def person_titles(person, city)
+    city_person = person.city_people.find_by(city_id: city&.id)
+    person_titles = person.title&.split(' ') || []
+    if city_person.present? && city_person.city_title.present?
+      person_titles.unshift(city_person.city_title).uniq
+    else
+      person_titles
+    end
+  end
+
   def home_controller
     if browser.ie?
       'home-ie11'

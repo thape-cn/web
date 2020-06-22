@@ -39,7 +39,7 @@ class LeadershipController < ApplicationController
       else
         city_area_people.where(category: 2)
       end
-      render 'area_leadership', locals: { c: city_area.name, e: city_area.url_name.upcase }
+      render 'area_leadership', locals: { c: city_area.company_name, e: city_area.url_name.upcase, city: city_area }
     else
       @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
         || Person.where(leaving_date: nil).find_by!(url_name: params[:id])

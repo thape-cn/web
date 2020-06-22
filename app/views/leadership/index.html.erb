@@ -23,7 +23,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
       <% @management_people.each do |person| %>
         <%= render partial: 'person_square',
-          locals: { person: person, person_class: 'grid-div' } %>
+          locals: { person: person, person_class: 'grid-div', city: City.find_by! company_name: '天华集团' } %>
       <% end %>
     </div>
   </div>
@@ -39,7 +39,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
       <% @speciality_people.each do |person| %>
         <%= render partial: 'person_square',
-          locals: { person: person, person_class: 'grid-div' } %>
+          locals: { person: person, person_class: 'grid-div', city: City.find_by! company_name: '天华集团' } %>
       <% end %>
     </div>
   </div>

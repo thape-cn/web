@@ -23,11 +23,11 @@
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 <%= @people_results.count + @people_city_results.count >= 6 ? 'xxl:grid-cols-6' : '' -%> gap-1 sm:gap-2 mt-8 mb-4">
     <% @people_results.each do |person| %>
       <%= render partial: 'leadership/person_square',
-        locals: { person: person, person_class: 'grid-div' } %>
+        locals: { person: person, person_class: 'grid-div', city: nil } %>
     <% end %>
     <% @people_city_results.each do |person| %>
       <%= render partial: 'leadership/person_square',
-        locals: { person: person, person_class: 'grid-div' } %>
+        locals: { person: person, person_class: 'grid-div', city: @city } %>
     <% end %>
   </div>
   <% else %>
