@@ -3,16 +3,18 @@
 <div data-controller="service"
      data-action="resize@window->service#layout">
 
-<div class="relative h-screen overflow-y-hidden max-sm:overflow-auto">
-  <picture>
-    <% if background_img_webp.present? %>
-      <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
-    <% end %>
-    <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
-    <img src="<%= asset_pack_path(background_img) -%>" data-target="service.bgImg">
-  </picture>
-  <div class="absolute bottom-0 inset-x-0 bg-thape-white-t80 h-64 xxl:h-56 max-sm:static max-sm:h-auto max-sm:pt-4" data-target="service.introDiv">
-    <div class="flex justify-center items-center text-black6c sm:flex h-full px-10 sm:px-20 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64 max-sm:p-2">
+<div class="relative flex flex-col h-screen max-sm:overflow-auto">
+  <div class="flex-none w-full max-h-screen overflow-hidden" data-target="service.bgImg">
+    <picture class="w-full">
+      <% if background_img_webp.present? %>
+        <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
+      <% end %>
+      <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
+      <img src="<%= asset_pack_path(background_img) -%>">
+    </picture>
+  </div>
+  <div class="absolute bottom-0 left-0 bg-thape-white-t80 py-8 max-sm:static max-sm:h-auto max-sm:pt-4 max-sm:block max-sm:flex-none" data-target="service.introDiv">
+    <div class="flex justify-center items-center text-black6c sm:flex h-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64 max-sm:p-2">
       <div class="flex max-sm:flex-wrap">
         <dt class="block font-medium px-5 max-sm:w-full" style="margin-top: -5px">
           <h1 class="text-3xl font-bold whitespace-no-wrap max-sm:text-2xl"><%= chinese_title -%></h1>
