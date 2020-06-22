@@ -238,50 +238,60 @@
       </div>
     </div>
   </div>
-  <div class="hidden">
-    <div class="fixed" x-show="show_city == '上海'">
-      <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
-        <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
-          <h1 class="text-2xl font-medium leading-tight pb-2">上海天华建筑设计有限公司</h1>
-          <label class="float-left">地址：</label>
-            <p class="ml-12">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
-            <p class="ml-12">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
-            <p class="ml-12">上海市杨浦区杨树浦路1062号2号楼2楼</p>
-          <label class="float-left">电话：</label>
-            <p class="ml-12">021-64281588</p>
-          <label class="float-left">传真：</label>
-            <p class="ml-12">021-64281587</p>
+  <div class="hidden max-sm:block">
+    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_city == '上海'" onclick="this.style.display='none'">
+      <div class="w-full p-4 bg-white rounded-md shadow-md">
+        <h1 class="font-medium pb-2 text-xl leading-normal">上海天华建筑设计有限公司</h1>
+        <div class="flex">
+          <label class="flex-none leading-normal">地址：</label>
+          <div>
+            <p class="leading-normal">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
+            <p class="leading-normal">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
+            <p class="leading-normal">上海市杨浦区杨树浦路1062号2号楼2楼</p>
+          </div>
+        </div>
+        <div class="flex">
+          <label class="flex-none leading-normal">电话：</label>
+          <div>
+            <p class="leading-normal">021-64281588</p>
+          </div>
+        </div>
+        <div class="flex">
+          <label class="flex-none leading-normal">传真：</label>
+          <div>
+            <p class="leading-normal">021-64281587</p>
+          </div>
         </div>
       </div>
     </div>
-    <%= render partial: 'map_address', locals: {c: '北京', m: @m_北京天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '深圳', m: @m_深圳天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '广州', m: @m_广州天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '天津', m: @m_天津天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '重庆', m: @m_重庆天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '武汉', m: @m_武汉天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '成都', m: @m_成都天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '西安', m: @m_西安天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '沈阳', m: @m_沈阳天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '厦门', m: @m_厦门天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '青岛', m: @m_青岛天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '南京', m: @m_南京天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '郑州', m: @m_郑州天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '杭州', m: @m_杭州天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '合肥', m: @m_合肥天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '济南', m: @m_济南天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '贵阳', m: @m_贵阳天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '太原', m: @m_太原天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '香港', m: @m_香港天华 } -%>
-    <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
-    <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
-    <%= render partial: 'map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
-    <%= render partial: 'map_address', locals: {c: '上海城规', m: @m_上海城规 } -%>
-    <%= render partial: 'map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
-    <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
-    <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '北京', m: @m_北京天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '深圳', m: @m_深圳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '广州', m: @m_广州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '天津', m: @m_天津天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '重庆', m: @m_重庆天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '武汉', m: @m_武汉天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '成都', m: @m_成都天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '西安', m: @m_西安天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '沈阳', m: @m_沈阳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '厦门', m: @m_厦门天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '青岛', m: @m_青岛天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '南京', m: @m_南京天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '郑州', m: @m_郑州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '杭州', m: @m_杭州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '合肥', m: @m_合肥天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '济南', m: @m_济南天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '贵阳', m: @m_贵阳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '太原', m: @m_太原天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海城规', m: @m_上海城规 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
   </div>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray max-sm:px-4">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-sm:px-0">

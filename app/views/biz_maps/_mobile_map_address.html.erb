@@ -1,0 +1,56 @@
+<div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_city == '<%= c -%>'" onclick="this.style.display='none'">
+  <div class="w-full p-4 bg-white rounded-md shadow-md">
+      <% if m.alt_name.present? %>
+        <h1 class="font-medium pb-2 text-xl leading-normal"><%= m.long_name -%></h1>
+        <h1 class="text-xl font-medium pb-1 leading-normal"><%= m.alt_name -%></h1>
+      <% else %>
+        <h1 class="font-medium pb-2 text-xl leading-normal"><%= m.long_name -%></h1>
+      <% end %>
+      <div class="flex">
+        <label class="flex-none leading-normal">地址：</label>
+        <div>
+          <p class="leading-normal"><%= m.address -%></p>
+        </div>
+      </div>
+      <% if m.tel.present? %>
+      <div class="flex">
+        <label class="flex-none leading-normal">电话：</label>
+        <div>
+          <p class="leading-normal"><%= m.tel -%></p>
+        </div>
+      </div>
+      <% end %>
+      <% if m.marketing_phone.present? %>
+      <div class="flex">
+        <label class="flex-none leading-normal">市场营销：</label>
+        <div>
+          <p class="leading-normal"><%= m.marketing_phone -%></p>
+        </div>
+      </div>
+      <% end %>
+      <% if m.media_phone.present? %>
+      <div class="flex">
+        <label class="flex-none leading-normal">媒体：</label>
+        <div>
+          <p class="leading-normal"><%= m.media_phone -%></p>
+        </div>
+      </div>
+      <% end %>
+      <% if m.fax.present? %>
+      <div class="flex">
+        <label class="flex-none leading-normal">传真：</label>
+        <div>
+          <p class="leading-normal"><%= m.fax -%></p>
+        </div>
+      </div>
+      <% end %>
+      <% if m.website_name.present? %>
+      <div class="flex">
+        <label class="flex-none leading-normal">网址：</label>
+        <div>
+          <p class="leading-normal"><%= link_to m.website_name, m.website_url -%></p>
+        </div>
+      </div>
+      <% end %>
+　　</div>
+</div>

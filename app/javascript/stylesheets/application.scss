@@ -1,4 +1,5 @@
 @import "~@webwingscz/googlefont-montserrat/montserrat";
+@import "animate.scss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -631,46 +632,6 @@ body>* {
   }
 }
 
-@keyframes slideLeftIn {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideRightIn {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideLeftOut {
-  from {
-    transform: translateX(0);
-  }
-  
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slideRightOut {
-  from {
-    transform: translateX(0);
-  }
-  
-  to {
-    transform: translateX(100%);
-  }
-}
-
 .thape-slide {
   position: relative;
   width: 100%;
@@ -732,29 +693,4 @@ body>* {
     right: 0;
     background-image: linear-gradient(to left, rgba(0,0,0,.6), rgba(0,0,0,0));
   }
-}
-
-.slide-animation {
-  animation-duration: .5s;
-  animation-timing-function: ease-out;
-  animation-direction: normal;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-.slide-left-in {
-  animation-name: slideLeftIn;
-}
-
-.slide-right-in {
-  animation-name: slideRightIn;
-}
-
-.slide-left-out {
-  animation-name: slideLeftOut;
-}
-
-.slide-right-out {
-  animation-name: slideRightOut;
 }
