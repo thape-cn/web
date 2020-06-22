@@ -16,42 +16,42 @@
   <%= render partial: 'area_search_form', locals: { search_url: leadership_path(id: params[:id])} %>
 
   <% if @management_people.present? %>
-  <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-    <%= render partial: 'shared/header', locals: { c: "#{c}管理团队", e: "#{e} MANAGEMENT",
-      header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
-  </div>
-
-  <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
-      <% @management_people.each do |person| %>
-        <%= render partial: 'person_square',
-          locals: { person: person, person_class: 'grid-div' } %>
-      <% end %>
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+      <%= render partial: 'shared/header', locals: { c: "#{c}管理团队", e: "#{e} TIANHUA MANAGEMENT",
+        header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
     </div>
-  </div>
+
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 <%= @speciality_people.blank? ? 'pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8' : '' %>">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
+        <% @management_people.each do |person| %>
+          <%= render partial: 'person_square',
+            locals: { person: person, person_class: 'grid-div' } %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
   <% if @speciality_people.present? %>
-  <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-    <%= render partial: 'shared/header', locals: { c: "#{c}专业团队", e: "#{e} PROFESSIONAL",
-      header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
-  </div>
-
-  <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
-      <% @speciality_people.each do |person| %>
-        <%= render partial: 'person_square',
-          locals: { person: person, person_class: 'grid-div' } %>
-      <% end %>
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+      <%= render partial: 'shared/header', locals: { c: "#{c}专业团队", e: "#{e} TIANHUA PROFESSIONAL",
+        header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
     </div>
-  </div>
+
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2">
+        <% @speciality_people.each do |person| %>
+          <%= render partial: 'person_square',
+            locals: { person: person, person_class: 'grid-div' } %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
   <% if @management_people.blank? && @speciality_people.blank? %>
-  <div class="flex max-sm:mt-0 pt-32 pb-12 justify-center flex-wrap max-sm:pt-20">
-    <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
-    <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
-  </div>
+    <div class="flex max-sm:mt-0 pt-32 pb-12 justify-center flex-wrap max-sm:pt-20">
+      <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
+      <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
+    </div>
   <% end %>
 </div>
 

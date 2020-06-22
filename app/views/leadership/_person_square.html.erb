@@ -3,7 +3,7 @@
   <%= image_tag person.avatar.url, class: 'grid-image grid-mask-image' -%>
   <div class="absolute text-white inset-x-0 bottom-0">
     <p class="text-lg text-center font-medium"><%= person.name -%></p>
-    <% titles = person.title.split(' ')  %>
+    <% titles = person.title&.split(' ') || []  %>
     <p class="text-sm text-center font-light leading-tight"><%= titles.first -%></p>
     <% if titles.length > 1 %>
       <p class="text-sm text-center font-light leading-none">...</p>
