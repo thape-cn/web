@@ -1,6 +1,4 @@
 class ServicesController < ApplicationController
-  layout 'service_page'
-
   def building
     render 'services', locals: {
       background_img: 'media/images/building.jpg',
