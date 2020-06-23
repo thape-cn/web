@@ -16,8 +16,6 @@
   </head>
 
   <body class="bg-white overflow-x-hidden min-h-screen flex flex-wrap">
-    <%= render partial: 'shared/thape_nav'  -%>
-
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
         <div class="bg-red-500">
