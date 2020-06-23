@@ -21,10 +21,14 @@ export default class extends Controller {
   }
 
   connect() {
-    this.resize();
+    setTimeout(() => {
+      this.resize();
+    }, 50);
   }
 
   layout() {
-    this.resize();
+    setTimeout(() => {
+      this.resize();
+    }, 50);
   }
 }
