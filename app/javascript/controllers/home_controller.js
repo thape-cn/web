@@ -39,9 +39,6 @@ export default class extends Controller {
 
     function handleStepProgress(response) {
       const { element, progress, index } = response;
-      const debugProgress = document.getElementById('debug-progress');
-      if (debugProgress)
-        debugProgress.innerHTML = element.id + ' ' + progress;
 
       const eo = ((progress - starting_threshold) <= 0 ? 0.001 : progress - starting_threshold) * amplify_rate;
       if (index === 0) {
@@ -71,7 +68,6 @@ export default class extends Controller {
     setTimeout(() => {
       scroller.resize();
     }, 200)
-
   }
 
   layout() {
