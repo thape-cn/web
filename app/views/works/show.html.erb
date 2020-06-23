@@ -54,14 +54,14 @@
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step max-sm:px-4">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block max-sm:block">
-        <h1 class="text-2xl xxl:text-3xl xxxl:text-4xl font-bold text-black6c">
+        <h1 class="text-2xl xxl:text-3xl xxxl:text-4xl font-bold text-black6c max-sm:text-xl">
           <%= I18n.with_locale(:cn) { @work.project_name } -%>
         </h1>
-        <h2 class="text-1xl xxl:text-2xl xxxl:text-3xl font-semibold text-black6c">
+        <h2 class="text-1xl xxl:text-2xl xxxl:text-3xl font-semibold text-black6c max-sm:text-base">
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="absolute top-4 right-0 text-base max-sm:static max-sm:block">
+      <div class="absolute top-4 right-0 text-base max-sm:static max-sm:block max-sm:text-sm">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
