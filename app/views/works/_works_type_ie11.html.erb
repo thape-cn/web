@@ -1,0 +1,62 @@
+<div class="mt-8 mb-4">
+  <table class="table-fixed">
+    <tbody>
+      <tr>
+        <td class="w-1/3 m-auto text-thape-darker-gray font-bold pointer-events-none py-6">
+          <p class="text-2xl text-left my-0 xl:my-6">创意与技术完美融合</p>
+          <p class="text-base md:text-xl text-left leading-none md:leading-snug">ENGINEERING POWERED. </p>
+          <p class="text-base md:text-xl text-left leading-none md:leading-snug">DESIGN ACHIEVED.</p>
+        </td>
+        <td class="w-2/3 p-1 overflow-hidden relative" colspan="2">
+          <a href="<%= residential_works_path -%>" class="cursor-pointer">
+            <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'grid-image' -%>
+            <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
+              <p class="text-2xl md:text-3xl text-left pb-1 font-medium leading-none md:leading-normal">居住</p>
+              <p class="text-base md:text-xl text-left leading-none md:leading-snug">RESIDENTIAL</p>
+            </div>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="w-1/3 p-1 overflow-hidden relative">
+          <a href="<%= demonstration_zone_works_path -%>" class="cursor-pointer">
+            <%= image_pack_tag 'media/images/works-2-1.jpg', class: 'grid-image' -%>
+            <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4" x-show="show_grid_2_4_text">
+              <p class="text-2xl md:text-3xl text-left pb-1 font-medium leading-none md:leading-normal">展示区/示范区</p>
+              <p class="text-base md:text-xl text-left leading-none md:leading-snug">DEMONSTRATION ZONE</p>
+            </div>
+          </a>
+        </td>
+        <td class="w-1/3 p-1 overflow-hidden relative">
+          <a href="<%= office_works_path -%>" class="cursor-pointer">
+            <%= image_pack_tag 'media/images/works-2-2.jpg', class: 'grid-image' -%>
+            <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4" x-show="show_grid_2_4_text">
+              <p class="text-2xl md:text-3xl text-left pb-1 font-medium leading-none md:leading-normal">商务办公</p>
+              <p class="text-base md:text-xl text-left leading-none md:leading-snug">OFFICE</p>
+            </div>
+          </a>
+        </td>
+        <td class="w-1/3 p-1 overflow-hidden relative" rowspan="2">
+          <a href="<%= supertall_works_path -%>" class="cursor-pointer">
+            <%= image_pack_tag 'media/images/works-2-3l.jpg', class: 'grid-image' -%>
+            <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
+              <p class="text-2xl md:text-3xl text-left pb-1 font-medium leading-none md:leading-normal">超高层</p>
+              <p class="text-base md:text-xl text-left leading-none md:leading-snug">SUPERTALL</p>
+            </div>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="w-2/3 p-1 overflow-hidden relative" colspan="2">
+          <a href="<%= mixed_used_tod_works_path -%>" class="cursor-pointer">
+            <%= image_pack_tag 'media/images/works-3-1w.jpg', class: 'grid-image' -%>
+            <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
+              <p class="text-2xl md:text-3xl text-left pb-1 font-medium leading-none md:leading-normal">综合体/TOD</p>
+              <p class="text-base md:text-xl text-left leading-none md:leading-snug">MIXED-USED/TOD</p>
+            </div>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
