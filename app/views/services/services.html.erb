@@ -1,7 +1,7 @@
 <%= render partial: 'shared/thape_nav' -%>
 
 <div data-controller="service"
-     data-action="resize@window->service#layout">
+     data-action="resize@window->service#resize">
 
 <div class="relative flex flex-col h-screen max-sm:overflow-auto">
   <div class="flex-none w-full max-h-screen overflow-hidden" data-target="service.bgImg">
@@ -10,7 +10,7 @@
         <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
       <% end %>
       <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
-      <img src="<%= asset_pack_path(background_img) -%>">
+      <img src="<%= asset_pack_path(background_img) -%>" data-action="load->service#resize">
     </picture>
   </div>
   <div class="absolute bottom-0 left-0 bg-thape-white-t80 py-8 max-sm:static max-sm:h-auto max-sm:pt-4 max-sm:block max-sm:flex-none" data-target="service.introDiv">

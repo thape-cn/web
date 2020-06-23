@@ -19,16 +19,4 @@ export default class extends Controller {
       }
     }
   }
-
-  connect() {
-    setTimeout(() => {
-      this.resize();
-    }, 50);
-  }
-
-  layout() {
-    setTimeout(() => {
-      this.resize();
-    }, 50);
-  }
 }
