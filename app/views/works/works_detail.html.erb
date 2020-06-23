@@ -10,7 +10,7 @@
   <%= render partial: 'shared/header', locals: {
     c: params[:q].present? ? "搜索#{@project_type.cn_name}：#{params[:q]}" : @project_type.cn_name,
     e: @project_type.en_name,
-    header_path: @self_path, header_class: 'pt-16', show_header_right: true } %>
+    header_path: @self_path, header_class: 'pt-12', show_header_right: true } %>
 
   <ol class="pt-3">
     <li class="inline-block">
