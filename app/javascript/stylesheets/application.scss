@@ -168,14 +168,17 @@ body>* {
 
 #thape-top-header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  z-index: 100;
+  z-index: 1000;
   @apply nav-background-initial px-2;
+
   @media screen {
     @media (min-width: 768px) {
       @apply px-6;

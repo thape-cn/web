@@ -32,7 +32,7 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex ||
 
 isEnglish = I18n.locale == :en;
 %>
-<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header" lang="<%= isEnglish ? 'en' : '' -%>" style="z-index:1000; top: 0; left: 0;">
+<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header" lang="<%= isEnglish ? 'en' : '' -%>">
   <div class="logo">
     <a href="<%= root_path -%>">
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
