@@ -18,9 +18,8 @@
         <% h3s.each_with_index do |h3, index| %>
           <h3 class="<%= index == 0 ? 'mt-3 max-sm:mt-1' : '' -%> text-base xl:text-lg xxxl:text-xl font-semibold text-left max-sm:text-sm max-sm:leading-tight"><%= h3 -%></h3>
         <% end %>
-        <p class="mt-2 text-xs xl:text-sm xxxl:text-base text-justify max-sm:text-xs max-sm:leading-tight"><%= p1 -%></p>
-        <% if p2.present? %>
-          <p class="mt-2 max-sm:mt-1 text-xs xl:text-sm xxxl:text-base text-justify max-sm:text-xs max-sm:leading-tight"><%= p2 -%></p>
+        <% ps.each_with_index do |p, index| %>
+          <p class="mt-2 <%= index > 0 ? 'max-sm:mt-1' : '' -%> text-xs xl:text-sm xxxl:text-base text-justify max-sm:text-xs max-sm:leading-tight"><%= p -%></p>
         <% end %>
       </div>
     </div>
