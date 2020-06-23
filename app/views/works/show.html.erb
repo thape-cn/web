@@ -76,7 +76,7 @@
      data-scroll-offset="0.50">
 
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step max-sm:px-4">
-  <header class="py-3 leading-snug clearfix border-gray-200 border-solid border-b">
+  <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block max-sm:block">
         <h1 class="text-2xl xxl:text-3xl xxxl:text-4xl font-bold text-black6c">
           <%= I18n.with_locale(:cn) { @work.project_name } -%>
@@ -85,7 +85,7 @@
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="inline-block float-right text-base max-sm:block max-sm:float-none">
+      <div class="absolute top-4 right-0 text-base max-sm:static max-sm:block">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
@@ -246,4 +246,3 @@
 
 <%= render partial: 'shared/footer' %>
 </div>
-
