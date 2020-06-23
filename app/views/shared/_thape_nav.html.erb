@@ -116,7 +116,7 @@ isEnglish = I18n.locale == :en;
           <div class="list area">
             <div class="list-item" style="width: 25%;height: 11rem;">
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_east') -%></a>
+                <span><%= t('menu.works.china_east') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华东').limit(21).each do |city| %>
                     <div class="nav-item">
@@ -126,7 +126,7 @@ isEnglish = I18n.locale == :en;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_north') -%></a>
+                <span><%= t('menu.works.china_north') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华北').limit(7).each do |city| %>
                     <div class="nav-item">
@@ -136,7 +136,7 @@ isEnglish = I18n.locale == :en;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_south') -%></a>
+                <span><%= t('menu.works.china_south') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华南').limit(7).each do |city| %>
                     <div class="nav-item">
@@ -146,7 +146,7 @@ isEnglish = I18n.locale == :en;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_centre') -%></a>
+                <span><%= t('menu.works.china_centre') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华中').limit(7).each do |city| %>
                     <div class="nav-item">
@@ -156,7 +156,7 @@ isEnglish = I18n.locale == :en;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_south_west') -%></a>
+                <span><%= t('menu.works.china_south_west') -%></span>
                 <nav>
                   <% City.where(china_area_name: '西南').limit(7).each do |city| %>
                     <div class="nav-item">
@@ -166,7 +166,7 @@ isEnglish = I18n.locale == :en;
                 </nav>
               </div>
               <div class="nav-item">
-                <a href="/intro"><%= t('menu.works.china_north_west') -%></a>
+                <span><%= t('menu.works.china_north_west') -%></span>
                 <nav>
                   <% City.where(china_area_name: '西北').limit(7).each do |city| %>
                     <div class="nav-item">
