@@ -115,13 +115,13 @@
       <% if @work.planning_area.present? && !@work.planning_area.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">规划面积 PLANNING SIZE</label>
-          <p class="font-normal"><%= @work.planning_area -%>k㎡ </p>
+          <p class="font-normal"><%= @work.planning_area -%>k㎡</p>
         </div>
       <% end %>
       <% if @work.site_area.present? && !@work.site_area.zero? %>
         <div>
           <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">用地面积 SITE SIZE</label>
-          <p class="font-normal"><%= @work.site_area -%>㎡ </p>
+          <p class="font-normal"><%= @work.site_area -%>㎡</p>
         </div>
       <% end %>
       <% if @work.architecture_area.present? && !@work.architecture_area.zero? %>
@@ -132,7 +132,7 @@
               <p class="font-normal"><%= architecture_area %></p>
             <% end %>
           <% else %>
-            <p class="font-normal"><%= @work.architecture_area -%>㎡ </p>
+            <p class="font-normal"><%= @work.architecture_area -%>㎡</p>
           <% end %>
         </div>
       <% end %>
@@ -193,10 +193,20 @@
           </figure>
         </a>
       </div>
-      <nav class="pt-6">
+      <nav class="pt-6 w-2/3 max-sm:w-full">
         <ol class="space-y-4">
-            <li class="text-base"><a href="<%= work_path(id: @previous_work.id) -%>"><span class="circle-border border border-black text-center">&lt;</span> <%= @previous_work.project_name -%></a></li>
-            <li class="text-base"><a href="<%= work_path(id: @next_work.id) -%>"><span class="circle-border border border-black text-center">&gt;</span> <%= @next_work.project_name -%></a></li>
+            <li class="text-base">
+              <a class="flex" href="<%= work_path(id: @previous_work.id) -%>">
+                <span class="circle-border border border-black text-center flex-none">&lt;</span>
+                <span><%= @previous_work.project_name -%></span>
+              </a>
+            </li>
+            <li class="text-base">
+              <a class="flex" href="<%= work_path(id: @next_work.id) -%>">
+                <span class="circle-border border border-black text-center flex-none">&gt;</span>
+                <span><%= @next_work.project_name -%></span>
+              </a>
+            </li>
         </ol>
       </nav>
     </aside>
