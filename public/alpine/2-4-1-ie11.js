@@ -938,6 +938,9 @@
     }
   })();
 
+  // For the IE11 build.
+  SVGElement.prototype.contains = SVGElement.prototype.contains || HTMLElement.prototype.contains;
+
   var check = function (it) {
     return it && it.Math == Math && it;
   };
@@ -1143,7 +1146,7 @@
   (module.exports = function (key, value) {
     return sharedStore[key] || (sharedStore[key] = value !== undefined ? value : {});
   })('versions', []).push({
-    version: '3.6.4',
+    version: '3.6.5',
     mode:  'global',
     copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
   });
@@ -2347,24 +2350,76 @@
     }
   }
 
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+
   function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
   }
 
   function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+  }
 
-      return arr2;
-    }
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
   }
 
   function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
   }
 
   function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   var runtime_1 = createCommonjsModule(function (module) {
@@ -3466,7 +3521,13 @@
       defer = functionBindContext(port.postMessage, port, 1);
     // Browsers with postMessage, skip WebWorkers
     // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
-    } else if (global_1.addEventListener && typeof postMessage == 'function' && !global_1.importScripts && !fails(post)) {
+    } else if (
+      global_1.addEventListener &&
+      typeof postMessage == 'function' &&
+      !global_1.importScripts &&
+      !fails(post) &&
+      location.protocol !== 'file:'
+    ) {
       defer = post;
       global_1.addEventListener('message', listener, false);
     // IE8-
@@ -4729,6 +4790,16 @@
     values: createMethod$5(false)
   };
 
+  var $entries = objectToArray.entries;
+
+  // `Object.entries` method
+  // https://tc39.github.io/ecma262/#sec-object.entries
+  _export({ target: 'Object', stat: true }, {
+    entries: function entries(O) {
+      return $entries(O);
+    }
+  });
+
   var $values = objectToArray.values;
 
   // `Object.values` method
@@ -5350,6 +5421,13 @@
   function isTesting() {
     return navigator.userAgent.includes("Node.js") || navigator.userAgent.includes("jsdom");
   }
+  function warnIfMalformedTemplate(el, directive) {
+    if (el.tagName.toLowerCase() !== 'template') {
+      console.warn("Alpine: [".concat(directive, "] directive should only be added to <template> tags. See https://github.com/alpinejs/alpine#").concat(directive));
+    } else if (el.content.childElementCount !== 1) {
+      console.warn("Alpine: <template> tag with [".concat(directive, "] encountered with multiple element roots. Make sure <template> only has a single child node."));
+    }
+  }
   function kebabCase(subject) {
     return subject.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/[_\s]/, '-').toLowerCase();
   }
@@ -5379,13 +5457,22 @@
   }
   function saferEval(expression, dataContext) {
     var additionalHelperVariables = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    return new Function(['$data'].concat(_toConsumableArray(Object.keys(additionalHelperVariables))), "var result; with($data) { result = ".concat(expression, " }; return result")).apply(void 0, [dataContext].concat(_toConsumableArray(Object.values(additionalHelperVariables))));
+
+    if (typeof expression === 'function') {
+      return expression.call(dataContext);
+    }
+
+    return new Function(['$data'].concat(_toConsumableArray(Object.keys(additionalHelperVariables))), "var __alpine_result; with($data) { __alpine_result = ".concat(expression, " }; return __alpine_result")).apply(void 0, [dataContext].concat(_toConsumableArray(Object.values(additionalHelperVariables))));
   }
   function saferEvalNoReturn(expression, dataContext) {
     var additionalHelperVariables = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-    // For the cases when users pass only a function reference to the caller: `x-on:click="foo"`
+    if (typeof expression === 'function') {
+      return expression.call(dataContext);
+    } // For the cases when users pass only a function reference to the caller: `x-on:click="foo"`
     // Where "foo" is a function. Also, we'll pass the function the event instance when we call it.
+
+
     if (Object.keys(dataContext).includes(expression)) {
       var methodReference = new Function(['dataContext'].concat(_toConsumableArray(Object.keys(additionalHelperVariables))), "with(dataContext) { return ".concat(expression, " }")).apply(void 0, [dataContext].concat(_toConsumableArray(Object.values(additionalHelperVariables))));
 
@@ -5396,34 +5483,40 @@
 
     return new Function(['dataContext'].concat(_toConsumableArray(Object.keys(additionalHelperVariables))), "with(dataContext) { ".concat(expression, " }")).apply(void 0, [dataContext].concat(_toConsumableArray(Object.values(additionalHelperVariables))));
   }
-  var xAttrRE = /^x-(on|bind|data|text|html|model|if|for|show|cloak|transition|ref)\b/;
+  var xAttrRE = /^x-(on|bind|data|text|html|model|if|for|show|cloak|transition|ref|spread)\b/;
   function isXAttr(attr) {
     var name = replaceAtAndColonWithStandardSyntax(attr.name);
     return xAttrRE.test(name);
   }
-  function getXAttrs(el, type) {
+  function getXAttrs(el, component, type) {
     var _this2 = this;
 
-    return Array.from(el.attributes).filter(isXAttr).map(function (attr) {
-      var _this3 = this;
+    var directives = Array.from(el.attributes).filter(isXAttr).map(parseHtmlAttribute); // Get an object of directives from x-spread.
 
+    var spreadDirective = directives.filter(function (directive) {
       _newArrowCheck(this, _this2);
 
-      var name = replaceAtAndColonWithStandardSyntax(attr.name);
-      var typeMatch = name.match(xAttrRE);
-      var valueMatch = name.match(/:([a-zA-Z\-:]+)/);
-      var modifiers = name.match(/\.[^.\]]+(?=[^\]]*$)/g) || [];
-      return {
-        type: typeMatch ? typeMatch[1] : null,
-        value: valueMatch ? valueMatch[1] : null,
-        modifiers: modifiers.map(function (i) {
-          _newArrowCheck(this, _this3);
+      return directive.type === 'spread';
+    }.bind(this))[0];
 
-          return i.replace('.', '');
-        }.bind(this)),
-        expression: attr.value
-      };
-    }.bind(this)).filter(function (i) {
+    if (spreadDirective) {
+      var spreadObject = saferEval(spreadDirective.expression, component.$data); // Add x-spread directives to the pile of existing directives.
+
+      directives = directives.concat(Object.entries(spreadObject).map(function (_ref) {
+        _newArrowCheck(this, _this2);
+
+        var _ref2 = _slicedToArray(_ref, 2),
+            name = _ref2[0],
+            value = _ref2[1];
+
+        return parseHtmlAttribute({
+          name: name,
+          value: value
+        });
+      }.bind(this)));
+    }
+
+    return directives.filter(function (i) {
       _newArrowCheck(this, _this2);
 
       // If no type is passed in for filtering, bypass filter
@@ -5431,6 +5524,28 @@
       return i.type === type;
     }.bind(this));
   }
+
+  function parseHtmlAttribute(_ref3) {
+    var _this3 = this;
+
+    var name = _ref3.name,
+        value = _ref3.value;
+    var normalizedName = replaceAtAndColonWithStandardSyntax(name);
+    var typeMatch = normalizedName.match(xAttrRE);
+    var valueMatch = normalizedName.match(/:([a-zA-Z\-:]+)/);
+    var modifiers = normalizedName.match(/\.[^.\]]+(?=[^\]]*$)/g) || [];
+    return {
+      type: typeMatch ? typeMatch[1] : null,
+      value: valueMatch ? valueMatch[1] : null,
+      modifiers: modifiers.map(function (i) {
+        _newArrowCheck(this, _this3);
+
+        return i.replace('.', '');
+      }.bind(this)),
+      expression: value
+    };
+  }
+
   function isBooleanAttr(attrName) {
     // As per HTML spec table https://html.spec.whatwg.org/multipage/indices.html#attributes-3:boolean-attribute
     // Array roughly ordered by estimated usage
@@ -5446,14 +5561,17 @@
 
     return name;
   }
-  function transitionIn(el, show) {
+  function convertClassStringToArray(classList) {
+    var filterFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Boolean;
+    return classList.split(' ').filter(filterFn);
+  }
+  function transitionIn(el, show, component) {
     var _this4 = this;
 
-    var forceSkip = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    // We don't want to transition on the initial page load.
+    var forceSkip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
     if (forceSkip) return show();
-    var attrs = getXAttrs(el, 'transition');
-    var showAttr = getXAttrs(el, 'show')[0]; // If this is triggered by a x-show.transition.
+    var attrs = getXAttrs(el, component, 'transition');
+    var showAttr = getXAttrs(el, component, 'show')[0]; // If this is triggered by a x-show.transition.
 
     if (showAttr && showAttr.modifiers.includes('transition')) {
       var modifiers = showAttr.modifiers; // If x-show.transition.out, we'll skip the "in" transition.
@@ -5472,19 +5590,20 @@
 
       return ['enter', 'enter-start', 'enter-end'].includes(attr.value);
     }.bind(this)).length > 0) {
-      transitionClassesIn(el, attrs, show);
+      transitionClassesIn(el, component, attrs, show);
     } else {
       // If neither, just show that damn thing.
       show();
     }
   }
-  function transitionOut(el, hide) {
+  function transitionOut(el, hide, component) {
     var _this5 = this;
 
-    var forceSkip = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    var forceSkip = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+    // We don't want to transition on the initial page load.
     if (forceSkip) return hide();
-    var attrs = getXAttrs(el, 'transition');
-    var showAttr = getXAttrs(el, 'show')[0];
+    var attrs = getXAttrs(el, component, 'transition');
+    var showAttr = getXAttrs(el, component, 'show')[0];
 
     if (showAttr && showAttr.modifiers.includes('transition')) {
       var modifiers = showAttr.modifiers;
@@ -5501,7 +5620,7 @@
 
       return ['leave', 'leave-start', 'leave-end'].includes(attr.value);
     }.bind(this)).length > 0) {
-      transitionClassesOut(el, attrs, hide);
+      transitionClassesOut(el, component, attrs, hide);
     } else {
       hide();
     }
@@ -5624,82 +5743,64 @@
     };
     transition(el, stages);
   }
-  function transitionClassesIn(el, directives, showCallback) {
+  function transitionClassesIn(el, component, directives, showCallback) {
     var _this8 = this;
 
-    var enter = (directives.find(function (i) {
+    var ensureStringExpression = function ensureStringExpression(expression) {
+      _newArrowCheck(this, _this8);
+
+      return typeof expression === 'function' ? component.evaluateReturnExpression(el, expression) : expression;
+    }.bind(this);
+
+    var enter = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
       _newArrowCheck(this, _this8);
 
       return i.value === 'enter';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this8);
-
-      return i !== '';
-    }.bind(this));
-    var enterStart = (directives.find(function (i) {
+    }).expression));
+    var enterStart = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
       _newArrowCheck(this, _this8);
 
       return i.value === 'enter-start';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this8);
-
-      return i !== '';
-    }.bind(this));
-    var enterEnd = (directives.find(function (i) {
+    }).expression));
+    var enterEnd = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
       _newArrowCheck(this, _this8);
 
       return i.value === 'enter-end';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this8);
-
-      return i !== '';
-    }.bind(this));
+    }).expression));
     transitionClasses(el, enter, enterStart, enterEnd, showCallback, function () {
       _newArrowCheck(this, _this8);
     }.bind(this));
   }
-  function transitionClassesOut(el, directives, hideCallback) {
+  function transitionClassesOut(el, component, directives, hideCallback) {
     var _this9 = this;
 
-    var leave = (directives.find(function (i) {
+    var leave = convertClassStringToArray((directives.find(function (i) {
       _newArrowCheck(this, _this9);
 
       return i.value === 'leave';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this9);
-
-      return i !== '';
-    }.bind(this));
-    var leaveStart = (directives.find(function (i) {
+    }).expression);
+    var leaveStart = convertClassStringToArray((directives.find(function (i) {
       _newArrowCheck(this, _this9);
 
       return i.value === 'leave-start';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this9);
-
-      return i !== '';
-    }.bind(this));
-    var leaveEnd = (directives.find(function (i) {
+    }).expression);
+    var leaveEnd = convertClassStringToArray((directives.find(function (i) {
       _newArrowCheck(this, _this9);
 
       return i.value === 'leave-end';
     }.bind(this)) || {
       expression: ''
-    }).expression.split(' ').filter(function (i) {
-      _newArrowCheck(this, _this9);
-
-      return i !== '';
-    }.bind(this));
+    }).expression);
     transitionClasses(el, leave, leaveStart, leaveEnd, function () {
       _newArrowCheck(this, _this9);
     }.bind(this), hideCallback);
@@ -5770,13 +5871,19 @@
       // Note: Safari's transitionDuration property will list out comma separated transition durations
       // for every single transition property. Let's grab the first one and call it a day.
       var duration = Number(getComputedStyle(el).transitionDuration.replace(/,.*/, '').replace('s', '')) * 1000;
+
+      if (duration === 0) {
+        duration = Number(getComputedStyle(el).animationDuration.replace('s', '')) * 1000;
+      }
+
       stages.show();
       requestAnimationFrame(function () {
         var _this14 = this;
 
         _newArrowCheck(this, _this13);
 
-        stages.end();
+        stages.end(); // Assign current transition to el in case we need to force it.
+
         setTimeout(function () {
           _newArrowCheck(this, _this14);
 
@@ -5797,8 +5904,8 @@
   function handleForDirective(component, templateEl, expression, initialUpdate, extraVars) {
     var _this = this;
 
-    warnIfNotTemplateTag(templateEl);
-    var iteratorNames = parseForExpression(expression);
+    warnIfMalformedTemplate(templateEl, 'x-for');
+    var iteratorNames = typeof expression === 'function' ? parseForExpression(component.evaluateReturnExpression(templateEl, expression)) : parseForExpression(expression);
     var items = evaluateItemsAndReturnEmptyIfXIfIsPresentAndFalseOnElement(component, templateEl, iteratorNames, extraVars); // As we walk the array, we'll also walk the DOM (updating/creating as we go).
 
     var currentEl = templateEl;
@@ -5816,7 +5923,7 @@
 
         transitionIn(nextEl, function () {
           _newArrowCheck(this, _this2);
-        }.bind(this), initialUpdate);
+        }.bind(this), component, initialUpdate);
         nextEl.__x_for = iterationScopeVariables;
         component.initializeElements(nextEl, function () {
           _newArrowCheck(this, _this2);
@@ -5837,7 +5944,7 @@
       currentEl = nextEl;
       currentEl.__x_for_key = currentKey;
     }.bind(this));
-    removeAnyLeftOverElementsFromPreviousUpdate(currentEl);
+    removeAnyLeftOverElementsFromPreviousUpdate(currentEl, component);
   } // This was taken from VueJS 2.* core. Thanks Vue!
 
   function parseForExpression(expression) {
@@ -5877,7 +5984,7 @@
   function generateKeyForIteration(component, el, index, iterationScopeVariables) {
     var _this3 = this;
 
-    var bindKeyAttribute = getXAttrs(el, 'bind').filter(function (attr) {
+    var bindKeyAttribute = getXAttrs(el, component, 'bind').filter(function (attr) {
       _newArrowCheck(this, _this3);
 
       return attr.value === 'key';
@@ -5891,12 +5998,8 @@
     }.bind(this));
   }
 
-  function warnIfNotTemplateTag(el) {
-    if (el.tagName.toLowerCase() !== 'template') console.warn('Alpine: [x-for] directive should only be added to <template> tags.');
-  }
-
   function evaluateItemsAndReturnEmptyIfXIfIsPresentAndFalseOnElement(component, el, iteratorNames, extraVars) {
-    var ifAttribute = getXAttrs(el, 'if')[0];
+    var ifAttribute = getXAttrs(el, component, 'if')[0];
 
     if (ifAttribute && !component.evaluateReturnExpression(el, ifAttribute.expression)) {
       return [];
@@ -5907,7 +6010,6 @@
 
   function addElementInLoopAfterCurrentEl(templateEl, currentEl) {
     var clone = document.importNode(templateEl.content, true);
-    if (clone.childElementCount !== 1) console.warn('Alpine: <template> tag with [x-for] encountered with multiple element roots. Make sure <template> only has a single child node.');
     currentEl.parentElement.insertBefore(clone, currentEl.nextElementSibling);
     return currentEl.nextElementSibling;
   }
@@ -5929,7 +6031,7 @@
     }
   }
 
-  function removeAnyLeftOverElementsFromPreviousUpdate(currentEl) {
+  function removeAnyLeftOverElementsFromPreviousUpdate(currentEl, component) {
     var nextElementFromOldLoop = currentEl.nextElementSibling && currentEl.nextElementSibling.__x_for_key !== undefined ? currentEl.nextElementSibling : false;
 
     var _loop = function _loop() {
@@ -5941,7 +6043,7 @@
         _newArrowCheck(this, _this4);
 
         nextElementFromOldLoopImmutable.remove();
-      }.bind(this));
+      }.bind(this), component);
       nextElementFromOldLoop = nextSibling && nextSibling.__x_for_key !== undefined ? nextSibling : false;
     };
 
@@ -5949,6 +6051,21 @@
       _loop();
     }
   }
+
+  var $some = arrayIteration.some;
+
+
+
+  var STRICT_METHOD$4 = arrayMethodIsStrict('some');
+  var USES_TO_LENGTH$9 = arrayMethodUsesToLength('some');
+
+  // `Array.prototype.some` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.some
+  _export({ target: 'Array', proto: true, forced: !STRICT_METHOD$4 || !USES_TO_LENGTH$9 }, {
+    some: function some(callbackfn /* , thisArg */) {
+      return $some(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+    }
+  });
 
   function handleAttributeBindingDirective(component, el, attrName, expression, extraVars, attrType) {
     var _this = this;
@@ -5971,28 +6088,24 @@
           el.checked = el.value == value;
         }
       } else if (el.type === 'checkbox') {
-        if (Array.isArray(value)) {
-          // I'm purposely not using Array.includes here because it's
-          // strict, and because of Numeric/String mis-casting, I
-          // want the "includes" to be "fuzzy".
-          var valueFound = false;
-          value.forEach(function (val) {
-            _newArrowCheck(this, _this);
-
-            if (val == el.value) {
-              valueFound = true;
-            }
-          }.bind(this));
-          el.checked = valueFound;
-        } else {
-          el.checked = !!value;
-        } // If we are explicitly binding a string to the :value, set the string,
+        // If we are explicitly binding a string to the :value, set the string,
         // If the value is a boolean, leave it alone, it will be set to "on"
         // automatically.
-
-
-        if (typeof value === 'string') {
+        if (typeof value === 'string' && attrType === 'bind') {
           el.value = value;
+        } else if (attrType !== 'bind') {
+          if (Array.isArray(value)) {
+            // I'm purposely not using Array.includes here because it's
+            // strict, and because of Numeric/String mis-casting, I
+            // want the "includes" to be "fuzzy".
+            el.checked = value.some(function (val) {
+              _newArrowCheck(this, _this);
+
+              return val == el.value;
+            }.bind(this));
+          } else {
+            el.checked = !!value;
+          }
         }
       } else if (el.tagName === 'SELECT') {
         updateSelect(el, value);
@@ -6018,13 +6131,13 @@
           _newArrowCheck(this, _this);
 
           if (value[classNames]) {
-            classNames.split(' ').filter(Boolean).forEach(function (className) {
+            convertClassStringToArray(classNames).forEach(function (className) {
               _newArrowCheck(this, _this2);
 
               return el.classList.add(className);
             }.bind(this));
           } else {
-            classNames.split(' ').filter(Boolean).forEach(function (className) {
+            convertClassStringToArray(classNames).forEach(function (className) {
               _newArrowCheck(this, _this2);
 
               return el.classList.remove(className);
@@ -6034,7 +6147,7 @@
       } else {
         var _originalClasses = el.__x_original_classes || [];
 
-        var newClasses = value.split(' ').filter(Boolean);
+        var newClasses = convertClassStringToArray(value);
         el.setAttribute('class', arrayUnique(_originalClasses.concat(newClasses)).join(' '));
       }
     } else {
@@ -6042,8 +6155,14 @@
       if ([null, undefined, false].includes(value)) {
         el.removeAttribute(attrName);
       } else {
-        isBooleanAttr(attrName) ? el.setAttribute(attrName, attrName) : el.setAttribute(attrName, value);
+        isBooleanAttr(attrName) ? setIfChanged(el, attrName, attrName) : setIfChanged(el, attrName, value);
       }
+    }
+  }
+
+  function setIfChanged(el, attrName, value) {
+    if (el.getAttribute(attrName) != value) {
+      el.setAttribute(attrName, value);
     }
   }
 
@@ -6064,7 +6183,7 @@
 
   function handleTextDirective(el, output, expression) {
     // If nested model key is undefined, set the default value to empty string.
-    if (output === undefined && expression.match(/\./).length) {
+    if (output === undefined && expression.match(/\./)) {
       output = '';
     }
 
@@ -6111,7 +6230,16 @@
 
       _newArrowCheck(this, _this);
 
-      if (!value) {
+      if (value) {
+        transitionIn(el, function () {
+          _newArrowCheck(this, _this2);
+
+          show();
+        }.bind(this), component);
+        resolve(function () {
+          _newArrowCheck(this, _this2);
+        }.bind(this));
+      } else {
         if (el.style.display !== 'none') {
           transitionOut(el, function () {
             var _this3 = this;
@@ -6123,25 +6251,12 @@
 
               hide();
             }.bind(this));
-          }.bind(this));
+          }.bind(this), component);
         } else {
           resolve(function () {
             _newArrowCheck(this, _this2);
           }.bind(this));
         }
-      } else {
-        if (el.style.display !== '') {
-          transitionIn(el, function () {
-            _newArrowCheck(this, _this2);
-
-            show();
-          }.bind(this));
-        } // Resolve immediately, only hold up parent `x-show`s for hidin.
-
-
-        resolve(function () {
-          _newArrowCheck(this, _this2);
-        }.bind(this));
       }
     }.bind(this); // The working of x-show is a bit complex because we need to
     // wait for any child transitions to finish before hiding
@@ -6163,8 +6278,7 @@
 
     if (component.showDirectiveLastElement && !component.showDirectiveLastElement.contains(el)) {
       component.executeAndClearRemainingShowDirectiveStack();
-    } // We'll push the handler onto a stack to be handled later.
-
+    }
 
     component.showDirectiveStack.push(handle);
     component.showDirectiveLastElement = el;
@@ -6173,7 +6287,7 @@
   function handleIfDirective(component, el, expressionResult, initialUpdate, extraVars) {
     var _this = this;
 
-    if (el.nodeName.toLowerCase() !== 'template') console.warn("Alpine: [x-if] directive should only be added to <template> tags. See https://github.com/alpinejs/alpine#x-if");
+    warnIfMalformedTemplate(el, 'x-if');
     var elementHasAlreadyBeenAdded = el.nextElementSibling && el.nextElementSibling.__x_inserted_me === true;
 
     if (expressionResult && !elementHasAlreadyBeenAdded) {
@@ -6181,7 +6295,7 @@
       el.parentElement.insertBefore(clone, el.nextElementSibling);
       transitionIn(el.nextElementSibling, function () {
         _newArrowCheck(this, _this);
-      }.bind(this), initialUpdate);
+      }.bind(this), component, initialUpdate);
       component.initializeElements(el.nextElementSibling, extraVars);
       el.nextElementSibling.__x_inserted_me = true;
     } else if (!expressionResult && elementHasAlreadyBeenAdded) {
@@ -6189,7 +6303,7 @@
         _newArrowCheck(this, _this);
 
         el.nextElementSibling.remove();
-      }.bind(this), initialUpdate);
+      }.bind(this), component, initialUpdate);
     }
   }
 
@@ -6272,7 +6386,7 @@
     return component.evaluateCommandExpression(e.target, expression, function () {
       _newArrowCheck(this, _this2);
 
-      return _objectSpread2({}, extraVars(), {
+      return _objectSpread2(_objectSpread2({}, extraVars()), {}, {
         '$event': e
       });
     }.bind(this));
@@ -6356,7 +6470,7 @@
     registerListener(component, el, event, modifiers, listenerExpression, function () {
       _newArrowCheck(this, _this);
 
-      return _objectSpread2({}, extraVars(), {
+      return _objectSpread2(_objectSpread2({}, extraVars()), {}, {
         rightSideOfExpression: generateModelAssignmentFunction(el, modifiers, expression)
       });
     }.bind(this));
@@ -6381,12 +6495,13 @@
       if (event instanceof CustomEvent && event.detail) {
         return event.detail;
       } else if (el.type === 'checkbox') {
-        // If the data we are binding to is an array, toggle it's value inside the array.
+        // If the data we are binding to is an array, toggle its value inside the array.
         if (Array.isArray(currentValue)) {
-          return event.target.checked ? currentValue.concat([event.target.value]) : currentValue.filter(function (i) {
+          var newValue = modifiers.includes('number') ? safeParseNumber(event.target.value) : event.target.value;
+          return event.target.checked ? currentValue.concat([newValue]) : currentValue.filter(function (i) {
             _newArrowCheck(this, _this3);
 
-            return i !== event.target.value;
+            return i !== newValue;
           }.bind(this));
         } else {
           return event.target.checked;
@@ -6396,8 +6511,7 @@
           _newArrowCheck(this, _this3);
 
           var rawValue = option.value || option.text;
-          var number = rawValue ? parseFloat(rawValue) : null;
-          return isNaN(number) ? rawValue : number;
+          return safeParseNumber(rawValue);
         }.bind(this)) : Array.from(event.target.selectedOptions).map(function (option) {
           _newArrowCheck(this, _this3);
 
@@ -6405,10 +6519,14 @@
         }.bind(this));
       } else {
         var rawValue = event.target.value;
-        var number = rawValue ? parseFloat(rawValue) : null;
-        return modifiers.includes('number') ? isNaN(number) ? rawValue : number : modifiers.includes('trim') ? rawValue.trim() : rawValue;
+        return modifiers.includes('number') ? safeParseNumber(rawValue) : modifiers.includes('trim') ? rawValue.trim() : rawValue;
       }
     }.bind(this);
+  }
+
+  function safeParseNumber(rawValue) {
+    var number = rawValue ? parseFloat(rawValue) : null;
+    return isNumeric(number) ? number : rawValue;
   }
 
   // `Reflect.set` method
@@ -6522,7 +6640,9 @@
       var dataAttr = this.$el.getAttribute('x-data');
       var dataExpression = dataAttr === '' ? '{}' : dataAttr;
       var initExpression = this.$el.getAttribute('x-init');
-      this.unobservedData = seedDataForCloning ? seedDataForCloning : saferEval(dataExpression, {});
+      this.unobservedData = seedDataForCloning ? seedDataForCloning : saferEval(dataExpression, {
+        $el: this.$el
+      });
       /* IE11-ONLY:START */
       // For IE11, add our magic properties to the original data for access.
       // The Proxy polyfill does not allow properties to be added after creation.
@@ -6708,8 +6828,8 @@
       value: function initializeElement(el, extraVars) {
         // To support class attribute merging, we have to know what the element's
         // original class attribute looked like for reference.
-        if (el.hasAttribute('class') && getXAttrs(el).length > 0) {
-          el.__x_original_classes = el.getAttribute('class').split(' ');
+        if (el.hasAttribute('class') && getXAttrs(el, this).length > 0) {
+          el.__x_original_classes = convertClassStringToArray(el.getAttribute('class'));
         }
 
         this.registerListeners(el, extraVars);
@@ -6740,56 +6860,63 @@
     }, {
       key: "executeAndClearNextTickStack",
       value: function executeAndClearNextTickStack(el) {
+        var _this9 = this;
+
         // Skip spawns from alpine directives
-        if (el === this.$el) {
-          // Walk through the $nextTick stack and clear it as we go.
-          while (this.nextTickStack.length > 0) {
-            this.nextTickStack.shift()();
-          }
+        if (el === this.$el && this.nextTickStack.length > 0) {
+          // We run the tick stack after the next frame to allow any
+          // running transitions to pass the initial show stage.
+          requestAnimationFrame(function () {
+            _newArrowCheck(this, _this9);
+
+            while (this.nextTickStack.length > 0) {
+              this.nextTickStack.shift()();
+            }
+          }.bind(this));
         }
       }
     }, {
       key: "executeAndClearRemainingShowDirectiveStack",
       value: function executeAndClearRemainingShowDirectiveStack() {
-        var _this9 = this;
+        var _this10 = this;
 
         // The goal here is to start all the x-show transitions
         // and build a nested promise chain so that elements
         // only hide when the children are finished hiding.
         this.showDirectiveStack.reverse().map(function (thing) {
-          var _this10 = this;
+          var _this11 = this;
 
-          _newArrowCheck(this, _this9);
+          _newArrowCheck(this, _this10);
 
           return new Promise(function (resolve) {
-            var _this11 = this;
+            var _this12 = this;
 
-            _newArrowCheck(this, _this10);
+            _newArrowCheck(this, _this11);
 
             thing(function (finish) {
-              _newArrowCheck(this, _this11);
+              _newArrowCheck(this, _this12);
 
               resolve(finish);
             }.bind(this));
           }.bind(this));
         }.bind(this)).reduce(function (nestedPromise, promise) {
-          var _this12 = this;
+          var _this13 = this;
 
-          _newArrowCheck(this, _this9);
+          _newArrowCheck(this, _this10);
 
           return nestedPromise.then(function () {
-            var _this13 = this;
+            var _this14 = this;
 
-            _newArrowCheck(this, _this12);
+            _newArrowCheck(this, _this13);
 
             return promise.then(function (finish) {
-              _newArrowCheck(this, _this13);
+              _newArrowCheck(this, _this14);
 
               return finish();
             }.bind(this));
           }.bind(this));
         }.bind(this), Promise.resolve(function () {
-          _newArrowCheck(this, _this9);
+          _newArrowCheck(this, _this10);
         }.bind(this))); // We've processed the handler stack. let's clear it.
 
         this.showDirectiveStack = [];
@@ -6803,15 +6930,15 @@
     }, {
       key: "registerListeners",
       value: function registerListeners(el, extraVars) {
-        var _this14 = this;
+        var _this15 = this;
 
-        getXAttrs(el).forEach(function (_ref) {
+        getXAttrs(el, this).forEach(function (_ref) {
+          _newArrowCheck(this, _this15);
+
           var type = _ref.type,
               value = _ref.value,
               modifiers = _ref.modifiers,
               expression = _ref.expression;
-
-          _newArrowCheck(this, _this14);
 
           switch (type) {
             case 'on':
@@ -6827,17 +6954,17 @@
     }, {
       key: "resolveBoundAttributes",
       value: function resolveBoundAttributes(el) {
-        var _this15 = this;
+        var _this16 = this;
 
         var initialUpdate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
         var extraVars = arguments.length > 2 ? arguments[2] : undefined;
-        var attrs = getXAttrs(el);
+        var attrs = getXAttrs(el, this);
 
         if (el.type !== undefined && el.type === 'radio') {
           // If there's an x-model on a radio input, move it to end of attribute list
           // to ensure that x-bind:value (if present) is processed first.
           var modelIdx = attrs.findIndex(function (attr) {
-            _newArrowCheck(this, _this15);
+            _newArrowCheck(this, _this16);
 
             return attr.type === 'model';
           }.bind(this));
@@ -6848,14 +6975,14 @@
         }
 
         attrs.forEach(function (_ref2) {
-          var _this16 = this;
+          var _this17 = this;
+
+          _newArrowCheck(this, _this16);
 
           var type = _ref2.type,
               value = _ref2.value,
               modifiers = _ref2.modifiers,
               expression = _ref2.expression;
-
-          _newArrowCheck(this, _this15);
 
           switch (type) {
             case 'model':
@@ -6886,7 +7013,7 @@
               // If this element also has x-for on it, don't process x-if.
               // We will let the "x-for" directive handle the "if"ing.
               if (attrs.filter(function (i) {
-                _newArrowCheck(this, _this16);
+                _newArrowCheck(this, _this17);
 
                 return i.type === 'for';
               }.bind(this)).length > 0) return;
@@ -6907,42 +7034,37 @@
     }, {
       key: "evaluateReturnExpression",
       value: function evaluateReturnExpression(el, expression) {
-        var _this17 = this;
+        var _this18 = this;
 
         var extraVars = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {
-          _newArrowCheck(this, _this17);
+          _newArrowCheck(this, _this18);
         }.bind(this);
-        return saferEval(expression, this.$data, _objectSpread2({}, extraVars(), {
+        return saferEval(expression, this.$data, _objectSpread2(_objectSpread2({}, extraVars()), {}, {
           $dispatch: this.getDispatchFunction(el)
         }));
       }
     }, {
       key: "evaluateCommandExpression",
       value: function evaluateCommandExpression(el, expression) {
-        var _this18 = this;
+        var _this19 = this;
 
         var extraVars = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {
-          _newArrowCheck(this, _this18);
+          _newArrowCheck(this, _this19);
         }.bind(this);
-        return saferEvalNoReturn(expression, this.$data, _objectSpread2({}, extraVars(), {
+        return saferEvalNoReturn(expression, this.$data, _objectSpread2(_objectSpread2({}, extraVars()), {}, {
           $dispatch: this.getDispatchFunction(el)
         }));
       }
     }, {
       key: "getDispatchFunction",
       value: function getDispatchFunction(el) {
-        var _this19 = this;
-
         return function (event) {
           var detail = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-          _newArrowCheck(this, _this19);
-
           el.dispatchEvent(new CustomEvent(event, {
             detail: detail,
             bubbles: true
           }));
-        }.bind(this);
+        };
       }
     }, {
       key: "listenForNewElementsToInitialize",
@@ -6969,7 +7091,9 @@
               (function () {
                 var _this22 = this;
 
-                var rawData = saferEval(mutations[i].target.getAttribute('x-data'), {});
+                var rawData = saferEval(mutations[i].target.getAttribute('x-data'), {
+                  $el: _this21.$el
+                });
                 Object.keys(rawData).forEach(function (key) {
                   _newArrowCheck(this, _this22);
 
@@ -6986,7 +7110,7 @@
 
                 if (node.nodeType !== 1 || node.__x_inserted_me) return;
 
-                if (node.matches('[x-data]')) {
+                if (node.matches('[x-data]') && !node.__x) {
                   node.__x = new Component(node);
                   return;
                 }
@@ -7050,7 +7174,8 @@
   }();
 
   var Alpine = {
-    version: "2.3.4",
+    version: "2.4.1",
+    pauseMutationObserver: false,
     start: function () {
       var _start = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         var _this = this;
@@ -7145,6 +7270,8 @@
 
         _newArrowCheck(this, _this5);
 
+        if (this.pauseMutationObserver) return;
+
         for (var i = 0; i < mutations.length; i++) {
           if (mutations[i].addedNodes.length > 0) {
             mutations[i].addedNodes.forEach(function (node) {
@@ -7169,8 +7296,20 @@
       observer.observe(targetNode, observerOptions);
     },
     initializeComponent: function initializeComponent(el) {
+      var _this8 = this;
+
       if (!el.__x) {
-        el.__x = new Component(el);
+        // Wrap in a try/catch so that we don't prevent other components
+        // from initializing when one component contains an error.
+        try {
+          el.__x = new Component(el);
+        } catch (error) {
+          setTimeout(function () {
+            _newArrowCheck(this, _this8);
+
+            throw error;
+          }.bind(this), 0);
+        }
       }
     },
     clone: function clone(component, newEl) {
