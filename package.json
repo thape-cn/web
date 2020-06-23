@@ -10,6 +10,7 @@
     "@stimulus/polyfills": "^1.1.1",
     "@tailwindcss/ui": "^0.3.0",
     "@webwingscz/googlefont-montserrat": "^1.0.5",
+    "autoprefixer": "^9.8.2",
     "core-js": "^3.6.4",
     "scrollama": "^2.2.1",
     "stimulus": "^1.1.1",
