@@ -63,34 +63,10 @@
       </div>
     </div>
     <div class="action-area action-left" data-action="click->carousel2#toLast">
-      <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <title>background</title>
-          <rect fill="none" height="42" width="42" y="-1" x="-1" />
-          <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%">
-            <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" />
-          </g>
-        </g>
-        <g>
-          <title>上一张</title>
-          <path transform="rotate(-180 20,20) " d="m9.12018,30.15023l10.15276,-10.15271l-10.15276,-10.15278l5.80282,-5.80219l15.95681,15.95497l-15.95681,15.95992" stroke-width="0" stroke="#000" fill="currentColor" />
-        </g>
-      </svg>
+      <img class="w-8" src="<%= asset_pack_path('media/images/arrow_left.svg') -%>" alt="下一张" />
     </div>
-    <div data-type="action-to-next" class="action-area action-right" data-action="click->carousel2#toNext">
-      <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <title>background</title>
-          <rect fill="none" height="42" width="42" y="-1" x="-1" />
-          <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%">
-            <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" />
-          </g>
-        </g>
-        <g>
-          <title>下一张</title>
-          <path stroke-dasharray="5,2,2,2,2,2" d="m9.12019,30.15023l10.15276,-10.15271l-10.15276,-10.15278l5.80282,-5.80219l15.95681,15.95497l-15.95681,15.95992" stroke-width="0" stroke="#000" fill="currentColor" />
-        </g>
-      </svg>
+    <div data-type="action-to-next" class="action-area action-right text-white" data-action="click->carousel2#toNext">
+      <img class="w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>
 </div>
