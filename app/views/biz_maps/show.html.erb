@@ -31,17 +31,17 @@
   </div>
 </div>
 
-<div x-data="{ show_city: '' }">
+<div x-data="{ show_city: '', show_company: '' }">
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step max-sm:flex-wrap max-sm:px-4">
     <div class="relative w-1/2 max-sm:flex-none max-sm:w-full max-sm:hidden">
       <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = ''" -%>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'hidden md:block xl:hidden pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:80%;top:60%;"
-        x-bind:class="{ 'map-star-b': show_city == '上海' || show_city == '上海爱坤' || show_city == '上海城规' || show_city == '上海室内' || show_city == '易术家互娱' || show_city == '上海园林' || show_city == '虹核审图', 'map-dot-b': !(show_city == '上海' || show_city == '上海爱坤' || show_city == '上海城规' || show_city == '上海室内' || show_city == '易术家互娱' || show_city == '上海园林' || show_city == '虹核审图') }">上海</div>
+        x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:65%;top:38%;"
         x-bind:class="{ 'map-star-a': show_city == '北京', 'map-dot-a': show_city != '北京' }">北京</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:64%;top:83%;"
-        x-bind:class="{ 'map-star-a': show_city == '深圳' || show_city == '深圳易筑', 'map-dot-a': !(show_city == '深圳' || show_city == '深圳易筑') }">深圳</div>
+        x-bind:class="{ 'map-star-a': show_city == '深圳', 'map-dot-a': show_city != '深圳' }">深圳</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:61%;top:86%;"
         x-bind:class="{ 'map-star-a': show_city == '广州', 'map-dot-a': show_city != '广州' }">广州</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:70%;top:40%;"
@@ -50,7 +50,7 @@
         x-bind:class="{ 'map-star-a': show_city == '重庆', 'map-dot-a': show_city != '重庆' }">重庆</div>
 
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:61%;top:66%;"
-        x-bind:class="{ 'map-star-b': show_city == '武汉' || show_city == '武汉易筑', 'map-dot-b': !(show_city == '武汉' || show_city == '武汉易筑') }">武汉</div>
+        x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:38%;top:65%;"
         x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:49%;top:51%;"
@@ -83,7 +83,7 @@
         x-bind:class="{ 'map-star-b': show_city == '长沙', 'map-dot-b': show_city != '长沙' }">长沙</div>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:68%;top:85%;"
         x-bind:class="{ 'map-star-b': show_city == '香港', 'map-dot-b': show_city != '香港' }">香港</div>
-      <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_city == '上海'">
+      <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_company == '上海天华'">
         <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
           <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
             <h1 class="text-2xl font-medium leading-tight pb-2">上海天华建筑设计有限公司</h1>
@@ -98,27 +98,27 @@
           </div>
         </div>
       </div>
-      <%= render partial: 'map_address', locals: {c: '北京', m: @m_北京天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '深圳', m: @m_深圳天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '广州', m: @m_广州天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '天津', m: @m_天津天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '重庆', m: @m_重庆天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '武汉', m: @m_武汉天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '成都', m: @m_成都天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '西安', m: @m_西安天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '沈阳', m: @m_沈阳天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '厦门', m: @m_厦门天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '青岛', m: @m_青岛天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '南京', m: @m_南京天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '郑州', m: @m_郑州天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '杭州', m: @m_杭州天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '合肥', m: @m_合肥天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '济南', m: @m_济南天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '贵阳', m: @m_贵阳天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '太原', m: @m_太原天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
-      <%= render partial: 'map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '北京天华', m: @m_北京天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '深圳天华', m: @m_深圳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '广州天华', m: @m_广州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '天津天华', m: @m_天津天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '重庆天华', m: @m_重庆天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '武汉天华', m: @m_武汉天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '成都天华', m: @m_成都天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '西安天华', m: @m_西安天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '沈阳天华', m: @m_沈阳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '厦门天华', m: @m_厦门天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '青岛天华', m: @m_青岛天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '南京天华', m: @m_南京天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '郑州天华', m: @m_郑州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '杭州天华', m: @m_杭州天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '合肥天华', m: @m_合肥天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '济南天华', m: @m_济南天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '贵阳天华', m: @m_贵阳天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '太原天华', m: @m_太原天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
+      <%= render partial: 'map_address', locals: {c: '香港易爱迪', m: @m_香港天华 } -%>
       <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
       <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
       <%= render partial: 'map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
@@ -138,109 +138,109 @@
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'w-full hidden max-sm:block max-sm:my-6' -%>
       <div class="flex justify-between items-center text-center w-full text-sm lg:text-base xxxl:text-lg my-2 py-2 xl:py-4 xxl:pt-12 max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
         <div class="flex-1 mr-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '上海', 'bg-thape-company-gray': show_city != '上海' }"
-          x-on:click="show_city = '上海'">上海天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '上海天华', 'bg-thape-company-gray': show_company != '上海天华' }"
+          x-on:click="show_city = '上海';show_company = '上海天华'">上海天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '南京', 'bg-thape-company-gray': show_city != '南京' }"
-          x-on:click="show_city = '南京'">南京天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '南京天华', 'bg-thape-company-gray': show_company != '南京天华' }"
+          x-on:click="show_city = '南京';show_company = '南京天华'">南京天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '杭州', 'bg-thape-company-gray': show_city != '杭州' }"
-          x-on:click="show_city = '杭州'">杭州天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '杭州天华', 'bg-thape-company-gray': show_company != '杭州天华' }"
+          x-on:click="show_city = '杭州';show_company = '杭州天华'">杭州天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '青岛', 'bg-thape-company-gray': show_city != '青岛' }"
-          x-on:click="show_city = '青岛'">青岛天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '青岛天华', 'bg-thape-company-gray': show_company != '青岛天华' }"
+          x-on:click="show_city = '青岛';show_company = '青岛天华'">青岛天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '济南', 'bg-thape-company-gray': show_city != '济南' }"
-          x-on:click="show_city = '济南'">济南天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '济南天华', 'bg-thape-company-gray': show_company != '济南天华' }"
+          x-on:click="show_city = '济南';show_company = '济南天华'">济南天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '合肥', 'bg-thape-company-gray': show_city != '合肥' }"
-          x-on:click="show_city = '合肥'">合肥天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '合肥天华', 'bg-thape-company-gray': show_company != '合肥天华' }"
+          x-on:click="show_city = '合肥';show_company = '合肥天华'">合肥天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '北京', 'bg-thape-company-gray': show_city != '北京' }"
-          x-on:click="show_city = '北京'">北京天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '北京天华', 'bg-thape-company-gray': show_company != '北京天华' }"
+          x-on:click="show_city = '北京';show_company = '北京天华'">北京天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '天津', 'bg-thape-company-gray': show_city != '天津' }"
-          x-on:click="show_city = '天津'">天津天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '天津天华', 'bg-thape-company-gray': show_company != '天津天华' }"
+          x-on:click="show_city = '天津';show_company = '天津天华'">天津天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '太原', 'bg-thape-company-gray': show_city != '太原' }"
-          x-on:click="show_city = '太原'">太原天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '太原天华', 'bg-thape-company-gray': show_company != '太原天华' }"
+          x-on:click="show_city = '太原';show_company = '太原天华'">太原天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '深圳', 'bg-thape-company-gray': show_city != '深圳' }"
-          x-on:click="show_city = '深圳'">深圳天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '深圳天华', 'bg-thape-company-gray': show_company != '深圳天华' }"
+          x-on:click="show_city = '深圳';show_company = '深圳天华'">深圳天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '厦门', 'bg-thape-company-gray': show_city != '厦门' }"
-          x-on:click="show_city = '厦门'">厦门天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '厦门天华', 'bg-thape-company-gray': show_company != '厦门天华' }"
+          x-on:click="show_city = '厦门';show_company = '厦门天华'">厦门天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '广州', 'bg-thape-company-gray': show_city != '广州' }"
-          x-on:click="show_city = '广州'">广州天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '广州天华', 'bg-thape-company-gray': show_company != '广州天华' }"
+          x-on:click="show_city = '广州';show_company = '广州天华'">广州天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '沈阳', 'bg-thape-company-gray': show_city != '沈阳' }"
-          x-on:click="show_city = '沈阳'">沈阳天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '沈阳天华', 'bg-thape-company-gray': show_company != '沈阳天华' }"
+          x-on:click="show_city = '沈阳';show_company = '沈阳天华'">沈阳天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '武汉', 'bg-thape-company-gray': show_city != '武汉' }"
-          x-on:click="show_city = '武汉'">武汉天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '武汉天华', 'bg-thape-company-gray': show_company != '武汉天华' }"
+          x-on:click="show_city = '武汉';show_company = '武汉天华'">武汉天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '郑州', 'bg-thape-company-gray': show_city != '郑州' }"
-          x-on:click="show_city = '郑州'">郑州天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '郑州天华', 'bg-thape-company-gray': show_company != '郑州天华' }"
+          x-on:click="show_city = '郑州';show_company = '郑州天华'">郑州天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '长沙', 'bg-thape-company-gray': show_city != '长沙' }"
-          x-on:click="show_city = '长沙'">长沙天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '长沙天华', 'bg-thape-company-gray': show_company != '长沙天华' }"
+          x-on:click="show_city = '长沙';show_company = '长沙天华'">长沙天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '西安', 'bg-thape-company-gray': show_city != '西安' }"
-          x-on:click="show_city = '西安'">西安天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '西安天华', 'bg-thape-company-gray': show_company != '西安天华' }"
+          x-on:click="show_city = '西安';show_company = '西安天华'">西安天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '重庆', 'bg-thape-company-gray': show_city != '重庆' }"
-          x-on:click="show_city = '重庆'">重庆天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '重庆天华', 'bg-thape-company-gray': show_company != '重庆天华' }"
+          x-on:click="show_city = '重庆';show_company = '重庆天华'">重庆天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '成都', 'bg-thape-company-gray': show_city != '成都' }"
-          x-on:click="show_city = '成都'">成都天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '成都天华', 'bg-thape-company-gray': show_company != '成都天华' }"
+          x-on:click="show_city = '成都';show_company = '成都天华'">成都天华</div>
         <div class="flex-1 mx-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '贵阳', 'bg-thape-company-gray': show_city != '贵阳' }"
-          x-on:click="show_city = '贵阳'">贵阳天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '贵阳天华', 'bg-thape-company-gray': show_company != '贵阳天华' }"
+          x-on:click="show_city = '贵阳';show_company = '贵阳天华'">贵阳天华</div>
         <div class="flex-1 ml-1 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
-          x-bind:class="{ 'bg-thape-bg-gray': show_city == '昆明', 'bg-thape-company-gray': show_city != '昆明' }"
-          x-on:click="show_city = '昆明'">昆明天华</div>
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '昆明天华', 'bg-thape-company-gray': show_company != '昆明天华' }"
+          x-on:click="show_city = '昆明';show_company = '昆明天华'">昆明天华</div>
       </div>
 
       <div class="mt-10 flex justify-center items-center text-center w-full text-sm lg:text-base max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
         <div class="mr-1 xl:mr-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '香港', 'bg-gray-50': show_city != '香港' }"
-          x-on:click="show_city = '香港'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '香港易爱迪', 'bg-gray-50': show_company != '香港易爱迪' }"
+          x-on:click="show_city = '香港';show_company = '香港易爱迪'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海易爱迪', 'bg-gray-50': show_city != '上海易爱迪' }"
-          x-on:click="show_city = '上海易爱迪'">易<br />爱<br />迪<br />︵<br />上<br />海<br />︶</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海易爱迪', 'bg-gray-50': show_company != '上海易爱迪' }"
+          x-on:click="show_city = '上海';show_company = '上海易爱迪'">易<br />爱<br />迪<br />︵<br />上<br />海<br />︶</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海爱坤', 'bg-gray-50': show_city != '上海爱坤' }"
-          x-on:click="show_city = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />建<br />筑</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海爱坤', 'bg-gray-50': show_company != '上海爱坤' }"
+          x-on:click="show_city = '上海';show_company = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />建<br />筑</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海爱坤', 'bg-gray-50': show_city != '上海爱坤' }"
-          x-on:click="show_city = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />室<br />内</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海爱坤', 'bg-gray-50': show_company != '上海爱坤' }"
+          x-on:click="show_city = '上海';show_company = '上海爱坤'">上<br />海<br />A<br />I<br />C<br />O<br />室<br />内</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海城规', 'bg-gray-50': show_city != '上海城规' }"
-          x-on:click="show_city = '上海城规'">上海天华规划</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海城规', 'bg-gray-50': show_company != '上海城规' }"
+          x-on:click="show_city = '上海';show_company='上海城规'">上海天华规划</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海室内', 'bg-gray-50': show_city != '上海室内' }"
-          x-on:click="show_city = '上海室内'">上海天华室内</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海室内', 'bg-gray-50': show_company != '上海室内' }"
+          x-on:click="show_city = '上海';show_company = '上海室内'">上海天华室内</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '易术家互娱', 'bg-gray-50': show_city != '易术家互娱' }"
-          x-on:click="show_city = '易术家互娱'">易术家互娱科技</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '易术家互娱', 'bg-gray-50': show_company != '易术家互娱' }"
+          x-on:click="show_city = '上海';show_company = '易术家互娱'">易术家互娱科技</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '上海园林', 'bg-gray-50': show_city != '上海园林' }"
-          x-on:click="show_city = '上海园林'">上海天华景观</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '上海园林', 'bg-gray-50': show_company != '上海园林' }"
+          x-on:click="show_city = '上海';show_company = '上海园林'">上海天华景观</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '虹核审图', 'bg-gray-50': show_city != '虹核审图' }"
-          x-on:click="show_city = '虹核审图'">上海虹核审图</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '虹核审图', 'bg-gray-50': show_company != '虹核审图' }"
+          x-on:click="show_city = '上海';show_company = '虹核审图'">上海虹核审图</div>
         <div class="mx-1 xl:mx-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '武汉易筑', 'bg-gray-50': show_city != '武汉易筑' }"
-          x-on:click="show_city = '武汉易筑'">武汉天华易筑室内</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '武汉易筑', 'bg-gray-50': show_company != '武汉易筑' }"
+          x-on:click="show_city = '武汉';show_company = '武汉易筑'">武汉天华易筑室内</div>
         <div class="ml-1 xl:ml-2 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
-          x-bind:class="{ 'bg-gray-100': show_city == '深圳易筑', 'bg-gray-50': show_city != '深圳易筑' }"
-          x-on:click="show_city = '深圳易筑'">深圳天华易筑室内</div>
+          x-bind:class="{ 'bg-gray-100': show_company == '深圳易筑', 'bg-gray-50': show_company != '深圳易筑' }"
+          x-on:click="show_city = '深圳';show_company = '深圳易筑'">深圳天华易筑室内</div>
       </div>
     </div>
   </div>
   <div class="hidden max-sm:block">
-    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_city == '上海'" onclick="this.style.display='none'">
+    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_company == '上海天华'" x-on:click="show_company=''">
       <div class="w-full p-4 bg-white rounded-md shadow-md">
         <h1 class="font-medium pb-2 text-xl leading-normal">上海天华建筑设计有限公司</h1>
         <div class="flex">
@@ -265,27 +265,27 @@
         </div>
       </div>
     </div>
-    <%= render partial: 'mobile_map_address', locals: {c: '北京', m: @m_北京天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '深圳', m: @m_深圳天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '广州', m: @m_广州天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '天津', m: @m_天津天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '重庆', m: @m_重庆天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '武汉', m: @m_武汉天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '成都', m: @m_成都天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '西安', m: @m_西安天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '沈阳', m: @m_沈阳天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '厦门', m: @m_厦门天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '青岛', m: @m_青岛天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '南京', m: @m_南京天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '郑州', m: @m_郑州天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '杭州', m: @m_杭州天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '合肥', m: @m_合肥天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '济南', m: @m_济南天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '贵阳', m: @m_贵阳天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '昆明', m: @m_昆明天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '太原', m: @m_太原天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '长沙', m: @m_长沙天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '香港', m: @m_香港天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '北京天华', m: @m_北京天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '深圳天华', m: @m_深圳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '广州天华', m: @m_广州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '天津天华', m: @m_天津天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '重庆天华', m: @m_重庆天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '武汉天华', m: @m_武汉天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '成都天华', m: @m_成都天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '西安天华', m: @m_西安天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '沈阳天华', m: @m_沈阳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '厦门天华', m: @m_厦门天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '青岛天华', m: @m_青岛天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '南京天华', m: @m_南京天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '郑州天华', m: @m_郑州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '杭州天华', m: @m_杭州天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '合肥天华', m: @m_合肥天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '济南天华', m: @m_济南天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '贵阳天华', m: @m_贵阳天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '太原天华', m: @m_太原天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '香港易爱迪', m: @m_香港天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海室内', m: @m_上海室内 } -%>
@@ -293,6 +293,8 @@
     <%= render partial: 'mobile_map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '深圳易筑', m: @m_深圳易筑 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
   </div>
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray max-sm:px-4">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-sm:px-0">
