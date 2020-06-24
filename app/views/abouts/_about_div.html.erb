@@ -1,4 +1,4 @@
-<div class="relative overflow-hidden bg-black" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
+<div class="grid-div" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
   <%= image_pack_tag g_image, class: 'grid-mask-image' -%>
   <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
     <h1 class="text-xl text-left pb-1 font-medium max-sm:text-xl"><%= h1 -%></h1>
