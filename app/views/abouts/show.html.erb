@@ -1,8 +1,7 @@
 <%= render partial: 'shared/thape_nav' -%>
 
 <div class="w-full relative">
-  <div
-    class="thape-slide"
+  <div class="thape-slide"
     data-controller="carousel2"
     data-carousel2-item-data-type="slide-item"
     data-carousel2-active-class="active"
@@ -13,8 +12,7 @@
     data-carousel2-animation-class-right-out="fade-out"
     data-carousel2-animation-duration="500"
     data-carousel2-interval-time="3000"
-    data-action="mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay"
-  >
+    data-action="mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd" style="padding-top: 51%;">
       <div data-type="slide-item" class="image-item active">
         <picture>
@@ -90,7 +88,7 @@
     </dd>
   </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 my-2 scroller-step">
+<div class="<%= dual_class_in_ie('grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2', 'flex items-center justify-between flex-wrap') -%> my-2 scroller-step">
   <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g1.jpg',
     h1: '研究', h2: 'RESEARCH', h3s: ['技术赋能设计——基于创新的研究'],
     ps: [
