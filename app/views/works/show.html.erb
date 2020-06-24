@@ -221,7 +221,7 @@
   <h2 class="xl:text-lg xxl:text-xl xxxl:text-2xl text-black6c">相关项目</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 <%= @relative_works.count >= 4 ? 'lg:grid-cols-4' : "lg:grid-cols-#{@relative_works.count}" -%> gap-1 sm:gap-2 my-2">
     <% @relative_works.each do |work| %>
-      <div class="relative overflow-hidden bg-black">
+      <div class="grid-div">
         <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
           <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
           <div class="absolute text-white left-6 bottom-2">

@@ -22,7 +22,7 @@
   <% if @works_results.present? %>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
       <% @works_results.each do |work| %>
-        <div class="relative overflow-hidden bg-black">
+        <div class="grid-div">
           <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
             <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
             <div class="absolute text-white left-6 bottom-4">
@@ -33,7 +33,7 @@
         </div>
       <% end %>
       <% @works_city_results.each do |work| %>
-        <div class="relative overflow-hidden bg-black">
+        <div class="grid-div">
           <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
             <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
             <div class="absolute text-white left-6 bottom-4">
