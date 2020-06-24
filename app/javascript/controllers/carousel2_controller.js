@@ -4,6 +4,7 @@ export default class extends Controller {
   initialize() {
     this.inAnimation = false; // 动画是否正在进行中
     this.autoPlayIntervalNum = null; // 动画自动播放的setIntervalTime返回值
+    this.supportAnimationEvent = 'onanimationstart' in window; // 是否支持动画事件
     this.config = {
       itemDataType: this.data.get('itemDataType'), // 子项定义的data-type
       activeClass: this.data.get('activeClass'), // 活跃的幻灯片
@@ -14,6 +15,7 @@ export default class extends Controller {
         rightIn: this.data.get('animationClassRightIn'), // 从右侧进入
         rightOut: this.data.get('animationClassRightOut'), // 从右侧出去
       },
+      animationDuration: Number(this.data.get('intervalTime')) || 500, // 动画持续时间，只在不支持动画事件的浏览器中启用
       intervalTime: Number(this.data.get('intervalTime')) || 3000, // 轮播间隔时间，该值需要比动画时间更长
     }
   }
@@ -29,7 +31,8 @@ export default class extends Controller {
 
   // 动画结束
   itemAnimationEnd = (e) => {
-    const elem = e.target;
+    const event = e instanceof Element ? null : (e || window.event);
+    const elem = event ? (event.srcElement || event.target) : e;
     const { activeClass, animationClass } = this.config;
     if (elem.dataset.type === 'slide-item') {
       const rmClassNames = Object.values(animationClass);
@@ -37,6 +40,16 @@ export default class extends Controller {
       elem.classList.remove(...rmClassNames);
     }
     this.inAnimation = false;
+  }
+
+  // 手动控制动画完成
+  simulateAnimation = () => {
+    this.itemAnimationStart();
+    const { animationDuration, itemDataType, activeClass } = this.config;
+    setTimeout(() => {
+      const items = this.element.querySelectorAll(`[data-type=${itemDataType}].${activeClass}`);
+      [...items].forEach(item => this.itemAnimationEnd(item));
+    }, animationDuration);
   }
 
   // 上一个
@@ -53,6 +66,7 @@ export default class extends Controller {
       items[currentIndex].classList.add(animationClass.base, animationClass.rightOut);
       const lastIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1;
       items[lastIndex].classList.add(activeClass, animationClass.base, animationClass.leftIn);
+      if (!this.supportAnimationEvent) this.simulateAnimation();
     }
   }
 
@@ -70,11 +84,13 @@ export default class extends Controller {
       items[currentIndex].classList.add(animationClass.base, animationClass.leftOut);
       const nextIndex = currentIndex >= items.length - 1 ? 0 : currentIndex + 1;
       items[nextIndex].classList.add(activeClass, animationClass.base, animationClass.rightIn);
+      if (!this.supportAnimationEvent) this.simulateAnimation();
     }
   }
 
   // 开始自动播放
   startAutoPlay = () => {
+    console.log('开始动画')
     if (this.autoPlayIntervalNum) this.stopAutoPlay();
     const { intervalTime } = this.config;
     this.autoPlayIntervalNum = setInterval(() => {
@@ -84,7 +100,8 @@ export default class extends Controller {
 
   // 停止自动播放
   stopAutoPlay = () => {
+    console.log('停止动画')
     if (this.autoPlayIntervalNum) clearInterval(this.autoPlayIntervalNum);
-    this.autoIntervalNum = null;
+    this.autoPlayIntervalNum = null;
   }
 }
