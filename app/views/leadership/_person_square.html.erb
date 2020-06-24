@@ -1,6 +1,10 @@
 <div class="<%= person_class -%>">
   <a href="<%= leadership_path(id: person.url_name) -%>">
-    <%= image_tag person.avatar.url, class: 'grid-image grid-mask-image' -%>
+    <% if person.avatar.url.present? %>
+      <%= image_tag person.avatar.url, class: 'grid-image grid-mask-image' -%>
+    <% else %>
+      <%= image_pack_tag 'media/images/default_avatar.jpg', class: "grid-image grid-mask-image" -%>
+    <% end %>
     <div class="absolute text-white inset-x-0 bottom-0">
       <p class="text-lg text-center font-medium"><%= person.name -%></p>
       <% titles = person_titles(person, city) %>
