@@ -188,7 +188,7 @@
         <a href="<%= work_path(id: @second_work.id) -%>">
           <figure class="sm:space-y-1 max-sm:flex max-sm:my-2">
             <div class="max-sm:w-1/3 max-sm:flex-none max-sm:block">
-            <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full max-sm:w-1/3 max-sm:flex-none max-sm:block' -%>
+            <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
             </div>
             <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex-1 max-sm:flex max-sm:content-between max-sm:flex-wrap">
               <figcaption class="text-sm pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= @second_work.project_name -%></figcaption>
