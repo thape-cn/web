@@ -105,6 +105,7 @@ GEM
       aliyun-sdk (>= 0.7.0)
       carrierwave (>= 1)
     childprocess (3.0.0)
+    chinese_pinyin (1.0.2)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     domain_name (0.5.20190701)
@@ -278,6 +279,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   carrierwave-aliyun
+  chinese_pinyin
   globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.7)
   kaminari
