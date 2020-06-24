@@ -54,8 +54,8 @@
       <img class="w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>
-  <div class="absolute bottom-0 inset-x-0 bg-white bg-opacity-75 max-sm:hidden">
-    <div class="sm:flex justify-between px-0 md:px-12 lg:px-16 xl:px-32 xxl:px-56 xxxl:px-64">
+  <div class="absolute bottom-0 inset-x-0 bg-white bg-opacity-75 hidden lg:block">
+    <div class="lg:flex justify-between px-0 md:px-12 lg:px-16 xl:px-32 xxl:px-56 xxxl:px-64">
       <div class="flex">
         <dt class="block font-medium text-black6c py-4">
           <h1 class="text-3xl font-bold whitespace-no-wrap">创意与技术完美融合</h1>
@@ -76,9 +76,9 @@
      data-action="resize@window-><%= scroll_controller -%>#layout"
      data-scroll-offset="0.65">
 
-<div class="bg-white bg-opacity-75 hidden max-sm:block p-4">
-  <div class="flex max-sm:flex-wrap">
-    <dt class="block font-medium text-black6c py-2 max-sm:flex-none">
+<div class="bg-white bg-opacity-75 block p-4 lg:hidden">
+  <div class="flex flex-wrap">
+    <dt class="block font-medium text-black6c py-2 flex-none">
       <h1 class="text-2xl font-bold whitespace-no-wrap">创意与技术完美融合</h1>
       <h2 class="text-base font-medium whitespace-no-wrap">ENGINEERING POWERED.</h2>
       <h2 class="text-base font-medium whitespace-no-wrap">DESIGN ACHIEVED.</h2>
