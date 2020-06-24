@@ -117,17 +117,18 @@
     </header>
     <div class="flex items-center justify-between flex-wrap">
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r1.jpg', info: @home_page_content.news_1 } %>
+        locals: { news_image: 'media/images/news_r1.jpg', info: @home_page_content.news_1, padding_y: 'sm:pr-2 lg:pr-4 max-sm:pr-1' } %>
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r2.jpg', info: @home_page_content.news_2 } %>
+        locals: { news_image: 'media/images/news_r2.jpg', info: @home_page_content.news_2, padding_y: 'sm:px-1 lg:px-2 max-sm:px-1' } %>
       <%= render partial: 'new_square',
-        locals: { news_image: 'media/images/news_r3.jpg', info: @home_page_content.news_3 } %>
+        locals: { news_image: 'media/images/news_r3.jpg', info: @home_page_content.news_3, padding_y: 'sm:pl-2 lg:pl-4 max-sm:pl-1' } %>
     </div>
   </div>
 </div>
 
 <%# 访客留言 %>
 <%= render partial: 'shared/guest_form' %>
+
 <%= render partial: 'shared/footer' %>
 
 </div>
