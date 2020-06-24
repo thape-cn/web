@@ -24,7 +24,7 @@
       <div class="<%= dual_class_in_ie('grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2', "flex items-center justify-between flex-wrap") -%>">
         <% @management_people.each do |person| %>
           <%= render partial: 'person_square',
-            locals: { person: person, person_class: dual_class_in_ie('grid-div', 'flex-1'), city: City.find_by!(company_name: '天华集团') } %>
+            locals: { person: person, person_class: dual_class_in_ie('grid-div', 'flex-div sm:w-1/2 md:w-1/3 lg:w-1/4 xxl:w-1/6'), city: City.find_by!(company_name: '天华集团') } %>
         <% end %>
       </div>
     </div>
@@ -40,7 +40,7 @@
       <div class="<%= dual_class_in_ie('grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-6 gap-1 sm:gap-2', "flex items-center justify-between flex-wrap") -%>">
         <% @speciality_people.each do |person| %>
           <%= render partial: 'person_square',
-            locals: { person: person, person_class: dual_class_in_ie('grid-div', 'flex-1'), city: City.find_by!(company_name: '天华集团') } %>
+            locals: { person: person, person_class: dual_class_in_ie('grid-div', 'flex-div sm:w-1/2 md:w-1/3 lg:w-1/4 xxl:w-1/6'), city: City.find_by!(company_name: '天华集团') } %>
         <% end %>
       </div>
     </div>
