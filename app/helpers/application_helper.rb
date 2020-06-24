@@ -25,6 +25,14 @@ module ApplicationHelper
     end
   end
 
+  def dual_class_in_ie(normal_class, ie_class)
+    if browser.ie?
+      ie_class
+    else
+      normal_class
+    end
+  end
+
   def search_form_project_type_width(project_type_name)
     return 'w-56' if I18n.locale == :en
     case project_type_name
