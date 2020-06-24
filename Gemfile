@@ -36,6 +36,7 @@ gem 'carrierwave-aliyun'
 
 gem 'globalize', '~> 6.0.0.alpha.1'
 gem 'kaminari'
+gem 'chinese_pinyin', require: false
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
