@@ -9,7 +9,7 @@
     <div class="max-sm:w-full origin-top-right absolute right-0 mt-1 <%= I18n.locale == :en ? 'w-40' : 'w-28' -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_china_area">
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
-          <% City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).each do |city| %>
+          <% City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).order(:company_position).each do |city| %>
             <a href="<%= leadership_path(id: city.url_name) %>" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.company_name %></a>
           <% end %>
         </div>
