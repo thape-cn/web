@@ -90,7 +90,6 @@ export default class extends Controller {
 
   // 开始自动播放
   startAutoPlay = () => {
-    console.log('开始动画')
     if (this.autoPlayIntervalNum) this.stopAutoPlay();
     const { intervalTime } = this.config;
     this.autoPlayIntervalNum = setInterval(() => {
@@ -100,7 +99,6 @@ export default class extends Controller {
 
   // 停止自动播放
   stopAutoPlay = () => {
-    console.log('停止动画')
     if (this.autoPlayIntervalNum) clearInterval(this.autoPlayIntervalNum);
     this.autoPlayIntervalNum = null;
   }

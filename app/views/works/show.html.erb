@@ -13,7 +13,7 @@
     data-carousel2-animation-class-right-out="fade-out"
     data-carousel2-animation-duration="500"
     data-carousel2-interval-time="3000"
-    data-action="mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay"
+    data-action="mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay"
   >
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd" id="slide-images-container" style="padding-top: 50%;">
       <% @work.work_pictures.each_with_index do |work_picture, index| %>
