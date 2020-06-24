@@ -15,7 +15,7 @@ export default class extends Controller {
         rightIn: this.data.get('animationClassRightIn'), // 从右侧进入
         rightOut: this.data.get('animationClassRightOut'), // 从右侧出去
       },
-      animationDuration: Number(this.data.get('intervalTime')) || 500, // 动画持续时间，只在不支持动画事件的浏览器中启用
+      animationDuration: Number(this.data.get('animationDuration')) || 500, // 动画持续时间，只在不支持动画事件的浏览器中启用
       intervalTime: Number(this.data.get('intervalTime')) || 3000, // 轮播间隔时间，该值需要比动画时间更长
     }
   }
