@@ -10,35 +10,29 @@
     </header>
     <div class="px-4 py-5 sm:p-6 max-sm:pt-0">
         <%= form_with url: guest_messages_path do |f| %>
-          <div class="grid grid-cols-4 gap-4 sm:gap-7 xl:gap-10">
-            <div class="col-span-4 sm:col-span-2 row-span-3 max-sm:h-32">
+          <div class="flex w-full flex-wrap sm:flex-no-wrap">
+            <div class="flex flex-none w-full sm:flex-1 h-32 sm:h-auto mr-0 sm:mr-3 xl:mr-5">
               <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-xl h-full">
                 <textarea id="guest-comment" name="guest[message]" placeholder="<%= t('guest_form.comment_placeholder') -%>" class="p-3 rounded-xl form-textarea resize-none block w-full text-black6c border border-thape-dark-gray bg-form-background hover:shadow-lg focus:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out sm:text-sm sm:leading-5 h-full"></textarea>
               </div>
             </div>
 
-            <div class="col-span-2 sm:col-span-1 max-sm:col-span-4">
-              <div class="w-full flex rounded-full">
+            <div class="flex flex-none w-full sm:flex-1 flex-wrap justify-between ml-0 sm:ml-3 xl:ml-5 mt-4 sm:mt-0">
+              <div class="flex-none sm:flex-1 w-full sm:w-auto mb-2 sm:mb-3 xl:mb-5 mr-0 sm:mr-3 xl:mr-5">
                 <%# can not extract below class using @apply %>
                 <input id="guest-name" name="guest[name]" placeholder="<%= t('guest_form.guest_name_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
-            </div>
 
-            <div class="col-span-2 sm:col-span-1 max-sm:col-span-4">
-              <div class="w-full flex rounded-full">
+              <div class="flex-none sm:flex-1 w-full sm:w-auto mb-2 sm:mb-3 xl:mb-5 mt-2 sm:mt-0 ml-0 sm:ml-3 xl:ml-5">
                 <input id="guest-company" name="guest[company]" placeholder="<%= t('guest_form.guest_company_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
-            </div>
 
-            <div class="col-span-4 sm:col-span-2 max-sm:col-span-4">
-              <div class="w-full flex rounded-full">
+              <div class="w-full flex-none my-2 sm:my-3 xl:my-5">
                 <input id="guest-contact" name="guest[contact_details]" placeholder="<%= t('guest_form.guest_contact_placeholder') -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray sm:text-sm sm:leading-5" />
               </div>
-            </div>
 
-            <div class="col-span-4 sm:col-span-2 max-sm:col-span-4">
-              <div class="w-full flex rounded-md">
-                <button id="guest-submit-btn" class="max-sm:w-full max-sm:mt-3 mt-6 xl:mt-2 py-3 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
+              <div class="w-full sm:w-auto flex-none mt-2 sm:mt-3 xl:mt-5">
+                <button id="guest-submit-btn" class="w-full sm:w-auto py-3 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
                   <%= t('guest_form.submit_button') -%>
                 </button>
               </div>
