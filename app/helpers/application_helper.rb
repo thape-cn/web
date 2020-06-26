@@ -10,17 +10,11 @@ module ApplicationHelper
   end
 
   def home_controller
-    if browser.ie?
-      'home-ie11'
-    else
       'home'
     end
   end
 
   def scroll_controller
-    if browser.ie?
-      'scroll-ie11'
-    else
       'scroll'
     end
   end
