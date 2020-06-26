@@ -34,7 +34,7 @@ export default class extends Controller {
     // setup the instance, pass callback functions
     scroller
       .setup({
-        step: ".scroller-step",
+        step: document.querySelectorAll('.scroller-step'),
         offset: scrollama_offset,
         threshold: 2,
         order: true,
