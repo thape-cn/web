@@ -13,7 +13,7 @@
     "autoprefixer": "^9.8.2",
     "core-js": "^3.6.4",
     "intersection-observer": "^0.11.0",
-    "scrollama": "^2.2.1",
+    "scrollama": "1.4.4",
     "stimulus": "^1.1.1",
     "tailwindcss": "^1.4.6"
   },

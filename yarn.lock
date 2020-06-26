@@ -6535,10 +6535,10 @@ schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
-scrollama@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npm.taobao.org/scrollama/download/scrollama-2.2.1.tgz#c9f37871388f6866e807b4cd39bcb45d5c3e49fb"
-  integrity sha1-yfN4cTiPaGboB7TNOby0XVw+Sfs=
+scrollama@1.4.4:
+  version "1.4.4"
+  resolved "https://registry.npm.taobao.org/scrollama/download/scrollama-1.4.4.tgz#e0fd474e04c0be4c95d08280bdc2d636f619db59"
+  integrity sha1-4P1HTgTAvkyV0IKAvcLWNvYZ21k=
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

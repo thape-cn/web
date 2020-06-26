@@ -30,7 +30,7 @@
           img.onload = function() {
             const elem = document.querySelector('#slide-images-container');
             if (elem) {
-              elem.style.paddingTop = `${img.height/img.width*100}%`;
+              elem.style.paddingTop = img.height / img.width * 100 + '%';
             }
           }
         })()
