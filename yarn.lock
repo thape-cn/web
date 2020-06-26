@@ -3755,11 +3755,6 @@ interpret@^1.4.0:
   resolved "https://registry.npm.taobao.org/interpret/download/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
   integrity sha1-Zlq4vE2iendKQFhOgS4+D6RbGh4=
 
-intersection-observer@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.npm.taobao.org/intersection-observer/download/intersection-observer-0.11.0.tgz#f4ea067070326f68393ee161cc0a2ca4c0040c6f"
-  integrity sha1-9OoGcHAyb2g5PuFhzAospMAEDG8=
-
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -6535,10 +6530,10 @@ schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
-scrollama@1.4.4:
-  version "1.4.4"
-  resolved "https://registry.npm.taobao.org/scrollama/download/scrollama-1.4.4.tgz#e0fd474e04c0be4c95d08280bdc2d636f619db59"
-  integrity sha1-4P1HTgTAvkyV0IKAvcLWNvYZ21k=
+scrollama@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/scrollama/download/scrollama-2.2.1.tgz#c9f37871388f6866e807b4cd39bcb45d5c3e49fb"
+  integrity sha1-yfN4cTiPaGboB7TNOby0XVw+Sfs=
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

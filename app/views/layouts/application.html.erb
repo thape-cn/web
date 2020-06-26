@@ -12,6 +12,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <script type="module" src="/alpine/2-4-1.js"></script>
     <script nomodule src="/alpine/2-4-1-ie11.js" defer></script>
+    <%= javascript_pack_tag 'application' %>
     <% if browser.ie? %>
       <style>#thape-top-header { top: 56px; }</style>
     <% end %>
@@ -33,5 +34,4 @@
 
     <%= yield %>
   </body>
-  <%= javascript_pack_tag 'application' %>
 </html>

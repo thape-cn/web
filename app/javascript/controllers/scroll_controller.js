@@ -35,8 +35,6 @@ export default class extends Controller {
     scroller
       .setup({
         step: document.querySelectorAll('.scroller-step'),
-        container: document.documentElement,
-        graphic: '.scroll__graphic',
         offset: scrollama_offset,
         threshold: 2,
         order: true,
