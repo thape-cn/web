@@ -10,13 +10,11 @@ module ApplicationHelper
   end
 
   def home_controller
-      'home'
-    end
+    'home'
   end
 
   def scroll_controller
-      'scroll'
-    end
+    'scroll'
   end
 
   def dual_class_in_ie(normal_class, ie_class)
