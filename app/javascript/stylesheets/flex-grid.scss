@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+$gaps: (
+    0:0,
+    1:.25rem,
+    2:.5rem,
+    3:.75rem,
+    4:1rem,
+    5:1.25rem,
+    6:1.5rem,
+    8:2rem,
+    10:2.5rem
+);
+
+@mixin flex-grid-cols-gap ($col, $gapList) {
+    @each $gapKey, $gapValue in $gapList {
+        .flex-grid-cols-#{$col}-gap-#{$gapKey} {
+            width: calc(100% + #{$gapValue});
+            margin-left: -#{$gapValue/2};
+
+            >* {
+                width: calc(100% / #{$col} - #{$gapValue});
+                margin: 0 #{$gapValue/2};
+                &:nth-child(n) {
+                    margin-top: 0;
+                }
+                &:nth-child(n + #{$col+1}) {
+                    margin-top: $gapValue;
+                }
+            }
+        }
+    }
+}
+
+@responsive {
+    .flex-grid {
+        display: block;
+        overflow: hidden;
+    }
+
+    .flex-grid-box {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        >* {
+            flex: none;
+        }
+
+    }
+
+    @for $i from 1 through 8 {
+        @include flex-grid-cols-gap($i, $gaps);
+    }
+}

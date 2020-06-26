@@ -20,7 +20,8 @@
   </header>
 
   <% if @people_results.present? || @people_city_results.present? %>
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 <%= @people_results.count + @people_city_results.count >= 6 ? 'xxl:grid-cols-6' : '' -%> gap-1 sm:gap-2 mt-8 mb-4">
+  <div class="flex-grid mt-8 mb-4">
+    <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 <%= @people_results.count + @people_city_results.count >= 6 ? 'xxl:flex-grid-cols-6-gap-2' : '' -%>">
     <% @people_results.each do |person| %>
       <%= render partial: 'leadership/person_square',
         locals: { person: person, person_class: 'grid-div', city: nil } %>
@@ -29,6 +30,7 @@
       <%= render partial: 'leadership/person_square',
         locals: { person: person, person_class: 'grid-div', city: @city } %>
     <% end %>
+    </div>
   </div>
   <% else %>
   <div class="w-full flex flex-auto max-sm:mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
