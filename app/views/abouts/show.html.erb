@@ -88,7 +88,8 @@
     </dd>
   </div>
 </div>
-<div class="<%= dual_class_in_ie('grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2', 'flex items-center justify-between flex-wrap') -%> my-2 scroller-step">
+<div class="flex-grid my-2 scroller-step">
+  <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2">
   <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g1.jpg',
     h1: '研究', h2: 'RESEARCH', h3s: ['技术赋能设计——基于创新的研究'],
     ps: [
@@ -111,6 +112,7 @@
     ps: [
       '通过全球视野与本地文化的融会贯通在天华建筑设计品牌的积淀下成立的集专业与创意的高端居住产品线。'
     ] } %>
+  </div>
 </div>
 
 <%= render partial: 'shared/footer' %>
