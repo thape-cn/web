@@ -6,6 +6,7 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "@stimulus/polyfills";
+import 'waypoints/lib/noframework.waypoints';
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()

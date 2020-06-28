@@ -12,12 +12,28 @@
     "@webwingscz/googlefont-montserrat": "^1.0.5",
     "autoprefixer": "^9.8.2",
     "core-js": "^3.6.4",
+    "intersection-observer": "^0.11.0",
     "scrollama": "^2.2.1",
     "stimulus": "^1.1.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "waypoints": "^4.0.1"
   },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
+  },
+  "browserslist": {
+    "production": [
+      "ie > 9",
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "ie > 9",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,14 +1,5 @@
 <%= render partial: 'shared/thape_nav' -%>
 
-<div
-     class="w-full"
-     data-controller="<%= home_controller -%>"
-     data-action="resize@window-><%= home_controller -%>#layout"
-     data-home-offset="0.75"
-     data-home-amplify_rate="2.8"
-     data-home-threshold="0.05"
-     data-<%= home_controller -%>-refresh-interval="5000">
-
 <div class="fixed w-full h-screen left-0 top-0" style="z-index: 0;">
   <div
     class="thape-slide"
@@ -71,9 +62,9 @@
   </div>
 </div>
 
-<div class="relative" style="margin-top: 100vh; z-index: 1;">
+<div class="relative" style="margin-top: 100vh; z-index: 1;" data-controller="home" style="opacity: 0;">
 <%# 最新项目 %>
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" style="opacity: 0.001;" id="thape-fadein">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" data-target="home.waypoint">
   <header>
     <div class="flex w-full pt-10 pb-4 justify-between items-center max-sm:px-2 max-sm:py-4">
       <div class="flex items-end">
@@ -96,7 +87,7 @@
   <% end %>
 </div>
 
-<div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step">
+<div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" data-target="home.waypoint">
   <%# 天华新闻 %>
   <div>
     <header>
@@ -133,4 +124,61 @@
 <%= render partial: 'shared/footer' %>
 
 </div>
-</div>
+
+<!-- <script>
+(function(){
+  const scroller = scrollama();
+  function handleStepEnter(response) {
+    if (response.direction == 'down') {
+      if (response.index === 0) {
+      }
+    }
+  }
+
+  function handleStepExit(response) {
+    if (response.direction == 'up') {
+      if (response.index === 0) {
+      }
+    }
+  }
+
+  function handleStepProgress(response) {
+    const eo = ((response.progress - 0.05) <= 0 ? 0.001 : response.progress - 0.05) * 2.8;
+    if (response.index === 0) {
+      if (eo >= 1) {
+        response.element.style.opacity = 1;
+      } else {
+        response.element.style.opacity = eo;
+      }
+    }
+  }
+
+  scroller
+    .setup({
+      step: '.scroller-step',
+      offset: 0.75,
+      progress: true,
+      threshold: 4,
+      order: true,
+    })
+    .onStepProgress(handleStepProgress)
+    .onStepEnter(handleStepEnter)
+    .onStepExit(handleStepExit);
+  setTimeout(function() {
+    scroller.resize();
+  }, 500);
+  let isScroll = false;
+  let scrollTimer = null;
+  window.addEventListener('resize', function() {
+    isScroll = true;
+    if (scrollTimer) {
+      clearTimeout(scrollTimer)
+      scrollTimer = null;
+    };
+    scrollTimer = setTimeout(function() {
+      isScroll = false;
+      scroller.resize();
+    }, 500);
+  });
+})()
+</script> -->
