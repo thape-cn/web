@@ -61,7 +61,7 @@ isEnglish = I18n.locale == :en;
       <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>"><%= t('menu.works.text') -%></a>
       <nav class="works">
         <div class="nav-item">
-          <a href="#" style="pointer-events: none;"><%= t('menu.works.project_type') -%></a>
+          <span><%= t('menu.works.project_type') -%></span>
           <div class="list">
             <div class="list-item">
               <div class="nav-item">
@@ -112,7 +112,7 @@ isEnglish = I18n.locale == :en;
           </div>
         </div>
         <div class="nav-item">
-          <a href="#" style="pointer-events: none;"><%= t('menu.works.china_area_company') -%></a>
+          <span><%= t('menu.works.china_area_company') -%></span>
           <div class="list area">
             <div class="list-item" style="width: 25%;height: 11rem;">
               <div class="nav-item">

@@ -34,7 +34,7 @@
 <div x-data="{ show_city: '', show_company: '' }">
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step max-sm:flex-wrap max-sm:px-4">
     <div class="relative w-1/2 max-sm:flex-none max-sm:w-full max-sm:hidden">
-      <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = ''" -%>
+      <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = '';show_company=''" -%>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'hidden md:block xl:hidden pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
@@ -296,14 +296,14 @@
     <%= render partial: 'mobile_map_address', locals: {c: '深圳易筑', m: @m_深圳易筑 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
   </div>
-  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray max-sm:px-4">
+  <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray max-sm:px-4" id="thape-address">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-sm:px-0">
       <header class="px-4 pt-2 pb-1 sm:px-6 max-sm:px-0" x-on:click="show_city = ''">
         <h1 class="inline-block text-2xl xxxl:text-3xl font-bold text-black6c">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
+          <a href="<%= biz_map_path(locale: 'cn', anchor: 'thape-address') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>
         <h2 class="ml-2 inline-block text-xl xxxl:text-2xl text-black6c">
-          <a href="#" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">OFFICES</a>
+          <a href="<%= biz_map_path(locale: 'en', anchor: 'thape-address') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">OFFICES</a>
         </h2>
       </header>
       <div class="w-full flex flex-wrap justify-left items-center pl-3 pr-1 pt-1 pb-2 sm:pl-5 max-sm:px-0 max-sm:grid max-sm:grid-cols-4 max-sm:gap-1">
@@ -337,10 +337,10 @@
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
       <header class="px-4 pt-2 pb-1 sm:px-6">
         <h1 class="inline-block text-3xl font-bold text-black6c max-sm:text-2xl">
-          <a href="#" class="hover:text-black6c-t70 focus:text-black6c-t70">上海</a>
+          <span class="hover:text-black6c-t70">上海</span>
         </h1>
         <h2 class="ml-2 inline-block text-2xl text-black6c max-sm:text-xl">
-          <a href="#" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">SHANGHAI</a>
+          <span class="font-medium hover:text-black6c-t70">SHANGHAI</span>
         </h2>
       </header>
       <div class="flex flex-wrap px-4 py-2 sm:px-6">

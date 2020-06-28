@@ -114,8 +114,6 @@
         right: 0;
         top: 100%;
         @apply nav-background-initial border-gray-200 border-solid border-t;
-        transition-delay: .8s;
-        transition-property: all;
 
         a {
           font-size: 14px;
@@ -124,19 +122,6 @@
         span {
           font-size: 14px;
         }
-      }
-
-      >a {
-        transition-delay: .1s;
-        transition-property: all;
-      }
-      >span {
-        transition-delay: .1s;
-        transition-property: all;
-      }
-      >nav {
-        transition-delay: .1s;
-        transition-property: all;
       }
 
       &:hover {
@@ -179,7 +164,7 @@
 
     &.works {
       justify-content: flex-end;
-      padding: 1rem 1.16rem 1rem 0;
+      padding: .5rem 1.16rem .25rem 0;
 
       @media screen {
         @media (min-width: 768px) {
