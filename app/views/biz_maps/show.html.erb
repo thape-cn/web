@@ -34,7 +34,7 @@
 <div x-data="{ show_city: '', show_company: '' }">
   <div class="w-full my-8 flex justify-between pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step max-sm:flex-wrap max-sm:px-4">
     <div class="relative w-1/2 max-sm:flex-none max-sm:w-full max-sm:hidden">
-      <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = ''" -%>
+      <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = '';show_company=''" -%>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'hidden md:block xl:hidden pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
       <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
