@@ -9,10 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def home_controller
-    'home'
-  end
-
   def scroll_controller
     'scroll'
   end
