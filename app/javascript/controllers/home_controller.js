@@ -19,7 +19,7 @@ export default class extends Controller {
           }
         }
         else if (index === 1) {
-          const thapeFadein = document.getElementById('thape-fadein');
+          const thapeFadein = document.getElementById('thape-new-projects');
           thapeFadein.style.opacity = 1;
         }
       }
