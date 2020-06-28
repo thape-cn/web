@@ -1,9 +1,9 @@
 @import "~@webwingscz/googlefont-montserrat/montserrat";
-@import "animate.scss";
-@import "flex-grid.scss";
+@import 'animate';
+@import 'flex-grid';
 @tailwind base;
 @tailwind components;
-@import "nav-bar";
+@import 'nav-bar';
 @tailwind utilities;
 
 @responsive {
