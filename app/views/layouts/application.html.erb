@@ -14,7 +14,10 @@
     <script nomodule src="/alpine/2-4-1-ie11.js" defer></script>
     <%= javascript_pack_tag 'application' %>
     <% if browser.ie? %>
-      <style>#thape-top-header { top: 56px; }</style>
+      <style>
+        #thape-top-header { top: 56px; }
+        #thape-footer-logo { height: 22px; }
+      </style>
     <% end %>
   </head>
 
