@@ -114,6 +114,8 @@
         right: 0;
         top: 100%;
         @apply nav-background-initial border-gray-200 border-solid border-t;
+        transition-delay: .8s;
+        transition-property: all;
 
         a {
           font-size: 14px;
@@ -123,6 +125,20 @@
           font-size: 14px;
         }
       }
+
+      >a {
+        transition-delay: .1s;
+        transition-property: all;
+      }
+      >span {
+        transition-delay: .1s;
+        transition-property: all;
+      }
+      >nav {
+        transition-delay: .1s;
+        transition-property: all;
+      }
+
       &:hover {
         >a {
           @apply text-white font-semibold;
@@ -137,10 +153,11 @@
     }
 
     &.intro {
-      padding-right: 13.7rem;
-      height: calc(100% - 20px);
       align-items: center;
+      height: calc(100% - 20px);
       justify-content: flex-end;
+      padding-right: 13.7rem;
+
       @media screen {
         @media (min-width: 768px) {
           padding-right: 14.6rem;
@@ -161,10 +178,9 @@
     }
 
     &.works {
-      padding-right: 1.16rem;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
       justify-content: flex-end;
+      padding: 1rem 1.16rem 1rem 0;
+
       @media screen {
         @media (min-width: 768px) {
           padding-right: 2.16rem;
@@ -182,7 +198,9 @@
           padding-right: 7.84rem;
         }
       }
+
       >.nav-item {
+
         &:hover>a {
           @apply text-black6c font-semibold;
         }
@@ -241,10 +259,11 @@
     }
 
     &.service {
-      height: calc(100% - 20px);
       align-items: center;
+      height: calc(100% - 20px);
       justify-content: flex-end;
       @apply pr-2;
+
       @media screen {
         @media (min-width: 768px) {
           @apply pr-6;
@@ -263,6 +282,7 @@
         }
       }
       >.nav-item {
+
         padding: 0 .78rem;
         &:last-child {
           padding-right: 0;
