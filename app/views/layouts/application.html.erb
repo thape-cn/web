@@ -23,25 +23,26 @@
   <body class="overflow-x-hidden">
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
-        <div class="bg-red-500 w-full fixed z-50">
+        <div class="bg-red-600 w-full fixed z-50">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
-        <div class="bg-red-500 w-full">
+        <div class="bg-red-600 w-full">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
       <% end %>
       <% if type == "notice" %>
-        <div class="bg-green-500 w-full fixed z-50">
+        <div class="bg-green-600 w-full fixed z-50">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
-        <div class="bg-green-500 w-full">
+        <div class="bg-green-600 w-full">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
       <% end %>
     <% end %>
     <div class="relative bg-white flex flex-wrap main" id="main">
-    <%= yield %>
+      <%= yield %>
     </div>
+<% if flash.present? -%>
     <script>
       (function(){
         function setMainHeight() {
@@ -52,5 +53,6 @@
         window.addEventListener('resize', setMainHeight);
       })()
     </script>
+<% end %>
   </body>
 </html>
