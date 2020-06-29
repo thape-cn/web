@@ -10,7 +10,11 @@ module ApplicationHelper
   end
 
   def scroll_controller
-    'scroll'
+    if browser.ie?
+      'scroll-ie11'
+    else
+      'scroll'
+    end
   end
 
   def search_form_project_type_width(project_type_name)
