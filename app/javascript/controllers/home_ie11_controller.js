@@ -13,4 +13,7 @@ export default class extends Controller {
       });
     }
   }
+
+  layout() {
+  }
 }
