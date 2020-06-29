@@ -1,10 +1,6 @@
 <%= render partial: 'shared/thape_nav' -%>
-<div data-controller="<%= home_controller -%>"
-     data-action="resize@window-><%= home_controller -%>#layout"
-     data-home-offset="0.75"
-     data-home-amplify_rate="2.3">
 
-<div class="fixed w-full h-screen left-0 top-0" style="z-index: 0;">
+<div class="fixed w-full h-full" style="z-index: 0;">
   <div
     class="thape-slide"
     data-controller="carousel2"
@@ -66,6 +62,11 @@
   </div>
 </div>
 
+<div data-controller="<%= home_controller -%>"
+     data-action="resize@window-><%= home_controller -%>#layout"
+     data-home-offset="0.75"
+     data-home-amplify_rate="2.3">
+
 <div class="relative" style="margin-top: 100vh; z-index: 1;" <%= raw(
 home_controller == 'home-ie11' ? 'style="opacity: 0;"' : '') -%> id="thape-home-waypoint">
 <%# 最新项目 %>
@@ -125,7 +126,6 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
 <%# 访客留言 %>
 <%= render partial: 'shared/guest_form' %>
 
+</div>
+</div>
 <%= render partial: 'shared/footer' %>
-
-</div>
-</div>

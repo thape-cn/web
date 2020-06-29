@@ -15,26 +15,42 @@
     <%= javascript_pack_tag 'application' %>
     <% if browser.ie? %>
       <style>
-        #thape-top-header { top: 56px; }
         #thape-footer-logo { height: 22px; }
       </style>
     <% end %>
   </head>
 
-  <body class="bg-white overflow-x-hidden min-h-screen flex flex-wrap">
+  <body class="overflow-x-hidden">
     <% flash.each do |type, message| %>
       <% if type == "alert" %>
-        <div class="bg-red-500 fixed top-0 left-0 w-full z-50">
+        <div class="bg-red-500 w-full fixed z-50">
+          <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+        </div>
+        <div class="bg-red-500 w-full">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
       <% end %>
       <% if type == "notice" %>
-        <div class="bg-green-500 fixed top-0 left-0 w-full z-50">
+        <div class="bg-green-500 w-full fixed z-50">
+          <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
+        </div>
+        <div class="bg-green-500 w-full">
           <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans"><%= message %></div>
         </div>
       <% end %>
     <% end %>
-
+    <div class="relative bg-white flex flex-wrap main" id="main">
     <%= yield %>
+    </div>
+    <script>
+      (function(){
+        function setMainHeight() {
+          const mainElem = document.querySelector('#main');
+          mainElem.style.height = 'calc(100vh - ' + mainElem.offsetTop + 'px)'
+        }
+        setMainHeight();
+        window.addEventListener('resize', setMainHeight);
+      })()
+    </script>
   </body>
 </html>

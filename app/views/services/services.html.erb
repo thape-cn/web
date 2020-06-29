@@ -1,10 +1,10 @@
 <%= render partial: 'shared/thape_nav' -%>
 
-<div data-controller="service"
+<div class="h-full" data-controller="service"
      data-action="resize@window->service#resize">
 
-<div class="relative flex flex-col h-screen max-sm:overflow-auto">
-  <div class="flex-none w-full max-h-screen overflow-hidden" data-target="service.bgImg">
+<div class="relative flex flex-col h-full max-sm:overflow-auto">
+  <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg">
     <picture class="w-full">
       <% if background_img_webp.present? %>
         <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
