@@ -1,4 +1,5 @@
 <%= render partial: 'shared/thape_nav' -%>
+<div data-controller="home-ie11">
 
 <div class="fixed w-full h-screen left-0 top-0" style="z-index: 0;">
   <div
@@ -62,9 +63,9 @@
   </div>
 </div>
 
-<div class="relative" style="margin-top: 100vh; z-index: 1;" data-controller="home" style="opacity: 0;">
+<div class="relative" style="margin-top: 100vh; z-index: 1;" style="opacity: 0;" id="thape-home-waypoint">
 <%# 最新项目 %>
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" data-target="home.waypoint" id="thape-new-projects">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" id="thape-new-projects">
   <header>
     <div class="flex w-full pt-10 pb-4 justify-between items-center max-sm:px-2 max-sm:py-4">
       <div class="flex items-end">
@@ -87,7 +88,7 @@
   <% end %>
 </div>
 
-<div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" data-target="home.waypoint" id="thape-home-news">
+<div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white" id="thape-home-news">
   <%# 天华新闻 %>
   <header>
     <div class="flex w-full pt-10 pb-4 justify-between items-center max-sm:px-2 max-sm:py-4">
@@ -121,4 +122,5 @@
 
 <%= render partial: 'shared/footer' %>
 
+</div>
 </div>
