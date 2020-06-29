@@ -1,5 +1,5 @@
 <form action="<%= search_url -%>" method="GET" id="area-leadership-form" x-data="{ show_drop_menu_china_area: false }" class="absolute sm:top-4 md:top-8 right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16 max-sm:static max-sm:w-full max-sm:px-2 max-sm:my-4">
-  <div class="max-sm:block max-sm:mx-auto inline-block mt-1 ml-2 relative rounded-md shadow-sm">
+  <div class="max-sm:block max-sm:mx-auto inline-block align-middle mt-1 ml-2 relative rounded-md shadow-sm">
     <button type="button" class="max-sm:w-full inline-flex justify-between <%= I18n.locale == :en ? 'w-40' : 'w-28' -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area">
       <%= t('menu.leadership.china_area_company') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="max-sm:block max-sm:mx-auto inline-block mt-1 ml-2 relative rounded-md shadow-sm">
+  <div class="max-sm:block max-sm:mx-auto inline-block align-middle mt-1 ml-2 relative rounded-md shadow-sm">
     <input class="max-sm:w-full form-input block w-36 sm:w-40 pr-10" name="name" placeholder="<%= t('ui.keyword_search') -%>" value="<%= @search_name -%>" style="height: 2.375rem" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
       x-on:click="document.getElementById('area-leadership-form').submit();">
