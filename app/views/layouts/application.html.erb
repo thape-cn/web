@@ -39,19 +39,8 @@
         </div>
       <% end %>
     <% end %>
-    <div class="relative bg-white flex flex-wrap main" id="main">
+    <div class="relative bg-white flex flex-wrap main" data-controller="main">
       <%= yield %>
     </div>
-    <%# Need remove #main to remove below script %>
-    <script>
-      (function(){
-        function setMainHeight() {
-          const mainElem = document.querySelector('#main');
-          mainElem.style.height = 'calc(100vh - ' + mainElem.offsetTop + 'px)'
-        }
-        setMainHeight();
-        window.addEventListener('resize', setMainHeight);
-      })()
-    </script>
   </body>
 </html>

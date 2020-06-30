@@ -32,13 +32,19 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex ||
 
 isEnglish = I18n.locale == :en;
 %>
-<header class="<%= headerIsActive ? 'active' : '' -%>" id="thape-top-header" lang="<%= isEnglish ? 'en' : '' -%>">
+<header
+  class="<%= headerIsActive ? 'active' : '' -%>"
+  id="thape-top-header"
+  lang="<%= isEnglish ? 'en' : '' -%>"
+  data-controller="header"
+  data-header-is-active="<%= headerIsActive -%>"
+>
   <div class="logo">
     <a href="<%= root_path -%>">
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
     </a>
   </div>
-  <nav class="level-1" id="nav_level_1">
+  <nav class="level-1" id="nav_level_1" data-target="header.nav">
     <div class="nav-item">
       <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
@@ -220,12 +226,7 @@ isEnglish = I18n.locale == :en;
       <a href="<%= biz_map_path -%>" class="<%= isContact ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item">
-      <a href="javascript:void(0)"
-        onclick="
-          document.querySelector('#nav_level_1').style.display='none';
-          document.querySelector('#header-search-form').style.display='flex';
-          document.querySelector('#header-search-form').querySelector('input').focus();
-        ">
+      <a href="javascript:void(0)" data-action="click->header#showForm">
         <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
         </svg>
@@ -277,25 +278,21 @@ isEnglish = I18n.locale == :en;
       <% end %>
     </div>
   </nav>
-  <form action="<%= search_path -%>" method="GET" id="header-search-form">
-    <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>"
-      onblur="
-        document.querySelector('#nav_level_1').style.display='flex';
-        document.querySelector('#header-search-form').style.display='none';
-      " />
+  <form action="<%= search_path -%>" method="GET" id="header-search-form" data-target="header.form">
+    <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-target="header.formInput" data-action="blur->header#hideForm" />
     <button type="submit">
       <svg class="h-6 w-6" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
       </svg>
     </button>
   </form>
-  <button type="button" class="aside-menu-button" id="aside-menu-button">
+  <button type="button" class="aside-menu-button" id="aside-menu-button" data-action="click->header#toggleAsideMenu">
     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
-  <div class="aside-menu" style="display: none;" id="aside-menu">
-    <div class="aside-menu-container" id="aside-menu-container">
+  <div class="aside-menu" style="display: none;" id="aside-menu" data-target="header.asideMenu" data-action="click->header#toggleAsideMenu">
+    <div class="aside-menu-container" id="aside-menu-container" data-action="click->header#menuItemClick">
       <div class="aside-menu-item">
         <a href="javascrpt:void(0)"><%= t('menu.about.text') -%></a>
         <div class="aside-menu-children" style="display:none;">
@@ -354,61 +351,3 @@ isEnglish = I18n.locale == :en;
     </div>
   </div>
 </header>
-
-<script>
-  (function(){
-    function toggleAsideMenu(event) {
-      const e = event || window.event;
-      e.preventDefault && e.preventDefault();
-      const asideMenu = document.querySelector('#aside-menu');
-      if (asideMenu) {
-        asideMenu.style.display = asideMenu.style.display === 'none' ? 'block' : 'none';
-      }
-      return false;
-    }
-    const asideMenuButton = document.querySelector('#aside-menu-button');
-    if (asideMenuButton) {
-      asideMenuButton.addEventListener('click', toggleAsideMenu);
-    }
-    const asideMenuContainer = document.querySelector('#aside-menu-container');
-    if (asideMenuContainer) {
-      asideMenuContainer.addEventListener('click', function(event) {
-        const e = event || window.event;
-        e.stopPropagation && e.stopPropagation();
-        if (e.target.tagName.toLowerCase() === 'a') {
-          const parent = e.target.parentElement;
-          if (parent) {
-            const asideMenuChildren = parent.querySelector('.aside-menu-children');
-            if (asideMenuChildren) {
-              e.preventDefault && e.preventDefault();
-              const display = asideMenuChildren.style.display;
-              asideMenuChildren.style.display = display === 'none' ? 'block' : 'none';
-            }
-          }
-        }
-      });
-    }
-    const asideMenu = document.querySelector('#aside-menu');
-    if (asideMenu) {
-      asideMenu.addEventListener('click', function(event) {
-        asideMenu.style.display = 'none';
-      });
-    }
-  })()
-</script>
-
-<% if !headerIsActive %>
-<script>
-  (function(){
-    function setHeaderActive() {
-      const headerElem = document.querySelector('#thape-top-header');
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      if (headerElem) {
-        if (scrollTop > 200) headerElem.classList.add('active');
-        else headerElem.classList.remove('active');
-      }
-    }
-    document.addEventListener('scroll', setHeaderActive);
-  })()
-</script>
-<% end %>
