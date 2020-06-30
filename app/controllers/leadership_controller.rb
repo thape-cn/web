@@ -26,19 +26,23 @@ class LeadershipController < ApplicationController
       city_area_people = Person.includes(:city_people).where(city_people: { city_id: city_area.id })
         .where(leaving_date: nil)
         .order(position: :asc)
+      city_management_ids = city_area_people.where(city_people: { is_management: true }).pluck(:id)
+      city_professional_ids = city_area_people.where(city_people: { is_professional: true }).pluck(:id)
       @management_people = if @search_name.present?
-        city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-          .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
+        city_area_people.where(category: 1).or(city_area_people.where(city_people: { is_management: true }))
+          .joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
+          .where('person_translations.name like ?', "%#{@search_name}%")
       else
         city_area_people.where(category: 1).or(city_area_people.where(city_people: { is_management: true }))
-      end
+      end.where.not(id: city_professional_ids)
 
       @speciality_people = if @search_name.present?
-        city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-          .where(category: 2).where('person_translations.name like ?', "%#{@search_name}%")
+        city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
+          .joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
+          .where('person_translations.name like ?', "%#{@search_name}%")
       else
         city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
-      end
+      end.where.not(id: city_management_ids)
       render 'area_leadership', locals: { c: city_area.company_name, e: city_area.url_name.upcase, city: city_area }
     else
       @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
