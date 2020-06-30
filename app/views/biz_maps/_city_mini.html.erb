@@ -1,6 +1,6 @@
-<dl class="w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 px-2 py-1 m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:p-0 max-sm:m-0 max-sm:flex max-sm:items-center max-sm:flex-wrap"
+<dl class="w-full sm:w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 p-0 sm:px-2 sm:py-1 m-0 sm:m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer col-span-1 sm:col-auto flex sm:block items-center flex-wrap"
   x-bind:class="{ 'bg-gray-50 text-black6c': show_city == '<%= c -%>', 'bg-thape-city-gray text-white': show_city != '<%= c -%>' }"
   x-on:click="show_city = '<%= c -%>'">
-  <dt class="font-medium <%= fdsz('text-lg lg:text-xl max-sm:text-base') -%> text-center max-sm:flex-none max-sm:w-full"><%= c -%></dt>
-  <dd class="font-light text-center <%= fdsz('text-xs xxl:text-sm max-sm:text-xs') -%> max-sm:flex-none max-sm:w-full max-sm:tracking-tighter"><%= e -%></dd>
+  <dt class="font-medium <%= fdsz('text-base sm:text-lg lg:text-xl') -%> text-center flex-none sm:flex-auto w-full sm:w-auto"><%= c -%></dt>
+  <dd class="font-light text-center <%= fdsz('text-xs xxl:text-sm') -%> flex-none sm:flex-auto w-full sm:w-auto tracking-tighter sm:tracking-normal"><%= e -%></dd>
 </dl>

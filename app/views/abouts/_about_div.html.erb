@@ -1,8 +1,8 @@
 <div class="grid-div" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
   <%= image_pack_tag g_image, class: 'grid-mask-image' -%>
   <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
-    <h1 class="<%= fdsz('text-xl max-sm:text-xl') -%> text-left pb-1 font-medium"><%= h1 -%></h1>
-    <h2 class="<%= fdsz('text-lg max-sm:text-base') -%> text-left leading-snug"><%= h2 -%></h2>
+    <h1 class="<%= fdsz('text-xl') -%> text-left pb-1 font-medium"><%= h1 -%></h1>
+    <h2 class="<%= fdsz('text-base sm:text-lg') -%> text-left leading-snug"><%= h2 -%></h2>
   </div>
   <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
     x-transition:enter="transition ease-linear duration-200"
@@ -11,15 +11,15 @@
     x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 transform translate-x-0"
     x-transition:leave-end="opacity-0 transform -translate-x-1/2">
-    <div class="flex items-center pl-10 pr-36 max-sm:w-full max-sm:px-2">
+    <div class="flex items-center px-2 sm:pl-10 sm:pr-36 w-full sm:w-auto">
       <div>
-        <h1 class="<%= fdsz('text-2xl xl:text-3xl max-sm:text-xl') -%> text-left pb-1 font-semibold max-sm:leading-none"><%= h1 -%></h1>
-        <h2 class="<%= fdsz('text-xl xl:text-2xl max-sm:text-base') -%> text-left leading-snug"><%= h2 -%></h2>
+        <h1 class="<%= fdsz('text-xl sm:text-2xl xl:text-3xl') -%> text-left pb-1 leading-none sm:font-semibold"><%= h1 -%></h1>
+        <h2 class="<%= fdsz('text-base sm:text-xl xl:text-2xl') -%> text-left leading-snug"><%= h2 -%></h2>
         <% h3s.each_with_index do |h3, index| %>
-          <h3 class="<%= index == 0 ? 'mt-3 max-sm:mt-1' : '' -%> <%= fdsz('text-base xl:text-lg xxxl:text-xl') -%> font-semibold text-left max-sm:text-sm max-sm:leading-tight"><%= h3 -%></h3>
+          <h3 class="<%= index == 0 ? 'mt-1 sm:mt-3' : '' -%> <%= fdsz('text-sm sm:text-base xl:text-lg xxxl:text-xl') -%> leading-tight sm:font-semibold text-lef"><%= h3 -%></h3>
         <% end %>
         <% ps.each_with_index do |p, index| %>
-          <p class="mt-2 <%= index > 0 ? 'max-sm:mt-1' : '' -%> <%= fdsz('text-xs xl:text-sm xxxl:text-base max-sm:text-xs') -%> text-justify max-sm:leading-tight"><%= p -%></p>
+          <p class="<%= index > 0 ? 'mt-1 sm:mt-2' : '' -%> <%= fdsz('text-xs xl:text-sm xxxl:text-base') -%> text-justify leading-tight sm:leading-noraml"><%= p -%></p>
         <% end %>
       </div>
     </div>

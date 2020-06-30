@@ -1,54 +1,54 @@
 <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
 <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
   <% if m.alt_name.present? %>
-    <h1 class="text-2xl font-medium leading-tight max-sm:text-xl max-sm:leading-normal"><%= m.long_name -%></h1>
-    <h1 class="text-2xl font-medium pb-1 max-sm:text-xl max-sm:leading-normal"><%= m.alt_name -%></h1>
+    <h1 class="<% fdsz('text-xl sm:text-2xl') -%> font-medium leading-normal sm:leading-tight"><%= m.long_name -%></h1>
+    <h1 class="<% fdsz('text-xl sm:text-2xl') -%> font-medium pb-1 leading-normal"><%= m.alt_name -%></h1>
   <% else %>
-    <h1 class="text-2xl font-medium leading-tight pb-2 max-sm:text-xl max-sm:leading-normal"><%= m.long_name -%></h1>
+    <h1 class="<% fdsz('text-xl sm:text-2xl') -%> font-medium leading-normal sm:leading-tight pb-2"><%= m.long_name -%></h1>
   <% end %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">地址：</label>
+    <label class="flex-none leading-normal">地址：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= m.address -%></p>
+      <p class="leading-normal"><%= m.address -%></p>
     </div>
   </div>
   <% if m.tel.present? %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">电话：</label>
+    <label class="flex-none leading-normal">电话：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= m.tel -%></p>
+      <p class="leading-normal"><%= m.tel -%></p>
     </div>
   </div>
   <% end %>
   <% if m.marketing_phone.present? %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">市场营销：</label>
+    <label class="flex-none leading-normal">市场营销：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= m.marketing_phone -%></p>
+      <p class="leading-normal"><%= m.marketing_phone -%></p>
     </div>
   </div>
   <% end %>
   <% if m.media_phone.present? %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">媒体：</label>
+    <label class="flex-none leading-normal">媒体：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= m.media_phone -%></p>
+      <p class="leading-normal"><%= m.media_phone -%></p>
     </div>
   </div>
   <% end %>
   <% if m.fax.present? %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">传真：</label>
+    <label class="flex-none leading-normal">传真：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= m.fax -%></p>
+      <p class="leading-normal"><%= m.fax -%></p>
     </div>
   </div>
   <% end %>
   <% if m.website_name.present? %>
   <div class="flex">
-    <label class="flex-none max-sm:leading-normal">网址：</label>
+    <label class="flex-none leading-normal">网址：</label>
     <div>
-      <p class="max-sm:leading-normal"><%= link_to m.website_name, m.website_url -%></p>
+      <p class="leading-normal"><%= link_to m.website_name, m.website_url -%></p>
     </div>
   </div>
   <% end %>
