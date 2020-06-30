@@ -42,6 +42,7 @@
     <div class="relative bg-white flex flex-wrap main" id="main">
       <%= yield %>
     </div>
+<% if flash.present? -%>
     <script>
       (function(){
         function setMainHeight() {
@@ -52,5 +53,6 @@
         window.addEventListener('resize', setMainHeight);
       })()
     </script>
+<% end %>
   </body>
 </html>
