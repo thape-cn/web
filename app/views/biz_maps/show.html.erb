@@ -13,19 +13,19 @@
   <div class="absolute bottom-0 inset-x-0 w-full flex items-center bg-white h-32 opacity-75 max-sm:static max-sm:block max-sm:h-auto max-sm:mt-4">
     <div class="w-full flex justify-between items-center px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56 max-sm:justify-center max-sm:flex-wrap max-sm:px-4">
       <div class="w-1/3 max-sm:w-full max-sm:flex max-sm:justify-between max-sm:items-center max-sm:px-2 max-sm:bg-thape-dark-gray max-sm:mb-1">
-        <h1 class="text-center text-xl xxl:text-2xl max-sm:text-base">总机</h1>
-        <h2 class="text-center text-sm xxl:text-lg xxl:pt-1 max-sm:hidden">SWITCHBOARD</h2>
-        <p class="text-center text-lg xxl:text-xl pt-1 max-sm:text-base"><a href="tel:021-64281588">021-64281588</a></p>
+        <h1 class="text-center <%= fdsz('text-xl xxl:text-2xl max-sm:text-base') -%>">总机</h1>
+        <h2 class="text-center <%= fdsz('text-sm xxl:text-lg') -%> xxl:pt-1 max-sm:hidden">SWITCHBOARD</h2>
+        <p class="text-center <%= fdsz('text-lg xxl:text-xl max-sm:text-base') -%> pt-1"><a href="tel:021-64281588">021-64281588</a></p>
       </div>
       <div class="w-1/3 max-sm:w-full max-sm:flex max-sm:justify-between max-sm:items-center max-sm:px-2 max-sm:bg-thape-dark-gray max-sm:mb-1">
-        <h1 class="text-center text-xl xxl:text-2xl max-sm:text-base">项目接洽及投诉</h1>
-        <h2 class="text-center text-sm xxl:text-lg xxl:pt-1 max-sm:hidden">MARKETING & COMPLAIN</h2>
-        <p class="text-center text-lg xxl:text-xl pt-1 max-sm:text-base"><a href="tel:400-8366606">400-8366606</a></p>
+        <h1 class="text-center <%= fdsz('text-xl xxl:text-2xl max-sm:text-base') -%>">项目接洽及投诉</h1>
+        <h2 class="text-center <%= fdsz('text-sm xxl:text-lg') -%> xxl:pt-1 max-sm:hidden">MARKETING & COMPLAIN</h2>
+        <p class="text-center <%= fdsz('text-lg xxl:text-xl max-sm:text-base') -%> pt-1"><a href="tel:400-8366606">400-8366606</a></p>
       </div>
       <div class="w-1/3 max-sm:w-full max-sm:flex max-sm:justify-between max-sm:items-center max-sm:px-2 max-sm:bg-thape-dark-gray">
-        <h1 class="text-center text-xl xxl:text-2xl max-sm:text-base">媒体</h1>
-        <h2 class="text-center text-sm xxl:text-lg xxl:pt-1 max-sm:hidden">MEDIA</h2>
-        <p class="text-center text-lg xxl:text-xl pt-1 max-sm:text-base"><a href="tel:021-64281588-p8847">021-64281588-8847</a></p>
+        <h1 class="text-center <%= fdsz('text-xl xxl:text-2xl max-sm:text-base') -%>">媒体</h1>
+        <h2 class="text-center <%= fdsz('text-sm xxl:text-lg') -%> xxl:pt-1 max-sm:hidden">MEDIA</h2>
+        <p class="text-center <%= fdsz('text-lg xxl:text-xl max-sm:text-base') -%> pt-1"><a href="tel:021-64281588-p8847">021-64281588-8847</a></p>
       </div>
     </div>
   </div>
@@ -36,52 +36,52 @@
     <div class="relative w-1/2 max-sm:flex-none max-sm:w-full max-sm:hidden">
       <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = '';show_company=''" -%>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'hidden md:block xl:hidden pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:80%;top:60%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:80%;top:60%;"
         x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:65%;top:38%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:65%;top:38%;"
         x-bind:class="{ 'map-star-a': show_city == '北京', 'map-dot-a': show_city != '北京' }">北京</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:64%;top:83%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:64%;top:83%;"
         x-bind:class="{ 'map-star-a': show_city == '深圳', 'map-dot-a': show_city != '深圳' }">深圳</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:61%;top:86%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:61%;top:86%;"
         x-bind:class="{ 'map-star-a': show_city == '广州', 'map-dot-a': show_city != '广州' }">广州</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:70%;top:40%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:70%;top:40%;"
         x-bind:class="{ 'map-star-b': show_city == '天津', 'map-dot-b': show_city != '天津' }">天津</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:44%;top:68%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:44%;top:68%;"
         x-bind:class="{ 'map-star-a': show_city == '重庆', 'map-dot-a': show_city != '重庆' }">重庆</div>
 
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:61%;top:66%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:61%;top:66%;"
         x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:38%;top:65%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:38%;top:65%;"
         x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:49%;top:51%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:49%;top:51%;"
         x-bind:class="{ 'map-star-a': show_city == '西安', 'map-dot-a': show_city != '西安' }">西安</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:80%;top:32%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:80%;top:32%;"
         x-bind:class="{ 'map-star-b': show_city == '沈阳', 'map-dot-b': show_city != '沈阳' }">沈阳</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:76%;top:75%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:76%;top:75%;"
         x-bind:class="{ 'map-star-b': show_city == '厦门', 'map-dot-b': show_city != '厦门' }">厦门</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:75%;top:48%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:75%;top:48%;"
         x-bind:class="{ 'map-star-b': show_city == '青岛', 'map-dot-b': show_city != '青岛' }">青岛</div>
 
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:73%;top:57%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:73%;top:57%;"
         x-bind:class="{ 'map-star-b': show_city == '南京', 'map-dot-b': show_city != '南京' }">南京</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:58%;top:50%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:58%;top:50%;"
         x-bind:class="{ 'map-star-a': show_city == '郑州', 'map-dot-a': show_city != '郑州' }">郑州</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:74%;top:63%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:74%;top:63%;"
         x-bind:class="{ 'map-star-a': show_city == '杭州', 'map-dot-a': show_city != '杭州' }">杭州</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:67%;top:59%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:67%;top:59%;"
         x-bind:class="{ 'map-star-a': show_city == '合肥', 'map-dot-a': show_city != '合肥' }">合肥</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:68%;top:47%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:68%;top:47%;"
         x-bind:class="{ 'map-star-a': show_city == '济南', 'map-dot-a': show_city != '济南' }">济南</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:47%;top:77%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:47%;top:77%;"
         x-bind:class="{ 'map-star-b': show_city == '贵阳', 'map-dot-b': show_city != '贵阳' }">贵阳</div>
 
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:37%;top:80%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:37%;top:80%;"
         x-bind:class="{ 'map-star-a': show_city == '昆明', 'map-dot-a': show_city != '昆明' }">昆明</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:57%;top:44%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:57%;top:44%;"
         x-bind:class="{ 'map-star-a': show_city == '太原', 'map-dot-a': show_city != '太原' }">太原</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:55%;top:70%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:55%;top:70%;"
         x-bind:class="{ 'map-star-b': show_city == '长沙', 'map-dot-b': show_city != '长沙' }">长沙</div>
-      <div class="absolute text-sm xxl:text-base hidden xl:block" style="left:68%;top:85%;"
+      <div class="absolute <%= fdsz('text-sm xxl:text-base') -%> hidden xl:block" style="left:68%;top:85%;"
         x-bind:class="{ 'map-star-b': show_city == '香港', 'map-dot-b': show_city != '香港' }">香港</div>
       <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_company == '上海天华'">
         <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
@@ -134,9 +134,9 @@
         <h1 class="text-xl xxl:text-2xl xxxl:text-3xl max-sm:flex-none max-sm:w-full">天华的全国化布局</h1>
         <h1 class="text-xl xxl:text-2xl xxxl:text-3xl max-sm:flex-none max-sm:w-full">TIANHUA IN CHINA</h1>
       </div>
-      <p class="pt-2 xxxl:pt-5 text-sm xxl:text-base xxxl:text-lg">天华通过全国22个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
+      <p class="pt-2 xxxl:pt-5 <%= fdsz('text-sm xxl:text-base xxxl:text-lg') -%>">天华通过全国22个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'w-full hidden max-sm:block max-sm:my-6' -%>
-      <div class="flex justify-between items-center text-center w-full text-sm lg:text-base xxxl:text-lg my-2 py-2 xl:py-4 xxl:pt-12 max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
+      <div class="flex justify-between items-center text-center w-full <%= fdsz('text-sm lg:text-base xxxl:text-lg') -%> my-2 py-2 xl:py-4 xxl:pt-12 max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
         <div class="flex-1 mr-1 xxxl:mr-2 pt-4 xxl:pt-3 xxxl:pt-5 h-32 xxxl:h-40 w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white xxl:text-lg xxxl:text-xl cursor-pointer max-sm:col-span-1 max-sm:m-0 max-sm:w-full max-sm:flex max-sm:justify-center max-sm:p-2"
           x-bind:class="{ 'bg-thape-bg-gray': show_company == '上海天华', 'bg-thape-company-gray': show_company != '上海天华' }"
           x-on:click="show_city = '上海';show_company = '上海天华'">上海天华</div>
@@ -202,7 +202,7 @@
           x-on:click="show_city = '长沙';show_company = '长沙天华'">长沙天华</div>
       </div>
 
-      <div class="mt-10 flex justify-center items-center text-center w-full text-sm lg:text-base max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
+      <div class="mt-10 flex justify-center items-center text-center w-full <%= fdsz('text-sm lg:text-base') -%> max-sm:grid max-sm:grid-cols-11 max-sm:gap-1 max-sm:my-2">
         <div class="mr-1 xl:mr-2 xxxl:mr-3 pt-2 h-56 w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer max-sm:grid-span-1 max-sm:w-full max-sm:m-0 max-sm:p-2 max-sm:flex max-sm:justify-center"
           x-bind:class="{ 'bg-gray-100': show_company == '香港易爱迪', 'bg-gray-50': show_company != '香港易爱迪' }"
           x-on:click="show_city = '香港';show_company = '香港易爱迪'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>

@@ -78,7 +78,7 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
         <h1 class="pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c max-sm:text-xl max-sm:p-0">
           <a href="<%= works_path(locale: 'cn', anchor: 'thape-new-projects') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">最新项目</a>
         </h1>
-        <h2 class="ml-2 text-2xl text-black6c max-sm:text-base">
+        <h2 class="ml-2 <%= fdsz('text-2xl max-sm:text-base') -%> text-black6c">
           <a href="<%= works_path(locale: 'en', anchor: 'thape-new-projects') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
         </h2>
       </div>
@@ -102,7 +102,7 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
         <h1 class="pl-4 sm:pl-6 xl:pl-0 text-3xl font-bold text-black6c max-sm:text-xl max-sm:p-0">
           <a href="<%= news_index_path(locale: 'cn', anchor: 'thape-home-news') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">天华新闻</a>
         </h1>
-        <h2 class="ml-2 text-2xl text-black6c max-sm:text-base">
+        <h2 class="ml-2 <%= fdsz('text-2xl max-sm:text-base') -%> text-black6c">
           <a href="<%= news_index_path(locale: 'en', anchor: 'thape-home-news') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
         </h2>
       </div>

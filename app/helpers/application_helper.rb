@@ -9,6 +9,15 @@ module ApplicationHelper
     end
   end
 
+  # Font dual size helper
+  def fdsz(normal_class, big_size_class = nil)
+    if cookies['locale'] == 'big'
+      big_size_class || normal_class
+    else
+      normal_class
+    end
+  end
+
   def home_controller
     if browser.ie?
       'home-ie11'

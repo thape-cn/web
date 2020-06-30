@@ -15,8 +15,8 @@
         <p class="text-5xl text-justify tracking-widest font-bold leading-9 max-sm:text-3xl"><%= info.created_at.day -%></p>
       </div>
       <div class="mb-10 mx-6">
-        <p class="font-medium text-2xl xxl:text-3xl text-left pb-1 leading-snug text-justify max-sm:text-xl"><%= info.title -%></p>
-        <p class="font-light xxl:text-lg text-left leading-6 mt-2 max-sm:text-base"><%= info.sub_title -%></p>
+        <p class="font-medium <%= fdsz('text-2xl xxl:text-3xl') -%> text-left pb-1 leading-snug text-justify max-sm:text-xl"><%= info.title -%></p>
+        <p class="font-light <%= fdsz('xxl:text-lg max-sm:text-base') -%> text-left leading-6 mt-2"><%= info.sub_title -%></p>
       </div>
     </div>
   <% end %>
