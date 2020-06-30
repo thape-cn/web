@@ -30,14 +30,14 @@ class LeadershipController < ApplicationController
         city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
       else
-        city_area_people.where(category: 1)
+        city_area_people.where(category: 1).or(city_area_people.where(city_people: { is_management: true }))
       end
 
       @speciality_people = if @search_name.present?
         city_area_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(category: 2).where('person_translations.name like ?', "%#{@search_name}%")
       else
-        city_area_people.where(category: 2)
+        city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
       end
       render 'area_leadership', locals: { c: city_area.company_name, e: city_area.url_name.upcase, city: city_area }
     else
