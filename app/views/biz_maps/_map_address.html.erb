@@ -3,10 +3,10 @@
     <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
     <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
       <% if m.alt_name.present? %>
-        <h1 class="text-2xl font-medium leading-tight"><%= m.long_name -%></h1>
-        <h1 class="text-2xl font-medium pb-1"><%= m.alt_name -%></h1>
+        <h1 class="<%= fdsz('text-2xl') -%> font-medium leading-tight"><%= m.long_name -%></h1>
+        <h1 class="<%= fdsz('text-2xl') -%> font-medium pb-1"><%= m.alt_name -%></h1>
       <% else %>
-        <h1 class="text-2xl font-medium leading-tight pb-2"><%= m.long_name -%></h1>
+        <h1 class="<%= fdsz('text-2xl') -%> font-medium leading-tight pb-2"><%= m.long_name -%></h1>
       <% end %>
       <label class="float-left">地址：</label>
         <p class="<%= mlp -%>"><%= m.address -%></p>
