@@ -42,7 +42,7 @@ export default class extends Controller {
             this.formTarget.style.display = 'flex';
         }
         if (this.hasFormInputTarget) {
-            this.hasFormInputTarget.focus();
+            this.formInputTarget.focus();
         }
     }
 
