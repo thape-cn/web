@@ -6,7 +6,7 @@
 <%= image_pack_tag 'media/images/article-banner.jpg' -%>
 
 <div class="w-full mx-auto sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
-  <div class="my-6 flex flex-wrap sm:flex-nowrap">
+  <div class="my-6 flex flex-wrap sm:flex-no-wrap">
     <main class="w-full md:w-9/12 px-0 sm:pr-4">
       <div class="max-w-screen-md xxl:max-w-screen-lg md:mx-auto">
         <header class="flex mb-10">
@@ -42,7 +42,7 @@
           <div class="w-1/3 sm:w-auto flex-none sm:flex-initial block">
           <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
           </div>
-          <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex sm:block content-bewteen sm:content-start flex-wrap sm:flex-nowrap">
+          <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex sm:block content-bewteen sm:content-start flex-wrap sm:flex-no-wrap">
             <figcaption class="<%= fdsz('text-sm') -%> p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= link_to @first_work.project_name, work_path(id: @first_work.id) -%></figcaption>
             <p class="<%= fdsz('text-xs') -%> text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
           </div>
@@ -51,7 +51,7 @@
           <div class="w-1/3 sm:w-auto flex-none sm:flex-initial block">
           <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
           </div>
-          <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex sm:block content-bewteen sm:content-start flex-wrap sm:flex-nowrap">
+          <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex sm:block content-bewteen sm:content-start flex-wrap sm:flex-no-wrap">
             <figcaption class="<%= fdsz('text-sm') -%> p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none flex-initial"><%= link_to @second_work.project_name, work_path(id: @second_work.id) -%></figcaption>
             <p class="<%= fdsz('text-xs') -%> text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
           </div>

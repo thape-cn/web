@@ -1,4 +1,4 @@
-<form action="<%= @self_path -%>" method="GET" class="flex flex-no-wrap justify-between sm:justify-start flex-wrap flex-nowrap" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
+<form action="<%= @self_path -%>" method="GET" class="flex flex-no-wrap justify-between sm:justify-start flex-wrap flex-no-wrap" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
   <div class="my-1 sm:mb-0 sm:mt-1 mx-0 relative rounded-md shadow-sm block w-1/2 sm:w-auto flex-none sm:flex-initial">
     <button type="button" class="w-full sm:w-auto inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>

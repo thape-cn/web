@@ -11,7 +11,7 @@
     <img src="<%= asset_pack_path('media/images/contact.jpg') -%>">
   </picture>
   <div class="sm:absolute sm:bottom-0 sm:inset-x-0 w-full sm:flex sm:items-center bg-white sm:h-32 opacity-75 mt-4 sm:mt-0">
-    <div class="w-full flex justify-center sm:justify-between items-center flex-wrap sm:flex-nowrap px-4 sm:px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
+    <div class="w-full flex justify-center sm:justify-between items-center flex-wrap sm:flex-no-wrap px-4 sm:px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
       <div class="w-full sm:w-1/3 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1 sm:mb-0">
         <h1 class="text-center <%= fdsz('text-base sm:text-xl xxl:text-2xl') -%>">总机</h1>
         <h2 class="text-center <%= fdsz('text-sm xxl:text-lg') -%> xxl:pt-1 hidden sm:block">SWITCHBOARD</h2>
@@ -32,7 +32,7 @@
 </div>
 
 <div x-data="{ show_city: '', show_company: '' }">
-  <div class="w-full my-8 flex flex-wrap sm:flex-nowrap justify-between px-4 sm:pl-0 sm:pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
+  <div class="w-full my-8 flex flex-wrap sm:flex-no-wrap justify-between px-4 sm:pl-0 sm:pr-2 md:pr-6 lg:pr-8 xl:pr-10 xxl:pr-12 xxxl:pr-16 scroller-step">
     <div class="relative w-full sm:w-1/2 flex-none sm:flex-initial hidden sm:block">
       <%= image_pack_tag 'media/images/china_map.png', class: 'hidden xl:block pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0', "x-on:click": "show_city = '';show_company=''" -%>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'hidden sm:block xl:hidden pt-12 lg:pt-10 xl:pt-6 xxxl:pt-0' -%>
@@ -130,9 +130,9 @@
       <%= render partial: 'map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
     </div>
     <div class="w-full sm:w-1/2 order-first sm:order-none flex-none sm:flex-initial">
-      <div class="flex xxl:pt-12 xxxl:pt-20 flex-wrap sm:flex-nowrap">
-        <h1 class="<%= fdsz('text-xl xxl:text-2xl xxxl:text-3xl') -%> flex-none sm:flex-nowrap w-full sm:w-auto">天华的全国化布局</h1>
-        <h1 class="<%= fdsz('text-xl xxl:text-2xl xxxl:text-3xl') -%> flex-none sm:flex-nowrap w-full sm:w-auto">TIANHUA IN CHINA</h1>
+      <div class="flex xxl:pt-12 xxxl:pt-20 flex-wrap sm:flex-no-wrap">
+        <h1 class="<%= fdsz('text-xl xxl:text-2xl xxxl:text-3xl') -%> flex-none sm:flex-no-wrap w-full sm:w-auto">天华的全国化布局</h1>
+        <h1 class="<%= fdsz('text-xl xxl:text-2xl xxxl:text-3xl') -%> flex-none sm:flex-no-wrap w-full sm:w-auto">TIANHUA IN CHINA</h1>
       </div>
       <p class="pt-2 xxxl:pt-5 <%= fdsz('text-sm xxl:text-base xxxl:text-lg') -%>">天华通过全国22个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'w-full block sm:hidden my-6 sm:my-0' -%>
