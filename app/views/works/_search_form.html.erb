@@ -1,12 +1,12 @@
-<form action="<%= @self_path -%>" method="GET" class="flex flex-no-wrap max-sm:justify-between max-sm:flex-wrap" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
-  <div class="mt-1 relative rounded-md shadow-sm max-sm:block max-sm:w-1/2 max-sm:my-1 max-sm:mx-0 max-sm:flex-none">
-    <button type="button" class="max-sm:w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
+<form action="<%= @self_path -%>" method="GET" class="flex flex-no-wrap justify-between sm:justify-start flex-wrap flex-nowrap" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
+  <div class="my-1 sm:mb-0 sm:mt-1 mx-0 relative rounded-md shadow-sm block w-1/2 sm:w-auto flex-none sm:flex-initial">
+    <button type="button" class="w-full sm:w-auto inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
       </svg>
     </button>
-    <div class="max-sm:w-full origin-top-right absolute right-0 mt-1 <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_project_type">
+    <div class="w-full sm:w-auto origin-top-right absolute right-0 mt-1 <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_project_type">
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <% ProjectType.all.each do |project_type| %>
@@ -16,14 +16,14 @@
       </div>
     </div>
   </div>
-  <div class="mt-1 ml-2 relative rounded-md shadow-sm max-sm:block max-sm:w-1/2 max-sm:my-1 max-sm:mx-0 max-sm:flex-none">
-    <button type="button" class="max-sm:w-full inline-flex justify-between <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area; show_drop_menu_project_type = false;">
+  <div class="my-1 sm:mb-0 sm:mt-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-1/2 sm:w-auto flex-none sm:flex-initial">
+    <button type="button" class="w-full sm:w-auto inline-flex justify-between <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area; show_drop_menu_project_type = false;">
       <%= (I18n.locale == :en && @city.present?) ? @city.url_name.upcase : @city&.name || t('menu.works.china_area_company') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
       </svg>
     </button>
-    <div class="max-sm:w-full origin-top-right absolute right-0 mt-1 <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_china_area">
+    <div class="w-full origin-top-right absolute right-0 mt-1 <%= I18n.locale == :en ? 'sm:w-32' : (@city.present? && @city.name.length > 2 ? 'sm:w-28' : 'sm:w-24') -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_china_area">
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <% City.where.not(china_area_name: nil).where.not(china_area_name: '上海').each do |city| %>
@@ -33,8 +33,8 @@
       </div>
     </div>
   </div>
-  <div class="mt-1 ml-2 relative rounded-md shadow-sm max-sm:block max-sm:w-full max-sm:my-1 max-sm:mx-0 max-sm:flex-none">
-    <input name="q" class="max-sm:w-full form-input block w-36 sm:w-40 pr-10 leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" />
+  <div class="my-1 sm:mb-0 sm:mt-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-full sm:w-auto flex-none sm:flex-initial">
+    <input name="q" class="form-input block w-full sm:w-40 pr-10 leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
