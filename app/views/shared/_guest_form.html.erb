@@ -1,14 +1,14 @@
 <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white">
   <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24" id="thape-guest-form">
-    <header class="p-4 sm:px-6 mt-4 max-sm:mt-0">
-      <h1 class="inline-block text-3xl font-bold text-black6c max-sm:text-2xl">
+    <header class="p-4 sm:px-6 mt-0 sm:mt-4">
+      <h1 class="inline-block <%= fdsz('text-2xl sm:text-3xl') -%> font-bold text-black6c">
         <a href="#thape-guest-form" class="hover:text-black6c-t70 focus:text-black6c-t70">访客留言</a>
       </h1>
-      <h2 class="ml-2 inline-block text-2xl text-black6c max-sm:text-xl">
+      <h2 class="ml-2 inline-block <%= fdsz('text-xl sm:text-2xl') -%> text-black6c">
         <a href="#thape-guest-form" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">CONTACT US</a>
       </h2>
     </header>
-    <div class="px-4 py-5 sm:p-6 max-sm:pt-0">
+    <div class="pt-0 pb-5 px-4 sm:p-6">
         <%= form_with url: guest_messages_path do |f| %>
           <div class="flex w-full flex-wrap sm:flex-no-wrap">
             <div class="flex flex-none w-full sm:flex-1 h-32 sm:h-auto mr-0 sm:mr-3 xl:mr-5">
