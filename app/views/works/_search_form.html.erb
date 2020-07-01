@@ -10,7 +10,7 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <% ProjectType.all.each do |project_type| %>
-            <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
+            <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 <%= fdsz('text-sm') -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
           <% end %>
         </div>
       </div>
@@ -27,7 +27,7 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <% City.where.not(china_area_name: nil).where.not(china_area_name: '上海').each do |city| %>
-            <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+            <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz('text-sm') -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
           <% end %>
         </div>
       </div>
