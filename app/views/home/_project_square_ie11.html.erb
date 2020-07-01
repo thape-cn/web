@@ -4,6 +4,6 @@
   </a>
   <div class="absolute text-white left-6 bottom-4">
     <p class="text-left pb-1 font-medium"><%= link_to work.project_types.first["#{I18n.locale}_name"], project_type_path(work.project_types.first) -%></p>
-    <p class="text-xl text-left leading-snug"><%= link_to work.project_name, work_path(id: work.id) -%></p>
+    <p class="<%= fdsz('text-xl') -%> text-left leading-snug"><%= link_to work.project_name, work_path(id: work.id) -%></p>
   </div>
 </td>

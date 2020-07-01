@@ -11,12 +11,12 @@
       x-transition:leave-end="opacity-0 transform -translate-x-1/2"
       x-show="show_text">
       <div class="my-6 mx-6">
-        <p class="text-3xl text-justify font-bold max-sm:text-2xl"><%= Date::ABBR_MONTHNAMES[info.created_at.month] -%></p>
-        <p class="text-5xl text-justify tracking-widest font-bold leading-9 max-sm:text-3xl"><%= info.created_at.day -%></p>
+        <p class="<%= fdsz('text-2xl sm:text-3xl') -%> text-justify font-bold"><%= Date::ABBR_MONTHNAMES[info.created_at.month] -%></p>
+        <p class="<%= fdsz('text-3xl sm:text-5xl') -%> text-justify tracking-widest font-bold leading-9"><%= info.created_at.day -%></p>
       </div>
       <div class="mb-10 mx-6">
-        <p class="font-medium <%= fdsz('text-2xl xxl:text-3xl') -%> text-left pb-1 leading-snug text-justify max-sm:text-xl"><%= info.title -%></p>
-        <p class="font-light <%= fdsz('xxl:text-lg max-sm:text-base') -%> text-left leading-6 mt-2"><%= info.sub_title -%></p>
+        <p class="font-medium <%= fdsz('text-xl sm:text-2xl xxl:text-3xl') -%> text-left pb-1 leading-snug text-justify"><%= info.title -%></p>
+        <p class="font-light <%= fdsz('text-base xxl:text-lg') -%> text-left leading-6 mt-2"><%= info.sub_title -%></p>
       </div>
     </div>
   <% end %>
