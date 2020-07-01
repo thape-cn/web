@@ -3,7 +3,7 @@
 <div class="h-full" data-controller="service"
      data-action="resize@window->service#resize">
 
-<div class="relative flex flex-col h-full max-sm:overflow-auto">
+<div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
   <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg">
     <picture class="w-full">
       <% if background_img_webp.present? %>
@@ -13,19 +13,19 @@
       <img src="<%= asset_pack_path(background_img) -%>" data-action="load->service#resize">
     </picture>
   </div>
-  <div class="absolute bottom-0 left-0 bg-thape-white-t80 py-8 w-full max-sm:static max-sm:h-auto max-sm:pt-4 max-sm:block max-sm:flex-none" data-target="service.introDiv">
-    <div class="flex justify-center items-center text-black6c w-full sm:flex h-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64 max-sm:p-2">
-      <div class="flex w-full flex-none overflow-x-hidden max-sm:flex-wrap">
-        <div class="block font-medium px-5 max-sm:w-full" style="margin-top: -5px">
-          <h1 class="<%= fdsz('text-3xl max-sm:text-2xl') -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
-          <h2 class="<%= fdsz('text-xl max-sm:text-base') -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
+  <div class="sm:absolute sm:bottom-0 sm:left-0 bg-thape-white-t80 pt-4 pb-8 sm:pt-8 w-full h-auto block flex-none sm:flex-initial" data-target="service.introDiv">
+    <div class="flex justify-center items-center text-black6c w-full sm:flex h-full p-2 sm:py-0 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64">
+      <div class="flex w-full flex-none overflow-x-hidden flex-wrap sm:flex-nowrap">
+        <div class="block font-medium px-5 w-full" style="margin-top: -5px">
+          <h1 class="<%= fdsz('text-2xl sm:text-3xl') -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
+          <h2 class="<%= fdsz('text-base sm:text-xl') -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
           <% if defined? link_site_url %>
-            <div class="pt-8 max-sm:pt-2">
+            <div class="pt-2 sm:pt-8">
               <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
             </div>
           <% end %>
         </div>
-        <div class="block font-normal text-justify <%= fdsz('xxxl:text-lg text-base max-sm:text-sm') -%> px-5 max-sm:w-full max-sm:text-left max-sm:pt-4">
+        <div class="block font-normal text-left sm:text-justify <%= fdsz('text-sm sm:text-base xxxl:text-lg') -%> px-5 w-full pt-4 sm:pt-0">
           <% ps.each do |p| %>
             <p><%= p -%></p>
           <% end %>
