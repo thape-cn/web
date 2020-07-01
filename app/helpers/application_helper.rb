@@ -11,7 +11,7 @@ module ApplicationHelper
 
   # Font dual size helper
   def fdsz(normal_class, big_size_class = nil)
-    if cookies['locale'] == 'big'
+    if cookies['ts'] == 'big'
       big_size_class || normal_class
     else
       normal_class
