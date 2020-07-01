@@ -59,13 +59,13 @@
       </div>
       <nav class="pt-6 w-2/3 max-sm:w-full">
         <ol class="space-y-4">
-          <li class="text-base">
+          <li class="<%= fdsz('text-base') -%>">
             <a class="flex" href="<%= news_path(id: @previous_info.id) -%>">
               <span class="circle-border border border-black text-center flex-none">&lt;</span>
               <span><%= @previous_info.title -%></span>
             </a>
           </li>
-          <li class="text-base">
+          <li class="<%= fdsz('text-base') -%>">
             <a class="flex" href="<%= news_path(id: @next_info.id) -%>">
               <span class="circle-border border border-black text-center flex-none">&gt;</span>
               <span><%= @next_info.title -%></span>

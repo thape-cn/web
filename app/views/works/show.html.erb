@@ -54,14 +54,14 @@
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step max-sm:px-4">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="inline-block max-sm:block">
-        <h1 class="text-2xl xxl:text-3xl xxxl:text-4xl font-bold text-black6c max-sm:text-xl">
+        <h1 class="<%= fdsz('text-2xl xxl:text-3xl xxxl:text-4xl max-sm:text-xl') -%> font-bold text-black6c">
           <%= I18n.with_locale(:cn) { @work.project_name } -%>
         </h1>
-        <h2 class="text-1xl xxl:text-2xl xxxl:text-3xl font-semibold text-black6c max-sm:text-base">
+        <h2 class="<%= fdsz('text-1xl xxl:text-2xl xxxl:text-3xl max-sm:text-base') -%> font-semibold text-black6c">
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="absolute top-4 right-0 text-base max-sm:static max-sm:block max-sm:text-sm">
+      <div class="absolute top-4 right-0 <%= fdsz('text-base max-sm:text-sm') -%> max-sm:static max-sm:block">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
@@ -77,14 +77,14 @@
   <div class="my-8 xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:my-4">
     <div class="inline-block float-left space-y-2 mr-8 max-sm:block max-sm:float-none max-sm:m-0">
       <div>
-        <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">客户名称 CLIENT</label>
+        <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">客户名称 CLIENT</label>
         <% @work.client.split("\n").each do |client| %>
           <p class="font-normal"><%= client %></p>
         <% end %>
       </div>
       <% if @work.design_completion.present? && !@work.design_completion.year.zero? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">设计完成时间 DESIGN COMPLETION</label>
           <% if @work.design_completion_lines.present? %>
             <% @work.design_completion_lines.split("\n").each do |design_completion| %>
               <p class="font-normal"><%= design_completion %></p>
@@ -96,7 +96,7 @@
       <% end %>
       <% if @work.construction_completion.present? && !@work.construction_completion.year.zero?  %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">竣工时间 CONSTRUCTION COMPLETION</label>
           <% if @work.construction_completion_lines.present? %>
             <% @work.construction_completion_lines.split("\n").each do |construction_completion| %>
               <p class="font-normal"><%= construction_completion %></p>
@@ -108,25 +108,25 @@
       <% end %>
       <% if @work.city.present? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">所在城市 LOCATION</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">所在城市 LOCATION</label>
           <p class="font-normal"><%= @work.city.name -%></p>
         </div>
       <% end %>
       <% if @work.planning_area.present? && !@work.planning_area.zero? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">规划面积 PLANNING SIZE</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">规划面积 PLANNING SIZE</label>
           <p class="font-normal"><%= @work.planning_area -%>k㎡</p>
         </div>
       <% end %>
       <% if @work.site_area.present? && !@work.site_area.zero? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">用地面积 SITE SIZE</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">用地面积 SITE SIZE</label>
           <p class="font-normal"><%= @work.site_area -%>㎡</p>
         </div>
       <% end %>
       <% if @work.architecture_area.present? && !@work.architecture_area.zero? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">建筑面积 SIZE</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">建筑面积 SIZE</label>
           <% if @work.architecture_area_lines.present? %>
             <% @work.architecture_area_lines.split("\n").each do |architecture_area| %>
               <p class="font-normal"><%= architecture_area %></p>
@@ -138,7 +138,7 @@
       <% end %>
       <% if @work.services.present? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">服务范围 SERVICE</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">服务范围 SERVICE</label>
           <% @work.services.split("\n").each do |service| %>
             <p class="font-normal"><%= service %></p>
           <% end %>
@@ -146,7 +146,7 @@
       <% end %>
       <% if @work.team.present? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">设计团队 TEAM</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">设计团队 TEAM</label>
           <% @work.team.split("\n").each do |team| %>
             <p class="font-normal"><%= team %></p>
           <% end %>
@@ -154,7 +154,7 @@
       <% end %>
       <% if @work.cooperation.present? %>
         <div>
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">合作单位 COOPERATION</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">合作单位 COOPERATION</label>
           <% @work.cooperation.split("\n").each do |cooperation| %>
             <p class="font-normal"><%= cooperation %></p>
           <% end %>
@@ -164,7 +164,7 @@
     <% if @work.awards.present? %>
       <main class="inline-block">
         <div class="mb-4">
-          <label class="text-sm xl:text-base xxl:text-lg xxxl:text-xl text-thape-copyright-gray">获奖 AWARDS</label>
+          <label class="<%= fdsz('text-sm xl:text-base xxl:text-lg xxxl:text-xl') -%> text-thape-copyright-gray">获奖 AWARDS</label>
           <% @work.awards.split("\n").each do |award| %>
             <p><%= award %></p>
           <% end %>
@@ -199,13 +199,13 @@
       </div>
       <nav class="pt-6 w-2/3 max-sm:w-full">
         <ol class="space-y-4">
-            <li class="text-base">
+            <li class="<%= fdsz('text-base') -%>">
               <a class="flex" href="<%= work_path(id: @previous_work.id) -%>">
                 <span class="circle-border border border-black text-center flex-none">&lt;</span>
                 <span><%= @previous_work.project_name -%></span>
               </a>
             </li>
-            <li class="text-base">
+            <li class="<%= fdsz('text-base') -%>">
               <a class="flex" href="<%= work_path(id: @next_work.id) -%>">
                 <span class="circle-border border border-black text-center flex-none">&gt;</span>
                 <span><%= @next_work.project_name -%></span>
@@ -218,7 +218,7 @@
 </div>
 
 <div class="w-full mx-auto sm:pt-4 md:pt-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 max-sm:px-4">
-  <h2 class="xl:text-lg xxl:text-xl xxxl:text-2xl text-black6c">相关项目</h2>
+  <h2 class="<%= fdsz('xl:text-lg xxl:text-xl xxxl:text-2xl') -%> text-black6c">相关项目</h2>
 </div>
 <div class="flex-grid my-2">
   <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2 <%= @relative_works.count >= 4 ? 'lg:flex-grid-cols-4-gap-2' : "lg:flex-grid-cols-#{@relative_works.count}-gap-2" -%>">

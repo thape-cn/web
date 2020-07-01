@@ -41,8 +41,8 @@
             <%= image_tag info.snapshot.url -%>
           </div>
           <div class="w-2/3 flex flex-col justify-between">
-            <figcaption class="ml-2 text-xs xxl:text-sm xxxl:text-base text-gray-700 text-justify"><%= info.title -%></figcaption>
-            <p class="ml-2 font-light text-xs xxl:text-sm xxxl:text-base text-gray-700"><%= info.created_at.to_date -%></p>
+            <figcaption class="ml-2 <%= fdsz('text-xs xxl:text-sm xxxl:text-base') -%> text-gray-700 text-justify"><%= info.title -%></figcaption>
+            <p class="ml-2 font-light <%= fdsz('text-xs xxl:text-sm xxxl:text-base') -%> text-gray-700"><%= info.created_at.to_date -%></p>
           </div>
         </figure>
       <% end %>

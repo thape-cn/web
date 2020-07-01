@@ -17,15 +17,15 @@
     <div class="flex justify-center items-center text-black6c w-full sm:flex h-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64 max-sm:p-2">
       <div class="flex w-full flex-none overflow-x-hidden max-sm:flex-wrap">
         <div class="block font-medium px-5 max-sm:w-full" style="margin-top: -5px">
-          <h1 class="text-3xl font-bold whitespace-no-wrap max-sm:text-2xl"><%= chinese_title -%></h1>
-          <h2 class="text-xl font-medium whitespace-no-wrap max-sm:text-base"><%= english_title -%></h2>
+          <h1 class="<%= fdsz('text-3xl max-sm:text-2xl') -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
+          <h2 class="<%= fdsz('text-xl max-sm:text-base') -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
           <% if defined? link_site_url %>
             <div class="pt-8 max-sm:pt-2">
               <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
             </div>
           <% end %>
         </div>
-        <div class="block font-normal text-justify xxxl:text-lg text-base px-5 max-sm:w-full max-sm:text-left max-sm:text-sm max-sm:pt-4">
+        <div class="block font-normal text-justify <%= fdsz('xxxl:text-lg text-base max-sm:text-sm') -%> px-5 max-sm:w-full max-sm:text-left max-sm:pt-4">
           <% ps.each do |p| %>
             <p><%= p -%></p>
           <% end %>
