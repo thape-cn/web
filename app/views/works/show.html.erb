@@ -181,7 +181,7 @@
             </div>
             <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex-1 max-sm:flex max-sm:content-between max-sm:flex-wrap">
               <figcaption class="<%= fdsz('text-sm') -%> pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= @first_work.project_name -%></figcaption>
-              <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
+              <p class="<%= fdsz('text-xs') -%> text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
             </div>
           </figure>
         </a>
@@ -192,7 +192,7 @@
             </div>
             <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex-1 max-sm:flex max-sm:content-between max-sm:flex-wrap">
               <figcaption class="<%= fdsz('text-sm') -%> pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= @second_work.project_name -%></figcaption>
-              <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
+              <p class="<%= fdsz('text-xs') -%> text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
             </div>
           </figure>
         </a>
