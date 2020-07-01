@@ -82,7 +82,7 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
           <a href="<%= works_path(locale: 'en', anchor: 'thape-new-projects') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">NEW PROJECTS</a>
         </h2>
       </div>
-      <a class="py-1 md:py-2 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out max-sm:text-sm max-sm:px-2 max-sm:leading-snug" href="<%= works_path -%>">
+      <a class="<%= fdsz('text-sm') -%> py-1 md:py-2 px-5 border border-black font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out max-sm:px-2 max-sm:leading-snug" href="<%= works_path -%>">
         MORE+
       </a>
     </div>
@@ -106,7 +106,7 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
           <a href="<%= news_index_path(locale: 'en', anchor: 'thape-home-news') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">NEWS</a>
         </h2>
       </div>
-      <a class="py-1 md:py-2 px-5 border border-black text-sm font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out max-sm:text-sm max-sm:px-2 max-sm:leading-snug" href="<%= news_index_path -%>">
+      <a class="<%= fdsz('text-sm') -%> py-1 md:py-2 px-5 border border-black font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out max-sm:px-2 max-sm:leading-snug" href="<%= news_index_path -%>">
         MORE+
       </a>
     </div>

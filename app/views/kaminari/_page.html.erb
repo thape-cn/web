@@ -8,7 +8,7 @@
     remote:        data-remote
 -%>
 <% if page.current? %>
-  <%= link_to page, url, { rel: page.rel, class: '-mt-px border-t-2 border-gray-500 pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-black6c focus:outline-none focus:text-gray-800 focus:border-gray-700 transition ease-in-out duration-150'} %>
+  <%= link_to page, url, { rel: page.rel, class: "#{fdsz('text-sm')} -mt-px border-t-2 border-gray-500 pt-4 px-4 inline-flex items-center leading-5 font-medium text-black6c focus:outline-none focus:text-gray-800 focus:border-gray-700 transition ease-in-out duration-150" } %>
 <% else %>
-  <%= link_to page, url, { rel: page.rel, class: '-mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150'} %>
+  <%= link_to page, url, { rel: page.rel, class: "#{fdsz('text-sm')} -mt-px border-t-2 border-transparent pt-4 px-4 inline-flex items-center leading-5 font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400 transition ease-in-out duration-150" } %>
 <% end %>
