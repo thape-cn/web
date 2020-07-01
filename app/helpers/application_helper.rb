@@ -13,6 +13,15 @@ module ApplicationHelper
   def fdsz(normal_class, big_size_class = nil)
     if cookies['ts'] == 'big'
       big_size_class || normal_class
+        .sub('text-5xl','text-6xl')
+        .sub('text-4xl','text-5xl')
+        .sub('text-3xl','text-4xl')
+        .sub('text-2xl','text-3xl')
+        .sub('text-xl','text-2xl')
+        .sub('text-lg','text-xl')
+        .sub('text-base','text-lg')
+        .sub('text-sm','text-base')
+        .sub('text-xs','text-sm')
     else
       normal_class
     end
