@@ -119,16 +119,6 @@
   width: 25px;
 }
 
-.nav-background-initial {
-  animation: animation-to-initial .3s;
-  background: initial;
-}
-
-.nav-background-white {
-  animation: animation-to-white .3s;
-  background-color: rgba(255, 255, 255, 1);
-}
-
 .map-dot-b::before {
   content: "⦿";
 }
