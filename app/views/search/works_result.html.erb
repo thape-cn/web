@@ -2,17 +2,17 @@
 
 <div class="w-full flex flex-auto flex-col mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <header class="w-full flex-none pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
-    <h3 class="inline-block text-xl text-black6c">
+    <h3 class="inline-block <%= text-xl') -%> text-black6c">
       <a href="<%= search_path(q: params[:q], tab: :work) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         作品&nbsp;&nbsp;（<%= @works_results.count + @works_city_results.count -%>）
       </a>
     </h3>
-    <h3 class="ml-10 inline-block text-xl text-thape-copyright-gray">
+    <h3 class="ml-10 inline-block <%= text-xl') -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :person) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         人物&nbsp;&nbsp;（<%= @people_results.count + @people_city_results.count -%>）
       </a>
     </h3>
-    <h3 class="ml-10 inline-block text-xl text-thape-copyright-gray">
+    <h3 class="ml-10 inline-block <%= text-xl') -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :info) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         新闻&nbsp;&nbsp;（<%= @info_results.count -%>）
       </a>
@@ -27,8 +27,8 @@
           <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
             <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
             <div class="absolute text-white left-6 bottom-4">
-              <p class="text-xl text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
-              <p class="text-lg text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+              <p class="<%= text-xl') -%> text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+              <p class="<%= text-lg') -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
             </div>
           </a>
         </div>
@@ -38,8 +38,8 @@
           <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
             <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
             <div class="absolute text-white left-6 bottom-4">
-              <p class="text-xl text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
-              <p class="text-lg text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+              <p class="<%= text-xl') -%> text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+              <p class="<%= text-lg') -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
             </div>
           </a>
         </div>
@@ -47,7 +47,7 @@
       </div>
     </div>
   <% else %>
-    <div class="w-full flex flex-auto max-sm:mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
+    <div class="w-full flex flex-auto mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
       <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
       <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
     </div>
