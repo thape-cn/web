@@ -8,11 +8,11 @@
     <div class="absolute text-white inset-x-0 bottom-0">
       <p class="text-lg text-center font-medium"><%= person.name -%></p>
       <% titles = person_titles(person, city) %>
-      <p class="text-sm text-center font-light leading-tight"><%= titles.first -%></p>
+      <p class="<%= fdsz('text-sm') -%> text-center font-light leading-tight"><%= titles.first -%></p>
       <% if titles.length > 1 %>
-        <p class="text-sm text-center font-light leading-none">...</p>
+        <p class="<%= fdsz('text-sm') -%> text-center font-light leading-none">...</p>
       <% else %>
-        <p class="text-sm text-center font-light leading-none">&nbsp</p>
+        <p class="<%= fdsz('text-sm') -%> text-center font-light leading-none">&nbsp</p>
       <% end %>
     </div>
   </a>

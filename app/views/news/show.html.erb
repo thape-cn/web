@@ -11,31 +11,31 @@
       <div class="max-w-screen-md xxl:max-w-screen-lg md:mx-auto">
         <header class="flex mb-10">
           <div class="bg-thape-dark-gray w-24 h-20 max-sm:hidden">
-            <p class="px-3 text-black6c-t70 text-5xl text-justify font-semibold tracking-widest leading-none"><%= @info.created_at.day -%></p>
-            <p class="px-3 text-black6c-t70 text-sm text-justify font-normal tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
-            <p class="py-1 px-3 text-black6c-t70 text-sm text-justify font-normal tracking-wider leading-none"><%= @info.created_at.year -%></p>
+            <p class="px-3 text-black6c-t70 <%= fdsz('text-5xl') -%> text-justify font-semibold tracking-widest leading-none"><%= @info.created_at.day -%></p>
+            <p class="px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-normal tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
+            <p class="py-1 px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-normal tracking-wider leading-none"><%= @info.created_at.year -%></p>
           </div>
           <div class="mx-2 flex flex-col justify-between max-sm:order-first max-sm:m-0">
             <% if @info.seo_description.present? %>
-              <h1 class="px-1 text-2xl xxxl:text-3xl text-justify font-bold break-all leading-tight max-sm:px-0 max-sm:text-left max-sm:text-2xl">
+              <h1 class="px-1 <%= fdsz('text-2xl xxxl:text-3xl') -%> text-justify font-bold break-all leading-tight max-sm:px-0 max-sm:text-left">
                 <%= @info.title -%>
               </h1>
-              <h2 class="px-1 text-lg text-thape-copyright-gray xxxl:text-xl text-justify max-sm:px-0 max-sm:text-left max-sm:text-base">
+              <h2 class="px-1 <%= fdsz('text-lg xxxl:text-xl max-sm:text-base') -%> text-thape-copyright-gray text-justify max-sm:px-0 max-sm:text-left">
                 <%= @info.seo_description -%>
               </h2>
             <% else %>
-              <h1 class="px-1 text-3xl xxxl:text-4xl text-justify font-bold break-all leading-tight max-sm:px-0 max-sm:text-left max-sm:text-2xl">
+              <h1 class="px-1 <%= fdsz('text-3xl xxxl:text-4xl max-sm:text-2xl') -%> text-justify font-bold break-all leading-tight max-sm:px-0 max-sm:text-left">
                 <%= @info.title -%>
               </h1>
             <% end %>
-            <time class="hidden max-sm:block text-sm text-thape-copyright-gray"><%= @info.created_at.to_date -%></time>
+            <time class="hidden max-sm:block <%= fdsz('text-sm') %> text-thape-copyright-gray"><%= @info.created_at.to_date -%></time>
           </div>
 
         </header>
         <%= raw @info.content %>
       </div>
     </main>
-    <aside class="w-3/12 hidden md:block md:float-right xl:text-lg xxl:text-xl xxxl:text-2xl max-sm:w-full max-sm:block max-sm:float-none max-sm:w-full max-sm:mt-4">
+    <aside class="w-3/12 hidden md:block md:float-right <%= fdsz('xl:text-lg xxl:text-xl xxxl:text-2xl') -%> max-sm:w-full max-sm:block max-sm:float-none max-sm:w-full max-sm:mt-4">
       <div class="sm:space-y-8 w-2/3 pb-6 border-gray-200 border-solid border-b max-sm:w-full max-sm:pb-3">
         <h3>推荐阅读</h3>
         <figure class="space-y-2 max-sm:flex max-sm:my-2">
@@ -43,7 +43,7 @@
           <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
           </div>
           <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:content-bewteen max-sm:flex-wrap">
-            <figcaption class="text-sm pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @first_work.project_name, work_path(id: @first_work.id) -%></figcaption>
+            <figcaption class="<%= fdsz('text-sm') -%> pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @first_work.project_name, work_path(id: @first_work.id) -%></figcaption>
             <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
           </div>
         </figure>
@@ -52,7 +52,7 @@
           <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
           </div>
           <div class="max-sm:w-2/3 max-sm:pl-2 max-sm:flex max-sm:content-bewteen max-sm:flex-wrap">
-            <figcaption class="text-sm pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @second_work.project_name, work_path(id: @second_work.id) -%></figcaption>
+            <figcaption class="<%= fdsz('text-sm') -%> pt-2 text-black6c max-sm:block max-sm:w-full max-sm:flex-none max-sm:p-0"><%= link_to @second_work.project_name, work_path(id: @second_work.id) -%></figcaption>
             <p class="text-xs text-gray1c max-sm:block max-sm:w-full max-sm:flex-none"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
           </div>
         </figure>

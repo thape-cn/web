@@ -10,7 +10,7 @@
     <% end %>
     <div class="pt-10 w-3/4 max-sm:hidden">
       <% if @infos.present? %>
-        <h3 class="text-black6c text-sm">相关阅读</h3>
+        <h3 class="text-black6c <%= fdsz('text-sm') -%>">相关阅读</h3>
         <% @infos.each do |info| %>
           <figure class="flex mt-1 mb-4 xxxl:mt-3 xxxl:mb-6">
             <div class="w-1/2">
