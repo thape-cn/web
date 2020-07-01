@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :set_ts
   before_action :set_ie_warning
 
   private
@@ -23,6 +24,12 @@ class ApplicationController < ActionController::Base
         @http_locale ||= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
       rescue Exception => e
         'cn'
+      end
+    end
+
+    def set_ts
+      if params[:ts].present?
+        cookies['ts'] = { :value => params[:ts], :expires => 1.year.from_now }
       end
     end
 

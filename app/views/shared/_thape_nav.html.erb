@@ -278,13 +278,23 @@ isEnglish = I18n.locale == :en;
       <% end %>
     </div>
     <div class="nav-item">
-      <a href="">
-        <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
-          <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
-          <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('.5','1') -%>; fill-rule: evenodd;"/>
-          <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('1','.5') -%>; fill-rule: evenodd;"/>
-        </svg>
-      </a>
+      <% if cookies['ts'] == 'big' %>
+        <%= link_to '?ts=sm' do %>
+          <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+            <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
+            <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('.5','1') -%>; fill-rule: evenodd;"/>
+            <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('1','.5') -%>; fill-rule: evenodd;"/>
+          </svg>
+        <% end %>
+      <% else %>
+        <%= link_to '?ts=big' do %>
+          <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+            <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
+            <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('.5','1') -%>; fill-rule: evenodd;"/>
+            <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('1','.5') -%>; fill-rule: evenodd;"/>
+          </svg>
+        <% end %>
+      <% end %>
     </div>
   </nav>
   <form action="<%= search_path -%>" method="GET" id="header-search-form" data-target="header.form">
