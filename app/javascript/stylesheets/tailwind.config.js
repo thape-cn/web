@@ -40,5 +40,6 @@ module.exports = {
   ],
   purge: [
     '../../helpers/*',
+    '../../views/**/*',
   ],
 }
