@@ -12,34 +12,34 @@ module ApplicationHelper
   def smFzClass(num)
     case num
       when 1
-        "text-2xl"
+        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
       when 2
-        "text-lg"
+        "text-lg" # sm:text-lg md:text-lg lg:text-lg xl:text-lg xxl:text-lg xxxl:text-lg
       when 3
-        "text-base"
+        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
       when 4
-        "text-sm"
+        "text-sm" # sm:text-sm md:text-sm lg:text-sm xl:text-sm xxl:text-sm xxxl:text-sm
       when 5
-        "text-xs"
+        "text-xs" # sm:text-xs md:text-xs lg:text-xs xl:text-xs xxl:text-xs xxxl:text-xs
       else
-        "text-base"
+        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
     end
   end
 
   def xlFzClass(num)
     case num
       when 1
-        "text-4xl"
+        "text-4xl" # sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl xxl:text-4xl xxxl:text-4xl
       when 2
-        "text-3xl"
+        "text-3xl" # sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl xxl:text-3xl xxxl:text-3xl
       when 3
-        "text-2xl"
+        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
       when 4
-        "text-xl"
+        "text-xl" # sm:text-xl md:text-xl lg:text-xl xl:text-xl xxl:text-xl xxxl:text-xl
       when 5
-        "text-base"
+        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
       else
-        "text-2xl"
+        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
     end
   end
 
