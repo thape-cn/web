@@ -6,16 +6,16 @@
           <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c w-48', svgId: 'thape-footer-logo' } -%>
         </a>
       </div>
-      <div class="flex justify-center flex-none flex-wrap items-center w-48 <%= fdsz('text-sm sm:text-base') -%> text-thape-copyright-gray cursor-pointer sm:w-auto sm:justify-end">
-        <a href="<%= biz_map_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium <%= fdsz('xxl:text-lg') -%> hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>
+      <div class="flex justify-center flex-none flex-wrap items-center w-48 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> text-thape-copyright-gray cursor-pointer sm:w-auto sm:justify-end">
+        <a href="<%= biz_map_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= statement_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium <%= fdsz('xxl:text-lg') -%> hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>
+        <a href="<%= statement_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= privacy_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium <%= fdsz('xxl:text-lg') -%> hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>
+        <a href="<%= privacy_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= disclaimer_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium <%= fdsz('xxl:text-lg') -%> hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>
+        <a href="<%= disclaimer_sites_path -%>" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium <%= fdsz('xxl:text-lg') -%> hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
+        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-1 sm:my-0 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
       </div>
     </nav>
   </div>

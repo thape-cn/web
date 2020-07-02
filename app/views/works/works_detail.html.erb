@@ -12,7 +12,7 @@
     e: @project_type.en_name,
     header_path: @self_path, header_class: 'pt-12', show_header_right: true } %>
 
-  <ol class="pt-3">
+  <ol class="pt-3 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%>">
     <li class="inline-block">
       <a href="<%= root_path -%>" class="text-black6c">首页</a>
     </li>
@@ -31,8 +31,8 @@
         <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
           <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
           <div class="absolute text-white left-6 bottom-4">
-            <p class="<%= fdsz('text-lg sm:text-xl') -%> text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
-            <p class="<%= fdsz('text-base sm:text-lg') -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+            <p class="<%= fdsz("text-lg sm:#{smFzClass(2)}", "text-lg sm:#{xlFzClass(2)}") -%> text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+            <p class="<%= fdsz("text-base sm:#{smFzCLass(4)}", "text-base sm:#{smFzCLass(3)}") -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
           </div>
         </a>
       </div>
