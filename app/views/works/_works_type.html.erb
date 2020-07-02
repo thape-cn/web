@@ -1,170 +1,125 @@
-<!-- <div class="grid grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-2 mt-8 mb-4">
-  <div class="col-span-2 lg:col-auto flex justify-center items-center bg-thape-dark-gray">
-    <div class="m-auto w-5/6 text-thape-darker-gray font-bold pointer-events-none py-6">
-      <p class="<%= fdsz('text-2xl') -%> text-left my-0 xl:my-6">创意与技术完美融合</p>
-      <p class="<%= fdsz('text-base md:text-xl') -%> text-left leading-none md:leading-snug">ENGINEERING POWERED. </p>
-      <p class="<%= fdsz('text-base md:text-xl') -%> text-left leading-none md:leading-snug">DESIGN ACHIEVED.</p>
-    </div>
-  </div>
-  <div class="relative col-span-2 overflow-hidden">
-    <a href="<%= residential_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-1-2w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">居住</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">RESIDENTIAL</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-none lg:order-none">
-    <a href="<%= demonstration_zone_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-2-1.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">展示区/示范区</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">DEMONSTRATION ZONE</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-1 lg:order-none">
-    <a href="<%= office_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-2-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">商务办公</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">OFFICE</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative row-span-2 overflow-hidden order-2 lg:order-none">
-    <a href="<%= supertall_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-2-3l.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">超高层</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SUPERTALL</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative col-span-2 overflow-hidden order-5 lg:order-none">
-    <a href="<%= mixed_used_tod_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-3-1w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">综合体/TOD</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MIXED-USED/TOD</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-6 lg:order-none">
-    <a href="<%= commercial_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-4-1.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">商业空间</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">COMMERCIAL</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative col-span-2 overflow-hidden order-8 lg:order-none">
-    <a href="<%= cultural_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-4-2w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">文化空间</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">CULTURAL</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative row-span-2 overflow-hidden order-9 lg:order-none">
-    <a href="<%= urban_design_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-5-1l.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">城市设计/更新</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN DESIGN/RENOVATION</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-3 lg:order-none">
-    <a href="<%= education_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-5-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">教育</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">EDUCATION</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-4 lg:order-none">
-    <a href="<%= medical_care_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-5-3.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">医疗康养</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MEDICAL CARE</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative col-span-2 overflow-hidden order-12 lg:order-none">
-    <a href="<%= hospitality_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-6-2w.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">旅居/酒店</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SOJOURN/HOSPITALITY</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-10 lg:order-none">
-    <a href="<%= urban_planning_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-7-1.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">城市规划</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN PLANNING</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-11 lg:order-none">
-    <a href="<%= landscape_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-7-2.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">景观</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">LANDSCAPE</p>
-      </div>
-    </a>
-  </div>
-  <div class="relative overflow-hidden order-7 lg:order-none">
-    <a href="<%= interior_works_path -%>" class="cursor-pointer">
-      <%= image_pack_tag 'media/images/works-7-3.jpg', class: 'grid-image hover:scale-105' -%>
-      <div class="absolute text-white left-0 right-0 break-all px-3 md:px-6 bottom-1 md:bottom-4">
-        <p class="<%= fdsz('text-lg sm:text-2xl md:text-3xl') -%> text-left pb-1 font-medium leading-none md:leading-normal">室内</p>
-        <p class="<%= fdsz('text-sm sm:text-base md:text-xl') -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">INTERIOR</p>
-      </div>
-    </a>
-  </div>
-</div> -->
-
-<div class="works-projects-container">
+<div class="works-projects-container mt-2 sm:mt-4 xl:mt-8">
   <div class="works-projects-grid">
     <!-- SLOGAN -->
-    <div class="works-projects-cell slogan">SLOGAN</div>
+    <div class="works-projects-cell slogan flex items-center bg-thape-dark-gray">
+      <div class="m-auto w-5/6 text-thape-darker-gray font-bold pointer-events-none py-6 <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(3)}") -%> ">
+        <p class="text-left my-0 xl:my-6">创意与技术完美融合</p>
+        <p class="text-left leading-none md:leading-snug">ENGINEERING POWERED. </p>
+        <p class="text-left leading-none md:leading-snug">DESIGN ACHIEVED.</p>
+      </div>
+    </div>
     <!-- 居住 -->
-    <div class="works-projects-cell resdential">居住</div>
+    <div class="works-projects-cell resdential">
+      <%= image_pack_tag 'media/images/works-resdential-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">居住</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">RESIDENTIAL</p>
+      </div>
+    </div>
     <!-- 示范区 -->
-    <div class="works-projects-cell demonstration-zone">示范区</div>
+    <div class="works-projects-cell demonstration-zone">
+      <%= image_pack_tag 'media/images/works-demonstration-zone-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">展示区/示范区</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">DEMONSTRATION ZONE</p>
+      </div>
+    </div>
     <!-- 综合体/TOD -->
-    <div class="works-projects-cell mixed-used-tod">综合体/TOD</div>
+    <div class="works-projects-cell mixed-used-tod">
+      <%= image_pack_tag 'media/images/works-mixed-used-tod-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">综合体/TOD</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MIXED-USED/TOD</p>
+      </div>
+    </div>
     <!-- 商业空间 -->
-    <div class="works-projects-cell commercial">商业空间</div>
+    <div class="works-projects-cell commercial">
+      <%= image_pack_tag 'media/images/works-commercial-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">商业空间</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">COMMERCIAL</p>
+      </div>
+    </div>
     <!-- 超高层 -->
-    <div class="works-projects-cell supertall">超高层</div>
+    <div class="works-projects-cell supertall">
+      <%= image_pack_tag 'media/images/works-supertall-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">超高层</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SUPERTALL</p>
+      </div>
+    </div>
     <!-- 文化 -->
-    <div class="works-projects-cell cultural">文化</div>
+    <div class="works-projects-cell cultural">
+      <%= image_pack_tag 'media/images/works-cultural-short-1024.jpg', class: 'block xl:hidden grid-image hover:scale-105' -%>
+      <%= image_pack_tag 'media/images/works-cultural-short-1024.jpg', class: 'hidden xl:block grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">文化空间</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">CULTURAL</p>
+      </div>
+    </div>
     <!-- 教育 -->
-    <div class="works-projects-cell education">教育</div>
+    <div class="works-projects-cell education">
+      <%= image_pack_tag 'media/images/works-education-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">教育</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">EDUCATION</p>
+      </div>
+    </div>
     <!-- 商务办公 -->
-    <div class="works-projects-cell office">商务办公</div>
+    <div class="works-projects-cell office">
+      <%= image_pack_tag 'media/images/works-office-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">商务办公</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">OFFICE</p>
+      </div>
+    </div>
     <!-- 城市设计/更新 -->
-    <div class="works-projects-cell urban-design">城市设计/更新</div>
+    <div class="works-projects-cell urban-design">
+      <%= image_pack_tag 'media/images/works-urban-design-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">城市设计/更新</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN DESIGN/RENOVATION</p>
+      </div>
+    </div>
     <!-- 医疗康养 -->
-    <div class="works-projects-cell medical-care">医疗康养</div>
+    <div class="works-projects-cell medical-care">
+      <%= image_pack_tag 'media/images/works-medical-care-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">医疗康养</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MEDICAL CARE</p>
+      </div>
+    </div>
     <!-- 旅居/酒店 -->
-    <div class="works-projects-cell hospitality">旅居/酒店</div>
+    <div class="works-projects-cell hospitality">
+      <%= image_pack_tag 'media/images/works-hospitality-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">旅居/酒店</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SOJOURN/HOSPITALITY</p>
+      </div>
+    </div>
     <!-- 规划 -->
-    <div class="works-projects-cell urban-planning">规划</div>
+    <div class="works-projects-cell urban-planning">
+      <%= image_pack_tag 'media/images/works-urban-planning-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">城市规划</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN PLANNING</p>
+      </div>
+    </div>
     <!-- 景观 -->
-    <div class="works-projects-cell landscape">景观</div>
+    <div class="works-projects-cell landscape">
+      <%= image_pack_tag 'media/images/works-landscape-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">景观</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">LANDSCAPE</p>
+      </div>
+    </div>
     <!-- 室内 -->
-    <div class="works-projects-cell interior">室内</div>
+    <div class="works-projects-cell interior">
+      <%= image_pack_tag 'media/images/works-interior-1024.jpg', class: 'grid-image hover:scale-105' -%>
+      <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-1 md:py-4">
+        <p class="<%= fdsz("text-lg sm:#{smFzClass(1)}", "text-lg sm:#{xlFzClass(1)}") -%> text-left pb-1 font-medium leading-none md:leading-normal">室内</p>
+        <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">INTERIOR</p>
+      </div>
+    </div>
   </div>
 </div>

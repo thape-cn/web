@@ -1,7 +1,7 @@
 .works-projects-container {
     position: relative;
     width: 100%;
-    padding-top: 480%;
+    padding-top: 500%;
     @screen sm {
         padding-top: 212%;
     }
@@ -19,7 +19,12 @@
         gap: .5rem;
 
         .works-projects-cell {
-            background-color: #ccc;
+            position: relative;
+            overflow: hidden;
+
+            .mask {
+                background-image: linear-gradient(to top, rgba(0, 0, 0, .8),  rgba(0, 0, 0, 0));
+            }
 
             &.slogan {
                 grid-area: 1 / 1 / 1 / 3;
