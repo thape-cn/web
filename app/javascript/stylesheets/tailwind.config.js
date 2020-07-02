@@ -38,8 +38,4 @@ module.exports = {
   plugins: [
     require('@tailwindcss/ui')
   ],
-  purge: [
-    '../../helpers/*',
-    '../../views/**/*',
-  ],
 }
