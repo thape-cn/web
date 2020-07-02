@@ -6,7 +6,7 @@
       <%= image_pack_tag 'media/images/default_avatar.jpg', class: "grid-image grid-mask-image" -%>
     <% end %>
     <div class="absolute text-white inset-x-0 bottom-0">
-      <p class="text-lg text-center font-medium"><%= person.name -%></p>
+      <p class="<%= fdsz('text-lg') -%> text-center font-medium"><%= person.name -%></p>
       <% titles = person_titles(person, city) %>
       <p class="<%= fdsz('text-sm') -%> text-center font-light leading-tight"><%= titles.first -%></p>
       <% if titles.length > 1 %>
