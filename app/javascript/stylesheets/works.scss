@@ -1,7 +1,13 @@
 .works-projects-container {
     position: relative;
     width: 100%;
-    padding-top: 114%;
+    padding-top: 480%;
+    @screen sm {
+        padding-top: 212%;
+    }
+    @screen xl {
+        padding-top: 114%;
+    }
     .works-projects-grid {
         position: absolute;
         top: 0;
@@ -9,84 +15,246 @@
         left: 0;
         right: 0;
         display: grid;
-        grid-template: repeat(4 1fr) / repeat(5 1fr);
+        grid-template: repeat(11, 1fr) / repeat(2, 1fr);
         gap: .5rem;
-        
+
         .works-projects-cell {
             background-color: #ccc;
 
             &.slogan {
-                grid-area: 1 / 1 / 1 / 1;
+                grid-area: 1 / 1 / 1 / 3;
             }
     
             // 居住
             &.resdential {
-                grid-area: 1 / 2 / 1 / 4;
+                grid-area: 2 / 1 / 2 / 3;
             }
     
             // 示范区
             &.demonstration-zone {
-                grid-area: 1 / 4 / 1 / 4;
+                grid-area: 3 / 1 / 3 / 1;
             }
     
             // 综合体
             &.mixed-used-tod {
-                grid-area: 2 / 1 / 2 / 3;
+                grid-area: 4 / 1 / 4 / 3;
             }
     
             // 商业空间
             &.commercial {
-                grid-area: 2 / 3 / 2 / 3;
+                grid-area: 3 / 2 / 3 / 2;
             }
     
             // 超高层
             &.supertall {
-                grid-area: 2 / 4 / 4 / 4;
+                grid-area: 5 / 1 / 7 / 1;
             }
     
             // 文化
             &.cultural {
-                grid-area: 3 / 1 / 3 / 1;
+                grid-area: 7 / 1 / 7 / 3;
             }
     
             // 教育
             &.education {
-                grid-area: 3 / 2 / 3 / 2;
+                grid-area: 6 / 2 / 6 / 2;
             }
     
             // 商务办公
             &.office {
-                grid-area: 3 / 3 / 3 / 3;
+                grid-area: 5 / 2 / 5 / 2;
             }
     
             // 城市设计/更新
             &.urban-design {
-                grid-area: 4 / 1 / 6 / 1;
+                grid-area: 8 / 2 / 10 / 2;
             }
     
             // 医疗康养
             &.medical-care {
-                grid-area: 4 / 2 / 4 / 2;
+                grid-area: 8 / 1 / 8 / 1;
             }
     
             // 旅居/酒店
             &.hospitality {
-                grid-area: 4 / 3 / 4 / 5;
+                grid-area: 10 / 1 / 10 / 3;
             }
     
             // 规划
             &.urban-planning {
-                grid-area: 5 / 2 / 5 / 2;
+                grid-area: 9 / 1 / 9 / 1;
             }
     
             // 景观
             &.landscape {
-                grid-area: 5 / 3 / 5 / 3;
+                grid-area: 11 / 1 / 11 / 1;
             }
     
             // 室内
             &.interior {
-                grid-area: 5 / 4 / 5 / 4;
+                grid-area: 11 / 2 / 11 / 2;
+            }
+        }
+        
+        @screen sm {
+            grid-template: repeat(7, 1fr) / repeat(3, 1fr);
+            gap: .5rem;
+            .works-projects-cell {
+
+                &.slogan {
+                    grid-area: 1 / 1 / 1 / 1;
+                }
+        
+                // 居住
+                &.resdential {
+                    grid-area: 1 / 2 / 1 / 4;
+                }
+        
+                // 示范区
+                &.demonstration-zone {
+                    grid-area: 2 / 3 / 2 / 3;
+                }
+        
+                // 综合体
+                &.mixed-used-tod {
+                    grid-area: 3 / 2 / 3 / 4;
+                }
+        
+                // 商业空间
+                &.commercial {
+                    grid-area: 4 / 3 / 4 / 3;
+                }
+        
+                // 超高层
+                &.supertall {
+                    grid-area: 2 / 1 / 4 / 1;
+                }
+        
+                // 文化
+                &.cultural {
+                    grid-area: 4 / 1 / 4 / 3;
+                }
+        
+                // 教育
+                &.education {
+                    grid-area: 5 / 2 / 5 / 2;
+                }
+        
+                // 商务办公
+                &.office {
+                    grid-area: 2 / 2 / 2 / 2;
+                }
+        
+                // 城市设计/更新
+                &.urban-design {
+                    grid-area: 5 / 1 / 7 / 1;
+                }
+        
+                // 医疗康养
+                &.medical-care {
+                    grid-area: 5 / 3 / 5 / 3;
+                }
+        
+                // 旅居/酒店
+                &.hospitality {
+                    grid-area: 6 / 2 / 6 / 4;
+                }
+        
+                // 规划
+                &.urban-planning {
+                    grid-area: 7 / 1 / 7 / 1;
+                }
+        
+                // 景观
+                &.landscape {
+                    grid-area: 7 / 2 / 7 / 2;
+                }
+        
+                // 室内
+                &.interior {
+                    grid-area: 7 / 3 / 7 / 3;
+                }
+            }
+        }
+
+        @screen xl {
+            grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+            gap: .5rem;
+            .works-projects-cell {
+    
+                &.slogan {
+                    grid-area: 1 / 1 / 1 / 1;
+                }
+        
+                // 居住
+                &.resdential {
+                    grid-area: 1 / 2 / 1 / 4;
+                }
+        
+                // 示范区
+                &.demonstration-zone {
+                    grid-area: 1 / 4 / 1 / 4;
+                }
+        
+                // 综合体
+                &.mixed-used-tod {
+                    grid-area: 2 / 1 / 2 / 3;
+                }
+        
+                // 商业空间
+                &.commercial {
+                    grid-area: 2 / 3 / 2 / 3;
+                }
+        
+                // 超高层
+                &.supertall {
+                    grid-area: 2 / 4 / 4 / 4;
+                }
+        
+                // 文化
+                &.cultural {
+                    grid-area: 3 / 1 / 3 / 1;
+                }
+        
+                // 教育
+                &.education {
+                    grid-area: 3 / 2 / 3 / 2;
+                }
+        
+                // 商务办公
+                &.office {
+                    grid-area: 3 / 3 / 3 / 3;
+                }
+        
+                // 城市设计/更新
+                &.urban-design {
+                    grid-area: 4 / 1 / 6 / 1;
+                }
+        
+                // 医疗康养
+                &.medical-care {
+                    grid-area: 4 / 2 / 4 / 2;
+                }
+        
+                // 旅居/酒店
+                &.hospitality {
+                    grid-area: 4 / 3 / 4 / 5;
+                }
+        
+                // 规划
+                &.urban-planning {
+                    grid-area: 5 / 2 / 5 / 2;
+                }
+        
+                // 景观
+                &.landscape {
+                    grid-area: 5 / 3 / 5 / 3;
+                }
+        
+                // 室内
+                &.interior {
+                    grid-area: 5 / 4 / 5 / 4;
+                }
             }
         }
     }
