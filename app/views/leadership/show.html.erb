@@ -1,7 +1,7 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
 <div>
-<div class="w-full sm:w-3/4 mx-0 sm:mx-auto flex px-4 sm:px-0 pt-16 sm:pt-28 flex-wrap sm:flex-no-wrap">
+<div class="w-full sm:w-3/4 mx-0 sm:mx-auto flex px-4 sm:px-0 flex-wrap sm:flex-no-wrap">
   <div class="w-full sm:w-1/3 text-center sm:text-left">
     <% if @person.photo.url.present? %>
       <%= image_tag(@person.photo.url, class: 'w-full sm:w-3/4 inline-block sm:block') %>

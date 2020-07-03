@@ -1,8 +1,8 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full mx-auto sm:py-4 md:py-8 px-4 sm:px-24 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
+<div class="w-full mx-auto sm:pb-4 md:pb-8 px-4 sm:px-24 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
   <%= render partial: 'shared/header', locals: { c: '免责条款', e: 'TERMS OF DISCLAIMER',
-    header_path: disclaimer_sites_path, header_class: 'pt-16', show_header_right: false } %>
+    header_path: disclaimer_sites_path, header_class: '', show_header_right: false } %>
 
   <main class="my-4 lg:my-2 xl:my-0">
     <h1 class="<%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> font-bold text-black6c pt-2 my-2">1. 免责声明</h1>

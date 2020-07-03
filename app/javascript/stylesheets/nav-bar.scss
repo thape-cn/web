@@ -8,15 +8,18 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-#thape-top-header {
+.thape-header-fixed {
   position: fixed;
+  z-index: 1000;
+}
+
+.thape-header {
   width: 100%;
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  z-index: 1000;
   @apply text-thape-white-t80 nav-background-initial px-2;
 
   @screen md {
