@@ -4,12 +4,12 @@
   <header class="w-full flex-none pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
     <h3 class="inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :work) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
-        作品&nbsp;&nbsp;（<%= @works_results.count + @works_city_results.count -%>）
+        作品&nbsp;&nbsp;（<%= @works_results.count -%>）
       </a>
     </h3>
     <h3 class="ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-black6c">
       <a href="<%= search_path(q: params[:q], tab: :person) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
-        人物&nbsp;&nbsp;（<%= @people_results.count + @people_city_results.count -%>）
+        人物&nbsp;&nbsp;（<%= @people_results.count -%>）
       </a>
     </h3>
     <h3 class="ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
@@ -19,24 +19,20 @@
     </h3>
   </header>
 
-  <% if @people_results.present? || @people_city_results.present? %>
-  <div class="flex-grid mt-8 mb-4">
-    <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 <%= @people_results.count + @people_city_results.count >= 6 ? 'xxl:flex-grid-cols-6-gap-2' : '' -%>">
-    <% @people_results.each do |person| %>
-      <%= render partial: 'leadership/person_square',
-        locals: { person: person, person_class: 'grid-div', city: nil } %>
-    <% end %>
-    <% @people_city_results.each do |person| %>
-      <%= render partial: 'leadership/person_square',
-        locals: { person: person, person_class: 'grid-div', city: @city } %>
-    <% end %>
+  <% if @people_results.present? %>
+    <div class="flex-grid mt-8 mb-4">
+      <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 <%= @people_results.count >= 6 ? 'xxl:flex-grid-cols-6-gap-2' : '' -%>">
+      <% @people_results.each do |person| %>
+        <%= render partial: 'leadership/person_square',
+          locals: { person: person, person_class: 'grid-div', city: nil } %>
+      <% end %>
+      </div>
     </div>
-  </div>
   <% else %>
-  <div class="w-full flex flex-auto mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
-    <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
-    <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
-  </div>
+    <div class="w-full flex flex-auto mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
+      <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
+      <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
+    </div>
   <% end %>
 </div>
 
