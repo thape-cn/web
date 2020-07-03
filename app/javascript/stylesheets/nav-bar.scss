@@ -22,24 +22,6 @@
   height: 50px;
   @apply text-thape-white-t80 nav-background-initial px-2;
 
-  @screen md {
-    @apply px-6;
-    height: 60px;
-  }
-  @screen lg {
-    @apply px-8;
-  }
-  @screen xl {
-    @apply px-10;
-  }
-  @screen xxl {
-    @apply px-12;
-    height: 80px;
-  }
-  @screen xxxl {
-    @apply px-16;
-  }
-
   // 默认文字样式
   a, span {
     color: inherit;
@@ -90,46 +72,13 @@
 
     &.intro {
       align-items: center;
-      height: calc(100% - 20px);
+      height: 100%;
       justify-content: flex-end;
-      padding-right: 13.7rem;
-
-      @screen md {
-        padding-right: 14.6rem;
-      }
-      @screen lg {
-        padding-right: 15.26rem;
-      }
-      @screen xl {
-        padding-right: 15.8rem;
-      }
-      @screen xxl {
-        padding-right: 18.2rem;
-      }
-      @screen xxxl {
-        padding-right: 19.2rem;
-      }
     }
 
     &.works {
       justify-content: flex-end;
       padding: .5rem 1.16rem .25rem 0;
-
-      @screen md {
-        padding-right: 2.16rem;
-      }
-      @screen lg {
-        padding-right: 2.66rem;
-      }
-      @screen xl {
-        padding-right: 3.2rem;
-      }
-      @screen xxl {
-        padding-right: 6.88rem;
-      }
-      @screen xxxl {
-        padding-right: 7.84rem;
-      }
 
       >.nav-item {
 
@@ -189,50 +138,8 @@
 
     &.service {
       align-items: center;
-      height: calc(100% - 20px);
+      height: 100%;
       justify-content: flex-end;
-      @apply pr-2;
-
-      @screen md {
-        @apply pr-6;
-      }
-      @screen lg {
-        @apply pr-8;
-      }
-      @screen xl {
-        @apply pr-10;
-      }
-      @screen xxl {
-        @apply pr-12;
-      }
-      @screen xxxl {
-        @apply pr-16;
-      }
-
-      >.nav-item {
-        padding: 0 .78rem;
-
-        @screen md {
-          padding: 0 .78rem;
-        }
-        @screen lg {
-          padding: 0 .768rem;
-        }
-        @screen xl {
-          padding: 0 .77rem;
-        }
-        @screen xxl {
-          padding: 0 .98rem;
-        }
-        @screen xxxl {
-          padding: 0 .982rem;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
-
-      }
     }
   }
 
@@ -240,7 +147,7 @@
     display: none;
     height: 100%;
 
-    @screen md {
+    @screen lg {
       display: flex;
     }
 
@@ -302,6 +209,9 @@
     }
 
     >.logo {
+      a {
+        @apply text-black6c;
+      }
       a:hover, a:focus{
         @apply text-black6c-t70;
       }
@@ -327,65 +237,31 @@
     }
   }
 
-  // 英文版
-  &:lang(en) {
-    nav {
-      &.intro {
-        padding-right: 10rem;
-
-        @screen md {
-          padding-right: 9.48rem;
-        }
-        @screen lg {
-          padding-right: 12rem;
-        }
-        @screen xl {
-          padding-right: 12.6rem;
-        }
-        @screen xxl {
-          padding-right: 15rem;
-        }
-        @screen xxxl {
-          padding-right: 16rem;
-        }
-      }
-
-      // 作品
-      &.works {
-        padding-right: 0.6rem;
-
-        @screen md {
-          padding-right: 0.2rem;
-        }
-        @screen lg {
-          padding-right: 2rem;
-        }
-        @screen xl {
-          padding-right: 2.6rem;
-        }
-        @screen xxl {
-          padding-right: 2.8rem;
-        }
-        @screen xxxl {
-          padding-right: 4rem;
-        }
-
-        >.nav-item {
-          &:first-child {
-            width: 26rem;
-          }
-          &:nth-child(2) {
-            width: 28rem;
-          }
-        }
-      }
+  // 英文版作品
+  &:lang(en) nav.works >.nav-item {
+    &:first-child {
+      width: 26rem;
+    }
+    &:nth-child(2) {
+      width: 28rem;
     }
   }
+
+  // 大字版作品
+  &.big-font:lang(en) nav.works >.nav-item {
+    &:first-child {
+      width: 34rem;
+    }
+    &:nth-child(2) {
+      width: 30rem;
+    }
+  }
+
   .aside-menu-button {
     display: block;
     @apply rounded-md text-thape-white-t80 transition duration-150 ease-in-out;
 
-    @screen md {
+    @screen lg {
       display: none;
     }
 
@@ -393,10 +269,7 @@
       outline: none;
     }
   }
-  &.active .aside-menu-button {
-    @apply text-gray-400;
-  }
-  &:hover .aside-menu-button {
+  &.active .aside-menu-button, &:hover .aside-menu-button {
     @apply text-gray-400;
   }
   .aside-menu {
@@ -408,7 +281,7 @@
     height: calc(100vh - 50px);
     background-color: transparent;
 
-    @screen md {
+    @screen lg {
       display: none;
     }
 
@@ -426,5 +299,203 @@
         }
       }
     }
+  }
+
+  @screen lg {
+    @apply px-8;
+
+    nav.intro {
+      padding-right: 19rem;
+    }
+
+    &:lang(en) nav.intro {
+      padding-right: 15.8rem;
+    }
+
+    &.big-font nav.intro {
+      padding-right: 20.9rem;
+    }
+
+    &.big-font:lang(en) nav.intro {
+      padding-right: 17rem;
+    }
+
+    nav.works {
+      padding-right: 6.4rem;
+    }
+
+    &:lang(en) nav.works {
+      padding-right: 4rem;
+    }
+
+    &.big-font nav.works {
+      padding-right: 9.4rem;
+    }
+
+    &.big-font:lang(en) nav.works {
+      padding-right: 4rem;
+    }
+
+    nav.service {
+      @apply pr-8;
+
+      >.nav-item {
+        padding: 0 1.09rem;
+      }
+    }
+
+    &.big-font nav.service>.nav-item {
+      padding: 0 1.12rem;
+    }
+  }
+  @screen xl {
+    @apply px-10;
+
+    nav.intro {
+      padding-right: 19.6rem;
+    }
+
+    &:lang(en) nav.intro {
+      padding-right: 16.3rem;
+    }
+
+    &.big-font nav.intro {
+      padding-right: 21rem;
+    }
+
+    &.big-font:lang(en) nav.intro {
+      padding-right: 18.5rem;
+    }
+
+    nav.works {
+      padding-right: 6.9rem;
+    }
+
+    &:lang(en) nav.works {
+      padding-right: 4.4rem;
+    }
+
+    &.big-font nav.works {
+      padding-right: 9.9rem;
+    }
+
+    &.big-font:lang(en) nav.works {
+      padding-right: 5.8rem;
+    }
+    
+    nav.service {
+      @apply pr-10;
+
+      >.nav-item {
+        padding: 0 1.09rem;
+      }
+    }
+
+    &.big-font nav.service>.nav-item {
+      padding: 0 1.12rem;
+    }
+  }
+  @screen xxl {
+    @apply px-12;
+    height: 80px;
+
+    nav.intro {
+      padding-right: 22.5rem;
+    }
+
+    &:lang(en) nav.intro {
+      padding-right: 19.3rem;
+    }
+
+    &.big-font nav.intro {
+      padding-right: 24rem;
+    }
+
+    &.big-font:lang(en) nav.intro {
+      padding-right: 21.5rem;
+    }
+
+    nav.works {
+      padding-right: 11.1rem;
+    }
+
+    &:lang(en) nav.works {
+      padding-right: 4.8rem;
+    }
+
+    &.big-font nav.works {
+      padding-right: 14.1rem;
+    }
+
+    &.big-font:lang(en) nav.works {
+      padding-right: 6.4rem;
+    }
+
+    nav.service {
+      @apply pr-12;
+
+      >.nav-item {
+        padding: 0 1.34rem;
+      }
+    }
+
+    &.big-font nav.service>.nav-item {
+      padding: 0 1.37rem;
+    }
+  }
+  @screen xxxl {
+    @apply px-16;
+
+    nav.intro {
+      padding-right: 23.5rem;
+    }
+
+    &:lang(en) nav.intro {
+      padding-right: 20.3rem;
+    }
+
+    &.big-font nav.intro {
+      padding-right: 25rem;
+    }
+
+    &.big-font:lang(en) nav.intro {
+      padding-right: 22.5rem;
+    }
+
+    nav.works {
+      padding-right: 12.1rem;
+    }
+
+    &:lang(en) nav.works {
+      padding-right: 5.9rem;
+    }
+
+    &.big-font nav.works {
+      padding-right: 15.1rem;
+    }
+
+    &.big-font:lang(en) nav.works {
+      padding-right: 7.2rem;
+    }
+
+    nav.service {
+      @apply pr-16;
+
+      >.nav-item {
+        padding: 0 1.34rem;
+      }
+    }
+
+    &.big-font nav.service>.nav-item {
+      padding: 0 1.37rem;
+    }
+  }
+
+  &:lang(en) nav.service>.nav-item {
+    padding: 0 .85rem;
+  }
+
+  nav.service>.nav-item:last-child {
+    padding-right: 0;
   }
 }
