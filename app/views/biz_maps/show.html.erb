@@ -86,7 +86,8 @@
       <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_company == '上海天华'">
         <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
           <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
-            <h1 class="<%= fdsz('text-2xl') -%> font-medium leading-tight pb-2">上海天华建筑设计有限公司</h1>
+            <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2">上海天华建筑设计有限公司</h1>
+            <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
             <label class="float-left">地址：</label>
               <p class="ml-12">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
               <p class="ml-12">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
@@ -95,6 +96,7 @@
               <p class="ml-12">021-64281588</p>
             <label class="float-left">传真：</label>
               <p class="ml-12">021-64281587</p>
+            </div>
           </div>
         </div>
       </div>
@@ -130,9 +132,9 @@
       <%= render partial: 'map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
     </div>
     <div class="w-full sm:w-1/2 order-first sm:order-none flex-none sm:flex-initial">
-      <div class="flex xxl:pt-12 xxxl:pt-20 flex-wrap sm:flex-no-wrap">
+      <div class="flex xxl:pt-12 xxxl:pt-20 flex-wrap sm:flex-no-wrap sm:items-end">
         <h1 class="<%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto">天华的全国化布局</h1>
-        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto">TIANHUA IN CHINA</h1>
+        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto sm:ml-1">TIANHUA IN CHINA</h1>
       </div>
       <p class="pt-2 xxxl:pt-5 <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%>">天华通过全国22个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
       <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'w-full block sm:hidden my-6 sm:my-0' -%>
@@ -299,10 +301,10 @@
   <div class="w-full mx-auto px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray" id="thape-address">
     <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
       <header class="px-0 pt-2 pb-1 sm:px-4 sm:px-6" x-on:click="show_city = ''">
-        <h1 class="inline-block <%= fdsz('text-2xl xxxl:text-3xl') -%> font-bold text-black6c">
+        <h1 class="inline-block <%= fdsz("text-2xl sm:#{smFzClass(1)}", "text-2xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
           <a href="<%= biz_map_path(locale: 'cn', anchor: 'thape-address') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>
-        <h2 class="ml-2 inline-block <%= fdsz('text-xl xxxl:text-2xl') -%> text-black6c">
+        <h2 class="ml-2 inline-block <%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> text-black6c">
           <a href="<%= biz_map_path(locale: 'en', anchor: 'thape-address') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">OFFICES</a>
         </h2>
       </header>
@@ -336,10 +338,10 @@
   <div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16" x-show="show_city == '上海'">
     <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
       <header class="px-4 pt-2 pb-1 sm:px-6">
-        <h1 class="inline-block <%= fdsz('text-2xl sm:text-3xl') -%> font-bold text-black6c">
+        <h1 class="inline-block <%= fdsz("text-2xl sm:#{smFzClass(1)}", "text-2xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
           <span class="hover:text-black6c-t70">上海</span>
         </h1>
-        <h2 class="ml-2 inline-block <%= fdsz('text-xl sm:text-2xl') -%> text-black6c">
+        <h2 class="ml-2 inline-block <%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> text-black6c">
           <span class="font-medium hover:text-black6c-t70">SHANGHAI</span>
         </h2>
       </header>

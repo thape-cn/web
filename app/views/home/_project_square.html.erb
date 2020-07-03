@@ -20,7 +20,7 @@
     x-transition:leave-start="opacity-100 transform translate-y-0"
     x-transition:leave-end="opacity-0 transform translate-y-4"
     x-show="show_grid_text">
-    <p class="<%= fdsz('text-xs md:text-base') -%> text-left pb-1 font-medium"><%= link_to work.project_types.first["#{I18n.locale}_name"], project_type_path(work.project_types.first) -%></p>
-    <p class="<%= fdsz('text-sm md:text-xl') -%> text-left leading-snug"><%= link_to work.project_name, work_path(id: work.id) -%></p>
+    <p class="<%= fdsz("text-xs sm:#{smFzClass(4)}", "text-xs sm:#{xlFzClass(3)}") -%> text-left pb-1 font-medium"><%= link_to work.project_types.first["#{I18n.locale}_name"], project_type_path(work.project_types.first) -%></p>
+    <p class="<%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= link_to work.project_name, work_path(id: work.id) -%></p>
   </div>
 </div>
