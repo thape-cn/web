@@ -1,7 +1,7 @@
 <div class="grid-div" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
   <%= image_pack_tag g_image, class: 'grid-mask-image' -%>
   <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
-    <h1 class="<%= fdsz("#{smFzClass(1)}", "#{xlFzClass(1)}") -%> text-left pb-1 font-medium"><%= h1 -%></h1>
+    <h1 class="<%= fdsz("#{smFzClass(1)}", "#{xlFzClass(1)}") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
     <h2 class="<%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= h2 -%></h2>
   </div>
   <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
@@ -13,7 +13,7 @@
     x-transition:leave-end="opacity-0 transform -translate-x-1/2">
     <div class="flex items-center px-2 sm:pl-10 sm:pr-36 w-full sm:w-auto">
       <div>
-        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> text-left pb-1 leading-none sm:font-semibold"><%= h1 -%></h1>
+        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> text-left pb-1 leading-none font-semibold"><%= h1 -%></h1>
         <h2 class="<%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= h2 -%></h2>
         <% h3s.each_with_index do |h3, index| %>
           <h3 class="<%= index == 0 ? 'mt-1 sm:mt-3' : '' -%> <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> leading-tight sm:font-semibold text-lef"><%= h3 -%></h3>

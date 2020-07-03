@@ -225,3 +225,7 @@ p {
     background-image: linear-gradient(to left, rgba(0,0,0,.6), rgba(0,0,0,0));
   }
 }
+
+.thape-logo-svg {
+  @apply fill-current w-48 h-10;
+}

@@ -1,10 +1,10 @@
 <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
 <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
   <% if m.alt_name.present? %>
-    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-normal sm:leading-tight"><%= m.long_name -%></h1>
-    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium pb-1 leading-normal"><%= m.alt_name -%></h1>
+    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight"><%= m.long_name -%></h1>
+    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> pb-1 leading-normal"><%= m.alt_name -%></h1>
   <% else %>
-    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-normal sm:leading-tight pb-2"><%= m.long_name -%></h1>
+    <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2"><%= m.long_name -%></h1>
   <% end %>
   <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
     <label class="flex-none leading-normal">地址：</label>

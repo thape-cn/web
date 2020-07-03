@@ -15,8 +15,8 @@
         <p class="<%= fdsz('text-3xl sm:text-5xl') -%> text-justify tracking-widest font-bold leading-9"><%= info.created_at.day -%></p>
       </div>
       <div class="mb-10 mx-6">
-        <p class="font-medium <%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> text-left pb-1 leading-snug text-justify"><%= info.title -%></p>
-        <p class="font-light <%= fdsz("text-base sm:#{smFzClass(4)}", "text-base sm:#{xlFzClass(3)}") -%> text-left leading-6 mt-2"><%= info.sub_title -%></p>
+        <p class="font-medium <%= fdsz("text-xl sm:#{smFzClass(2)} leading-tight", "text-xl sm:#{xlFzClass(2)}　leading-tight") -%> text-left pb-1 text-justify"><%= info.title -%></p>
+        <p class="font-light <%= fdsz("text-base sm:#{smFzClass(4)} leading-tight", "text-base sm:#{xlFzClass(3)} leading-tight") -%> text-left mt-2"><%= info.sub_title -%></p>
       </div>
     </div>
   <% end %>

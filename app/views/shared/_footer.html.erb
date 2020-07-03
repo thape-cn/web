@@ -1,9 +1,9 @@
 <footer class="bg-thape-dark-gray py-4 w-full flex-none self-end sm:py-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 relative z-1">
-  <div class="w-full sm:pt-6">
+  <div class="w-full">
     <nav class="flex items-center justify-center flex-no-wrap pb-2 sm:pb-4 sm:justify-between border-b border-gray-300">
       <div class="items-center hidden sm:flex">
         <a href="<%= root_path -%>">
-          <%= render partial: 'shared/logo', locals: { className: 'fill-current text-black6c w-48', svgId: 'thape-footer-logo' } -%>
+          <%= render partial: 'shared/logo', locals: { className: 'thape-logo-svg', svgId: 'thape-footer-logo' } -%>
         </a>
       </div>
       <div class="flex justify-center flex-none flex-wrap items-center w-48 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> text-thape-copyright-gray cursor-pointer sm:w-auto sm:justify-end">
@@ -20,7 +20,7 @@
     </nav>
   </div>
   <div class="w-full flex justify-center flex-wrap mt-4 sm:justify-between sm:flex-no-wrap sm:mt-6">
-    <div class="<%= fdsz('text-sm') -%> flex-none w-full text-thape-copyright-gray sm:w-auto sm:flex-auto">
+    <div class="<%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> flex-none w-full text-thape-copyright-gray sm:w-auto sm:flex-auto">
       <p class="hidden sm:block"><%= t('footer.telephone_exchange') -%>：021-64281588 &nbsp;&nbsp;&nbsp;<%= t('footer.contact_hotline') -%>：400-8366606</p>
       <p class="hidden leading-loose sm:block"><%= t("footer.corporation") -%></p>
 

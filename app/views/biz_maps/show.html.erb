@@ -204,7 +204,7 @@
           x-on:click="show_city = '长沙';show_company = '长沙天华'">长<br/>沙<br/>天<br/>华</div>
       </div>
 
-      <div class="mt-10 grid sm:flex sm:justify-center sm:items-center grid-cols-11 sm:grid-cols-none gap-1 sm:gap-0 text-center w-full <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> my-2 sm:my-0">
+      <div class="mt-10 grid sm:flex sm:justify-center sm:items-center grid-cols-11 sm:grid-cols-none gap-1 sm:gap-0 text-center w-full <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)} leading-tight") -%> my-2 sm:my-0">
         <div class="m-0 sm:mr-1 xl:mr-2 xxxl:mr-3 pt-2 h-56 w-full sm:w-6 xxxl:w-8 text-black border border-2 border-gray-600 cursor-pointer col-span-1 col-span-auto flex sm:block justify-center sm:justify-start"
           x-bind:class="{ 'bg-gray-100': show_company == '香港易爱迪', 'bg-gray-50': show_company != '香港易爱迪' }"
           x-on:click="show_city = '香港';show_company = '香港易爱迪'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
@@ -347,7 +347,7 @@
       </header>
       <div class="flex flex-wrap px-4 py-2 sm:px-6">
         <div class="w-full lg:w-1/2 leading-loose my-0 sm:my-6">
-          <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-normal sm:leading-tight pb-2">上海天华建筑设计有限公司</h1>
+          <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2">上海天华建筑设计有限公司</h1>
           <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
             <label class="flex-none leading-normal">地址：</label>
             <div>
@@ -404,7 +404,10 @@
 
 </div>
 
+</div>
+
+<div class="py-8">
 <%= render partial: 'shared/guest_form' %>
+</div>
 
 <%= render partial: 'shared/footer' %>
-</div>
