@@ -7,11 +7,11 @@
 
 <div class="w-full mx-auto p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16">
 
-  <div class="relative max-w-screen-lg mx-auto">
+  <section class="relative max-w-screen-lg mx-auto">
     <%= image_pack_tag 'media/images/culture_1.jpg', class: 'w-full' -%>
-    <div class="absolute text-black6c left-0 top-0">
+    <blockquote class="absolute text-black6c left-0 top-0">
       <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华价值主张</p>
-    </div>
+    </blockquote>
     <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
       <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">价值导向的</h1>
       <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg') -%> text-black6c text-center font-medium tracking-widest">VALUE-ORIENTED</h2>
@@ -25,7 +25,19 @@
       <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest mt-2">开放并互动的</h1>
       <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg lg:text-xl') -%> text-black6c text-center font-medium tracking-widest">OPEN</h2>
     </div>
-  </div>
+  </section>
+
+  <section class="relative max-w-screen-lg mx-auto">
+    <%= image_pack_tag 'media/images/culture_2.jpg', class: 'w-full' -%>
+    <blockquote class="absolute text-black6c left-0 top-0">
+      <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华品牌理念</p>
+    </blockquote>
+    <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
+      <h1 class="<%= fdsz('text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">创意与技术完美融合</h1>
+      <h2 class="<%= fdsz('text-sm sm:text-base md:text-lg lg:text-xl', 'text-base sm:text-lg md:text-xl lg:text-2xl') -%> text-black6c text-center font-medium tracking-widest">ENGINEERING POWERED.</h2>
+      <h2 class="<%= fdsz('text-sm sm:text-base md:text-lg lg:text-xl', 'text-base sm:text-lg md:text-xl lg:text-2xl') -%> text-black6c text-center font-medium tracking-widest">DESIGN ACHIEVED.</h2>
+    </div>
+  </section>
 </div>
 
 <%= render partial: 'shared/footer' %>
