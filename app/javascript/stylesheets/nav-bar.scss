@@ -17,7 +17,7 @@
   align-items: center;
   height: 50px;
   z-index: 1000;
-  @apply nav-background-initial px-2;
+  @apply text-thape-white-t80 nav-background-initial px-2;
 
   @screen md {
     @apply px-6;
@@ -37,43 +37,15 @@
     @apply px-16;
   }
 
-  a {
-    @apply text-thape-white-t80 transition duration-150 ease-in-out text-base;
-    &:hover {
-      @apply text-white font-semibold;
-    }
-    &:focus {
-      @apply outline-none text-white;
-    }
-    &.active {
-      @apply text-white font-semibold;
-    }
-  }
-
-  span {
-    @apply text-thape-white-t80 transition duration-150 ease-in-out cursor-default text-base;
-    &:hover {
-      @apply text-white font-semibold;
-    }
-    &:focus {
-      @apply outline-none text-white;
-    }
-    &.active {
-      @apply text-white font-semibold;
-    }
-  }
-
-  &>.logo {
-    a {
-      @apply text-thape-white-t80;
-      &:hover, &:focus {
-        @apply text-white;
-      }
-    }
+  // 默认文字样式
+  a, span {
+    color: inherit;
+    @apply text-base;
   }
 
   nav {
     display: flex;
+
     &>.nav-item {
       @apply px-3;
       &:last-child {
@@ -87,24 +59,10 @@
     &>.nav-point {
       display: flex;
       align-items: center;
-      @apply text-thape-white-t80;
-    }
-
-    &.level-1 {
-      display: none;
-      height: 100%;
-      @screen md {
-        display: flex;
-      }
-    }
-
-    &.level-1>.nav-item {
-      display: flex;
-      align-items: center;
-      height: 100%;
     }
 
     .nav-item {
+
       >nav {
         display: none;
         position: absolute;
@@ -113,26 +71,18 @@
         top: 100%;
         @apply nav-background-initial border-gray-200 border-solid border-t;
 
-        a {
-          font-size: 14px;
-        }
-
-        span {
-          font-size: 14px;
+        a, span {
+          @apply text-sm;
         }
       }
 
-      &:hover {
-        >a {
-          @apply text-white font-semibold;
-        }
-        >span {
-          @apply text-white font-semibold;
-        }
-        >nav {
-          display: flex;
-        }
+      &:hover>nav {
+        display: flex;
       }
+    }
+
+    .nav-item:hover>a, .nav-item:hover>span, a.active, span.active {
+      @apply text-white font-semibold;
     }
 
     &.intro {
@@ -180,30 +130,26 @@
 
       >.nav-item {
 
-        &:hover>a {
-          @apply text-black6c font-semibold;
-        }
-        &:hover>span {
-          @apply text-black6c font-semibold;
-        }
         &:first-child {
           width: 16rem;
         }
+
         &:nth-child(2) {
           width: 12rem;
         }
+
         .list {
           display: flex;
           margin-top: .5rem;
+
           .list-item {
             position: relative;
             width: 50%;
-            a {
-              font-size: 12px;
+
+            a, span {
+              @apply text-xs;
             }
-            span {
-              font-size: 12px;
-            }
+
             nav {
               position: absolute;
               top: 0;
@@ -212,6 +158,7 @@
               height: 100%;
               border: none;
               flex-direction: column;
+
               .nav-item {
                 width: 125%;
                 padding-left: 0;
@@ -260,11 +207,8 @@
       }
 
       >.nav-item {
-
         padding: 0 .78rem;
-        &:last-child {
-          padding-right: 0;
-        }
+
         @screen md {
           padding: 0 .78rem;
         }
@@ -280,7 +224,27 @@
         @screen xxxl {
           padding: 0 .982rem;
         }
+
+        &:last-child {
+          padding-right: 0;
+        }
+
       }
+    }
+  }
+
+  > nav {
+    display: none;
+    height: 100%;
+
+    @screen md {
+      display: flex;
+    }
+
+    >.nav-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
   }
 
@@ -318,8 +282,9 @@
     }
   }
 
-  &:hover {
-    @apply nav-background-white;
+  &:hover, &.active {
+    @apply text-thape-copyright-gray nav-background-white;
+
     nav {
       &>.nav-point {
         @apply text-thape-copyright-gray;
@@ -328,40 +293,17 @@
         @apply nav-background-white;
       }
     }
-    .nav-item:hover {
-      >a {
-        @apply text-black6c font-semibold;
-      }
-      >span {
-        @apply text-black6c font-semibold;
-      }
+
+    .nav-item:hover>a, .nav-item:hover>span, a.active, span.active {
+      @apply text-black6c font-semibold;
     }
-    a {
-      @apply text-thape-copyright-gray;
-      &:hover, &:focus {
-        @apply text-black6c font-semibold;
-      }
-      &.active {
-        @apply text-black6c font-semibold;
-      }
-    }
-    span {
-      @apply text-thape-copyright-gray;
-      &:hover, &:focus {
-        @apply text-black6c font-semibold;
-      }
-      &.active {
-        @apply text-black6c font-semibold;
-      }
-    }
+
     >.logo {
-      a {
-        @apply text-black6c;
-        &:hover, &:focus {
-          @apply text-black6c-t70;
-        }
+      a:hover, a:focus{
+        @apply text-black6c-t70;
       }
     }
+  
     #header-search-form {
       input, input::placeholder, button {
         @apply text-thape-copyright-gray;
@@ -369,44 +311,25 @@
     }
   }
 
-  &.active {
-    @apply nav-background-white;
-    nav {
-      &>.nav-point {
-        @apply text-thape-copyright-gray;
-      }
-      nav {
-        @apply nav-background-white;
-      }
+
+  &.big-font {
+    a, span {
+      @apply text-xl;
     }
-    a {
-      @apply text-thape-copyright-gray;
-      &:hover, &:focus {
-        @apply text-black6c font-semibold;
-      }
-      &.active {
-        @apply text-black6c font-semibold;
-      }
-    }
-    >.logo {
-      a {
-        @apply text-black6c;
-        &:hover, &:focus{
-          @apply text-black6c-t70;
-        }
-      }
-    }
-    #header-search-form {
-      input, input::placeholder, button {
-        @apply text-thape-copyright-gray;
+    
+    >nav .nav-item nav {
+      a, span {
+        @apply text-base #{!important};
       }
     }
   }
 
+  // 英文版
   &:lang(en) {
     nav {
       &.intro {
         padding-right: 10rem;
+
         @screen md {
           padding-right: 9.48rem;
         }
@@ -424,16 +347,10 @@
         }
       }
 
+      // 作品
       &.works {
         padding-right: 0.6rem;
-        >.nav-item {
-          &:first-child {
-            width: 26rem;
-          }
-          &:nth-child(2) {
-            width: 28rem;
-          }
-        }
+
         @screen md {
           padding-right: 0.2rem;
         }
@@ -449,15 +366,26 @@
         @screen xxxl {
           padding-right: 4rem;
         }
+
+        >.nav-item {
+          &:first-child {
+            width: 26rem;
+          }
+          &:nth-child(2) {
+            width: 28rem;
+          }
+        }
       }
     }
   }
   .aside-menu-button {
     display: block;
     @apply rounded-md text-thape-white-t80 transition duration-150 ease-in-out;
+
     @screen md {
       display: none;
     }
+
     &, &:focus {
       outline: none;
     }
@@ -476,20 +404,24 @@
     width: 100%;
     height: calc(100vh - 50px);
     background-color: transparent;
+
+    @screen md {
+      display: none;
+    }
+
     .aside-menu-container {
       @apply p-6 nav-background-white shadow-md border-gray-200 border-solid border-t;
+
       .aside-menu-item {
         a {
           display: block;
           margin-bottom: .5rem;
         }
+
         .aside-menu-children {
           padding-left: 1rem;
         }
       }
-    }
-    @screen md {
-      display: none;
     }
   }
 }

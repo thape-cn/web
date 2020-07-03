@@ -31,9 +31,11 @@ isSearch = controller.controller_name == 'search';
 headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex || isSearch || isSites;
 
 isEnglish = I18n.locale == :en;
+
+isBigFont = cookies['ts'] == 'big';
 %>
 <header
-  class="<%= headerIsActive ? 'active' : '' -%>"
+  class="<%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%>"
   id="thape-top-header"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"

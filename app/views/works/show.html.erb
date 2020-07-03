@@ -61,7 +61,7 @@
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="sm:absolute sm:top-4 sm:right-0 <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(4)}") -%>">
+      <div class="sm:absolute sm:top-4 sm:right-0 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%>">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
@@ -74,7 +74,7 @@
         </ol>
       </div>
   </header>
-  <div class="my-4 sm:my-8 clearfix <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(4)}") -%>">
+  <div class="my-4 sm:my-8 clearfix <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%>">
     <div class="sm:inline-block float-none sm:float-left space-y-2 m-0 sm:mr-8">
       <div>
         <label class="text-thape-copyright-gray">客户名称 CLIENT</label>
@@ -186,7 +186,7 @@
           </figure>
         </a>
         <a href="<%= work_path(id: @second_work.id) -%>">
-          <figure class="sm:space-y-1 flex sm:block my-2 sm:my-0">
+          <figure class="sm:space-y-1 flex sm:block my-2 sm:mt-4 sm:mb-2">
             <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
             <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
             </div>
@@ -201,13 +201,13 @@
         <ol class="space-y-4 <%= fdsz("#{smFzClass(5)}", "#{xlFzClass(5)}") -%>">
             <li>
               <a class="flex" href="<%= work_path(id: @previous_work.id) -%>">
-                <span class="circle-border border border-black text-center flex-none">&lt;</span>
+                <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&lt;</span>
                 <span><%= @previous_work.project_name -%></span>
               </a>
             </li>
             <li>
               <a class="flex" href="<%= work_path(id: @next_work.id) -%>">
-                <span class="circle-border border border-black text-center flex-none">&gt;</span>
+                <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&gt;</span>
                 <span><%= @next_work.project_name -%></span>
               </a>
             </li>

@@ -10,14 +10,20 @@
     <main class="w-full md:w-9/12 px-0 sm:pr-4">
       <div class="max-w-screen-md xxl:max-w-screen-lg md:mx-auto">
         <header class="flex mb-10">
-          <div class="hidden sm:block bg-thape-dark-gray w-24 h-20">
-            <p class="px-3 text-black6c-t70 <%= fdsz('text-5xl') -%> text-justify font-semibold tracking-widest leading-none"><%= @info.created_at.day -%></p>
-            <p class="px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-normal tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
-            <p class="py-1 px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-normal tracking-wider leading-none"><%= @info.created_at.year -%></p>
+          <div class="hidden sm:block bg-thape-dark-gray w-20 flex-none">
+            <div class="relative w-full" style="padding-top: 100%;">
+              <div class="absolute w-full h-full p-1 top-0 left-0">
+                <div class="flex flex-col justify-between h-full">
+                  <p class="px-3 text-black6c-t70 <%= fdsz('text-3xl') -%> text-justify font-semibold tracking-widest leading-none"><%= @info.created_at.day -%></p>
+                  <p class="px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-normal tracking-wider leading-none"><%= Date::ABBR_MONTHNAMES[@info.created_at.month] -%></p>
+                  <p class="py-1 px-3 text-black6c-t70 <%= fdsz('text-sm') -%> text-justify font-medium tracking-wider leading-none"><%= @info.created_at.year -%></p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="m-0 sm:mx-2 flex flex-col justify-between order-first sm:order-none">
             <% if @info.seo_description.present? %>
-              <h1 class="px-0 sm:px-1 <%= fdsz("text-2xl sm:#{smFzClass(1)}", "text-2xl sm:#{xlFzClass(2)}") -%> text-left sm:text-justify font-bold break-all leading-tight">
+              <h1 class="px-0 sm:px-1 <%= fdsz("text-2xl sm:#{smFzClass(1)}", "text-2xl sm:#{xlFzClass(2)}") -%> text-left sm:text-justify font-bold break-all leading-tight pt-1">
                 <%= @info.title -%>
               </h1>
               <h2 class="px-0 sm:px-1 <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> text-thape-copyright-gray text-left sm:text-justify">
