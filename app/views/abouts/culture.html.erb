@@ -5,95 +5,46 @@
     header_path: culture_path, header_class: '', show_header_right: true } %>
 </div>
 
-<div class="w-full mx-auto p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16"
-  x-data="cultureSlideShow()"
-  x-init="setup()">
+<div class="p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16">
+  <div class="relative w-full overflow-hidden"
+    x-data="cultureSlideShow()"
+    x-init="setup()">
+    <img class="w-full" src="<%= asset_pack_path('media/images/culture_1.jpg') -%>"
+      :x-transition:enter="transitions('enter')"
+      :x-transition:enter-start="transitions('enter-start')"
+      :x-transition:enter-end="transitions('enter-end')"
+      :x-transition:leave="transitions('leave')"
+      :x-transition:leave-start="transitions('leave-start')"
+      :x-transition:leave-end="transitions('leave-end')"
+      x-show="state.currentSlide === 1" />
 
-  <section class="relative max-w-screen-lg mx-auto"
-    :x-transition:enter="transitions('enter')"
-    :x-transition:enter-start="transitions('enter-start')"
-    :x-transition:enter-end="transitions('enter-end')"
-    :x-transition:leave="transitions('leave')"
-    :x-transition:leave-start="transitions('leave-start')"
-    :x-transition:leave-end="transitions('leave-end')"
-    x-show="state.currentSlide === 1">
-    <%= image_pack_tag 'media/images/culture_1.jpg', class: 'w-full',
-      'x-bind:class': "{ '': state.currentSlide === 1, 'absolute inset-0 w-full': state.currentSlide !== 1 }" -%>
-    <blockquote class="absolute text-black6c left-0 top-0">
-      <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华价值主张</p>
-    </blockquote>
-    <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">价值导向的</h1>
-      <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg') -%> text-black6c text-center font-medium tracking-widest">VALUE-ORIENTED</h2>
+    <img class="w-full" src="<%= asset_pack_path('media/images/culture_2.jpg') -%>"
+      :x-transition:enter="transitions('enter')"
+      :x-transition:enter-start="transitions('enter-start')"
+      :x-transition:enter-end="transitions('enter-end')"
+      :x-transition:leave="transitions('leave')"
+      :x-transition:leave-start="transitions('leave-start')"
+      :x-transition:leave-end="transitions('leave-end')"
+      x-show="state.currentSlide === 2" />
 
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest mt-2">具有行业影响力的</h1>
-      <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg') -%> text-black6c text-center font-medium tracking-widest">INFLUENTIAL</h2>
+    <img class="w-full" src="<%= asset_pack_path('media/images/culture_3.jpg') -%>"
+      :x-transition:enter="transitions('enter')"
+      :x-transition:enter-start="transitions('enter-start')"
+      :x-transition:enter-end="transitions('enter-end')"
+      :x-transition:leave="transitions('leave')"
+      :x-transition:leave-start="transitions('leave-start')"
+      :x-transition:leave-end="transitions('leave-end')"
+      x-show="state.currentSlide === 3" />
 
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest mt-2">国际标准的</h1>
-      <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg') -%> text-black6c text-center font-medium tracking-widest">INTERNATIONAL STANDARD</h2>
-
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest mt-2">开放并互动的</h1>
-      <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg', 'text-sm sm:text-base md:text-lg lg:text-xl') -%> text-black6c text-center font-medium tracking-widest">OPEN</h2>
-    </div>
-  </section>
-
-  <section class="relative max-w-screen-lg mx-auto"
-    :x-transition:enter="transitions('enter')"
-    :x-transition:enter-start="transitions('enter-start')"
-    :x-transition:enter-end="transitions('enter-end')"
-    :x-transition:leave="transitions('leave')"
-    :x-transition:leave-start="transitions('leave-start')"
-    :x-transition:leave-end="transitions('leave-end')"
-    x-show="state.currentSlide === 2">
-    <%= image_pack_tag 'media/images/culture_2.jpg', class: 'w-full',
-      'x-bind:class': "{ '': state.currentSlide === 2, 'absolute inset-0 w-full': state.currentSlide !== 2 }" -%>
-    <blockquote class="absolute text-black6c left-0 top-0">
-      <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华品牌理念</p>
-    </blockquote>
-    <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
-      <h1 class="<%= fdsz('text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">创意与技术完美融合</h1>
-      <h2 class="<%= fdsz('text-sm sm:text-base md:text-lg lg:text-xl', 'text-base sm:text-lg md:text-xl lg:text-2xl') -%> text-black6c text-center font-medium tracking-widest mt-2">ENGINEERING POWERED.</h2>
-      <h2 class="<%= fdsz('text-sm sm:text-base md:text-lg lg:text-xl', 'text-base sm:text-lg md:text-xl lg:text-2xl') -%> text-black6c text-center font-medium tracking-widest">DESIGN ACHIEVED.</h2>
-    </div>
-  </section>
-
-  <section class="relative max-w-screen-lg mx-auto"
-    :x-transition:enter="transitions('enter')"
-    :x-transition:enter-start="transitions('enter-start')"
-    :x-transition:enter-end="transitions('enter-end')"
-    :x-transition:leave="transitions('leave')"
-    :x-transition:leave-start="transitions('leave-start')"
-    :x-transition:leave-end="transitions('leave-end')"
-    x-show="state.currentSlide === 3">
-    <%= image_pack_tag 'media/images/culture_3.jpg', class: 'w-full',
-      'x-bind:class': "{ '': state.currentSlide === 3, 'absolute inset-0 w-full': state.currentSlide !== 3 }" -%>
-    <blockquote class="absolute text-black6c left-0 top-0">
-      <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华愿景</p>
-    </blockquote>
-    <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">人、企业、城市，持续发展</h1>
-      <h2 class="<%= fdsz('text-xs sm:text-sm md:text-base lg:text-lg') -%> text-black6c text-center font-medium tracking-widest mt-2 px-56">THE SUSTAINABLE DEVELOPMENT OF PEOPLE ENTERPRISES AND CITIES</h2>
-    </div>
-  </section>
-
-  <section class="relative max-w-screen-lg mx-auto"
-    :x-transition:enter="transitions('enter')"
-    :x-transition:enter-start="transitions('enter-start')"
-    :x-transition:enter-end="transitions('enter-end')"
-    :x-transition:leave="transitions('leave')"
-    :x-transition:leave-start="transitions('leave-start')"
-    :x-transition:leave-end="transitions('leave-end')"
-    x-show="state.currentSlide === 4">
-    <%= image_pack_tag 'media/images/culture_4.jpg', class: 'w-full',
-      'x-bind:class': "{ '': state.currentSlide === 4, 'absolute inset-0 w-full': state.currentSlide !== 4 }" -%>
-    <blockquote class="absolute text-black6c left-0 top-0">
-      <p class="<%= fdsz("text-md sm:text-lg md:text-xl lg:text-2xl", "text-lg sm:text-xl md:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">天华使命</p>
-    </blockquote>
-    <div class="flex absolute inset-0 w-full flex-col justify-center items-center">
-      <h1 class="<%= fdsz('text-lg sm:text-xl md:text-2xl lg:text-3xl','text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-black6c text-center font-medium tracking-widest">引领生活方式，助力城市发展</h1>
-      <h2 class="<%= fdsz('text-sm sm:text-base md:text-lg lg:text-xl') -%> text-black6c text-center font-medium tracking-widest mt-2">FOR BETTER CITIES AND LIFESTYLE</h2>
-    </div>
-  </section>
+    <img class="w-full" src="<%= asset_pack_path('media/images/culture_4.jpg') -%>"
+      :x-transition:enter="transitions('enter')"
+      :x-transition:enter-start="transitions('enter-start')"
+      :x-transition:enter-end="transitions('enter-end')"
+      :x-transition:leave="transitions('leave')"
+      :x-transition:leave-start="transitions('leave-start')"
+      :x-transition:leave-end="transitions('leave-end')"
+      x-show="state.currentSlide === 4" />
+  </div>
 </div>
 
 <%= render partial: 'shared/footer' %>
