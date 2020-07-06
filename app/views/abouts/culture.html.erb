@@ -5,10 +5,10 @@
     header_path: culture_path, header_class: '', show_header_right: true } %>
 </div>
 
-<div class="p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16">
-  <div class="relative w-full overflow-hidden"
-    x-data="cultureSlideShow()"
-    x-init="setup()">
+<div class="p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16"
+  x-data="cultureSlideShow()"
+  x-init="setup()">
+  <div class="relative w-full overflow-hidden">
     <img class="w-full" src="<%= asset_pack_path('media/images/culture_1.jpg') -%>"
       :x-transition:enter="transitions('enter')"
       :x-transition:enter-start="transitions('enter-start')"
@@ -44,6 +44,36 @@
       :x-transition:leave-start="transitions('leave-start')"
       :x-transition:leave-end="transitions('leave-end')"
       x-show="state.currentSlide === 4" />
+  </div>
+  <div class="flex items-center justify-center">
+      <button
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        :class="{
+          'bg-gray-500' : state.currentSlide === 1
+        }"
+        @click="stopAutoplay();updateCurrent(1)">
+      </button>
+      <button
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        :class="{
+          'bg-gray-500' : state.currentSlide === 2
+        }"
+        @click="stopAutoplay();updateCurrent(2)">
+      </button>
+      <button
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        :class="{
+          'bg-gray-500' : state.currentSlide === 3
+        }"
+        @click="stopAutoplay();updateCurrent(3)">
+      </button>
+      <button
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        :class="{
+          'bg-gray-500' : state.currentSlide === 4
+        }"
+        @click="stopAutoplay();updateCurrent(4)">
+      </button>
   </div>
 </div>
 
