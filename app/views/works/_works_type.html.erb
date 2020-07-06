@@ -1,5 +1,5 @@
 <div class="works-projects-container mt-2 sm:mt-4 xl:mt-8">
-  <div class="works-projects-grid">
+  <div class="<%= browser.ie? ? 'works-projects-block' : 'works-projects-grid' -%>">
     <!-- SLOGAN -->
     <div class="works-projects-cell slogan flex items-center bg-thape-dark-gray">
       <div class="m-auto w-5/6 text-thape-darker-gray font-bold pointer-events-none py-6 <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(3)}") -%> ">

@@ -10,11 +10,7 @@
   <%= render partial: 'shared/header', locals: { c: '所有项目', e: 'PROJECTS',
     header_path: works_path, header_class: '', show_header_right: true } %>
 
-  <% if browser.ie? %>
-    <%= render partial: 'works_type_ie11' %>
-  <% else %>
-    <%= render partial: 'works_type' %>
-  <% end %>
+  <%= render partial: 'works_type' %>
 
 </div>
 

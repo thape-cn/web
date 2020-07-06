@@ -8,6 +8,11 @@
     @screen xl {
         padding-top: 114%;
     }
+
+    .mask {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, .8),  rgba(0, 0, 0, 0));
+    }
+
     .works-projects-grid {
         position: absolute;
         top: 0;
@@ -21,10 +26,6 @@
         .works-projects-cell {
             position: relative;
             overflow: hidden;
-
-            .mask {
-                background-image: linear-gradient(to top, rgba(0, 0, 0, .8),  rgba(0, 0, 0, 0));
-            }
 
             &.slogan {
                 grid-area: 1 / 1 / 1 / 3;
@@ -259,6 +260,264 @@
                 // 室内
                 &.interior {
                     grid-area: 5 / 4 / 5 / 4;
+                }
+            }
+        }
+    }
+
+    .works-projects-block {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        $gap: .5rem;
+        $cols: 2;
+        $rows: 11;
+
+
+        @mixin cellPositionSize($gap, $cols, $rows, $col, $row, $colSpan, $rowSpan) {
+            top: calc(((100% - #{$gap * ($rows - 1)}) / #{$rows} + #{$gap}) * #{$row - 1});
+            left: calc(((100% - #{$gap * ($cols - 1)}) / #{$cols} + #{$gap}) * #{$col - 1});
+            width: calc((100% - #{$gap * ($cols - 1)}) / #{$cols} * #{$colSpan} + #{$gap * ($colSpan - 1)});
+            height: calc((100% - #{$gap * ($rows - 1)}) / #{$rows} * #{$rowSpan} + #{$gap * ($rowSpan - 1)});
+        }
+
+        .works-projects-cell {
+            position: absolute;
+            overflow: hidden;
+            $gap: .5rem;
+            &.slogan {
+                @include cellPositionSize($gap, $cols, $rows, 1, 1, 2, 1);
+            }
+    
+            // 居住
+            &.resdential {
+                @include cellPositionSize($gap, $cols, $rows, 1, 2, 2, 1);
+            }
+    
+            // 示范区
+            &.demonstration-zone {
+                @include cellPositionSize($gap, $cols, $rows, 1, 3, 1, 1);
+            }
+    
+            // 综合体
+            &.mixed-used-tod {
+                @include cellPositionSize($gap, $cols, $rows, 1, 4, 2, 1);
+            }
+    
+            // 商业空间
+            &.commercial {
+                @include cellPositionSize($gap, $cols, $rows, 2, 3, 1, 1);
+            }
+    
+            // 超高层
+            &.supertall {
+                @include cellPositionSize($gap, $cols, $rows, 1, 5, 1, 2);
+            }
+    
+            // 文化
+            &.cultural {
+                @include cellPositionSize($gap, $cols, $rows, 1, 7, 2, 1);
+            }
+    
+            // 教育
+            &.education {
+                @include cellPositionSize($gap, $cols, $rows, 2, 6, 1, 1);
+            }
+    
+            // 商务办公
+            &.office {
+                @include cellPositionSize($gap, $cols, $rows, 2, 5, 1, 1);
+            }
+    
+            // 城市设计/更新
+            &.urban-design {
+                @include cellPositionSize($gap, $cols, $rows, 2, 8, 1, 2);
+            }
+    
+            // 医疗康养
+            &.medical-care {
+                @include cellPositionSize($gap, $cols, $rows, 1, 8, 1, 1);
+            }
+    
+            // 旅居/酒店
+            &.hospitality {
+                @include cellPositionSize($gap, $cols, $rows, 1, 10, 2, 1);
+            }
+    
+            // 规划
+            &.urban-planning {
+                @include cellPositionSize($gap, $cols, $rows, 1, 9, 1, 1);
+            }
+    
+            // 景观
+            &.landscape {
+                @include cellPositionSize($gap, $cols, $rows, 1, 11, 1, 1);
+            }
+    
+            // 室内
+            &.interior {
+                @include cellPositionSize($gap, $cols, $rows, 2, 11, 1, 1);
+            }
+        }
+        
+        @screen sm {
+            .works-projects-cell {
+                $cols: 3;
+                $rows: 7;
+                &.slogan {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 1, 1, 1);
+                }
+        
+                // 居住
+                &.resdential {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 1, 2, 1);
+                }
+        
+                // 示范区
+                &.demonstration-zone {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 2, 1, 1);
+                }
+        
+                // 综合体
+                &.mixed-used-tod {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 3, 2, 1);
+                }
+        
+                // 商业空间
+                &.commercial {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 4, 1, 1);
+                }
+        
+                // 超高层
+                &.supertall {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 2, 1, 2);
+                }
+        
+                // 文化
+                &.cultural {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 4, 2, 1);
+                }
+        
+                // 教育
+                &.education {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 5, 1, 1);
+                }
+        
+                // 商务办公
+                &.office {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 2, 1, 1);
+                }
+        
+                // 城市设计/更新
+                &.urban-design {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 5, 1, 2);
+                }
+        
+                // 医疗康养
+                &.medical-care {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 5, 1, 1);
+                }
+        
+                // 旅居/酒店
+                &.hospitality {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 6, 2, 1);
+                }
+        
+                // 规划
+                &.urban-planning {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 7, 1, 1);
+                }
+        
+                // 景观
+                &.landscape {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 7, 1, 1);
+                }
+        
+                // 室内
+                &.interior {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 7, 1, 1);
+                }
+            }
+        }
+
+        @screen xl {
+            $cols: 4;
+            $rows: 5;
+            .works-projects-cell {
+                &.slogan {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 1, 1, 1);
+                }
+        
+                // 居住
+                &.resdential {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 1, 2, 1);
+                }
+        
+                // 示范区
+                &.demonstration-zone {
+                    @include cellPositionSize($gap, $cols, $rows, 4, 1, 1, 1);
+                }
+        
+                // 综合体
+                &.mixed-used-tod {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 2, 2, 1);
+                }
+        
+                // 商业空间
+                &.commercial {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 2, 1, 1);
+                }
+        
+                // 超高层
+                &.supertall {
+                    @include cellPositionSize($gap, $cols, $rows, 4, 2, 1, 2);
+                }
+        
+                // 文化
+                &.cultural {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 3, 1, 1);
+                }
+        
+                // 教育
+                &.education {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 3, 1, 1);
+                }
+        
+                // 商务办公
+                &.office {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 3, 1, 1);
+                }
+        
+                // 城市设计/更新
+                &.urban-design {
+                    @include cellPositionSize($gap, $cols, $rows, 1, 4, 1, 2);
+                }
+        
+                // 医疗康养
+                &.medical-care {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 4, 1, 1);
+                }
+        
+                // 旅居/酒店
+                &.hospitality {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 4, 2, 1);
+                }
+        
+                // 规划
+                &.urban-planning {
+                    @include cellPositionSize($gap, $cols, $rows, 2, 5, 1, 1);
+                }
+        
+                // 景观
+                &.landscape {
+                    @include cellPositionSize($gap, $cols, $rows, 3, 5, 1, 1);
+                }
+        
+                // 室内
+                &.interior {
+                    @include cellPositionSize($gap, $cols, $rows, 4, 5, 1, 1);
                 }
             }
         }
