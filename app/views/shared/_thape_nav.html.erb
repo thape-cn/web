@@ -35,7 +35,7 @@ isEnglish = I18n.locale == :en;
 isBigFont = cookies['ts'] == 'big';
 %>
 <header
-  class="thape-header thape-header-fixed <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+  class="thape-header thape-header-fixed flex-none <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
   data-header-is-active="<%= headerIsActive -%>"
@@ -373,5 +373,5 @@ isBigFont = cookies['ts'] == 'big';
 </header>
 
 <% if headerIsActive %>
-<header class="thape-header"></header>
+<header class="thape-header flex-none"></header>
 <% end %>
