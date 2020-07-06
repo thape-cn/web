@@ -10,8 +10,8 @@ window.cultureSlideShow = function() {
         autoplayTimer: null,
         attributes: {
             direction: 'right-left',
-            duration: 300,
-            timer: 7000,
+            duration: 500,
+            timer: 5000,
         },
         slides: [1,2,3,4],
         setup() {
@@ -61,17 +61,17 @@ window.cultureSlideShow = function() {
             const rightToLeft = this.state.nextSlideDirection === 'right-to-left'
             switch (state) {
                 case 'enter':
-                    return `transition ease-linear duration-300`
+                    return `animate fade-in`
                 case 'enter-start':
-                    return rightToLeft ? 'opacity-0 transform translate-x-1/2' : 'opacity-0 transform -translate-x-1/2'
+                    return ''
                 case 'enter-end':
-                    return 'opacity-100 transform translate-x-0'
+                    return ''
                 case 'leave':
-                    return `absolute top-0 transition ease-in duration-300`
+                    return `absolute top-0 animate fade-out`
                 case 'leave-start':
-                    return 'opacity-100 transform translate-x-0'
+                    return ''
                 case 'leave-end':
-                    return rightToLeft ? 'opacity-50 transform -translate-x-1/2' : 'opacity-50 transform translate-x-1/2'
+                    return ''
             }
         },
         autoPlay() {
