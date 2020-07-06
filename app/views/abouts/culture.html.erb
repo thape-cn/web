@@ -1,14 +1,14 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full mx-auto sm:pb-4 md:pb-8 pt-6 sm:pt-0 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 flex flex-col content-center">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 flex flex-col content-center">
   <%= render partial: 'shared/header', locals: { c: '企业文化', e: 'CORPORATE CULTURE',
     header_path: culture_path, header_class: '', show_header_right: true } %>
 </div>
 
-<div class="p-2 md:p-6 lg:p-8 xl:p-10 xxl:p-12 xxxl:p-16"
+<div class="flex flex-col items-center justify-between px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
   x-data="cultureSlideShow()"
   x-init="setup()">
-  <div class="relative w-full overflow-hidden">
+  <div class="relative max-w-screen-lg overflow-hidden">
     <img class="w-full" src="<%= asset_pack_path('media/images/culture_1.jpg') -%>"
       :x-transition:enter="transitions('enter')"
       :x-transition:enter-start="transitions('enter-start')"
@@ -47,28 +47,28 @@
   </div>
   <div class="flex items-center justify-center">
       <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{
           'bg-gray-500' : state.currentSlide === 1
         }"
         @click="stopAutoplay();updateCurrent(1)">
       </button>
       <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{
           'bg-gray-500' : state.currentSlide === 2
         }"
         @click="stopAutoplay();updateCurrent(2)">
       </button>
       <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{
           'bg-gray-500' : state.currentSlide === 3
         }"
         @click="stopAutoplay();updateCurrent(3)">
       </button>
       <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-4 h-4 p-0 mb-2 rounded-full"
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{
           'bg-gray-500' : state.currentSlide === 4
         }"
