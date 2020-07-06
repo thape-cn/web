@@ -62,17 +62,17 @@ window.cultureSlideShow = function() {
             const rightToLeft = this.state.nextSlideDirection === 'right-to-left'
             switch (state) {
                 case 'enter':
-                    return `transition-all duration-${this.attributes.duration}`
+                    return `transition ease-linear duration-1000`
                 case 'enter-start':
-                    return rightToLeft ? 'transform translate-x-full' : 'transform -translate-x-full'
+                    return rightToLeft ? 'opacity-0 transform translate-x-1/2' : 'opacity-0 transform -translate-x-1/2'
                 case 'enter-end':
-                    return 'transform translate-x-0'
+                    return 'opacity-100 transform translate-x-0'
                 case 'leave':
-                    return `absolute top-0 transition-all duration-${this.attributes.duration}`
+                    return `absolute top-0 transition ease-in duration-1000`
                 case 'leave-start':
-                    return 'transform translate-x-0'
+                    return 'opacity-100 transform translate-x-0'
                 case 'leave-end':
-                    return rightToLeft ? 'transform -translate-x-full' : 'transform translate-x-full'
+                    return rightToLeft ? 'opacity-50 transform -translate-x-1/2' : 'opacity-50 transform translate-x-1/2'
             }
         },
         autoPlay() {
