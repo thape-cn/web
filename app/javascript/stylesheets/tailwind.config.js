@@ -31,6 +31,9 @@ module.exports = {
       },
       backgroundSize: {
         'w100': '100% auto',
+      },
+      width: {
+        '44': '11rem',
       }
     }
   },
