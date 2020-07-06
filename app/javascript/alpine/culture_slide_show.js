@@ -78,6 +78,7 @@ window.cultureSlideShow = function() {
             this.loop = () => {
                 const next = (this.state.currentSlide === this.slides.length) ? 1 : this.state.currentSlide + 1
                 this.updateCurrent(this.state.looping ? next : this.currentSlide)
+                this.state.nextSlideDirection = 'right-to-left';
                 this.autoplayTimer = setTimeout(() => {
                     requestAnimationFrame(this.loop)
                 }, this.attributes.timer + this.attributes.duration)
