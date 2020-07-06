@@ -42,7 +42,7 @@ window.cultureSlideShow = function() {
 
             // Reorder the slides for a smoother transition
             const newSlideOrder = this.slides.filter(slide_id => {
-                return ![this.current, this.state.order[nextSlide - 1]].includes(slide_id)
+                return !([this.current, this.state.order[nextSlide - 1]].indexOf(slide_id) > -1);
             })
 
             const activeSlides = [this.current, next]
