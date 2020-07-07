@@ -64,14 +64,14 @@
         <ol class="space-y-4 <%= fdsz("#{smFzClass(5)}", "#{xlFzClass(5)}") -%>">
           <li>
             <a class="flex" href="<%= news_path(id: @previous_info.id) -%>">
-              <span class="circle-border border border-black text-center flex-none">&lt;</span>
-              <span><%= @previous_info.title -%></span>
+              <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&lt;</span>
+              <span style="margin-top: 2px;"><%= @previous_info.title -%></span>
             </a>
           </li>
           <li>
             <a class="flex" href="<%= news_path(id: @next_info.id) -%>">
-              <span class="circle-border border border-black text-center flex-none">&gt;</span>
-              <span><%= @next_info.title -%></span>
+              <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&gt;</span>
+              <span style="margin-top: 2px;"><%= @next_info.title -%></span>
             </a>
           </li>
         </ol>

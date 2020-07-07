@@ -200,15 +200,15 @@
       <nav class="pt-6 w-full sm:w-2/3">
         <ol class="space-y-4 <%= fdsz("#{smFzClass(5)}", "#{xlFzClass(5)}") -%>">
             <li>
-              <a class="flex" href="<%= work_path(id: @previous_work.id) -%>">
+              <a class="flex items-center" href="<%= work_path(id: @previous_work.id) -%>">
                 <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&lt;</span>
-                <span><%= @previous_work.project_name -%></span>
+                <span style="margin-top: 2px;"><%= @previous_work.project_name -%></span>
               </a>
             </li>
             <li>
-              <a class="flex" href="<%= work_path(id: @next_work.id) -%>">
+              <a class="flex items-center" href="<%= work_path(id: @next_work.id) -%>">
                 <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&gt;</span>
-                <span><%= @next_work.project_name -%></span>
+                <span style="margin-top: 2px;"><%= @next_work.project_name -%></span>
               </a>
             </li>
         </ol>
