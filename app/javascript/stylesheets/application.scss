@@ -226,8 +226,14 @@ p {
 }
 
 .thape-logo-svg {
-  @apply fill-current w-48 h-10;
+  @apply fill-current w-32 h-10;
   &.big-font {
     width: 18rem;
+  }
+  @screen sm{
+    @apply fill-current w-48;
+    &.big-font {
+      width: 14rem;
+    }
   }
 }

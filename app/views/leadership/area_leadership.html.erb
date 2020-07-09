@@ -1,15 +1,7 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
 <div class="relative">
-  <%= image_pack_tag 'media/images/people-banner.jpg', class: "hidden sm:block" -%>
-  <%= image_pack_tag 'media/images/people-banner-mobile-2.jpg', class: "block sm:hidden" -%>
-  <div class="hidden sm:flex absolute inset-0 w-full justify-center items-center">
-    <%= image_pack_tag 'media/images/people-title.png', class: 'h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64' -%>
-  </div>
-  <div class="hidden sm:flex absolute inset-0 w-full flex-col justify-center items-center">
-    <h1 class="<%= fdsz('text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-white text-center font-medium tracking-widest -ml-32">引领生活方式</h1>
-    <h1 class="<%= fdsz('text-xl sm:text-2xl md:text-3xl lg:text-4xl') -%> text-white text-center font-medium tracking-widest -mr-32">助力城市发展</h1>
-  </div>
+  <%= image_pack_tag 'media/images/people-banner-2.jpg', class: "w-full" -%>
 </div>
 
 <div class="relative">
@@ -18,7 +10,7 @@
   <% if @management_people.present? %>
     <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
       <%= render partial: 'shared/header', locals: { c: "#{c}管理团队", e: "#{e} TIANHUA MANAGEMENT",
-        header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
+        header_path: leadership_path(id: e.downcase), header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
     </div>
 
     <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 <%= @speciality_people.blank? ? 'pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8' : '' %>">
@@ -36,7 +28,7 @@
   <% if @speciality_people.present? %>
     <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
       <%= render partial: 'shared/header', locals: { c: "#{c}专业团队", e: "#{e} TIANHUA PROFESSIONAL",
-        header_path: leadership_path(id: e.downcase), header_class: 'pt-0', show_header_right: false } %>
+        header_path: leadership_path(id: e.downcase), header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
     </div>
 
     <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">

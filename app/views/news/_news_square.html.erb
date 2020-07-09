@@ -1,9 +1,9 @@
 <div class="<%= news_class -%>">
 <a href="<%= news_path(id: info.id) -%>">
   <%= image_tag info.snapshot.url, class: 'grid-image grid-mask-image hover:scale-105' -%>
-  <div class="absolute text-white left-0 right-0 bottom-4 px-4">
-    <p class="text-left pb-1 font-medium truncate sm:break-all sm:whitespace-normal <%= fdsz("#{smFzClass(3)}", "#{xlFzClass(3)}") -%>" title="<%= info.title -%>"><%= info.title -%></p>
-    <p class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%> text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
+  <div class="absolute text-white left-0 right-0 bottom-0 p-2 sm:p-4 leading-none sm:leading-normal">
+    <p class="text-left sm:pb-1 font-medium truncate sm:break-all sm:whitespace-normal <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(3)}") -%>" title="<%= info.title -%>"><%= info.title -%></p>
+    <p class="<%= fdsz("text-xs sm:#{smFzClass(4)}", "text-xs sm:#{xlFzClass(4)}") -%> text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
   </div>
 </a>
 </div>

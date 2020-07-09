@@ -7,7 +7,7 @@
     </div>
   <% end %>
   <%= render partial: 'shared/header', locals: { c: params[:q].present? ? "搜索#{@city.name}：#{params[:q]}" : @city.name, e: @city.url_name.upcase,
-    header_path: residential_works_path, header_class: '', show_header_right: true } %>
+    header_path: residential_works_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: true } %>
 
   <ol class="pt-3 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%>">
     <li class="inline-block">
@@ -28,8 +28,8 @@
         <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
           <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
           <div class="absolute w-full px-3 sm:px-6 py-2 sm:py-4 text-white left-0 bottom-0">
-            <p class="<%= fdsz("text-lg sm:#{smFzClass(2)}", "text-lg sm:#{xlFzClass(2)}") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
-            <p class="<%= fdsz("text-base sm:#{smFzClass(4)}", "text-base sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+            <p class="<%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(2)}") -%> text-left sm:pb-1 font-medium leading-none sm:leading-tight"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+            <p class="<%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
           </div>
         </a>
       </div>
