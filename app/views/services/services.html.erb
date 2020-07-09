@@ -20,7 +20,7 @@
           :x-transition:leave="transitions('leave')"
           :x-transition:leave-start="transitions('leave-start')"
           :x-transition:leave-end="transitions('leave-end')"
-          x-show="state.currentSlide === <%= index -%>" />
+          x-show="state.currentSlide === <%= index + 1 -%>" />
       </picture>
     <% end %>
     <div class="action-area action-left" @click="stopAutoplay();updateCurrent(previousSlide)">
