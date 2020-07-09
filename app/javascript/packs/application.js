@@ -22,5 +22,5 @@ importAll(images)
 const imagePath = (name) => images(name, true)
 
 import "controllers"
-import "alpine/culture_slide_show"
+import "alpine/alpine_slide_show"
 import "stylesheets/application"
