@@ -5,7 +5,7 @@
 <div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
 <% if background_img.kind_of?(Array) %>
   <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg"
-    x-data="alpineSlideShow([1,2,3,4])"
+    x-data="alpineSlideShow([1,2,3,4,5,6])"
     x-init="setup()">
     <% background_img.each_with_index do |img, index| %>
       <picture class="w-full">
