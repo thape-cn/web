@@ -23,6 +23,12 @@
           x-show="state.currentSlide === <%= index -%>" />
       </picture>
     <% end %>
+    <div class="action-area action-left" @click="stopAutoplay();updateCurrent(previousSlide)">
+      <img class="w-8" src="<%= asset_pack_path('media/images/arrow_left.svg') -%>" alt="上一张" />
+    </div>
+    <div class="action-area action-right text-white" @click="stopAutoplay();updateCurrent(nextSlide)">
+      <img class="w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
+    </div>
   </div>
 <% else %>
   <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg">

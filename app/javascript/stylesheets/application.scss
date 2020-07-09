@@ -196,33 +196,33 @@ p {
       user-select: none;
     }
   }
+}
 
-  .action-area {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    cursor: pointer;
-    color: white;
-  }
+.action-area {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  cursor: pointer;
+  color: white;
+}
 
-  .action-area:hover {
-    opacity: 1;
-  }
+.action-area:hover {
+  opacity: 1;
+}
 
-  .action-left {
-    left: 0;
-    background-image: linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,0));
-  }
+.action-left {
+  left: 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,0));
+}
 
-  .action-right {
-    right: 0;
-    background-image: linear-gradient(to left, rgba(0,0,0,.6), rgba(0,0,0,0));
-  }
+.action-right {
+  right: 0;
+  background-image: linear-gradient(to left, rgba(0,0,0,.6), rgba(0,0,0,0));
 }
 
 .thape-logo-svg {
