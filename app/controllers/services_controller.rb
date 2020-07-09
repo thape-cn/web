@@ -79,8 +79,8 @@ class ServicesController < ApplicationController
 
   def vrtech
     render 'services', locals: {
-      background_img: 'media/images/vrtech.jpg',
-      background_img_webp: '',
+      background_img: ['media/images/vrtech-1.jpg','media/images/vrtech-2.jpg','media/images/vrtech-3.jpg','media/images/vrtech-4.jpg','media/images/vrtech-5.jpg','media/images/vrtech-6.jpg'],
+      background_img_webp: [],
       chinese_title: '可视化',
       english_title: 'VISUALIZATION',
       ps: ['可视化技术是是当下最热门的前沿技术之一，可视化技术在建筑领域的应用将给地产行业带来全新的思维模式和工作流程。易术家是建筑可视化技术领域的先行者，致力于为建筑工程行业提供可视化技术解决方案，利用1:1虚拟建造的方式赋能设计理念表达、设计验证、设计决策和工程管理。',

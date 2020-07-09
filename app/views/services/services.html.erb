@@ -3,6 +3,28 @@
 <div class="h-full" data-controller="service" data-action="resize@window->service#resize">
 
 <div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
+<% if background_img.kind_of?(Array) %>
+  <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg"
+    x-data="alpineSlideShow([1,2,3,4])"
+    x-init="setup()">
+    <% background_img.each_with_index do |img, index| %>
+      <picture class="w-full">
+        <% if background_img_webp[index].present? %>
+          <source srcset="<%= asset_pack_path(background_img_webp[index]) -%>" type="image/webp">
+        <% end %>
+        <source srcset="<%= asset_pack_path(img) -%>" type="image/jpeg">
+        <img src="<%= asset_pack_path(img) -%>" data-action="load->service#resize"
+          :x-transition:enter="transitions('enter')"
+          :x-transition:enter-start="transitions('enter-start')"
+          :x-transition:enter-end="transitions('enter-end')"
+          :x-transition:leave="transitions('leave')"
+          :x-transition:leave-start="transitions('leave-start')"
+          :x-transition:leave-end="transitions('leave-end')"
+          x-show="state.currentSlide === <%= index -%>" />
+      </picture>
+    <% end %>
+  </div>
+<% else %>
   <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg">
     <picture class="w-full">
       <% if background_img_webp.present? %>
@@ -12,6 +34,7 @@
       <img src="<%= asset_pack_path(background_img) -%>" data-action="load->service#resize">
     </picture>
   </div>
+<% end %>
   <div class="sm:absolute sm:bottom-0 sm:left-0 bg-thape-white-t80 pt-4 pb-8 sm:pt-8 w-full h-auto block flex-none sm:flex-initial" data-target="service.introDiv">
     <div class="flex justify-center items-center text-black6c w-full sm:flex h-full p-2 sm:py-0 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64">
       <div class="flex w-full flex-none overflow-x-hidden flex-wrap sm:flex-no-wrap">
