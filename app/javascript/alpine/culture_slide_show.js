@@ -1,4 +1,4 @@
-window.cultureSlideShow = function() {
+window.alpineSlideShow = function(slides) {
     return {
         state: {
             moving: false,
@@ -13,10 +13,13 @@ window.cultureSlideShow = function() {
             duration: 500,
             timer: 5000,
         },
-        slides: [1,2,3,4],
+        slides: [],
         setup() {
+            this.slides = slides;
+
             // Cache the original order so that we can reorder on transition (to skip inbetween slides)
-            this.state.order = this.slides
+            this.state.order = this.slides;
+
             const newSlideOrder = this.slides.filter(slide_id => this.current != slide_id)
             newSlideOrder.unshift(this.current)
             this.slides = newSlideOrder
