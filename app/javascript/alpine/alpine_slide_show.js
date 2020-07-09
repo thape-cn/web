@@ -10,7 +10,7 @@ window.alpineSlideShow = function(slides) {
         autoplayTimer: null,
         attributes: {
             direction: 'right-left',
-            duration: 500,
+            duration: 1000,
             timer: 5000,
         },
         slides: [],

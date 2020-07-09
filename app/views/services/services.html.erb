@@ -5,7 +5,7 @@
 <div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
 <% if background_img.kind_of?(Array) %>
   <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg"
-    x-data="alpineSlideShow([1,2,3,4])"
+    x-data="alpineSlideShow([1,2,3,4,5,6])"
     x-init="setup()">
     <% background_img.each_with_index do |img, index| %>
       <picture class="w-full">
@@ -20,7 +20,7 @@
           :x-transition:leave="transitions('leave')"
           :x-transition:leave-start="transitions('leave-start')"
           :x-transition:leave-end="transitions('leave-end')"
-          x-show="state.currentSlide === <%= index -%>" />
+          x-show="state.currentSlide === <%= index + 1 -%>" />
       </picture>
     <% end %>
     <div class="action-area action-left" @click="stopAutoplay();updateCurrent(previousSlide)">
