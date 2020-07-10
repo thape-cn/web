@@ -4,8 +4,7 @@
 
 <div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
 <% if background_img.kind_of?(Array) %>
-  <div class="flex-none w-full max-h-full overflow-hidden thape-slide"
-    data-target="service.bgImg"
+  <div class="thape-slide flex-none w-full max-h-full overflow-hidden"
     data-controller="carousel2"
     data-carousel2-item-data-type="slide-item"
     data-carousel2-active-class="active"
@@ -21,6 +20,7 @@
       data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd">
       <% background_img.each_with_index do |img, index| %>
         <div data-type="slide-item"
+          <%= raw(index == 0 ? 'data-target="service.bgImg"' : '') -%>
           class="image-item <%= index == 0 ? 'active' : '' -%>">
           <picture>
             <% if background_img_webp[index].present? %>
