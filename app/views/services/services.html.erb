@@ -4,29 +4,38 @@
 
 <div class="relative flex flex-col h-full overflow-auto sm:overflow-visible">
 <% if background_img.kind_of?(Array) %>
-  <div class="flex-none w-full max-h-full overflow-hidden" data-target="service.bgImg"
-    x-data="alpineSlideShow([1,2,3,4,5,6])"
-    x-init="setup()">
-    <% background_img.each_with_index do |img, index| %>
-      <picture class="w-full">
-        <% if background_img_webp[index].present? %>
-          <source srcset="<%= asset_pack_path(background_img_webp[index]) -%>" type="image/webp">
-        <% end %>
-        <source srcset="<%= asset_pack_path(img) -%>" type="image/jpeg">
-        <img src="<%= asset_pack_path(img) -%>" data-action="load->service#resize"
-          :x-transition:enter="transitions('enter')"
-          :x-transition:enter-start="transitions('enter-start')"
-          :x-transition:enter-end="transitions('enter-end')"
-          :x-transition:leave="transitions('leave')"
-          :x-transition:leave-start="transitions('leave-start')"
-          :x-transition:leave-end="transitions('leave-end')"
-          x-show="state.currentSlide === <%= index + 1 -%>" />
-      </picture>
-    <% end %>
-    <div class="action-area action-left" @click="stopAutoplay();updateCurrent(previousSlide)">
+  <div class="flex-none w-full max-h-full overflow-hidden thape-slide"
+    data-target="service.bgImg"
+    data-controller="carousel2"
+    data-carousel2-item-data-type="slide-item"
+    data-carousel2-active-class="active"
+    data-carousel2-animation-class-base="animate"
+    data-carousel2-animation-class-left-in="fade-in"
+    data-carousel2-animation-class-left-out="fade-out"
+    data-carousel2-animation-class-right-in="fade-in"
+    data-carousel2-animation-class-right-out="fade-out"
+    data-carousel2-animation-duration="500"
+    data-carousel2-interval-time="5000"
+    data-action="mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
+    <div class="slide-images"
+      data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd">
+      <% background_img.each_with_index do |img, index| %>
+        <div data-type="slide-item"
+          class="image-item <%= index == 0 ? 'active' : '' -%>">
+          <picture>
+            <% if background_img_webp[index].present? %>
+              <source srcset="<%= asset_pack_path(background_img_webp[index]) -%>" type="image/webp">
+            <% end %>
+            <source srcset="<%= asset_pack_path(img) -%>" type="image/jpeg">
+            <img style="width: 100%; height: auto;" src="<%= asset_pack_path(img) -%>" />
+          </picture>
+        </div>
+      <% end %>
+    </div>
+    <div class="action-area action-left" data-action="click->carousel2#toLast">
       <img class="w-8" src="<%= asset_pack_path('media/images/arrow_left.svg') -%>" alt="上一张" />
     </div>
-    <div class="action-area action-right text-white" @click="stopAutoplay();updateCurrent(nextSlide)">
+    <div class="action-area action-right text-white" data-action="click->carousel2#toNext">
       <img class="w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>
