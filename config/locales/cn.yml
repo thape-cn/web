@@ -25,6 +25,8 @@ cn:
     address: "地址"
     tel: "电话"
     fax: "传真"
+    marketing: "市场营销"
+    media: "媒体"
   menu:
     about:
       text: "介绍"

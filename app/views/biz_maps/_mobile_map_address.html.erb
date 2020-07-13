@@ -12,45 +12,37 @@
           <p class="leading-normal"><%= m.address -%></p>
         </div>
       </div>
-      <% if m.tel.present? %>
-      <div class="flex">
-        <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
-        <div>
-          <p class="leading-normal"><%= m.tel -%></p>
+      <% if m.tel.present? || m.marketing_phone.present? || m.media_phone.present? %>
+        <div class="flex">
+          <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
+          <div>
+            <% if m.tel.present? %>
+              <p class="leading-normal"><%= m.tel -%></p>
+            <% end %>
+            <% if m.marketing_phone.present? %>
+              <p class="leading-normal"><%= m.marketing_phone -%></p>
+            <% end %>
+            <% if m.media_phone.present? %>
+              <p class="leading-normal"><%= m.media_phone -%></p>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <% end %>
-      <% if m.marketing_phone.present? %>
-      <div class="flex">
-        <label class="flex-none leading-normal">市场营销：</label>
-        <div>
-          <p class="leading-normal"><%= m.marketing_phone -%></p>
-        </div>
-      </div>
-      <% end %>
-      <% if m.media_phone.present? %>
-      <div class="flex">
-        <label class="flex-none leading-normal">媒体：</label>
-        <div>
-          <p class="leading-normal"><%= m.media_phone -%></p>
-        </div>
-      </div>
       <% end %>
       <% if m.fax.present? %>
-      <div class="flex">
-        <label class="flex-none leading-normal"><%= t('map.fax') -%>：</label>
-        <div>
-          <p class="leading-normal"><%= m.fax -%></p>
+        <div class="flex">
+          <label class="flex-none leading-normal"><%= t('map.fax') -%>：</label>
+          <div>
+            <p class="leading-normal"><%= m.fax -%></p>
+          </div>
         </div>
-      </div>
       <% end %>
       <% if m.website_name.present? %>
-      <div class="flex">
-        <label class="flex-none leading-normal">网址：</label>
-        <div>
-          <p class="leading-normal"><%= link_to m.website_name, m.website_url -%></p>
+        <div class="flex">
+          <label class="flex-none leading-normal">网址：</label>
+          <div>
+            <p class="leading-normal"><%= link_to m.website_name, m.website_url -%></p>
+          </div>
         </div>
-      </div>
       <% end %>
   </div>
 </div>

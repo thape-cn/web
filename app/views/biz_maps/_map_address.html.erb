@@ -9,28 +9,28 @@
         <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= m.long_name -%></h1>
       <% end %>
       <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
-      <label class="float-left"><%= t('map.address') -%>：</label>
+        <label class="float-left"><%= t('map.address') -%>：</label>
         <p class="<%= mlp -%>"><%= m.address -%></p>
-      <% if m.tel.present? %>
-        <label class="float-left"><%= t('map.tel') -%>：</label>
+        <% if m.tel.present? %>
+          <label class="float-left"><%= t('map.tel') -%>：</label>
           <p class="<%= mlp -%>"><%= m.tel -%></p>
-      <% end %>
-      <% if m.marketing_phone.present? %>
-        <label class="float-left">市场营销：</label>
+        <% end %>
+        <% if m.marketing_phone.present? %>
+          <label class="float-left"><%= t('map.marketing') -%>：</label>
           <p class="<%= mlp -%>"><%= m.marketing_phone -%></p>
-      <% end %>
-      <% if m.media_phone.present? %>
-        <label class="float-left">媒体：</label>
+        <% end %>
+        <% if m.media_phone.present? %>
+          <label class="float-left"><%= t('map.media') -%>：</label>
           <p class="<%= mlp -%>"><%= m.media_phone -%></p>
-      <% end %>
-      <% if m.fax.present? %>
-        <label class="float-left"><%= t('map.fax') -%>：</label>
+        <% end %>
+        <% if m.fax.present? %>
+          <label class="float-left"><%= t('map.fax') -%>：</label>
           <p class="<%= mlp -%>"><%= m.fax -%></p>
-      <% end %>
-      <% if m.website_name.present? %>
-        <label class="float-left">网址：</label>
+        <% end %>
+        <% if m.website_name.present? %>
+          <label class="float-left">网址：</label>
           <p class="<%= mlp -%>"><%= link_to m.website_name, m.website_url -%></p>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>

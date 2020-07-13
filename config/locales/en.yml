@@ -25,6 +25,8 @@ en:
     address: "Address"
     tel: "Tel"
     fax: "Fax"
+    marketing: "Marketing"
+    media: "Media"
   ui:
     keyword_search: "Keyword search"
   menu:
