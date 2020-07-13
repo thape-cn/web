@@ -7,14 +7,14 @@
         <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
       <% end %>
       <div class="flex">
-        <label class="flex-none leading-normal">地址：</label>
+        <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
         <div>
           <p class="leading-normal"><%= m.address -%></p>
         </div>
       </div>
       <% if m.tel.present? %>
       <div class="flex">
-        <label class="flex-none leading-normal">电话：</label>
+        <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
         <div>
           <p class="leading-normal"><%= m.tel -%></p>
         </div>
@@ -38,7 +38,7 @@
       <% end %>
       <% if m.fax.present? %>
       <div class="flex">
-        <label class="flex-none leading-normal">传真：</label>
+        <label class="flex-none leading-normal"><%= t('map.fax') -%>：</label>
         <div>
           <p class="leading-normal"><%= m.fax -%></p>
         </div>

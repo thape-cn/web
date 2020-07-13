@@ -9,10 +9,10 @@
         <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= m.long_name -%></h1>
       <% end %>
       <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
-      <label class="float-left">地址：</label>
+      <label class="float-left"><%= t('map.address') -%>：</label>
         <p class="<%= mlp -%>"><%= m.address -%></p>
       <% if m.tel.present? %>
-        <label class="float-left">电话：</label>
+        <label class="float-left"><%= t('map.tel') -%>：</label>
           <p class="<%= mlp -%>"><%= m.tel -%></p>
       <% end %>
       <% if m.marketing_phone.present? %>
@@ -24,7 +24,7 @@
           <p class="<%= mlp -%>"><%= m.media_phone -%></p>
       <% end %>
       <% if m.fax.present? %>
-        <label class="float-left">传真：</label>
+        <label class="float-left"><%= t('map.fax') -%>：</label>
           <p class="<%= mlp -%>"><%= m.fax -%></p>
       <% end %>
       <% if m.website_name.present? %>
