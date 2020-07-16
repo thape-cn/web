@@ -2,10 +2,12 @@ class SearchController < ApplicationController
   def query
     @city = City.find_by name: params[:q]
     @works_results = if @city.present?
-      Work.where(city_id: @city.id)
+      Work.where(city_id: @city.id).order(position: :asc)
     else
       Work.joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
-      .where('work_translations.project_name LIKE ?', "%#{params[:q]}%").limit(15)
+      .where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
+      .order(position: :asc)
+      .limit(15)
     end
     @people_results = if @city.present?
       Person.includes(:city_people).where(city_people: {city_id: @city.id}).order(position: :asc)
