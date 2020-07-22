@@ -39,6 +39,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
+    // '@tailwindcss/custom-forms', '@tailwindcss/typography' is already include in '@tailwindcss/ui'
     require('@tailwindcss/ui')
   ],
 }
