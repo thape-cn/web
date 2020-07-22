@@ -27,6 +27,7 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%>">
           <% City.where.not(china_area_name: nil).where.not(china_area_name: '上海').each do |city| %>
+            <% next if city.works.size.zero? %>
             <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
           <% end %>
         </div>
