@@ -126,6 +126,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_east') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华东').limit(21).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
@@ -136,6 +137,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_north') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华北').limit(7).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
@@ -146,6 +148,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_south') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华南').limit(7).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
@@ -156,6 +159,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_centre') -%></span>
                 <nav>
                   <% City.where(china_area_name: '华中').limit(7).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
@@ -166,6 +170,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_south_west') -%></span>
                 <nav>
                   <% City.where(china_area_name: '西南').limit(7).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
@@ -176,6 +181,7 @@ isBigFont = cookies['ts'] == 'big';
                 <span><%= t('menu.works.china_north_west') -%></span>
                 <nav>
                   <% City.where(china_area_name: '西北').limit(7).each do |city| %>
+                    <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
                     </div>
