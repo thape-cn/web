@@ -64,7 +64,7 @@ GEM
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
     bindex (0.8.1)
-    bootsnap (1.4.6)
+    bootsnap (1.4.7)
       msgpack (~> 1.0)
     browser (4.2.0)
     builder (3.2.4)
@@ -256,7 +256,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    unf_ext (0.0.7.7-x64-mingw32)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
