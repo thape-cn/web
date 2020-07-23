@@ -6,7 +6,7 @@
 </div>
 
 <div class="flex flex-col items-center justify-between px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 pb-2 md:pb-6 lg:pb-8 xl:pb-10 xxl:pb-12 xxxl:pb-16"
-  x-data="alpineSlideShow([1,2,3,4])"
+  x-data="alpineSlideShow([1,2,3,4,5])"
   x-init="setup()">
   <div class="relative max-w-screen-xl overflow-hidden">
     <img class="w-full" src="<%= asset_pack_path('media/images/culture_1.jpg') -%>"
@@ -44,6 +44,15 @@
       :x-transition:leave-start="transitions('leave-start')"
       :x-transition:leave-end="transitions('leave-end')"
       x-show="state.currentSlide === 4" />
+
+    <img class="w-full" src="<%= asset_pack_path('media/images/culture_5.jpg') -%>"
+      :x-transition:enter="transitions('enter')"
+      :x-transition:enter-start="transitions('enter-start')"
+      :x-transition:enter-end="transitions('enter-end')"
+      :x-transition:leave="transitions('leave')"
+      :x-transition:leave-start="transitions('leave-start')"
+      :x-transition:leave-end="transitions('leave-end')"
+      x-show="state.currentSlide === 5" />
   </div>
   <div class="flex items-center justify-center">
       <button
@@ -73,6 +82,13 @@
           'bg-gray-500' : state.currentSlide === 4
         }"
         @click="stopAutoplay();updateCurrent(4)">
+      </button>
+      <button
+        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
+        :class="{
+          'bg-gray-500' : state.currentSlide === 5
+        }"
+        @click="stopAutoplay();updateCurrent(5)">
       </button>
   </div>
 </div>
