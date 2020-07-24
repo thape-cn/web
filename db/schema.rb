@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_071148) do
+ActiveRecord::Schema.define(version: 2020_07_24_083042) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_071148) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "hero_news_photo"
     t.integer "hero_news_id"
+    t.integer "hero_news_title_cap"
   end
 
   create_table "users", force: :cascade do |t|
