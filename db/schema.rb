@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_025023) do
+ActiveRecord::Schema.define(version: 2020_07_24_071148) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -286,6 +286,19 @@ ActiveRecord::Schema.define(version: 2020_07_16_025023) do
     t.string "interior_intro_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tail_homes", force: :cascade do |t|
+    t.string "new_project_photo_1"
+    t.string "new_project_photo_2l"
+    t.string "new_project_photo_3w"
+    t.string "new_project_photo_4"
+    t.string "new_project_photo_5"
+    t.string "new_project_photo_6"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "hero_news_photo"
+    t.integer "hero_news_id"
   end
 
   create_table "users", force: :cascade do |t|
