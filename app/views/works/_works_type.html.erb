@@ -1,6 +1,6 @@
 <div class="works-projects-container mt-2 sm:mt-4 xl:mt-8">
   <div class="<%= browser.ie? ? 'works-projects-block' : 'works-projects-grid' -%>">
-    <!-- SLOGAN -->
+    <%# SLOGAN %>
     <div class="works-projects-cell slogan flex items-center bg-thape-dark-gray">
       <div class="m-auto w-5/6 text-thape-darker-gray font-bold pointer-events-none py-6 <%= fdsz("text-base sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> ">
         <p class="text-left my-0 xl:my-6">创意与技术完美融合</p>
@@ -8,7 +8,7 @@
         <p class="text-left leading-none md:leading-snug">DESIGN ACHIEVED.</p>
       </div>
     </div>
-    <!-- 居住 -->
+    <%# 居住 %>
     <div class="works-projects-cell resdential">
       <a href="<%= residential_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-resdential-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -18,7 +18,7 @@
         </div>
       </a>
     </div>
-    <!-- 示范区 -->
+    <%# 示范区 %>
     <div class="works-projects-cell demonstration-zone">
       <a href="<%= demonstration_zone_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-demonstration-zone-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -28,7 +28,7 @@
         </div>
       </a>
     </div>
-    <!-- 综合体/TOD -->
+    <%# 综合体/TOD %>
     <div class="works-projects-cell mixed-used-tod">
       <a href="<%= mixed_used_tod_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-mixed-used-tod-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -38,7 +38,7 @@
         </div>
       </a>
     </div>
-    <!-- 商业空间 -->
+    <%# 商业空间 %>
     <div class="works-projects-cell commercial">
       <a href="<%= commercial_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-commercial-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -48,7 +48,7 @@
         </div>
       </a>
     </div>
-    <!-- 超高层 -->
+    <%# 超高层 %>
     <div class="works-projects-cell supertall">
       <a href="<%= supertall_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-supertall-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -58,7 +58,7 @@
         </div>
       </a>
     </div>
-    <!-- 文化 -->
+    <%# 文化 %>
     <div class="works-projects-cell cultural">
       <a href="<%= cultural_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-cultural-short-1024.jpg', class: 'hidden xl:block grid-image hover:scale-105' -%>
@@ -69,7 +69,7 @@
         </div>
       </a>
     </div>
-    <!-- 教育 -->
+    <%# 教育 %>
     <div class="works-projects-cell education">
       <a href="<%= education_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-education-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -79,7 +79,7 @@
         </div>
       </a>
     </div>
-    <!-- 商务办公 -->
+    <%# 商务办公 %>
     <div class="works-projects-cell office">
       <a href="<%= office_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-office-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -89,7 +89,7 @@
         </div>
       </a>
     </div>
-    <!-- 城市设计/更新 -->
+    <%# 城市设计/更新 %>
     <div class="works-projects-cell urban-design">
       <a href="<%= urban_design_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-urban-design-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -99,7 +99,7 @@
         </div>
       </a>
     </div>
-    <!-- 医疗康养 -->
+    <%# 医疗康养 %>
     <div class="works-projects-cell medical-care">
       <a href="<%= medical_care_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-medical-care-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -109,7 +109,7 @@
         </div>
       </a>
     </div>
-    <!-- 旅居/酒店 -->
+    <%# 旅居/酒店 %>
     <div class="works-projects-cell hospitality">
       <a href="<%= hospitality_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-hospitality-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -119,7 +119,7 @@
         </div>
       </a>
     </div>
-    <!-- 规划 -->
+    <%# 规划 %>
     <div class="works-projects-cell urban-planning">
       <a href="<%= urban_planning_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-urban-planning-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -129,7 +129,7 @@
         </div>
       </a>
     </div>
-    <!-- 景观 -->
+    <%# 景观 %>
     <div class="works-projects-cell landscape">
       <a href="<%= landscape_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-landscape-1024.jpg', class: 'grid-image hover:scale-105' -%>
@@ -139,7 +139,7 @@
         </div>
       </a>
     </div>
-    <!-- 室内 -->
+    <%# 室内 %>
     <div class="works-projects-cell interior">
       <a href="<%= interior_works_path -%>" class="cursor-pointer">
         <%= image_pack_tag 'media/images/works-interior-1024.jpg', class: 'grid-image hover:scale-105' -%>
