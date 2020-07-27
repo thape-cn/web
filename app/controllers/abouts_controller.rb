@@ -1,5 +1,6 @@
 class AboutsController < ApplicationController
   def show
+    @service_file = ServiceFile.first
   end
 
   def culture
