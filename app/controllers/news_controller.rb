@@ -25,7 +25,8 @@ class NewsController < ApplicationController
   end
 
   def index
-    @infos = Info.where(hide_in_index_news: false).order(position: :asc).page(params[:page]).per(params[:per_page])
     @tail_home = TailHome.first
+    @infos = Info.where(hide_in_index_news: false).where.not(id: @tail_home.hero_news_id)
+      .order(position: :asc).page(params[:page]).per(params[:per_page])
   end
 end
