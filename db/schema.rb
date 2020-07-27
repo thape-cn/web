@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_083042) do
+ActiveRecord::Schema.define(version: 2020_07_27_055600) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -82,20 +82,6 @@ ActiveRecord::Schema.define(version: 2020_07_24_083042) do
     t.string "name"
     t.string "company"
     t.string "contact_details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "home_page_contents", force: :cascade do |t|
-    t.integer "work_1_id"
-    t.integer "work_2_id"
-    t.integer "work_3_id"
-    t.integer "work_4_id"
-    t.integer "work_5_id"
-    t.integer "work_6_id"
-    t.integer "news_1_id"
-    t.integer "news_2_id"
-    t.integer "news_3_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -300,6 +286,15 @@ ActiveRecord::Schema.define(version: 2020_07_24_083042) do
     t.string "hero_news_photo"
     t.integer "hero_news_id"
     t.integer "hero_news_title_cap"
+    t.integer "new_project_1_id"
+    t.integer "new_project_2_id"
+    t.integer "new_project_3_id"
+    t.integer "new_project_4_id"
+    t.integer "new_project_5_id"
+    t.integer "new_project_6_id"
+    t.integer "info_1_id"
+    t.integer "info_2_id"
+    t.integer "info_3_id"
   end
 
   create_table "users", force: :cascade do |t|

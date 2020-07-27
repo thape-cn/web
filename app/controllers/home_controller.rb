@@ -28,6 +28,6 @@ class HomeController < ApplicationController
       end
     end
 
-    @home_page_content = HomePageContent.first
+    @tail_home = TailHome.first
   end
 end
