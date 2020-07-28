@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_051230) do
+ActiveRecord::Schema.define(version: 2020_07_28_082821) do
+
+  create_table "about_pages", force: :cascade do |t|
+    t.text "thape_intro"
+    t.string "about_h1"
+    t.string "about_h1_mobile"
+    t.string "about_h2"
+    t.string "about_h2_mobile"
+    t.string "about_h3"
+    t.string "about_h3_mobile"
+    t.string "about_h4"
+    t.string "about_h4_mobile"
+    t.string "about_h5"
+    t.string "about_h5_mobile"
+    t.string "about_h6"
+    t.string "about_h6_mobile"
+    t.string "about_h7"
+    t.string "about_h7_mobile"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -272,7 +292,6 @@ ActiveRecord::Schema.define(version: 2020_07_28_051230) do
     t.string "interior_intro_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "thape_intro"
     t.text "building_intro"
     t.text "interior_intro"
     t.text "planning_intro"
@@ -342,6 +361,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_051230) do
     t.string "background_4_pad_webp"
     t.string "background_5_pad_webp"
     t.string "background_6_pad_webp"
+    t.string "hero_news_photo_mobile"
   end
 
   create_table "users", force: :cascade do |t|

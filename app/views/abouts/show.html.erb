@@ -66,7 +66,7 @@
           <h2 class="<%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> font-medium whitespace-no-wrap">DESIGN ACHIEVED.</h2>
         </dt>
         <dd class="ml-4 text-black6c font-normal text-justify <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%> p-5">
-          <% @service_file.thape_intro.split("\n").each do |p| %>
+          <% @about_page.thape_intro.split("\n").each do |p| %>
             <p><%= p -%></p>
           <% end %>
         </dd>

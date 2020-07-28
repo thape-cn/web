@@ -1,6 +1,6 @@
 class AboutsController < ApplicationController
   def show
-    @service_file = ServiceFile.first
+    @about_page = AboutPage.first
   end
 
   def culture

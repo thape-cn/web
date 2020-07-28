@@ -56,4 +56,5 @@ class TailHome < ApplicationRecord
   mount_uploader :info_3_photo, PictureUploader
 
   mount_uploader :hero_news_photo, PictureUploader
+  mount_uploader :hero_news_photo_mobile, PictureUploader
 end
