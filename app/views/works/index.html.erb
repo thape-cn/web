@@ -9,7 +9,7 @@
   <%= render partial: 'shared/header', locals: { c: '所有项目', e: 'PROJECTS',
     header_path: works_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: true } %>
 
-  <%= render partial: 'works_type' %>
+  <%= render partial: 'works_type', locals: { work_type_page: @work_type_page } %>
 
 </div>
 

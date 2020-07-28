@@ -5,6 +5,8 @@ class WorksController < ApplicationController
     if params[:q].present?
       @works = works_query_scope(params[:q]).where(published: true).page(params[:page]).per(params[:per_page])
       render :search_detail
+    else
+      @work_type_page = WorkTypePage.first
     end
   end
 
