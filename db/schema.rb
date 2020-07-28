@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_023015) do
+ActiveRecord::Schema.define(version: 2020_07_28_051230) do
 
   create_table "about_translations", force: :cascade do |t|
     t.integer "about_id", null: false
@@ -303,6 +303,45 @@ ActiveRecord::Schema.define(version: 2020_07_28_023015) do
     t.integer "info_1_id"
     t.integer "info_2_id"
     t.integer "info_3_id"
+    t.string "info_1_photo"
+    t.string "info_2_photo"
+    t.string "info_3_photo"
+    t.string "background_1"
+    t.string "background_2"
+    t.string "background_3"
+    t.string "background_4"
+    t.string "background_5"
+    t.string "background_6"
+    t.string "background_1_mobile"
+    t.string "background_2_mobile"
+    t.string "background_3_mobile"
+    t.string "background_4_mobile"
+    t.string "background_5_mobile"
+    t.string "background_6_mobile"
+    t.string "background_1_pad"
+    t.string "background_2_pad"
+    t.string "background_3_pad"
+    t.string "background_4_pad"
+    t.string "background_5_pad"
+    t.string "background_6_pad"
+    t.string "background_1_webp"
+    t.string "background_2_webp"
+    t.string "background_3_webp"
+    t.string "background_4_webp"
+    t.string "background_5_webp"
+    t.string "background_6_webp"
+    t.string "background_1_mobile_webp"
+    t.string "background_2_mobile_webp"
+    t.string "background_3_mobile_webp"
+    t.string "background_4_mobile_webp"
+    t.string "background_5_mobile_webp"
+    t.string "background_6_mobile_webp"
+    t.string "background_1_pad_webp"
+    t.string "background_2_pad_webp"
+    t.string "background_3_pad_webp"
+    t.string "background_4_pad_webp"
+    t.string "background_5_pad_webp"
+    t.string "background_6_pad_webp"
   end
 
   create_table "users", force: :cascade do |t|
