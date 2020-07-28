@@ -21,7 +21,7 @@ class NewsController < ApplicationController
 
     @previous_info = Info.find previous_info_id
     @next_info = Info.find next_info_id
-
+    @tail_home = TailHome.first
   end
 
   def index
