@@ -1,7 +1,7 @@
 <div x-data="{ show_text: <%= browser.device.mobile? ? 'true' : 'false' -%> }" x-on:mouseenter="show_text = true" x-on:mouseleave="show_text = false">
   <div class="relative overflow-hidden border border-thape-dark-gray w-full">
   <%= link_to news_path(id: info.id) do %>
-    <img src="<%= asset_pack_path(news_image) -%>" class="w-full h-full max-w-full" x-bind:class="{ 'filter-blur': show_text }" />
+    <img src="<%= news_image_url -%>" class="w-full h-full max-w-full" x-bind:class="{ 'filter-blur': show_text }" />
     <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
       x-transition:enter="transition ease-linear duration-200"
       x-transition:enter-start="opacity-0 transform -translate-x-1/2"

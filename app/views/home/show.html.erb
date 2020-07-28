@@ -114,11 +114,11 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
   <div class="flex-grid">
     <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-2-gap-2 lg:flex-grid-cols-3-gap-2">
     <%= render partial: 'new_square',
-      locals: { news_image: 'media/images/news_r1.jpg', info: @tail_home.news_1, padding_y: 'pr-1 sm:pr-2 lg:pr-4' } %>
+      locals: { news_image_url: @tail_home.info_1_photo.url, info: @tail_home.news_1, padding_y: 'pr-1 sm:pr-2 lg:pr-4' } %>
     <%= render partial: 'new_square',
-      locals: { news_image: 'media/images/news_r2.jpg', info: @tail_home.news_2, padding_y: 'px-1 sm:px-1 lg:px-2' } %>
+      locals: { news_image_url: @tail_home.info_2_photo.url, info: @tail_home.news_2, padding_y: 'px-1 sm:px-1 lg:px-2' } %>
     <%= render partial: 'new_square',
-      locals: { news_image: 'media/images/news_r3.jpg', info: @tail_home.news_3, padding_y: 'pl-1 sm:pl-2 lg:pl-4' } %>
+      locals: { news_image_url: @tail_home.info_3_photo.url, info: @tail_home.news_3, padding_y: 'pl-1 sm:pl-2 lg:pl-4' } %>
     </div>
   </div>
 </div>
