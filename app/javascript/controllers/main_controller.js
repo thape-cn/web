@@ -11,12 +11,11 @@ export default class extends Controller {
     setHeight = () => {
         this.element.style.height = `calc(100vh - ${this.element.offsetTop}px)`;
         if (this.hasFooterTarget && this.hasFooterLineTarget) {
+            this.footerLineTarget.style.bottom = 'auto';
             if (this.footerTarget.offsetTop > this.footerLineTarget.offsetTop && this.footerLineTarget.offsetTop + this.footerTarget.offsetHeight < this.element.offsetHeight) {
-                this.footerLineTarget.style.bottom = 'auto';
                 this.footerTarget.style.position = 'absolute';
                 this.footerTarget.style.bottom = '0px';
             } else {
-                this.footerLineTarget.style.bottom = 'auto';
                 this.footerTarget.style.position = 'relative';
                 this.footerTarget.style.bottom = 'auto';
                 if (this.footerTarget.offsetTop + this.footerTarget.offsetHeight < this.element.scrollHeight) {
