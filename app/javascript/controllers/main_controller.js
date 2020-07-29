@@ -22,8 +22,6 @@ export default class extends Controller {
                     const bottom = this.element.scrollHeight - this.footerTarget.offsetTop - this.footerTarget.offsetHeight + 240;
                     this.footerTarget.style.bottom = `-${bottom}px`;
                     this.footerLineTarget.style.bottom = `-${bottom}px`;
-                } else {
-                    this.footerTarget.style.bottom = 'auto';
                 }
             }
         }
