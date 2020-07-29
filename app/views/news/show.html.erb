@@ -19,12 +19,12 @@
             </div>
           </div>
           <div class="m-0 sm:mx-2 flex flex-col justify-between order-first sm:order-none">
-            <% if @info.seo_description.present? %>
+            <% if @info.sub_title.present? %>
               <h1 class="px-0 sm:px-1 <%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(2)}") -%> text-left sm:text-justify font-bold break-all leading-tight pt-1">
                 <%= @info.title -%>
               </h1>
               <h2 class="px-0 sm:px-1 <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> text-thape-copyright-gray text-left sm:text-justify">
-                <%= @info.seo_description -%>
+                <%= @info.sub_title -%>
               </h2>
             <% else %>
               <h1 class="px-0 sm:px-1 <%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(2)}") -%> text-left sm:text-justify font-bold break-all leading-tight">
