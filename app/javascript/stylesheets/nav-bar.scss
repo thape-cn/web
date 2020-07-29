@@ -19,7 +19,7 @@
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 50px;
   @apply text-thape-white-t80 nav-background-initial;
 
   // 默认文字样式
@@ -315,6 +315,7 @@
   }
 
   @screen lg {
+    height: 80px;
 
     nav.intro {
       padding-right: 19rem;
@@ -407,7 +408,6 @@
     }
   }
   @screen xxl {
-    height: 80px;
 
     nav.intro {
       padding-right: 22.5rem;
