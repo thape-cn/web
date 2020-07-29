@@ -21,7 +21,7 @@
         right: 0;
         display: grid;
         grid-template: repeat(11, 1fr) / repeat(2, 1fr);
-        gap: .5rem;
+        gap: .25rem;
 
         .works-projects-cell {
             position: relative;
@@ -271,10 +271,6 @@
         bottom: 0;
         left: 0;
         right: 0;
-        $gap: .5rem;
-        $cols: 2;
-        $rows: 11;
-
 
         @mixin cellPositionSize($gap, $cols, $rows, $col, $row, $colSpan, $rowSpan) {
             top: calc(((100% - #{$gap * ($rows - 1)}) / #{$rows} + #{$gap}) * #{$row - 1});
@@ -286,7 +282,9 @@
         .works-projects-cell {
             position: absolute;
             overflow: hidden;
-            $gap: .5rem;
+            $gap: .25rem;
+            $cols: 2;
+            $rows: 11;
             &.slogan {
                 @include cellPositionSize($gap, $cols, $rows, 1, 1, 2, 1);
             }
@@ -364,6 +362,7 @@
         
         @screen sm {
             .works-projects-cell {
+                $gap: .5rem;
                 $cols: 3;
                 $rows: 7;
                 &.slogan {
@@ -443,6 +442,7 @@
         }
 
         @screen xl {
+            $gap: .5rem;
             $cols: 4;
             $rows: 5;
             .works-projects-cell {
