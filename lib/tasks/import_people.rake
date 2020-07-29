@@ -76,4 +76,17 @@ namespace :import_people do
     end
     person_city.update(city_title: city_title)
   end
+
+  desc "Update the people position"
+  task :update_position,[:csv_file] => [:environment] do |task, args|
+    csv_file_path = args[:csv_file]
+    CSV.foreach(csv_file_path, headers: true) do |row|
+      序号 = row['序号']&.strip
+
+      团队 = row['团队']&.strip
+      姓名 = row['姓名']&.strip
+      person = Person.find_by name: 姓名
+      person.update(position: 序号)
+    end
+  end
 end
