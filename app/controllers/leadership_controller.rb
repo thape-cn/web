@@ -43,7 +43,7 @@ class LeadershipController < ApplicationController
       else
         city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
       end.where.not(id: city_management_ids)
-      render 'area_leadership', locals: { c: city_area.company_name, e: city_area.url_name.upcase, city: city_area }
+      render 'area_leadership', locals: { c: city_area.company_name, city_url_name: city_area.url_name, e_title: "#{city_area.url_name.upcase} TIANHUA", city: city_area }
     else
       @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
         || Person.where(leaving_date: nil).find_by!(url_name: params[:id])
