@@ -50,6 +50,10 @@ class LeadershipController < ApplicationController
         'TIANHUA LANDSCAPE'
       when 'interior'
         'TIANHUA INTERIOR'
+      when 'honghe'
+        'HONGHE'
+      when 'evar'
+        'EVAR'
       else
         "#{city_area.url_name.upcase} TIANHUA"
       end
