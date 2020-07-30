@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_082821) do
+ActiveRecord::Schema.define(version: 2020_07_30_030655) do
 
   create_table "about_pages", force: :cascade do |t|
     t.text "thape_intro"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082821) do
     t.string "city_title"
     t.boolean "is_management", default: false
     t.boolean "is_professional", default: false
+    t.string "city_en_title"
     t.index ["city_id"], name: "index_city_people_on_city_id"
     t.index ["person_id"], name: "index_city_people_on_person_id"
   end
