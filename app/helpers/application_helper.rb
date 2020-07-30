@@ -3,7 +3,11 @@ module ApplicationHelper
     city_person = person.city_people.find_by(city_id: city&.id)
     person_titles = person.title&.split(' ') || []
     if city_person.present? && city_person.city_title.present?
-      person_titles.unshift(city_person.city_title).uniq
+      if I18n.locale == :en
+        person_titles.unshift(city_person.city_en_title).uniq
+      else
+        person_titles.unshift(city_person.city_title).uniq
+      end
     else
       person_titles
     end
