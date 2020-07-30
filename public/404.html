@@ -2,22 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>404 您访问的页面不存在。</title>
+    <meta name="title" content="新闻搜索tailwind - 天华建筑设计公司官网" />
+    <meta name="description" content="上海天华建筑设计公司，服务范围涵盖城市规划、建筑设计、城市住宅房屋设计、室内设计、景观设计、技术咨询到建筑审图、VR科技等。我们智融结合，为政府和企业客户等提供全面而专业的综合解决方案与全程卓越客户体验。" />
+    <meta name="abstract" content="天华建筑设计公司，服务范围涵盖城市规划、建筑设计、住宅设计、室内设计、景观设计、技术咨询到建筑审图、VR科技等。我们智融结合，为政府和企业客户等提供全面而专业的综合解决方案与全程卓越客户体验。" />
+    <meta name="keywords" content="建筑设计,住宅设计,景观设计,房屋室内设计,城市规划设计,上海建筑设计公司,建筑设计网,天华建筑" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>404 您访问的页面不存在。</title>
     <link rel="stylesheet" media="all" href="/packs/css/application-26201811.css" />
     <script type="module" src="/alpine/2-4-1.js"></script>
     <script nomodule src="/alpine/2-4-1-ie11.js" defer></script>
     <script src="/packs/js/application-f6456065c0711ef0b4d3.js"></script>
   </head>
 
-  <body class="bg-white overflow-x-hidden min-h-screen flex flex-wrap">
+  <body>
+    <div class="relative bg-white main" style="padding-top: 1px; top: -1px;" data-controller="main">
 
-    <header class="active" id="thape-top-header" lang="">
+<header
+  class="thape-header thape-header-fixed flex-none active  px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+  lang=""
+  data-controller="header"
+  data-header-is-active="true"
+>
   <div class="logo">
     <a href="/">
-      <svg class="" viewBox="0 0 1157 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" id="thape-nav-logo">
+      <svg class="thape-logo-svg  " viewBox="0 0 1157 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" id="thape-nav-logo">
     <g transform="matrix(1,0,0,1,-2556,-475)">
         <g transform="matrix(1,0,0,1,2160,0)">
             <g transform="matrix(1,0,0,1,438.941,479.476)">
@@ -58,7 +68,7 @@
 </svg>
     </a>
   </div>
-  <nav class="level-1" id="nav_level_1">
+  <nav class="level-1" id="nav_level_1" data-target="header.nav">
     <div class="nav-item">
       <a href="/about" class="">介绍</a>
       <nav class="intro">
@@ -201,9 +211,6 @@
                       <a href="/works/tianjin">天津</a>
                     </div>
                     <div class="nav-item">
-                      <a href="/works/taiyuan">太原</a>
-                    </div>
-                    <div class="nav-item">
                       <a href="/works/shijiazhuang">石家庄</a>
                     </div>
                 </nav>
@@ -211,9 +218,6 @@
               <div class="nav-item">
                 <span>华南</span>
                 <nav>
-                    <div class="nav-item">
-                      <a href="/works/shenzhen">深圳</a>
-                    </div>
                     <div class="nav-item">
                       <a href="/works/xiamen">厦门</a>
                     </div>
@@ -230,12 +234,6 @@
                 <nav>
                     <div class="nav-item">
                       <a href="/works/wuhan">武汉</a>
-                    </div>
-                    <div class="nav-item">
-                      <a href="/works/zhengzhou">郑州</a>
-                    </div>
-                    <div class="nav-item">
-                      <a href="/works/changsha">长沙</a>
                     </div>
                     <div class="nav-item">
                       <a href="/works/xiangyang">襄阳</a>
@@ -255,7 +253,7 @@
                       <a href="/works/guiyang">贵阳</a>
                     </div>
                     <div class="nav-item">
-                      <a href="/works/kunming">昆明</a>
+                      <a href="/works/leshan">乐山</a>
                     </div>
                 </nav>
               </div>
@@ -312,12 +310,7 @@
       <a href="/biz-map" class="">联系我们</a>
     </div>
     <div class="nav-item">
-      <a href="javascript:void(0)"
-        onclick="
-          document.querySelector('#nav_level_1').style.display='none';
-          document.querySelector('#header-search-form').style.display='flex';
-          document.querySelector('#header-search-form').querySelector('input').focus();
-        ">
+      <a href="javascript:void(0)" data-action="click->header#showForm">
         <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
         </svg>
@@ -344,26 +337,30 @@
             </g>
           </svg>
 </a>    </div>
+    <div class="nav-item">
+        <a href="?ts=big">
+          <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+            <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
+            <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: .5; fill-rule: evenodd;"/>
+            <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: 1; fill-rule: evenodd;"/>
+          </svg>
+</a>    </div>
   </nav>
-  <form action="/search" method="GET" id="header-search-form">
-    <input type="text" autofocus name="q" placeholder="关键词搜索" value="天安门"
-      onblur="
-        document.querySelector('#nav_level_1').style.display='flex';
-        document.querySelector('#header-search-form').style.display='none';
-      " />
+  <form action="/search" method="GET" id="header-search-form" data-target="header.form">
+    <input type="text" autofocus name="q" placeholder="关键词搜索" value="" data-target="header.formInput" data-action="blur->header#hideForm" />
     <button type="submit">
       <svg class="h-6 w-6" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
       </svg>
     </button>
   </form>
-  <button type="button" class="aside-menu-button" id="aside-menu-button">
+  <button type="button" class="aside-menu-button" id="aside-menu-button" data-action="click->header#toggleAsideMenu">
     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
-  <div class="aside-menu" style="display: none;" id="aside-menu">
-    <div class="aside-menu-container" id="aside-menu-container">
+  <div class="aside-menu" style="display: none;" id="aside-menu" data-target="header.asideMenu" data-action="click->header#toggleAsideMenu">
+    <div class="aside-menu-container" id="aside-menu-container" data-action="click->header#menuItemClick">
       <div class="aside-menu-item">
         <a href="javascrpt:void(0)">介绍</a>
         <div class="aside-menu-children" style="display:none;">
@@ -423,63 +420,22 @@
   </div>
 </header>
 
-<script>
-  (function(){
-    function toggleAsideMenu(event) {
-      const e = event || window.event;
-      e.preventDefault && e.preventDefault();
-      const asideMenu = document.querySelector('#aside-menu');
-      if (asideMenu) {
-        asideMenu.style.display = asideMenu.style.display === 'none' ? 'block' : 'none';
-      }
-      return false;
-    }
-    const asideMenuButton = document.querySelector('#aside-menu-button');
-    if (asideMenuButton) {
-      asideMenuButton.addEventListener('click', toggleAsideMenu);
-    }
-    const asideMenuContainer = document.querySelector('#aside-menu-container');
-    if (asideMenuContainer) {
-      asideMenuContainer.addEventListener('click', function(event) {
-        const e = event || window.event;
-        e.stopPropagation && e.stopPropagation();
-        if (e.target.tagName.toLowerCase() === 'a') {
-          const parent = e.target.parentElement;
-          if (parent) {
-            const asideMenuChildren = parent.querySelector('.aside-menu-children');
-            if (asideMenuChildren) {
-              e.preventDefault && e.preventDefault();
-              const display = asideMenuChildren.style.display;
-              asideMenuChildren.style.display = display === 'none' ? 'block' : 'none';
-            }
-          }
-        }
-      });
-    }
-    const asideMenu = document.querySelector('#aside-menu');
-    if (asideMenu) {
-      asideMenu.addEventListener('click', function(event) {
-        asideMenu.style.display = 'none';
-      });
-    }
-  })()
-</script>
+<header class="thape-header flex-none"></header>
 
-
-<div class="w-full flex flex-auto flex-col screen-min-height mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-
-  <div class="w-full flex flex-auto max-sm:mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
+<div class="w-full flex flex-col mx-auto sm:pb-4 md:pb-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+  <div class="w-full flex flex-auto mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
     <img class="flex-none" style="margin-left: 1rem" src="/packs/media/images/no-data-568138b251e0657fa7ddb5d60341d645.png">
     <p class="w-full flex-none text-center mt-3">404 您访问的页面不存在。</p>
   </div>
 </div>
 
-<footer class="bg-thape-dark-gray py-4 w-full flex-none self-end sm:py-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <div class="w-full sm:pt-6">
+<div class="relative bg-white" style="height: 1px;" data-target="main.footerLine"></div>
+<footer class="bg-thape-dark-gray py-4 w-full flex-none sm:py-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 relative" data-target="main.footer">
+  <div class="w-full">
     <nav class="flex items-center justify-center flex-no-wrap pb-2 sm:pb-4 sm:justify-between border-b border-gray-300">
       <div class="items-center hidden sm:flex">
         <a href="/">
-          <svg class="fill-current text-black6c w-48" viewBox="0 0 1157 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" id="thape-footer-logo">
+          <svg class="thape-logo-svg  " viewBox="0 0 1157 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" id="thape-footer-logo">
     <g transform="matrix(1,0,0,1,-2556,-475)">
         <g transform="matrix(1,0,0,1,2160,0)">
             <g transform="matrix(1,0,0,1,438.941,479.476)">
@@ -520,23 +476,23 @@
 </svg>
         </a>
       </div>
-      <div class="flex justify-center flex-none flex-wrap items-center w-48 text-sm text-thape-copyright-gray cursor-pointer sm:w-auto sm:text-base sm:justify-end">
-        <a href="/biz-map" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium xxl:text-lg hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>
+      <div class="flex justify-center flex-none flex-wrap items-center w-48 text-sm sm:text-base text-thape-copyright-gray cursor-pointer sm:w-auto sm:justify-end">
+        <a href="/biz-map" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">联系方式</a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="/sites/statement" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium xxl:text-lg hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>
+        <a href="/sites/statement" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">网站声明</a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="/sites/privacy" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium xxl:text-lg hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>
+        <a href="/sites/privacy" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">隐私政策</a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="/sites/disclaimer" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium xxl:text-lg hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>
+        <a href="/sites/disclaimer" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">免责条款</a>
         <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium xxl:text-lg hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
+        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out">职业发展</a>
       </div>
     </nav>
   </div>
   <div class="w-full flex justify-center flex-wrap mt-4 sm:justify-between sm:flex-no-wrap sm:mt-6">
-    <div class="text-sm flex-none w-full text-thape-copyright-gray sm:w-auto sm:flex-auto">
+    <div class="text-sm sm:text-base flex-none w-full text-thape-copyright-gray sm:w-auto sm:flex-auto">
       <p class="hidden sm:block">总机：021-64281588 &nbsp;&nbsp;&nbsp;设计项目接洽及投诉热线：400-8366606</p>
-      <p class="hidden leading-loose sm:block">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+      <p class="hidden sm:block leading-loose">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
 
       <p class="sm:hidden text-center">总机：021-64281588</p>
       <p class="sm:hidden text-center">设计项目接洽及投诉热线：400-8366606</p>
@@ -553,6 +509,7 @@
 </footer>
 
 
+    </div>
   </body>
 </html>
 
