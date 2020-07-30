@@ -18,7 +18,7 @@
         <div class="my-0 sm:mt-12 md:mt-24 lg:mt-32 xl:mt-40 xxl:mt-48 xxxl:mt-56 mx-2 sm:mx-10 xxl:mx-12 xxxl:mx-16 flex sm:block items-center sm:item-start flex-wrap sm:flex-no-wrap h-full sm:h-auto">
           <p class="font-medium <%= fdsz("text-base sm:#{smFzClass(1)}", "text-base sm:#{xlFzClass(2)}") -%> text-left pb-1 leading-loose sm:text-justify">
             <% if @tail_home.hero_news_title_cap.present? %>
-            <span class="h1-cap" style="padding-bottom: .25rem;border-bottom-width: 2px;"><%= @tail_home.hero_news.title[0..@tail_home.hero_news_title_cap - 1] -%></span><%= @tail_home.hero_news.title[@tail_home.hero_news_title_cap..] %>
+            <span class="h1-cap" style="border-bottom-width: 2px;"><%= @tail_home.hero_news.title[0..@tail_home.hero_news_title_cap - 1] -%></span><%= @tail_home.hero_news.title[@tail_home.hero_news_title_cap..] %>
             <% else %>
               <%= @tail_home.hero_news.title %>
             <% end %>
