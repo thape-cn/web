@@ -26,9 +26,7 @@
               <source srcset="<%= asset_pack_path(background_img_webp[index]) -%>" type="image/webp">
             <% end %>
             <source srcset="<%= asset_pack_path(img) -%>" type="image/jpeg">
-            <img style="width: 100%; height: auto;"
-              <%= raw(index == 0 ? 'data-target="service.bgImg" data-action="load->service#resize"' : '') -%>
-              src="<%= asset_pack_path(img) -%>" />
+            <img class="w-full h-auto" <%= raw(index == 0 ? 'data-target="service.bgImg" data-action="load->service#resize"' : '') -%> src="<%= asset_pack_path(img) -%>" />
           </picture>
         </div>
       <% end %>

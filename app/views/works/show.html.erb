@@ -19,7 +19,7 @@
       <% @work.work_pictures.each_with_index do |work_picture, index| %>
       <div data-type="slide-item" class="image-item <%= index == 0 ? 'active' : '' -%>">
         <picture>
-          <img style="width: 100%; height: auto;" src="<%= work_picture.album_jpg.url -%>" alt="" />
+          <img class="w-full h-auto" src="<%= work_picture.album_jpg.url -%>" alt="" />
         </picture>
       </div>
       <% if index == 0 %>
