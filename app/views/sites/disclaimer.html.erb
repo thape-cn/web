@@ -1,4 +1,7 @@
-<%= render partial: 'shared/thape_nav'  -%>
+<% provide(:title, "网站声明") %>
+<% provide(:meta_title, "网站声明") %>
+
+<%= render partial: 'shared/thape_nav' -%>
 
 <div class="w-full mx-auto sm:pb-4 md:pb-8 px-4 sm:px-24 md:px-32 lg:px-40 xl:px-48 xxl:px-56 xxxl:px-64">
   <%= render partial: 'shared/header', locals: { c: '免责条款', e: 'TERMS OF DISCLAIMER',
