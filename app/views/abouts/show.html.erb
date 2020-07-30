@@ -14,18 +14,25 @@
     data-carousel2-interval-time="5000"
     data-action="mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd" style="padding-top: 51%;">
-      <% [[@about_page.about_h1.url, @about_page.about_h1_mobile.url],
-          [@about_page.about_h2.url, @about_page.about_h2_mobile.url],
-          [@about_page.about_h3.url, @about_page.about_h3_mobile.url],
-          [@about_page.about_h4.url, @about_page.about_h4_mobile.url],
-          [@about_page.about_h5.url, @about_page.about_h5_mobile.url],
-          [@about_page.about_h6.url, @about_page.about_h6_mobile.url],
-          [@about_page.about_h7.url, @about_page.about_h7_mobile.url],
+      <% [[@about_page.about_h1, @about_page.about_h1_mobile],
+          [@about_page.about_h2, @about_page.about_h2_mobile],
+          [@about_page.about_h3, @about_page.about_h3_mobile],
+          [@about_page.about_h4, @about_page.about_h4_mobile],
+          [@about_page.about_h5, @about_page.about_h5_mobile],
+          [@about_page.about_h6, @about_page.about_h6_mobile],
+          [@about_page.about_h7, @about_page.about_h7_mobile],
           ].each_with_index do |urls, index| %>
         <div data-type="slide-item" class="image-item <%= index == 0 ? 'active' : '' -%>">
-          <picture>
-            <img class="w-full h-auto" src="<%= urls.first -%>" alt="" />
-          </picture>
+          <% if urls.second.present? %>
+            <picture>
+              <img class="w-full h-auto hidden sm:block" src="<%= urls.first.url -%>" alt="" />
+              <img class="w-full h-auto block sm:hidden" src="<%= urls.second.url -%>" alt="" />
+            </picture>
+          <% else %>
+            <picture>
+              <img class="w-full h-auto" src="<%= urls.first.url -%>" alt="" />
+            </picture>
+          <% end %>
         </div>
       <% end %>
     </div>
