@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_ts
+  before_action :prepare_seo_variable
   before_action :set_ie_warning
 
   private
@@ -31,6 +32,10 @@ class ApplicationController < ActionController::Base
       if params[:ts].present?
         cookies['ts'] = { :value => params[:ts], :expires => 1.year.from_now }
       end
+    end
+
+    def prepare_seo_variable
+      @seo = Seo.first
     end
 
     def set_ie_warning

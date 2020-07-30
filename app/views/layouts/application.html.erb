@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="title" content="<%= full_title(yield(:meta_title)) -%>" />
+    <meta name="description" content="<%= @seo.description -%>" />
+    <meta name="abstract" content="<%= @seo.abstract -%>" />
+    <meta name="keywords" content="<%= @seo.keywords -%>" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">

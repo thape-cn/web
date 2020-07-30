@@ -1,4 +1,13 @@
 module ApplicationHelper
+  def full_title(page_title = '')
+    base_title = "天华建筑设计公司官网"
+    if page_title.empty?
+      base_title
+    else
+      page_title + " - " + base_title
+    end
+  end
+
   def person_titles(person, city)
     city_person = person.city_people.find_by(city_id: city&.id)
     person_titles = person.title&.split(' ') || []
