@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   get '/cn/designing', to: redirect { |params, req| "/leadership" }
   get '/cn/about-us', to: redirect { |params, req| "/about" }
+  get '/cn/news', to: redirect { |params, req| "/news" }
+  get '/cn/news/:id', to: redirect { |params, req| "/news/#{params[:id]}" }
+  get '/cn/cases', to: redirect { |params, req| "/works" }
+  get '/cn/building', to: redirect { |params, req| "/building" }
+  get '/cn/interior', to: redirect { |params, req| "/interior" }
+  get '/cn/planning', to: redirect { |params, req| "/planning" }
+  get '/cn/landscape', to: redirect { |params, req| "/landscape" }
+  get '/cn/consluting', to: redirect { |params, req| "/consluting" }
+  get '/cn/vetting', to: redirect { |params, req| "/vetting" }
+  get '/cn/vr-tech', to: redirect { |params, req| "/vr-tech" }
 
   resources :works, only: %i[index show] do
     collection do
