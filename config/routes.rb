@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get '/cn/management', to: redirect { |params, req| "/leadership" }
   get '/cn/designing', to: redirect { |params, req| "/leadership" }
+  get '/cn/people', to: redirect { |params, req| "/leadership" }
   get '/cn/about-us', to: redirect { |params, req| "/about" }
   get '/cn/news', to: redirect { |params, req| "/news" }
   get '/cn/news/:id', to: redirect { |params, req| "/news/#{params[:id]}" }
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   get '/cn/consluting', to: redirect { |params, req| "/consluting" }
   get '/cn/vetting', to: redirect { |params, req| "/vetting" }
   get '/cn/vr-tech', to: redirect { |params, req| "/vr-tech" }
+  get '/cn/management/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/cn/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/cn/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
 
   resources :works, only: %i[index show] do
     collection do
@@ -33,7 +38,6 @@ Rails.application.routes.draw do
       get :interior
     end
   end
-  resources :managements, only: [:index, :show]
   resources :leadership, only: [:index, :show]
 
   resource :about, only: %i[show]
