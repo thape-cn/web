@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/cn/designing', to: redirect { |params, req| "/leadership" }
+  get '/cn/about-us', to: redirect { |params, req| "/about" }
 
   resources :works, only: %i[index show] do
     collection do
