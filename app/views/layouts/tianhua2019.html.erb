@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+  <title><%= @name.present? ? "#{@name}与" : '' -%>天华的2019</title>
+  <style>
+    html {
+      height:100%;
+    }
+    body {
+      background-color:#000000;
+      margin:0;
+      height:100%;
+    }
+  </style>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=370" />
+  <script src="/tianhua2019.js"></script>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+tianhua2019:
+  <<: *default
+  database: db/tianhua2019.sqlite3

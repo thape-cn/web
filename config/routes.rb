@@ -84,5 +84,7 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#query'
 
+  resources :tianhua2019s, only: [:show, :index]
+
   root 'home#show'
 end
