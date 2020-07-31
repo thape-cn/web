@@ -17,6 +17,24 @@ Rails.application.routes.draw do
   get '/cn/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
   get '/cn/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
 
+  get '/en/management', to: redirect { |params, req| "/leadership" }
+  get '/en/designing', to: redirect { |params, req| "/leadership" }
+  get '/en/people', to: redirect { |params, req| "/leadership" }
+  get '/en/about-us', to: redirect { |params, req| "/about" }
+  get '/en/news', to: redirect { |params, req| "/news" }
+  get '/en/news/:id', to: redirect { |params, req| "/news/#{params[:id]}" }
+  get '/en/cases', to: redirect { |params, req| "/works" }
+  get '/en/building', to: redirect { |params, req| "/building" }
+  get '/en/interior', to: redirect { |params, req| "/interior" }
+  get '/en/planning', to: redirect { |params, req| "/planning" }
+  get '/en/landscape', to: redirect { |params, req| "/landscape" }
+  get '/en/consluting', to: redirect { |params, req| "/consluting" }
+  get '/en/vetting', to: redirect { |params, req| "/vetting" }
+  get '/en/vr-tech', to: redirect { |params, req| "/vr-tech" }
+  get '/en/management/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/en/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/en/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+
   resources :works, only: %i[index show] do
     collection do
       get :residential
