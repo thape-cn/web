@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/cn/designing', to: redirect { |params, req| "/leadership" }
+
   resources :works, only: %i[index show] do
     collection do
       get :residential
