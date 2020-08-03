@@ -1,4 +1,6 @@
 class AboutPage < ApplicationRecord
+  translates :thape_intro
+
   mount_uploader :about_h1, PictureUploader
   mount_uploader :about_h1_mobile, PictureUploader
   mount_uploader :about_h2, PictureUploader
