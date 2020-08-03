@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/cn/biz-map', to: redirect { |params, req| "/biz-map" }
   get '/cn/management', to: redirect { |params, req| "/leadership" }
   get '/cn/designing', to: redirect { |params, req| "/leadership" }
   get '/cn/people', to: redirect { |params, req| "/leadership" }
@@ -16,24 +17,39 @@ Rails.application.routes.draw do
   get '/cn/management/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
   get '/cn/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
   get '/cn/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/cn/service/building', to: redirect { |params, req| "/building" }
+  get '/cn/service/interior', to: redirect { |params, req| "/interior" }
+  get '/cn/service/planning', to: redirect { |params, req| "/planning" }
+  get '/cn/service/landscape', to: redirect { |params, req| "/landscape" }
+  get '/cn/service/consluting', to: redirect { |params, req| "/consluting" }
+  get '/cn/service/vetting', to: redirect { |params, req| "/vetting" }
+  get '/cn/service/vr-tech', to: redirect { |params, req| "/vr-tech" }
 
-  get '/en/management', to: redirect { |params, req| "/leadership" }
-  get '/en/designing', to: redirect { |params, req| "/leadership" }
-  get '/en/people', to: redirect { |params, req| "/leadership" }
-  get '/en/about-us', to: redirect { |params, req| "/about" }
-  get '/en/news', to: redirect { |params, req| "/news" }
-  get '/en/news/:id', to: redirect { |params, req| "/news/#{params[:id]}" }
-  get '/en/cases', to: redirect { |params, req| "/works" }
-  get '/en/building', to: redirect { |params, req| "/building" }
-  get '/en/interior', to: redirect { |params, req| "/interior" }
-  get '/en/planning', to: redirect { |params, req| "/planning" }
-  get '/en/landscape', to: redirect { |params, req| "/landscape" }
-  get '/en/consluting', to: redirect { |params, req| "/consluting" }
-  get '/en/vetting', to: redirect { |params, req| "/vetting" }
-  get '/en/vr-tech', to: redirect { |params, req| "/vr-tech" }
-  get '/en/management/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
-  get '/en/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
-  get '/en/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}" }
+  get '/en/biz-map', to: redirect { |params, req| "/biz-map?locale=en" }
+  get '/en/management', to: redirect { |params, req| "/leadership?locale=en" }
+  get '/en/designing', to: redirect { |params, req| "/leadership?locale=en" }
+  get '/en/people', to: redirect { |params, req| "/leadership?locale=en" }
+  get '/en/about-us', to: redirect { |params, req| "/about?locale=en" }
+  get '/en/news', to: redirect { |params, req| "/news?locale=en" }
+  get '/en/news/:id', to: redirect { |params, req| "/news/#{params[:id]}?locale=en" }
+  get '/en/cases', to: redirect { |params, req| "/works?locale=en" }
+  get '/en/building', to: redirect { |params, req| "/building?locale=en" }
+  get '/en/interior', to: redirect { |params, req| "/interior?locale=en" }
+  get '/en/planning', to: redirect { |params, req| "/planning?locale=en" }
+  get '/en/landscape', to: redirect { |params, req| "/landscape?locale=en" }
+  get '/en/consluting', to: redirect { |params, req| "/consluting?locale=en" }
+  get '/en/vetting', to: redirect { |params, req| "/vetting?locale=en" }
+  get '/en/vr-tech', to: redirect { |params, req| "/vr-tech?locale=en" }
+  get '/en/management/:id', to: redirect { |params, req| "/leadership/#{params[:id]}?locale=en" }
+  get '/en/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}?locale=en" }
+  get '/en/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}?locale=en" }
+  get '/en/service/building', to: redirect { |params, req| "/building?locale=en" }
+  get '/cn/service/interior', to: redirect { |params, req| "/interior?locale=en" }
+  get '/cn/service/planning', to: redirect { |params, req| "/planning?locale=en" }
+  get '/cn/service/landscape', to: redirect { |params, req| "/landscape?locale=en" }
+  get '/cn/service/consluting', to: redirect { |params, req| "/consluting?locale=en" }
+  get '/cn/service/vetting', to: redirect { |params, req| "/vetting?locale=en" }
+  get '/cn/service/vr-tech', to: redirect { |params, req| "/vr-tech?locale=en" }
 
   resources :works, only: %i[index show] do
     collection do
