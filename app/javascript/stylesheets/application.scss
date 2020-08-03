@@ -120,6 +120,10 @@
   width: 25px;
 }
 
+.map-dot-b {
+
+}
+
 .map-dot-b::before {
   content: "⦿";
 }
@@ -130,10 +134,16 @@
 
 .map-star-b::before {
   content: "★";
+  color: #f50000;
+  font-size: 2rem;
+  vertical-align: middle;
 }
 
 .map-star-a::after {
   content: "★";
+  color: #f50000;
+  font-size: 2rem;
+  vertical-align: middle;
 }
 
 p {

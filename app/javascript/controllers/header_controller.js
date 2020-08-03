@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = [ 'nav', 'form', 'formInput', 'asideMenu' ];
+    static targets = ['nav', 'form', 'formInput', 'asideMenu', 'mobileSearch'];
 
     initialize() {
         this.isActive = this.data.get('isActive') === 'true';
@@ -30,11 +30,25 @@ export default class extends Controller {
         const e = event || window.event;
         e.preventDefault();
         if (this.hasAsideMenuTarget) {
-            this.asideMenuTarget.style.display = this.asideMenuTarget.style.display === 'none' ? 'block' : 'none';
+            this.asideMenuTarget.style.display === 'none' ? this.showAsideMenu() : this.hideAsideMenu();
+        }
+    }
+
+    showAsideMenu = event => {
+        if (this.hasAsideMenuTarget) {
+            this.asideMenuTarget.style.display = 'block';
+        }
+        this.hideMobileSearch();
+    }
+
+    hideAsideMenu = event => {
+        if (this.hasAsideMenuTarget) {
+            this.asideMenuTarget.style.display = 'none';
         }
     }
 
     showForm = event => {
+        console.log(123123, this.hasNavTarget)
         if (this.hasNavTarget) {
             this.navTarget.style.display = 'none';
         }
@@ -52,6 +66,19 @@ export default class extends Controller {
         }
         if (this.hasFormTarget) {
             this.formTarget.style.display = 'none';
+        }
+    }
+
+    showMobileSearch = event => {
+        if (this.hasMobileSearchTarget) {
+            this.mobileSearchTarget.style.display = 'block';
+        }
+        this.hideAsideMenu();
+    }
+
+    hideMobileSearch = event => {
+        if (this.hasMobileSearchTarget) {
+            this.mobileSearchTarget.style.display = 'none';
         }
     }
 

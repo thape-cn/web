@@ -4,18 +4,18 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
 <div class="w-full flex flex-col mx-auto sm:pb-4 md:pb-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <header class="w-full flex-none pt-16 pb-2 clearfix border-gray-200 border-solid border-b">
+  <header class="w-full flex-none pt-4 pb-2 clearfix border-gray-200 border-solid border-b">
     <h3 class="inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-black6c">
       <a href="<%= search_path(q: params[:q], tab: :work) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         作品&nbsp;&nbsp;（<%= @works_results.count -%>）
       </a>
     </h3>
-    <h3 class="ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
+    <h3 class="ml-4 sm:ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :person) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         人物&nbsp;&nbsp;（<%= @people_results.count -%>）
       </a>
     </h3>
-    <h3 class="ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
+    <h3 class="ml-4 sm:ml-10 inline-block <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(2)}") -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :info) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         新闻&nbsp;&nbsp;（<%= @info_results.count -%>）
       </a>
