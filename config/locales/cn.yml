@@ -82,6 +82,7 @@ cn:
   ui:
     keyword_search: "关键词搜索"
     page_keyword_search: "当前页搜索"
+    people: "人物"
   footer:
     contact: "联系方式"
     statement: "网站声明"
