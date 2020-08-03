@@ -44,12 +44,12 @@ Rails.application.routes.draw do
   get '/en/designing/:id', to: redirect { |params, req| "/leadership/#{params[:id]}?locale=en" }
   get '/en/people/:id', to: redirect { |params, req| "/leadership/#{params[:id]}?locale=en" }
   get '/en/service/building', to: redirect { |params, req| "/building?locale=en" }
-  get '/cn/service/interior', to: redirect { |params, req| "/interior?locale=en" }
-  get '/cn/service/planning', to: redirect { |params, req| "/planning?locale=en" }
-  get '/cn/service/landscape', to: redirect { |params, req| "/landscape?locale=en" }
-  get '/cn/service/consluting', to: redirect { |params, req| "/consluting?locale=en" }
-  get '/cn/service/vetting', to: redirect { |params, req| "/vetting?locale=en" }
-  get '/cn/service/vr-tech', to: redirect { |params, req| "/vr-tech?locale=en" }
+  get '/en/service/interior', to: redirect { |params, req| "/interior?locale=en" }
+  get '/en/service/planning', to: redirect { |params, req| "/planning?locale=en" }
+  get '/en/service/landscape', to: redirect { |params, req| "/landscape?locale=en" }
+  get '/en/service/consluting', to: redirect { |params, req| "/consluting?locale=en" }
+  get '/en/service/vetting', to: redirect { |params, req| "/vetting?locale=en" }
+  get '/en/service/vr-tech', to: redirect { |params, req| "/vr-tech?locale=en" }
 
   resources :works, only: %i[index show] do
     collection do
