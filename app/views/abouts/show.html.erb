@@ -76,9 +76,9 @@
       <h2 class="<%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> font-medium whitespace-no-wrap">DESIGN ACHIEVED.</h2>
     </dt>
     <dd class="text-black6c font-normal <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%> flex-none w-full">
-      <p>上海天华建筑设计有限公司（以下简称天华）始创于1997年，是由上海天祥实业有限公司投资成立的高起点、高标准的设计企业。</p>
-      <p>天华积聚了众多国内外建筑行业的优秀人才，是中国首批甲级民营建筑设计公司之一，现拥有建筑工程、城乡规划、风景园林三项甲级资质。</p>
-      <p>天华以城市建筑学为线索，居住和城市发展为主轴，通过城市规划、建筑设计、室内设计、景观设计、技术咨询、建筑审图、建筑工业化技术、BIM技术、可视化技术等全方位专业服务，为政府和企业客户等提供全面而专业的综合解决方案与全程卓越的客户体验。</p>
+      <% @about_page.thape_intro.split("\n").each do |p| %>
+        <p><%= p -%></p>
+      <% end %>
     </dd>
   </div>
 </div>
