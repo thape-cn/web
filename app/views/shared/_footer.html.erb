@@ -31,7 +31,7 @@
     </div>
 
     <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center sm:order-last sm:pb-0 sm:w-auto sm:pl-4" x-data="{ show_wechat_qr: false }">
-      <%= image_pack_tag 'media/images/wechat-qr.png', class: 'absolute bottom-0 right-36', "x-show": 'show_wechat_qr' %>
+      <%= image_pack_tag 'media/images/wechat-qr.jpg', class: 'absolute bottom-0 right-36 z-50', "x-show": 'show_wechat_qr' %>
       <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'media/images/wechat.svg', class: 'h-5 sm:h-7 mx-2 sm:mr-2 sm:ml-0' -%></a>
       <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/weibo.svg', class: 'h-5 sm:h-7 mx-2' %></a>
       <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/zhihu.svg', class: 'h-5 sm:h-7 mx-2 sm:ml-2 sm:mr-0' %></a>

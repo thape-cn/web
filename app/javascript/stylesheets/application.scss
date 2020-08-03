@@ -134,16 +134,12 @@
 
 .map-star-b::before {
   content: "★";
-  color: #f50000;
-  font-size: 2rem;
-  vertical-align: middle;
+  font-size: 16px;
 }
 
 .map-star-a::after {
   content: "★";
-  color: #f50000;
-  font-size: 2rem;
-  vertical-align: middle;
+  font-size: 16px;
 }
 
 p {
@@ -246,4 +242,10 @@ p {
       width: 14rem;
     }
   }
+}
+
+.news-img > p > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

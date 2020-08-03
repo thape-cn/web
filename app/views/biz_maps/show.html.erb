@@ -86,12 +86,12 @@
       <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" x-show="show_company == '上海天华'">
         <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
           <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
-            <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2">上海天华建筑设计有限公司</h1>
+            <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
             <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
             <label class="float-left"><%= t('map.address') -%>：</label>
-              <p class="ml-12">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
-              <p class="ml-12">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
-              <p class="ml-12">上海市杨浦区杨树浦路1062号2号楼2楼</p>
+              <p class="ml-12"><%= t('map.contact-shanghai-address-1') -%></p>
+              <p class="ml-12"><%= t('map.contact-shanghai-address-2') -%></p>
+              <p class="ml-12"><%= t('map.contact-shanghai-address-3') -%></p>
             <label class="float-left"><%= t('map.tel') -%>：</label>
               <p class="ml-12">021-64281588</p>
             <label class="float-left"><%= t('map.fax') -%>：</label>
@@ -141,7 +141,7 @@
       <div class="grid sm:flex sm:justify-between sm:items-center grid-cols-11 sm:grid-cols-none gap-1 sm:gap-0 text-center w-full <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> my-2 py-2 xl:py-4 xxl:pt-12">
         <div class="flex-1 m-0 sm:mr-1 xxxl:mr-2 h-32 xxxl:h-40 w-full sm:w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white cursor-pointer col-span-1 sm:col-span-auto flex items-center justify-center"
           x-bind:class="{ 'bg-thape-bg-gray': show_company == '上海天华', 'bg-thape-company-gray': show_company != '上海天华' }"
-          x-on:click="show_city = '上海';show_company = '上海天华'">上<br/>海<br/>天<br/>华</div>
+          x-on:click="show_city = '上海'; show_company = '上海天华'">上<br/>海<br/>天<br/>华</div>
         <div class="flex-1 m-0 sm:mx-1 xxxl:mr-2 h-32 xxxl:h-40 w-full sm:w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white cursor-pointer col-span-1 sm:col-span-auto flex items-center justify-center"
           x-bind:class="{ 'bg-thape-bg-gray': show_company == '北京天华', 'bg-thape-company-gray': show_company != '北京天华' }"
           x-on:click="show_city = '北京';show_company = '北京天华'">北<br/>京<br/>天<br/>华</div>
@@ -244,13 +244,13 @@
   <div class="block sm:hidden">
     <div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_company == '上海天华'" x-on:click="show_company=''">
       <div class="w-full p-4 bg-white rounded-md shadow-md">
-        <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal">上海天华建筑设计有限公司</h1>
+        <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal"><%= t('map.contact-shanghai-name') -%></h1>
         <div class="flex">
           <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
           <div>
-            <p class="leading-normal">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
-            <p class="leading-normal">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
-            <p class="leading-normal">上海市杨浦区杨树浦路1062号2号楼2楼</p>
+            <p class="leading-normal"><%= t('map.contact-shanghai-address-1') -%></p>
+            <p class="leading-normal"><%= t('map.contact-shanghai-address-2') -%></p>
+            <p class="leading-normal"><%= t('map.contact-shanghai-address-3') -%></p>
           </div>
         </div>
         <div class="flex">
@@ -347,13 +347,13 @@
       </header>
       <div class="flex flex-wrap px-4 py-2 sm:px-6">
         <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
-          <h1 class="<%= fdsz("text-lg sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2">上海天华建筑设计有限公司</h1>
+          <h1 class="<%= fdsz("text-lg sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
           <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
             <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
             <div>
-              <p class="leading-normal">上海市徐汇区中山西路1800号兆丰环球大厦27楼 200235</p>
-              <p class="leading-normal">上海市徐汇区钦州北路1188号漕河泾科汇大厦 200233</p>
-              <p class="leading-normal">上海市杨浦区杨树浦路1062号2号楼2楼</p>
+              <p class="leading-normal"><%= t('map.contact-shanghai-address-1') -%></p>
+              <p class="leading-normal"><%= t('map.contact-shanghai-address-2') -%></p>
+              <p class="leading-normal"><%= t('map.contact-shanghai-address-3') -%></p>
             </div>
           </div>
           <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
