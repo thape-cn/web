@@ -63,6 +63,7 @@ GEM
     aliyun-sdk (0.7.3)
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
+    ast (2.4.1)
     bindex (0.8.1)
     bootsnap (1.4.7)
       msgpack (~> 1.0)
@@ -172,6 +173,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    parser (2.7.1.4)
+      ast (~> 2.4.1)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -228,10 +231,14 @@ GEM
       ffi (~> 1.9)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
+    scout_apm (2.6.8)
+      parser
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.0)
+    server_timing (1.0.2)
+      scout_apm
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -300,6 +307,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3)
   selenium-webdriver
+  server_timing
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
