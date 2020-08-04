@@ -2,8 +2,8 @@
 <a href="<%= news_path(id: info.id) -%>">
   <%= image_tag info.snapshot.url, class: 'grid-image grid-mask-image hover:scale-105' -%>
   <div class="absolute text-white left-0 right-0 bottom-0 p-2 sm:p-4 leading-none sm:leading-normal">
-    <p class="text-left sm:pb-1 font-medium truncate sm:break-all sm:whitespace-normal <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(3)}") -%>" title="<%= info.title -%>"><%= info.title -%></p>
-    <p class="<%= fdsz("text-xs sm:#{smFzClass(4)}", "text-xs sm:#{xlFzClass(4)}") -%> text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
+    <p class="text-left sm:pb-1 font-medium truncate sm:break-all sm:whitespace-normal <%= fdsz("text-sm sm:#{smFzClass(3)} md:#{smFzClass(4)} lg:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(3)} md:#{xlFzClass(4)} lg:#{xlFzClass(3)}") -%>" title="<%= info.title -%>"><%= info.title -%></p>
+    <p class="<%= fdsz("text-xs sm:#{smFzClass(4)} md:#{smFzClass(5)} lg:#{smFzClass(4)}", "text-xs sm:#{xlFzClass(4)} md:#{xlFzClass(5)} lg:#{xlFzClass(4)}") -%> text-left font-light leading-snug"><%= info.created_at.to_date -%></p>
   </div>
 </a>
 </div>
