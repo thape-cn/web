@@ -1,40 +1,40 @@
 <div class="relative bg-white" style="height: 1px;" data-target="main.footerLine"></div>
-<footer class="bg-thape-dark-gray py-4 w-full flex-none sm:py-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 relative" data-target="main.footer">
+<footer class="bg-thape-dark-gray py-4 w-full flex-none md:py-6 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 relative" data-target="main.footer">
   <div class="w-full">
-    <nav class="flex items-center justify-center flex-no-wrap pb-2 sm:pb-4 sm:justify-between border-b border-gray-300">
-      <div class="items-center hidden sm:flex">
+    <nav class="flex items-center justify-center flex-no-wrap pb-2 md:pb-4 md:justify-between border-b border-gray-300">
+      <div class="items-center hidden md:flex">
         <a href="<%= root_path -%>">
           <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-footer-logo' } -%>
         </a>
       </div>
-      <div class="flex justify-center flex-none flex-wrap items-center w-48 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> text-thape-copyright-gray cursor-pointer sm:w-auto sm:justify-end">
-        <a href="<%= biz_map_path -%>" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>
-        <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= statement_sites_path -%>" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>
-        <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= privacy_sites_path -%>" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>
-        <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="<%= disclaimer_sites_path -%>" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>
-        <span class="hidden mx-2 sm:inline md:mx-3">|</span>
-        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-0 sm:my-1 block w-1/2 text-center sm:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
+      <div class="flex justify-center flex-none flex-wrap items-center w-48 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> text-thape-copyright-gray cursor-pointer md:w-auto md:justify-end">
+        <a href="<%= biz_map_path -%>" class="flex-none my-0 md:my-1 block w-1/2 text-center md:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.contact") -%></a>
+        <span class="hidden mx-2 md:inline md:mx-3">|</span>
+        <a href="<%= statement_sites_path -%>" class="flex-none my-0 md:my-1 block w-1/2 text-center md:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.statement") -%></a>
+        <span class="hidden mx-2 md:inline md:mx-3">|</span>
+        <a href="<%= privacy_sites_path -%>" class="flex-none my-0 md:my-1 block w-1/2 text-center md:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.privacy") -%></a>
+        <span class="hidden mx-2 md:inline md:mx-3">|</span>
+        <a href="<%= disclaimer_sites_path -%>" class="flex-none my-0 md:my-1 block w-1/2 text-center md:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.disclaimer") -%></a>
+        <span class="hidden mx-2 md:inline md:mx-3">|</span>
+        <a href="https://tianhua.gllue.com/portal/AllPosition" class="flex-none my-0 md:my-1 block w-1/2 text-center md:w-auto md:font-medium hover:text-black6c focus:outline-none focus:text-black6c transition duration-150 ease-in-out"><%= t("footer.careers") -%></a>
       </div>
     </nav>
   </div>
-  <div class="w-full flex justify-center flex-wrap mt-4 sm:justify-between sm:flex-no-wrap sm:mt-6">
-    <div class="<%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> flex-none w-full text-thape-copyright-gray sm:w-auto sm:flex-auto">
-      <p class="hidden sm:block"><%= t('footer.telephone_exchange') -%>：021-64281588 &nbsp;&nbsp;&nbsp;<%= t('footer.contact_hotline') -%>：400-8366606</p>
-      <p class="hidden sm:block leading-loose"><%= t("footer.corporation") -%></p>
+  <div class="w-full flex justify-center flex-wrap mt-4 md:justify-between md:flex-no-wrap md:mt-6">
+    <div class="<%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> flex-none w-full text-thape-copyright-gray md:w-auto md:flex-auto">
+      <p class="hidden md:block"><%= t('footer.telephone_exchange') -%>：021-64281588 &nbsp;&nbsp;&nbsp;<%= t('footer.contact_hotline') -%>：400-8366606</p>
+      <p class="hidden md:block leading-loose"><%= t("footer.corporation") -%></p>
 
-      <p class="sm:hidden text-center"><%= t('footer.telephone_exchange') -%>：021-64281588</p>
-      <p class="sm:hidden text-center"><%= t('footer.contact_hotline') -%>：400-8366606</p>
-      <p class="sm:hidden text-center"><%= t("footer.corporation") -%></p>
+      <p class="md:hidden text-center"><%= t('footer.telephone_exchange') -%>：021-64281588</p>
+      <p class="md:hidden text-center"><%= t('footer.contact_hotline') -%>：400-8366606</p>
+      <p class="md:hidden text-center"><%= t("footer.corporation") -%></p>
     </div>
 
-    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center sm:order-last sm:pb-0 sm:w-auto sm:pl-4" x-data="{ show_wechat_qr: false }">
+    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4" x-data="{ show_wechat_qr: false }">
       <%= image_pack_tag 'media/images/wechat-qr.jpg', class: 'absolute bottom-0 right-36 z-50', "x-show": 'show_wechat_qr' %>
-      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'media/images/wechat.svg', class: 'h-5 sm:h-7 mx-2 sm:mr-2 sm:ml-0' -%></a>
-      <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/weibo.svg', class: 'h-5 sm:h-7 mx-2' %></a>
-      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/zhihu.svg', class: 'h-5 sm:h-7 mx-2 sm:ml-2 sm:mr-0' %></a>
+      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'media/images/wechat.svg', class: 'h-5 md:h-7 mx-2 md:mr-2 md:ml-0' -%></a>
+      <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/weibo.svg', class: 'h-5 md:h-7 mx-2' %></a>
+      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><%= image_pack_tag 'media/images/zhihu.svg', class: 'h-5 md:h-7 mx-2 md:ml-2 md:mr-0' %></a>
     </div>
   </div>
 </footer>
