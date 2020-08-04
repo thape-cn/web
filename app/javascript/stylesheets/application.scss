@@ -120,26 +120,38 @@
   width: 25px;
 }
 
-.map-dot-b {
+.map-content-dot {
+  content: "⦿";
+  position: absolute;
+  top: -1px;
+}
 
+.map-content-star {
+  content: "★";
+  position: absolute;
+  top: -6px;
+  font-size: 20px;
+  color: #f50000;
 }
 
 .map-dot-b::before {
-  content: "⦿";
+  @extend .map-content-dot;
+  left: -15px;
 }
 
 .map-dot-a::after {
-  content: "⦿";
+  @extend .map-content-dot;
+  right: -15px;
 }
 
 .map-star-b::before {
-  content: "★";
-  font-size: 16px;
+  @extend .map-content-star;
+  left: -16px;
 }
 
 .map-star-a::after {
-  content: "★";
-  font-size: 16px;
+  @extend .map-content-star;
+  right: -16px;
 }
 
 p {
