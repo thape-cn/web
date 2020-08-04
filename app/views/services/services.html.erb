@@ -52,21 +52,21 @@
     </picture>
   </div>
 <% end %>
-  <div class="sm:absolute sm:bottom-0 sm:left-0 bg-thape-white-t80 pt-4 pb-8 sm:pt-8 w-full h-auto block flex-none sm:flex-initial" data-target="service.introDiv">
-    <div class="flex justify-center items-center text-black6c w-full sm:flex h-full p-2 sm:py-0 sm:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64">
-      <div class="flex w-full flex-none overflow-x-hidden flex-wrap sm:flex-no-wrap">
-        <div class="flex flex-col sm:justify-between font-medium px-5 w-full sm:w-auto" style="margin-top: -5px">
+  <div class="lg:absolute lg:bottom-0 lg:left-0 bg-thape-white-t80 pt-4 pb-8 lg:pt-8 w-full h-auto block flex-none lg:flex-initial" data-target="service.introDiv">
+    <div class="flex justify-center items-center text-black6c w-full lg:flex h-full p-2 lg:py-0 lg:px-4 md:px-8 lg:px-12 xl:px-48 xxl:px-56 xxxl:px-64">
+      <div class="flex w-full flex-none overflow-x-hidden flex-wrap lg:flex-no-wrap">
+        <div class="flex flex-col lg:justify-between font-medium px-5 w-full lg:w-auto" style="margin-top: -5px">
           <div>
             <h1 class="w-full <%= fdsz("text-2xl sm:#{smFzClass(1)}", "text-2xl sm:#{xlFzClass(1)}") -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
             <h2 class="w-full <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
           </div>
           <% if defined? link_site_url %>
-            <div class="w-full pt-2 sm:pt-0 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+            <div class="w-full pt-2 lg:pt-0 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
               <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
             </div>
           <% end %>
         </div>
-        <div class="block font-normal text-left sm:text-justify <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(4)}") -%> px-5 w-full sm:w-auto pt-4 sm:pt-0">
+        <div class="block font-normal text-left lg:text-justify <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(4)}") -%> px-5 w-full lg:w-auto pt-4 lg:pt-0">
           <% ps.each do |p| %>
             <p><%= p -%></p>
           <% end %>
