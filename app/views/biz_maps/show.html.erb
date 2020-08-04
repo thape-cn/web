@@ -299,8 +299,8 @@
     <%= render partial: 'mobile_map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
   </div>
   <div class="w-full mx-auto px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray" id="thape-address">
-    <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
-      <header class="px-0 pt-2 pb-1 sm:px-4 sm:px-6" x-on:click="show_city = ''">
+    <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
+      <header class="px-0 pt-2 pb-1" x-on:click="show_city = ''">
         <h1 class="inline-block <%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
           <a href="<%= biz_map_path(locale: 'cn', anchor: 'thape-address') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>
@@ -308,29 +308,31 @@
           <a href="<%= biz_map_path(locale: 'en', anchor: 'thape-address') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">OFFICES</a>
         </h2>
       </header>
-      <div class="w-full grid grid-cols-4 sm:grid-cols-none gap-1 sm:gap-0 sm:flex sm:flex-wrap sm:justify-left sm:items-center px-0 pt-1 pb-2 sm:pl-5 sm:pr-1">
-        <%= render partial: 'city_mini', locals: {c: '上海', e: 'SHANGHAI' } %>
-        <%= render partial: 'city_mini', locals: {c: '北京', e: 'BEIJING' } %>
-        <%= render partial: 'city_mini', locals: {c: '深圳', e: 'SHENZHEN' } %>
-        <%= render partial: 'city_mini', locals: {c: '广州', e: 'GUANGZHOU' } %>
-        <%= render partial: 'city_mini', locals: {c: '天津', e: 'TIANJIN' } %>
-        <%= render partial: 'city_mini', locals: {c: '重庆', e: 'CHONGQING' } %>
-        <%= render partial: 'city_mini', locals: {c: '武汉', e: 'WUHAN' } %>
-        <%= render partial: 'city_mini', locals: {c: '成都', e: 'CHENGDU' } %>
-        <%= render partial: 'city_mini', locals: {c: '西安', e: "XI'AN" } %>
-        <%= render partial: 'city_mini', locals: {c: '沈阳', e: 'SHENYANG' } %>
-        <%= render partial: 'city_mini', locals: {c: '厦门', e: 'XIAMEN' } %>
-        <%= render partial: 'city_mini', locals: {c: '青岛', e: 'QINGDAO' } %>
-        <%= render partial: 'city_mini', locals: {c: '南京', e: 'NANJING' } %>
-        <%= render partial: 'city_mini', locals: {c: '郑州', e: 'ZHENGZHOU' } %>
-        <%= render partial: 'city_mini', locals: {c: '杭州', e: 'HANGZHOU' } %>
-        <%= render partial: 'city_mini', locals: {c: '合肥', e: 'HEFEI' } %>
-        <%= render partial: 'city_mini', locals: {c: '济南', e: "JI'NAN" } %>
-        <%= render partial: 'city_mini', locals: {c: '贵阳', e: 'GUIYANG' } %>
-        <%= render partial: 'city_mini', locals: {c: '昆明', e: 'KUNMING' } %>
-        <%= render partial: 'city_mini', locals: {c: '太原', e: 'TAIYUAN' } %>
-        <%= render partial: 'city_mini', locals: {c: '长沙', e: 'CHANGSHA' } %>
-        <%= render partial: 'city_mini', locals: {c: '香港', e: 'HONGKONG' } %>
+      <div class="flex-grid">
+        <div class="grid grid-cols-4 sm:grid-cols-none gap-1 sm:gap-0 lg:flex-grid-box lg:flex-grid-cols-7-gap-2 xl:flex-grid-cols-9-gap-2 xxl:flex-grid-cols-10-gap-2 pt-1 pb-2">
+          <%= render partial: 'city_mini', locals: {c: '上海', e: 'SHANGHAI' } %>
+          <%= render partial: 'city_mini', locals: {c: '北京', e: 'BEIJING' } %>
+          <%= render partial: 'city_mini', locals: {c: '深圳', e: 'SHENZHEN' } %>
+          <%= render partial: 'city_mini', locals: {c: '广州', e: 'GUANGZHOU' } %>
+          <%= render partial: 'city_mini', locals: {c: '天津', e: 'TIANJIN' } %>
+          <%= render partial: 'city_mini', locals: {c: '重庆', e: 'CHONGQING' } %>
+          <%= render partial: 'city_mini', locals: {c: '武汉', e: 'WUHAN' } %>
+          <%= render partial: 'city_mini', locals: {c: '成都', e: 'CHENGDU' } %>
+          <%= render partial: 'city_mini', locals: {c: '西安', e: "XI'AN" } %>
+          <%= render partial: 'city_mini', locals: {c: '沈阳', e: 'SHENYANG' } %>
+          <%= render partial: 'city_mini', locals: {c: '厦门', e: 'XIAMEN' } %>
+          <%= render partial: 'city_mini', locals: {c: '青岛', e: 'QINGDAO' } %>
+          <%= render partial: 'city_mini', locals: {c: '南京', e: 'NANJING' } %>
+          <%= render partial: 'city_mini', locals: {c: '郑州', e: 'ZHENGZHOU' } %>
+          <%= render partial: 'city_mini', locals: {c: '杭州', e: 'HANGZHOU' } %>
+          <%= render partial: 'city_mini', locals: {c: '合肥', e: 'HEFEI' } %>
+          <%= render partial: 'city_mini', locals: {c: '济南', e: "JI'NAN" } %>
+          <%= render partial: 'city_mini', locals: {c: '贵阳', e: 'GUIYANG' } %>
+          <%= render partial: 'city_mini', locals: {c: '昆明', e: 'KUNMING' } %>
+          <%= render partial: 'city_mini', locals: {c: '太原', e: 'TAIYUAN' } %>
+          <%= render partial: 'city_mini', locals: {c: '长沙', e: 'CHANGSHA' } %>
+          <%= render partial: 'city_mini', locals: {c: '香港', e: 'HONGKONG' } %>
+        </div>
       </div>
     </div>
   </div>
@@ -404,7 +406,7 @@
 
 </div>
 
-<div class="py-8">
+<div class="py-8 xxl:px-12">
 <%= render partial: 'shared/guest_form' %>
 </div>
 

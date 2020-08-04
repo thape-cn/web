@@ -1,4 +1,4 @@
-<dl class="w-full sm:w-20 lg:w-24 xxl:w-28 xxxl:w-32 flex-grow-0 p-0 sm:px-2 sm:py-1 m-0 sm:m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer col-span-1 sm:col-auto flex sm:block items-center flex-wrap"
+<dl class="p-0 sm:px-2 sm:py-1 m-0 sm:m-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer col-span-1 sm:col-auto flex sm:block items-center flex-wrap"
   x-bind:class="{ 'bg-gray-50 text-black6c': show_city == '<%= c -%>', 'bg-thape-city-gray text-white': show_city != '<%= c -%>' }"
   x-on:click="show_city = '<%= c -%>'; show_company = '' ">
   <dt class="font-medium <%= fdsz("text-base sm:#{smFzClass(3)}", "text-base sm:#{xlFzClass(4)}") -%> text-center flex-none sm:flex-auto w-full sm:w-auto"><%= c -%></dt>
