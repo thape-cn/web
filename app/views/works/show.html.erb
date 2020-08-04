@@ -53,7 +53,7 @@
 
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b">
-      <div class="block sm:inline-block">
+      <div class="block lg:inline-block">
         <h1 class="<%= fdsz("text-base sm:#{smFzClass(1)}", "text-base sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
           <%= I18n.with_locale(:cn) { @work.project_name } -%>
         </h1>
@@ -61,7 +61,7 @@
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="sm:absolute sm:top-4 sm:right-0 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%>">
+      <div class="lg:absolute lg:top-4 lg:right-0 <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%>">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
@@ -75,7 +75,7 @@
       </div>
   </header>
   <div class="my-4 sm:my-8 clearfix <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%>">
-    <div class="sm:inline-block float-none sm:float-left space-y-2 m-0 sm:mr-8">
+    <div class="lg:inline-block float-none lg:float-left space-y-2 m-0 lg:mr-8">
       <div>
         <label class="text-thape-copyright-gray">客户名称 CLIENT</label>
         <% @work.client.split("\n").each do |client| %>
@@ -171,7 +171,7 @@
         </div>
       </main>
     <% end %>
-    <aside class="sm:inline-block w-full sm:w-80 float:none sm:float-right mt-4 sm:mt-0">
+    <aside class="lg:inline-block w-full lg:w-80 float:none lg:float-right mt-4 lg:mt-0">
       <div class="space-y-4 pb-3 sm:pb-6 border-gray-200 border-solid border-b w-full sm:w-2/3">
         <h3 class="text-black6c <%= fdsz("#{smFzClass(2)}", "#{xlFzClass(3)}") -%>">推荐阅读</h3>
         <a href="<%= work_path(id: @first_work.id) -%>">
