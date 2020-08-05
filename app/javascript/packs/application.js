@@ -24,3 +24,11 @@ const imagePath = (name) => images(name, true)
 import "controllers"
 import "alpine/alpine_slide_show"
 import "stylesheets/application"
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?dd080d712bbe176cb9ab961a5d9501e0";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
