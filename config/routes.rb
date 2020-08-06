@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/cn/service/consluting', to: redirect { |params, req| "/consluting" }
   get '/cn/service/vetting', to: redirect { |params, req| "/vetting" }
   get '/cn/service/vr-tech', to: redirect { |params, req| "/vr-tech" }
+  get '/cn/contact-us', to: redirect { |params, req| "/biz-map" }
+  get '/cn/contact', to: redirect { |params, req| "/biz-map" }
 
   get '/en/biz-map', to: redirect { |params, req| "/biz-map?locale=en" }
   get '/en/management', to: redirect { |params, req| "/leadership?locale=en" }
@@ -50,6 +52,8 @@ Rails.application.routes.draw do
   get '/en/service/consluting', to: redirect { |params, req| "/consluting?locale=en" }
   get '/en/service/vetting', to: redirect { |params, req| "/vetting?locale=en" }
   get '/en/service/vr-tech', to: redirect { |params, req| "/vr-tech?locale=en" }
+  get '/en/contact-us', to: redirect { |params, req| "/biz-map?locale=en" }
+  get '/en/contact', to: redirect { |params, req| "/biz-map?locale=en" }
 
   resources :works, only: %i[index show] do
     collection do
