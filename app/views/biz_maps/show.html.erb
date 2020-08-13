@@ -123,6 +123,7 @@
           <%= render partial: 'map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
           <%= render partial: 'map_address', locals: {c: '太原天华', m: @m_太原天华 } -%>
           <%= render partial: 'map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
+          <%= render partial: 'map_address', locals: {c: '福州天华', m: @m_福州天华 } -%>
           <%= render partial: 'map_address', locals: {c: '香港易爱迪', m: @m_香港天华 } -%>
           <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
           <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
@@ -253,7 +254,7 @@
     </div>
   </div>
   <div class="block xl:hidden">
-    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 flex items-center px-4" x-show="show_company == '上海天华'" x-on:click="show_company=''">
+    <div class="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-50 flex items-center px-4" x-show="show_company == '上海天华'" x-on:click="show_company=''">
       <div class="w-full p-4 bg-white rounded-md shadow-md">
         <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal"><%= t('map.contact-shanghai-name') -%></h1>
         <div class="flex">
@@ -414,6 +415,7 @@
       <%= render partial: 'city_div', locals: {c: '昆明', e: 'KUNMING', m1: @m_昆明天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '太原', e: 'TAIYUAN', m1: @m_太原天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '长沙', e: 'CHANGSHA', m1: @m_长沙天华, m2: nil } -%>
+      <%= render partial: 'city_div', locals: {c: '福州', e: 'CHANGSHA', m1: @m_福州天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '香港', e: 'HONGKONG', m1: @m_香港天华, m2: nil } -%>
     </div>
   </div>
