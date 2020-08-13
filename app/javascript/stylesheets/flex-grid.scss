@@ -1,7 +1,7 @@
 $gaps: (
     1:.25rem,
     2:.5rem,
-    3:.75rem // No use currently.
+    3:.75rem
 );
 
 @mixin flex-grid-cols-gap ($col, $gapList) {
@@ -44,7 +44,7 @@ $gaps: (
 
     }
 
-    @for $i from 1 through 10 {
+    @for $i from 1 through 14 {
         @include flex-grid-cols-gap($i, $gaps);
     }
 }
