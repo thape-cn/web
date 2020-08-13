@@ -35,7 +35,7 @@
   <div class="px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
     <div class="w-full my-8 xxl:my-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36 flex flex-wrap xl:flex-no-wrap">
       <div class="w-full xl:w-3/5 flex-none hidden xl:block <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(5)}") -%>">
-        <div class="relative xl:-ml-4" style="padding-top: 78%;">
+        <div class="relative" style="padding-top: 78%; left: -1rem;">
           <%= image_pack_tag 'media/images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
           <div class="absolute" style="left:80%;top:60%;"
             x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
