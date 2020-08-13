@@ -53,7 +53,7 @@
         x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
       <div class="absolute hidden xl:block" style="left:76%;top:73%;"
         x-bind:class="{ 'map-star-b': show_city == '福州', 'map-dot-b': show_city != '福州' }">福州</div>
-      <div class="absolute hidden xl:block" style="left:38%;top:65%;"
+      <div class="absolute hidden xl:block" style="left:40%;top:65%;"
         x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
       <div class="absolute hidden xl:block" style="left:49%;top:51%;"
         x-bind:class="{ 'map-star-a': show_city == '西安', 'map-dot-a': show_city != '西安' }">西安</div>
@@ -163,6 +163,9 @@
         <div class="flex-1 m-0 sm:mx-1 xxxl:mr-2 h-32 xxxl:h-40 w-full sm:w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white cursor-pointer col-span-1 sm:col-span-auto flex items-center justify-center"
           x-bind:class="{ 'bg-thape-bg-gray': show_company == '武汉天华', 'bg-thape-company-gray': show_company != '武汉天华' }"
           x-on:click="show_city = '武汉';show_company = '武汉天华'">武<br/>汉<br/>天<br/>华</div>
+        <div class="flex-1 m-0 sm:mx-1 xxxl:mr-2 h-32 xxxl:h-40 w-full sm:w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white cursor-pointer col-span-1 sm:col-span-auto flex items-center justify-center"
+          x-bind:class="{ 'bg-thape-bg-gray': show_company == '福州天华', 'bg-thape-company-gray': show_company != '福州天华' }"
+          x-on:click="show_city = '福州';show_company = '福州天华'">福<br/>州<br/>天<br/>华</div>
         <div class="flex-1 m-0 sm:mx-1 xxxl:mr-2 h-32 xxxl:h-40 w-full sm:w-4 xl:w-5 xxl:w-6 xxxl:w-8 text-white cursor-pointer col-span-1 sm:col-span-auto flex items-center justify-center"
           x-bind:class="{ 'bg-thape-bg-gray': show_company == '成都天华', 'bg-thape-company-gray': show_company != '成都天华' }"
           x-on:click="show_city = '成都';show_company = '成都天华'">成<br/>都<br/>天<br/>华</div>
