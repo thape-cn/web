@@ -6,7 +6,7 @@
     "@rails/actioncable": "^6.0.3-2",
     "@rails/activestorage": "^6.0.3-2",
     "@rails/ujs": "^6.0.3-2",
-    "@rails/webpacker": "^5.2.0",
+    "@rails/webpacker": "^5.2.1",
     "@stimulus/polyfills": "^1.1.1",
     "@tailwindcss/ui": "^0.5.0",
     "@webwingscz/googlefont-montserrat": "^1.0.5",
