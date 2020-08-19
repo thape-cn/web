@@ -1,5 +1,8 @@
 module.exports = {
   theme: {
+    future: {
+      removeDeprecatedGapUtilities: true,
+    },
     extend: {
       colors: {
         'black6c': 'rgba(16,24,32,1)',
