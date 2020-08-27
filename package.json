@@ -14,7 +14,7 @@
     "core-js": "^3.6.4",
     "scrollama": "^2.2.1",
     "stimulus": "^1.1.1",
-    "tailwindcss": "^1.7.3",
+    "tailwindcss": "^1.7.5",
     "waypoints": "^4.0.1"
   },
   "version": "0.1.0",
