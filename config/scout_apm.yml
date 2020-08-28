@@ -3,3 +3,6 @@ common: &defaults
 
 production:
   <<: *defaults
+
+staging:
+  <<: *defaults
