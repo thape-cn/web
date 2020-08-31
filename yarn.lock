@@ -7178,10 +7178,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss@^1.7.5:
-  version "1.7.5"
-  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.7.5.tgz#4a54ffcc5691822cbc20416242e92505728f79b7"
-  integrity sha1-SlT/zFaRgiy8IEFiQuklBXKPebc=
+tailwindcss@^1.7.6:
+  version "1.7.6"
+  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.7.6.tgz#77f294428e399fb570f4bebde2e9bef98456de8a"
+  integrity sha1-d/KUQo45n7Vw9L694um++YRW3oo=
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"
