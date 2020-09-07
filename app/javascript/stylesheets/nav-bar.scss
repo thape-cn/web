@@ -42,6 +42,7 @@
     }
 
     &>.nav-point {
+      cursor: default;
       display: flex;
       align-items: center;
     }
@@ -208,7 +209,7 @@
         @apply text-black6c-t70;
       }
     }
-  
+
     #header-search-form {
       input, input::placeholder, button {
         @apply text-thape-copyright-gray;
@@ -221,7 +222,7 @@
     a, span {
       @apply text-xl;
     }
-    
+
     >nav .nav-item nav {
       a, span {
         @apply text-base #{!important};
@@ -394,7 +395,7 @@
     &.big-font:lang(en) nav.works {
       padding-right: 5.8rem;
     }
-    
+
     nav.service {
       @apply pr-10;
 
