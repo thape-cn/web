@@ -2,6 +2,7 @@ module.exports = {
   theme: {
     future: {
       removeDeprecatedGapUtilities: true,
+      purgeLayersByDefault: true
     },
     extend: {
       colors: {
