@@ -1,0 +1,61 @@
+---
+only_one:
+  id: 1
+  new_project_photo_1: "grid-1-1.jpg"
+  new_project_photo_2l: "grid-1-2.jpg"
+  new_project_photo_3w: "grid-1-3.jpg"
+  new_project_photo_4: "grid-2-1.jpg"
+  new_project_photo_5: "grid-2-3.jpg"
+  new_project_photo_6: "grid-2-4.jpg"
+  hero_news_photo: "news_cover.jpg"
+  hero_news_id: 632
+  hero_news_title_cap: 2
+  new_project_1_id: 4
+  new_project_2_id: 17
+  new_project_3_id: 40
+  new_project_4_id: 31
+  new_project_5_id: 57
+  new_project_6_id: 12
+  info_1_id: 635
+  info_2_id: 634
+  info_3_id: 633
+  info_1_photo: "news-cover.jpg"
+  info_2_photo: "news-4.jpg"
+  info_3_photo: "cover.jpg"
+  background_1: "lunbo-1.jpg"
+  background_2: "02_background.jpg"
+  background_3: "03_background.jpg"
+  background_4: "lunbo-4.jpg"
+  background_5: "05_background.jpg"
+  background_6: "06_background.jpg"
+  background_1_mobile: "01_background_mobile.jpg"
+  background_2_mobile: "02_background_mobile.jpg"
+  background_3_mobile: "03_background_mobile.jpg"
+  background_4_mobile: "04_background_mobile.jpg"
+  background_5_mobile: "05_background_mobile.jpg"
+  background_6_mobile: "06_background_mobile.jpg"
+  background_1_pad:
+  background_2_pad:
+  background_3_pad:
+  background_4_pad:
+  background_5_pad:
+  background_6_pad:
+  background_1_webp: "01_background.webp"
+  background_2_webp: "02_background.webp"
+  background_3_webp: "03_background.webp"
+  background_4_webp: "04_background.webp"
+  background_5_webp: "05_background.webp"
+  background_6_webp: "06_background.webp"
+  background_1_mobile_webp:
+  background_2_mobile_webp:
+  background_3_mobile_webp:
+  background_4_mobile_webp:
+  background_5_mobile_webp:
+  background_6_mobile_webp:
+  background_1_pad_webp:
+  background_2_pad_webp:
+  background_3_pad_webp:
+  background_4_pad_webp:
+  background_5_pad_webp:
+  background_6_pad_webp:
+  hero_news_photo_mobile: "1.jpg"
