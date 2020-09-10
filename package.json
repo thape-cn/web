@@ -3,9 +3,9 @@
   "private": true,
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@rails/actioncable": "^6.0.3-2",
-    "@rails/activestorage": "^6.0.3-2",
-    "@rails/ujs": "^6.0.3-2",
+    "@rails/actioncable": "^6.0.3-3",
+    "@rails/activestorage": "^6.0.3-3",
+    "@rails/ujs": "^6.0.3-3",
     "@rails/webpacker": "^5.2.1",
     "@stimulus/polyfills": "^1.1.1",
     "@tailwindcss/ui": "^0.6.0",
