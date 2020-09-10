@@ -1,0 +1,40 @@
+---
+work_project_types_4:
+  id: 4
+  work_id: 4
+  project_type_id: 1
+
+work_project_types_17:
+  id: 17
+  work_id: 17
+  project_type_id: 2
+
+work_project_types_47:
+  id: 47
+  work_id: 40
+  project_type_id: 7
+
+work_project_types_34:
+  id: 34
+  work_id: 31
+  project_type_id: 3
+
+work_project_types_35:
+  id: 35
+  work_id: 31
+  project_type_id: 4
+
+work_project_types_36:
+  id: 36
+  work_id: 31
+  project_type_id: 5
+
+work_project_types_64:
+  id: 64
+  work_id: 57
+  project_type_id: 11
+
+work_project_types_12:
+  id: 12
+  work_id: 12
+  project_type_id: 1

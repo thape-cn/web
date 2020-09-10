@@ -1,0 +1,36 @@
+---
+work_4:
+  id: 4
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 18
+
+work_17:
+  id: 17
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 5
+
+work_40:
+  id: 40
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 30
+
+work_31:
+  id: 31
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 5
+
+work_57:
+  id: 57
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 1
+
+work_12:
+  id: 12
+  design_completion: "2017-01-01"
+  construction_completion: "2019-01-01"
+  city_id: 1

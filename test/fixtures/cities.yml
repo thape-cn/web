@@ -1,0 +1,24 @@
+---
+city_1:
+  id: 1
+  name: "上海"
+  china_area_name: "华东"
+  url_name: "shanghai"
+
+city_5:
+  id: 5
+  name: "济南"
+  china_area_name: "华东"
+  url_name: "jinan"
+
+city_18:
+  id: 18
+  name: "重庆"
+  china_area_name: "西南"
+  url_name: "chongqin"
+
+city_30:
+  id: 30
+  name: "苏州"
+  china_area_name: "华东"
+  url_name: "suzhou"

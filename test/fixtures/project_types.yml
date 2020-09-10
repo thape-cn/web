@@ -1,0 +1,35 @@
+---
+project_type_1:
+  id: 1
+  cn_name: "居住"
+  en_name: "RESIDENTIAL"
+
+project_type_2:
+  id: 2
+  cn_name: "展示区/示范区"
+  en_name: "DEMONSTRATION ZONE"
+
+project_type_3:
+  id: 3
+  cn_name: "商务办公"
+  en_name: "OFFICE"
+
+project_type_4:
+  id: 4
+  cn_name: "超高层"
+  en_name: "SUPERTALL"
+
+project_type_5:
+  id: 5
+  cn_name: "商业空间"
+  en_name: "COMMERCIAL"
+
+project_type_7:
+  id: 7
+  cn_name: "文化空间"
+  en_name: "CULTURAL"
+
+project_type_11:
+  id: 11
+  cn_name: "城市设计/更新"
+  en_name: "URBAN DESIGN/RENOVATION"
