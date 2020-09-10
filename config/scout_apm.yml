@@ -6,3 +6,6 @@ production:
 
 staging:
   <<: *defaults
+
+development:
+  monitor: false
