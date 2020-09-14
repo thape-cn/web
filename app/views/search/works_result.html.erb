@@ -3,7 +3,7 @@
 
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full flex flex-col mx-auto sm:pb-4 md:pb-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+<div class="w-full flex flex-col mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <header class="w-full flex-none pt-4 pb-2 clearfix border-gray-200 border-solid border-b">
     <h3 class="inline-block <%= fdsz("#{smFzClass(3)}", "#{xlFzClass(4)}") -%> text-black6c">
       <a href="<%= search_path(q: params[:q], tab: :work) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
@@ -21,7 +21,8 @@
       </a>
     </h3>
   </header>
-
+</div>
+<div class="w-full flex flex-col mx-auto sm:pb-4 md:pb-8 px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
   <% if @works_results.present? %>
     <div class="flex-grid mt-8 mb-4">
       <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2 lg:flex-grid-cols-3-gap-2">
