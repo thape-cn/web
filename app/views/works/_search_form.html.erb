@@ -1,5 +1,5 @@
-<form action="<%= @self_path -%>" method="GET" class="flex flex-wrap sm:flex-no-wrap justify-between sm:justify-start" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
-  <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-40'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-44'}") -%> flex-none sm:flex-initial">
+<form action="<%= @self_path -%>" method="GET" class="flex flex-wrap sm:flex-no-wrap justify-between sm:justify-start">
+  <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-40'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-44'}") -%> flex-none sm:flex-initial" x-data="{ show_drop_menu_project_type: false }" @keydown.window.escape="show_drop_menu_project_type = false" @click.away="show_drop_menu_project_type = false">
     <button type="button" class="w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "text-base") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="my-0 sm:my-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-40' : 'sm:w-24'}", "#{I18n.locale == :en ? 'sm:w-44' : 'sm:w-28'}") -%> flex-none sm:flex-initial">
+  <div class="my-0 sm:my-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-40' : 'sm:w-24'}", "#{I18n.locale == :en ? 'sm:w-44' : 'sm:w-28'}") -%> flex-none sm:flex-initial" x-data="{ show_drop_menu_china_area: false }" @keydown.window.escape="show_drop_menu_china_area = false" @click.away="show_drop_menu_china_area = false">
     <button type="button" class="w-full inline-flex justify-between <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "text-base") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area; show_drop_menu_project_type = false;">
       <%= (I18n.locale == :en && @city.present?) ? @city.url_name.upcase : @city&.name || t('menu.works.china_area_company') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
