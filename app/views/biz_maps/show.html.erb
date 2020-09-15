@@ -13,19 +13,19 @@
   <div class="sm:absolute sm:bottom-0 sm:inset-x-0 w-full sm:flex sm:items-center bg-white opacity-75 py-6 mt-4 sm:mt-0">
     <div class="w-full flex justify-center sm:justify-between items-center flex-wrap sm:flex-no-wrap px-4 sm:px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
       <div class="w-full sm:w-1/3 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1 sm:mb-0">
-        <h1 class="text-center <%= fdsz("text-base sm:#{smFzClass(1)}", "text-base sm:#{xlFzClass(1)}") -%>">总机</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">SWITCHBOARD</h2>
-        <p class="text-center <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:021-64281588">021-64281588</a></p>
+        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:#{xlFzClass(1)}") -%>">总机</h1>
+        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">SWITCHBOARD</h2>
+        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:021-64281588">021-64281588</a></p>
       </div>
       <div class="w-full sm:w-1/3 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1 sm:mb-0">
-        <h1 class="text-center <%= fdsz("text-base sm:#{smFzClass(1)}", "text-base sm:#{xlFzClass(1)}") -%>">服务</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">SERVICE</h2>
-        <p class="text-center <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:400-8366606">400-8366606</a></p>
+        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:#{xlFzClass(1)}") -%>">服务</h1>
+        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">SERVICE</h2>
+        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:400-8366606">400-8366606</a></p>
       </div>
       <div class="w-full sm:w-1/3 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1">
-        <h1 class="text-center <%= fdsz("text-base sm:#{smFzClass(1)}", "text-base sm:#{xlFzClass(1)}") -%>">媒体</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">MEDIA</h2>
-        <p class="text-center <%= fdsz("text-base sm:#{smFzClass(2)}", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:021-64281588-p8847">021-64281588-8847</a></p>
+        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:#{xlFzClass(1)}") -%>">媒体</h1>
+        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> xxl:pt-1 hidden sm:block">MEDIA</h2>
+        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%> pt-1"><a href="tel:021-64281588-p8847">021-64281588-8847</a></p>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
 <div x-data="{ show_city: '', show_company: '' }">
   <div class="px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
     <div class="w-full my-8 xxl:my-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36 flex flex-wrap xl:flex-no-wrap">
-      <div class="w-full xl:w-3/5 flex-none hidden xl:block <%= fdsz("text-sm sm:#{smFzClass(4)}", "text-sm sm:#{xlFzClass(5)}") -%>">
+      <div class="w-full xl:w-3/5 flex-none hidden xl:block <%= fdsz("text-sm sm:text-sm", "text-sm sm:#{xlFzClass(5)}") -%>">
         <div class="relative" style="padding-top: 78%; left: -1rem;">
           <%= image_pack_tag 'media/images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
           <div class="absolute" style="left:80%;top:60%;"
@@ -89,8 +89,8 @@
           <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" style="display: none;" x-show="show_company == '上海天华'">
             <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
               <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
-                <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
-                <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+                <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
+                <div class="<%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
                 <label class="float-left"><%= t('map.address') -%>：</label>
                   <p class="ml-12"><%= t('map.contact-shanghai-address-1') -%></p>
                   <p class="ml-12"><%= t('map.contact-shanghai-address-2') -%></p>
@@ -138,13 +138,13 @@
       </div>
       <div class="w-full xl:w-2/5 flex-none">
         <div class="flex flex-wrap sm:flex-no-wrap sm:items-end">
-          <h1 class="<%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto">天华的全国化布局</h1>
-          <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto sm:ml-1">TIANHUA IN CHINA</h1>
+          <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto">天华的全国化布局</h1>
+          <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:#{xlFzClass(2)}") -%> flex-none sm:flex-no-wrap w-full sm:w-auto sm:ml-1">TIANHUA IN CHINA</h1>
         </div>
-        <p class="pt-2 <%= fdsz("text-sm sm:#{smFzClass(2)}", "text-sm sm:#{xlFzClass(3)}") -%>">天华通过全国23个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
+        <p class="pt-2 <%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%>">天华通过全国23个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。</p>
         <%= image_pack_tag 'media/images/map-mobile.jpg', class: 'w-full block xl:hidden my-6 sm:my-0' -%>
         <div class="flex-grid">
-          <div class="flex-grid-box flex-grid-cols-11-gap-1 md:flex-grid-cols-11-gap-3 lg:flex-grid-cols-14-gap-2 xxl:flex-grid-cols-14-gap-3 text-center w-full <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)}") -%> py-2 xl:py-4">
+          <div class="flex-grid-box flex-grid-cols-11-gap-1 md:flex-grid-cols-11-gap-3 lg:flex-grid-cols-14-gap-2 xxl:flex-grid-cols-14-gap-3 text-center w-full <%= fdsz("text-sm sm:text-base", "text-sm sm:#{xlFzClass(4)}") -%> py-2 xl:py-4">
             <div class="h-28 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
               x-bind:class="{ 'bg-thape-bg-gray': show_company == '上海天华', 'bg-thape-company-gray': show_company != '上海天华' }"
               x-on:click="show_city = '上海'; show_company = '上海天华'">上<br/>海<br/>天<br/>华</div>
@@ -214,7 +214,7 @@
           </div>
         </div>
         <div class="flex-grid">
-          <div class="flex-grid-box flex-grid-cols-11-gap-1 md:flex-grid-cols-11-gap-3 lg:flex-grid-cols-14-gap-2 xxl:flex-grid-cols-14-gap-3 text-center w-full <%= fdsz("text-sm sm:#{smFzClass(3)}", "text-sm sm:#{xlFzClass(4)} leading-tight") -%> mt-2 sm:mt-6">
+          <div class="flex-grid-box flex-grid-cols-11-gap-1 md:flex-grid-cols-11-gap-3 lg:flex-grid-cols-14-gap-2 xxl:flex-grid-cols-14-gap-3 text-center w-full <%= fdsz("text-sm sm:text-base", "text-sm sm:#{xlFzClass(4)} leading-tight") -%> mt-2 sm:mt-6">
             <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
               x-bind:class="{ 'bg-gray-100': show_company == '香港易爱迪', 'bg-gray-50': show_company != '香港易爱迪' }"
               x-on:click="show_city = '香港';show_company = '香港易爱迪'">易<br />爱<br />迪<br />︵<br />香<br />港<br />︶</div>
@@ -314,10 +314,10 @@
   <div class="w-full mx-auto px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray" id="thape-address">
     <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
       <header class="px-0 pt-2 pb-1" x-on:click="show_city = ''">
-        <h1 class="inline-block <%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
+        <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
           <a href="<%= biz_map_path(locale: 'cn', anchor: 'thape-address') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>
-        <h2 class="ml-2 inline-block <%= fdsz("text-lg sm:#{smFzClass(2)}", "text-lg sm:#{xlFzClass(2)}") -%> text-black6c">
+        <h2 class="ml-2 inline-block <%= fdsz("text-lg sm:text-lg", "text-lg sm:#{xlFzClass(2)}") -%> text-black6c">
           <a href="<%= biz_map_path(locale: 'en', anchor: 'thape-address') -%>" class="font-medium hover:text-black6c-t70 focus:text-black6c-t70">OFFICES</a>
         </h2>
       </header>
@@ -354,17 +354,17 @@
     <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
       <div style="display: none;" x-show="show_city == '上海'">
         <header class="pt-2 pb-1">
-          <h1 class="inline-block <%= fdsz("text-xl sm:#{smFzClass(1)}", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
+          <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
             <span class="hover:text-black6c-t70">上海</span>
           </h1>
-          <h2 class="ml-2 inline-block <%= fdsz("text-lg sm:#{smFzClass(2)}", "text-lg sm:#{xlFzClass(2)}") -%> text-black6c">
+          <h2 class="ml-2 inline-block <%= fdsz("text-lg sm:text-lg", "text-lg sm:#{xlFzClass(2)}") -%> text-black6c">
             <span class="font-medium hover:text-black6c-t70">SHANGHAI</span>
           </h2>
         </header>
         <div class="flex flex-wrap">
           <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
-            <h1 class="<%= fdsz("text-lg sm:#{smFzClass(2)} font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
-            <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+            <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-xl sm:#{xlFzClass(2)} font-medium") -%> leading-normal sm:leading-tight pb-2"><%= t('map.contact-shanghai-name') -%></h1>
+            <div class="flex <%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
               <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
               <div>
                 <p class="leading-normal"><%= t('map.contact-shanghai-address-1') -%></p>
@@ -372,13 +372,13 @@
                 <p class="leading-normal"><%= t('map.contact-shanghai-address-3') -%></p>
               </div>
             </div>
-            <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+            <div class="flex <%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
               <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
               <div>
                 <p class="leading-normal">021-64281588</p>
               </div>
             </div>
-            <div class="flex <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+            <div class="flex <%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
               <label class="flex-none leading-normal"><%= t('map.fax') -%>：</label>
               <div>
                 <p class="leading-normal">021-64281587</p>
@@ -394,7 +394,7 @@
           <%= render partial: 'office_address', locals: { m: @m_虹核审图 } %>
         </div>
       </div>
-    
+
       <%= render partial: 'city_div', locals: {c: '北京', e: 'BEIJING', m1: @m_北京天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '深圳', e: 'SHENZHEN', m1: @m_深圳天华, m2: @m_深圳易筑 } -%>
       <%= render partial: 'city_div', locals: {c: '广州', e: 'GUANGZHOU', m1: @m_广州天华, m2: nil } -%>

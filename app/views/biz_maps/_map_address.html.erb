@@ -3,12 +3,12 @@
     <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
     <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
       <% if m.alt_name.present? %>
-        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight"><%= m.long_name -%></h1>
-        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium pb-1"><%= m.alt_name -%></h1>
+        <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight"><%= m.long_name -%></h1>
+        <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:#{xlFzClass(2)}") -%> font-medium pb-1"><%= m.alt_name -%></h1>
       <% else %>
-        <h1 class="<%= fdsz("text-xl sm:#{smFzClass(2)}", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= m.long_name -%></h1>
+        <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:#{xlFzClass(2)}") -%> font-medium leading-tight pb-2"><%= m.long_name -%></h1>
       <% end %>
-      <div class="<%= fdsz("#{smFzClass(4)}", "#{xlFzClass(4)}") -%>">
+      <div class="<%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
         <label class="float-left"><%= t('map.address') -%>：</label>
         <p class="<%= mlp -%>"><%= m.address -%></p>
         <% if m.tel.present? %>

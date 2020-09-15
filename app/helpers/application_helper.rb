@@ -22,23 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def smFzClass(num)
-    case num
-      when 1
-        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
-      when 2
-        "text-lg" # sm:text-lg md:text-lg lg:text-lg xl:text-lg xxl:text-lg xxxl:text-lg
-      when 3
-        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
-      when 4
-        "text-sm" # sm:text-sm md:text-sm lg:text-sm xl:text-sm xxl:text-sm xxxl:text-sm
-      when 5
-        "text-xs" # sm:text-xs md:text-xs lg:text-xs xl:text-xs xxl:text-xs xxxl:text-xs
-      else
-        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
-    end
-  end
-
   def xlFzClass(num)
     case num
       when 1

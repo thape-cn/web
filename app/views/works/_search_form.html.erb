@@ -1,6 +1,6 @@
 <form action="<%= @self_path -%>" method="GET" class="flex flex-wrap sm:flex-no-wrap justify-between sm:justify-start" x-data="{ show_drop_menu_project_type: false, show_drop_menu_china_area: false }">
   <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-40'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-44'}") -%> flex-none sm:flex-initial">
-    <button type="button" class="w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
+    <button type="button" class="w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "#{xlFzClass(5)}") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -8,16 +8,16 @@
     </button>
     <div class="w-full origin-top-right absolute right-0 mt-1 <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_project_type">
       <div class="rounded-md bg-white shadow-xs">
-        <div class="py-1 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%>">
+        <div class="py-1 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%>">
           <% ProjectType.all.each do |project_type| %>
-            <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
+            <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
           <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="my-0 sm:my-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-40' : 'sm:w-24'}", "#{I18n.locale == :en ? 'sm:w-44' : 'sm:w-28'}") -%> flex-none sm:flex-initial">
-    <button type="button" class="w-full inline-flex justify-between <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area; show_drop_menu_project_type = false;">
+    <button type="button" class="w-full inline-flex justify-between <%= I18n.locale == :en ? 'w-32' : (@city.present? && @city.name.length > 2 ? 'w-28' : 'w-24') -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "#{xlFzClass(5)}") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area; show_drop_menu_project_type = false;">
       <%= (I18n.locale == :en && @city.present?) ? @city.url_name.upcase : @city&.name || t('menu.works.china_area_company') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -25,17 +25,17 @@
     </button>
     <div class="w-full origin-top-right absolute right-0 mt-1 rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_china_area">
       <div class="rounded-md bg-white shadow-xs">
-        <div class="py-1 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%>">
+        <div class="py-1 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%>">
           <% City.where.not(china_area_name: nil).where.not(china_area_name: '上海').each do |city| %>
             <% next if city.works.size.zero? %>
-            <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+            <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
           <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="my-0 sm:my-1 mx-0 sm:ml-2 relative rounded-md shadow-sm block w-full sm:w-auto flex-none sm:flex-initial">
-    <input name="q" class="form-input block w-full sm:w-40 pr-10 <%= fdsz("#{smFzClass(4)}", "#{xlFzClass(5)}") -%> leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= params[:q] -%>" />
+    <input name="q" class="form-input block w-full sm:w-40 pr-10 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%> leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= params[:q] -%>" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
