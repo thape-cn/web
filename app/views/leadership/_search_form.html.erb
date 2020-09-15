@@ -1,6 +1,6 @@
 <form action="<%= leadership_index_path -%>" method="GET" id="leadership-form" x-data="" class="lg:absolute lg:top-8 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16 w-full lg:w-auto px-2 lg:px-0 my-4 lg:my-0">
   <div class="block sm:inline-block mx-auto relative rounded-md shadow-sm">
-    <input class="form-input block w-full sm:w-36 sm:w-40 pr-10 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%>" name="name" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= @search_name -%>" />
+    <input class="form-input block w-full sm:w-36 sm:w-40 pr-10 <%= fdsz("text-sm", "text-base") -%>" name="name" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= @search_name -%>" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
       x-on:click="document.getElementById('leadership-form').submit();">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">

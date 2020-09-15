@@ -12,14 +12,14 @@
     <% end %>
     <div class="pt-10 w-3/4 hidden sm:block">
       <% if @infos.present? %>
-        <h3 class="text-black6c <%= fdsz("text-lg", "#{xlFzClass(3)}") -%>">相关阅读</h3>
+        <h3 class="text-black6c <%= fdsz("text-lg", "text-2xl") -%>">相关阅读</h3>
         <% @infos.each do |info| %>
           <%= link_to news_path(id: info.id) do %>
             <figure class="flex mt-1 mb-4 xxxl:mt-3 xxxl:mb-6 flex-wrap lg:flex-nowrap">
               <div class="w-full lg:w-1/2">
                 <%= image_tag info.snapshot.url -%>
               </div>
-              <div class="w-full lg:w-1/2 flex flex-col justify-between <%= fdsz("text-xs sm:text-xs", "text-xs sm:#{xlFzClass(5)}") -%>">
+              <div class="w-full lg:w-1/2 flex flex-col justify-between <%= fdsz("text-xs sm:text-xs", "text-xs sm:text-base") -%>">
                 <figcaption class="ml-2 text-gray-700 text-justify"><%= info.title -%></figcaption>
                 <p class="ml-2 font-light text-gray-700"><%= info.created_at.to_date -%></p>
               </div>
@@ -30,22 +30,22 @@
     </div>
   </div>
   <div class="w-full sm:w-2/3 mx-0 sm:ml-10 lg:ml-20 mt-4 sm:mt-0 pb-12">
-    <h1 class="font-medium <%= fdsz("text-2xl sm:text-2xl", "text-2xl sm:#{xlFzClass(1)}") -%>"><%= @person.name %></h1>
-    <h2 class="pt-2 sm:pt-3 pb-4 sm:pb-7 <%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%>"><%= simple_format @person.title %></h2>
-    <div class="<%= fdsz("text-sm sm:text-sm", "text-sm sm:#{xlFzClass(4)}") -%>">
+    <h1 class="font-medium <%= fdsz("text-2xl sm:text-2xl", "text-2xl sm:text-4xl") -%>"><%= @person.name %></h1>
+    <h2 class="pt-2 sm:pt-3 pb-4 sm:pb-7 <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%>"><%= simple_format @person.title %></h2>
+    <div class="<%= fdsz("text-sm sm:text-sm", "text-sm sm:text-xl") -%>">
       <%= raw @person.introduce %>
     </div>
   </div>
   <div class="w-full block sm:hidden">
     <% if @infos.present? %>
-      <h3 class="text-black6c <%= fdsz("text-lg", "#{xlFzClass(3)}") -%>">相关阅读</h3>
+      <h3 class="text-black6c <%= fdsz("text-lg", "text-2xl") -%>">相关阅读</h3>
       <% @infos.each do |info| %>
         <%= link_to news_path(id: info.id) do %>
           <figure class="flex mt-1 mb-4 xxxl:mt-3 xxxl:mb-6">
             <div class="w-1/3">
               <%= image_tag info.snapshot.url -%>
             </div>
-            <div class="w-2/3 flex flex-col justify-between <%= fdsz("text-xs sm:text-xs", "text-xs sm:#{xlFzClass(5)}") -%>">
+            <div class="w-2/3 flex flex-col justify-between <%= fdsz("text-xs sm:text-xs", "text-xs sm:text-base") -%>">
               <figcaption class="ml-2 -%> text-gray-700 text-justify"><%= info.title -%></figcaption>
               <p class="ml-2 font-light -%> text-gray-700"><%= info.created_at.to_date -%></p>
             </div>

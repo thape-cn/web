@@ -57,16 +57,16 @@
       <div class="flex w-full flex-none overflow-x-hidden flex-wrap lg:flex-no-wrap">
         <div class="flex flex-col lg:justify-between font-medium px-5 w-full lg:w-auto" style="margin-top: -5px">
           <div>
-            <h1 class="w-full <%= fdsz("text-2xl sm:text-2xl", "text-2xl sm:#{xlFzClass(1)}") -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
-            <h2 class="w-full <%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
+            <h1 class="w-full <%= fdsz("text-2xl sm:text-2xl", "text-2xl sm:text-4xl") -%> font-bold whitespace-no-wrap"><%= chinese_title -%></h1>
+            <h2 class="w-full <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> font-medium whitespace-no-wrap"><%= english_title -%></h2>
           </div>
           <% if defined? link_site_url %>
-            <div class="w-full pt-2 lg:pt-0 <%= fdsz("text-sm", "#{xlFzClass(4)}") -%>">
+            <div class="w-full pt-2 lg:pt-0 <%= fdsz("text-sm", "text-xl") -%>">
               <a href="<%= link_site_url -%>" class="font-light border-black6c border-solid border-b opacity-100"><%= link_site_title -%></a>
             </div>
           <% end %>
         </div>
-        <div class="block font-normal text-left lg:text-justify <%= fdsz("text-sm sm:text-sm", "text-sm sm:#{xlFzClass(4)}") -%> px-5 w-full lg:w-auto pt-4 lg:pt-0">
+        <div class="block font-normal text-left lg:text-justify <%= fdsz("text-sm sm:text-sm", "text-sm sm:text-xl") -%> px-5 w-full lg:w-auto pt-4 lg:pt-0">
           <% ps.each do |p| %>
             <p><%= p -%></p>
           <% end %>

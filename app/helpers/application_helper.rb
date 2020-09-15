@@ -22,23 +22,6 @@ module ApplicationHelper
     end
   end
 
-  def xlFzClass(num)
-    case num
-      when 1
-        "text-4xl" # sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl xxl:text-4xl xxxl:text-4xl
-      when 2
-        "text-3xl" # sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl xxl:text-3xl xxxl:text-3xl
-      when 3
-        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
-      when 4
-        "text-xl" # sm:text-xl md:text-xl lg:text-xl xl:text-xl xxl:text-xl xxxl:text-xl
-      when 5
-        "text-base" # sm:text-base md:text-base lg:text-base xl:text-base xxl:text-base xxxl:text-base
-      else
-        "text-2xl" # sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl xxl:text-2xl xxxl:text-2xl
-    end
-  end
-
   # Font dual size helper
   def fdsz(normal_class, big_size_class = nil)
     if cookies['ts'] == 'big'

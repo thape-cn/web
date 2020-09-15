@@ -54,14 +54,14 @@
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b">
       <div class="block lg:inline-block">
-        <h1 class="<%= fdsz("text-base sm:text-2xl", "text-base sm:#{xlFzClass(1)}") -%> font-bold text-black6c">
+        <h1 class="<%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%> font-bold text-black6c">
           <%= I18n.with_locale(:cn) { @work.project_name } -%>
         </h1>
-        <h2 class="<%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> font-semibold text-black6c">
+        <h2 class="<%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> font-semibold text-black6c">
           <%= I18n.with_locale(:en) { @work.project_name } -%>
         </h2>
       </div>
-      <div class="lg:absolute lg:top-4 lg:right-0 <%= fdsz("text-sm sm:text-base", "text-sm sm:#{xlFzClass(4)}") -%>">
+      <div class="lg:absolute lg:top-4 lg:right-0 <%= fdsz("text-sm sm:text-base", "text-sm sm:text-xl") -%>">
         <ol>
           <% @work.project_types.each do |project_type| %>
             <li class="header-item">
@@ -74,7 +74,7 @@
         </ol>
       </div>
   </header>
-  <div class="my-4 sm:my-8 clearfix <%= fdsz("text-sm sm:text-base", "text-sm sm:#{xlFzClass(4)}") -%>">
+  <div class="my-4 sm:my-8 clearfix <%= fdsz("text-sm sm:text-base", "text-sm sm:text-xl") -%>">
     <div class="lg:inline-block float-none lg:float-left space-y-2 m-0 lg:mr-8">
       <div>
         <label class="text-thape-copyright-gray">客户名称 CLIENT</label>
@@ -173,13 +173,13 @@
     <% end %>
     <aside class="lg:inline-block w-full lg:w-80 float:none lg:float-right mt-4 lg:mt-0">
       <div class="space-y-4 pb-3 sm:pb-6 border-gray-200 border-solid border-b w-full sm:w-2/3">
-        <h3 class="text-black6c <%= fdsz("text-lg", "#{xlFzClass(3)}") -%>">推荐阅读</h3>
+        <h3 class="text-black6c <%= fdsz("text-lg", "text-2xl") -%>">推荐阅读</h3>
         <a href="<%= work_path(id: @first_work.id) -%>">
           <figure class="sm:space-y-1 flex sm:block my-2 sm:my-0">
             <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
             <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
             </div>
-            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "#{xlFzClass(5)}") -%>">
+            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
               <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.project_name -%></figcaption>
               <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
             </div>
@@ -190,7 +190,7 @@
             <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
             <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
             </div>
-            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "#{xlFzClass(5)}") -%>">
+            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
               <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.project_name -%></figcaption>
               <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
             </div>
@@ -198,7 +198,7 @@
         </a>
       </div>
       <nav class="pt-6 w-full sm:w-2/3">
-        <ol class="space-y-4 <%= fdsz("text-xs", "#{xlFzClass(5)}") -%>">
+        <ol class="space-y-4 <%= fdsz("text-xs", "text-base") -%>">
             <li>
               <a class="flex items-center" href="<%= work_path(id: @previous_work.id) -%>">
                 <span class="border border-black text-center flex-none mr-1 <%= fdsz("w-5 h-5 leading-5", "w-6 h-6 leading-6") -%>" style="border-radius: 50%;">&lt;</span>
@@ -218,7 +218,7 @@
 </div>
 
 <div class="w-full mx-auto sm:pt-4 md:pt-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
-  <h2 class="<%= fdsz("text-lg", "#{xlFzClass(3)}") -%> text-black6c">相关项目</h2>
+  <h2 class="<%= fdsz("text-lg", "text-2xl") -%> text-black6c">相关项目</h2>
 </div>
 <div class="flex-grid my-2">
   <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2 <%= @relative_works.count >= 4 ? 'lg:flex-grid-cols-4-gap-2' : "lg:flex-grid-cols-#{@relative_works.count}-gap-2" -%>">
@@ -227,8 +227,8 @@
       <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
         <%= image_tag work.snapshot_jpg.url, class: 'grid-mask-image hover:scale-105' -%>
         <div class="absolute text-white left-4 bottom-2">
-          <p class="<%= fdsz("text-lg sm:text-lg", "text-lg sm:#{xlFzClass(3)}") -%> text-left pb-1 font-semibold leading-tight"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
-          <p class="<%= fdsz("text-sm", "#{xlFzClass(5)}") -%> text-left font-medium leading-tight"><%= I18n.with_locale(:en) { work.project_name } -%></p>
+          <p class="<%= fdsz("text-lg sm:text-lg", "text-lg sm:text-2xl") -%> text-left pb-1 font-semibold leading-tight"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
+          <p class="<%= fdsz("text-sm", "text-base") -%> text-left font-medium leading-tight"><%= I18n.with_locale(:en) { work.project_name } -%></p>
         </div>
       </a>
     </div>

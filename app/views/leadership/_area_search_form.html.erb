@@ -1,6 +1,6 @@
 <form action="<%= search_url -%>" method="GET" id="area-leadership-form" x-data="{ show_drop_menu_china_area: false }" class="lg:absolute lg:top-8 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16 w-full lg:w-auto px-2 lg:px-0 my-4 lg:my-0">
   <div class="block sm:inline-block align-middle mx-auto sm:ml-2 relative rounded-md shadow-sm">
-    <button type="button" class="inline-flex justify-between w-full <%= fdsz("text-sm #{I18n.locale == :en ? 'sm:w-40' : 'sm:w-28'}", "#{xlFzClass(5)} #{I18n.locale == :en ? 'sm:w-48' : 'sm:w-32'}") -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area">
+    <button type="button" class="inline-flex justify-between w-full <%= fdsz("text-sm #{I18n.locale == :en ? 'sm:w-40' : 'sm:w-28'}", "text-base #{I18n.locale == :en ? 'sm:w-48' : 'sm:w-32'}") -%> rounded-md border border-gray-300 px-4 py-2 bg-white text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" x-on:click="show_drop_menu_china_area = !show_drop_menu_china_area">
       <%= t('menu.leadership.china_area_company') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -10,14 +10,14 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1">
           <% City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).order(:company_position).each do |city| %>
-            <a href="<%= leadership_path(id: city.url_name) %>" class="<%= fdsz("text-sm", "#{xlFzClass(5)}") -%> block px-4 py-2 leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.company_name %></a>
+            <a href="<%= leadership_path(id: city.url_name) %>" class="<%= fdsz("text-sm", "text-base") -%> block px-4 py-2 leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.company_name %></a>
           <% end %>
         </div>
       </div>
     </div>
   </div>
   <div class="block sm:inline-block align-middle mx-auto sm:ml-2 mt-1 sm:mt-0 relative rounded-md shadow-sm">
-    <input class="form-input block w-full sm:w-36 sm:w-40 pr-10 <%= fdsz("text-sm", "#{xlFzClass(5)}") -%>" name="name" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= @search_name -%>" style="height: 2.375rem" />
+    <input class="form-input block w-full sm:w-36 sm:w-40 pr-10 <%= fdsz("text-sm", "text-base") -%>" name="name" placeholder="<%= t('ui.page_keyword_search') -%>" value="<%= @search_name -%>" style="height: 2.375rem" />
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
       x-on:click="document.getElementById('area-leadership-form').submit();">
       <svg class="h-6 w-6 text-gray-400" fill="currentColor">

@@ -1,8 +1,8 @@
 <div class="grid-div" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
   <%= image_pack_tag g_image, class: 'grid-mask-image' -%>
   <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
-    <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
-    <h2 class="<%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= h2 -%></h2>
+    <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
+    <h2 class="<%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> text-left leading-snug"><%= h2 -%></h2>
   </div>
   <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
     x-transition:enter="transition ease-linear duration-200"
@@ -13,13 +13,13 @@
     x-transition:leave-end="opacity-0 transform -translate-x-1/2">
     <div class="flex items-center px-2 sm:pl-10 sm:pr-36 w-full sm:w-auto">
       <div>
-        <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> text-left pb-1 leading-none font-semibold"><%= h1 -%></h1>
-        <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:#{xlFzClass(3)}") -%> text-left leading-snug"><%= h2 -%></h2>
+        <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> text-left pb-1 leading-none font-semibold"><%= h1 -%></h1>
+        <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> text-left leading-snug"><%= h2 -%></h2>
         <% h3s.each_with_index do |h3, index| %>
-          <h3 class="<%= index == 0 ? 'mt-1 sm:mt-3' : '' -%> <%= fdsz("text-sm sm:text-lg", "text-sm sm:#{xlFzClass(3)}") -%> leading-none sm:leading-snug sm:font-semibold text-lef"><%= h3 -%></h3>
+          <h3 class="<%= index == 0 ? 'mt-1 sm:mt-3' : '' -%> <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> leading-none sm:leading-snug sm:font-semibold text-lef"><%= h3 -%></h3>
         <% end %>
         <% ps.each_with_index do |p, index| %>
-          <p class="<%= index == 0 ? 'mt-1 sm:mt-2' : '' -%> <%= fdsz("text-xs sm:text-sm", "text-xs sm:#{xlFzClass(4)}") -%> text-justify leading-none sm:leading-relaxed"><%= p -%></p>
+          <p class="<%= index == 0 ? 'mt-1 sm:mt-2' : '' -%> <%= fdsz("text-xs sm:text-sm", "text-xs sm:text-xl") -%> text-justify leading-none sm:leading-relaxed"><%= p -%></p>
         <% end %>
       </div>
     </div>

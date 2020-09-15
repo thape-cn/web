@@ -6,13 +6,13 @@
       <%= image_pack_tag 'media/images/default_avatar.jpg', class: "grid-image grid-mask-image" -%>
     <% end %>
     <div class="absolute text-white inset-x-0 bottom-0">
-      <p class="<%= fdsz("text-base sm:#{I18n.locale == :en ? "text-base" : "text-lg"}", "text-base sm:#{xlFzClass(3)}") -%> text-center font-medium"><%= person.name -%></p>
+      <p class="<%= fdsz("text-base sm:#{I18n.locale == :en ? "text-base" : "text-lg"}", "text-base sm:text-2xl") -%> text-center font-medium"><%= person.name -%></p>
       <% titles = person_titles(person, city) %>
-      <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:#{xlFzClass(5)}") -%> text-center font-light leading-tight sm:px-4"><%= titles.first -%></p>
+      <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-tight sm:px-4"><%= titles.first -%></p>
       <% if titles.length > 1 %>
-        <p class="<%= fdsz("#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:#{xlFzClass(5)}") -%> text-center font-light leading-none relative" style="top: -0.5rem;">...</p>
+        <p class="<%= fdsz("#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-none relative" style="top: -0.5rem;">...</p>
       <% else %>
-        <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:#{xlFzClass(5)}") -%> text-center font-light leading-none">&nbsp</p>
+        <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-none">&nbsp</p>
       <% end %>
     </div>
   </a>

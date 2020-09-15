@@ -1,6 +1,6 @@
 <header class="pb-2 flex items-center lg:items-end w-full flex-wrap lg:flex-no-wrap <%= header_class -%>">
   <div class="flex flex-wrap items-end w-full flex-none md:w-auto md:flex-auto">
-    <h1 class="block mr-2 <%= fdsz("text-lg sm:text-2xl", "text-xl sm:#{xlFzClass(1)}") -%> font-bold text-black6c mb-0">
+    <h1 class="block mr-2 <%= fdsz("text-lg sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c mb-0">
       <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         <% if !(defined?show_underline) || show_underline %>
         <span class="h1-cap border-b-4 hidden sm:inline absolute">&emsp;</span>
@@ -8,7 +8,7 @@
         <%= c -%>
       </a>
     </h1>
-    <h2 class="block <%= fdsz("text-sm sm:text-lg", "text-base sm:#{xlFzClass(2)}") -%> text-black6c">
+    <h2 class="block <%= fdsz("text-sm sm:text-lg", "text-base sm:text-3xl") -%> text-black6c">
       <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70"><%= e -%></a>
     </h2>
   </div>
