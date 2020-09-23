@@ -2760,9 +2760,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.570:
-  version "1.3.570"
-  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.570.tgz?cache=0&sync_timestamp=1600242261184&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.570.tgz#3f5141cc39b4e3892a276b4889980dabf1d29c7f"
-  integrity sha1-P1FBzDm044kqJ2tIiZgNq/HSnH8=
+  version "1.3.571"
+  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.571.tgz?cache=0&sync_timestamp=1600832078576&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.571.tgz#e57977f1569f8326ae2a7905e26f3943536ba28f"
+  integrity sha1-5Xl38VafgyauKnkF4m85Q1Nroo8=
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -4588,10 +4588,15 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-mime-db@1.44.0, "mime-db@>= 1.43.0 < 2":
+mime-db@1.44.0:
   version "1.44.0"
-  resolved "https://registry.npm.taobao.org/mime-db/download/mime-db-1.44.0.tgz#fa11c5eb0aca1334b4233cb4d52f10c5a6272f92"
+  resolved "https://registry.npm.taobao.org/mime-db/download/mime-db-1.44.0.tgz?cache=0&sync_timestamp=1600831150274&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime-db%2Fdownload%2Fmime-db-1.44.0.tgz#fa11c5eb0aca1334b4233cb4d52f10c5a6272f92"
   integrity sha1-+hHF6wrKEzS0Izy01S8QxaYnL5I=
+
+"mime-db@>= 1.43.0 < 2":
+  version "1.45.0"
+  resolved "https://registry.npm.taobao.org/mime-db/download/mime-db-1.45.0.tgz?cache=0&sync_timestamp=1600831150274&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime-db%2Fdownload%2Fmime-db-1.45.0.tgz#cceeda21ccd7c3a745eba2decd55d4b73e7879ea"
+  integrity sha1-zO7aIczXw6dF66LezVXUtz54eeo=
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.19, mime-types@~2.1.24:
   version "2.1.27"
@@ -6071,7 +6076,7 @@ postcss-values-parser@^2.0.0, postcss-values-parser@^2.0.1:
 
 postcss@7.0.32:
   version "7.0.32"
-  resolved "https://registry.npm.taobao.org/postcss/download/postcss-7.0.32.tgz?cache=0&sync_timestamp=1600734500907&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-7.0.32.tgz#4310d6ee347053da3433db2be492883d62cec59d"
+  resolved "https://registry.npm.taobao.org/postcss/download/postcss-7.0.32.tgz?cache=0&sync_timestamp=1600825448176&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-7.0.32.tgz#4310d6ee347053da3433db2be492883d62cec59d"
   integrity sha1-QxDW7jRwU9o0M9sr5JKIPWLOxZ0=
   dependencies:
     chalk "^2.4.2"
@@ -6080,7 +6085,7 @@ postcss@7.0.32:
 
 postcss@^6.0.9:
   version "6.0.23"
-  resolved "https://registry.npm.taobao.org/postcss/download/postcss-6.0.23.tgz?cache=0&sync_timestamp=1600734500907&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
+  resolved "https://registry.npm.taobao.org/postcss/download/postcss-6.0.23.tgz?cache=0&sync_timestamp=1600825448176&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha1-YcgswyisYOZ3ZF+XkFTrmLwOMyQ=
   dependencies:
     chalk "^2.4.1"
@@ -6089,7 +6094,7 @@ postcss@^6.0.9:
 
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.18, postcss@^7.0.2, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.34"
-  resolved "https://registry.npm.taobao.org/postcss/download/postcss-7.0.34.tgz?cache=0&sync_timestamp=1600734500907&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-7.0.34.tgz#f2baf57c36010df7de4009940f21532c16d65c20"
+  resolved "https://registry.npm.taobao.org/postcss/download/postcss-7.0.34.tgz?cache=0&sync_timestamp=1600825448176&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpostcss%2Fdownload%2Fpostcss-7.0.34.tgz#f2baf57c36010df7de4009940f21532c16d65c20"
   integrity sha1-8rr1fDYBDffeQAmUDyFTLBbWXCA=
   dependencies:
     chalk "^2.4.2"
