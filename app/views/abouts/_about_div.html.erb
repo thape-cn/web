@@ -1,8 +1,8 @@
 <div class="grid-div" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
   <%= image_pack_tag g_image, class: 'grid-mask-image' -%>
   <div class="absolute text-white left-6 bottom-4" x-show="!show_g">
-    <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
-    <h2 class="<%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> text-left leading-snug"><%= h2 -%></h2>
+    <h1 class="text-xl <%= fdsz("sm:text-2xl", "sm:text-4xl") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
+    <h2 class="text-sm <%= fdsz("sm:text-lg", "sm:text-2xl") -%> text-left leading-snug"><%= h2 -%></h2>
   </div>
   <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
     x-transition:enter="transition ease-linear duration-200"
