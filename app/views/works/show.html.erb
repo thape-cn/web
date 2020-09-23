@@ -62,14 +62,14 @@
         </h2>
       </div>
       <div class="lg:absolute lg:top-4 lg:right-0 text-sm <%= fdsz("sm:text-base", "sm:text-xl") -%>">
-        <ol class="text-right">
+        <ol class="lg:text-right">
           <% @work.project_types.each_with_index do |project_type, index| %>
             <li class="<%= (index == @work.project_types.length - 1) ? 'header-item-last' : 'header-item' -%>">
               <a href="<%= project_type_path(project_type) -%>" class="text-black6c"><%= project_type.cn_name -%>&nbsp;&nbsp;<%= project_type.en_name -%></a>
             </li>
           <% end %>
         </ol>
-        <ol class="text-right">
+        <ol class="lg:text-right">
           <li class="header-item-last">
             <a href="<%= work_path(id: @work.city.url_name) -%>" class="text-black6c"><%= @work.city.name -%>&nbsp;&nbsp;<%= @work.city.url_name.upcase -%></a>
           </li>
