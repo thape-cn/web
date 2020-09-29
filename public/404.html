@@ -11,10 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" media="all" href="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/css/application-c233495e.css" />
+    <link rel="stylesheet" media="all" href="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/css/application-64ef6b10.css" />
     <script type="module" src="/alpine/2-7-0.js"></script>
     <script nomodule src="/alpine/2-7-0-ie11.js" defer></script>
-    <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/application-fc027a4c9d2db78bd464.js"></script>
+    <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/application-2a934e80453cc2b3b653.js"></script>
   </head>
 
   <body>
@@ -447,7 +447,7 @@
 
 <div class="w-full flex flex-col mx-auto sm:pb-4 md:pb-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <div class="w-full flex flex-auto mt-0 justify-center content-center flex-wrap sm:pt-4 md:pt-8">
-    <img class="flex-none" style="margin-left: 1rem" src="/packs/media/images/no-data-568138b251e0657fa7ddb5d60341d645.png">
+    <img class="flex-none" style="margin-left: 1rem" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/no-data-e08fa313b603040b240687062d8120c3.png">
     <p class="w-full flex-none text-center mt-3">404 您访问的页面不存在。</p>
   </div>
 </div>
@@ -522,12 +522,23 @@
       <p class="sm:hidden text-center">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
     </div>
 
-    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center sm:order-last sm:pb-0 sm:w-auto sm:pl-4" x-data="{ show_wechat_qr: false }">
-      <img class="absolute bottom-0 right-36 z-50" x-show="show_wechat_qr" src="/packs/media/images/wechat-qr-6c3ae42ab489a3e83d1a29698589787b.jpg" />
-      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><img class="h-5 sm:h-7 mx-2 sm:mr-2 sm:ml-0" src="/packs/media/images/wechat-dacd263a0fa51224b9a4339bb9150e1b.svg" /></a>
-      <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><img class="h-5 sm:h-7 mx-2" src="/packs/media/images/weibo-5d343d5d82c29e6f2555278c618f7691.svg" /></a>
-      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><img class="h-5 sm:h-7 mx-2 sm:ml-2 sm:mr-0" src="/packs/media/images/zhihu-a2fb4ff34078a4b621785ed2b3b62f11.svg" /></a>
+<div class="w-full flex justify-center flex-wrap mt-4 md:justify-between md:flex-no-wrap md:mt-6">
+    <div class="text-sm sm:text-base flex-none w-full text-thape-copyright-gray md:w-auto md:flex-auto">
+      <p class="hidden md:block">总机：021-64281588 &nbsp;&nbsp;&nbsp;服务：400-8366606</p>
+      <p class="hidden md:block leading-loose">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
+
+      <p class="md:hidden text-center">总机：021-64281588</p>
+      <p class="md:hidden text-center">服务：400-8366606</p>
+      <p class="md:hidden text-center">© 2020 上海天华建筑设计有限公司，保留所有权利 沪ICP备08027138号-1 公安部备案号 31010402005733</p>
     </div>
+
+    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4" x-data="{ show_wechat_qr: false }">
+      <img class="absolute w-24 bottom-0 right-32 z-50" x-show="show_wechat_qr" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-qr-6c3ae42ab489a3e83d1a29698589787b.jpg" style="display: none;">
+      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><img class="h-4 md:h-6 mx-2 md:mr-2 md:ml-0" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-dacd263a0fa51224b9a4339bb9150e1b.svg"></a>
+      <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><img class="h-4 md:h-6 mx-2" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/weibo-5d343d5d82c29e6f2555278c618f7691.svg"></a>
+      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><img class="h-4 md:h-6 mx-2 md:ml-2 md:mr-0" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/zhihu-a2fb4ff34078a4b621785ed2b3b62f11.svg"></a>
+    </div>
+  </div>
   </div>
 </footer>
 
