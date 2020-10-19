@@ -41,6 +41,7 @@ module.exports = {
       }
     }
   },
+  purge: false, // Purge manually
   variants: {},
   plugins: [
     // '@tailwindcss/custom-forms', '@tailwindcss/typography' is already include in '@tailwindcss/ui'
