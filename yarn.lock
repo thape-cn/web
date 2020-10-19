@@ -7241,10 +7241,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss@^1.8.10:
-  version "1.8.13"
-  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.8.13.tgz#ee57050a516d342bafc92cb74b4de6f92e44c189"
-  integrity sha1-7lcFClFtNCuvySy3S03m+S5EwYk=
+tailwindcss@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.9.4.tgz#5ae8ff84bc8234df22ba5f2c7feafb64bb14da55"
+  integrity sha1-Wuj/hLyCNN8iul8sf+r7ZLsU2lU=
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"
