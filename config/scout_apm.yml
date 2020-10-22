@@ -9,3 +9,6 @@ staging:
 
 development:
   monitor: false
+
+test:
+  monitor: false
