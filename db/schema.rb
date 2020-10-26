@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_051436) do
+ActiveRecord::Schema.define(version: 2020_08_06_032001) do
 
   create_table "about_page_translations", force: :cascade do |t|
     t.integer "about_page_id", null: false
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_051436) do
     t.string "seo_keywords"
     t.string "seo_description"
     t.string "sub_title"
+    t.string "pdf_file"
   end
 
   create_table "map_contact_translations", force: :cascade do |t|
