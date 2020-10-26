@@ -5705,6 +5705,8 @@
     }
   }
 
+  var _this10 = undefined;
+
   // Thanks @stimulus:
   // https://github.com/stimulusjs/stimulus/blob/master/packages/%40stimulus/core/src/application.ts
   function domReady() {
@@ -5725,6 +5727,9 @@
   }
   function isTesting() {
     return navigator.userAgent.includes("Node.js") || navigator.userAgent.includes("jsdom");
+  }
+  function checkedAttrLooseCompare(valueA, valueB) {
+    return valueA == valueB;
   }
   function warnIfMalformedTemplate(el, directive) {
     if (el.tagName.toLowerCase() !== 'template') {
@@ -6094,66 +6099,67 @@
     };
     transition(el, stages, type);
   }
+
+  var ensureStringExpression = function ensureStringExpression(expression, el, component) {
+    _newArrowCheck(this, _this10);
+
+    return typeof expression === 'function' ? component.evaluateReturnExpression(el, expression) : expression;
+  }.bind(undefined);
+
   function transitionClassesIn(el, component, directives, showCallback) {
-    var _this10 = this;
-
-    var ensureStringExpression = function ensureStringExpression(expression) {
-      _newArrowCheck(this, _this10);
-
-      return typeof expression === 'function' ? component.evaluateReturnExpression(el, expression) : expression;
-    }.bind(this);
+    var _this11 = this;
 
     var enter = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
-      _newArrowCheck(this, _this10);
+      _newArrowCheck(this, _this11);
 
       return i.value === 'enter';
     }.bind(this)) || {
       expression: ''
-    }).expression));
+    }).expression, el, component));
     var enterStart = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
-      _newArrowCheck(this, _this10);
+      _newArrowCheck(this, _this11);
 
       return i.value === 'enter-start';
     }.bind(this)) || {
       expression: ''
-    }).expression));
+    }).expression, el, component));
     var enterEnd = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
-      _newArrowCheck(this, _this10);
+      _newArrowCheck(this, _this11);
 
       return i.value === 'enter-end';
     }.bind(this)) || {
       expression: ''
-    }).expression));
+    }).expression, el, component));
     transitionClasses(el, enter, enterStart, enterEnd, showCallback, function () {
-      _newArrowCheck(this, _this10);
+      _newArrowCheck(this, _this11);
     }.bind(this), TRANSITION_TYPE_IN);
   }
   function transitionClassesOut(el, component, directives, hideCallback) {
-    var _this11 = this;
+    var _this12 = this;
 
-    var leave = convertClassStringToArray((directives.find(function (i) {
-      _newArrowCheck(this, _this11);
+    var leave = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
+      _newArrowCheck(this, _this12);
 
       return i.value === 'leave';
     }.bind(this)) || {
       expression: ''
-    }).expression);
-    var leaveStart = convertClassStringToArray((directives.find(function (i) {
-      _newArrowCheck(this, _this11);
+    }).expression, el, component));
+    var leaveStart = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
+      _newArrowCheck(this, _this12);
 
       return i.value === 'leave-start';
     }.bind(this)) || {
       expression: ''
-    }).expression);
-    var leaveEnd = convertClassStringToArray((directives.find(function (i) {
-      _newArrowCheck(this, _this11);
+    }).expression, el, component));
+    var leaveEnd = convertClassStringToArray(ensureStringExpression((directives.find(function (i) {
+      _newArrowCheck(this, _this12);
 
       return i.value === 'leave-end';
     }.bind(this)) || {
       expression: ''
-    }).expression);
+    }).expression, el, component));
     transitionClasses(el, leave, leaveStart, leaveEnd, function () {
-      _newArrowCheck(this, _this11);
+      _newArrowCheck(this, _this12);
     }.bind(this), hideCallback, TRANSITION_TYPE_OUT);
   }
   function transitionClasses(el, classesDuring, classesStart, classesEnd, hook1, hook2, type) {
@@ -6180,12 +6186,12 @@
       },
       end: function end() {
         var _el$classList3,
-            _this12 = this,
+            _this13 = this,
             _el$classList4;
 
         // Don't remove classes that were in the original class attribute.
         (_el$classList3 = el.classList).remove.apply(_el$classList3, _toConsumableArray(classesStart.filter(function (i) {
-          _newArrowCheck(this, _this12);
+          _newArrowCheck(this, _this13);
 
           return !originalClasses.includes(i);
         }.bind(this))));
@@ -6197,17 +6203,17 @@
       },
       cleanup: function cleanup() {
         var _el$classList5,
-            _this13 = this,
+            _this14 = this,
             _el$classList6;
 
         (_el$classList5 = el.classList).remove.apply(_el$classList5, _toConsumableArray(classesDuring.filter(function (i) {
-          _newArrowCheck(this, _this13);
+          _newArrowCheck(this, _this14);
 
           return !originalClasses.includes(i);
         }.bind(this))));
 
         (_el$classList6 = el.classList).remove.apply(_el$classList6, _toConsumableArray(classesEnd.filter(function (i) {
-          _newArrowCheck(this, _this13);
+          _newArrowCheck(this, _this14);
 
           return !originalClasses.includes(i);
         }.bind(this))));
@@ -6216,7 +6222,7 @@
     transition(el, stages, type);
   }
   function transition(el, stages, type) {
-    var _this14 = this;
+    var _this15 = this;
 
     el.__x_transition = {
       // Set transition type so we can avoid clearing transition if the direction is the same
@@ -6225,7 +6231,7 @@
       // from different point and early terminate it. Once will ensure that function
       // is only called one time.
       callback: once(function () {
-        _newArrowCheck(this, _this14);
+        _newArrowCheck(this, _this15);
 
         stages.hide(); // Adding an "isConnected" check, in case the callback
         // removed the element from the DOM.
@@ -6242,9 +6248,9 @@
     stages.start();
     stages.during();
     el.__x_transition.nextFrame = requestAnimationFrame(function () {
-      var _this15 = this;
+      var _this16 = this;
 
-      _newArrowCheck(this, _this14);
+      _newArrowCheck(this, _this15);
 
       // Note: Safari's transitionDuration property will list out comma separated transition durations
       // for every single transition property. Let's grab the first one and call it a day.
@@ -6256,7 +6262,7 @@
 
       stages.show();
       el.__x_transition.nextFrame = requestAnimationFrame(function () {
-        _newArrowCheck(this, _this15);
+        _newArrowCheck(this, _this16);
 
         stages.end();
         setTimeout(el.__x_transition.callback, duration);
@@ -6264,7 +6270,7 @@
     }.bind(this));
   }
   function isNumeric(subject) {
-    return !isNaN(subject);
+    return !Array.isArray(subject) && !isNaN(subject);
   } // Thanks @vuejs
   // https://github.com/vuejs/vue/blob/4de4649d9637262a9b007720b59f80ac72a5620c/src/shared/util.js
 
@@ -6382,18 +6388,19 @@
 
     if (ifAttribute && !component.evaluateReturnExpression(el, ifAttribute.expression)) {
       return [];
-    } // This adds support for the `i in n` syntax.
+    }
 
+    var items = component.evaluateReturnExpression(el, iteratorNames.items, extraVars); // This adds support for the `i in n` syntax.
 
-    if (isNumeric(iteratorNames.items)) {
-      return Array.from(Array(parseInt(iteratorNames.items, 10)).keys(), function (i) {
+    if (isNumeric(items) && items > 0) {
+      items = Array.from(Array(items).keys(), function (i) {
         _newArrowCheck(this, _this4);
 
         return i + 1;
       }.bind(this));
     }
 
-    return component.evaluateReturnExpression(el, iteratorNames.items, extraVars);
+    return items;
   }
 
   function addElementInLoopAfterCurrentEl(templateEl, currentEl) {
@@ -6459,14 +6466,14 @@
         if (el.attributes.value === undefined && attrType === 'bind') {
           el.value = value;
         } else if (attrType !== 'bind') {
-          el.checked = el.value == value;
+          el.checked = checkedAttrLooseCompare(el.value, value);
         }
       } else if (el.type === 'checkbox') {
         // If we are explicitly binding a string to the :value, set the string,
         // If the value is a boolean, leave it alone, it will be set to "on"
         // automatically.
-        if (typeof value === 'string' && attrType === 'bind') {
-          el.value = value;
+        if (typeof value !== 'boolean' && ![null, undefined].includes(value) && attrType === 'bind') {
+          el.value = String(value);
         } else if (attrType !== 'bind') {
           if (Array.isArray(value)) {
             // I'm purposely not using Array.includes here because it's
@@ -6475,7 +6482,7 @@
             el.checked = value.some(function (val) {
               _newArrowCheck(this, _this);
 
-              return val == el.value;
+              return checkedAttrLooseCompare(val, el.value);
             }.bind(this));
           } else {
             el.checked = !!value;
@@ -6948,10 +6955,10 @@
         // If the data we are binding to is an array, toggle its value inside the array.
         if (Array.isArray(currentValue)) {
           var newValue = modifiers.includes('number') ? safeParseNumber(event.target.value) : event.target.value;
-          return event.target.checked ? currentValue.concat([newValue]) : currentValue.filter(function (i) {
+          return event.target.checked ? currentValue.concat([newValue]) : currentValue.filter(function (el) {
             _newArrowCheck(this, _this3);
 
-            return i !== newValue;
+            return !checkedAttrLooseCompare(el, newValue);
           }.bind(this));
         } else {
           return event.target.checked;
@@ -7115,11 +7122,22 @@
       this.unobservedData.$el = null;
       this.unobservedData.$refs = null;
       this.unobservedData.$nextTick = null;
-      this.unobservedData.$watch = null;
-      Object.keys(Alpine.magicProperties).forEach(function (name) {
+      this.unobservedData.$watch = null; // The IE build uses a proxy polyfill which doesn't allow properties
+      // to be defined after the proxy object is created so,
+      // for IE only, we need to define our helpers earlier.
+
+      Object.entries(Alpine.magicProperties).forEach(function (_ref3) {
         _newArrowCheck(this, _this);
 
-        this.unobservedData["$".concat(name)] = null;
+        var _ref4 = _slicedToArray(_ref3, 2),
+            name = _ref4[0],
+            callback = _ref4[1];
+
+        Object.defineProperty(this.unobservedData, "$".concat(name), {
+          get: function get() {
+            return callback(canonicalComponentElementReference);
+          }
+        });
       }.bind(this));
       /* IE11-ONLY:END */
       // Construct a Proxy-based observable. This will be used to handle reactivity.
@@ -7149,22 +7167,8 @@
 
         if (!this.watchers[property]) this.watchers[property] = [];
         this.watchers[property].push(callback);
-      }.bind(this); // Register custom magic properties.
+      }.bind(this);
 
-
-      Object.entries(Alpine.magicProperties).forEach(function (_ref3) {
-        _newArrowCheck(this, _this);
-
-        var _ref4 = _slicedToArray(_ref3, 2),
-            name = _ref4[0],
-            callback = _ref4[1];
-
-        Object.defineProperty(this.unobservedData, "$".concat(name), {
-          get: function get() {
-            return callback(canonicalComponentElementReference);
-          }
-        });
-      }.bind(this));
       this.showDirectiveStack = [];
       this.showDirectiveLastElement;
       componentForClone || Alpine.onBeforeComponentInitializeds.forEach(function (callback) {
@@ -7259,7 +7263,7 @@
                 }
 
                 return comparisonData[part];
-              }.bind(this), self.getUnobservedData());
+              }.bind(this), self.unobservedData);
             }.bind(this));
           } else {
             // Let's walk through the watchers with "dot-notation" (foo.bar) and see
@@ -7294,7 +7298,7 @@
                 }
 
                 return comparisonData[part];
-              }.bind(this), self.getUnobservedData());
+              }.bind(this), self.unobservedData);
             }.bind(this));
           } // Don't react to data changes for cases like the `x-created` hook.
 
@@ -7688,7 +7692,7 @@
   }();
 
   var Alpine = {
-    version: "2.7.0",
+    version: "2.7.2",
     pauseMutationObserver: false,
     magicProperties: {},
     onComponentInitializeds: [],
@@ -7729,11 +7733,7 @@
                     this.initializeComponent(el);
                   }.bind(this));
                 }.bind(this));
-                this.listenForNewUninitializedComponentsAtRunTime(function (el) {
-                  _newArrowCheck(this, _this);
-
-                  this.initializeComponent(el);
-                }.bind(this));
+                this.listenForNewUninitializedComponentsAtRunTime();
 
               case 6:
               case "end":
@@ -7774,7 +7774,7 @@
         callback(rootEl);
       }.bind(this));
     },
-    listenForNewUninitializedComponentsAtRunTime: function listenForNewUninitializedComponentsAtRunTime(callback) {
+    listenForNewUninitializedComponentsAtRunTime: function listenForNewUninitializedComponentsAtRunTime() {
       var _this5 = this;
 
       var targetNode = document.querySelector('body');
