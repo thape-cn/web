@@ -1,6 +1,5 @@
-<%- content_for :title do %>
-<%= @seo.home_title %>
-<% end %>
+<% provide(:title, @seo.home_title) %>
+<% provide(:meta_title, @seo.home_title) %>
 
 <%= render partial: 'shared/thape_nav'  -%>
 
