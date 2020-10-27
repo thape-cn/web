@@ -1,9 +1,23 @@
 class NewsController < ApplicationController
   def show
     @info = Info.find(params[:id])
-    @seo.home_title = @info.seo_title if @info.seo_title.present?
-    @seo.keywords = @info.seo_keywords if @info.seo_keywords.present?
-    @seo.description = @info.seo_description if @info.seo_description.present?
+
+    @seo.home_title = if @info.seo_title.present?
+      @info.seo_title
+    else
+      @info.title
+    end
+    @seo.keywords = if @info.seo_keywords.present?
+      @info.seo_keywords
+    else
+      @info.title
+    end
+    @seo.description = if @info.seo_description.present?
+      @info.seo_description
+    else
+      "#{@info.title} #{@info.sub_title}"
+    end
+    @seo.abstract = @seo.description
 
     two_random_works = Work.pluck(:id).sample(2)
     @first_work = Work.find two_random_works[0]
