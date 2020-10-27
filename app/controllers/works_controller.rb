@@ -13,6 +13,11 @@ class WorksController < ApplicationController
   def show
     @city = City.find_by url_name: params[:id]
     if @city.present?
+      @seo.home_title = "#{@city.name}建筑设计公司-建筑设计院-建筑设计案例-天华建筑设计公司"
+      @seo.description = "天华建筑#{@city.name}项目专题为您提供天华建筑的#{@city.name}建设设计、室内设计的案例，专业的#{@city.name}建设设计公司就选天华建筑有限公司。"
+      @seo.abstract = @seo.description
+      @seo.keywords = "#{@city.name}建筑设计公司,#{@city.name}建筑设计院,#{@city.name}建筑设计案例,#{@city.name}建筑室内设计"
+
       @project_type = {}
       @self_path = work_path(id: @city.url_name)
       @works = if params[:q].present?
