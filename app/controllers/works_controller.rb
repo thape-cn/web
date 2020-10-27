@@ -29,6 +29,9 @@ class WorksController < ApplicationController
     else
       @work = Work.find params[:id]
 
+      @seo.home_title = "#{I18n.with_locale(:cn) { @work.project_name }}-#{@work.project_types.collect(&:cn_name).join('、')}设计案例-天华建筑设计公司"
+      @seo.keywords = "#{I18n.with_locale(:cn) { @work.project_name }}，#{@work.project_types.collect(&:cn_name).join('、')}设计案例"
+
       two_random_works = Work.pluck(:id).sample(2)
       @first_work = Work.find two_random_works[0]
       @second_work = Work.find two_random_works[1]
