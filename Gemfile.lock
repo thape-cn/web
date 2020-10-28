@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/jumph4x/canonical-rails.git
+  revision: 16eae2dc79f3df78c693bd3a04340f270c9e6387
+  branch: master
+  specs:
+    canonical-rails (0.2.9)
+      rails (>= 4.1, < 6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -292,6 +300,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   browser
   byebug
+  canonical-rails!
   capistrano
   capistrano-rails
   capistrano-rbenv
