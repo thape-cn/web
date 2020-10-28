@@ -241,7 +241,7 @@ isBigFont = cookies['ts'] == 'big';
     </div>
     <div class="nav-item">
       <% if I18n.locale == :cn %>
-        <%= link_to '?locale=en' do %>
+        <%= link_to '?locale=en', rel: 'nofollow' do %>
           <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
             <g transform="matrix(1,0,0,1,-791,-523)">
               <g id="cn">
@@ -393,7 +393,7 @@ isBigFont = cookies['ts'] == 'big';
       </div>
       <div class="aside-menu-item">
         <% if I18n.locale == :cn %>
-          <%= link_to '?locale=en' do %>
+          <%= link_to '?locale=en', rel: 'nofollow' do %>
             <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
               <g transform="matrix(1,0,0,1,-791,-523)">
                 <g id="cn">
