@@ -29,8 +29,22 @@ class WorksController < ApplicationController
     else
       @work = Work.find params[:id]
 
-      @seo.home_title = "#{I18n.with_locale(:cn) { @work.project_name }}-#{@work.project_types.collect(&:cn_name).join('、')}设计案例-天华建筑设计公司"
-      @seo.keywords = "#{I18n.with_locale(:cn) { @work.project_name }}，#{@work.project_types.collect(&:cn_name).join('、')}设计案例"
+      work_project_cn_name = I18n.with_locale(:cn) { @work.project_name }
+      work_project_type_names = @work.project_types.collect(&:cn_name).join('、')
+      design_completion_time = if @work.design_completion_lines.present?
+        @work.design_completion_lines.split("\n").join(' ')
+      else
+        "#{@work.design_completion.year}年"
+      end
+      architecture_area = if @work.architecture_area_lines.present?
+        @work.architecture_area_lines.split("\n").join(' ')
+      else
+        "#{@work.architecture_area}㎡"
+      end
+      @seo.home_title = "#{work_project_cn_name}-#{work_project_type_names}设计案例-天华建筑设计公司"
+      @seo.description = "#{@work.city.name}#{work_project_type_names}设计案例：#{work_project_cn_name}，设计完成时间：#{design_completion_time}，建筑面积：#{architecture_area}，设计团队：#{@work.team.split("\n").join(' ')}"
+      @seo.abstract = @seo.description
+      @seo.keywords = "#{work_project_cn_name}，#{work_project_type_names}设计案例"
 
       two_random_works = Work.pluck(:id).sample(2)
       @first_work = Work.find two_random_works[0]
