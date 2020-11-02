@@ -33,7 +33,7 @@ class WorksController < ApplicationController
       work_project_type_names = @work.project_types.collect(&:cn_name).join('、')
       design_completion_time = if @work.design_completion_lines.present?
         @work.design_completion_lines.split("\n").join(' ')
-      else
+      elsif @work.design_completion.present?
         "#{@work.design_completion.year}年"
       end
       architecture_area = if @work.architecture_area_lines.present?
