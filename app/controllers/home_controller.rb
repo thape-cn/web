@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def show
     @support_webp = browser.chrome? || browser.firefox?
-    @tail_home = TailHome.first
+    @tail_home = TailHome.includes(work_1: :project_types, work_2: :project_types, work_3: :project_types, work_4: :project_types, work_5: :project_types, work_6: :project_types).first
     @wallpapers = []
 
     if browser.device.mobile?
