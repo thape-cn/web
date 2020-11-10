@@ -13,7 +13,7 @@ class WorksController < ApplicationController
   def show
     @city = City.find_by url_name: params[:id]
     if @city.present?
-      @seo.home_title = "#{@city.name}建筑设计公司-建筑设计院-建筑设计案例-天华建筑设计公司"
+      @seo.home_title = "#{@city.name}建筑设计公司-建筑设计院-建筑设计案例"
       @seo.description = "天华建筑#{@city.name}项目专题为您提供天华建筑的#{@city.name}建设设计、室内设计的案例，专业的#{@city.name}建设设计公司就选天华建筑有限公司。"
       @seo.abstract = @seo.description
       @seo.keywords = "#{@city.name}建筑设计公司,#{@city.name}建筑设计院,#{@city.name}建筑设计案例,#{@city.name}建筑室内设计"
@@ -41,7 +41,7 @@ class WorksController < ApplicationController
       else
         "#{@work.architecture_area}㎡"
       end
-      @seo.home_title = "#{work_project_cn_name}-#{work_project_type_names}设计案例-天华建筑设计公司"
+      @seo.home_title = "#{work_project_cn_name}-#{work_project_type_names}设计案例"
       @seo.description = "#{@work.city.name}#{work_project_type_names}设计案例：#{work_project_cn_name}，设计完成时间：#{design_completion_time}，建筑面积：#{architecture_area}，设计团队：#{@work.team.split("\n").join(' ')}"
       @seo.abstract = @seo.description
       @seo.keywords = "#{work_project_cn_name}，#{work_project_type_names}设计案例"
