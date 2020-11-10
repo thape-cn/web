@@ -154,10 +154,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.3.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -241,7 +240,6 @@ GEM
       netrc (~> 0.8)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
-    ruby_dep (1.5.0)
     rubyzip (2.3.0)
     scout_apm (2.6.10)
       parser
@@ -315,7 +313,7 @@ DEPENDENCIES
   globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.7)
   kaminari
-  listen (>= 3.0.5, < 3.2)
+  listen
   puma (~> 4.1)
   rails (~> 6.1.0.rc1)
   selenium-webdriver
