@@ -2,10 +2,7 @@ class ServicesController < ApplicationController
   before_action :set_service_file
 
   def building
-    @seo.home_title = "建筑设计服务-天华建筑设计公司"
-    @seo.description = @service_file.building_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "建筑设计,建筑设计服务"
+    @seo = Seo.find_by seo_name: '建筑设计服务'
 
     render 'services', locals: {
       background_img: 'media/images/building.jpg',
@@ -19,10 +16,7 @@ class ServicesController < ApplicationController
   end
 
   def interior
-    @seo.home_title = "室内设计服务-天华建筑设计公司"
-    @seo.description = @service_file.interior_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "室内设计,室内设计服务"
+    @seo = Seo.find_by seo_name: '室内设计服务'
 
     render 'services', locals: {
       background_img: 'media/images/interior.jpg',
@@ -36,10 +30,7 @@ class ServicesController < ApplicationController
   end
 
   def planning
-    @seo.home_title = "城市规划服务-天华建筑设计公司"
-    @seo.description = @service_file.planning_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "城市规划,城市规划服务"
+    @seo = Seo.find_by seo_name: '城市规划服务'
 
     render 'services', locals: {
       background_img: 'media/images/planning.jpg',
@@ -53,10 +44,7 @@ class ServicesController < ApplicationController
   end
 
   def landscape
-    @seo.home_title = "景观设计服务-天华建筑设计公司"
-    @seo.description = @service_file.landscape_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "景观设计,景观设计服务"
+    @seo = Seo.find_by seo_name: '景观设计服务'
 
     render 'services', locals: {
       background_img: 'media/images/landscape.jpg',
@@ -70,10 +58,7 @@ class ServicesController < ApplicationController
   end
 
   def vetting
-    @seo.home_title = "审图服务-天华建筑设计公司"
-    @seo.description = @service_file.vetting_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "审图设计,审图设计服务"
+    @seo = Seo.find_by seo_name: '审图服务'
 
     render 'services', locals: {
       background_img: 'media/images/vetting.jpg',
@@ -85,10 +70,7 @@ class ServicesController < ApplicationController
   end
 
   def consluting
-    @seo.home_title = "技术咨询-天华建筑设计公司"
-    @seo.description = @service_file.consluting_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "技术咨询,技术咨询服务"
+    @seo = Seo.find_by seo_name: '技术咨询服务'
 
     render 'services', locals: {
       background_img: 'media/images/consluting.jpg',
@@ -100,10 +82,7 @@ class ServicesController < ApplicationController
   end
 
   def vrtech
-    @seo.home_title = "可视化-天华建筑设计公司"
-    @seo.description = @service_file.vrtech_intro.truncate(80)
-    @seo.abstract = @seo.description
-    @seo.keywords = "可视化,可视化服务"
+    @seo = Seo.find_by seo_name: '可视化服务'
 
     render 'services', locals: {
       background_img: ['media/images/vrtech-1.jpg','media/images/vrtech-2.jpg','media/images/vrtech-3.jpg','media/images/vrtech-4.jpg','media/images/vrtech-5.jpg','media/images/vrtech-6.jpg'],
