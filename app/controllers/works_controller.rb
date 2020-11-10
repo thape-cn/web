@@ -174,7 +174,7 @@ class WorksController < ApplicationController
   end
 
   def residential_residence
-    @seo = Seo.find_by seo_name: '居住'
+    @seo = Seo.find_by seo_name: '精品住宅'
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '精品住宅'
     @self_path = residential_residence_works_path
@@ -182,7 +182,7 @@ class WorksController < ApplicationController
   end
 
   def residential_community
-    @seo = Seo.find_by seo_name: '居住'
+    @seo = Seo.find_by seo_name: '综合社区'
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '综合社区'
     @self_path = residential_community_works_path
@@ -190,7 +190,7 @@ class WorksController < ApplicationController
   end
 
   def residential_rental
-    @seo = Seo.find_by seo_name: '居住'
+    @seo = Seo.find_by seo_name: '租赁住房'
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '租赁住房'
     @self_path = residential_rental_works_path
