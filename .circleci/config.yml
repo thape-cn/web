@@ -11,6 +11,14 @@ jobs:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
           NOKOGIRI_USE_SYSTEM_LIBRARIES: true
+          PG_HOST: 127.0.0.1
+          PG_USERNAME: thape_web_test
+
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_USER: thape_web_test
+          POSTGRES_DB: thape_web_test
+          POSTGRES_PASSWORD: "thape_web_test"
 
     working_directory: ~/tailwind_thape
 
@@ -51,6 +59,11 @@ jobs:
           key: thape-web-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+
+      - run:
+          name: Copy configs
+          command: |
+            cp .circleci/app_config/database.yml config/database.yml
 
       - run:
           name: Database setup
