@@ -23,7 +23,7 @@ class NewsController < ApplicationController
     @first_work = Work.find two_random_works[0]
     @second_work = Work.find two_random_works[1]
 
-    info_id_in_sequence = Info.order(id: :desc).pluck(:id)
+    info_id_in_sequence = Info.where(hide_in_index_news: false).order(id: :desc).pluck(:id)
     previous_info_id = if info_id_in_sequence.first == @info.id
       info_id_in_sequence.last
     else
