@@ -20,5 +20,6 @@ production:
   database: thape_web_prod
 
 tianhua2019:
-  <<: *default
+  adapter: sqlite3
+  timeout: 5000
   database: db/tianhua2019.sqlite3
