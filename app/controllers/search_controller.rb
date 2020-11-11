@@ -10,13 +10,13 @@ class SearchController < ApplicationController
       .limit(15)
     end
     @people_results = if @city.present?
-      Person.includes(:city_people).where(city_people: {city_id: @city.id}).order(position: :asc)
+      Person.includes(:city_people).where(leaving_date: nil).where(city_people: {city_id: @city.id}).order(position: :asc)
     else
       Person.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-          .where('person_translations.name like ?', "%#{params[:q]}%").limit(15)
+          .where(leaving_date: nil).where('person_translations.name like ?', "%#{params[:q]}%").limit(15)
     end
 
-    @info_results = Info.where('title LIKE ?', "%#{params[:q]}%").order(position: :asc).limit(15)
+    @info_results = Info.where(hide_in_index_news: false).where('title LIKE ?', "%#{params[:q]}%").order(position: :asc).limit(15)
 
     if params[:tab].present? && params[:tab] == 'work'
       render :works_result
