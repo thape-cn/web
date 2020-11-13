@@ -134,7 +134,7 @@ GEM
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    erubi (1.9.0)
+    erubi (1.10.0)
     ffi (1.13.1)
     ffi (1.13.1-x64-mingw32)
     ffi-compiler (1.0.1)
