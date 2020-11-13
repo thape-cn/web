@@ -1,5 +1,5 @@
 class Tianhua2019sController < ApplicationController
-  # wechat_api
+  wechat_api
   layout "tianhua2019"
 
   def show
