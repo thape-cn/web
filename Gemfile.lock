@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/Eric-Guo/wechat
+  revision: 50b967db08155625346afc069b572b415d286347
+  branch: main
+  specs:
+    wechat (0.11.11)
+      activesupport (>= 3.2, < 7)
+      http (>= 1.0.4, < 5)
+      nokogiri (>= 1.6.0)
+      thor
+
+GIT
   remote: https://github.com/jumph4x/canonical-rails.git
   revision: 16eae2dc79f3df78c693bd3a04340f270c9e6387
   branch: master
@@ -126,15 +137,26 @@ GEM
     erubi (1.9.0)
     ffi (1.13.1)
     ffi (1.13.1-x64-mingw32)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     globalize (6.0.0.alpha.1)
       activemodel (>= 4.2, < 7.0)
       activerecord (>= 4.2, < 7.0)
       request_store (~> 1.0)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -322,6 +344,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.1)
+  wechat!
 
 RUBY VERSION
    ruby 2.7.1p83
