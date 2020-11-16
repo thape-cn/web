@@ -33,11 +33,18 @@ SitemapGenerator::Sitemap.create do
   add works_path, priority: 0.60, changefreq: 'weekly'
 
   Work.find_each do |work|
-    add work_path(work), lastmod: article.updated_at
+    add work_path(work), lastmod: work.updated_at
+  end
+  City.where.not(china_area_name: nil).each do |city|
+    next if city.works.size.zero?
+    add work_path(id: city.url_name), changefreq: 'weekly'
   end
   add leadership_index_path, priority: 0.60, changefreq: 'weekly'
   Person.where(leaving_date: nil).find_each do |person|
-    add leadership_path(id: person.url_name), lastmod: article.updated_at
+    add leadership_path(id: person.url_name), lastmod: person.updated_at
+  end
+  City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).each do |city|
+    add leadership_path(id: city.url_name), changefreq: 'weekly'
   end
   add about_path, priority: 0.60, changefreq: 'weekly'
   add culture_path, priority: 0.60, changefreq: 'weekly'
@@ -53,5 +60,7 @@ SitemapGenerator::Sitemap.create do
   add privacy_sites_path, priority: 0.60, changefreq: 'weekly'
   add disclaimer_sites_path, priority: 0.60, changefreq: 'weekly'
   add news_index_path, priority: 0.60, changefreq: 'weekly'
-
+  Info.where(hide_in_index_news: false).find_each do |info|
+    add news_path(info), lastmod: info.updated_at
+  end
 end
