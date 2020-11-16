@@ -31,6 +31,8 @@ gem 'server_timing'
 # bundle config local.canonical-rails /Users/guochunzhong/git/oss/canonical-rails/
 gem 'canonical-rails', github: 'jumph4x/canonical-rails', branch: 'master'
 
+gem 'sitemap_generator'
+
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
 gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :main
 
