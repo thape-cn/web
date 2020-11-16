@@ -29,6 +29,7 @@
 /config/master.key
 /config/credentials.yml.enc
 
+/public/sitemap.xml.gz
 /public/packs
 /public/packs-test
 /node_modules
