@@ -36,4 +36,22 @@ SitemapGenerator::Sitemap.create do
     add work_path(work), lastmod: article.updated_at
   end
   add leadership_index_path, priority: 0.60, changefreq: 'weekly'
+  Person.where(leaving_date: nil).find_each do |person|
+    add leadership_path(id: person.url_name), lastmod: article.updated_at
+  end
+  add about_path, priority: 0.60, changefreq: 'weekly'
+  add culture_path, priority: 0.60, changefreq: 'weekly'
+  add building_path, priority: 0.60, changefreq: 'weekly'
+  add interior_path, priority: 0.60, changefreq: 'weekly'
+  add planning_path, priority: 0.60, changefreq: 'weekly'
+  add landscape_path, priority: 0.60, changefreq: 'weekly'
+  add vetting_path, priority: 0.60, changefreq: 'weekly'
+  add consluting_path, priority: 0.60, changefreq: 'weekly'
+  add vr_tech_path, priority: 0.60, changefreq: 'weekly'
+  add biz_map_path, priority: 0.60, changefreq: 'weekly'
+  add statement_sites_path, priority: 0.60, changefreq: 'weekly'
+  add privacy_sites_path, priority: 0.60, changefreq: 'weekly'
+  add disclaimer_sites_path, priority: 0.60, changefreq: 'weekly'
+  add news_index_path, priority: 0.60, changefreq: 'weekly'
+
 end
