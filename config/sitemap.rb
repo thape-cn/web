@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.example.com"
+SitemapGenerator::Sitemap.default_host = "https://www.thape.com"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -24,4 +24,22 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+  add residential_works_path, priority: 0.60, changefreq: 'weekly'
+  add residential_rental_works_path, priority: 0.60, changefreq: 'weekly'
+  add residential_community_works_path, priority: 0.60, changefreq: 'weekly'
+  add residential_residence_works_path, priority: 0.60, changefreq: 'weekly'
+  add demonstration_zone_works_path, priority: 0.60, changefreq: 'weekly'
+  add office_works_path, priority: 0.60, changefreq: 'weekly'
+  add supertall_works_path, priority: 0.60, changefreq: 'weekly'
+  add mixed_used_tod_works_path, priority: 0.60, changefreq: 'weekly'
+  add commercial_works_path, priority: 0.60, changefreq: 'weekly'
+  add cultural_works_path, priority: 0.60, changefreq: 'weekly'
+  add education_works_path, priority: 0.60, changefreq: 'weekly'
+  add medical_care_works_path, priority: 0.60, changefreq: 'weekly'
+  add urban_design_works_path, priority: 0.60, changefreq: 'weekly'
+  add hospitality_works_path, priority: 0.60, changefreq: 'weekly'
+  add urban_planning_works_path, priority: 0.60, changefreq: 'weekly'
+  add landscape_works_path, priority: 0.60, changefreq: 'weekly'
+  add interior_works_path, priority: 0.60, changefreq: 'weekly'
+  add works_path, priority: 0.60, changefreq: 'weekly'
 end
