@@ -12,18 +12,7 @@ SitemapGenerator::Sitemap.create do
   #
   # Defaults: :priority => 0.5, :changefreq => 'weekly',
   #           :lastmod => Time.now, :host => default_host
-  #
-  # Examples:
-  #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+  
   add residential_works_path, priority: 0.60, changefreq: 'weekly'
   add residential_rental_works_path, priority: 0.60, changefreq: 'weekly'
   add residential_community_works_path, priority: 0.60, changefreq: 'weekly'
@@ -42,4 +31,9 @@ SitemapGenerator::Sitemap.create do
   add landscape_works_path, priority: 0.60, changefreq: 'weekly'
   add interior_works_path, priority: 0.60, changefreq: 'weekly'
   add works_path, priority: 0.60, changefreq: 'weekly'
+
+  Work.find_each do |work|
+    add work_path(work), lastmod: article.updated_at
+  end
+  add leadership_index_path, priority: 0.60, changefreq: 'weekly'
 end
