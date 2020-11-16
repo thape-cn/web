@@ -46,3 +46,4 @@ set :puma_init_active_record, true
 
 # https://stackoverflow.com/a/48627238/262826
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
+Rake::Task["deploy:assets:restore_manifest"].clear_actions
