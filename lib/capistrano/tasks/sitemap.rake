@@ -5,7 +5,6 @@ namespace :sitemap do
       within release_path do
         with rails_env: fetch(:rails_env) do
           execute :rake, "sitemap:refresh"
-          execute :gzip, "-kd public/sitemap.xml.gz"
         end
       end
     end
