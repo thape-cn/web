@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 3fc608f931261b1d0eed62eb277ab83ba19e68cb
+  revision: 50b967db08155625346afc069b572b415d286347
   branch: main
   specs:
     wechat (0.11.11)
@@ -176,7 +176,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    listen (3.3.0)
+    listen (3.3.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.7.0)
