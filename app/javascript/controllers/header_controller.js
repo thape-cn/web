@@ -48,7 +48,6 @@ export default class extends Controller {
     }
 
     showForm = event => {
-        console.log(123123, this.hasNavTarget)
         if (this.hasNavTarget) {
             this.navTarget.style.display = 'none';
         }
@@ -62,7 +61,7 @@ export default class extends Controller {
 
     hideForm = event => {
         if (this.hasNavTarget) {
-            this.navTarget.style.display = 'flex';
+            this.navTarget.style.display = '';
         }
         if (this.hasFormTarget) {
             this.formTarget.style.display = 'none';
