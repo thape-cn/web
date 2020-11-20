@@ -12,6 +12,9 @@ default: &default
 production:
   <<: *default
 
+staging:
+  <<: *default
+
 development:
   <<: *default
   trusted_domain_fullname: "http://your_dev.proxy.qqbrowser.cc"
