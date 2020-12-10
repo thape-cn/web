@@ -29,7 +29,7 @@ gem 'browser'
 gem 'server_timing'
 
 # bundle config local.canonical-rails /Users/guochunzhong/git/oss/canonical-rails/
-gem 'canonical-rails', git: 'https://github.com/Eric-Guo/canonical-rails', branch: 'rails-6.1-support'
+gem 'canonical-rails', git: 'git@github.com:Eric-Guo/canonical-rails.git', branch: 'rails-6.1-support'
 
 gem 'sitemap_generator'
 

@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/Eric-Guo/canonical-rails
+  remote: git@github.com:Eric-Guo/canonical-rails.git
   revision: b2aa3dc8c4720382855e61ad6be2d406a173cece
   branch: rails-6.1-support
   specs:
