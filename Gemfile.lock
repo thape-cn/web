@@ -211,7 +211,7 @@ GEM
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     public_suffix (4.0.6)
-    puma (5.1.0)
+    puma (5.1.1)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -294,6 +294,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    unf_ext (0.0.7.7-x64-mingw32)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -318,6 +319,7 @@ GEM
 PLATFORMS
   ruby
   x64-mingw32
+  x86_64-darwin-19
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -353,4 +355,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.1.4
+   2.2.0
