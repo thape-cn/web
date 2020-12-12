@@ -28,8 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'browser'
 gem 'server_timing'
 
-# bundle config local.canonical-rails /Users/guochunzhong/git/oss/canonical-rails/
-gem 'canonical-rails', git: 'git@github.com:Eric-Guo/canonical-rails.git', branch: 'rails-6.1-support'
+gem 'canonical-rails'
 
 gem 'sitemap_generator'
 
