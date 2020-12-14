@@ -2,7 +2,7 @@
   <div class="p-4 sm:px-8 md:px-12 lg:px-16 xl:px-24" id="thape-guest-form">
     <%= render partial: 'shared/header', locals: { c: '访客留言', e: 'CONTACT US', header_path: '#thape-guest-form', header_class: 'py-4 sm:py-6', show_underline: false, show_header_right: false } %>
     <div class="pt-0 pb-5 sm:pb-6 sm:pt-2">
-        <%= form_with url: guest_messages_path do |f| %>
+        <%= form_with url: guest_messages_path, local: false do |f| %>
           <div class="flex w-full flex-wrap sm:flex-no-wrap">
             <div class="flex flex-none w-full sm:flex-1 h-32 sm:h-auto mr-0 sm:mr-3 xl:mr-5">
               <div class="max-full sm:max-w-lg xl:max-w-xl xxl:max-w-2xl w-full flex rounded-xl h-full">
