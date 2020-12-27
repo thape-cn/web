@@ -1,8 +1,4 @@
 ﻿class ApplicationController < ActionController::Base
-  before_action do
-    ServerTiming::Auth.ok!
-  end
-
   before_action :set_locale
   before_action :set_ts
   before_action :prepare_seo_variable
