@@ -255,7 +255,7 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
-    scout_apm (4.0.0)
+    scout_apm (2.6.10)
       parser
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
