@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
   before_action :set_service_file
 
   def building
-    @seo = Seo.find_by seo_name: '建筑设计服务'
+    @seo = Seo.find_by(seo_name: '建筑设计服务')
 
     render 'services', locals: {
       background_img: 'media/images/building.jpg',
@@ -16,7 +16,7 @@ class ServicesController < ApplicationController
   end
 
   def interior
-    @seo = Seo.find_by seo_name: '室内设计服务'
+    @seo = Seo.find_by(seo_name: '室内设计服务')
 
     render 'services', locals: {
       background_img: 'media/images/interior.jpg',
@@ -30,7 +30,7 @@ class ServicesController < ApplicationController
   end
 
   def planning
-    @seo = Seo.find_by seo_name: '城市规划服务'
+    @seo = Seo.find_by(seo_name: '城市规划服务')
 
     render 'services', locals: {
       background_img: 'media/images/planning.jpg',
@@ -44,7 +44,7 @@ class ServicesController < ApplicationController
   end
 
   def landscape
-    @seo = Seo.find_by seo_name: '景观设计服务'
+    @seo = Seo.find_by(seo_name: '景观设计服务')
 
     render 'services', locals: {
       background_img: 'media/images/landscape.jpg',
@@ -58,7 +58,7 @@ class ServicesController < ApplicationController
   end
 
   def vetting
-    @seo = Seo.find_by seo_name: '审图服务'
+    @seo = Seo.find_by(seo_name: '审图服务')
 
     render 'services', locals: {
       background_img: 'media/images/vetting.jpg',
@@ -70,7 +70,7 @@ class ServicesController < ApplicationController
   end
 
   def consluting
-    @seo = Seo.find_by seo_name: '技术咨询服务'
+    @seo = Seo.find_by(seo_name: '技术咨询服务')
 
     render 'services', locals: {
       background_img: 'media/images/consluting.jpg',
@@ -82,7 +82,7 @@ class ServicesController < ApplicationController
   end
 
   def vrtech
-    @seo = Seo.find_by seo_name: '可视化服务'
+    @seo = Seo.find_by(seo_name: '可视化服务')
 
     render 'services', locals: {
       background_img: ['media/images/vrtech-1.jpg','media/images/vrtech-2.jpg','media/images/vrtech-3.jpg','media/images/vrtech-4.jpg','media/images/vrtech-5.jpg','media/images/vrtech-6.jpg'],

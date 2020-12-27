@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     end
 
     def prepare_seo_variable
-      @seo = Seo.find_by seo_name: '首页'
+      @seo = Seo.find_by(seo_name: '首页')
     end
 
     def set_ie_warning

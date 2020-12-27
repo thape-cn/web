@@ -74,98 +74,98 @@ class WorksController < ApplicationController
   end
 
   def interior
-    @seo = Seo.find_by seo_name: '室内设计'
+    @seo = Seo.find_by(seo_name: '室内设计')
     @project_type = ProjectType.find_by cn_name: '室内'
     @self_path = interior_works_path
     render_project_type
   end
 
   def landscape
-    @seo = Seo.find_by seo_name: '景观设计'
+    @seo = Seo.find_by(seo_name: '景观设计')
     @project_type = ProjectType.find_by cn_name: '景观'
     @self_path = landscape_works_path
     render_project_type
   end
 
   def urban_planning
-    @seo = Seo.find_by seo_name: '城市规划'
+    @seo = Seo.find_by(seo_name: '城市规划')
     @project_type = ProjectType.find_by cn_name: '城市规划'
     @self_path = urban_planning_works_path
     render_project_type
   end
 
   def hospitality
-    @seo = Seo.find_by seo_name: '旅居/酒店'
+    @seo = Seo.find_by(seo_name: '旅居/酒店')
     @project_type = ProjectType.find_by cn_name: '旅居/酒店'
     @self_path = hospitality_works_path
     render_project_type
   end
 
   def urban_design
-    @seo = Seo.find_by seo_name: '城市设计/更新'
+    @seo = Seo.find_by(seo_name: '城市设计/更新')
     @project_type = ProjectType.find_by cn_name: '城市设计/更新'
     @self_path = urban_design_works_path
     render_project_type
   end
 
   def medical_care
-    @seo = Seo.find_by seo_name: '医疗康养'
+    @seo = Seo.find_by(seo_name: '医疗康养')
     @project_type = ProjectType.find_by cn_name: '医疗康养'
     @self_path = education_works_path
     render_project_type
   end
 
   def education
-    @seo = Seo.find_by seo_name: '教育设计'
+    @seo = Seo.find_by(seo_name: '教育设计')
     @project_type = ProjectType.find_by cn_name: '教育'
     @self_path = education_works_path
     render_project_type
   end
 
   def cultural
-    @seo = Seo.find_by seo_name: '文化空间'
+    @seo = Seo.find_by(seo_name: '文化空间')
     @project_type = ProjectType.find_by cn_name: '文化空间'
     @self_path = cultural_works_path
     render_project_type
   end
 
   def commercial
-    @seo = Seo.find_by seo_name: '商业空间'
+    @seo = Seo.find_by(seo_name: '商业空间')
     @project_type = ProjectType.find_by cn_name: '商业空间'
     @self_path = commercial_works_path
     render_project_type
   end
 
   def mixed_used_tod
-    @seo = Seo.find_by seo_name: '综合体/TOD'
+    @seo = Seo.find_by(seo_name: '综合体/TOD')
     @project_type = ProjectType.find_by cn_name: '综合体/TOD'
     @self_path = mixed_used_tod_works_path
     render_project_type
   end
 
   def supertall
-    @seo = Seo.find_by seo_name: '超高层'
+    @seo = Seo.find_by(seo_name: '超高层')
     @project_type = ProjectType.find_by cn_name: '超高层'
     @self_path = supertall_works_path
     render_project_type
   end
 
   def office
-    @seo = Seo.find_by seo_name: '商务办公'
+    @seo = Seo.find_by(seo_name: '商务办公')
     @project_type = ProjectType.find_by cn_name: '商务办公'
     @self_path = office_works_path
     render_project_type
   end
 
   def demonstration_zone
-    @seo = Seo.find_by seo_name: '展示区/示范区'
+    @seo = Seo.find_by(seo_name: '展示区/示范区')
     @project_type = ProjectType.find_by cn_name: '展示区/示范区'
     @self_path = demonstration_zone_works_path
     render_project_type
   end
 
   def residential
-    @seo = Seo.find_by seo_name: '居住'
+    @seo = Seo.find_by(seo_name: '居住')
     @project_type = ProjectType.find_by cn_name: '居住'
     @self_path = residential_works_path
     if params[:q].present?
@@ -174,7 +174,7 @@ class WorksController < ApplicationController
   end
 
   def residential_residence
-    @seo = Seo.find_by seo_name: '精品住宅'
+    @seo = Seo.find_by(seo_name: '精品住宅')
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '精品住宅'
     @self_path = residential_residence_works_path
@@ -182,7 +182,7 @@ class WorksController < ApplicationController
   end
 
   def residential_community
-    @seo = Seo.find_by seo_name: '综合社区'
+    @seo = Seo.find_by(seo_name: '综合社区')
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '综合社区'
     @self_path = residential_community_works_path
@@ -190,7 +190,7 @@ class WorksController < ApplicationController
   end
 
   def residential_rental
-    @seo = Seo.find_by seo_name: '租赁住房'
+    @seo = Seo.find_by(seo_name: '租赁住房')
     @project_type = ProjectType.find_by cn_name: '居住'
     @residential_type = ResidentialType.find_by cn_name: '租赁住房'
     @self_path = residential_rental_works_path
