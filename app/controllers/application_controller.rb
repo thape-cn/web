@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+﻿class ApplicationController < ActionController::Base
   before_action do
     ServerTiming::Auth.ok!
   end
