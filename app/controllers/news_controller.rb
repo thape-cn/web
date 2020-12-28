@@ -26,14 +26,18 @@ class NewsController < ApplicationController
     info_id_in_sequence = Info.where(hide_in_index_news: false).order(id: :desc).pluck(:id)
     previous_info_id = if info_id_in_sequence.first == @info.id
       info_id_in_sequence.last
-    else
+    elsif info_id_in_sequence.index(@info.id)
       info_id_in_sequence[info_id_in_sequence.index(@info.id) - 1]
+    else
+      Info.where(hide_in_index_news: false).first.id
     end
 
     next_info_id = if info_id_in_sequence.last == @info.id
       info_id_in_sequence.first
-    else
+    elsif info_id_in_sequence.index(@info.id)
       info_id_in_sequence[info_id_in_sequence.index(@info.id) + 1]
+    else
+      Info.where(hide_in_index_news: false).last.id
     end
 
     @previous_info = Info.find previous_info_id
