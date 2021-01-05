@@ -33,3 +33,12 @@ CREATE DATABASE thape_web_dev WITH ENCODING='UTF8';
 \q
 psql -d thape_web_dev -f thape_web_prod.sql
 ```
+
+## Import to dev DB in WSL2 Ubuntu
+
+```bash
+sudo service postgresql start
+sudo -u postgres createuser yxh
+sudo -u postgres createdb thape_web_dev
+psql -d thape_web_dev -f thape_web_prod.sql
+```
