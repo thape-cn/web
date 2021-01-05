@@ -22,3 +22,14 @@ RAILS_ENV=production bin/webpack
 bin/webpack-dev-server
 bin/rails s # run in seperate console
 ```
+
+## Import to dev DB.
+
+```bash
+unzip thape_web_prod.zip
+psql -d postgres
+DROP DATABASE thape_web_dev;
+CREATE DATABASE thape_web_dev WITH ENCODING='UTF8';
+\q
+psql -d thape_web_dev -f thape_web_prod.sql
+```
