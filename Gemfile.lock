@@ -11,7 +11,7 @@ GIT
       thor
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.com/
   specs:
     actioncable (6.1.0)
       actionpack (= 6.1.0)
