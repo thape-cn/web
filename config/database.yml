@@ -3,19 +3,20 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   primary:
     <<: *default
     database: thape_web_dev
   tianhua2019:
+    <<: *default
     adapter: sqlite3
-    timeout: 5000
     database: db/tianhua2019.sqlite3
     migrations_paths: "db/tianhua2019_migrate"
   tianhua2020:
+    <<: *default
     adapter: sqlite3
-    timeout: 5000
     database: db/tianhua2020.sqlite3
     migrations_paths: "db/tianhua2020_migrate"
 
