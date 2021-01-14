@@ -106,5 +106,7 @@ Rails.application.routes.draw do
 
   resources :tianhua2019s, only: [:show, :index]
 
+  resources :tianhua2020s, only: [:show, :index]
+
   root 'home#show'
 end
