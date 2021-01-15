@@ -33,7 +33,7 @@ function setElementGlobal(hypeDocument) {
   setElement('p10-course-number', tianhua2020.p10_course_number);
 
   setElement('p11-finish-course', tianhua2020.p11_finish_course);
-  setElement('p11-study-time', tianhua2020.p11_finish_course);
+  setElement('p11-study-time', tianhua2020.p11_study_time);
   setElement('p11-study-point', tianhua2020.p11_study_point);
   setElement('p11-study-rate', tianhua2020.p11_study_rate);
   setElement('p11-study-award', tianhua2020.p11_study_award);
