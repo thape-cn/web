@@ -40,8 +40,8 @@ class Tianhua2020sController < ApplicationController
 
     p10_course_number = '<b><font color="#df695a" style="font-size: 50px;">' + r.p10_course_number.to_s + '</font></b>次课程'
 
-    p11_finish_course = '在这一年，你共完成了<font color="#f9bf3d"><b>' + r.p11_finish_course.to_s + '</b></font>门在线'
-    p11_study_time = '课程的学习，总时长<font color="#f9bf3d"><b>' + r.p11_study_time.to_s + '</b></font>分钟'
+    p11_finish_course = '在这一年，你共完成了<font color="#f9bf3d"><b>' + r.p11_finish_course.to_i.to_s + '</b></font>门在线'
+    p11_study_time = '课程的学习，总时长<font color="#f9bf3d"><b>' + r.p11_study_time.round(1).to_s + '</b></font>分钟'
     p11_study_point = '可兑换<font color="#f9bf3d"><b>' + r.p11_study_point.to_s + '</b></font>积分'
     p11_study_rate = '超过了<font color="#f9bf3d"><b>' + (r.p11_study_rate*100).round(0).to_s + '%</b></font>的小伙伴'
     p11_study_award = r.p11_study_award.to_s + '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
@@ -52,8 +52,8 @@ class Tianhua2020sController < ApplicationController
     p14_coparter_org_dept = "#{r.p14_coparter_org}-#{r.p14_coparter_dept}"
     p14_cohours = '项目上共同奋战了<b><font color="#df695a">' + r.p14_cohours.to_s + '</font></b>小时'
 
-    p15_7777 = '<font color="#df695a"><b style="font-size: 50px;">' + r.p15_7777.to_s + '</b></font>次'
-    p15_reimburse = '发起报销<font color="#df695a"><b style="font-size: 50px;">' + r.p15_reimburse.to_s + '</b></font>次'
+    p15_7777 = '<font color="#df695a"><b style="font-size: 50px;">' + r.p15_7777.to_i.to_s + '</b></font>次'
+    p15_reimburse = '发起报销<font color="#df695a"><b style="font-size: 50px;">' + r.p15_reimburse.to_i.to_s + '</b></font>次'
 
     p17_oa_login = r.p17_oa_login.to_s + '<span style="font-size: 25px; font-weight: normal;"><font color="#363b46">天</font></span>'
     p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
