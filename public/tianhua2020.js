@@ -1,3 +1,25 @@
+function showOrSkipNextSceneGlobal(hypeDocument) {
+  var currentScene = hypeDocument.currentSceneName();
+  console.log("showOrSkipNextSceneGlobal", currentScene);
+  switch (currentScene) {
+    case '立FLAG页':
+      hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    default:
+      hypeDocument.showNextScene(hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
+  }
+}
+
+function showOrSkipPreviousSceneGlobal(hypeDocument) {
+  var currentScene = hypeDocument.currentSceneName();
+  console.log("showOrSkipPreviousSceneGlobal", currentScene);
+  switch (currentScene) {
+    case '封面页':
+      hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
+    default:
+      hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+  }
+}
+
 function setElementGlobal(hypeDocument) {
   function setElement(element_id, content) {
       var element = hypeDocument.getElementById(element_id)
