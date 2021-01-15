@@ -1,3 +1,32 @@
+var p11_need_display = tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award
+
+var document_deps = {
+  "封面页": true,
+  "工龄页": tianhua2020.p1_name && tianhua2020.p1_workbirthday,
+  "工时页": true,
+  "忙碌程度页": tianhua2020.p3_workrate,
+  "忙碌月周页": tianhua2020.p4_busymonth && tianhua2020.p4_busy_week,
+  "二线忙碌月页": tianhua2020.p4_workcom,
+  "参与多个项目页": tianhua2020.p6_city && tianhua2020.p6_hometown,
+  "参与项目单城页": tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown,
+  "参与项目详情页": tianhua2020.p7_coworkprj && tianhua2020.p7_customer,
+  "设计大奖页": tianhua2020.p8_design_prj && tianhua2020.p8_design_award,
+  "设计例会页": tianhua2020.p9_design_meeting_times && tianhua2020.p9_design_meeting_score && tianhua2020.p9_design_meeting_rate,
+  "天华讲师页": tianhua2020.p10_teacher_level && tianhua2020.p10_course_number,
+  "天华学习页": p11_need_display,
+  "逃学天华页": !p11_need_display,
+  "知识管理页": tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part,
+  "职位晋升页": tianhua2020.p13_new_title,
+  "亲密战友页": tianhua2020.p14_coparter_org_dept && tianhua2020.p14_coparter && tianhua2020.p14_coprj && tianhua2020.p14_cohours,
+  "报销求助页": tianhua2020.p15_7777 && tianhua2020.p15_reimburse,
+  "导师班主任页": tianhua2020.p16_teacher && tianhua2020.p16_adviser,
+  "一位导师页": tianhua2020.p16_teacher,
+  "班主任页": tianhua2020.p16_adviser,
+  "寻找导师页": !(tianhua2020.p16_teacher && tianhua2020.p16_adviser),
+  "内网登录页": tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv,
+  "立FLAG页": true
+}
+
 function showOrSkipNextSceneGlobal(hypeDocument) {
   var currentScene = hypeDocument.currentSceneName();
   console.log("showOrSkipNextSceneGlobal", currentScene);
@@ -41,6 +70,7 @@ function setElementGlobal(hypeDocument) {
   setElement('p6-totalarea-1', tianhua2020.p6_totalarea);
   setElement('p6-city-1', tianhua2020.p6_city);
   setElement('p6-hometown-1', tianhua2020.p6_hometown);
+
   setElement('p6-prjno-2', tianhua2020.p6_prjno);
   setElement('p6-totalarea-2', tianhua2020.p6_totalarea);
   setElement('p6-hometown-2', tianhua2020.p6_hometown);
