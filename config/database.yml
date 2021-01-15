@@ -25,8 +25,19 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: thape_web_test
+  primary:
+    <<: *default
+    database: thape_web_test
+  tianhua2019:
+    <<: *default
+    adapter: sqlite3
+    database: db/tianhua2019.sqlite3
+    migrations_paths: "db/tianhua2019_migrate"
+  tianhua2020:
+    <<: *default
+    adapter: sqlite3
+    database: db/tianhua2020.sqlite3
+    migrations_paths: "db/tianhua2020_migrate"
 
 production:
   <<: *default
