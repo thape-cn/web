@@ -43,6 +43,7 @@ class Tianhua2020sController < ApplicationController
     p11_finish_course = '在这一年，你共完成了<font color="#f9bf3d"><b>' + r.p11_finish_course.to_s + '</b></font>门在线'
     p11_study_time = '课程的学习，总时长<font color="#f9bf3d"><b>' + r.p11_study_time.to_s + '</b></font>分钟'
     p11_study_point = '可兑换<font color="#f9bf3d"><b>' + r.p11_study_point.to_s + '</b></font>积分'
+    p11_study_rate = '超过了<font color="#f9bf3d"><b>' + (r.p11_study_rate*100).round(0).to_s + '%</b></font>的小伙伴'
     p11_study_award = r.p11_study_award.to_s + '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
 
     p12_km_login_date = '共有<font color="#df695a"><b>' + r.p12_km_login_date.to_s + '</b></font>天，你登陆过KM'
@@ -79,6 +80,7 @@ class Tianhua2020sController < ApplicationController
       p11_finish_course: p11_finish_course,
       p11_study_time: p11_study_time,
       p11_study_point: p11_study_point,
+      p11_study_rate: p11_study_rate,
       p11_study_award: p11_study_award,
       p12_km_login_date: p12_km_login_date,
       p12_km_login_times: p12_km_login_times,
