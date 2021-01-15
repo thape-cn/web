@@ -8,7 +8,7 @@ AllCops:
     - 'db/**/*'
     - 'bin/**/*'
   DisabledByDefault: true
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 3.0
 
 Style/FrozenStringLiteralComment:
   Enabled: false
