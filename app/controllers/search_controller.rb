@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchController < ApplicationController
   def query
     @city = City.find_by name: params[:q]
@@ -10,7 +12,7 @@ class SearchController < ApplicationController
       .limit(15)
     end
     @people_results = if @city.present?
-      Person.includes(:city_people).where(leaving_date: nil).where(city_people: {city_id: @city.id}).order(position: :asc)
+      Person.includes(:city_people).where(leaving_date: nil).where(city_people: { city_id: @city.id }).order(position: :asc)
     else
       Person.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
           .where(leaving_date: nil).where('person_translations.name like ?', "%#{params[:q]}%").limit(15)

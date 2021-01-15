@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://www.thape.com"
+SitemapGenerator::Sitemap.default_host = 'https://www.thape.com'
 SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
@@ -13,7 +15,7 @@ SitemapGenerator::Sitemap.create do
   #
   # Defaults: :priority => 0.5, :changefreq => 'weekly',
   #           :lastmod => Time.now, :host => default_host
-  
+
   add residential_works_path, priority: 0.60, changefreq: 'weekly'
   add residential_rental_works_path, priority: 0.60, changefreq: 'weekly'
   add residential_community_works_path, priority: 0.60, changefreq: 'weekly'

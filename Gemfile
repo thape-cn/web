@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://gems.ruby-china.com'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -39,7 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-gem "carrierwave"
+gem 'carrierwave'
 gem 'carrierwave-aliyun'
 
 gem 'globalize', '~> 6.0.0.alpha.1'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 set :nginx_use_ssl, true
 set :rails_env, 'production'
 set :branch, :main

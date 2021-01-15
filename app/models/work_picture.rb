@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WorkPicture < ApplicationRecord
   belongs_to :work
   mount_uploader :album_jpg, JpgUploader

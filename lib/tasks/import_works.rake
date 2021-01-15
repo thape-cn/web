@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 namespace :import_works do
-  desc "Import the CSV to works"
+  desc 'Import the CSV to works'
   task :from_csv, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
@@ -74,7 +76,6 @@ namespace :import_works do
         pt = ProjectType.find_by!(cn_name: 大类别)
         WorkProjectType.find_or_create_by!(work_id: work.id, project_type_id: pt.id)
       end
-
     end
   end
 end

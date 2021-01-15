@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Person < ApplicationRecord
   has_many :city_people, dependent: :destroy
   has_many :cities, through: :city_people
@@ -12,7 +14,7 @@ class Person < ApplicationRecord
 
   private
 
-  def set_new_position
-    self.position = Person.count
-  end
+    def set_new_position
+      self.position = Person.count
+    end
 end

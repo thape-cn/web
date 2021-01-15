@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Tianhua2019sController < ApplicationController
   wechat_api
-  layout "tianhua2019"
+  layout 'tianhua2019'
 
   def show
     release_date = Date.new(2020, 1, 20)
@@ -20,7 +22,7 @@ class Tianhua2019sController < ApplicationController
     end
     page3_filling_rate = if r.fill_rate.present?
       if r.fill_rate < 0.01
-        "1%"
+        '1%'
       else
         "#{(r.fill_rate*100).to_i}%"
       end
@@ -143,18 +145,18 @@ class Tianhua2019sController < ApplicationController
 
   private
 
-  def years_between_dates(date_from, date_to = Date.new(2020, 1, 20))
-    ((date_to - date_from) / 365).ceil
-  end
+    def years_between_dates(date_from, date_to = Date.new(2020, 1, 20))
+      ((date_to - date_from) / 365).ceil
+    end
 
-  def max_workday(max_key)
-    return '周四' unless max_key.present?
-    {
-      Monday: '周一',
-      Tuesday: '周二',
-      Wednesday: '周三',
-      Thursday: '周四',
-      Friday: '周五',
-    }[max_key.to_sym]
-  end
+    def max_workday(max_key)
+      return '周四' unless max_key.present?
+      {
+        Monday: '周一',
+        Tuesday: '周二',
+        Wednesday: '周三',
+        Thursday: '周四',
+        Friday: '周五',
+      }[max_key.to_sym]
+    end
 end

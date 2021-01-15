@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Info < ApplicationRecord
   mount_uploader :picture, PictureUploader
   mount_uploader :banner, BannerUploader
@@ -14,7 +16,7 @@ class Info < ApplicationRecord
 
   private
 
-  def set_new_position
-    self.position = Info.count
-  end
+    def set_new_position
+      self.position = Info.count
+    end
 end

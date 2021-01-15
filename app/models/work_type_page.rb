@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WorkTypePage < ApplicationRecord
   mount_uploader :resdential_jpg, PictureUploader
   mount_uploader :resdential_webp, PictureUploader

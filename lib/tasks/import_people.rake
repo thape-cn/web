@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'csv'
 require 'chinese_pinyin'
 
 namespace :import_people do
-  desc "Import the CSV to people"
+  desc 'Import the CSV to people'
   task :from_csv, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
@@ -77,8 +79,8 @@ namespace :import_people do
     person_city.update(city_title: city_title)
   end
 
-  desc "Update the people position"
-  task :update_position,[:csv_file] => [:environment] do |task, args|
+  desc 'Update the people position'
+  task :update_position, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
       序号 = row['序号']&.strip
@@ -90,8 +92,8 @@ namespace :import_people do
     end
   end
 
-  desc "Update the people English name and title"
-  task :update_en_title,[:csv_file] => [:environment] do |task, args|
+  desc 'Update the people English name and title'
+  task :update_en_title, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
       序号 = row['序号']&.strip

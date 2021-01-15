@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ServicesController < ApplicationController
   before_action :set_service_file
 
@@ -85,7 +87,7 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '可视化服务')
 
     render 'services', locals: {
-      background_img: ['media/images/vrtech-1.jpg','media/images/vrtech-2.jpg','media/images/vrtech-3.jpg','media/images/vrtech-4.jpg','media/images/vrtech-5.jpg','media/images/vrtech-6.jpg'],
+      background_img: ['media/images/vrtech-1.jpg', 'media/images/vrtech-2.jpg', 'media/images/vrtech-3.jpg', 'media/images/vrtech-4.jpg', 'media/images/vrtech-5.jpg', 'media/images/vrtech-6.jpg'],
       background_img_webp: [],
       chinese_title: '可视化',
       english_title: 'VISUALIZATION',
@@ -97,7 +99,7 @@ class ServicesController < ApplicationController
 
   private
 
-  def set_service_file
-    @service_file = ServiceFile.first
-  end
+    def set_service_file
+      @service_file = ServiceFile.first
+    end
 end

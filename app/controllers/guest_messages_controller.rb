@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GuestMessagesController < ApplicationController
   def create
     GuestMessage.create(guest_param)
@@ -5,8 +7,8 @@ class GuestMessagesController < ApplicationController
 
   private
 
-  def guest_param
-    params.require(:guest)
-      .permit(:message, :name, :company, :contact_details)
-  end
+    def guest_param
+      params.require(:guest)
+        .permit(:message, :name, :company, :contact_details)
+    end
 end

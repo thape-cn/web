@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Tianhua2020sController < ApplicationController
   wechat_api
-  layout "tianhua2020"
+  layout 'tianhua2020'
 
   def show
     release_date = DateTime.new(2021, 1, 22)
@@ -103,19 +105,18 @@ class Tianhua2020sController < ApplicationController
 
   private
 
-  def years_between_dates(date_from, date_to = Date.new(2021, 1, 20))
-    ((date_to - date_from) / 365).ceil
-  end
+    def years_between_dates(date_from, date_to = Date.new(2021, 1, 20))
+      ((date_to - date_from) / 365).ceil
+    end
 
-  def max_workday(max_key)
-    return '4' unless max_key.present?
-    {
-      Monday: '1',
-      Tuesday: '2',
-      Wednesday: '3',
-      Thursday: '4',
-      Friday: '5',
-    }[max_key.to_sym]
-  end
+    def max_workday(max_key)
+      return '4' unless max_key.present?
+      {
+        Monday: '1',
+        Tuesday: '2',
+        Wednesday: '3',
+        Thursday: '4',
+        Friday: '5',
+      }[max_key.to_sym]
+    end
 end
-  

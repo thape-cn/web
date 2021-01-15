@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TailHome < ApplicationRecord
   has_one :hero_news, class_name: 'Info', foreign_key: :id, primary_key: :hero_news_id
   has_one :work_1, class_name: 'Work', foreign_key: :id, primary_key: :new_project_1_id

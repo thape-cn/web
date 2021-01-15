@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WorksController < ApplicationController
   def index
     @project_type = {}
@@ -199,37 +201,37 @@ class WorksController < ApplicationController
 
   private
 
-  def works_query_scope(q)
-    Work.where('work_translations.project_name LIKE ?', "%#{q}%")
-      .or(Work.where('work_translations.client LIKE ?', "%#{q}%"))
-      .or(Work.where('work_translations.team LIKE ?', "%#{q}%"))
-      .or(Work.where('work_translations.cooperation LIKE ?', "%#{q}%"))
-      .or(Work.where('work_translations.awards LIKE ?', "%#{q}%"))
-      .joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
-      .order(position: :asc)
-      .distinct
-  end
+    def works_query_scope(q)
+      Work.where('work_translations.project_name LIKE ?', "%#{q}%")
+        .or(Work.where('work_translations.client LIKE ?', "%#{q}%"))
+        .or(Work.where('work_translations.team LIKE ?', "%#{q}%"))
+        .or(Work.where('work_translations.cooperation LIKE ?', "%#{q}%"))
+        .or(Work.where('work_translations.awards LIKE ?', "%#{q}%"))
+        .joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
+        .order(position: :asc)
+        .distinct
+    end
 
-  def render_residential
-    @works = if params[:q].present?
-      works_query_scope(params[:q])
-    else
-      Work.all.order(position: :asc)
-    end.includes(:work_residential_types, work_project_types: :project_type)
-      .where(work_project_types: { project_types: { cn_name: '居住' } })
-      .where(work_residential_types: { residential_type_id: @residential_type.id })
-      .where(published: true).page(params[:page]).per(params[:per_page])
-    render :residential_detail
-  end
+    def render_residential
+      @works = if params[:q].present?
+        works_query_scope(params[:q])
+      else
+        Work.all.order(position: :asc)
+      end.includes(:work_residential_types, work_project_types: :project_type)
+        .where(work_project_types: { project_types: { cn_name: '居住' } })
+        .where(work_residential_types: { residential_type_id: @residential_type.id })
+        .where(published: true).page(params[:page]).per(params[:per_page])
+      render :residential_detail
+    end
 
-  def render_project_type
-    @works = if params[:q].present?
-      works_query_scope(params[:q])
-    else
-      Work.all.order(position: :asc)
-    end.includes(:work_project_types)
-      .where(work_project_types: { project_type_id: @project_type.id })
-      .where(published: true).page(params[:page]).per(params[:per_page])
-    render :works_detail
-  end
+    def render_project_type
+      @works = if params[:q].present?
+        works_query_scope(params[:q])
+      else
+        Work.all.order(position: :asc)
+      end.includes(:work_project_types)
+        .where(work_project_types: { project_type_id: @project_type.id })
+        .where(published: true).page(params[:page]).per(params[:per_page])
+      render :works_detail
+    end
 end

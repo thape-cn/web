@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Do yourself a favor and set these up right when you install the engine.
 
 CanonicalRails.setup do |config|
@@ -21,8 +23,8 @@ CanonicalRails.setup do |config|
   # Parameter spamming can cause index dilution by creating seemingly different URLs with identical or near-identical content.
   # Unless allowed, these parameters will be omitted
 
-  config.allowed_parameters# = []
+  config.allowed_parameters # = []
 
   # Output a matching OpenGraph URL meta tag (og:url) with the canonical URL, as recommended by Facebook et al
-  config.opengraph_url#= true
+  config.opengraph_url #= true
 end

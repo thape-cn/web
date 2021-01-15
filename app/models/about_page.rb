@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AboutPage < ApplicationRecord
   translates :thape_intro
 
