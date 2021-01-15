@@ -37,10 +37,13 @@ function setElementGlobal(hypeDocument) {
   setElement('p4-busy-week', tianhua2020.p4_busy_week);
   setElement('p4-workcom', tianhua2020.p4_workcom);
 
-  setElement('p6-prjno', tianhua2020.p6_prjno);
-  setElement('p6-totalarea', tianhua2020.p6_totalarea);
-  setElement('p6-city', tianhua2020.p6_city);
-  setElement('p6-hometown', tianhua2020.p6_hometown);
+  setElement('p6-prjno-1', tianhua2020.p6_prjno);
+  setElement('p6-totalarea-1', tianhua2020.p6_totalarea);
+  setElement('p6-city-1', tianhua2020.p6_city);
+  setElement('p6-hometown-1', tianhua2020.p6_hometown);
+  setElement('p6-prjno-2', tianhua2020.p6_prjno);
+  setElement('p6-totalarea-2', tianhua2020.p6_totalarea);
+  setElement('p6-hometown-2', tianhua2020.p6_hometown);
 
   setElement('p7-coworkprj', tianhua2020.p7_coworkprj);
   setElement('p7-customer', tianhua2020.p7_customer);
@@ -75,8 +78,10 @@ function setElementGlobal(hypeDocument) {
   setElement('p15-7777', tianhua2020.p15_7777);
   setElement('p15-reimburse', tianhua2020.p15_reimburse);
 
-  setElement('p16-teacher', tianhua2020.p16_teacher);
-  setElement('p16-adviser', tianhua2020.p16_adviser);
+  setElement('p16-teacher-1', tianhua2020.p16_teacher);
+  setElement('p16-teacher-2', tianhua2020.p16_teacher);
+  setElement('p16-adviser-1', tianhua2020.p16_adviser);
+  setElement('p16-adviser-2', tianhua2020.p16_adviser);
 
   setElement('p17-oa-login', tianhua2020.p17_oa_login);
   setElement('p17-oa-pv', tianhua2020.p17_oa_pv);
