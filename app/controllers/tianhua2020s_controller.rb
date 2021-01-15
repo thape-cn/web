@@ -38,6 +38,7 @@ class Tianhua2020sController < ApplicationController
       '<b style="font-size: 50px;"><font color="#f9bf3d">' + (r.p9_design_meeting_rate*100).round(0).to_s + '%</font></b>的小伙伴'
     end
 
+    p10_teacher_level = '作为天华的<b style="font-size: 50px;"><font color="#df695a">' + r.p10_teacher_level.to_s + '</font></b>讲师'
     p10_course_number = '<b><font color="#df695a" style="font-size: 50px;">' + r.p10_course_number.to_s + '</font></b>次课程'
 
     p11_finish_course = '在这一年，你共完成了<font color="#f9bf3d"><b>' + r.p11_finish_course.to_i.to_s + '</b></font>门在线'
@@ -76,6 +77,7 @@ class Tianhua2020sController < ApplicationController
       p9_design_meeting_times: p9_design_meeting_times,
       p9_design_meeting_score: p9_design_meeting_score,
       p9_design_meeting_rate: p9_design_meeting_rate,
+      p10_teacher_level: p10_teacher_level,
       p10_course_number: p10_course_number,
       p11_finish_course: p11_finish_course,
       p11_study_time: p11_study_time,
