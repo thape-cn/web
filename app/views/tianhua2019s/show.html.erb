@@ -5,14 +5,14 @@
       wx.onMenuShareTimeline({
           title: '<%= @name -%>的天华年度账单',
           link: '<%= tianhua2019_url(id: @clerkcode) -%>',
-          imgUrl: '<%= asset_pack_url("tianhua2019-bill.png") -%>'
+          imgUrl: '<%= asset_pack_url("media/images/tianhua2019-bill.png") -%>'
       });
 
       wx.onMenuShareAppMessage({
           title: '<%= @name -%>的天华年度账单',
           desc: '一起回顾<%= @name -%>与天华的2019',
           link: '<%= tianhua2019_url(id: @clerkcode) -%>',
-          imgUrl: '<%= asset_pack_url("tianhua2019-bill.png") -%>'
+          imgUrl: '<%= asset_pack_url("media/images/tianhua2019-bill.png") -%>'
       });
     });
   }
