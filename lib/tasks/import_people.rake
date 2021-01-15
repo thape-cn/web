@@ -24,8 +24,6 @@ namespace :import_people do
 
       团队归属 = row['团队归属']&.strip
 
-      原官网标记 = row['原官网标记']&.strip
-
       姓名 = row['姓名']&.strip
       抬头1 = row['抬头1']&.strip
       抬头2 = row['抬头2']&.strip
@@ -35,12 +33,11 @@ namespace :import_people do
       抬头6 = row['抬头6']&.strip
       抬头7 = row['抬头7']&.strip
 
-
       I18n.locale = :cn
 
-      person = Person.find_or_create_by(name: 姓名) do |person|
-        person.name = 姓名
-        person.in_old_web = false
+      person = Person.find_or_create_by(name: 姓名) do |p|
+        p.name = 姓名
+        p.in_old_web = false
       end
 
       person.position = 序号
@@ -85,7 +82,6 @@ namespace :import_people do
     CSV.foreach(csv_file_path, headers: true) do |row|
       序号 = row['序号']&.strip
 
-      团队 = row['团队']&.strip
       姓名 = row['姓名']&.strip
       person = Person.find_by name: 姓名
       person.update(position: 序号)
@@ -96,9 +92,6 @@ namespace :import_people do
   task :update_en_title, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
-      序号 = row['序号']&.strip
-
-      团队 = row['团队']&.strip
       姓名 = row['姓名']&.strip
       name = row['NAME']&.strip
       I18n.locale = :cn

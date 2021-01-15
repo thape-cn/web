@@ -8,7 +8,6 @@ namespace :import_works do
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
       大类别s = row['大类别'].split(',')
-      小类别 = row['小类别']
 
       中文项目名称 = row['中文项目名称']&.strip
       英文项目名称 = row['英文项目名称']&.strip
@@ -17,7 +16,6 @@ namespace :import_works do
       CLIENT = row['CLIENT']&.strip
 
       设计完成时间 = row['设计完成时间']&.strip
-      竣工时间 = row['竣工时间']&.strip
 
       所在城市 = row['所在城市']&.strip
       所属区域 = row['区域']&.strip
@@ -41,8 +39,8 @@ namespace :import_works do
 
       I18n.locale = :cn
 
-      work = Work.find_or_create_by(project_name: 中文项目名称) do |work|
-        work.project_name = 中文项目名称
+      work = Work.find_or_create_by(project_name: 中文项目名称) do |w|
+        w.project_name = 中文项目名称
       end
 
       work.client = 客户名称
