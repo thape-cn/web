@@ -40,6 +40,8 @@ class CreateTianhua2020s < ActiveRecord::Migration[6.1]
       t.integer :p17_oa_task
       t.integer :p17_oa_login
       t.integer :p17_oa_pv
+      t.string :p10_teacher_level
+      t.float :p11_study_rate
 
       t.timestamps
     end

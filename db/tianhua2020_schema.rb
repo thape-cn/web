@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_01_12_063659) do
     t.integer "p17_oa_task"
     t.integer "p17_oa_login"
     t.integer "p17_oa_pv"
+    t.string "p10_teacher_level"
+    t.float "p11_study_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
