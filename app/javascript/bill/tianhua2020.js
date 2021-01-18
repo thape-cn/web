@@ -370,3 +370,5 @@ function setElementGlobal(hypeDocument) {
   setElement('p17-oa-login', tianhua2020.p17_oa_login);
   setElement('p17-oa-pv', tianhua2020.p17_oa_pv);
 }
+
+export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal }
