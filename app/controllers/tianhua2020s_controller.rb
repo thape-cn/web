@@ -6,7 +6,7 @@ class Tianhua2020sController < ApplicationController
 
   def show
     release_date = DateTime.new(2021, 1, 22)
-    r = Tianhua2020.find_by!(clerkcode: params[:id])
+    r = Bill::Tianhua2020.find_by!(clerkcode: params[:id])
 
     @name = r.name
     @clerkcode = r.clerkcode

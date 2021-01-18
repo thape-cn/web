@@ -6,7 +6,7 @@ class Tianhua2019sController < ApplicationController
 
   def show
     release_date = Date.new(2020, 1, 20)
-    r = Tianhua2019.find_by!(clerkcode: params[:id])
+    r = Bill::Tianhua2019.find_by!(clerkcode: params[:id])
     page2_age = years_between_dates(r.firstday)
     page2_day = "#{(release_date - r.firstday).floor}<span style='caret-color: rgb(57, 106, 141); color: rgb(57, 106, 141); font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;Microsoft JhengHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Source Han Sans CN&quot;, &quot;Noto Sans SC&quot;, &quot;Source Han Sans TC&quot;, &quot;Noto Sans CJK TC&quot;, &quot;WenQuanYi Micro Hei&quot;, SimSun, sans-serif; font-size: 24px; font-weight: normal;'>天</span>".html_safe
     page2_comment = if page2_age >= 3
@@ -134,7 +134,7 @@ class Tianhua2019sController < ApplicationController
 
   def index
     wechat_oauth2 do |user_name|
-      tianhua2019 = Tianhua2019.find_by email: "#{user_name}@thape.com.cn"
+      tianhua2019 = Bill::Tianhua2019.find_by email: "#{user_name}@thape.com.cn"
       if tianhua2019.present?
         return redirect_to tianhua2019_path(id: tianhua2019.clerkcode)
       else
