@@ -82,6 +82,7 @@ class Tianhua2020sController < ApplicationController
     p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
 
     @tianhua2020 = {
+      clerk_code: r.clerkcode,
       p1_name: r.name,
       p1_workbirthday: p1_workbirthday,
       p3_workrate: p3_workrate,
@@ -121,6 +122,15 @@ class Tianhua2020sController < ApplicationController
       p17_oa_login: p17_oa_login,
       p17_oa_pv: p17_oa_pv,
     }
+  end
+
+
+  def create
+    clerk_code = params[:clerk_code]
+    to_who_name = params[:to_who_name]
+    message = params[:message]
+    to_user = Bill::Tianhua2020.find_by(name: to_who_name.gsub('@', ''))
+    Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user.clerkcode, message: message)
   end
 
   private

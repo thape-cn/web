@@ -1,7 +1,7 @@
 function submitFormButton(hypeDocument) {
   var to_who_name = hypeDocument.getElementById('to_who_name').value;
   var message = hypeDocument.getElementById('message').value;
-  console.log("to_who_name: ", to_who_name, "message", message);
+  console.log("to_who_name: ", to_who_name, "message", message, "clerk code", tianhua2020.clerk_code);
   hypeDocument.startTimelineNamed('Sendout', hypeDocument.kDirectionForward)
 }
 
