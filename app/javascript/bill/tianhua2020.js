@@ -2,6 +2,14 @@ function submitFormButton(hypeDocument) {
   var to_who_name = hypeDocument.getElementById('to_who_name').value;
   var message = hypeDocument.getElementById('message').value;
   console.log("to_who_name: ", to_who_name, "message", message, "clerk code", tianhua2020.clerk_code);
+  Rails.ajax({
+    url: "/tianhua2020s.json",
+    type: "POST",
+    data: { clerk_code: tianhua2020.clerk_code, to_who_name, message },
+    success: function(data) {
+      console.log(data);
+    }
+  });
   hypeDocument.startTimelineNamed('Sendout', hypeDocument.kDirectionForward)
 }
 
