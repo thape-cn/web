@@ -119,7 +119,7 @@ GEM
       image_processing (~> 1.1)
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
-    carrierwave-aliyun (1.2.1)
+    carrierwave-aliyun (1.2.2)
       aliyun-sdk (>= 0.7.0)
       carrierwave (>= 1)
     childprocess (3.0.0)
