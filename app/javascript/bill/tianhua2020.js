@@ -5,7 +5,7 @@ function submitFormButton(hypeDocument) {
   Rails.ajax({
     url: "/tianhua2020s.json",
     type: "POST",
-    data: { clerk_code: tianhua2020.clerk_code, to_who_name, message },
+    data: `clerk_code=${tianhua2020.clerk_code}&to_who_name=${encodeURIComponent(to_who_name)}&message=${encodeURIComponent(message)}`,
     success: function(data) {
       console.log(data);
     }
