@@ -41,7 +41,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -64,7 +64,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -85,7 +85,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -104,7 +104,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -120,7 +120,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -133,7 +133,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -144,7 +144,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
           hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -153,14 +153,14 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
       case '设计例会页':
         if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
           hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
-        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         }
         break;
       case '天华讲师页':
-        if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
           hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else {
           hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
@@ -303,7 +303,7 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
         hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
         hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
         hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
         hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
@@ -316,7 +316,7 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
         hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
         hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
         hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
         hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
@@ -327,7 +327,7 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
         hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
         hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
         hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
         hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
@@ -336,14 +336,14 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
     case '职位晋升页':
       if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
         hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
         hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
         hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       }
       break;
     case '知识管理页':
-      if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+      if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate) {
         hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
         hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
