@@ -140,6 +140,9 @@ class Tianhua2020sController < ApplicationController
     head :ok
   end
 
+  def flag_board
+  end
+
   private
 
     def years_between_dates(date_from, date_to = Date.new(2021, 1, 20))

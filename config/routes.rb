@@ -107,7 +107,11 @@ Rails.application.routes.draw do
   get 'search', to: 'search#query'
 
   resources :tianhua2019s, only: %i[show index]
-  resources :tianhua2020s, only: %i[show create]
+  resources :tianhua2020s, only: %i[show create] do
+    member do
+      get :flag_board
+    end
+  end
 
   root 'home#show'
 end
