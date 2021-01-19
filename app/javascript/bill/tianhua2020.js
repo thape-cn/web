@@ -301,13 +301,220 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
 function showOrSkipPreviousSceneGlobal(hypeDocument) {
   var currentScene = hypeDocument.currentSceneName();
   switch (currentScene) {
-    case 'IT成就页':
-      if (tianhua2019.page13_call_count) {
-        hypeDocument.showSceneNamed('7777页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    case '立FLAG页':
+      if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
+        hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p16_teacher && tianhua2020.p16_adviser) {
+        hypeDocument.showSceneNamed('导师班主任页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p16_teacher) {
+        hypeDocument.showSceneNamed('一位导师页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p16_adviser) {
+        hypeDocument.showSceneNamed('班主任页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else {
-        hypeDocument.showSceneNamed('7777页空', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+        hypeDocument.showSceneNamed('寻找导师页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       }
       break;
+    case '内网登录页':
+      if (tianhua2020.p16_teacher && tianhua2020.p16_adviser) {
+        hypeDocument.showSceneNamed('导师班主任页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p16_teacher) {
+        hypeDocument.showSceneNamed('一位导师页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p16_adviser) {
+        hypeDocument.showSceneNamed('班主任页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('寻找导师页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '导师班主任页':
+    case '一位导师页':
+    case '班主任页':
+    case '寻找导师页':
+      if (tianhua2020.p15_7777 && tianhua2020.p15_reimburse) {
+        hypeDocument.showSceneNamed('报销求助页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p14_coparter_org_dept && tianhua2020.p14_coparter && tianhua2020.p14_coprj && tianhua2020.p14_cohours) {
+        hypeDocument.showSceneNamed('亲密战友页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p13_new_title) {
+        hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
+        hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '报销求助页':
+      if (tianhua2020.p14_coparter_org_dept && tianhua2020.p14_coparter && tianhua2020.p14_coprj && tianhua2020.p14_cohours) {
+        hypeDocument.showSceneNamed('亲密战友页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p13_new_title) {
+        hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
+        hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '亲密战友页':
+      if (tianhua2020.p13_new_title) {
+        hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
+        hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '职位晋升页':
+      if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part) {
+        hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '知识管理页':
+      if (tianhua2020.p11_finish_course && tianhua2020.p11_study_time && tianhua2020.p11_study_point && tianhua2020.p11_study_rate && tianhua2020.p11_study_award) {
+        hypeDocument.showSceneNamed('天华学习页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('逃学天华页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '天华学习页':
+    case '逃学天华页':
+      if (tianhua2020.p10_teacher_level && tianhua2020.p10_course_number) {
+        hypeDocument.showSceneNamed('天华讲师页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p9_design_meeting_times && tianhua2020.p9_design_meeting_score && tianhua2020.p9_design_meeting_rate) {
+        hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p8_design_prj && tianhua2020.p8_design_award) {
+        hypeDocument.showSceneNamed('设计大奖页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p7_coworkprj && tianhua2020.p7_customer) {
+        hypeDocument.showSceneNamed('参与项目详情页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_city && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与多个项目页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与项目单城页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '天华讲师页':
+      if (tianhua2020.p9_design_meeting_times && tianhua2020.p9_design_meeting_score && tianhua2020.p9_design_meeting_rate) {
+        hypeDocument.showSceneNamed('设计例会页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p8_design_prj && tianhua2020.p8_design_award) {
+        hypeDocument.showSceneNamed('设计大奖页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p7_coworkprj && tianhua2020.p7_customer) {
+        hypeDocument.showSceneNamed('参与项目详情页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_city && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与多个项目页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与项目单城页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '设计例会页':
+      if (tianhua2020.p8_design_prj && tianhua2020.p8_design_award) {
+        hypeDocument.showSceneNamed('设计大奖页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p7_coworkprj && tianhua2020.p7_customer) {
+        hypeDocument.showSceneNamed('参与项目详情页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_city && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与多个项目页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与项目单城页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '设计大奖页':
+      if (tianhua2020.p7_coworkprj && tianhua2020.p7_customer) {
+        hypeDocument.showSceneNamed('参与项目详情页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_city && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与多个项目页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与项目单城页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '参与项目详情页':
+      if (tianhua2020.p6_city && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与多个项目页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p6_prjno && tianhua2020.p6_totalarea && tianhua2020.p6_hometown) {
+        hypeDocument.showSceneNamed('参与项目单城页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '参与多个项目页':
+    case '参与项目单城页':
+      if (tianhua2020.p4_workcom) {
+        hypeDocument.showSceneNamed('二线忙碌月页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '二线忙碌月页':
+      if (tianhua2020.p4_busymonth && tianhua2020.p4_busy_week) {
+        hypeDocument.showSceneNamed('忙碌月周页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '忙碌月周页':
+      if (tianhua2020.p3_workrate) {
+        hypeDocument.showSceneNamed('忙碌程度页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      } else {
+        hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      }
+      break;
+    case '忙碌程度页':
+      hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    case '工时页':
+      hypeDocument.showSceneNamed('工龄页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    case '工龄页':
+      hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    case '封面页':
+      hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
   }
 }
   
