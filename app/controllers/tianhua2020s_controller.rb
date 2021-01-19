@@ -21,7 +21,7 @@ class Tianhua2020sController < ApplicationController
     p4_busy_week = if r.p4_busyweek.present?
       '每周<b style="font-size: 50px;"><font color="#f9bf3d">'+ max_workday(r.p4_busyweek).to_s+'</font></b>通常是你战斗力爆表的时刻'
     end
-    p4_workcom = if r.p4_busymonth.present?
+    p4_workcom = if r.p4_workcom.present?
       '<span style="font-size: 50px;"><font color="#f9bf3d"><b>' + r.p4_busymonth.to_s + '月</b></font></span>是<br><font color="#f9bf3d"><b><span style="font-size: 50px;">' + r.p4_workcom.to_s + '</span><br></b></font>最忙碌的月份<br>'
     end
     p6_prjno = if r.p6_prjno.present?
@@ -40,6 +40,7 @@ class Tianhua2020sController < ApplicationController
         "<div>#{city}</div>"
       end.join
     end
+
     p9_design_meeting_times = if r.p9_design_meeting_times.present?
       '你共参加了<b style="font-size: 50px;"><font color="#f9bf3d">' + r.p9_design_meeting_times.to_s + '</font></b>次设计例会'
     end
@@ -75,8 +76,12 @@ class Tianhua2020sController < ApplicationController
     p14_coparter_org_dept = "#{r.p14_coparter_org}-#{r.p14_coparter_dept}"
     p14_cohours = '项目上共同奋战了<b><font color="#df695a">' + r.p14_cohours.to_s + '</font></b>小时'
 
-    p15_7777 = '<font color="#df695a"><b style="font-size: 50px;">' + r.p15_7777.to_i.to_s + '</b></font>次'
-    p15_reimburse = '发起报销<font color="#df695a"><b style="font-size: 50px;">' + r.p15_reimburse.to_i.to_s + '</b></font>次'
+    p15_7777 = if r.p15_7777.present?
+      '<font color="#df695a"><b style="font-size: 50px;">' + r.p15_7777.to_i.to_s + '</b></font>次'
+    end
+    p15_reimburse = if r.p15_reimburse.present?
+      '发起报销<font color="#df695a"><b style="font-size: 50px;">' + r.p15_reimburse.to_i.to_s + '</b></font>次'
+    end
 
     p17_oa_login = r.p17_oa_login.to_s + '<span style="font-size: 25px; font-weight: normal;"><font color="#363b46">天</font></span>'
     p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
