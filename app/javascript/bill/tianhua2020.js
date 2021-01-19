@@ -110,6 +110,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
         }
         break;
       case '参与多个项目页':
+      case '参与项目单城页':
         if(tianhua2020.p7_coworkprj && tianhua2020.p7_customer) {
           hypeDocument.showSceneNamed('参与项目详情页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);   
         } else if (tianhua2020.p8_design_prj && tianhua2020.p8_design_award) {
@@ -165,6 +166,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
         }
         break;
       case '天华学习页':
+      case '逃学天华页':
         if(tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part){
           hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
         }else if(tianhua2020.p13_new_title){
@@ -180,25 +182,6 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
         }else if(tianhua2020.p16_adviser){
           hypeDocument.showSceneNamed('班主任页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
         }else{
-          hypeDocument.showSceneNamed('寻找导师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        }
-        break;
-      case '逃学天华页':
-        if (tianhua2020.p12_km_login_date && tianhua2020.p12_km_login_times && tianhua2020.p12_km_pop_part){
-          hypeDocument.showSceneNamed('知识管理页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p13_new_title){
-          hypeDocument.showSceneNamed('职位晋升页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p14_coparter_org_dept && tianhua2020.p14_coparter && tianhua2020.p14_coprj && tianhua2020.p14_cohours){
-          hypeDocument.showSceneNamed('亲密战友页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p15_7777 && tianhua2020.p15_reimburse){
-          hypeDocument.showSceneNamed('报销求助页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p16_teacher && tianhua2020.p16_adviser){
-          hypeDocument.showSceneNamed('导师班主任页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p16_teacher){
-          hypeDocument.showSceneNamed('一位导师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else if (tianhua2020.p16_adviser){
-          hypeDocument.showSceneNamed('班主任页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else {
           hypeDocument.showSceneNamed('寻找导师页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
         }
         break;
@@ -259,26 +242,8 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
         }
         break;
       case '导师班主任页':
-        if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
-          hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else {
-          hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        }
-        break;
       case '一位导师页':
-        if(tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
-          hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else {
-          hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        }
-        break;
       case '班主任页':
-        if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
-          hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        } else {
-          hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
-        }
-        break;
       case '寻找导师页':
         if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
           hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
@@ -515,6 +480,9 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
       hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
     case '封面页':
       hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+    default:
+      hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      break;
   }
 }
   
