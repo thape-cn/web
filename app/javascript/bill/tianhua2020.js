@@ -493,6 +493,12 @@ function setElementGlobal(hypeDocument) {
         element.innerHTML=content;
       }
   }
+  function hideElement(element_id) {
+    var element = hypeDocument.getElementById(element_id);
+    if(element) {
+      element.style.display = "none";
+    }
+  }
 
   setElement('p1-name', tianhua2020.p1_name);
   setElement('p1-workbirthday', tianhua2020.p1_workbirthday);
@@ -552,6 +558,9 @@ function setElementGlobal(hypeDocument) {
 
   setElement('p17-oa-login', tianhua2020.p17_oa_login);
   setElement('p17-oa-pv', tianhua2020.p17_oa_pv);
+  if(!tianhua2020.flag_issued) {
+    hideElement('show-goto-flagboard');
+  }
 }
 
 export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal }
