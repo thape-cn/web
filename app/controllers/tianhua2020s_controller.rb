@@ -121,6 +121,7 @@ class Tianhua2020sController < ApplicationController
       p16_adviser: r.p16_adviser,
       p17_oa_login: p17_oa_login,
       p17_oa_pv: p17_oa_pv,
+      flag_issued: Bill::Flag2020Board.find_by(from_clerkcode: r.clerkcode).present?
     }
   end
 
@@ -130,7 +131,8 @@ class Tianhua2020sController < ApplicationController
     to_who_name = params[:to_who_name]
     message = params[:message]
     to_user = Bill::Tianhua2020.find_by(name: to_who_name.gsub('@', ''))
-    Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user.clerkcode, message: message)
+    Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user&.clerkcode, message: message)
+    head :ok
   end
 
   private
