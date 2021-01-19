@@ -9,7 +9,7 @@
 .big_text {
   font-size: 25px;
   color: #FCF3DF;
-  line-height: 18px;
+  line-height: 26px;
 }
 .small_text {
   font-size: 18px;
@@ -26,11 +26,13 @@
   <div class="center">
     <h1 class="big_text" style="margin-bottom: 30px">新的一年，我的Flag——</h1>
 
-    <h1 class="big_text"><strong>听说立FLAG是新年的刚需</strong></h1>
-    <h1 class="big_text"><strong>快来给自己定几个小目标吧</strong></h1>
-    <h1 class="big_text"><strong>说不定就实现了呢？</strong></h1>
+    <h1 class="big_text"><strong>听说立FLAG是新年的刚需<br />快来给自己定几个小目标吧<br />说不定就实现了呢？</strong></h1>
 
-    <h1 class="big_text"><strong>2021我要————</strong></h1>
+    <h1 class="big_text" style="margin-bottom: 50px"><strong>2021我要————</strong></h1>
+
+    <% @my_flags.each do |flag| %>
+      <h1 class="big_text" style="margin-bottom: 30px"><strong><%= flag.message %></strong></h1>
+    <% end %>
   </div>
 </div>
 <div class="receive_flag">
@@ -39,5 +41,10 @@
 
     <h2 class="small_text">ps: 要严格履行监督人的义务哦，</h2>
     <h2 class="small_text" style="margin-bottom: 50px">防止他们遗(dǎ)忘(liǎn)</h2>
+
+    <% @witness_flags.each do |flag| %>
+      <h1 class="big_text"><strong><%= Bill::Tianhua2020.find_by(clerkcode: flag.from_clerkcode)&.name %>：</strong></h1>
+      <h1 class="big_text" style="margin-bottom: 30px"><strong><%= flag.message %></strong></h1>
+    <% end %>
   </div>
 </div>

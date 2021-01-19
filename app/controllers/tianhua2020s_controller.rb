@@ -141,6 +141,10 @@ class Tianhua2020sController < ApplicationController
   end
 
   def flag_board
+    clerk_code = params[:id]
+    @my_flags = Bill::Flag2020Board.where(from_clerkcode: clerk_code)
+
+    @witness_flags = Bill::Flag2020Board.where(to_clerkcode: clerk_code)
   end
 
   private

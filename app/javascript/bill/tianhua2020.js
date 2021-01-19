@@ -7,6 +7,7 @@ function submitFormButton(hypeDocument) {
     type: "POST",
     data: `clerk_code=${tianhua2020.clerk_code}&to_who_name=${encodeURIComponent(to_who_name)}&message=${encodeURIComponent(message)}`,
     success: function(data) {
+      tianhua2020.flag_issued=true;
       console.log(data);
     }
   });
