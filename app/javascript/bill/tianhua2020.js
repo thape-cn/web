@@ -564,4 +564,8 @@ function setElementGlobal(hypeDocument) {
   }
 }
 
-export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal }
+function gotoFlagBoardGlobal(hypeDocument) {
+  window.location.href = `/tianhua2020s/${tianhua2020.clerk_code}/flag_board`;
+}
+
+export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal, gotoFlagBoardGlobal }
