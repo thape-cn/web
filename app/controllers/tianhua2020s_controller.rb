@@ -6,7 +6,7 @@ class Tianhua2020sController < ApplicationController
 
   def show
     release_date = DateTime.new(2021, 1, 22)
-    r = Tianhua2020.find_by!(clerkcode: params[:id])
+    r = Bill::Tianhua2020.find_by!(clerkcode: params[:id])
 
     @name = r.name
     @clerkcode = r.clerkcode
@@ -65,7 +65,9 @@ class Tianhua2020sController < ApplicationController
     p11_study_rate = if r.p11_study_rate.present?
       '超过了<font color="#f9bf3d"><b>' + (r.p11_study_rate*100).round(0).to_s + '%</b></font>的小伙伴'
     end
-    p11_study_award = r.p11_study_award.split(',').join('<br>').to_s + '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
+    p11_study_award = if r.p11_study_award.present?
+      r.p11_study_award.split(',').join('<br>').to_s + '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
+    end
 
     p12_km_login_date = '共有<font color="#df695a"><b>' + r.p12_km_login_date.to_s + '</b></font>天，你登陆过KM'
     p12_km_login_times = '点击次数<font color="#df695a"><b>' + r.p12_km_login_times.to_s + '</b></font>次'
@@ -80,6 +82,7 @@ class Tianhua2020sController < ApplicationController
     p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
 
     @tianhua2020 = {
+      clerk_code: r.clerkcode,
       p1_name: r.name,
       p1_workbirthday: p1_workbirthday,
       p3_workrate: p3_workrate,
@@ -119,6 +122,15 @@ class Tianhua2020sController < ApplicationController
       p17_oa_login: p17_oa_login,
       p17_oa_pv: p17_oa_pv,
     }
+  end
+
+
+  def create
+    clerk_code = params[:clerk_code]
+    to_who_name = params[:to_who_name]
+    message = params[:message]
+    to_user = Bill::Tianhua2020.find_by(name: to_who_name.gsub('@', ''))
+    Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user.clerkcode, message: message)
   end
 
   private

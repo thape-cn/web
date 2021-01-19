@@ -1,5 +1,0 @@
-# frozen_string_literal: true
-
-class Tianhua2020 < ApplicationRecord
-  establish_connection :tianhua2020 unless Rails.env.test?
-end

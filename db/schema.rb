@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_054455) do
+ActiveRecord::Schema.define(version: 2021_01_18_084259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,14 @@ ActiveRecord::Schema.define(version: 2020_11_11_054455) do
     t.text "city_en_title"
     t.index ["city_id"], name: "index_city_people_on_city_id"
     t.index ["person_id"], name: "index_city_people_on_person_id"
+  end
+
+  create_table "flag2020_boards", force: :cascade do |t|
+    t.string "from_clerkcode"
+    t.string "to_clerkcode"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "guest_messages", id: :bigint, default: nil, force: :cascade do |t|
