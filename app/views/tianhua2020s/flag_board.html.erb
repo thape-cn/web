@@ -1,4 +1,7 @@
 <style type="text/css">
+body {
+  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
+}
 .my_flag {
   background-color: #EC6B5B;
 }
@@ -8,13 +11,11 @@
 }
 .big_text {
   font-size: 25px;
-  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
   color: #FCF3DF;
   line-height: 26px;
 }
 .small_text {
   font-size: 18px;
-  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
   color: #FCF3DF;
   line-height: 10px;
 }
@@ -23,6 +24,19 @@
   margin-right:auto;
   padding: 35px;
 }
+.note_background {
+  background-color: #DEDEDE;
+  padding: 20px;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.note_text {
+  font-size: 25px;
+  color: #FFC003;
+  margin: 0;
+  padding-bottom:  4px;
+  border-bottom: dashed #585858;
+}
 </style>
 <div class="my_flag">
   <div class="center">
@@ -30,16 +44,20 @@
 
     <h1 class="big_text"><strong>听说立FLAG是新年的刚需<br />快来给自己定几个小目标吧<br />说不定就实现了呢？</strong></h1>
 
-    <h1 class="big_text" style="margin-bottom: 50px"><strong>2021我要————</strong></h1>
+    <h1 class="big_text" style="margin-bottom: 4px; color: #FFC003"><strong>我的Flag墙：</strong></h1>
 
-    <% @my_flags.each do |flag| %>
-      <h1 class="big_text" style="margin-bottom: 30px"><strong><%= flag.message %></strong></h1>
-    <% end %>
+    <div class="note_background">
+      <% @my_flags.each_with_index do |flag, index| %>
+        <% flag.message.chars.prepend(index+1, '：').in_groups_of(11) do |group| %>
+          <p class="note_text"><strong><%= group.join %></strong></p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="receive_flag">
   <div class="center">
-    <h1 class="big_text" style="margin-bottom: 50px">我要监督的Flag————</h1>
+    <h1 class="big_text" style="margin-bottom: 40px">我要监督的Flag——</h1>
 
     <h2 class="small_text">ps: 要严格履行监督人的义务哦，</h2>
     <h2 class="small_text" style="margin-bottom: 50px">防止他们遗(dǎ)忘(liǎn)</h2>
