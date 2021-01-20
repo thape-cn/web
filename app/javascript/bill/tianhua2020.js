@@ -475,14 +475,12 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
       break;
     case '忙碌程度页':
       hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      break;
     case '工时页':
       hypeDocument.showSceneNamed('工龄页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      break;
     case '工龄页':
       hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-    case '封面页':
-      hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
-    default:
-      hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       break;
   }
 }
