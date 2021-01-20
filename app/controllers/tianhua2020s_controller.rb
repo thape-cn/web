@@ -124,6 +124,7 @@ class Tianhua2020sController < ApplicationController
       p16_adviser: r.p16_adviser,
       p17_oa_login: p17_oa_login,
       p17_oa_pv: p17_oa_pv,
+      p17_oa_task: r.p17_oa_task,
       flag_issued: Bill::Flag2020Board.find_by(from_clerkcode: r.clerkcode).present?
     }
   end

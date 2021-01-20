@@ -246,7 +246,7 @@ function showOrSkipNextSceneGlobal(hypeDocument) {
       case '一位导师页':
       case '班主任页':
       case '寻找导师页':
-        if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
+        if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv && tianhua2020.p17_oa_task) {
           hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
         } else {
           hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
@@ -268,7 +268,7 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
   var currentScene = hypeDocument.currentSceneName();
   switch (currentScene) {
     case '立FLAG页':
-      if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv) {
+      if (tianhua2020.p17_oa_login && tianhua2020.p17_oa_pv && tianhua2020.p17_oa_task) {
         hypeDocument.showSceneNamed('内网登录页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       } else if (tianhua2020.p16_teacher && tianhua2020.p16_adviser) {
         hypeDocument.showSceneNamed('导师班主任页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
@@ -559,6 +559,8 @@ function setElementGlobal(hypeDocument) {
 
   setElement('p17-oa-login', tianhua2020.p17_oa_login);
   setElement('p17-oa-pv', tianhua2020.p17_oa_pv);
+  setElement('p17-oa-task', tianhua2020.p17_oa_task);
+
   if(!tianhua2020.flag_issued) {
     hideElement('show-goto-flagboard');
   }
