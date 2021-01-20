@@ -3,6 +3,7 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+  <meta name="viewport" content="user-scalable=yes, width=device-width" />
   <title><%= @name.present? ? "#{@name}与" : '' -%>天华的2020</title>
   <style>
     html {
@@ -15,7 +16,6 @@
     }
   </style>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-  <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=370" />
   <%= csrf_meta_tags -%>
   <%= javascript_pack_tag 'tianhua_2020' %>
   </head>
