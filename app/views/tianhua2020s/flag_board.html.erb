@@ -1,4 +1,7 @@
 <style type="text/css">
+body {
+  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
+}
 .my_flag {
   background-color: #EC6B5B;
 }
@@ -8,13 +11,11 @@
 }
 .big_text {
   font-size: 25px;
-  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
   color: #FCF3DF;
   line-height: 26px;
 }
 .small_text {
   font-size: 18px;
-  font-family: Montserrat,SourceHanSansCN-Bold-GBpc-EUC-H,'Source Han Sans','Source Han Sans SC',system-ui,-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei','Noto Sans CJK SC','WenQuanYi Micro Hei',sans-serif;
   color: #FCF3DF;
   line-height: 10px;
 }
@@ -22,6 +23,19 @@
   margin-left:auto;
   margin-right:auto;
   padding: 35px;
+}
+.note_background {
+  background-color: #DEDEDE;
+  padding: 20px;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.note_text {
+  font-size: 25px;
+  color: #FFC003;
+  margin: 0;
+  padding-bottom:  4px;
+  border-bottom: dashed #585858;
 }
 </style>
 <div class="my_flag">
@@ -32,9 +46,13 @@
 
     <h1 class="big_text" style="margin-bottom: 50px"><strong>2021我要————</strong></h1>
 
-    <% @my_flags.each do |flag| %>
-      <h1 class="big_text" style="margin-bottom: 30px"><strong><%= flag.message %></strong></h1>
-    <% end %>
+    <div class="note_background">
+      <% @my_flags.each_with_index do |flag, index| %>
+        <% flag.message.chars.prepend(index+1, '：').in_groups_of(11) do |group| %>
+          <p class="note_text"><strong><%= group.join %></strong></p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="receive_flag">
