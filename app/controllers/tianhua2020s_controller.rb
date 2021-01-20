@@ -83,6 +83,7 @@ class Tianhua2020sController < ApplicationController
 
     p17_oa_login = r.p17_oa_login.to_s + '<span style="font-size: 25px; font-weight: normal;"><font color="#363b46">天</font></span>'
     p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
+    p17_oa_task = '<p style="margin-top: 0px; margin-bottom: 0px;"><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_task.to_s + '</b></font></span><font color="#292c36">次</font></p >'
 
     @tianhua2020 = {
       clerk_code: r.clerkcode,
@@ -124,7 +125,7 @@ class Tianhua2020sController < ApplicationController
       p16_adviser: r.p16_adviser,
       p17_oa_login: p17_oa_login,
       p17_oa_pv: p17_oa_pv,
-      p17_oa_task: r.p17_oa_task,
+      p17_oa_task: p17_oa_task,
       flag_issued: Bill::Flag2020Board.find_by(from_clerkcode: r.clerkcode).present?
     }
   end
