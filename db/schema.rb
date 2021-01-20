@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_084259) do
+ActiveRecord::Schema.define(version: 2021_01_20_025400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -367,6 +367,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_084259) do
     t.text "vetting_intro"
     t.text "consluting_intro"
     t.text "vrtech_intro"
+    t.string "tianhua_2020_bill_music"
   end
 
   create_table "tail_homes", id: :bigint, default: nil, force: :cascade do |t|
