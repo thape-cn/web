@@ -81,9 +81,15 @@ class Tianhua2020sController < ApplicationController
       '发起报销<font color="#df695a"><b style="font-size: 50px;">' + r.p15_reimburse.to_i.to_s + '</b></font>次'
     end
 
-    p17_oa_login = r.p17_oa_login.to_s + '<span style="font-size: 25px; font-weight: normal;"><font color="#363b46">天</font></span>'
-    p17_oa_pv = '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
-    p17_oa_task = '<p style="margin-top: 0px; margin-bottom: 0px;"><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_task.to_s + '</b></font></span><font color="#292c36">次</font></p >'
+    p17_oa_login = if r.p17_oa_login.present?
+      r.p17_oa_login.to_s + '<span style="font-size: 25px; font-weight: normal;"><font color="#363b46">天</font></span>'
+    end
+    p17_oa_pv = if r.p17_oa_pv.present?
+      '<p style="margin-top: 0px; margin-bottom: 0px;"><font color="#292c36">点击了</font><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_pv.to_s + '</b></font></span><font color="#292c36">次</font></p>'
+    end
+    p17_oa_task = if r.p17_oa_task.present?
+      '<p style="margin-top: 0px; margin-bottom: 0px;"><span style="font-size: 50px;"><font color="#df695a"><b>' + r.p17_oa_task.to_s + '</b></font></span><font color="#292c36">次</font></p >'
+    end
 
     @tianhua2020 = {
       clerk_code: r.clerkcode,
