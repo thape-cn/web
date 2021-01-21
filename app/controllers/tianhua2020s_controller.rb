@@ -67,7 +67,7 @@ class Tianhua2020sController < ApplicationController
       '超过了<font color="#f9bf3d"><b>' + (r.p11_study_rate*100).round(0).to_s + '%</b></font>的小伙伴'
     end
     p11_study_award = if r.p11_study_award.present?
-      p11_study_award.split(',').join('<br>').to_s
+      r.p11_study_award.split(',').join('<br>').to_s
     else
       '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
     end
