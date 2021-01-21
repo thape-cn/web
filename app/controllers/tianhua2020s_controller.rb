@@ -70,8 +70,12 @@ class Tianhua2020sController < ApplicationController
     p11_study_rate = if r.p11_study_rate.present?
       '超过了<font color="#f9bf3d"><b>' + (r.p11_study_rate*100).round(0).to_s + '%</b></font>的小伙伴'
     end
-    p11_study_award = r.p11_study_award&.split(',')&.join('<br>').to_s + '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
-  
+    p11_study_award = if r.p11_study_award.present?
+      r.p11_study_award.split(',').join('<br>').to_s
+    else
+      '<br><font color="#fdf3df" style="font-weight: normal;">学习证书</font>'
+    end
+
     p12_km_login_date = '共有<font color="#df695a"><b>' + r.p12_km_login_date.to_s + '</b></font>天，你登陆过KM'
     p12_km_login_times = '点击次数<font color="#df695a"><b>' + r.p12_km_login_times.to_s + '</b></font>次'
 
