@@ -17,8 +17,6 @@ function submitFormButton(hypeDocument) {
 function showOrSkipNextSceneGlobal(hypeDocument) {
   var currentScene = hypeDocument.currentSceneName();
   switch (currentScene) {
-      case '封面页':
-        hypeDocument.showSceneNamed('工龄页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
       case '工龄页':
         hypeDocument.showSceneNamed('工时页', hypeDocument.kSceneTransitionPushBottomToTop, 1.1);
         break;
@@ -481,6 +479,9 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
       break;
     case '工龄页':
       hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+      break;
+    default:
+      hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       break;
   }
 }
