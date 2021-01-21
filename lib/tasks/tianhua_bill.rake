@@ -20,7 +20,7 @@ namespace :tianhua_bill do
       puts "#{t.clerkcode}: #{t.name} #{wechar_user_id}"
       Wechat.api.news_message_send(wechar_user_id, "#{t.name}的天华年度账单", '可以发到朋友圈让大家一起回顾2020',
           "https://www.thape.com/tianhua2020s/#{t.clerkcode}",
-          'https://www.thape.com/assets/tianhua2020-banner.png')
+          'https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/tianhua2020-banner-34d2d5c41a7c6714f1238dda9bb38ef7.png')
     end
   end
 end
