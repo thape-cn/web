@@ -480,6 +480,11 @@ function showOrSkipPreviousSceneGlobal(hypeDocument) {
     case '工龄页':
       hypeDocument.showSceneNamed('封面页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       break;
+    case '封面页':
+      if (tianhua2020.flag_issued) {
+        hypeDocument.showSceneNamed('立FLAG页', hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
+        break;
+      }
     default:
       hypeDocument.showPreviousScene(hypeDocument.kSceneTransitionPushTopToBottom, 1.1);
       break;
