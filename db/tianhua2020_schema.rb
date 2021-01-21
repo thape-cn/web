@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_024001) do
+ActiveRecord::Schema.define(version: 2021_01_21_093127) do
 
   create_table "tianhua2020s", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2021_01_15_024001) do
     t.integer "p10_course_number"
     t.float "p11_study_time"
     t.float "p11_study_point"
-    t.float "p11_finish_course"
     t.string "p11_study_award"
     t.integer "p12_km_login_times"
     t.integer "p12_km_login_date"
@@ -56,6 +55,9 @@ ActiveRecord::Schema.define(version: 2021_01_15_024001) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "p10_teacher_level"
     t.float "p11_study_rate"
+    t.string "wecom_id"
+    t.string "orgcode"
+    t.string "deptcode_sum"
   end
 
 end
