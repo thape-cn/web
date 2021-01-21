@@ -574,4 +574,8 @@ function gotoFlagBoardGlobal(hypeDocument) {
   window.location.href = `/tianhua2020s/${tianhua2020.clerk_code}/flag_board`;
 }
 
-export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal, gotoFlagBoardGlobal }
+function pauseOrPlayMusicGlobal(hypeDocument) {
+  console.log('pauseOrPlayMusicGlobal');
+}
+
+export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal, gotoFlagBoardGlobal, pauseOrPlayMusicGlobal }
