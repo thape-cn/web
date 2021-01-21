@@ -574,7 +574,14 @@ function gotoFlagBoardGlobal(hypeDocument) {
 }
 
 function pauseOrPlayMusicGlobal(hypeDocument) {
-  console.log('pauseOrPlayMusicGlobal');
+  const bgMusic = document.getElementById("bgmusic");
+  if (tianhua2020.playing_music) {
+    bgMusic.pause();
+    tianhua2020.playing_music = false;
+  } else {
+    bgMusic.play();
+    tianhua2020.playing_music = true;
+  }
 }
 
 export { submitFormButton, showOrSkipNextSceneGlobal, showOrSkipPreviousSceneGlobal, setElementGlobal, gotoFlagBoardGlobal, pauseOrPlayMusicGlobal }
