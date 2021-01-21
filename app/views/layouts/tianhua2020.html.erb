@@ -21,5 +21,14 @@
   </head>
   <body>
     <%= yield %>
+  <script>
+    function adaptFun(){
+        var mainWidth = window.screen.width;
+        var scale = mainWidth/414.0;
+        var viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'width=device-width, initial-scale='+scale+', maximum-scale='+scale+', user-scalable=0');
+    }
+    adaptFun();
+  </script>
   </body>
 </html>
