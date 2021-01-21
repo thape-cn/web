@@ -10,7 +10,7 @@ class Tianhua2020sController < ApplicationController
 
     @name = r.name
     @clerkcode = r.clerkcode
-    p1_workbirthday = '<p style="margin-top: 0px; margin-bottom: 0px;"><span style="caret-color: rgb(228, 84, 73);"><b><font color="#df695a">1月22日</font></b></span><span style="color: rgb(41, 44, 54);">是我们的纪念日</span></p><p style="margin-top: 0px; margin-bottom: 0px;"><font>今年是我们相识的</font><b><font color="#df695a">' + (release_date - r.p1_firstday.to_date).ceil.to_s + '</font></b><font>天</font></p>'
+    p1_workbirthday = '<p style="margin-top: 0px; margin-bottom: 0px;"><span style="caret-color: rgb(228, 84, 73);"><b><font color="#df695a">' + "#{r.p1_firstday.month}月#{r.p1_firstday.day}" + '日</font></b></span><span style="color: rgb(41, 44, 54);">是我们的相识纪念日</span></p><p style="margin-top: 0px; margin-bottom: 0px;"><font>今年是我们相识的</font><b><font color="#df695a">' + (release_date - r.p1_firstday.to_date).ceil.to_s + '</font></b><font>天</font></p>'
 
     p3_workrate = if r.p3_workrate.present?
       '<p style="margin-top: 0px; margin-bottom: 0px; color: rgb(252, 241, 216);">你的忙碌程度已超过</p><p style="margin-top: 0px; margin-bottom: 0px;"><font color="#f9bf3d"><b style="font-size: 50px;">' + (r.p3_workrate * 100).round(0).to_s + '%</b><span style="font-size: 50px;"> </span></font><font color="#fcf1d8">的小伙伴</font></p>'
