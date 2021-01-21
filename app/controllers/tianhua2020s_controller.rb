@@ -60,7 +60,11 @@ class Tianhua2020sController < ApplicationController
 
     p11_finish_course = '在这一年，你共完成了<font color="#f9bf3d"><b>' + r.p11_finish_course.to_i.to_s + '</b></font>门在线'
     p11_study_time = if r.p11_study_time.present?
-      '课程的学习，总时长<font color="#f9bf3d"><b>' + r.p11_study_time.round(1).to_s + '</b></font>分钟'
+      if r.p11_study_time.round(1) < 2
+        '课程的学习，总时长<font color="#f9bf3d"><b>' + (r.p11_study_time.round(1)*60).to_s + '</b></font>分钟'
+      else
+        '课程的学习，总时长<font color="#f9bf3d"><b>' + r.p11_study_time.round(1).to_s + '</b></font>小时'
+      end
     end
     p11_study_point = '可兑换<font color="#f9bf3d"><b>' + r.p11_study_point.to_s + '</b></font>积分'
     p11_study_rate = if r.p11_study_rate.present?
