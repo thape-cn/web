@@ -136,7 +136,7 @@ class Tianhua2019sController < ApplicationController
     wechat_oauth2 do |user_name|
       tianhua2019 = Bill::Tianhua2019.find_by email: "#{user_name}@thape.com.cn"
       if tianhua2019.present?
-        return redirect_to tianhua2020_path(id: tianhua2019.clerkcode)
+        return redirect_to tianhua2019_path(id: tianhua2019.clerkcode)
       else
         return render
       end

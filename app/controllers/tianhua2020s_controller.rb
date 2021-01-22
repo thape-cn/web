@@ -145,7 +145,7 @@ class Tianhua2020sController < ApplicationController
 
   def index
     wechat_oauth2 do |wecom_id|
-      tianhua2020 = Bill::Tianhua2020.find_by email: "#{wecom_id}@thape.com.cn"
+      tianhua2020 = Bill::Tianhua2020.find_by wecom_id: wecom_id
       if tianhua2020.present?
         return redirect_to tianhua2020_path(id: tianhua2020.clerkcode)
       else
