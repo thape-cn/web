@@ -37,6 +37,14 @@ body {
   padding-bottom:  4px;
   border-bottom: dashed #585858;
 }
+.my_link {
+  font-size: 18px;
+  color: #FFC003;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 20px;
+}
 </style>
 <div class="my_flag">
   <div class="center">
@@ -53,6 +61,7 @@ body {
         <% end %>
       <% end %>
     </div>
+    <%= link_to '我的天华2020账单', tianhua2020_url(id: params[:id]), class: 'my_link' %>
   </div>
 </div>
 <div class="receive_flag">
