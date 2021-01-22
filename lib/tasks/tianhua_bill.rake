@@ -13,8 +13,10 @@ namespace :tianhua_bill do
   end
 
   desc 'Sent tianhua 2020 bill notification'
-  task sent_2020_notification: :environment do |_task, args|
+  task :sent_2020_notification, [:start_clerk_code] => [:environment] do |_task, args|
+    start_clerk_code = args[:start_clerk_code]
     Bill::Tianhua2020.all.order(clerkcode: :desc).find_each do |t|
+      next if t.clerkcode.to_i < start_clerk_code.to_i
       next if t.wecom_id.blank?
       wechar_user_id = t.wecom_id
       puts "#{t.clerkcode}: #{t.name} #{wechar_user_id}"
