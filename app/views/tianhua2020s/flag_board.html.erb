@@ -47,8 +47,8 @@ body {
     <h1 class="big_text" style="margin-bottom: 4px; color: #FFC003"><strong>我的Flag墙：</strong></h1>
 
     <div class="note_background">
-      <% @my_flags.each_with_index do |flag, index| %>
-        <% flag.message.chars.prepend(index+1, '：').in_groups_of(11) do |group| %>
+      <% @my_flags.collect(&:message).uniq.each_with_index do |flag_message, index| %>
+        <% flag_message.chars.prepend(index+1, '：').in_groups_of(11) do |group| %>
           <p class="note_text"><strong><%= group.join %></strong></p>
         <% end %>
       <% end %>

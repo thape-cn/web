@@ -163,8 +163,23 @@ class Tianhua2020sController < ApplicationController
     clerk_code = params[:clerk_code]
     to_who_name = params[:to_who_name]
     message = params[:message]
-    to_user = Bill::Tianhua2020.find_by(name: to_who_name.gsub('@', ''))
-    Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user&.clerkcode, message: message)
+    from_clerk = Bill::Tianhua2020.find_by(clerkcode: clerk_code)
+    if from_clerk.present? && message.present?
+      names = to_who_name.to_s.split(/[\s,，、]/)
+      if names.present?
+        names.each do |name|
+          pure_name = name.gsub('@', '')
+          to_users = Bill::Tianhua2020.where(name: pure_name, deptcode_sum: from_clerk.deptcode_sum)
+          to_users = Bill::Tianhua2020.where(name: pure_name, orgcode: from_clerk.orgcode) unless to_users.present?
+          to_users = Bill::Tianhua2020.where(name: pure_name) unless to_users.present?
+          to_users.each do |to_user|
+            Bill::Flag2020Board.create(from_clerkcode: clerk_code, to_clerkcode: to_user.clerkcode, message: message)
+          end
+        end
+      else
+        Bill::Flag2020Board.create(from_clerkcode: clerk_code, message: message)
+      end
+    end
     head :ok
   end
 
