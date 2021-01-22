@@ -168,7 +168,7 @@ class Tianhua2020sController < ApplicationController
     to_who_name = params[:to_who_name]
     message = params[:message]
     from_clerk = Bill::Tianhua2020.find_by(clerkcode: clerk_code)
-    if from_clerk.present? && message.present?
+    if from_clerk.present? && message.present? && Date.today < Date.new(2021, 1, 29)
       names = to_who_name.to_s.split(/[\s,，、]/)
       if names.present?
         names.each do |name|
