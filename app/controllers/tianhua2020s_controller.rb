@@ -73,8 +73,12 @@ class Tianhua2020sController < ApplicationController
       awards = r.p11_study_award.split(',').uniq
       if awards.length <= 3
         '在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br>'
-      else
+      elsif awards.length <= 5
         '<font size="4">在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br></font>'
+      elsif awards.length <= 7
+        '<font size="2" style="line-height: 1;">在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br></font>'
+      else
+        '<font size="1" style="line-height: 1;">在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br></font>'
       end
     else
       '<br><font color="#fdf3df" style="font-weight: normal;">利用工作间隙为自己充电这是一个很好的习惯！</br>加油，在线学习管理平台愿意做你的贴身学伴~</font>'
