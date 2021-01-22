@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: be32ac5074e1007512b5b40c9ccf2c7d74662bf6
+  revision: 15e59940d31d11727fff2bd5d74a1236bcbfb37c
   branch: main
   specs:
     wechat (0.12.1)
