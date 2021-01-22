@@ -25,21 +25,21 @@ body {
   padding: 35px;
 }
 .note_background {
-  background-color: #DEDEDE;
+  background-color: #FCF3DF;
   padding: 20px;
   margin-left: -12px;
   margin-right: -12px;
 }
 .note_text {
   font-size: 25px;
-  color: #FFC003;
+  color: #CD584E;
   margin: 0;
   padding-bottom:  4px;
   border-bottom: dashed #585858;
 }
 .my_link {
   font-size: 18px;
-  color: #FFC003;
+  color: #FDF3DF;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -52,7 +52,7 @@ body {
 
     <h1 class="big_text"><strong>听说立FLAG是新年的刚需<br />快来给自己定几个小目标吧<br />说不定就实现了呢？</strong></h1>
 
-    <h1 class="big_text" style="margin-bottom: 4px; color: #FFC003"><strong>我的Flag墙：</strong></h1>
+    <h1 class="big_text" style="margin-bottom: 4px; color: #FDF3DF"><strong>我的Flag墙：</strong></h1>
 
     <div class="note_background">
       <% @my_flags.collect(&:message).uniq.each_with_index do |flag_message, index| %>
