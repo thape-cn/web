@@ -12,6 +12,8 @@ module Bill
         Wechat.api.news_message_send(to_user.wecom_id, "#{from_user.name}立了一个Flag", '他@了你，请你监督',
           "https://www.thape.com/tianhua2020s/#{to_user.clerkcode}/flag_board",
           'https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/tianhua2020-notify-2961b89955b3f6cb617a840c06124bda.png')
+      rescue Wechat::ResponseError
+        true
       end
   end
 end
