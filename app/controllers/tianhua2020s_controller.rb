@@ -71,7 +71,7 @@ class Tianhua2020sController < ApplicationController
     end
     p11_study_award = if r.p11_study_award.present?
       awards = r.p11_study_award.split(',').uniq
-      if awards.length >= 3
+      if awards.length <= 3
         '在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br>'
       else
         '<font size="4">在这一年里<br>你的努力学习也收获了<br><b><font color="#f9bf3d">' + awards.join('<br>').to_s + '</font></b><br></font>'
