@@ -2760,9 +2760,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.634:
-  version "1.3.645"
-  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.645.tgz?cache=0&sync_timestamp=1611601958313&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.645.tgz#c0b269ae2ecece5aedc02dd4586397d8096affb1"
-  integrity sha1-wLJpri7OzlrtwC3UWGOX2Alq/7E=
+  version "1.3.646"
+  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.646.tgz?cache=0&sync_timestamp=1611775278805&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.646.tgz#a7dc089d6d83b6d6cc01f91de524e91f12e6ccfa"
+  integrity sha1-p9wInW2DttbMAfkd5STpHxLmzPo=
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -7020,15 +7020,15 @@ sshpk@^1.7.0:
 
 ssri@^6.0.1:
   version "6.0.1"
-  resolved "https://registry.npm.taobao.org/ssri/download/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
+  resolved "https://registry.npm.taobao.org/ssri/download/ssri-6.0.1.tgz?cache=0&sync_timestamp=1611777524642&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fssri%2Fdownload%2Fssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
   integrity sha1-KjxBso3UW2K2Nnbst0ABJlrp7dg=
   dependencies:
     figgy-pudding "^3.5.1"
 
 ssri@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npm.taobao.org/ssri/download/ssri-8.0.0.tgz#79ca74e21f8ceaeddfcb4b90143c458b8d988808"
-  integrity sha1-ecp04h+M6u3fy0uQFDxFi42YiAg=
+  version "8.0.1"
+  resolved "https://registry.npm.taobao.org/ssri/download/ssri-8.0.1.tgz?cache=0&sync_timestamp=1611777524642&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fssri%2Fdownload%2Fssri-8.0.1.tgz#638e4e439e2ffbd2cd289776d5ca457c4f51a2af"
+  integrity sha1-Y45OQ54v+9LNKJd21cpFfE9Roq8=
   dependencies:
     minipass "^3.1.1"
 
