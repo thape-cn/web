@@ -27,4 +27,13 @@ namespace :tianhua_bill do
       puts "#{t.name} wechar_user_id error: #{wechar_user_id}"
     end
   end
+
+  desc 'Export flag board status'
+  task export_flag_board_status: :environment do
+    Bill::Flag2020Board.all.each do |fb|
+      from_clerkcode = format('%06d', fb.from_clerkcode.to_i)
+      to_clerkcode = format('%06d', fb.to_clerkcode.to_i)
+      puts "#{fb.created_at.to_date}\t#{fb.created_at.to_time}\t#{from_clerkcode}\t#{to_clerkcode}"
+    end
+  end
 end
