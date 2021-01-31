@@ -84,7 +84,7 @@ class Tianhua2020sController < ApplicationController
       '<br><font color="#fdf3df" style="font-weight: normal;">利用工作间隙为自己充电这是一个很好的习惯！</br>加油，在线学习管理平台愿意做你的贴身学伴~</font>'
     end
 
-    p12_km_login_date = '共有<font color="#df695a"><b>' + r.p12_km_login_date.to_s + '</b></font>天，你登陆过KM'
+    p12_km_login_date = '共有<font color="#df695a"><b>' + r.p12_km_login_date.to_s + '</b></font>天，你登录过KM'
     p12_km_login_times = '点击次数<font color="#df695a"><b>' + r.p12_km_login_times.to_s + '</b></font>次'
 
     p14_coparter_org_dept = "#{r.p14_coparter_org}-#{r.p14_coparter_dept}"
