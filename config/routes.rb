@@ -113,5 +113,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :works, only: [:index, :show]
+  end
+
   root 'home#show'
 end
