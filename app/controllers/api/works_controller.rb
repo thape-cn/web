@@ -9,4 +9,8 @@ class Api::WorksController < ApplicationController
     @total = @works.count
     @works = @works.page(params[:page]).per(params[:per_page])
   end
+
+  def show
+    @work = Work.find params[:id]
+  end
 end
