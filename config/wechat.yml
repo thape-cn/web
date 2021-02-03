@@ -21,3 +21,19 @@ development:
 
 test:
   <<: *default
+
+thmp_account: &thmp_account
+  appid: <%= Rails.application.credentials.wechat_thmp_appid! %>
+  secret: <%= Rails.application.credentials.wechat_thmp_secret! %>
+  type: "mp"
+  access_token: "tmp/wechat_thmp_access_token"
+  jsapi_ticket: "tmp/wechat_thmp_jsapi_ticket"
+
+thmp_development:
+  <<: *thmp_account
+
+thmp_test:
+  <<: *thmp_account
+
+thmp_production:
+  <<: *thmp_account

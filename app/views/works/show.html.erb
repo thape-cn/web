@@ -1,5 +1,25 @@
 <%= render partial: 'shared/thape_nav' -%>
 
+<%= wechat_config_js debug: false, api: %w(onMenuShareTimeline onMenuShareAppMessage) -%>
+<script type="application/javascript">
+  if (wx) {
+    wx.ready(function() {
+      wx.onMenuShareTimeline({
+          title: '<%= @seo.home_title -%>',
+          link: '<%= work_url(id: @work.id) -%>',
+          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url -%>'
+      });
+
+      wx.onMenuShareAppMessage({
+          title: '<%= @seo.home_title -%>',
+          desc: '<%= @seo.description -%>',
+          link: '<%= work_url(id: @work.id) -%>',
+          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url -%>'
+      });
+    });
+  }
+</script>
+
 <div class="w-full relative">
   <div
     class="thape-slide"
