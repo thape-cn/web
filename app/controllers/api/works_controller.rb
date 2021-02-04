@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 class Api::WorksController < ApplicationController
   def index
-    @works = Work.joins('INNER JOIN work_translations ON work_translations.work_id = works.id')
-        .order(position: :asc)
-        .distinct.where(published: true)
-    if params[:q].present?
-      @works = @works.where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
-    end
-    @total = @works.count
-    @works = @works.page(params[:page]).per(params[:per_page])
+    works = Work.includes(:translations).order(position: :asc).where(published: true)
+    @works = if params[:q].present?
+      works.where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
+    else
+      works
+    end.page(params[:page]).per(params[:per_page])
   end
 
   def show

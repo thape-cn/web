@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_025400) do
+ActiveRecord::Schema.define(version: 2021_02_04_033133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -535,6 +535,8 @@ ActiveRecord::Schema.define(version: 2021_01_20_025400) do
     t.text "snapshot_webp"
     t.boolean "published", default: true
     t.bigint "position"
+    t.string "coordinate_lat"
+    t.string "coordinate_lng"
     t.index ["city_id"], name: "index_works_on_city_id"
   end
 
