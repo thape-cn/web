@@ -3,11 +3,13 @@
 class Api::WorksController < ApplicationController
   def index
     works = Work.includes(:translations).order(position: :asc).where(published: true)
-    @works = if params[:q].present?
+    works_with_q = if params[:q].present?
       works.where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
     else
       works
-    end.page(params[:page]).per(params[:per_page])
+    end
+    @total = works_with_q.count
+    @works = works_with_q.page(params[:page]).per(params[:per_page])
   end
 
   def show
