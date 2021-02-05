@@ -1,12 +1,12 @@
 ---
 default: &default
-  corpid: <%= Rails.application.credentials.wechat_corpid! %>
-  corpsecret: <%= Rails.application.credentials.wechat_corpsecret! %>
-  agentid: <%= Rails.application.credentials.wechat_agentid! %>
-  token: <%= Rails.application.credentials.wechat_token! %>
+  corpid: <%= Rails.application.credentials.wechat_corpid %>
+  corpsecret: <%= Rails.application.credentials.wechat_corpsecret %>
+  agentid: <%= Rails.application.credentials.wechat_agentid %>
+  token: <%= Rails.application.credentials.wechat_token %>
   access_token: "tmp/wechat_access_token"
   encrypt_mode: true
-  encoding_aes_key: <%= Rails.application.credentials.wechat_encoding_aes_key! %>
+  encoding_aes_key: <%= Rails.application.credentials.wechat_encoding_aes_key %>
   jsapi_ticket: "tmp/wechat_jsapi_ticket"
 
 production:
@@ -25,8 +25,8 @@ test:
   agentid: 123456
 
 thmp_account: &thmp_account
-  appid: <%= Rails.application.credentials.wechat_thmp_appid! %>
-  secret: <%= Rails.application.credentials.wechat_thmp_secret! %>
+  appid: <%= Rails.application.credentials.wechat_thmp_appid %>
+  secret: <%= Rails.application.credentials.wechat_thmp_secret %>
   type: "mp"
   access_token: "tmp/wechat_thmp_access_token"
   jsapi_ticket: "tmp/wechat_thmp_jsapi_ticket"
