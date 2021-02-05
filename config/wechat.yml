@@ -20,7 +20,9 @@ development:
   trusted_domain_fullname: "http://your_dev.proxy.qqbrowser.cc"
 
 test:
-  <<: *default
+  corpid: 123456
+  corpsecret: 123456
+  agentid: 123456
 
 thmp_account: &thmp_account
   appid: <%= Rails.application.credentials.wechat_thmp_appid! %>
@@ -33,7 +35,9 @@ thmp_development:
   <<: *thmp_account
 
 thmp_test:
-  <<: *thmp_account
+  appid: 123456
+  secret: 123456
+  type: "mp"
 
 thmp_production:
   <<: *thmp_account
