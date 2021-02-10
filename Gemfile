@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '>= 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.1'
+gem 'rails', '~> 6.1.2'
 gem 'sqlite3'
 gem 'pg'
 
@@ -34,7 +34,7 @@ gem 'canonical-rails'
 gem 'sitemap_generator'
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
-gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :main
+gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :zeitwerk
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
