@@ -34,7 +34,7 @@ gem 'canonical-rails'
 gem 'sitemap_generator'
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
-gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :zeitwerk
+gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :main
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
