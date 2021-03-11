@@ -47,6 +47,6 @@ json.array! @works do |work|
   if work.awards.present?
     json.awards work.awards.split(/\r?\n/)
   end
-  json.lat work.coordinate_lat
-  json.lng work.coordinate_lng
+  json.lat work.coordinate_lat.to_f
+  json.lng work.coordinate_lng.to_f
 end
