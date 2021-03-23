@@ -42,3 +42,10 @@ sudo -u postgres createuser yxh
 sudo -u postgres createdb thape_web_dev
 psql -d thape_web_dev -f thape_web_prod.sql
 ```
+
+## Export production DB
+
+```bash
+/usr/pgsql-13/bin/pg_dump thape_web_prod -O -x > thape_web_prod.sql
+zip thape_web_prod.zip thape_web_prod.sql
+```
