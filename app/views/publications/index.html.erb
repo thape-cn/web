@@ -1,0 +1,56 @@
+<%= render partial: 'shared/thape_nav'  -%>
+
+<div class="w-full mx-auto px-7 md:px-12 lg:px-44 xl:px-44 xxl:px-48 xxxl:px-52 publications">
+  <div class="w-full">
+    <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
+      header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+  </div>
+
+  <div class="w-full sm:pb-4 md:pb-8">
+    <div class="grid grid-cols-4 gap-28 list">
+      <div class="item">
+        <div class="cover">
+          <div class="wrapper">
+            <div class='book book-expand'>
+              <!-- Front -->
+              <div class="book-front">
+                <img src="/book-test.png" alt="" class="w-full h-full">
+              </div>
+              <!-- Pages -->
+              <div class="book-page">
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item">
+                  <a class="btn" href="#">点击下载</a>
+                </div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+                <div class="book-page-item"></div>
+              </div>
+              <!-- Back -->
+              <div class='book-back'>
+                <img src="/book-test.png" alt="" class="w-full h-full">
+              </div>
+              <div class='book-spine'></div>
+            </div>
+          </div>
+        </div>
+        <div class="description mt-4 text-black6c font-semibold">
+          <div class="title truncate <%= fdsz("text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl", "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl") -%>">《天华2020作品集》</div>
+          <div class="subtitle mt-1 truncate <%= fdsz("text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", "text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl") -%>">文旅康养</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full sm:pb-4 md:pb-8 lg:pb-10">
+    <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
+      header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+  </div>
+</div>
+
+<%= render partial: 'shared/footer' %>

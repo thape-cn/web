@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_033133) do
+ActiveRecord::Schema.define(version: 2021_03_19_033211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -312,11 +312,48 @@ ActiveRecord::Schema.define(version: 2021_02_04_033133) do
     t.index ["info_id"], name: "index_pictures_on_info_id"
   end
 
+  create_table "portfolio_translations", force: :cascade do |t|
+    t.bigint "portfolio_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.index ["locale"], name: "index_portfolio_translations_on_locale"
+    t.index ["portfolio_id"], name: "index_portfolio_translations_on_portfolio_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "pdf_file"
+    t.string "cover_jpg"
+    t.string "cover_webp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "project_types", id: :bigint, default: nil, force: :cascade do |t|
     t.text "cn_name"
     t.text "en_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "publication_translations", force: :cascade do |t|
+    t.bigint "publication_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.index ["locale"], name: "index_publication_translations_on_locale"
+    t.index ["publication_id"], name: "index_publication_translations_on_publication_id"
+  end
+
+  create_table "publications", force: :cascade do |t|
+    t.integer "category_status", default: 0, null: false
+    t.string "pdf_file"
+    t.string "cover_jpg"
+    t.string "cover_webp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "residential_types", id: :bigint, default: nil, force: :cascade do |t|

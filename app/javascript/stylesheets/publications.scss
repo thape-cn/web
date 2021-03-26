@@ -1,0 +1,171 @@
+.publications {
+  .list {
+    .item {
+      .cover {
+        position: relative;
+        padding-bottom: 126.7%;
+        $first_z: -20px;
+        $gap_z: -5px;
+        $page_size: 10;
+
+        $center_page: ceil($page_size / 2);
+        $last_z: $first_z + ($page_size + 1) * $gap_z;
+        $page_space: 4px;
+        $max_rotate_y: -180deg;
+        $min_rotate_y: -120deg;
+        $per_rotate_y: ($max_rotate_y - $min_rotate_y) / $center_page;
+        $last_per_rotate_y: -.4deg;
+        $origin_z: $first_z + $center_page * $gap_z;
+        $animation_time: .8s;
+
+        .wrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+          perspective: 1000px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+          .btn {
+            color: #2c3e50;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 2px solid #2c3e50;
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 0.1em 0.4em;
+            text-align: center;
+            transition: color 0.3s, border-color 0.3s;
+
+            &:hover {
+              border-color: #16a085;
+              color: #16a085;
+            }
+          }
+
+          .book {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            perspective: 1000px;
+            transform: rotateY(-30deg);
+            transform-style: preserve-3d;
+            transform-origin: left center;
+            transition: transform $animation_time ease;
+
+            &.book-hover:hover {
+              transform: rotateY(0deg);
+            }
+
+            .book-front {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              backface-visibility: hidden;
+              transform: rotateY(0deg) translateZ($first_z);
+              transform-origin: left center $origin_z;
+              transition: transform $animation_time ease-in-out;
+            }
+
+            &.book-expand:hover {
+              .book-front {
+                transform: rotateY($max_rotate_y) translateZ($first_z);
+              }
+            }
+
+            .book-page {
+              .book-page-item {
+                position: absolute;
+                top: $page_space;
+                bottom: $page_space;
+                left: 0;
+                right: $page_space;
+                background: white;
+                backface-visibility: visible;
+                box-shadow: 0px 0px 4px rgba(207, 207, 207, 0.6);
+                transition: transform $animation_time ease-in-out;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                @for $i from 1 through $page_size {
+                  &:nth-child(#{$i}) {
+                    transform: rotateY(0deg) translateZ($first_z + $i * $gap_z);
+                    @if $i > $center_page {
+                      transform-origin: left center $first_z + $i * $gap_z;
+                    } @else {
+                      transform-origin: left center $origin_z;
+                    }
+                  }
+                }
+              }
+            }
+            &.book-expand:hover {
+              .book-page {
+                .book-page-item {
+                  @for $i from 1 through $page_size {
+                    &:nth-child(#{$i}) {
+                      @if $i > $center_page {
+                        transform: rotateY($last_per_rotate_y * ($page_size - $i)) translateZ($first_z + $i * $gap_z);
+                      } @else {
+                        transform: rotateY($max_rotate_y - $per_rotate_y * $i) translateZ($first_z + $i * $gap_z);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .book-back {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              transform: rotateY(0deg) translateZ($last_z);
+              transform-origin: 0% center $origin_z;
+            }
+
+            .book-spine {
+              position: absolute;
+              width: 100%;
+              height: abs(($page_size - 2) * $gap_z);
+              left: 0;
+              bottom: 0;
+              transform: rotateX(90deg) translateZ($first_z + $gap_z * 2);
+              transform-origin: center bottom $first_z + $gap_z * 2;
+        
+              &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 10px;
+                width: 10px;
+                height: 100%;
+                box-shadow: -20px 0 20px rgba(0, 0, 0, .4);
+              }
+              &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 10px;
+                width: 10px;
+                height: 100%;
+                box-shadow: 20px 0 20px rgba(0, 0, 0, .4);
+              }
+            }
+          }
+        }
+      }
+      .description {
+        text-align: left;
+      }
+    }
+  }
+}
