@@ -42,6 +42,7 @@ group :development, :test do
 end
 
 gem 'carrierwave'
+gem 'mimemagic', '~> 0.3.10' # require by carrierwave
 gem 'carrierwave-aliyun'
 
 gem 'globalize', '~> 6.0.0.alpha.1'
