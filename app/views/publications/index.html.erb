@@ -6,59 +6,15 @@
       header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
   </div>
 
-  <div class="w-full pb-4 md:pb-8 mt-12 xl:mt-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-32 list">
+  <div class="w-full mt-12 xl:mt-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-32 gap-y-24 list">
       <% @works.each do |item| %>
-      <div class="item">
-        <div class="cover">
-          <div class="<%= params[:mode].present? && params[:mode] == 'turn' ? 'wrapper-turn' : 'wrapper-rotate' %>">
-            <div class="book" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
-              <!-- Front -->
-              <div class="book-front">
-                <div>
-                  <img src="<%= item[:url] %>" alt="">
-                  <% unless params[:mode].present? && params[:mode] == 'turn' %>
-                  <div class="book-download">
-                    <a href="#">下载</a>
-                  </div>
-                  <% end %>
-                </div>
-                <div></div>
-              </div>
-              <!-- Pages -->
-              <div class="book-page">
-                <div class="book-page-item"></div>
-                <div class="book-page-item"></div>
-                <div class="book-page-item"></div>
-                <div class="book-page-item">
-                  <% if params[:mode].present? && params[:mode] == 'turn' %>
-                  <a class="btn text-sm sm:text-base md:text-lg" href="#">点击下载</a>
-                  <% end %>
-                </div>
-                <div class="book-page-item"></div>
-              </div>
-              <!-- Back -->
-              <div class='book-back'>
-                <div>
-                  <img src="<%= item[:url] %>" alt="">
-                </div>
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="description mt-4 md:mt-8 xl:mt-12 text-black6c font-semibold">
-          <div class="title truncate <%= fdsz("text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl", "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl") -%>"><%= item[:title] %></div>
-          <% if item[:subtitle].present? %>
-          <div class="subtitle mt-1 truncate <%= fdsz("text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", "text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl") -%>">&ensp;<%= item[:subtitle] %></div>
-          <% end %>
-        </div>
-      </div>
+      <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
     </div>
   </div>
 
-  <div class="relative w-full lg:pb-10">
+  <div class="relative w-full lg:pb-10 mt-6 md:mt-12 lg:mt-24 ">
     <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
       header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
     <div class="flex relative lg:absolute right-0 top-2 text-base lg:text-lg">
@@ -69,53 +25,9 @@
   </div>
 
   <div class="w-full pb-4 md:pb-8 mt-12 xl:mt-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-32 list">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-32 gap-y-24 list">
       <% @publications.each do |item| %>
-      <div class="item">
-        <div class="cover">
-          <div class="<%= params[:mode].present? && params[:mode] == 'turn' ? 'wrapper-turn' : 'wrapper-rotate' %>">
-            <div class="book" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
-              <!-- Front -->
-              <div class="book-front">
-                <div>
-                  <img src="<%= item[:url] %>" alt="">
-                  <% unless params[:mode].present? && params[:mode] == 'turn' %>
-                  <div class="book-download">
-                    <a href="#">下载</a>
-                  </div>
-                  <% end %>
-                </div>
-                <div></div>
-              </div>
-              <!-- Pages -->
-              <div class="book-page">
-                <div class="book-page-item"></div>
-                <div class="book-page-item"></div>
-                <div class="book-page-item"></div>
-                <div class="book-page-item">
-                  <% if params[:mode].present? && params[:mode] == 'turn' %>
-                  <a class="btn text-sm sm:text-base md:text-lg" href="#">点击下载</a>
-                  <% end %>
-                </div>
-                <div class="book-page-item"></div>
-              </div>
-              <!-- Back -->
-              <div class='book-back'>
-                <div>
-                  <img src="<%= item[:url] %>" alt="">
-                </div>
-                <div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="description mt-4 md:mt-8 xl:mt-12 text-black6c font-semibold">
-          <div class="title truncate <%= fdsz("text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl", "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl") -%>"><%= item[:title] %></div>
-          <% if item[:subtitle].present? %>
-          <div class="subtitle mt-1 truncate <%= fdsz("text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl", "text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl") -%>">&ensp;<%= item[:subtitle] %></div>
-          <% end %>
-        </div>
-      </div>
+      <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
     </div>
   </div>
