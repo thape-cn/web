@@ -151,8 +151,8 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-    http-parser (1.2.3)
-      ffi-compiler (>= 1.0, < 2.0)
+    http-parser (1.2.2)
+      ffi-compiler
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -326,6 +326,7 @@ DEPENDENCIES
   carrierwave-aliyun
   chinese_pinyin
   globalize (~> 6.0.0.alpha.1)
+  http-parser (= 1.2.2)
   jbuilder (~> 2.7)
   kaminari
   listen
