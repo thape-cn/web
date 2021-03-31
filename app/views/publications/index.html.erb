@@ -1,13 +1,13 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full <%= params[:screen].present? && params[:screen] == 'large' ? 'px-36 lg:px-40 xl:px-44 xxl:px-48 xxxl:px-52' : 'px-44 lg:px-56 xl:px-64 xxl:px-72 xxxl:px-80' %> publications">
+<div class="w-full <%= params[:screen].present? && params[:screen] == 'large' ? 'px-12 lg:px-40 xl:px-44 xxl:px-48 xxxl:px-52' : 'px-12 lg:px-56 xl:px-64 xxl:px-72 xxxl:px-80' %> publications">
   <div class="w-full">
     <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
       header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
   </div>
 
   <div class="w-full mt-12 xl:mt-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-32 gap-y-24 list">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 md:gap-x-32 md:gap-y-24 list">
       <% @works.each do |item| %>
       <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="w-full pb-4 md:pb-8 mt-12 xl:mt-16">
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-32 gap-y-24 list">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 md:gap-x-32 md:gap-y-24 list">
       <% @publications.each do |item| %>
       <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
