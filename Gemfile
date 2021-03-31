@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-source 'https://gems.ruby-china.com'
+source 'https://rubygems.org/'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.7'
@@ -35,6 +35,7 @@ gem 'sitemap_generator'
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
 gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :main
+gem 'rake'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
