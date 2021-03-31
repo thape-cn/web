@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-set :rbenv_ruby, '2.7.2'
 set :nginx_use_ssl, true
 set :rails_env, 'staging'
 set :branch, :publication
