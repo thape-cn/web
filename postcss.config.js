@@ -22,7 +22,7 @@ if (process.env.RAILS_ENV === "production" || process.env.RAILS_ENV === "staging
         './app/helpers/**/*.rb',
         './app/javascript/stylesheets/nav-bar.scss',
         './app/javascript/stylesheets/works.scss',
-        './app/javascript/stylesheets/publications_rotate.scss',
+        './app/javascript/stylesheets/publications.scss',
         './app/javascript/**/*.js',
       ],
       // This is the function used to extract class names from your templates
