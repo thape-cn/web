@@ -15,8 +15,8 @@
           <div class="book-page-item"></div>
           <div class="book-page-item"></div>
           <div class="book-page-item">
-            <a class="btn text-sm sm:text-base md:text-lg" href="/pdfjs/web/viewer.html" target="_blank">点击预览</a>
-            <a class="btn text-sm sm:text-base md:text-lg mt-1" href="#">点击下载</a>
+            <a class="px-4 py-2 rounded border border-black text-sm font-medium text-black bg-transparent shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="/pdfjs/web/viewer.html" target="_blank">点击预览</a>
+            <a class="px-4 py-2 rounded mt-6 border border-black text-sm font-medium text-black bg-transparent shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" href="#">点击下载</a>
           </div>
           <div class="book-page-item"></div>
         </div>
@@ -30,10 +30,10 @@
       </div>
     </div>
   </div>
-  <div class="text-left mt-4 md:mt-8 xl:mt-12 text-black6c font-semibold">
-    <div class="relative title whitespace-no-wrap <%= fdsz("text-sm md:text-base lg:text-lg xl:text-xl", "text-sm md:text-base lg:text-lg xl:text-xl") -%>"><%= data[:title] %></div>
+  <div class="text-left mt-4 md:mt-6 xl:mt-8">
+    <div class="relative title whitespace-no-wrap tracking-wider font-semibold text-black6c <%= fdsz("text-base lg:text-lg xl:text-xl", "text-base lg:text-lg xl:text-xl") -%>"><%= data[:title] %></div>
     <% if data[:subtitle].present? %>
-    <div class="subtitle whitespace-no-wrap mt-1 <%= fdsz("text-xs md:text-sm lg:text-base xl:text-lg", "text-xs md:text-sm lg:text-base xl:text-lg") -%>"><%= data[:subtitle] %></div>
+    <div class="subtitle whitespace-no-wrap tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-sm lg:text-base xl:text-lg", "text-sm lg:text-base xl:text-lg") -%>"><%= data[:subtitle] %></div>
     <% end %>
   </div>
 </div>
