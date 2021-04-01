@@ -20,6 +20,7 @@ if (process.env.RAILS_ENV === "production" || process.env.RAILS_ENV === "staging
       content: [
         './app/**/*.html.erb',
         './app/helpers/**/*.rb',
+        './app/javascript/stylesheets/*.scss',
         './app/javascript/**/*.js',
         './app/javascript/**/*.jsx',
       ],
