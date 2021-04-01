@@ -11,219 +11,213 @@ $page5_z: $base_z * 5 + $view_z;
 
 $back_z: $base_z * 6 + $view_z;
 
-.publications {
-  .list {
-    .item {
-      .cover {
-        position: relative;
-        padding-bottom: 128.57%;
+.publications-cover {
+  position: relative;
+  padding-bottom: 128.57%;
 
-        .wrapper-rotate {
+  .wrapper-rotate {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    perspective: 1000px;
+
+    .btn {
+      color: #2c3e50;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid #2c3e50;
+      font-size: 0.7em;
+      font-weight: 700;
+      padding: 0.1em 0.4em;
+      text-align: center;
+      transition: color 0.3s, border-color 0.3s;
+
+      &:hover {
+        border-color: #16a085;
+        color: #16a085;
+      }
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform .5s ease;
+      transform: rotateY(-15deg);
+      transform-origin: center center ($back_z - $front_z) / 2;
+
+      &:hover {
+        transform: rotateY(0deg);
+      }
+
+      .book-front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateZ($front_z);
+        transform-style: preserve-3d;
+
+        >:first-child {
           position: absolute;
           top: 0;
-          bottom: 0;
           left: 0;
-          right: 0;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-end;
-          perspective: 1000px;
-        
-          .btn {
-            color: #2c3e50;
-            text-decoration: none;
-            text-transform: uppercase;
-            border: 2px solid #2c3e50;
-            font-size: 0.7em;
-            font-weight: 700;
-            padding: 0.1em 0.4em;
-            text-align: center;
-            transition: color 0.3s, border-color 0.3s;
-        
-            &:hover {
-              border-color: #16a085;
-              color: #16a085;
-            }
-          }
-        
-          .book {
-            position: relative;
+          width: 100%;
+          height: 100%;
+          transform: translateZ(1px);
+
+          img {
             width: 100%;
             height: 100%;
-            transform-style: preserve-3d;
-            transition: transform .5s ease;
-            transform: rotateY(-15deg);
-            transform-origin: center center ($back_z - $front_z) / 2;
-        
-            &:hover {
-              transform: rotateY(0deg);
+          }
+          .book-download {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color .5s ease;
+
+            a {
+              display: block;
+              text-decoration: none;
+              width: 60px;
+              height: 60px;
+              border-radius: 30px;
+              background: black;
+              color: white;
+              line-height: 60px;
+              text-align: center;
+              transition: all .3s ease;
+
+              &:hover {
+                background: white;
+                color: black;
+              }
             }
-        
-            .book-front {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
+          }
+        }
+        >:last-child {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          left: 0;
+          right: 4px;
+          background: #fffbec;
+          transform: translateZ(0);
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: #999;
+            box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
+            transform: rotateX(80deg);
+          }
+        }
+      }
+
+      &:hover {
+        .book-front {
+          >:first-child {
+            .book-download {
               height: 100%;
-              transform: translateZ($front_z);
-              transform-style: preserve-3d;
-        
-              >:first-child {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transform: translateZ(1px);
-        
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-                .book-download {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 0;
-                  overflow: hidden;
-                  background-color: rgba(0, 0, 0, 0);
-                  transition: background-color .5s ease;
-                  
-                  a {
-                    display: block;
-                    text-decoration: none;
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 30px;
-                    background: black;
-                    color: white;
-                    line-height: 60px;
-                    text-align: center;
-                    transition: all .3s ease;
-        
-                    &:hover {
-                      background: white;
-                      color: black;
-                    }
-                  }
-                }
-              }
-              >:last-child {
-                position: absolute;
-                top: 4px;
-                bottom: 4px;
-                left: 0;
-                right: 4px;
-                background: #fffbec;
-                transform: translateZ(0);
-        
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: -4px;
-                  left: 10px;
-                  right: 10px;
-                  height: 4px;
-                  background: #999;
-                  box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
-                  transform: rotateX(80deg);
-                }
-              }
+              background-color: rgba(0, 0, 0, 0.5);
             }
-        
-            &:hover {
-              .book-front {
-                >:first-child {
-                  .book-download {
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
-                  }
-                }
-              }
-            }
-        
-            .book-page {
-              .book-page-item {
-                position: absolute;
-                top: 5px;
-                bottom: 5px;
-                left: 0;
-                right: 5px;
-                backface-visibility: visible;
-                background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
-                box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
-                border-radius: 0px 5px 5px 0px;
-        
-                &:nth-child(1) {
-                  transform: translateZ($page1_z);
-                }
-        
-                &:nth-child(2) {
-                  transform: translateZ($page2_z);
-                }
-                &:nth-child(3) {
-                  transform: translateZ($page3_z);
-                }
-                &:nth-child(4) {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  transform: translateZ($page4_z);
-                }
-                &:nth-child(5) {
-                  transform: translateZ($page5_z);
-                }
-              }
-            }
-        
-            .book-back {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              transform: translateZ($back_z);
-              transform-style: preserve-3d;
-        
-              >:first-child {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transform: translateZ(-1px);
-        
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-              }
-              >:last-child {
-                position: absolute;
-                top: 4px;
-                bottom: 4px;
-                left: 0;
-                right: 4px;
-                background: #fffbec;
-                transform: translateZ(0);
-        
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: -4px;
-                  left: 10px;
-                  right: 10px;
-                  height: 4px;
-                  background: #999;
-                  box-shadow: 0px 0px 30px 10px rgba(51, 51, 51, 0.8);
-                  transform: rotateX(80deg);
-                }
-              }
-            }
+          }
+        }
+      }
+
+      .book-page {
+        .book-page-item {
+          position: absolute;
+          top: 5px;
+          bottom: 5px;
+          left: 0;
+          right: 5px;
+          backface-visibility: visible;
+          background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
+          box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+          border-radius: 0px 5px 5px 0px;
+
+          &:nth-child(1) {
+            transform: translateZ($page1_z);
+          }
+
+          &:nth-child(2) {
+            transform: translateZ($page2_z);
+          }
+          &:nth-child(3) {
+            transform: translateZ($page3_z);
+          }
+          &:nth-child(4) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateZ($page4_z);
+          }
+          &:nth-child(5) {
+            transform: translateZ($page5_z);
+          }
+        }
+      }
+
+      .book-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateZ($back_z);
+        transform-style: preserve-3d;
+
+        >:first-child {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform: translateZ(-1px);
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        >:last-child {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          left: 0;
+          right: 4px;
+          background: #fffbec;
+          transform: translateZ(0);
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: #999;
+            box-shadow: 0px 0px 30px 10px rgba(51, 51, 51, 0.8);
+            transform: rotateX(80deg);
           }
         }
       }

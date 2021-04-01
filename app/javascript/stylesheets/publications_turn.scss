@@ -21,223 +21,217 @@ $hover_page5_y: $base_y + -4deg;
 
 $back_y: $base_y;
 
-.publications {
-  .list {
-    .item {
-      .cover {
-        position: relative;
-        padding-bottom: 128.57%;
+.publications-cover {
+  position: relative;
+  padding-bottom: 128.57%;
 
-        .wrapper-turn {
+  .wrapper-turn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .btn {
+      color: #2c3e50;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid #2c3e50;
+      font-size: 0.7em;
+      font-weight: 700;
+      padding: 0.1em 0.4em;
+      text-align: center;
+      transition: color 0.3s, border-color 0.3s;
+
+      &:hover {
+        border-color: #16a085;
+        color: #16a085;
+      }
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+
+      .book-front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotateY($front_y);
+        transform-origin: left center;
+        transition: all 0.4s ease;
+        transform-style: preserve-3d;
+
+        >:first-child {
           position: absolute;
           top: 0;
-          bottom: 0;
           left: 0;
-          right: 0;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-end;
+          width: 100%;
+          height: 100%;
+          transform-origin: left center;
+          transform: rotateY(0);
 
-          .btn {
-            color: #2c3e50;
-            text-decoration: none;
-            text-transform: uppercase;
-            border: 2px solid #2c3e50;
-            font-size: 0.7em;
-            font-weight: 700;
-            padding: 0.1em 0.4em;
-            text-align: center;
-            transition: color 0.3s, border-color 0.3s;
-
-            &:hover {
-              border-color: #16a085;
-              color: #16a085;
-            }
-          }
-
-          .book {
-            position: relative;
+          img {
             width: 100%;
             height: 100%;
-            perspective: 1000px;
-            transform-style: preserve-3d;
+          }
+        }
+        >:last-child {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          left: 0;
+          right: 4px;
+          background: #fffbec;
+          transform-origin: left center;
+          transform: rotateY(1deg);
 
-            .book-front {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              transform: rotateY($front_y);
-              transform-origin: left center;
-              transition: all 0.4s ease;
-              transform-style: preserve-3d;
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: transparent;
+            box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
+            transform: rotateX(80deg);
+          }
+        }
+      }
 
-              >:first-child {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transform-origin: left center;
-                transform: rotateY(0);
+      &:hover {
+        .book-front {
+          transform: rotateY($hover_front_y);
+        }
+      }
 
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-              }
-              >:last-child {
-                position: absolute;
-                top: 4px;
-                bottom: 4px;
-                left: 0;
-                right: 4px;
-                background: #fffbec;
-                transform-origin: left center;
-                transform: rotateY(1deg);
+      .book-page {
+        .book-page-item {
+          position: absolute;
+          top: 5px;
+          bottom: 5px;
+          left: 0;
+          right: 5px;
+          backface-visibility: visible;
+          transition-timing-function: ease;
+          transition-property: transform;
+          transform-origin: left center;
+          background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
+          box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+          border-radius: 0px 5px 5px 0px;
 
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: -4px;
-                  left: 10px;
-                  right: 10px;
-                  height: 4px;
-                  background: transparent;
-                  box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
-                  transform: rotateX(80deg);
-                }
-              }
+          &:nth-child(1) {
+            right: -1px;
+            transition-duration: 0.3s;
+            transform: rotateY($page1_y);
+          }
+
+          &:nth-child(2) {
+            right: -2px;
+            transition-duration: 0.25s;
+            transform: rotateY($page2_y);
+          }
+          &:nth-child(3) {
+            right: -3px;
+            transition-duration: 0.2s;
+            transform: rotateY($page3_y);
+          }
+          &:nth-child(4) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: -4px;
+            transition-duration: 0.3s;
+            transform: rotateY($page4_y);
+          }
+          &:nth-child(5) {
+            right: -5px;
+            transition-duration: 0.3s;
+            transform: rotateY($page5_y);
+          }
+        }
+      }
+
+      &:hover {
+        .book-page {
+          .book-page-item {
+            &:nth-child(1) {
+              transform: rotateY($hover_page1_y);
+              transition-duration: 0.6s;
             }
-
-            &:hover {
-              .book-front {
-                transform: rotateY($hover_front_y);
-              }
+            &:nth-child(2) {
+              transform: rotateY($hover_page2_y);
+              transition-duration: 0.7s;
             }
-
-            .book-page {
-              .book-page-item {
-                position: absolute;
-                top: 5px;
-                bottom: 5px;
-                left: 0;
-                right: 5px;
-                backface-visibility: visible;
-                transition-timing-function: ease;
-                transition-property: transform;
-                transform-origin: left center;
-                background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
-                box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
-                border-radius: 0px 5px 5px 0px;
-
-                &:nth-child(1) {
-                  right: -1px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page1_y);
-                }
-
-                &:nth-child(2) {
-                  right: -2px;
-                  transition-duration: 0.25s;
-                  transform: rotateY($page2_y);
-                }
-                &:nth-child(3) {
-                  right: -3px;
-                  transition-duration: 0.2s;
-                  transform: rotateY($page3_y);
-                }
-                &:nth-child(4) {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  right: -4px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page4_y);
-                }
-                &:nth-child(5) {
-                  right: -5px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page5_y);
-                }
-              }
+            &:nth-child(3) {
+              transform: rotateY($hover_page3_y);
+              transition-duration: 0.8s;
             }
-
-            &:hover {
-              .book-page {
-                .book-page-item {
-                  &:nth-child(1) {
-                    transform: rotateY($hover_page1_y);
-                    transition-duration: 0.6s;
-                  }
-                  &:nth-child(2) {
-                    transform: rotateY($hover_page2_y);
-                    transition-duration: 0.7s;
-                  }
-                  &:nth-child(3) {
-                    transform: rotateY($hover_page3_y);
-                    transition-duration: 0.8s;
-                  }
-                  &:nth-child(4) {
-                    transform: rotateY($hover_page4_y);
-                    transition-duration: 0.9s;
-                  }
-                  &:nth-child(5) {
-                    transform: rotateY($hover_page5_y);
-                    transition-duration: 0.75s;
-                  }
-                }
-              }
+            &:nth-child(4) {
+              transform: rotateY($hover_page4_y);
+              transition-duration: 0.9s;
             }
-
-            .book-back {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: calc(100% + 12px);
-              height: 100%;
-              transform: rotateY($back_y);
-              transform-origin: left center;
-              transform-style: preserve-3d;
-
-              >:first-child {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transform-origin: left center;
-                transform: rotateY(0deg);
-
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-              }
-              >:last-child {
-                position: absolute;
-                top: 4px;
-                bottom: 4px;
-                left: 0;
-                right: 4px;
-                background: #fffbec;
-                transform-origin: left center;
-                transform: rotateY(-1deg);
-
-                &::before {
-                  content: '';
-                  position: absolute;
-                  bottom: -4px;
-                  left: 10px;
-                  right: 10px;
-                  height: 4px;
-                  background: transparent;
-                  box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
-                  transform: rotateX(80deg);
-                }
-              }
+            &:nth-child(5) {
+              transform: rotateY($hover_page5_y);
+              transition-duration: 0.75s;
             }
+          }
+        }
+      }
+
+      .book-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% + 12px);
+        height: 100%;
+        transform: rotateY($back_y);
+        transform-origin: left center;
+        transform-style: preserve-3d;
+
+        >:first-child {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform-origin: left center;
+          transform: rotateY(0deg);
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        >:last-child {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          left: 0;
+          right: 4px;
+          background: #fffbec;
+          transform-origin: left center;
+          transform: rotateY(-1deg);
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: transparent;
+            box-shadow: 0px 0px 30px 5px rgba(51, 51, 51, 0.8);
+            transform: rotateX(80deg);
           }
         }
       }
