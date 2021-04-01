@@ -1,6 +1,6 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
-<div class="w-full <%= params[:screen].present? && params[:screen] == 'large' ? 'px-12 lg:px-40 xl:px-44 xxl:px-48 xxxl:px-52' : 'px-12 lg:px-56 xl:px-64 xxl:px-72 xxxl:px-80' %> publications">
+<div class="w-full px-12 lg:px-56 xl:px-60 xxl:px-64 xxxl:px-72 publications">
   <div class="w-full">
     <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
       header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
