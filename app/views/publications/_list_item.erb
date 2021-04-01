@@ -1,11 +1,11 @@
 <div class="item">
   <div class="publications-cover">
-    <div class="<%= params[:mode].present? && params[:mode] == 'turn' ? 'wrapper-turn' : 'wrapper-rotate' %>">
-      <div class="book" style="width: <%= data[:width] %>; height: <%= data[:height] %>">
+    <div class="<%= params[:mode].present? && params[:mode] == 'turn' ? 'wrapper-turn' : 'wrapper-rotate' -%>">
+      <div class="book" style="width: <%= data[:width] -%>; height: <%= data[:height] -%>">
         <!-- Front -->
         <div class="book-front">
           <div>
-            <img src="<%= data[:url] %>" alt="">
+            <img src="<%= data[:url] -%>" alt="">
             <% unless params[:mode].present? && params[:mode] == 'turn' %>
             <div class="book-download">
               <a href="#">下载</a>
