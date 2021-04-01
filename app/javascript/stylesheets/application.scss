@@ -5,7 +5,8 @@
 @tailwind components;
 @import 'nav-bar';
 @import 'works';
-@import 'publications';
+@import 'publications_rotate';
+// @import 'publications_turn';
 @tailwind utilities;
 
 @layer utilities {
