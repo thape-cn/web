@@ -4,7 +4,7 @@
 lock '~> 3.16.0'
 
 set :application, 'thape_web'
-set :repo_url, 'git@github.com:thape-cn/web.git'
+set :repo_url, 'git@e.coding.net:sew/thape_web.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
