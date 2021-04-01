@@ -38,23 +38,6 @@
         
           $back_y: $base_y;
         
-          .btn {
-            color: #2c3e50;
-            text-decoration: none;
-            text-transform: uppercase;
-            border: 2px solid #2c3e50;
-            font-size: 0.7em;
-            font-weight: 700;
-            padding: 0.1em 0.4em;
-            text-align: center;
-            transition: color 0.3s, border-color 0.3s;
-        
-            &:hover {
-              border-color: #16a085;
-              color: #16a085;
-            }
-          }
-        
           .book {
             position: relative;
             width: 100%;
