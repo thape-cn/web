@@ -94,7 +94,7 @@ staging:
   extract_css: true
 
   # Cache manifest.json for performance
-  cache_manifest: true
+  cache_manifest: false
 
 production:
   <<: *default

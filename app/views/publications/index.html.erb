@@ -1,0 +1,36 @@
+<%= render partial: 'shared/thape_nav'  -%>
+
+<div class="w-full px-12 lg:px-56 xl:px-60 xxl:px-64 xxxl:px-72 publications">
+  <div class="w-full">
+    <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
+      header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+  </div>
+
+  <div class="w-full mt-12 xl:mt-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 md:gap-x-32 md:gap-y-24 list">
+      <% @works.each do |item| %>
+      <%= render partial: 'list_item', locals: { data: item } %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="relative w-full lg:pb-10 mt-6 md:mt-12 lg:mt-24 ">
+    <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
+      header_path: news_index_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+    <div class="flex relative lg:absolute right-0 top-2 text-base lg:text-lg">
+      <a class="text-black6c font-semibold" href="#">专著书籍</a>
+      <a class="mx-6 text-thape-copyright-gray" href="#">规范标准</a>
+      <a class="text-thape-copyright-gray" href="#">论文专利</a>
+    </div>
+  </div>
+
+  <div class="w-full pb-4 md:pb-8 mt-12 xl:mt-16">
+    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 md:gap-x-32 md:gap-y-24 list">
+      <% @publications.each do |item| %>
+      <%= render partial: 'list_item', locals: { data: item } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'shared/footer' %>

@@ -1,0 +1,39 @@
+<div class="item">
+  <div class="cover">
+    <div class="wrapper">
+      <div class="book" style="width: <%= data[:width] %>; height: <%= data[:height] %>">
+        <!-- Front -->
+        <div class="book-front">
+          <div>
+            <img src="<%= data[:url] %>" alt="">
+          </div>
+          <div></div>
+        </div>
+        <!-- Pages -->
+        <div class="book-page">
+          <div class="book-page-item"></div>
+          <div class="book-page-item"></div>
+          <div class="book-page-item"></div>
+          <div class="book-page-item">
+            <a class="btn text-sm sm:text-base md:text-lg" href="/pdfjs/web/viewer.html" target="_blank">点击预览</a>
+            <a class="btn text-sm sm:text-base md:text-lg mt-1" href="#">点击下载</a>
+          </div>
+          <div class="book-page-item"></div>
+        </div>
+        <!-- Back -->
+        <div class='book-back'>
+          <div>
+            <img src="<%= data[:url] %>" alt="">
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-left mt-4 md:mt-8 xl:mt-12 text-black6c font-semibold">
+    <div class="relative title whitespace-no-wrap <%= fdsz("text-sm md:text-base lg:text-lg xl:text-xl", "text-sm md:text-base lg:text-lg xl:text-xl") -%>"><%= data[:title] %></div>
+    <% if data[:subtitle].present? %>
+    <div class="subtitle whitespace-no-wrap mt-1 <%= fdsz("text-xs md:text-sm lg:text-base xl:text-lg", "text-xs md:text-sm lg:text-base xl:text-lg") -%>"><%= data[:subtitle] %></div>
+    <% end %>
+  </div>
+</div>

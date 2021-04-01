@@ -2,7 +2,7 @@
 
 set :nginx_use_ssl, true
 set :rails_env, 'production'
-set :branch, :main
+set :branch, :publication
 set :application, 'web'
 set :puma_service_unit_name, :puma_thape_web
 set :puma_systemctl_user, :system

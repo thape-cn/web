@@ -104,6 +104,8 @@ Rails.application.routes.draw do
   resources :news, only: %i[index show]
   resources :guest_messages, only: %i[create]
 
+  resources :publications, only: %i[index]
+
   get 'search', to: 'search#query'
 
   resources :tianhua2019s, only: %i[show index]
