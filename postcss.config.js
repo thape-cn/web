@@ -20,9 +20,10 @@ if (process.env.RAILS_ENV === "production" || process.env.RAILS_ENV === "staging
       content: [
         './app/**/*.html.erb',
         './app/helpers/**/*.rb',
-        './app/javascript/stylesheets/*.scss',
+        './app/javascript/stylesheets/nav-bar.scss',
+        './app/javascript/stylesheets/works.scss',
+        './app/javascript/stylesheets/publications_rotate.scss',
         './app/javascript/**/*.js',
-        './app/javascript/**/*.jsx',
       ],
       // This is the function used to extract class names from your templates
       defaultExtractor: content => {
