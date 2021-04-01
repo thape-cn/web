@@ -1,6 +1,22 @@
+$base_z: -16px;
+$view_z: 30px;
+
+$front_z: $base_z * 0 + $view_z;
+
+$page1_z: $base_z * 1 + $view_z;
+$page2_z: $base_z * 2 + $view_z;
+$page3_z: $base_z * 3 + $view_z;
+$page4_z: $base_z * 4 + $view_z;
+$page5_z: $base_z * 5 + $view_z;
+
+$back_z: $base_z * 6 + $view_z;
+
 .publications {
   .list {
     .item {
+      .description {
+        text-align: left;
+      }
       .cover {
         position: relative;
         padding-bottom: 128.57%;
@@ -15,19 +31,6 @@
           justify-content: flex-start;
           align-items: flex-end;
           perspective: 1000px;
-
-          $base_z: -16px;
-          $view_z: 30px;
-        
-          $front_z: $base_z * 0 + $view_z;
-        
-          $page1_z: $base_z * 1 + $view_z;
-          $page2_z: $base_z * 2 + $view_z;
-          $page3_z: $base_z * 3 + $view_z;
-          $page4_z: $base_z * 4 + $view_z;
-          $page5_z: $base_z * 5 + $view_z;
-        
-          $back_z: $base_z * 6 + $view_z;
         
           .btn {
             color: #2c3e50;
@@ -462,9 +465,6 @@
             }
           }
         }
-      }
-      .description {
-        text-align: left;
       }
     }
   }
