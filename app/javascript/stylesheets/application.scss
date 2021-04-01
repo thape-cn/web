@@ -3,16 +3,6 @@
 @import 'flex-grid';
 @tailwind base;
 @tailwind components;
-
-/* purgecss start ignore */
-
-@import 'nav-bar';
-@import 'works';
-@import 'publications_rotate';
-// @import 'publications_turn';
-
-/* purgecss end ignore */
-
 @tailwind utilities;
 
 @layer utilities {
@@ -22,6 +12,14 @@
     }
   }
 }
+
+/* purgecss start ignore */
+
+@import 'nav-bar';
+@import 'works';
+@import 'publications_rotate';
+
+/* purgecss end ignore */
 
 .grid-div {
   @apply relative overflow-hidden bg-black;
