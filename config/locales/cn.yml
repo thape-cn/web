@@ -75,6 +75,8 @@ cn:
       vr_technology: "可视化"
     news:
       text: "新闻"
+    publications:
+      text: "出版"
     careers:
       text: "招聘"
     contact:

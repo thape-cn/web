@@ -1,9 +1,23 @@
 .publications {
   .list {
     .item {
+      display: flex;
+      flex-direction: row;
+
+      @screen lg {
+        flex-direction: column;
+      }
+
       .cover {
+        flex: none;
         position: relative;
-        padding-bottom: 128.57%;
+        width: 50%;
+        padding-bottom: 50% * 1.2857;
+        
+        @screen lg {
+          width: 100%;
+          padding-bottom: 100% * 1.2857;
+        }
 
         .wrapper {
           position: absolute;
@@ -14,7 +28,7 @@
           display: flex;
           justify-content: flex-start;
           align-items: flex-end;
-        
+
           $base_y: -3deg;
           $base_add_y: -20deg;
         
@@ -35,16 +49,16 @@
         
           $page5_y: $base_y + -2deg;
           $hover_page5_y: $base_y + -4deg;
-        
+
           $back_y: $base_y;
-        
+
           .book {
             position: relative;
             width: 100%;
             height: 100%;
             perspective: 1000px;
             transform-style: preserve-3d;
-        
+
             .book-front {
               position: absolute;
               top: 0;
@@ -55,7 +69,7 @@
               transform-origin: left center;
               transition: all 0.4s ease;
               transform-style: preserve-3d;
-        
+
               >:first-child {
                 position: absolute;
                 top: 0;
@@ -64,7 +78,7 @@
                 height: 100%;
                 transform-origin: left center;
                 transform: rotateY(0);
-        
+
                 img {
                   width: 100%;
                   height: 100%;
@@ -79,7 +93,7 @@
                 background: #fffbec;
                 transform-origin: left center;
                 transform: rotateY(1deg);
-        
+
                 &::before {
                   content: '';
                   position: absolute;
@@ -93,13 +107,15 @@
                 }
               }
             }
-        
+
+            @screen lg {
             &:hover {
               .book-front {
                 transform: rotateY($hover_front_y);
               }
             }
-        
+            }
+
             .book-page {
               .book-page-item {
                 position: absolute;
@@ -114,13 +130,12 @@
                 background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
                 box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
                 border-radius: 0px 5px 5px 0px;
-        
+
                 &:nth-child(1) {
                   right: -1px;
                   transition-duration: 0.3s;
                   transform: rotateY($page1_y);
                 }
-        
                 &:nth-child(2) {
                   right: -2px;
                   transition-duration: 0.25s;
@@ -133,12 +148,17 @@
                 }
                 &:nth-child(4) {
                   display: flex;
-                  flex-direction: column;
                   justify-content: center;
                   align-items: center;
                   right: -4px;
                   transition-duration: 0.3s;
                   transform: rotateY($page4_y);
+                  .btns {
+                    display: none;
+                    @screen lg {
+                      display: flex;
+                    }
+                  }
                 }
                 &:nth-child(5) {
                   right: -5px;
@@ -147,7 +167,8 @@
                 }
               }
             }
-        
+
+            @screen lg {
             &:hover {
               .book-page {
                 .book-page-item {
@@ -174,7 +195,8 @@
                 }
               }
             }
-        
+            }
+
             .book-back {
               position: absolute;
               top: 0;
@@ -184,7 +206,7 @@
               transform: rotateY($back_y);
               transform-origin: left center;
               transform-style: preserve-3d;
-        
+
               >:first-child {
                 position: absolute;
                 top: 0;
@@ -199,6 +221,7 @@
                   height: 100%;
                 }
               }
+
               >:last-child {
                 position: absolute;
                 top: 4px;
@@ -208,7 +231,7 @@
                 background: #fffbec;
                 transform-origin: left center;
                 transform: rotateY(-1deg);
-        
+
                 &::before {
                   content: '';
                   position: absolute;
@@ -223,6 +246,20 @@
               }
             }
           }
+        }
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex: none;
+        width: 44%;
+        margin-left: 6%;
+
+        @screen lg {
+          width: 100%;
+          margin-left: 0;
         }
       }
     }

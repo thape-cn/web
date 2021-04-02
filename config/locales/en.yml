@@ -80,6 +80,8 @@ en:
       vr_technology: "VISUALIZATION"
     news:
       text: "NEWS"
+    publications:
+      text: "PUBLICATIONS"
     careers:
       text: "CAREERS"
     contact:

@@ -11,8 +11,8 @@ class PublicationsController < ApplicationController
       { title: '天华2018作品集', subtitle: '公共建筑', url: '/book1-6.jpg', width: '85%', height: '85%' },
     ]
     @publications = [
-      { title: '上海城市更新五种策略', url: '/book2-1.jpg', width: '100%', height: '100%' },
-      { title: '郑州-从火车之城到地铁大都会', url: '/book2-2.jpg', width: '100%', height: '77.8%' },
+      { title: '上海城市更新', subtitle: '五种策略', url: '/book2-1.jpg', width: '100%', height: '100%' },
+      { title: 'ZHENGZHOU郑州', subtitle: '从火车之城到地铁大都会', url: '/book2-2.jpg', width: '100%', height: '77.8%' },
     ]
   end
 end
