@@ -7,7 +7,7 @@
   </div>
 
   <div class="w-full mt-6 md:mt-12 xl:mt-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 lg:gap-x-32 lg:gap-y-24 list">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list">
       <% @works.each do |item| %>
       <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="w-full pb-6 md:pb-12 lg:pb-24 mt-6 md:mt-12 xl:mt-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-8 lg:gap-x-32 lg:gap-y-24 list">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list">
       <% @publications.each do |item| %>
       <%= render partial: 'list_item', locals: { data: item } %>
       <% end %>
