@@ -1,11 +1,11 @@
 <div class="item">
   <div class="cover">
     <div class="wrapper">
-      <div class="book" style="width: <%= data[:width] %>; height: <%= data[:height] %>">
+      <div class="book" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
         <!-- Front -->
         <div class="book-front">
           <div>
-            <img src="<%= data[:url] %>" alt="">
+            <img src="<%= item[:url] %>" alt="">
           </div>
           <div></div>
         </div>
@@ -25,7 +25,7 @@
         <!-- Back -->
         <div class='book-back'>
           <div>
-            <img src="<%= data[:url] %>" alt="">
+            <img src="<%= item[:url] %>" alt="">
           </div>
           <div></div>
         </div>
@@ -33,9 +33,9 @@
     </div>
   </div>
   <div class="description text-left mt-0 md:mt-6 xl:mt-8">
-    <div class="relative title whitespace-no-wrap tracking-wider font-semibold text-black6c <%= fdsz("text-base lg:text-lg xl:text-xl", "text-base lg:text-lg xl:text-xl") -%>"><%= data[:title] %></div>
-    <% if data[:subtitle].present? %>
-    <div class="subtitle whitespace-no-wrap tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-sm lg:text-base xl:text-lg", "text-sm lg:text-base xl:text-lg") -%>"><%= data[:subtitle] %></div>
+    <div class="relative title whitespace-no-wrap tracking-wider font-semibold text-black6c <%= fdsz("text-base lg:text-lg xl:text-xl", "text-base lg:text-lg xl:text-xl") -%>"><%= item[:title] %></div>
+    <% if item[:subtitle].present? %>
+    <div class="subtitle whitespace-no-wrap tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-sm lg:text-base xl:text-lg", "text-sm lg:text-base xl:text-lg") -%>"><%= item[:subtitle] %></div>
     <% end %>
     <div class="btns lg:hidden mt-4">
       <div>

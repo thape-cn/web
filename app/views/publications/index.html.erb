@@ -14,7 +14,7 @@
   <div class="w-full mt-6 md:mt-12 xl:mt-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list">
       <% @works.each do |item| %>
-      <%= render partial: 'list_item', locals: { data: item } %>
+      <%= render partial: 'list_item', locals: { item: item } %>
       <% end %>
     </div>
   </div>
@@ -43,7 +43,7 @@
     <% @publication_categoty.each do |category| %>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list" x-show="current_category == <%= category[:id] %>">
         <% @publications.select { |item| item[:category] == category[:id] }.each do |item| %>
-        <%= render partial: 'list_item', locals: { data: item } %>
+        <%= render partial: 'list_item', locals: { item: item } %>
         <% end %>
       </div>
     <% end %>
