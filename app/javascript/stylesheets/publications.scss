@@ -7,6 +7,7 @@
 
       @screen lg {
         flex-direction: column;
+        justify-content: flex-start;
       }
 
       .cover {
@@ -266,6 +267,7 @@
 
         @screen lg {
           width: 100%;
+          justify-content: flex-start;
         }
       }
     }
