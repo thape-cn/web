@@ -2,12 +2,15 @@
 
 class PublicationsController < ApplicationController
   def index
+    preview_conf_url = '/pdfjs/web/viewer.html?file=';
     works = Portfolio.order(position: :asc).all
     @works = works.map do |item|
       {
         title: item.title,
         subtitle: item.sub_title,
-        url: item.cover_jpg || item.cover_webp,
+        cover: item.cover_jpg || item.cover_webp,
+        preview_url: item.pdf_file.present? ? "#{preview_conf_url}#{item.pdf_file}" : '',
+        download_url: item.pdf_file.present? ? item.pdf_file : '',
         width: "#{100 * item.pixel_width / 700}%",
         height: "#{100 * item.pixel_height / 900}%",
       }
@@ -19,7 +22,9 @@ class PublicationsController < ApplicationController
       {
         title: item.title,
         subtitle: item.sub_title,
-        url: item.cover_jpg || item.cover_webp,
+        cover: item.cover_jpg || item.cover_webp,
+        preview_url: item.pdf_file.present? ? "#{preview_conf_url}#{item.pdf_file}" : '',
+        download_url: item.pdf_file.present? ? item.pdf_file : '',
         width: "#{100 * item.pixel_width / 700}%",
         height: "#{100 * item.pixel_height / 900}%",
         category: item.category_status,

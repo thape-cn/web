@@ -5,7 +5,7 @@
         <!-- Front -->
         <div class="book-front">
           <div>
-            <img src="<%= item[:url] %>" alt="">
+            <img src="<%= item[:cover] %>" alt="">
           </div>
           <div></div>
         </div>
@@ -16,8 +16,14 @@
           <div class="book-page-item"></div>
           <div class="book-page-item">
             <div class="btns rounded border border-solid border-black6c overflow-hidden">
-              <a class="px-3 py-1 border-r border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out" href="/pdfjs/web/viewer.html" target="_blank">预览</a>
-              <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out" href="#">下载</a>
+              <a class="px-3 py-1 border-r border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+                href="<%= item[:preview_url] %>"
+                onclick="return <%= item[:preview_url].present? ? 'true' : 'false' %>;"
+                target="_blank">预览</a>
+              <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+                href="<%= item[:download_url] %>"
+                onclick="return <%= item[:download_url].present? ? 'true' : 'false' %>;"
+                download>下载</a>
             </div>
           </div>
           <div class="book-page-item"></div>
@@ -25,7 +31,7 @@
         <!-- Back -->
         <div class='book-back'>
           <div>
-            <img src="<%= item[:url] %>" alt="">
+            <img src="<%= item[:cover] %>" alt="">
           </div>
           <div></div>
         </div>
@@ -39,10 +45,16 @@
     <% end %>
     <div class="btns lg:hidden mt-4">
       <div>
-        <a class="inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out" href="/pdfjs/web/viewer.html" target="_blank">预览</a>
+        <a class="inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+          href="<%= item[:preview_url] %>"
+          onclick="return <%= item[:preview_url].present? ? 'true' : 'false' %>;"
+          target="_blank">预览</a>
       </div>
       <div>
-        <a class="mt-4 inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out" href="#">下载</a>
+        <a class="mt-4 inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+          href="<%= item[:download_url] %>"
+          onclick="return <%= item[:download_url].present? ? 'true' : 'false' %>;"
+          download>下载</a>
       </div>
     </div>
   </div>
