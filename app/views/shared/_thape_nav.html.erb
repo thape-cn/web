@@ -38,6 +38,7 @@ isBigFont = cookies['ts'] == 'big';
 %>
 <header
   class="thape-header thape-header-fixed flex-none <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+  style="transform: translateZ(100px)"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
   data-header-is-active="<%= headerIsActive -%>"
@@ -70,7 +71,7 @@ isBigFont = cookies['ts'] == 'big';
     <div class="nav-point">·</div>
     <div class="nav-item">
       <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>"><%= t('menu.works.text') -%></a>
-      <nav class="works" style="transform: translateZ(1px)">
+      <nav class="works">
         <div class="nav-item">
           <span><%= t('menu.works.project_type') -%></span>
           <div class="list">
