@@ -70,7 +70,7 @@ isBigFont = cookies['ts'] == 'big';
     <div class="nav-point">·</div>
     <div class="nav-item">
       <a href="<%= works_path -%>" class="<%= isWork ? 'active' : '' -%>"><%= t('menu.works.text') -%></a>
-      <nav class="works">
+      <nav class="works" style="transform: translateZ(1px)">
         <div class="nav-item">
           <span><%= t('menu.works.project_type') -%></span>
           <div class="list">
