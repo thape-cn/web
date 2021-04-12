@@ -33,7 +33,6 @@
     data-carousel2-animation-class-right-out="fade-out"
     data-carousel2-animation-duration="500"
     data-carousel2-interval-time="5000"
-    data-action="mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay"
   >
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd" id="slide-images-container" style="padding-top: 50%;">
       <% @work.work_pictures.each_with_index do |work_picture, index| %>
@@ -58,10 +57,10 @@
       <% end %>
       <% end %>
     </div>
-    <div class="action-area action-left" data-action="click->carousel2#toLast">
+    <div class="action-area action-left" data-action="click->carousel2#toLast mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
       <img class="w-8" src="<%= asset_pack_path('media/images/arrow_left.svg') -%>" alt="上一张" />
     </div>
-    <div class="action-area action-right text-white" data-action="click->carousel2#toNext">
+    <div class="action-area action-right text-white" data-action="click->carousel2#toNext mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
       <img class="w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>
