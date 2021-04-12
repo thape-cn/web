@@ -6,6 +6,7 @@
 @import 'nav-bar';
 @import 'works';
 @import 'publications';
+@import 'home';
 @tailwind utilities;
 
 @layer utilities {
@@ -14,6 +15,10 @@
       border-radius: 1.25rem;
     }
   }
+}
+
+img{
+  image-rendering: crisp-edges;
 }
 
 .grid-div {

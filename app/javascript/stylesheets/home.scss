@@ -1,0 +1,39 @@
+.home-project-item {
+  position: relative;
+  overflow: hidden;
+
+  .cover {
+    transform: scale(1);
+    transition: transform ease-in-out .7s;
+    width: 100%;
+    height: 100%;
+  }
+
+  @screen sm {
+    &:hover {
+      .cover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .description {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+
+
+  @screen sm {
+    .description {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: transform ease-in-out .2s, opacity ease-in-out .2s;
+    }
+
+    &:hover {
+      .description {
+        opacity: 1;
+        transform: translateY(0rem);
+      }
+    }
+  }
+}

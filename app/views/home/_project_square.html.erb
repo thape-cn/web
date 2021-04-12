@@ -1,25 +1,14 @@
-<div class="<%= prj_class -%>"
-  x-data="{ show_grid_text: <%= browser.device.mobile? ? 'true' : 'false' -%> }"
-  x-on:mouseenter="show_grid_text = true"
-  x-on:mouseleave="show_grid_text = false">
+<div class="<%= prj_class -%>">
   <a href="<%= work_path(id: work.id) -%>">
     <picture>
       <% if prj_webp.present? %>
         <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
       <% end %>
       <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
-      <img src="<%= asset_pack_path(prj_image) -%>"
-        x-bind:class="{ 'grid-mask-image hover:scale-105': show_grid_text, 'grid-image': !show_grid_text }">
+      <img class="cover object-cover w-full h-full" src="<%= asset_pack_path(prj_image) -%>">
     </picture>
   </a>
-  <div class="absolute text-white left-0 bottom-0 px-2 sm:px-6 pb-2 sm:pb-4"
-    x-transition:enter="transition ease-linear duration-200"
-    x-transition:enter-start="opacity-0 transform translate-y-4"
-    x-transition:enter-end="opacity-100 transform translate-y-0"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100 transform translate-y-0"
-    x-transition:leave-end="opacity-0 transform translate-y-4"
-    x-show="show_grid_text">
+  <div class="description absolute text-white left-0 bottom-0 w-full px-2 sm:px-6 py-2 sm:py-4">
     <p class="<%= fdsz("text-xs sm:text-sm leading-snug sm:leading-tight", "text-xs sm:text-2xl leading-snug sm:leading-tight") -%> text-left pb-1 font-medium"><%= link_to work.project_types.first["#{I18n.locale}_name"], project_type_path(work.project_types.first) -%></p>
     <p class="<%= fdsz("text-sm sm:text-lg leading-snug sm:leading-tight", "text-sm sm:text-3xl leading-snug sm:leading-tight") -%> text-left"><%= link_to work.project_name, work_path(id: work.id) -%></p>
   </div>
