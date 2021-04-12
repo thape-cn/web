@@ -1,3 +1,19 @@
+.hover-scale {
+    .scale-img {
+        transform: translateZ(0) scale(1);
+        transition: transform ease .7s;
+    }
+    &:hover {
+        .scale-img {
+            transform: translateZ(0) scale(1.05);
+        }
+    }
+}
+
+.card-title-mask {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, .8),  rgba(0, 0, 0, 0));
+}
+
 .works-projects-container {
     position: relative;
     width: 100%;

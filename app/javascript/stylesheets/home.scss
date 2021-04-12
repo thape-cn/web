@@ -3,7 +3,7 @@
   overflow: hidden;
 
   .cover {
-    transform: scale(1);
+    transform: translateZ(0) scale(1);
     transition: transform ease-in-out .7s;
     width: 100%;
     height: 100%;
@@ -12,7 +12,7 @@
   @screen sm {
     &:hover {
       .cover {
-        transform: scale(1.05);
+        transform: translateZ(0) scale(1.05);
       }
     }
   }
