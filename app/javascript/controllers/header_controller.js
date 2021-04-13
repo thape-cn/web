@@ -30,29 +30,32 @@ export default class extends Controller {
         const e = event || window.event;
         e.preventDefault();
         if (this.hasAsideMenuTarget) {
-            this.asideMenuTarget.style.display === 'none' ? this.showAsideMenu() : this.hideAsideMenu();
+            this.asideMenuTarget.classList.contains('show') ? this.hideAsideMenu() : this.showAsideMenu();
         }
     }
 
     showAsideMenu = event => {
         if (this.hasAsideMenuTarget) {
-            this.asideMenuTarget.style.display = 'block';
+            if (!this.asideMenuTarget.classList.contains('show')) this.asideMenuTarget.classList.add('show');
         }
         this.hideMobileSearch();
     }
 
     hideAsideMenu = event => {
         if (this.hasAsideMenuTarget) {
-            this.asideMenuTarget.style.display = 'none';
+            if (this.asideMenuTarget.classList.contains('show')) this.asideMenuTarget.classList.remove('show');
         }
     }
 
     showForm = event => {
+        let width = '35rem';
         if (this.hasNavTarget) {
-            this.navTarget.style.display = 'none';
+            width = `${this.navTarget.offsetWidth}px`;
+            if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
         }
         if (this.hasFormTarget) {
-            this.formTarget.style.display = 'flex';
+            this.formTarget.style.width = width;
+            if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
         }
         if (this.hasFormInputTarget) {
             this.formInputTarget.focus();
@@ -61,27 +64,27 @@ export default class extends Controller {
 
     hideForm = event => {
         if (this.hasNavTarget) {
-            this.navTarget.style.display = '';
+            if (!this.navTarget.classList.contains('show')) this.navTarget.classList.add('show');
         }
         if (this.hasFormTarget) {
-            this.formTarget.style.display = 'none';
+            if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
         }
     }
 
     showMobileSearch = event => {
         if (this.hasMobileSearchTarget) {
-            this.mobileSearchTarget.style.display = 'block';
+            if (!this.mobileSearchTarget.classList.contains('show')) this.mobileSearchTarget.classList.add('show');
         }
         this.hideAsideMenu();
     }
 
     hideMobileSearch = event => {
         if (this.hasMobileSearchTarget) {
-            this.mobileSearchTarget.style.display = 'none';
+            if (this.mobileSearchTarget.classList.contains('show')) this.mobileSearchTarget.classList.remove('show');
         }
     }
 
-    menuItemClick = (event) => {
+    menuItemClick = event => {
         const e = event || window.event;
         e.stopPropagation();
         if (e.target.tagName.toLowerCase() === 'a') {
@@ -89,9 +92,7 @@ export default class extends Controller {
             if (parent) {
                 const asideMenuChildren = parent.querySelector('.aside-menu-children');
                 if (asideMenuChildren) {
-                    e.preventDefault && e.preventDefault();
-                    const display = asideMenuChildren.style.display;
-                    asideMenuChildren.style.display = display === 'none' ? 'block' : 'none';
+                    asideMenuChildren.classList.contains('hidden') ? asideMenuChildren.classList.remove('hidden') : asideMenuChildren.classList.add('hidden');
                 }
             }
         }
