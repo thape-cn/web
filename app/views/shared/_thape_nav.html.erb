@@ -47,7 +47,7 @@ isBigFont = cookies['ts'] == 'big';
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
     </a>
   </div>
-  <nav class="show" data-target="header.nav">
+  <nav class="menu-nav show" data-target="header.nav">
     <div class="nav-item">
       <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
