@@ -11,7 +11,7 @@
     <%# 居住 %>
     <div class="works-projects-cell hover-scale resdential">
       <a href="<%= residential_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.resdential_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.resdential_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">居住</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">RESIDENTIAL</p>
@@ -21,7 +21,7 @@
     <%# 示范区 %>
     <div class="works-projects-cell hover-scale demonstration-zone">
       <a href="<%= demonstration_zone_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.demonstration_zone_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.demonstration_zone_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">展示区/示范区</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">DEMONSTRATION ZONE</p>
@@ -31,7 +31,7 @@
     <%# 综合体/TOD %>
     <div class="works-projects-cell hover-scale mixed-used-tod">
       <a href="<%= mixed_used_tod_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.mixed_used_tod_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.mixed_used_tod_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">综合体/TOD</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MIXED-USED/TOD</p>
@@ -41,7 +41,7 @@
     <%# 商业空间 %>
     <div class="works-projects-cell hover-scale commercial">
       <a href="<%= commercial_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.commercial_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.commercial_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">商业空间</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">COMMERCIAL</p>
@@ -51,7 +51,7 @@
     <%# 超高层 %>
     <div class="works-projects-cell hover-scale supertall">
       <a href="<%= supertall_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.supertall_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.supertall_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">超高层</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SUPERTALL</p>
@@ -61,8 +61,8 @@
     <%# 文化 %>
     <div class="works-projects-cell hover-scale cultural">
       <a href="<%= cultural_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.cultural_jpg.url, class: 'hidden xl:block grid-image hover:scale-105' -%>
-        <%= image_tag work_type_page.cultural_wide_jpg.url, class: 'block xl:hidden grid-image hover:scale-105' -%>
+        <%= image_tag work_type_page.cultural_jpg.url, class: 'hidden xl:block object-cover w-full h-full scale-img' -%>
+        <%= image_tag work_type_page.cultural_wide_jpg.url, class: 'block xl:hidden object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">文化空间</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">CULTURAL</p>
@@ -72,7 +72,7 @@
     <%# 教育 %>
     <div class="works-projects-cell hover-scale education">
       <a href="<%= education_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.education_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.education_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">教育</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">EDUCATION</p>
@@ -82,7 +82,7 @@
     <%# 商务办公 %>
     <div class="works-projects-cell hover-scale office">
       <a href="<%= office_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.office_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.office_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">商务办公</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">OFFICE</p>
@@ -92,7 +92,7 @@
     <%# 城市设计/更新 %>
     <div class="works-projects-cell hover-scale urban-design">
       <a href="<%= urban_design_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.urban_design_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.urban_design_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">城市设计/更新</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN DESIGN/RENOVATION</p>
@@ -102,7 +102,7 @@
     <%# 医疗康养 %>
     <div class="works-projects-cell hover-scale medical-care">
       <a href="<%= medical_care_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.medical_care_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.medical_care_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">医疗康养</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">MEDICAL CARE</p>
@@ -112,7 +112,7 @@
     <%# 旅居/酒店 %>
     <div class="works-projects-cell hover-scale hospitality">
       <a href="<%= hospitality_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.hospitality_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.hospitality_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">旅居/酒店</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">SOJOURN/HOSPITALITY</p>
@@ -122,7 +122,7 @@
     <%# 规划 %>
     <div class="works-projects-cell hover-scale urban-planning">
       <a href="<%= urban_planning_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.urban_planning_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.urban_planning_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">城市规划</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">URBAN PLANNING</p>
@@ -132,7 +132,7 @@
     <%# 景观 %>
     <div class="works-projects-cell hover-scale landscape">
       <a href="<%= landscape_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.landscape_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.landscape_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">景观</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">LANDSCAPE</p>
@@ -142,7 +142,7 @@
     <%# 室内 %>
     <div class="works-projects-cell hover-scale interior">
       <a href="<%= interior_works_path -%>" class="cursor-pointer">
-        <%= image_tag work_type_page.interior_jpg.url, class: 'scale-img' -%>
+        <%= image_tag work_type_page.interior_jpg.url, class: 'object-cover w-full h-full scale-img' -%>
         <div class="mask absolute text-white bottom-0 left-0 right-0 break-all px-3 md:px-6 py-3 md:py-4">
           <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight">室内</p>
           <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;">INTERIOR</p>

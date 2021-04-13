@@ -20,7 +20,7 @@
         <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
         <% @management_people.each do |person| %>
           <%= render partial: 'person_square',
-            locals: { person: person, person_class: 'grid-div', city: City.find_by!(company_name: '天华集团') } %>
+            locals: { person: person, person_class: 'relative overflow-hidden', city: City.find_by!(company_name: '天华集团') } %>
         <% end %>
         </div>
       </div>
@@ -38,7 +38,7 @@
         <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
         <% @speciality_people.each do |person| %>
           <%= render partial: 'person_square',
-            locals: { person: person, person_class: 'grid-div', city: City.find_by!(company_name: '天华集团') } %>
+            locals: { person: person, person_class: 'relative overflow-hidden', city: City.find_by!(company_name: '天华集团') } %>
         <% end %>
         </div>
       </div>
