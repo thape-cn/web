@@ -1,7 +1,7 @@
 <div class="item">
   <div class="cover">
     <div class="wrapper">
-      <div class="book" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
+      <div class="book hidden lg:block" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
         <!-- Front -->
         <div class="book-front">
           <div>
@@ -34,6 +34,11 @@
             <img src="<%= item[:cover] %>" alt="">
           </div>
           <div></div>
+        </div>
+      </div>
+      <div class="w-full h-full flex lg:hidden items-end">
+        <div class="mobile-book" style="width: <%= item[:width] %>; height: <%= item[:height] %>">
+          <img class="w-full h-full" src="/mobile-book-1.png" alt="">
         </div>
       </div>
     </div>
