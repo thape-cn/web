@@ -17,6 +17,10 @@
   }
 }
 
+* {
+  -webkit-tap-highlight-color:transparent;
+}
+
 img{
   image-rendering: crisp-edges;
 }
