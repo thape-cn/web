@@ -48,13 +48,10 @@ export default class extends Controller {
     }
 
     showForm = event => {
-        let width = '35rem';
         if (this.hasNavTarget) {
-            width = `${this.navTarget.offsetWidth}px`;
             if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
         }
         if (this.hasFormTarget) {
-            this.formTarget.style.width = width;
             if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
         }
         if (this.hasFormInputTarget) {
