@@ -13,7 +13,7 @@
   <% if @management_people.present? %>
     <div class="w-full mx-auto sm:pb-4 sm:pt-0 lg:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
       <%= render partial: 'shared/header', locals: { c: "#{c}管理团队", e: "#{e_title} MANAGEMENT",
-        header_path: leadership_path(id: city_url_name), header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+        header_path: leadership_path(id: city_url_name), header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
     </div>
 
     <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 <%= @speciality_people.blank? ? 'pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8' : '' %>">
@@ -31,7 +31,7 @@
   <% if @speciality_people.present? %>
     <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
       <%= render partial: 'shared/header', locals: { c: "#{c}专业团队", e: "#{e_title} PROFESSIONAL",
-        header_path: leadership_path(id: city_url_name), header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+        header_path: leadership_path(id: city_url_name), header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
     </div>
 
     <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">
