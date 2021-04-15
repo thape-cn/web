@@ -8,13 +8,13 @@
     header_path: culture_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: true } %>
 </div>
 
-<div class="flex flex-col items-center justify-between px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 pb-2 md:pb-6 lg:pb-8 xl:pb-10 xxl:pb-12 xxxl:pb-16"
+<div class="flex flex-col items-center justify-center px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-2 md:py-6 lg:py-8 xl:py-10 xxl:py-12 xxxl:py-16"
   x-data="alpineSlideShow([1,2,3,4,5])"
   x-init="setup()"
   data-controller="culture"
   data-culture-img-width='1080'
   data-culture-img-height='720'>
-  <div class="relative max-w-full overflow-hidden" data-target="culture.slider">
+  <div class="relative max-w-full overflow-hidden" data-target="culture.sliders">
     <img class="w-full h-full" src="<%= asset_pack_path('media/images/culture_1.png') -%>"
       :x-transition:enter="transitions('enter')"
       :x-transition:enter-start="transitions('enter-start')"
@@ -60,7 +60,7 @@
       :x-transition:leave-end="transitions('leave-end')"
       x-show="state.currentSlide === 5" />
   </div>
-  <div class="flex items-center justify-center">
+  <div class="flex items-center justify-center" data-target="culture.dots">
       <button
         class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{
