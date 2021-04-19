@@ -47,9 +47,24 @@ export default class extends Controller {
         }
     }
 
+    navTimer = null
+    navOpacity = 1
+    freq = 20
+
     showForm = event => {
         if (this.hasNavTarget) {
-            if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
+            if (this.navTimer) clearInterval(this.navTimer);
+            const perOpacity = 1 / this.freq;
+            this.navTimer = setInterval(() => {
+                this.navOpacity -= perOpacity;
+                if (this.navOpacity <= 0) {
+                    this.navOpacity = 0;
+                    clearInterval(this.navTimer);
+                    this.navTimer = null;
+                    if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
+                }
+                this.navTarget.style.opacity = this.navOpacity;
+            }, 1000 / this.freq);
         }
         if (this.hasFormTarget) {
             if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
@@ -61,7 +76,18 @@ export default class extends Controller {
 
     hideForm = event => {
         if (this.hasNavTarget) {
+            if (this.navTimer) clearInterval(this.navTimer);
+            const perOpacity = 1 / this.freq;
             if (!this.navTarget.classList.contains('show')) this.navTarget.classList.add('show');
+            this.navTimer = setInterval(() => {
+                this.navOpacity += perOpacity;
+                if (this.navOpacity >= 1) {
+                    this.navOpacity = 1;
+                    clearInterval(this.navTimer);
+                    this.navTimer = null;
+                }
+                this.navTarget.style.opacity = this.navOpacity;
+            }, 1000 / this.freq);
         }
         if (this.hasFormTarget) {
             if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
