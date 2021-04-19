@@ -19,7 +19,6 @@ class PublicationsController < ApplicationController
 
     publications = Publication.order(position: :asc).all
     @publications = publications.map do |item|
-      puts item.title
       {
         title: item.title,
         subtitle: item.sub_title,

@@ -154,19 +154,10 @@
                   z-index: 97;
                 }
                 &:nth-child(4) {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
                   right: -4px;
                   transition-duration: 0.3s;
                   transform: rotateY($page4_y);
                   z-index: 3;
-                  .btns {
-                    display: none;
-                    @screen lg {
-                      display: flex;
-                    }
-                  }
                 }
                 &:nth-child(5) {
                   right: -5px;
