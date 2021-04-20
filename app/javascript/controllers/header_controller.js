@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = ['nav', 'form', 'formInput', 'asideMenu', 'mobileSearch'];
+    static targets = ['nav', 'form', 'formInput', 'formUnderline', 'asideMenu', 'mobileSearch'];
 
     initialize() {
         this.isActive = this.data.get('isActive') === 'true';
@@ -71,7 +71,7 @@ export default class extends Controller {
                 });
             }, perTime);
         }
-        if (this.hasFormTarget) {
+        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget) {
             if (this.formTimer) clearInterval(this.formTimer);
             if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
             this.formTimer = setInterval(() => {
@@ -82,7 +82,8 @@ export default class extends Controller {
                     this.formTimer = null;
                 }
                 requestAnimationFrame(() => {
-                    this.formTarget.style.opacity = this.formOpacity;
+                    this.formInputTarget.style.opacity = this.formOpacity;
+                    this.formUnderlineTarget.style.opacity = this.formOpacity;
                 });
             }, perTime);
         }
@@ -120,7 +121,8 @@ export default class extends Controller {
                     if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
                 }
                 requestAnimationFrame(() => {
-                    this.formTarget.style.opacity = this.formOpacity;
+                    this.formInputTarget.style.opacity = this.formOpacity;
+                    this.formUnderlineTarget.style.opacity = this.formOpacity;
                 });
             }, perTime);
         }

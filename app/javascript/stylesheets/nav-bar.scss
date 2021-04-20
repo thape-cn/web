@@ -161,7 +161,6 @@
     height: calc(100% - 10px);
     align-items: center;
     padding: 0 0 0 1.8rem;
-    @apply border-gray-200 border-solid border-b;
 
     &.show {
       display: none;
@@ -183,6 +182,16 @@
         border: none;
       }
     }
+
+    .underline {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      @apply bg-gray-200;
+    }
+
     button {
       position: absolute;
       left: 0;
