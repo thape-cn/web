@@ -51,13 +51,14 @@ export default class extends Controller {
     navOpacity = 1
     formTimer = null
     formOpacity = 0
-    freq = 30
+    totalTime = 500
+    freq = 15
     distance = 0
     iconLeft = 0
 
     showForm = event => {
         const perOpacity = 1 / this.freq;
-        const perTime = 1000 / this.freq;
+        const perTime = this.totalTime / this.freq;
         if (this.hasNavTarget) {
             if (this.navTimer) clearInterval(this.navTimer);
             this.navTimer = setInterval(() => {
@@ -81,7 +82,7 @@ export default class extends Controller {
             this.distance = this.formSwitchTarget.offsetLeft - this.formTarget.offsetLeft;
             this.iconLeft = this.distance;
             const perLeft = this.distance / this.freq;
-            this.formSubmitTarget.style.transition = `transform ease ${perTime / 1000}s`;
+            this.formSubmitTarget.style.transition = `transform ease ${perTime / this.totalTime}s`;
             this.formTimer = setInterval(() => {
                 this.formOpacity += perOpacity;
                 this.iconLeft -= perLeft;
@@ -105,7 +106,7 @@ export default class extends Controller {
 
     hideForm = event => {
         const perOpacity = 1 / this.freq;
-        const perTime = 1000 / this.freq;
+        const perTime = this.totalTime / this.freq;
         if (this.hasNavTarget) {
             if (this.navTimer) clearInterval(this.navTimer);
             if (!this.navTarget.classList.contains('show')) this.navTarget.classList.add('show');
