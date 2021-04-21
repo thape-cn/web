@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-    static targets = ['nav', 'form', 'formInput', 'formUnderline', 'asideMenu', 'mobileSearch'];
+    static targets = ['nav', 'form', 'formInput', 'formSubmit', 'formUnderline', 'formSwitch', 'asideMenu', 'mobileSearch'];
 
     initialize() {
         this.isActive = this.data.get('isActive') === 'true';
@@ -52,6 +52,8 @@ export default class extends Controller {
     formTimer = null
     formOpacity = 0
     freq = 30
+    distance = 0
+    iconLeft = 0
 
     showForm = event => {
         const perOpacity = 1 / this.freq;
@@ -71,19 +73,28 @@ export default class extends Controller {
                 });
             }, perTime);
         }
-        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget) {
+        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
             if (this.formTimer) clearInterval(this.formTimer);
             if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
+            if (this.formSwitchTarget.classList.contains('opacity-100')) this.formSwitchTarget.classList.remove('opacity-100');
+            if (!this.formSwitchTarget.classList.contains('opacity-0')) this.formSwitchTarget.classList.add('opacity-0');
+            this.distance = this.formSwitchTarget.offsetLeft - this.formTarget.offsetLeft;
+            this.iconLeft = this.distance;
+            const perLeft = this.distance / this.freq;
+            this.formSubmitTarget.style.transition = `transform ease ${perTime / 1000}s`;
             this.formTimer = setInterval(() => {
                 this.formOpacity += perOpacity;
+                this.iconLeft -= perLeft;
                 if (this.formOpacity >= 1) {
                     this.formOpacity = 1;
                     clearInterval(this.formTimer);
                     this.formTimer = null;
                 }
+                if (this.iconLeft < 0) this.iconLeft = 0;
                 requestAnimationFrame(() => {
                     this.formInputTarget.style.opacity = this.formOpacity;
                     this.formUnderlineTarget.style.opacity = this.formOpacity;
+                    this.formSubmitTarget.style.transform = `translateX(${this.iconLeft}px)`;
                 });
             }, perTime);
         }
@@ -110,19 +121,25 @@ export default class extends Controller {
                 });
             }, perTime);
         }
-        if (this.hasFormTarget) {
+        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
             if (this.formTimer) clearInterval(this.formTimer);
+            const perLeft = this.distance / this.freq;
             this.formTimer = setInterval(() => {
                 this.formOpacity -= perOpacity;
+                this.iconLeft += perLeft;
                 if (this.formOpacity <= 0) {
                     this.formOpacity = 0;
                     clearInterval(this.formTimer);
                     this.formTimer = null;
                     if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
+                    if (this.formSwitchTarget.classList.contains('opacity-0')) this.formSwitchTarget.classList.remove('opacity-0');
+                    if (!this.formSwitchTarget.classList.contains('opacity-100')) this.formSwitchTarget.classList.add('opacity-100');
                 }
+                if (this.iconLeft > this.distance) this.iconLeft = this.distance;
                 requestAnimationFrame(() => {
                     this.formInputTarget.style.opacity = this.formOpacity;
                     this.formUnderlineTarget.style.opacity = this.formOpacity;
+                    this.formSubmitTarget.style.transform = `translateX(${this.iconLeft}px)`;
                 });
             }, perTime);
         }

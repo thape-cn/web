@@ -234,7 +234,7 @@ isBigFont = cookies['ts'] == 'big';
     <div class="nav-item">
       <a href="<%= biz_map_path -%>" class="<%= isContact ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
-    <div class="nav-item">
+    <div class="nav-item" data-target="header.formSwitch">
       <a href="javascript:void(0)" data-action="click->header#showForm">
         <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
@@ -309,7 +309,7 @@ isBigFont = cookies['ts'] == 'big';
   <div class="header-search-form absolute right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-target="header.form">
     <form action="<%= search_path -%>" method="GET" autocomplete="off">
       <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-target="header.formInput" data-action="blur->header#hideForm" />
-      <button type="submit">
+      <button type="submit" data-target="header.formSubmit">
         <svg class="h-6 w-6" fill="currentColor">
           <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
         </svg>
