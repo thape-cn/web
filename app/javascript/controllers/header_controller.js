@@ -5,6 +5,8 @@ export default class extends Controller {
 
     initialize() {
         this.isActive = this.data.get('isActive') === 'true';
+        this.amtTime = Number(this.data.get('amtTime'));
+        this.amtFreq = Number(this.data.get('amtFreq'));
     }
 
     connect() {
@@ -47,100 +49,81 @@ export default class extends Controller {
         }
     }
 
-    navTimer = null
-    navOpacity = 1
-    formTimer = null
-    formOpacity = 0
-    totalTime = 500
-    freq = 15
-    distance = 0
-    iconLeft = 0
+    amtTimer = null
+    amtMaxOpacity = 1
+    amtMinOpacity = 0
+    amtNavOpacity = 1
+    amtFormOpacity = 0
+    amtMaxLeft = 0
+    amtMinLeft = 0
+    amtLeft = 0
 
     showForm = event => {
-        const perOpacity = 1 / this.freq;
-        const perTime = this.totalTime / this.freq;
-        if (this.hasNavTarget) {
-            if (this.navTimer) clearInterval(this.navTimer);
-            this.navTimer = setInterval(() => {
-                this.navOpacity -= perOpacity;
-                if (this.navOpacity <= 0) {
-                    this.navOpacity = 0;
-                    clearInterval(this.navTimer);
-                    this.navTimer = null;
-                    if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
-                }
-                requestAnimationFrame(() => {
-                    this.navTarget.style.opacity = this.navOpacity;
-                });
-            }, perTime);
-        }
-        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
-            if (this.formTimer) clearInterval(this.formTimer);
+        const perOpacity = this.amtMaxOpacity / this.amtFreq;
+        const perTime = this.amtTime / this.amtFreq;
+        if (this.hasNavTarget && this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
+            if (this.amtTimer) clearInterval(this.amtTimer);
             if (!this.formTarget.classList.contains('show')) this.formTarget.classList.add('show');
             if (this.formSwitchTarget.classList.contains('opacity-100')) this.formSwitchTarget.classList.remove('opacity-100');
             if (!this.formSwitchTarget.classList.contains('opacity-0')) this.formSwitchTarget.classList.add('opacity-0');
-            this.distance = this.formSwitchTarget.offsetLeft - this.formTarget.offsetLeft;
-            this.iconLeft = this.distance;
-            const perLeft = this.distance / this.freq;
-            this.formSubmitTarget.style.transition = `transform ease ${perTime / this.totalTime}s`;
-            this.formTimer = setInterval(() => {
-                this.formOpacity += perOpacity;
-                this.iconLeft -= perLeft;
-                if (this.formOpacity >= 1) {
-                    this.formOpacity = 1;
-                    clearInterval(this.formTimer);
-                    this.formTimer = null;
+            this.amtMaxLeft = this.formSwitchTarget.offsetLeft - this.formTarget.offsetLeft;
+            const perLeft = this.amtMaxLeft / this.amtFreq;
+            this.amtLeft = this.amtMaxLeft;
+            this.formSubmitTarget.style.transform = `translateX(${this.amtLeft}px)`;
+            this.amtTimer = setInterval(() => {
+                this.amtNavOpacity -= perOpacity;
+                if (this.amtNavOpacity <= this.amtMinOpacity) {
+                    this.amtNavOpacity = this.amtMinOpacity;
+                    clearInterval(this.amtTimer);
+                    this.amtTimer = null;
+                    if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
                 }
-                if (this.iconLeft < 0) this.iconLeft = 0;
+                this.amtFormOpacity += perOpacity;
+                if (this.amtFormOpacity >= this.amtMaxOpacity) {
+                    this.amtFormOpacity = this.amtMaxOpacity;
+                }
+                this.amtLeft -= perLeft;
+                if (this.amtLeft < this.amtMinLeft) this.amtLeft = this.amtMinLeft;
                 requestAnimationFrame(() => {
-                    this.formInputTarget.style.opacity = this.formOpacity;
-                    this.formUnderlineTarget.style.opacity = this.formOpacity;
-                    this.formSubmitTarget.style.transform = `translateX(${this.iconLeft}px)`;
+                    this.navTarget.style.opacity = this.amtNavOpacity;
+                    this.formInputTarget.style.opacity = this.amtFormOpacity;
+                    this.formUnderlineTarget.style.opacity = this.amtFormOpacity;
+                    this.formSubmitTarget.style.transition = `transform ease ${perTime / this.amtTime}s`;
+                    this.formSubmitTarget.style.transform = `translateX(${this.amtLeft}px)`;
                 });
             }, perTime);
-        }
-        if (this.hasFormInputTarget) {
             this.formInputTarget.focus();
         }
     }
 
     hideForm = event => {
-        const perOpacity = 1 / this.freq;
-        const perTime = this.totalTime / this.freq;
-        if (this.hasNavTarget) {
-            if (this.navTimer) clearInterval(this.navTimer);
+        const perOpacity = this.amtMaxOpacity / this.amtFreq;
+        const perTime = this.amtTime / this.amtFreq;
+        if (this.hasNavTarget && this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
+            if (this.amtTimer) clearInterval(this.amtTimer);
             if (!this.navTarget.classList.contains('show')) this.navTarget.classList.add('show');
-            this.navTimer = setInterval(() => {
-                this.navOpacity += perOpacity;
-                if (this.navOpacity >= 1) {
-                    this.navOpacity = 1;
-                    clearInterval(this.navTimer);
-                    this.navTimer = null;
+            const perLeft = this.amtMaxLeft / this.amtFreq;
+            this.amtTimer = setInterval(() => {
+                this.amtNavOpacity += perOpacity;
+                if (this.amtNavOpacity >= this.amtMaxOpacity) {
+                    this.amtNavOpacity = this.amtMaxOpacity;
+                    clearInterval(this.amtTimer);
+                    this.amtTimer = null;
                 }
-                requestAnimationFrame(() => {
-                    this.navTarget.style.opacity = this.navOpacity;
-                });
-            }, perTime);
-        }
-        if (this.hasFormTarget && this.hasFormInputTarget && this.hasFormUnderlineTarget && this.hasFormSubmitTarget && this.hasFormSwitchTarget) {
-            if (this.formTimer) clearInterval(this.formTimer);
-            const perLeft = this.distance / this.freq;
-            this.formTimer = setInterval(() => {
-                this.formOpacity -= perOpacity;
-                this.iconLeft += perLeft;
-                if (this.formOpacity <= 0) {
-                    this.formOpacity = 0;
-                    clearInterval(this.formTimer);
-                    this.formTimer = null;
+                this.amtFormOpacity -= perOpacity;
+                this.amtLeft += perLeft;
+                if (this.amtFormOpacity <= this.amtMinOpacity) {
+                    this.amtFormOpacity = this.amtMinOpacity;
                     if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
                     if (this.formSwitchTarget.classList.contains('opacity-0')) this.formSwitchTarget.classList.remove('opacity-0');
                     if (!this.formSwitchTarget.classList.contains('opacity-100')) this.formSwitchTarget.classList.add('opacity-100');
                 }
-                if (this.iconLeft > this.distance) this.iconLeft = this.distance;
+                if (this.amtLeft > this.amtMaxLeft) this.amtLeft = this.amtMaxLeft;
                 requestAnimationFrame(() => {
-                    this.formInputTarget.style.opacity = this.formOpacity;
-                    this.formUnderlineTarget.style.opacity = this.formOpacity;
-                    this.formSubmitTarget.style.transform = `translateX(${this.iconLeft}px)`;
+                    this.navTarget.style.opacity = this.amtNavOpacity;
+                    this.formInputTarget.style.opacity = this.amtFormOpacity;
+                    this.formUnderlineTarget.style.opacity = this.amtFormOpacity;
+                    this.formSubmitTarget.style.transform = `translateX(${this.amtLeft}px)`;
                 });
             }, perTime);
         }
