@@ -307,7 +307,7 @@ isBigFont = cookies['ts'] == 'big';
     </div>
   </nav>
   <div class="header-search-form absolute right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-target="header.form">
-    <form action="<%= search_path -%>" method="GET" autocomplete="off">
+    <form class="w-full" action="<%= search_path -%>" method="GET" autocomplete="off">
       <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-target="header.formInput" data-action="blur->header#hideForm" />
       <button type="submit" data-target="header.formSubmit">
         <svg class="h-6 w-6" fill="currentColor">
