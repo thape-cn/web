@@ -20,15 +20,16 @@
           </div>
           <div class="book-page-item">
             <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-              <div class="hidden lg:flex rounded border border-solid border-black6c overflow-hidden">
-                <a class="px-3 py-1 border-r border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+              <div class="hidden lg:flex rounded border border-solid overflow-hidden <%= item[:preview_url].present? ? 'border-black6c' : 'bordr-thape-dark-gray' %>">
+                <a class="px-3 py-1 border-r border-solid text-sm font-medium text-black bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'border-black6c text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
                   href="<%= item[:preview_url] %>"
-                  target="_blank">预览</a>
-                <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+                  onclick="return <%= item[:preview_url].present? %>"
+                  target="_blank"><%= t('publication.preview') %></a>
+                <a class="px-3 py-1 text-sm font-medium bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'border-black6c text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
                   href="<%= item[:download_url] %>"
                   download
                   onclick="return false"
-                  data-action="click->publications#downloadFile">下载</a>
+                  data-action="click->publications#downloadFile"><%= t('publication.download') %></a>
               </div>
             </div>
           </div>
@@ -56,16 +57,17 @@
     <% end %>
     <div class="btns lg:hidden mt-4">
       <div>
-        <a class="inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+        <a class="inline-block px-6 py-1 rounded border border-solid text-sm font-medium bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'border-black6c text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
           href="<%= item[:preview_url] %>"
-          target="_blank">预览</a>
+          onclick="return <%= item[:preview_url].present? %>"
+          target="_blank"><%= t('publication.preview') %></a>
       </div>
       <div>
-        <a class="mt-4 inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
+        <a class="mt-4 inline-block px-6 py-1 rounded border border-solid text-sm font-medium bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'border-black6c text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
           href="<%= item[:download_url] %>"
           download
           onclick="return false"
-          data-action="click->publications#downloadFile">下载</a>
+          data-action="click->publications#downloadFile"><%= t('publication.download') %></a>
       </div>
     </div>
   </div>

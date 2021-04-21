@@ -44,13 +44,15 @@ export default class extends Controller {
       }
     } else {
       const url = e.target.getAttribute('href');
-      const download = e.target.getAttribute('download');
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = download;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      if (url) {
+        const download = e.target.getAttribute('download');
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = download;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
     }
   }
 }
