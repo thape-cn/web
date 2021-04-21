@@ -14,7 +14,9 @@
           <div class="book-page-item"></div>
           <div class="book-page-item"></div>
           <div class="book-page-item">
-            <img class="w-full h-full" style="transform: rotateY(180deg);" src="/page-01.png" alt="">
+            <% if item[:page_cover].present? %>
+            <img class="w-full h-full" style="transform: rotateY(180deg);" src="<%= item[:page_cover] %>" alt="">
+            <% end %>
           </div>
           <div class="book-page-item">
             <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
