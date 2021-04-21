@@ -21,11 +21,11 @@
               <div class="hidden lg:flex rounded border border-solid border-black6c overflow-hidden">
                 <a class="px-3 py-1 border-r border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
                   href="<%= item[:preview_url] %>"
-                  onclick="return <%= item[:preview_url].present?.to_s %>;"
                   target="_blank">预览</a>
                 <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
-                  href="javascript:void(0)"
-                  data-url="<%= item[:download_url] %>"
+                  href="<%= item[:download_url] %>"
+                  download
+                  onclick="return false"
                   data-action="click->publications#downloadFile">下载</a>
               </div>
             </div>
@@ -48,21 +48,21 @@
     </div>
   </div>
   <div class="description text-left mt-0 md:mt-6 xl:mt-8">
-    <div class="relative title tracking-wider font-semibold text-black6c <%= fdsz("text-base lg:text-lg xl:text-xl", "text-base lg:text-lg xl:text-xl") -%>"><%= item[:title] %></div>
+    <div class="relative title tracking-wider font-semibold text-black6c <%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%>"><%= item[:title] %></div>
     <% if item[:subtitle].present? %>
-    <div class="subtitle tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-sm lg:text-base xl:text-lg", "text-sm lg:text-base xl:text-lg") -%>"><%= item[:subtitle] %></div>
+    <div class="subtitle tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%>"><%= item[:subtitle] %></div>
     <% end %>
     <div class="btns lg:hidden mt-4">
       <div>
         <a class="inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
           href="<%= item[:preview_url] %>"
-          onclick="return <%= item[:preview_url].present?.to_s %>;"
           target="_blank">预览</a>
       </div>
       <div>
         <a class="mt-4 inline-block px-6 py-1 rounded border border-solid border-black6c text-sm font-medium text-black bg-transparent shadow-sm hover:bg-black6c hover:text-white transition duration-150 ease-in-out"
-          href="javascript:void(0);"
-          data-url="<%= item[:download_url] %>"
+          href="<%= item[:download_url] %>"
+          download
+          onclick="return false"
           data-action="click->publications#downloadFile">下载</a>
       </div>
     </div>
