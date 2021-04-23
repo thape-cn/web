@@ -72,18 +72,16 @@ export default class extends Controller {
             this.formSubmitTarget.style.transform = `translateX(${this.amtLeft}px)`;
             this.amtTimer = setInterval(() => {
                 this.amtNavOpacity -= perOpacity;
+                this.amtFormOpacity += perOpacity;
+                this.amtLeft -= perLeft;
                 if (this.amtNavOpacity <= this.amtMinOpacity) {
                     this.amtNavOpacity = this.amtMinOpacity;
+                    if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
+                    this.amtFormOpacity = this.amtMaxOpacity;
+                    this.amtLeft = this.amtMinLeft;
                     clearInterval(this.amtTimer);
                     this.amtTimer = null;
-                    if (this.navTarget.classList.contains('show')) this.navTarget.classList.remove('show');
                 }
-                this.amtFormOpacity += perOpacity;
-                if (this.amtFormOpacity >= this.amtMaxOpacity) {
-                    this.amtFormOpacity = this.amtMaxOpacity;
-                }
-                this.amtLeft -= perLeft;
-                if (this.amtLeft < this.amtMinLeft) this.amtLeft = this.amtMinLeft;
                 requestAnimationFrame(() => {
                     this.navTarget.style.opacity = this.amtNavOpacity;
                     this.formInputTarget.style.opacity = this.amtFormOpacity;
@@ -105,20 +103,18 @@ export default class extends Controller {
             const perLeft = this.amtMaxLeft / this.amtFreq;
             this.amtTimer = setInterval(() => {
                 this.amtNavOpacity += perOpacity;
-                if (this.amtNavOpacity >= this.amtMaxOpacity) {
-                    this.amtNavOpacity = this.amtMaxOpacity;
-                    clearInterval(this.amtTimer);
-                    this.amtTimer = null;
-                }
                 this.amtFormOpacity -= perOpacity;
                 this.amtLeft += perLeft;
-                if (this.amtFormOpacity <= this.amtMinOpacity) {
+                if (this.amtNavOpacity >= this.amtMaxOpacity) {
+                    this.amtNavOpacity = this.amtMaxOpacity;
                     this.amtFormOpacity = this.amtMinOpacity;
+                    this.amtLeft = this.amtMaxLeft;
                     if (this.formTarget.classList.contains('show')) this.formTarget.classList.remove('show');
                     if (this.formSwitchTarget.classList.contains('opacity-0')) this.formSwitchTarget.classList.remove('opacity-0');
                     if (!this.formSwitchTarget.classList.contains('opacity-100')) this.formSwitchTarget.classList.add('opacity-100');
+                    clearInterval(this.amtTimer);
+                    this.amtTimer = null;
                 }
-                if (this.amtLeft > this.amtMaxLeft) this.amtLeft = this.amtMaxLeft;
                 requestAnimationFrame(() => {
                     this.navTarget.style.opacity = this.amtNavOpacity;
                     this.formInputTarget.style.opacity = this.amtFormOpacity;
