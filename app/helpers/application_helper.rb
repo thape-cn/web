@@ -94,4 +94,8 @@ module ApplicationHelper
       interior_works_path
     end
   end
+
+  def pdf_view_url(url)
+    url.presence && "/pdfjs/web/viewer.html?file=#{url}"
+  end
 end

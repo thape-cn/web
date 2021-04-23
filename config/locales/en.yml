@@ -80,6 +80,8 @@ en:
       vr_technology: "VISUALIZATION"
     news:
       text: "NEWS"
+    publications:
+      text: "PUBLICATIONS"
     careers:
       text: "CAREERS"
     contact:
@@ -93,3 +95,9 @@ en:
     telephone_exchange: "Switchboard"
     contact_hotline: "Service"
     corporation: '© 2020 Tianhua Group，All Rights Reserved. <a href="https://beian.miit.gov.cn/" class="hover:underline">沪ICP备08027138号-1</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402005733" class="hover:underline">公安部备案号 31010402005733</a>'
+  publication:
+    monographs: "MONOGRAPH"
+    standard_specification: "REGULATIONS"
+    paper_patent: "PATENTS & PAPERS"
+    preview: "Preview"
+    download: "Download"

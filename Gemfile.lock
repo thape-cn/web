@@ -130,6 +130,8 @@ GEM
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    enumize (0.2.0)
+      rails (>= 5.0.0)
     erubi (1.10.0)
     ffi (1.15.0)
     ffi (1.15.0-x64-mingw32)
@@ -203,6 +205,7 @@ GEM
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -286,6 +289,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
+    unf_ext (0.0.7.7-x64-mingw32)
     web-console (4.1.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -325,6 +329,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-aliyun
   chinese_pinyin
+  enumize
   globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.7)
   kaminari

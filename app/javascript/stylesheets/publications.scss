@@ -1,9 +1,26 @@
 .publications {
   .list {
     .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @screen lg {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
       .cover {
+        flex: none;
         position: relative;
-        padding-bottom: 128.57%;
+        width: calc(50% - 1rem);
+        height: 0;
+        padding-bottom: calc((50% - 1rem) * 1.2857);
+
+        @screen lg {
+          width: 100%;
+          padding-bottom: 100% * 1.2857;
+        }
 
         .wrapper {
           position: absolute;
@@ -14,7 +31,7 @@
           display: flex;
           justify-content: flex-start;
           align-items: flex-end;
-        
+
           $base_y: -3deg;
           $base_add_y: -20deg;
         
@@ -35,16 +52,16 @@
         
           $page5_y: $base_y + -2deg;
           $hover_page5_y: $base_y + -4deg;
-        
+
           $back_y: $base_y;
-        
+
           .book {
             position: relative;
             width: 100%;
             height: 100%;
             perspective: 1000px;
             transform-style: preserve-3d;
-        
+
             .book-front {
               position: absolute;
               top: 0;
@@ -55,7 +72,8 @@
               transform-origin: left center;
               transition: all 0.4s ease;
               transform-style: preserve-3d;
-        
+              z-index: 100;
+
               >:first-child {
                 position: absolute;
                 top: 0;
@@ -64,12 +82,13 @@
                 height: 100%;
                 transform-origin: left center;
                 transform: rotateY(0);
-        
+
                 img {
                   width: 100%;
                   height: 100%;
                 }
               }
+
               >:last-child {
                 position: absolute;
                 top: 4px;
@@ -79,7 +98,7 @@
                 background: #fffbec;
                 transform-origin: left center;
                 transform: rotateY(1deg);
-        
+
                 &::before {
                   content: '';
                   position: absolute;
@@ -93,13 +112,15 @@
                 }
               }
             }
-        
+
+            @screen lg {
             &:hover {
               .book-front {
                 transform: rotateY($hover_front_y);
               }
             }
-        
+            }
+
             .book-page {
               .book-page-item {
                 position: absolute;
@@ -114,40 +135,41 @@
                 background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
                 box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
                 border-radius: 0px 5px 5px 0px;
-        
+
                 &:nth-child(1) {
                   right: -1px;
                   transition-duration: 0.3s;
                   transform: rotateY($page1_y);
+                  z-index: 99;
                 }
-        
                 &:nth-child(2) {
                   right: -2px;
                   transition-duration: 0.25s;
                   transform: rotateY($page2_y);
+                  z-index: 98;
                 }
                 &:nth-child(3) {
                   right: -3px;
                   transition-duration: 0.2s;
                   transform: rotateY($page3_y);
+                  z-index: 97;
                 }
                 &:nth-child(4) {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
                   right: -4px;
                   transition-duration: 0.3s;
                   transform: rotateY($page4_y);
+                  z-index: 3;
                 }
                 &:nth-child(5) {
                   right: -5px;
                   transition-duration: 0.3s;
                   transform: rotateY($page5_y);
+                  z-index: 2;
                 }
               }
             }
-        
+
+            @screen lg {
             &:hover {
               .book-page {
                 .book-page-item {
@@ -174,7 +196,8 @@
                 }
               }
             }
-        
+            }
+
             .book-back {
               position: absolute;
               top: 0;
@@ -184,7 +207,8 @@
               transform: rotateY($back_y);
               transform-origin: left center;
               transform-style: preserve-3d;
-        
+              z-index: 1;
+
               >:first-child {
                 position: absolute;
                 top: 0;
@@ -199,6 +223,7 @@
                   height: 100%;
                 }
               }
+
               >:last-child {
                 position: absolute;
                 top: 4px;
@@ -208,7 +233,7 @@
                 background: #fffbec;
                 transform-origin: left center;
                 transform: rotateY(-1deg);
-        
+
                 &::before {
                   content: '';
                   position: absolute;
@@ -223,6 +248,53 @@
               }
             }
           }
+
+          .mobile-book {
+            position: relative;
+
+            &::before {
+              content: '';
+              display: block;
+              width: 18.4%;
+              height: 4.3%;
+              position: absolute;
+              left: -8.7%;
+              bottom: 0.7%;
+              background: url('../images/book-shadow-left.png') no-repeat center / cover;
+              z-index: 10;
+            }
+
+            img {
+              position: relative;
+              z-index: 100;
+            }
+
+            &::after {
+              content: '';
+              display: block;
+              display: block;
+              width: 25.3%;
+              height: 5.8%;
+              position: absolute;
+              right: -11.7%;
+              bottom: -1.3%;
+              background: url('../images/book-shadow-right.png') no-repeat center / cover;
+              z-index: 10;
+            }
+          }
+        }
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex: none;
+        width: calc(50% - 1rem);
+
+        @screen lg {
+          width: 100%;
+          justify-content: flex-start;
         }
       }
     }

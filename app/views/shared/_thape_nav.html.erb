@@ -38,6 +38,7 @@ isBigFont = cookies['ts'] == 'big';
 %>
 <header
   class="thape-header thape-header-fixed flex-none <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+  style="transform: translateZ(100px)"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
   data-header-is-active="<%= headerIsActive -%>"
@@ -230,6 +231,10 @@ isBigFont = cookies['ts'] == 'big';
     </div>
     <div class="nav-point">·</div>
     <div class="nav-item">
+      <a href="<%= publications_path -%>" class="<%= isPublication ? 'active' : '' -%>"><%= t('menu.publications.text') -%></a>
+    </div>
+    <div class="nav-point">·</div>
+    <div class="nav-item">
       <a target="_blank" rel="nofollow" rel="noreferrer" href="https://tianhua.gllue.com/portal/AllPosition"><%= t('menu.careers.text') -%></a>
     </div>
     <div class="nav-point">·</div>
@@ -391,6 +396,9 @@ isBigFont = cookies['ts'] == 'big';
       </div>
       <div class="aside-menu-item">
         <a href="<%= news_index_path -%>"><%= t('menu.news.text') -%></a>
+      </div>
+      <div class="aside-menu-item">
+        <a href="<%= publications_path -%>"><%= t('menu.publications.text') -%></a>
       </div>
       <div class="aside-menu-item">
         <a target="_blank" rel="nofollow" rel="noreferrer" href="https://tianhua.gllue.com/portal/AllPosition"><%= t('menu.careers.text') -%></a>

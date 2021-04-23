@@ -350,7 +350,7 @@
     height: 80px;
 
     nav.intro {
-      padding-right: 19rem;
+      padding-right: 22.7rem;
     }
 
     &:lang(en) nav.intro {
@@ -358,7 +358,7 @@
     }
 
     &.big-font nav.intro {
-      padding-right: 20.9rem;
+      padding-right: 24.7rem;
     }
 
     &.big-font:lang(en) nav.intro {
@@ -366,7 +366,7 @@
     }
 
     nav.works {
-      padding-right: 6.4rem;
+      padding-right: 10.2rem;
     }
 
     &:lang(en) nav.works {
@@ -374,7 +374,7 @@
     }
 
     &.big-font nav.works {
-      padding-right: 7.4rem;
+      padding-right: 11.7rem;
     }
 
     &.big-font:lang(en) nav.works {
@@ -385,34 +385,34 @@
       @apply pr-8;
 
       >.nav-item {
-        padding: 0 1.09rem;
+        padding: 0 1.4rem;
       }
     }
 
     &.big-font nav.service>.nav-item {
-      padding: 0 1.12rem;
+      padding: 0 1.47rem;
     }
   }
   @screen xl {
 
     nav.intro {
-      padding-right: 19.6rem;
+      padding-right: 23.2rem;
     }
 
     &:lang(en) nav.intro {
-      padding-right: 16.3rem;
+      padding-right: 25.6rem;
     }
 
     &.big-font nav.intro {
-      padding-right: 21rem;
+      padding-right: 25.2rem;
     }
 
     &.big-font:lang(en) nav.intro {
-      padding-right: 18.5rem;
+      padding-right: 25.9rem;
     }
 
     nav.works {
-      padding-right: 6.9rem;
+      padding-right: 10.7rem;
     }
 
     &:lang(en) nav.works {
@@ -420,7 +420,7 @@
     }
 
     &.big-font nav.works {
-      padding-right: 7.9rem;
+      padding-right: 12.1rem;
     }
 
     &.big-font:lang(en) nav.works {
@@ -431,34 +431,34 @@
       @apply pr-10;
 
       >.nav-item {
-        padding: 0 1.09rem;
+        padding: 0 1.4rem;
       }
     }
 
     &.big-font nav.service>.nav-item {
-      padding: 0 1.12rem;
+      padding: 0 1.47rem;
     }
   }
   @screen xxl {
 
     nav.intro {
-      padding-right: 22.5rem;
+      padding-right: 26.7rem;
     }
 
     &:lang(en) nav.intro {
-      padding-right: 19.3rem;
+      padding-right: 29.1rem;
     }
 
     &.big-font nav.intro {
-      padding-right: 24rem;
+      padding-right: 28.8rem;
     }
 
     &.big-font:lang(en) nav.intro {
-      padding-right: 21.5rem;
+      padding-right: 33.2rem;
     }
 
     nav.works {
-      padding-right: 11.1rem;
+      padding-right: 15.4rem;
     }
 
     &:lang(en) nav.works {
@@ -466,7 +466,7 @@
     }
 
     &.big-font nav.works {
-      padding-right: 12.1rem;
+      padding-right: 16.8rem;
     }
 
     &.big-font:lang(en) nav.works {
@@ -477,34 +477,34 @@
       @apply pr-12;
 
       >.nav-item {
-        padding: 0 1.34rem;
+        padding: 0 1.69rem;
       }
     }
 
     &.big-font nav.service>.nav-item {
-      padding: 0 1.37rem;
+      padding: 0 1.76rem;
     }
   }
   @screen xxxl {
 
     nav.intro {
-      padding-right: 23.5rem;
+      padding-right: 27.7rem;
     }
 
     &:lang(en) nav.intro {
-      padding-right: 20.3rem;
+      padding-right: 30.1rem;
     }
 
     &.big-font nav.intro {
-      padding-right: 25rem;
+      padding-right: 29.7rem;
     }
 
     &.big-font:lang(en) nav.intro {
-      padding-right: 22.5rem;
+      padding-right: 34.2rem;
     }
 
     nav.works {
-      padding-right: 12.1rem;
+      padding-right: 16.5rem;
     }
 
     &:lang(en) nav.works {
@@ -512,7 +512,7 @@
     }
 
     &.big-font nav.works {
-      padding-right: 13.1rem;
+      padding-right: 17.9rem;
     }
 
     &.big-font:lang(en) nav.works {
@@ -523,12 +523,12 @@
       @apply pr-16;
 
       >.nav-item {
-        padding: 0 1.34rem;
+        padding: 0 1.69rem;
       }
     }
 
     &.big-font nav.service>.nav-item {
-      padding: 0 1.37rem;
+      padding: 0 1.76rem;
     }
   }
 
