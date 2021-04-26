@@ -122,77 +122,73 @@
             }
 
             .book-page {
-              .book-page-item {
-                position: absolute;
-                top: 5px;
-                bottom: 5px;
-                left: 0;
-                right: 5px;
-                backface-visibility: visible;
-                transition-timing-function: ease;
-                transition-property: transform;
-                transform-origin: left center;
-                background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
-                box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
-                border-radius: 0px 5px 5px 0px;
+              position: absolute;
+              top: 5px;
+              bottom: 5px;
+              left: 0;
+              right: 5px;
+              backface-visibility: visible;
+              transition-timing-function: ease;
+              transition-property: transform;
+              transform-origin: left center;
+              background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
+              box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+              border-radius: 0px 5px 5px 0px;
 
-                &:nth-child(1) {
-                  right: -1px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page1_y);
-                  z-index: 99;
-                }
-                &:nth-child(2) {
-                  right: -2px;
-                  transition-duration: 0.25s;
-                  transform: rotateY($page2_y);
-                  z-index: 98;
-                }
-                &:nth-child(3) {
-                  right: -3px;
-                  transition-duration: 0.2s;
-                  transform: rotateY($page3_y);
-                  z-index: 97;
-                }
-                &:nth-child(4) {
-                  right: -4px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page4_y);
-                  z-index: 3;
-                }
-                &:nth-child(5) {
-                  right: -5px;
-                  transition-duration: 0.3s;
-                  transform: rotateY($page5_y);
-                  z-index: 2;
-                }
+              &.book-page-1 {
+                right: -1px;
+                transition-duration: 0.3s;
+                transform: rotateY($page1_y);
+                z-index: 99;
+              }
+              &.book-page-2 {
+                right: -2px;
+                transition-duration: 0.25s;
+                transform: rotateY($page2_y);
+                z-index: 98;
+              }
+              &.book-page-3 {
+                right: -3px;
+                transition-duration: 0.2s;
+                transform: rotateY($page3_y);
+                z-index: 97;
+              }
+              &.book-page-4 {
+                right: -4px;
+                transition-duration: 0.3s;
+                transform: rotateY($page4_y);
+                z-index: 3;
+              }
+              &.book-page-5 {
+                right: -5px;
+                transition-duration: 0.3s;
+                transform: rotateY($page5_y);
+                z-index: 2;
               }
             }
 
             @screen lg {
             &:hover {
               .book-page {
-                .book-page-item {
-                  &:nth-child(1) {
-                    transform: rotateY($hover_page1_y);
-                    transition-duration: 0.6s;
-                  }
-                  &:nth-child(2) {
-                    transform: rotateY($hover_page2_y);
-                    transition-duration: 0.7s;
-                  }
-                  &:nth-child(3) {
-                    transform: rotateY($hover_page3_y);
-                    transition-duration: 0.8s;
-                  }
-                  &:nth-child(4) {
-                    transform: rotateY($hover_page4_y);
-                    transition-duration: 0.9s;
-                  }
-                  &:nth-child(5) {
-                    transform: rotateY($hover_page5_y);
-                    transition-duration: 0.75s;
-                  }
+                &.book-page-1 {
+                  transform: rotateY($hover_page1_y);
+                  transition-duration: 0.6s;
+                }
+                &.book-page-2 {
+                  transform: rotateY($hover_page2_y);
+                  transition-duration: 0.7s;
+                }
+                &.book-page-3 {
+                  transform: rotateY($hover_page3_y);
+                  transition-duration: 0.8s;
+                }
+                &.book-page-4 {
+                  transform: rotateY($hover_page4_y);
+                  transition-duration: 0.9s;
+                }
+                &.book-page-5 {
+                  transform: rotateY($hover_page5_y);
+                  transition-duration: 0.75s;
                 }
               }
             }

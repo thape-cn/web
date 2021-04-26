@@ -10,26 +10,24 @@
           <div></div>
         </div>
         <!-- Pages -->
-        <div class="book-page">
-          <div class="book-page-item"></div>
-          <div class="book-page-item"></div>
-          <div class="book-page-item">
-            <% if item[:page_cover].present? %>
-            <img class="w-full h-full" style="transform: rotateY(180deg);" src="<%= item[:page_cover] %>" alt="">
-            <% end %>
-          </div>
-          <div class="book-page-item">
-            <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-              <div class="hidden lg:flex rounded border border-solid overflow-hidden <%= item[:preview_url].present? ? 'border-black6c' : 'bordr-thape-dark-gray' %>">
-                <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
-                  href="<%= item[:preview_url] %>"
-                  onclick="return <%= item[:preview_url].present? %>"
-                  target="_blank"><%= t('publication.preview') %></a>
-              </div>
+        <div class="book-page book-page-1"></div>
+        <div class="book-page book-page-2"></div>
+        <div class="book-page book-page-3">
+          <% if item[:page_cover].present? %>
+          <img class="w-full h-full" style="transform: rotateY(180deg);" src="<%= item[:page_cover] %>" alt="">
+          <% end %>
+        </div>
+        <div class="book-page book-page-4">
+          <div class="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+            <div class="hidden lg:flex rounded border border-solid overflow-hidden <%= item[:preview_url].present? ? 'border-black6c' : 'bordr-thape-dark-gray' %>">
+              <a class="px-3 py-1 text-sm font-medium text-black bg-transparent shadow-sm transition duration-150 ease-in-out <%= item[:preview_url].present? ? 'text-black hover:bg-black6c hover:text-white' : 'bordr-thape-dark-gray text-thape-guest-gray cursor-not-allowed' %>"
+                href="<%= item[:preview_url] %>"
+                onclick="return <%= item[:preview_url].present? %>"
+                target="_blank"><%= t('publication.preview') %></a>
             </div>
           </div>
-          <div class="book-page-item"></div>
         </div>
+        <div class="book-page book-page-5"></div>
         <!-- Back -->
         <div class='book-back'>
           <div>
