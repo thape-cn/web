@@ -19,7 +19,7 @@
           <h3 class="<%= index == 0 ? 'mt-1 sm:mt-3' : '' -%> <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> leading-none sm:leading-snug sm:font-semibold text-lef"><%= h3 -%></h3>
         <% end %>
         <% ps.each_with_index do |p, index| %>
-          <p class="<%= index == 0 ? 'mt-1 sm:mt-2' : '' -%> <%= fdsz("text-xs sm:text-sm", "text-xs sm:text-xl") -%> text-justify leading-none sm:leading-relaxed"><%= p -%></p>
+          <p class="<%= index == 0 ? 'mt-1 sm:mt-2' : '' -%> <%= fdsz("text-xs sm:text-sm", "text-xs sm:text-xl") -%> text-left leading-none sm:leading-relaxed"><%= p -%></p>
         <% end %>
       </div>
     </div>

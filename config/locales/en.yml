@@ -101,3 +101,45 @@ en:
     paper_patent: "PATENTS & PAPERS"
     preview: "Preview"
     download: "Download"
+  abouts:
+    research:
+      title: "研究"
+      subtitle: "RESEARCH"
+      content_title:
+        - "Designs Empowered by Technology—Innovation-based Research"
+      content:
+        - "Grounded in the pursuit of sustainable urban development, TIANHUA is driven by a sense of social responsibility and an uncompromising endeavor for quality design. It has taken the visionary step of establishing eight research centers, building a team of TIANHUA experts, and utilizing its advantages as a large-scale comprehensive design enterprise to actively explore and research subjects that are pertinent to the industry, through a two-pronged approach emphasizing both strategy and implementation. In addition, TIANHUA has partnered with both domestic and overseas institutes of higher education to conduct several exploratory studies, enabling the company to develop a broad range of strategies, technologies and methodologies for providing effective solutions to urban issues and in other related fields."
+    design_lab:
+      title: "THDL 天华建筑创作工作室"
+      subtitle: "TIANHUA DESIGN LAB"
+      content_title:
+        - "Research room, laboratory and incubator focusing on design & people"
+      content:
+        - "THDL is a research-oriented design studio and incubator tailor made for young architects. Serving as a bridge through which outstanding international youth talents can achieve their dreams, THDL creates a symbiosis between innovative ideals and professional advancement. By introducing new technologies, languages and ways of working into traditionally fundamental categories of architecture, THDL strives to find new ways that architecture can provide value in China's urban landscape."
+    t_plus:
+      title: "T+"
+      subtitle: "T Plus"
+      content_title:
+        - "A high-end, comprehensive design platform for public buildings that incorporates professionalism and creativity"
+        - "Experience"
+        - "Integration"
+        - "Tectonic"
+        - "Standard"
+      content:
+        - "A serious, long-term commitment: We strive to create architectural designs which provide experiences and functionality that withstand the test of time."
+        - "A truly comprehensive design: We actively participate in each project and oversee the latest construction processes, allowing us to achieve completeness in structures and spaces."
+        - "Researching and developing innovative-experience designs: Driven by research on users’ needs and groundbreaking developmental concepts and technologies, we combine unique solutions and powerful technologies to continually enhance our ability to design innovative experiences."
+    perfection_pursuer:
+      title: "黑标住宅"
+      subtitle: "PERFECTION PURSUER"
+      content_title:
+        - "Experience"
+        - "Order / Precise"
+        - "Integration"
+        - "Tectonic"
+        - "Detail+"
+        - "Sustainability"
+        - "Upgrade Standard"
+        - "Workshop"
+      content:
+        - "By integrating a global vision with localized culture, we establish a professional and innovative production line for high-end residences within the TIANHUA Architecture Design brand."
