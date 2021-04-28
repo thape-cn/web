@@ -292,6 +292,17 @@
           width: 100%;
           justify-content: flex-start;
         }
+
+        .title {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 5;
+          overflow: hidden;
+
+          @screen lg {
+            display: block;
+          }
+        }
       }
     }
   }
