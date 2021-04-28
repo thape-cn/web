@@ -298,10 +298,6 @@
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 5;
           overflow: hidden;
-
-          @screen lg {
-            display: block;
-          }
         }
       }
     }
