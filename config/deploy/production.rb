@@ -7,4 +7,4 @@ set :application, 'web'
 set :puma_service_unit_name, :puma_thape_web
 set :puma_systemctl_user, :system
 
-server 'www.thape.com', user: 'thape_web', roles: %w{app db web}
+server 'thape_web2', user: 'thape_web', roles: %w{app db web}
