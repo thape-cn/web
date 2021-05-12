@@ -128,6 +128,7 @@ GEM
     chinese_pinyin (1.1.0)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    dalli (2.7.11)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     enumize (0.2.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-aliyun
   chinese_pinyin
+  dalli
   enumize
   globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.7)
