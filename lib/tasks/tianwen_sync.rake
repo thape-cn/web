@@ -6,6 +6,11 @@ namespace :tianwen_sync do
 
   desc 'Sync news'
   task sync_news: :environment do
-    Info.last.write_tianwen_xml
+    d4_tmpl_path = Rails.root.join('public', 'tianwen_tile', 'D4.xml')
+    tmpl = File.open(d4_tmpl_path) { |f| Nokogiri::XML(f) }
+
+    Info.all.find_each do |info|
+      info.write_tianwen_xml(tmpl)
+    end
   end
 end
