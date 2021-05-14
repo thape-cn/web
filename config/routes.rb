@@ -120,5 +120,6 @@ Rails.application.routes.draw do
     resources :project_map, only: [:index]
   end
 
+  default_url_options host: 'www.thape.com', protocol: 'https'
   root 'home#show'
 end

@@ -32,6 +32,7 @@
 /public/sitemap.xml.gz
 /public/packs
 /public/packs-test
+/public/tianwen_sync
 /node_modules
 /yarn-error.log
 yarn-debug.log*
