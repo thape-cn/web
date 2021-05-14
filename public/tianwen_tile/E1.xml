@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <doc>
+    <TRS_VERSION>E01</TRS_VERSION>
+    <TRS_PRIMARY><![CDATA[记录的主键]]></TRS_PRIMARY>
+    <TRS_SYSTEMNAME>天华官网</TRS_SYSTEMNAME>
+    <TRS_TITLE><![CDATA[项目名称]]></TRS_TITLE>
+    <TRS_CONTENT><![CDATA[客户名称]]></TRS_CONTENT>
+    <TRS_CREATETIME><![CDATA[创建时间]]></TRS_CREATETIME>
+    <TRS_ORG><![CDATA[所属公司/部门]]></TRS_ORG>
+    <TRS_CATEGORY>官网作品</TRS_CATEGORY>
+    <TRS_CATEGORY2><![CDATA[项目类型]]></TRS_CATEGORY2>
+    <TRS_BACKLINK><![CDATA[业务系统中的访问该数据的详细内容页面的URL地址]]></TRS_BACKLINK>
+    <TRS_READER_USER></TRS_READER_USER>
+    <TRS_READER_GROUP></TRS_READER_GROUP>
+    <TRS_READER_ROLE></TRS_READER_ROLE>
+    <TRS_ATTR1><![CDATA[缩略图]]></TRS_ATTR1>
+    <TRS_CRESERVED3><![CDATA[项目地点]]></TRS_CRESERVED3>
+    <TRS_CRESERVED4><![CDATA[获奖信息]]></TRS_CRESERVED4>
+    <TRS_OPP><![CDATA[记录更新标记（1为新增、2为修改、3位删除）]]></TRS_OPP>
+  </doc>
+</xml>
