@@ -65,12 +65,7 @@
     </div>
   </div>
 </div>
-
-<div data-controller="<%= scroll_controller -%>"
-     data-action="resize@window-><%= scroll_controller -%>#layout"
-     data-scroll-offset="0.50">
-
-<div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 scroller-step">
+<div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b-0 lg:border-b">
       <div class="block lg:inline-block">
         <h1 class="text-base <%= fdsz("sm:text-2xl", "sm:text-4xl") -%> font-bold text-black6c">
@@ -255,8 +250,6 @@
     </div>
   <% end %>
   </div>
-</div>
-
 </div>
 
 <%= render partial: 'shared/footer' %>
