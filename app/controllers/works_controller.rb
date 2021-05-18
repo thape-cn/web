@@ -55,14 +55,18 @@ class WorksController < ApplicationController
       work_id_in_sequence = @work.project_types.collect { |p| p.works.where(published: true).pluck(:id) }.flatten.uniq
       previous_work_id = if work_id_in_sequence.first == @work.id
         work_id_in_sequence.last
-      else
+      elsif work_id_in_sequence.include?(@work.id)
         work_id_in_sequence[work_id_in_sequence.index(@work.id) - 1]
+      else
+        work_id_in_sequence.first
       end
 
       next_work_id = if work_id_in_sequence.last == @work.id
         work_id_in_sequence.first
-      else
+      elsif work_id_in_sequence.include?(@work.id)
         work_id_in_sequence[work_id_in_sequence.index(@work.id) + 1]
+      else
+        work_id_in_sequence.last
       end
 
       @previous_work = Work.includes(:translations).find previous_work_id
