@@ -29,7 +29,7 @@ class WorksController < ApplicationController
       end.page(params[:page]).per(params[:per_page])
       render :area_detail
     else
-      @work = Work.find params[:id]
+      @work = Work.includes(:translations).find params[:id]
 
       work_project_cn_name = I18n.with_locale(:cn) { @work.project_name }
       work_project_type_names = @work.project_types.collect(&:cn_name).join('、')
@@ -65,10 +65,10 @@ class WorksController < ApplicationController
         work_id_in_sequence[work_id_in_sequence.index(@work.id) + 1]
       end
 
-      @previous_work = Work.find previous_work_id
-      @next_work = Work.find next_work_id
+      @previous_work = Work.includes(:translations).find previous_work_id
+      @next_work = Work.includes(:translations).find next_work_id
 
-      @relative_works = Work.includes(:work_project_types)
+      @relative_works = Work.includes(:translations, :work_project_types)
         .where(work_project_types: { project_type_id: @work.work_project_types.pluck(:project_type_id) })
         .where.not(id: @work.id)
         .where(published: true).sample(4)
