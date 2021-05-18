@@ -52,7 +52,7 @@ class WorksController < ApplicationController
       @first_work = Work.find two_random_works[0]
       @second_work = Work.find two_random_works[1]
 
-      work_id_in_sequence = @work.project_types.collect { |p| p.works.pluck(:id) }.flatten.uniq
+      work_id_in_sequence = @work.project_types.collect { |p| p.works.where(published: true).pluck(:id) }.flatten.uniq
       previous_work_id = if work_id_in_sequence.first == @work.id
         work_id_in_sequence.last
       else
