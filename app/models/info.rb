@@ -16,7 +16,7 @@ class Info < ApplicationRecord
 
 
   def write_tianwen_xml(tmpl)
-    tmpl.at_css('TRS_PRIMARY').content = id
+    tmpl.at_css('TRS_PRIMARY').content = "web_info_#{id}"
     tmpl.at_css('TRS_TITLE').content = title
     tmpl.at_css('TRS_CONTENT').content = ActionController::Base.helpers.strip_tags(content)
     tmpl.at_css('TRS_CREATETIME').content = created_at.to_s(:db)

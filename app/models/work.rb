@@ -19,7 +19,7 @@ class Work < ApplicationRecord
     :design_completion_lines, :construction_completion_lines, :architecture_area_lines
 
   def write_tianwen_xml(tmpl)
-    tmpl.at_css('TRS_PRIMARY').content = id
+    tmpl.at_css('TRS_PRIMARY').content = "web_work_#{id}"
     tmpl.at_css('TRS_TITLE').content = project_name
     tmpl.at_css('TRS_CONTENT').content = client
     tmpl.at_css('TRS_CREATETIME').content = created_at.to_s(:db)
