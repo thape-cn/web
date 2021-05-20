@@ -19,7 +19,7 @@ class Person < ApplicationRecord
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(introduce)) # 介绍, 必选
     # tmpl.at_css('TRS_ATTACH_PATH').add_child(tmpl.create_cdata()) # 附件路径, 必选
     tmpl.at_css('TRS_CREATETIME').add_child(tmpl.create_cdata(created_at.to_s(:db))) # 信息时间, 必选
-    tmpl.at_css('TRS_ORG').add_child(tmpl.create_cdata(team)) # 部门, 必选
+    # tmpl.at_css('TRS_ORG').add_child(tmpl.create_cdata()) # 部门, 必选
     # tmpl.at_css('TRS_CATEGORY1').add_child(tmpl.create_cdata()) # 分类1, 必选
     # tmpl.at_css('TRS_CATEGORY2').add_child(tmpl.create_cdata()) # 分类2, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.leadership_url(id: url_name))) # URL地址, 必选
