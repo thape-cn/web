@@ -27,7 +27,7 @@ class Publication < ApplicationRecord
     # tmpl.at_css('TRS_ATTR2').add_child(tmpl.create_cdata()) # 版本，必选
     tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
 
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "persons_#{id}.xml")
+    tgt_dir = Rails.root.join('public', 'tianwen_sync', "publications_#{id}.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
     end
