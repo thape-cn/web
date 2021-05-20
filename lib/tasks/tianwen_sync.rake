@@ -2,7 +2,7 @@
 
 namespace :tianwen_sync do
   desc 'Sync all news'
-  task all: %i[sync_news sync_works]
+  task all: %i[sync_news sync_works sync_persons]
 
   desc 'Sync news'
   task sync_news: :environment do
@@ -20,6 +20,15 @@ namespace :tianwen_sync do
     Work.all.find_each do |work|
       tmpl = File.open(e1_tmpl_path) { |f| Nokogiri::XML(f) }
       work.write_tianwen_xml(tmpl)
+    end
+  end
+
+  desc 'Sync persons'
+  task sync_persons: :environment do
+    c1_tmpl_path = Rails.root.join('public', 'tianwen_tile', 'C1.xml')
+    Person.all.find_each do |person|
+      tmpl = File.open(c1_tmpl_path) { |f| Nokogiri::XML(f) }
+      person.write_tianwen_xml(tmpl)
     end
   end
 end
