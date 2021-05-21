@@ -85,6 +85,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(content.join(';'))) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.about_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(about.about_h1.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "about_us.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -104,6 +105,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.building_url)) # 链接, 必选
     background_img = ActionController::Base.helpers.asset_pack_url(I18n.t('services.building.background_img'), host: root_url)
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(background_img)) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "building.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -117,6 +119,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.interior_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.interior_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.interior.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "interior.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -130,6 +133,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.planning_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.planning_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.planning.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "planning.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -143,6 +147,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.landscape_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.landscape_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.landscape.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "landscape.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -156,6 +161,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.vetting_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vetting_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vetting.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "vetting.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -169,6 +175,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.consluting_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.consluting_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.consluting.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "consluting.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
@@ -182,6 +189,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.vrtech_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vr_tech_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vrtech.background_img')[0], host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_OPP').content = 1
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "vr_tech.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
