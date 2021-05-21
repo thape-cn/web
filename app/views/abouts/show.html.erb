@@ -72,7 +72,7 @@
   <div class="flex flex-wrap">
     <dt class="block font-medium text-black6c py-2 flex-none">
       <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold whitespace-no-wrap"><%= t('abouts.intro.title') %></h1>
-      <% t('abouts.intro.subtitle').each |item| %>
+      <% t('abouts.intro.subtitle').each do |item| %>
       <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> font-medium whitespace-no-wrap"><%= item %></h2>
       <% end %>
     </dt>
