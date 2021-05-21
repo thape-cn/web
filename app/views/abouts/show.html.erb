@@ -71,9 +71,10 @@
 <div class="bg-white bg-opacity-75 block p-4 lg:hidden">
   <div class="flex flex-wrap">
     <dt class="block font-medium text-black6c py-2 flex-none">
-      <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold whitespace-no-wrap">创意与技术完美融合</h1>
-      <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> font-medium whitespace-no-wrap">ENGINEERING POWERED.</h2>
-      <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> font-medium whitespace-no-wrap">DESIGN ACHIEVED.</h2>
+      <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold whitespace-no-wrap"><%= t('abouts.intro.title') %></h1>
+      <% t('abouts.intro.subtitle').each |item| %>
+      <h2 class="<%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> font-medium whitespace-no-wrap"><%= item %></h2>
+      <% end %>
     </dt>
     <dd class="text-black6c font-normal <%= fdsz("text-sm", "text-xl") -%> flex-none w-full">
       <% @about_page.thape_intro.split("\n").each do |p| %>

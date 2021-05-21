@@ -7,10 +7,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '建筑设计服务')
 
     render 'services', locals: {
-      background_img: 'media/images/building.jpg',
-      background_img_webp: '',
-      chinese_title: '建筑设计',
-      english_title: 'ARCHITECTURE',
+      background_img: t('services.building.background_img'),
+      background_img_webp: t('services.building.background_img_webp'),
+      chinese_title: t('services.building.chinese_title'),
+      english_title: t('services.building.english_title'),
       ps: @service_file.building_intro.split("\n"),
       link_site_url: works_path,
       link_site_title: '天华项目'
@@ -21,10 +21,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '室内设计服务')
 
     render 'services', locals: {
-      background_img: 'media/images/interior.jpg',
-      background_img_webp: 'media/images/interior.webp',
-      chinese_title: '室内设计',
-      english_title: 'INTERIOR',
+      background_img: t('services.interior.background_img'),
+      background_img_webp: t('services.interior.background_img_webp'),
+      chinese_title: t('services.interior.chinese_title'),
+      english_title: t('services.interior.english_title'),
       ps: @service_file.interior_intro.split("\n"),
       link_site_url: 'http://www.thyizhu.com/',
       link_site_title: '天华易筑'
@@ -35,10 +35,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '城市规划服务')
 
     render 'services', locals: {
-      background_img: 'media/images/planning.jpg',
-      background_img_webp: '',
-      chinese_title: '城市规划',
-      english_title: 'URBAN PLANNING',
+      background_img: t('services.planning.background_img'),
+      background_img_webp: t('services.planning.background_img_webp'),
+      chinese_title: t('services.planning.chinese_title'),
+      english_title: t('services.planning.english_title'),
       ps: @service_file.planning_intro.split("\n"),
       link_site_url: urban_planning_works_path,
       link_site_title: '天华规划项目'
@@ -49,10 +49,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '景观设计服务')
 
     render 'services', locals: {
-      background_img: 'media/images/landscape.jpg',
-      background_img_webp: '',
-      chinese_title: '景观设计',
-      english_title: 'LANDSCAPE',
+      background_img: t('services.landscape.background_img'),
+      background_img_webp: t('services.landscape.background_img_webp'),
+      chinese_title: t('services.landscape.chinese_title'),
+      english_title: t('services.landscape.english_title'),
       ps: @service_file.landscape_intro.split("\n"),
       link_site_url: landscape_works_path,
       link_site_title: '天华景观项目'
@@ -63,10 +63,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '审图服务')
 
     render 'services', locals: {
-      background_img: 'media/images/vetting.jpg',
-      background_img_webp: '',
-      chinese_title: '审图',
-      english_title: 'DRAWING REVIEW',
+      background_img: t('services.vetting.background_img'),
+      background_img_webp: t('services.vetting.background_img_webp'),
+      chinese_title: t('services.vetting.chinese_title'),
+      english_title: t('services.vetting.english_title'),
       ps: @service_file.vetting_intro.split("\n")
     }
   end
@@ -75,10 +75,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '技术咨询服务')
 
     render 'services', locals: {
-      background_img: 'media/images/consluting.jpg',
-      background_img_webp: '',
-      chinese_title: '技术咨询',
-      english_title: 'CONSULTATION',
+      background_img: t('services.consluting.background_img'),
+      background_img_webp: t('services.consluting.background_img_webp'),
+      chinese_title: t('services.consluting.chinese_title'),
+      english_title: t('services.consluting.english_title'),
       ps: @service_file.consluting_intro.split("\n")
     }
   end
@@ -87,10 +87,10 @@ class ServicesController < ApplicationController
     @seo = Seo.find_by(seo_name: '可视化服务')
 
     render 'services', locals: {
-      background_img: ['media/images/vrtech-1.jpg', 'media/images/vrtech-2.jpg', 'media/images/vrtech-3.jpg', 'media/images/vrtech-4.jpg', 'media/images/vrtech-5.jpg', 'media/images/vrtech-6.jpg'],
-      background_img_webp: [],
-      chinese_title: '可视化',
-      english_title: 'VISUALIZATION',
+      background_img: t('services.vrtech.background_img'),
+      background_img_webp: t('services.vrtech.background_img_webp'),
+      chinese_title: t('services.vrtech.chinese_title'),
+      english_title: t('services.vrtech.english_title'),
       ps: @service_file.vrtech_intro.split("\n"),
       link_site_url: 'http://www.evartech.com/',
       link_site_title: '易术家'
