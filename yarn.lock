@@ -1018,7 +1018,7 @@
 
 "@tailwindcss/ui@^0.7.2":
   version "0.7.2"
-  resolved "https://registry.npm.taobao.org/@tailwindcss/ui/download/@tailwindcss/ui-0.7.2.tgz#1f0a5ddf47b75b6f892553e6741764d351782a12"
+  resolved "https://registry.nlark.com/@tailwindcss/ui/download/@tailwindcss/ui-0.7.2.tgz#1f0a5ddf47b75b6f892553e6741764d351782a12"
   integrity sha1-Hwpd30e3W2+JJVPmdBdk01F4KhI=
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
@@ -2024,17 +2024,17 @@ colorette@^1.2.1, colorette@^1.2.2:
 
 commander@^2.20.0:
   version "2.20.3"
-  resolved "https://registry.nlark.com/commander/download/commander-2.20.3.tgz?cache=0&sync_timestamp=1618847161680&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcommander%2Fdownload%2Fcommander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  resolved "https://registry.nlark.com/commander/download/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
 
 commander@^5.0.0:
   version "5.1.0"
-  resolved "https://registry.nlark.com/commander/download/commander-5.1.0.tgz?cache=0&sync_timestamp=1618847161680&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcommander%2Fdownload%2Fcommander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
+  resolved "https://registry.nlark.com/commander/download/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
   integrity sha1-Rqu9FlL44Fm92u+Zu9yyrZzxea4=
 
 commander@^6.0.0:
   version "6.2.1"
-  resolved "https://registry.nlark.com/commander/download/commander-6.2.1.tgz?cache=0&sync_timestamp=1618847161680&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcommander%2Fdownload%2Fcommander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  resolved "https://registry.nlark.com/commander/download/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
 
 commondir@^1.0.1:
@@ -6067,9 +6067,9 @@ sass-loader@10.1.1:
     semver "^7.3.2"
 
 sass@^1.32.13:
-  version "1.33.0"
-  resolved "https://registry.nlark.com/sass/download/sass-1.33.0.tgz?cache=0&sync_timestamp=1621559231769&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsass%2Fdownload%2Fsass-1.33.0.tgz#a26186902ee56585b9db6751fd151237f561dbc2"
-  integrity sha1-omGGkC7lZYW522dR/RUSN/Vh28I=
+  version "1.34.0"
+  resolved "https://registry.nlark.com/sass/download/sass-1.34.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsass%2Fdownload%2Fsass-1.34.0.tgz#e46d5932d8b0ecc4feb846d861f26a578f7f7172"
+  integrity sha1-5G1ZMtiw7MT+uEbYYfJqV49/cXI=
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
