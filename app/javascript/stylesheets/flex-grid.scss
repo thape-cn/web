@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $gaps: (
     1:.25rem,
     2:.5rem,
@@ -8,11 +10,11 @@ $gaps: (
     @each $gapKey, $gapValue in $gapList {
         .flex-grid-cols-#{$col}-gap-#{$gapKey} {
             width: calc(100% + #{$gapValue});
-            margin-left: -#{$gapValue/2};
+            margin-left: -#{math.div($gapValue, 2)};
 
             >* {
                 width: calc(100% / #{$col} - #{$gapValue});
-                margin: 0 #{$gapValue/2};
+                margin: 0 #{math.div($gapValue, 2)};
                 &:nth-child(n) {
                     margin-top: 0;
                 }
