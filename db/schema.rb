@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_063351) do
+ActiveRecord::Schema.define(version: 2021_05_28_041143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,6 +332,9 @@ ActiveRecord::Schema.define(version: 2021_04_07_063351) do
     t.integer "pixel_height", default: 900
     t.integer "pixel_width", default: 700
     t.integer "position", default: 0
+    t.string "mobile_cover_jpg"
+    t.string "mobile_cover_webp"
+    t.string "page_cover"
   end
 
   create_table "project_types", id: :bigint, default: nil, force: :cascade do |t|
@@ -362,6 +365,9 @@ ActiveRecord::Schema.define(version: 2021_04_07_063351) do
     t.integer "pixel_height", default: 900
     t.integer "pixel_width", default: 700
     t.integer "position", default: 0
+    t.string "mobile_cover_jpg"
+    t.string "mobile_cover_webp"
+    t.string "page_cover"
   end
 
   create_table "residential_types", id: :bigint, default: nil, force: :cascade do |t|
@@ -416,15 +422,15 @@ ActiveRecord::Schema.define(version: 2021_04_07_063351) do
   end
 
   create_table "tail_homes", id: :bigint, default: nil, force: :cascade do |t|
-    t.text "new_project_photo_1"
-    t.text "new_project_photo_2l"
-    t.text "new_project_photo_3w"
-    t.text "new_project_photo_4"
-    t.text "new_project_photo_5"
-    t.text "new_project_photo_6"
+    t.string "new_project_photo_1"
+    t.string "new_project_photo_2l"
+    t.string "new_project_photo_3w"
+    t.string "new_project_photo_4"
+    t.string "new_project_photo_5"
+    t.string "new_project_photo_6"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "hero_news_photo"
+    t.string "hero_news_photo"
     t.bigint "hero_news_id"
     t.bigint "hero_news_title_cap"
     t.bigint "new_project_1_id"
@@ -436,46 +442,64 @@ ActiveRecord::Schema.define(version: 2021_04_07_063351) do
     t.bigint "info_1_id"
     t.bigint "info_2_id"
     t.bigint "info_3_id"
-    t.text "info_1_photo"
-    t.text "info_2_photo"
-    t.text "info_3_photo"
-    t.text "background_1"
-    t.text "background_2"
-    t.text "background_3"
-    t.text "background_4"
-    t.text "background_5"
-    t.text "background_6"
-    t.text "background_1_mobile"
-    t.text "background_2_mobile"
-    t.text "background_3_mobile"
-    t.text "background_4_mobile"
-    t.text "background_5_mobile"
-    t.text "background_6_mobile"
-    t.text "background_1_pad"
-    t.text "background_2_pad"
-    t.text "background_3_pad"
-    t.text "background_4_pad"
-    t.text "background_5_pad"
-    t.text "background_6_pad"
-    t.text "background_1_webp"
-    t.text "background_2_webp"
-    t.text "background_3_webp"
-    t.text "background_4_webp"
-    t.text "background_5_webp"
-    t.text "background_6_webp"
-    t.text "background_1_mobile_webp"
-    t.text "background_2_mobile_webp"
-    t.text "background_3_mobile_webp"
-    t.text "background_4_mobile_webp"
-    t.text "background_5_mobile_webp"
-    t.text "background_6_mobile_webp"
-    t.text "background_1_pad_webp"
-    t.text "background_2_pad_webp"
-    t.text "background_3_pad_webp"
-    t.text "background_4_pad_webp"
-    t.text "background_5_pad_webp"
-    t.text "background_6_pad_webp"
-    t.text "hero_news_photo_mobile"
+    t.string "info_1_photo"
+    t.string "info_2_photo"
+    t.string "info_3_photo"
+    t.string "background_1"
+    t.string "background_2"
+    t.string "background_3"
+    t.string "background_4"
+    t.string "background_5"
+    t.string "background_6"
+    t.string "background_1_mobile"
+    t.string "background_2_mobile"
+    t.string "background_3_mobile"
+    t.string "background_4_mobile"
+    t.string "background_5_mobile"
+    t.string "background_6_mobile"
+    t.string "background_1_pad"
+    t.string "background_2_pad"
+    t.string "background_3_pad"
+    t.string "background_4_pad"
+    t.string "background_5_pad"
+    t.string "background_6_pad"
+    t.string "background_1_webp"
+    t.string "background_2_webp"
+    t.string "background_3_webp"
+    t.string "background_4_webp"
+    t.string "background_5_webp"
+    t.string "background_6_webp"
+    t.string "background_1_mobile_webp"
+    t.string "background_2_mobile_webp"
+    t.string "background_3_mobile_webp"
+    t.string "background_4_mobile_webp"
+    t.string "background_5_mobile_webp"
+    t.string "background_6_mobile_webp"
+    t.string "background_1_pad_webp"
+    t.string "background_2_pad_webp"
+    t.string "background_3_pad_webp"
+    t.string "background_4_pad_webp"
+    t.string "background_5_pad_webp"
+    t.string "background_6_pad_webp"
+    t.string "hero_news_photo_mobile"
+    t.string "background_1_title"
+    t.string "background_1_subtitle"
+    t.string "background_1_link"
+    t.string "background_2_title"
+    t.string "background_2_subtitle"
+    t.string "background_2_link"
+    t.string "background_3_title"
+    t.string "background_3_subtitle"
+    t.string "background_3_link"
+    t.string "background_4_title"
+    t.string "background_4_subtitle"
+    t.string "background_4_link"
+    t.string "background_5_title"
+    t.string "background_5_subtitle"
+    t.string "background_5_link"
+    t.string "background_6_title"
+    t.string "background_6_subtitle"
+    t.string "background_6_link"
   end
 
   create_table "users", id: :bigint, default: nil, force: :cascade do |t|

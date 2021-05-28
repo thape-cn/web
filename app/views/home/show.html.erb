@@ -16,40 +16,76 @@
   >
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd">
       <div data-type="slide-item" class="image-item active">
-        <picture>
-          <source srcSet="<%= @tail_home.background_1_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_1.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_1_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_1_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_1.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_1_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_1_subtitle %></p>
+        </div>
       </div>
       <div data-type="slide-item" class="image-item">
-        <picture>
-          <source srcSet="<%= @tail_home.background_2_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_2.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_2_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_2_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_2.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_2_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_2_subtitle %></p>
+        </div>
       </div>
       <div data-type="slide-item" class="image-item">
-        <picture>
-          <source srcSet="<%= @tail_home.background_3_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_3.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_3_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_3_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_3.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_3_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_3_subtitle %></p>
+        </div>
       </div>
       <div data-type="slide-item" class="image-item">
-        <picture>
-          <source srcSet="<%= @tail_home.background_4_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_4.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_4_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_4_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_4.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_4_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_4_subtitle %></p>
+        </div>
       </div>
       <div data-type="slide-item" class="image-item">
-        <picture>
-          <source srcSet="<%= @tail_home.background_5_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_5.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_5_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_5_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_5.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_5_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_5_subtitle %></p>
+        </div>
       </div>
       <div data-type="slide-item" class="image-item">
-        <picture>
-          <source srcSet="<%= @tail_home.background_6_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
-          <img src="<%= @tail_home.background_6.url -%>" alt="" />
-        </picture>
+        <a href="<%= @tail_home.background_6_link %>" class="block w-full h-full" target="_blank">
+          <picture>
+            <source srcSet="<%= @tail_home.background_6_mobile.url -%>" media="(max-width: 768px)" type="image/jpeg" />
+            <img src="<%= @tail_home.background_6.url -%>" alt="" />
+          </picture>
+        </a>
+        <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= @tail_home.background_6_title %></p>
+          <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= @tail_home.background_6_subtitle %></p>
+        </div>
       </div>
     </div>
     <div class="action-area action-left" data-action="click->carousel2#toLast mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
