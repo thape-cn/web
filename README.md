@@ -49,3 +49,9 @@ psql -d thape_web_dev -f thape_web_prod.sql
 /usr/pgsql-13/bin/pg_dump thape_web_prod -O -x > thape_web_prod.sql
 zip thape_web_prod.zip thape_web_prod.sql
 ```
+
+# Develop notes
+
+## Add a new Tailwind CSS
+
+Due to Tailwind CSS 1.9 limit, must touch CSS after adding a new class(the class-name never used.)
