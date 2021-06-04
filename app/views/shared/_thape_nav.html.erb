@@ -50,7 +50,7 @@ isBigFont = cookies['ts'] == 'big';
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
     </a>
   </div>
-  <nav class="menu-nav show" data-target="header.nav">
+  <nav class="menu-nav show ml-auto" data-target="header.nav">
     <div class="nav-item">
       <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
@@ -313,7 +313,7 @@ isBigFont = cookies['ts'] == 'big';
       <% end %>
     </div>
   </nav>
-  <div class="header-search-form absolute right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-target="header.form" data-action="mousedown->header#preventDefaultEvent">
+  <div class="header-search-form absolute top-0 right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-target="header.form" data-action="mousedown->header#preventDefaultEvent">
     <form class="w-full" action="<%= search_path -%>" method="GET" autocomplete="off">
       <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-target="header.formInput" data-action="blur->header#hideForm" />
       <button type="submit" data-target="header.formSubmit">
