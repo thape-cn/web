@@ -23,7 +23,7 @@ class Info < ApplicationRecord
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo_keywords))
     tmpl.at_css('TRS_SUMMARY').add_child(tmpl.create_cdata(seo_description))
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.news_url(id: id)))
-    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(snapshot.url(thumb: '?x-oss-process=image/resize,w_327')))
+    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(snapshot.url(thumb: '?x-oss-process=image/resize,w_327')))
     tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
 
     tgt_dir = Rails.root.join('public', 'tianwen_sync', "news_#{id}.xml")
