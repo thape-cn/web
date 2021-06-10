@@ -11,14 +11,14 @@
       wx.onMenuShareTimeline({
           title: '<%= @info.title -%>',
           link: '<%= news_url(id: @info.id) -%>',
-          imgUrl: '<%= @info.banner_identifier.present? ? @info.banner.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
+          imgUrl: '<%= @info.snapshot.present? ? @info.snapshot.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
       });
 
       wx.onMenuShareAppMessage({
           title: '<%= @info.title -%>',
           desc: '<%= @info.sub_title -%>',
           link: '<%= news_url(id: @info.id) -%>',
-          imgUrl: '<%= @info.banner_identifier.present? ? @info.banner.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
+          imgUrl: '<%= @info.snapshot.present? ? @info.snapshot.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
       });
     });
   }
