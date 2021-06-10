@@ -7,14 +7,14 @@
       wx.onMenuShareTimeline({
           title: '<%= @seo.home_title -%>',
           link: '<%= work_url(id: @work.id) -%>',
-          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url(resize_to_limit: [300, 300]) -%>'
+          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
       });
 
       wx.onMenuShareAppMessage({
           title: '<%= @seo.home_title -%>',
           desc: '<%= @seo.description -%>',
           link: '<%= work_url(id: @work.id) -%>',
-          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url(resize_to_limit: [300, 300]) -%>'
+          imgUrl: '<%= @work.work_pictures.first&.album_jpg&.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
       });
     });
   }
