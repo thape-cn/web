@@ -1244,12 +1244,12 @@ acorn-walk@^7.0.0:
 
 acorn@^6.4.1:
   version "6.4.2"
-  resolved "https://registry.nlark.com/acorn/download/acorn-6.4.2.tgz?cache=0&sync_timestamp=1622440219586&other_urls=https%3A%2F%2Fregistry.nlark.com%2Facorn%2Fdownload%2Facorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
+  resolved "https://registry.nlark.com/acorn/download/acorn-6.4.2.tgz#35866fd710528e92de10cf06016498e47e39e1e6"
   integrity sha1-NYZv1xBSjpLeEM8GAWSY5H454eY=
 
 acorn@^7.0.0:
   version "7.4.1"
-  resolved "https://registry.nlark.com/acorn/download/acorn-7.4.1.tgz?cache=0&sync_timestamp=1622440219586&other_urls=https%3A%2F%2Fregistry.nlark.com%2Facorn%2Fdownload%2Facorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
+  resolved "https://registry.nlark.com/acorn/download/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
 
 aggregate-error@^3.0.0:
@@ -1854,9 +1854,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219:
-  version "1.0.30001236"
-  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001236.tgz?cache=0&sync_timestamp=1623218904650&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcaniuse-lite%2Fdownload%2Fcaniuse-lite-1.0.30001236.tgz#0a80de4cdf62e1770bb46a30d884fc8d633e3958"
-  integrity sha1-CoDeTN9i4XcLtGow2IT8jWM+OVg=
+  version "1.0.30001237"
+  resolved "https://registry.nlark.com/caniuse-lite/download/caniuse-lite-1.0.30001237.tgz#4b7783661515b8e7151fc6376cfd97f0e427b9e5"
+  integrity sha1-S3eDZhUVuOcVH8Y3bP2X8OQnueU=
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
@@ -3530,7 +3530,7 @@ import-from@^2.1.0:
 
 import-local@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npm.taobao.org/import-local/download/import-local-2.0.0.tgz#55070be38a5993cf18ef6db7e961f5bee5c5a09d"
+  resolved "https://registry.nlark.com/import-local/download/import-local-2.0.0.tgz#55070be38a5993cf18ef6db7e961f5bee5c5a09d"
   integrity sha1-VQcL44pZk88Y72236WH1vuXFoJ0=
   dependencies:
     pkg-dir "^3.0.0"
@@ -3674,7 +3674,7 @@ is-binary-path@~2.1.0:
 
 is-boolean-object@^1.1.0:
   version "1.1.1"
-  resolved "https://registry.nlark.com/is-boolean-object/download/is-boolean-object-1.1.1.tgz#3c0878f035cb821228d350d2e1e36719716a3de8"
+  resolved "https://registry.nlark.com/is-boolean-object/download/is-boolean-object-1.1.1.tgz?cache=0&sync_timestamp=1620428521406&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fis-boolean-object%2Fdownload%2Fis-boolean-object-1.1.1.tgz#3c0878f035cb821228d350d2e1e36719716a3de8"
   integrity sha1-PAh48DXLghIo01DS4eNnGXFqPeg=
   dependencies:
     call-bind "^1.0.2"
@@ -4405,7 +4405,7 @@ multicast-dns@^6.0.1:
 
 mutation-observer-inner-html-shim@^1.0.0:
   version "1.0.1"
-  resolved "https://registry.npm.taobao.org/mutation-observer-inner-html-shim/download/mutation-observer-inner-html-shim-1.0.1.tgz#84349f51dfc390d0af85011de8fa14e645fb400e"
+  resolved "https://registry.nlark.com/mutation-observer-inner-html-shim/download/mutation-observer-inner-html-shim-1.0.1.tgz#84349f51dfc390d0af85011de8fa14e645fb400e"
   integrity sha1-hDSfUd/DkNCvhQEd6PoU5kX7QA4=
 
 nan@^2.12.1:
@@ -4542,7 +4542,7 @@ npm-run-path@^2.0.0:
 
 nth-check@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/nth-check/download/nth-check-1.0.2.tgz?cache=0&sync_timestamp=1606860944410&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnth-check%2Fdownload%2Fnth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
+  resolved "https://registry.nlark.com/nth-check/download/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
   integrity sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw=
   dependencies:
     boolbase "~1.0.0"
