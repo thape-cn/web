@@ -32,7 +32,6 @@ module.exports = function(api) {
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          loose: true,
           exclude: ['transform-typeof-symbol']
         }
       ]
@@ -42,6 +41,12 @@ module.exports = function(api) {
       '@babel/plugin-syntax-dynamic-import',
       isTestEnv && 'babel-plugin-dynamic-import-node',
       '@babel/plugin-transform-destructuring',
+      [
+        '@babel/plugin-proposal-class-properties',
+        {
+          loose: true
+        }
+      ],
       [
         '@babel/plugin-proposal-object-rest-spread',
         {
