@@ -2,10 +2,14 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
     static targets = ['nav', 'form', 'formInput', 'formSubmit', 'formUnderline', 'formSwitch', 'asideMenu', 'mobileSearch'];
+    static values = {
+        isActive: Boolean,
+        amtTime: Number,
+    };
 
     initialize() {
-        this.isActive = this.data.get('isActive') === 'true';
-        this.amtTime = Number(this.data.get('amtTime'));
+        this.isActive = this.isActiveValue;
+        this.amtTime = this.amtTimeValue;
         this.amtMaxOpacity = 1;
         this.amtMinOpacity = 0;
         this.amtNavOpacity = 1;

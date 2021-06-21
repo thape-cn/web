@@ -4,15 +4,15 @@
   <div
     class="thape-slide"
     data-controller="carousel2"
-    data-carousel2-item-data-type="slide-item"
-    data-carousel2-active-class="active"
-    data-carousel2-animation-class-base="animate"
-    data-carousel2-animation-class-left-in="fade-in"
-    data-carousel2-animation-class-left-out="fade-out"
-    data-carousel2-animation-class-right-in="fade-in"
-    data-carousel2-animation-class-right-out="fade-out"
-    data-carousel2-animation-duration="500"
-    data-carousel2-interval-time="5000"
+    data-carousel2-item-data-type-value="slide-item"
+    data-carousel2-active-class-value="active"
+    data-carousel2-animation-class-base-value="animate"
+    data-carousel2-animation-class-left-in-value="fade-in"
+    data-carousel2-animation-class-left-out-value="fade-out"
+    data-carousel2-animation-class-right-in-value="fade-in"
+    data-carousel2-animation-class-right-out-value="fade-out"
+    data-carousel2-animation-duration-value="500"
+    data-carousel2-interval-time-value="5000"
   >
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd">
       <div data-type="slide-item" class="image-item active">
@@ -99,8 +99,8 @@
 
 <div data-controller="<%= home_controller -%>"
      data-action="resize@window-><%= home_controller -%>#layout"
-     data-home-offset="0.75"
-     data-home-amplify_rate="2.3">
+     data-home-offset-value="0.75"
+     data-home-amplify-rate-value="2.3">
 
 <div class="relative" style="margin-top: 100vh; z-index: 1;" <%= raw(
 home_controller == 'home-ie11' ? 'style="opacity: 0;"' : '') -%> id="thape-home-waypoint">

@@ -6,15 +6,15 @@
 <div class="w-full relative">
   <div class="thape-slide"
     data-controller="carousel2"
-    data-carousel2-item-data-type="slide-item"
-    data-carousel2-active-class="active"
-    data-carousel2-animation-class-base="animate"
-    data-carousel2-animation-class-left-in="fade-in"
-    data-carousel2-animation-class-left-out="fade-out"
-    data-carousel2-animation-class-right-in="fade-in"
-    data-carousel2-animation-class-right-out="fade-out"
-    data-carousel2-animation-duration="500"
-    data-carousel2-interval-time="5000"
+    data-carousel2-item-data-type-value="slide-item"
+    data-carousel2-active-class-value="active"
+    data-carousel2-animation-class-base-value="animate"
+    data-carousel2-animation-class-left-in-value="fade-in"
+    data-carousel2-animation-class-left-out-value="fade-out"
+    data-carousel2-animation-class-right-in-value="fade-in"
+    data-carousel2-animation-class-right-out-value="fade-out"
+    data-carousel2-animation-duration-value="500"
+    data-carousel2-interval-time-value="5000"
   >
     <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd" style="padding-top: 51%;">
       <% [[@about_page.about_h1, @about_page.about_h1_mobile],
@@ -66,7 +66,7 @@
 
 <div data-controller="<%= scroll_controller -%>"
      data-action="resize@window-><%= scroll_controller -%>#layout"
-     data-scroll-offset="0.65">
+     data-scroll-offset-value="0.65">
 
 <div class="bg-white bg-opacity-75 block p-4 lg:hidden">
   <div class="flex flex-wrap">

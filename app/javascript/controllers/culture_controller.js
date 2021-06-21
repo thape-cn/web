@@ -2,6 +2,10 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
   static targets = ['sliders', 'dots'];
+  static values = {
+    imgWidth: Number,
+    imgHeight: Number,
+  };
 
   connect() {
     this.setSlidersSize();
@@ -14,8 +18,8 @@ export default class extends Controller {
     if (this.hasSlidersTarget) {
       const parentStyle = getComputedStyle(this.element);
       const parentWidth = this.element.offsetWidth - parseInt(parentStyle['paddingLeft']) - parseInt(parentStyle['paddingRight']);
-      const imgWidth = parseInt(this.data.get('img-width'));
-      const imgHeight = parseInt(this.data.get('img-height'));
+      const imgWidth = this.imgWidthValue;
+      const imgHeight = this.imgHeightValue;
       const slidersWidth = parentWidth > imgWidth ? imgWidth : parentWidth;
       const slidersHeight = imgHeight * slidersWidth / imgWidth;
       const dotsHeight = this.hasDotsTarget ? this.dotsTarget.offsetHeight : 0;

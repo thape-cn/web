@@ -12,9 +12,9 @@
   x-data="alpineSlideShow([1,2,3,4,5])"
   x-init="setup()"
   data-controller="culture"
-  data-culture-img-width='1080'
-  data-culture-img-height='720'>
-  <div class="relative max-w-full overflow-hidden" data-target="culture.sliders">
+  data-culture-img-width-value='1080'
+  data-culture-img-height-value='720'>
+  <div class="relative max-w-full overflow-hidden" data-culture-target="sliders">
     <img class="w-full h-full" src="<%= asset_pack_path('media/images/culture_1.png') -%>"
       :x-transition:enter="transitions('enter')"
       :x-transition:enter-start="transitions('enter-start')"
@@ -60,7 +60,7 @@
       :x-transition:leave-end="transitions('leave-end')"
       x-show="state.currentSlide === 5" />
   </div>
-  <div class="flex items-center justify-center" data-target="culture.dots">
+  <div class="flex items-center justify-center" data-culture-target="dots">
       <button
         class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
         :class="{

@@ -19,17 +19,17 @@
     </div>
   </div>
 
-  <div class="relative w-full mt-6 md:mt-12 lg:mt-24" data-target="publications.marker">
+  <div class="relative w-full mt-6 md:mt-12 lg:mt-24" data-publications-target="marker">
     <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
       header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
-    <div class="flex relative pt-4 <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> w-full lg:w-auto overflow-auto" data-target="publications.categoryOrigin">
+    <div class="flex relative pt-4 <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> w-full lg:w-auto overflow-auto" data-publications-target="categoryOrigin">
       <% @publication_categoty.each_with_index do |item, index| %>
       <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
         x-on:click="current_category='<%= item[:name] %>'"
         x-bind:class="{ 'text-white bg-black6c': current_category == '<%= item[:name] %>', 'text-thape-copyright-gray bg-thape-dark-gray': current_category != '<%= item[:name] %>' }" href="javascript:void(0)"><%= item[:title] %></a>
       <% end %>
     </div>
-    <div class="flex fixed md:hidden <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> bg-white py-2 overflow-auto" style="z-index: 1000; top: 50px;" data-target="publications.categoryFixed" data-action="scroll->publications#onCategoryFixedScroll">
+    <div class="flex fixed md:hidden <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> bg-white py-2 overflow-auto" style="z-index: 1000; top: 50px;" data-publications-target="categoryFixed" data-action="scroll->publications#onCategoryFixedScroll">
       <% @publication_categoty.each_with_index do |item, index| %>
       <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
         x-on:click="current_category='<%= item[:name] %>'"
@@ -48,7 +48,7 @@
       </div>
     <% end %>
   </div>
-  <div class="hidden fixed top-0 bottom-0 left-0 right-0" style="z-index: 9999" data-target="publications.wxDownload" onclick="this.style.display=''">
+  <div class="hidden fixed top-0 bottom-0 left-0 right-0" style="z-index: 9999" data-publications-target="wxDownload" onclick="this.style.display=''">
     <img class="w-full min-h-full" src="/wx_download.png" alt="">
   </div>
 </div>

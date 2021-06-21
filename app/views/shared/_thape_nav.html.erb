@@ -41,16 +41,15 @@ isBigFont = cookies['ts'] == 'big';
   style="transform: translateZ(100px)"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
-  data-header-is-active="<%= headerIsActive -%>"
-  data-header-amt-time="500"
-  data-header-amt-freq="15"
+  data-header-is-active-value="<%= headerIsActive -%>"
+  data-header-amt-time-value="500"
 >
   <div class="logo">
     <a href="<%= root_path -%>">
       <%= render partial: 'shared/logo', locals: { className: '', svgId: 'thape-nav-logo' } -%>
     </a>
   </div>
-  <nav class="menu-nav show ml-auto" data-target="header.nav">
+  <nav class="menu-nav show ml-auto" data-header-target="nav">
     <div class="nav-item">
       <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
       <nav class="intro">
@@ -241,7 +240,7 @@ isBigFont = cookies['ts'] == 'big';
     <div class="nav-item">
       <a href="<%= biz_map_path -%>" class="<%= isContact ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
-    <div class="nav-item" data-target="header.formSwitch">
+    <div class="nav-item" data-header-target="formSwitch">
       <a href="javascript:void(0)" data-action="click->header#showForm">
         <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
@@ -313,16 +312,16 @@ isBigFont = cookies['ts'] == 'big';
       <% end %>
     </div>
   </nav>
-  <div class="header-search-form absolute top-0 right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-target="header.form" data-action="mousedown->header#preventDefaultEvent">
+  <div class="header-search-form absolute top-0 right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-header-target="form" data-action="mousedown->header#preventDefaultEvent">
     <form class="w-full" action="<%= search_path -%>" method="GET" autocomplete="off">
-      <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-target="header.formInput" data-action="blur->header#hideForm" />
-      <button type="submit" data-target="header.formSubmit">
+      <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-header-target="formInput" data-action="blur->header#hideForm" />
+      <button type="submit" data-header-target="formSubmit">
         <svg class="h-6 w-6" fill="currentColor">
           <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
         </svg>
       </button>
     </form>
-    <div class="underline" data-target="header.formUnderline"></div>
+    <div class="underline" data-header-target="formUnderline"></div>
   </div>
   <div class="flex lg:hidden relative">
     <button type="button" class="mr-2" data-action="click->header#showMobileSearch">
@@ -337,7 +336,7 @@ isBigFont = cookies['ts'] == 'big';
     </button>
   </div>
 
-  <div class="fixed left-0 top-0 w-full h-screen overflow-hidden bg-white p-2 mobile-search" data-target="header.mobileSearch">
+  <div class="fixed left-0 top-0 w-full h-screen overflow-hidden bg-white p-2 mobile-search" data-header-target="mobileSearch">
     <form action="<%= search_path -%>" method="GET" class="relative rounded-md shadow-sm" autocomplete="off">
       <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" class="form-input block w-full pr-10 <%= fdsz("text-sm", "text-base") -%> leading-5 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800" />
       <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" data-action="click->header#hideMobileSearch">
@@ -346,7 +345,7 @@ isBigFont = cookies['ts'] == 'big';
     </form>
   </div>
 
-  <div class="aside-menu" data-target="header.asideMenu" data-action="click->header#toggleAsideMenu">
+  <div class="aside-menu" data-header-target="asideMenu" data-action="click->header#toggleAsideMenu">
     <div class="aside-menu-container" data-action="click->header#menuItemClick">
       <div class="aside-menu-item">
         <a href="javascript:void(0);" rel="nofollow ugc"><%= t('menu.about.text') -%></a>

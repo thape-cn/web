@@ -2,6 +2,10 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = [ "bgImg", "introDiv" ]
+  static values = {
+    imgWidth: Number,
+    imgHeight: Number,
+  }
 
   connect() {
     this.resize();
@@ -9,8 +13,8 @@ export default class extends Controller {
 
   resize() {
     if (this.hasBgImgTarget) {
-      const imgWidth = parseInt(this.data.get('imgWidth'));
-      const imgHeight = parseInt(this.data.get('imgHeight'));
+      const imgWidth = this.imgWidthValue;
+      const imgHeight = this.imgHeightValue;
       const parentStyle = getComputedStyle(this.bgImgTarget);
       const parentWidth = this.bgImgTarget.offsetWidth - parseInt(parentStyle['paddingLeft']) - parseInt(parentStyle['paddingRight']);
       const parentHeight = imgHeight * parentWidth / imgWidth;

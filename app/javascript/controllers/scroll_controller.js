@@ -4,8 +4,12 @@ import { Controller } from "stimulus"
 const scroller = scrollama();
 
 export default class extends Controller {
+  static values = {
+    offset: Number,
+  }
+
   connect() {
-    const scrollama_offset = parseFloat(this.data.get("offset"));
+    const scrollama_offset = this.offsetValue;
 
     function handleStepEnter(response) {
       const { direction, index } = response;

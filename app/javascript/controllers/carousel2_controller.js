@@ -1,22 +1,34 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
+  static values = {
+    itemDataType: String,
+    activeClass: String,
+    animationClassBase: String,
+    animationClassLeftIn: String,
+    animationClassLeftOut: String,
+    animationClassRightIn: String,
+    animationClassRightOut: String,
+    animationDuration: Number,
+    intervalTime: Number,
+  }
+
   initialize() {
     this.inAnimation = false; // 动画是否正在进行中
     this.autoPlayIntervalNum = null; // 动画自动播放的setIntervalTime返回值
     this.supportAnimationEvent = 'onanimationstart' in window; // 是否支持动画事件
     this.config = {
-      itemDataType: this.data.get('itemDataType'), // 子项定义的data-type
-      activeClass: this.data.get('activeClass'), // 活跃的幻灯片
+      itemDataType: this.itemDataTypeValue, // 子项定义的data-type
+      activeClass: this.activeClassValue, // 活跃的幻灯片
       animationClass: {
-        base: this.data.get('animationClassBase'), // 基础动画类
-        leftIn: this.data.get('animationClassLeftIn'), // 从左侧进入
-        leftOut: this.data.get('animationClassLeftOut'), // 从左侧出去
-        rightIn: this.data.get('animationClassRightIn'), // 从右侧进入
-        rightOut: this.data.get('animationClassRightOut'), // 从右侧出去
+        base: this.animationClassBaseValue, // 基础动画类
+        leftIn: this.animationClassLeftInValue, // 从左侧进入
+        leftOut: this.animationClassLeftOutValue, // 从左侧出去
+        rightIn: this.animationClassRightInValue, // 从右侧进入
+        rightOut: this.animationClassRightOutValue, // 从右侧出去
       },
-      animationDuration: Number(this.data.get('animationDuration')) || 500, // 动画持续时间，只在不支持动画事件的浏览器中启用
-      intervalTime: Number(this.data.get('intervalTime')) || 3000, // 轮播间隔时间，该值需要比动画时间更长
+      animationDuration: this.animationDurationValue || 500, // 动画持续时间，只在不支持动画事件的浏览器中启用
+      intervalTime: this.intervalTimeValue || 3000, // 轮播间隔时间，该值需要比动画时间更长
     }
   }
 
@@ -49,7 +61,7 @@ export default class extends Controller {
     const { animationDuration, itemDataType, activeClass } = this.config;
     setTimeout(() => {
       const items = this.element.querySelectorAll(`[data-type=${itemDataType}].${activeClass}`);
-      [...items].forEach(item => this.itemAnimationEnd(item));
+      Array.from(items).forEach(item => this.itemAnimationEnd(item));
     }, animationDuration);
   }
 
@@ -59,7 +71,7 @@ export default class extends Controller {
     if (!this.inAnimation) {
       const items = this.element.querySelectorAll(`[data-type=${itemDataType}]`);
       if (items.length < 2) return;
-      const currentIndex = [...items].findIndex(element => element.classList.contains(activeClass));
+      const currentIndex = Array.from(items).findIndex(element => element.classList.contains(activeClass));
       if (currentIndex < 0) {
         items[0].classList.add(activeClass);
         return;
@@ -77,7 +89,9 @@ export default class extends Controller {
     if (!this.inAnimation) {
       const items = this.element.querySelectorAll(`[data-type=${itemDataType}]`);
       if (items.length < 2) return;
-      const currentIndex = [...items].findIndex(element => element.classList.contains(activeClass));
+      const currentIndex = Array.from(items).findIndex(element => {
+        return element.classList.contains(activeClass)
+      });
       if (currentIndex < 0) {
         items[0].classList.add(activeClass);
         return;
