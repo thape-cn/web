@@ -20,6 +20,7 @@ export default class extends Controller {
     }
   }
 
+
   connect() {
     this.startAutoPlay();
   }
