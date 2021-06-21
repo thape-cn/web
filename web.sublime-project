@@ -4,7 +4,7 @@
     {
       "path": ".",
       "folder_exclude_patterns": [".circleci", ".bundle",".idea","tmp",".capistrano","log","tmp",
-                                  "public/assets","public/packs", "public/packs-test", "public/tianwen_sync", "coverage", "app/assets/fonts"],
+                                  "public/assets","public/packs", "public/packs-test", "public/tianwen_sync", "coverage", "app/assets/fonts","public/pdfjs"],
       "file_exclude_patterns": ["*.sublime-workspace",".byebug_history",".DS_Store", "db/*.sqlite3*",
                                 "config/credentials.yml.enc","db/test.sqlite3-?","db/test.sqlite3","db/tianhua2019.sqlite3"]
     }
