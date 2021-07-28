@@ -139,8 +139,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (0.5.1)
+      activesupport (>= 5.0)
     globalize (6.0.1)
       activemodel (>= 4.2, < 7.0)
       activerecord (>= 4.2, < 7.0)
