@@ -50,7 +50,7 @@
           <div class="absolute" style="left:44%;top:68%;"
             x-bind:class="{ 'map-star-a': show_city == '重庆', 'map-dot-a': show_city != '重庆' }">重庆</div>
 
-          <div class="absolute" style="left:61%;top:66%;"
+          <div class="absolute" style="left:59%;top:66%;"
             x-bind:class="{ 'map-star-b': show_city == '武汉', 'map-dot-b': show_city != '武汉' }">武汉</div>
           <div class="absolute" style="left:38%;top:65%;"
             x-bind:class="{ 'map-star-a': show_city == '成都', 'map-dot-a': show_city != '成都' }">成都</div>
@@ -82,6 +82,12 @@
             x-bind:class="{ 'map-star-a': show_city == '昆明', 'map-dot-a': show_city != '昆明' }">昆明</div>
           <div class="absolute" style="left:57%;top:44%;"
             x-bind:class="{ 'map-star-a': show_city == '太原', 'map-dot-a': show_city != '太原' }">太原</div>
+          <div class="absolute" style="left:61%;top:69%;"
+            x-bind:class="{ 'map-star-b': show_city == '南昌', 'map-dot-b': show_city != '南昌' }">南昌</div>
+          <div class="absolute" style="left:15%;top:29%;"
+            x-bind:class="{ 'map-star-a': show_city == '新疆', 'map-dot-a': show_city != '新疆' }">乌鲁木齐</div>
+          <div class="absolute" style="left:38%;top:46%;"
+            x-bind:class="{ 'map-star-a': show_city == '兰州', 'map-dot-a': show_city != '兰州' }">兰州</div>
           <div class="absolute" style="left:55%;top:70%;"
             x-bind:class="{ 'map-star-b': show_city == '长沙', 'map-dot-b': show_city != '长沙' }">长沙</div>
           <div class="absolute" style="left:68%;top:85%;"
@@ -123,10 +129,10 @@
           <%= render partial: 'map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
           <%= render partial: 'map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
           <%= render partial: 'map_address', locals: {c: '福州天华', m: @m_福州天华 } -%>
-          <%= render partial: 'map_address', locals: {c: '太原办事处', m: @m_太原办事处 } -%>
-          <%= render partial: 'map_address', locals: {c: '南昌办事处', m: @m_南昌办事处 } -%>
-          <%= render partial: 'map_address', locals: {c: '新疆办事处', m: @m_新疆办事处 } -%>
-          <%= render partial: 'map_address', locals: {c: '兰州办事处', m: @m_兰州办事处 } -%>
+          <%= render partial: 'map_address', locals: {c: '太原天华', m: @m_太原办事处 } -%>
+          <%= render partial: 'map_address', locals: {c: '南昌天华', m: @m_南昌办事处 } -%>
+          <%= render partial: 'map_address', locals: {c: '新疆天华', m: @m_新疆办事处 } -%>
+          <%= render partial: 'map_address', locals: {c: '兰州天华', m: @m_兰州办事处 } -%>
           <%= render partial: 'map_address', locals: {c: '香港易爱迪', m: @m_香港天华 } -%>
           <%= render partial: 'map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
           <%= render partial: 'map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
@@ -214,6 +220,16 @@
             <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
               x-bind:class="{ 'bg-thape-bg-gray': show_company == '太原天华', 'bg-thape-company-gray': show_company != '太原天华' }"
               x-on:click="show_city = '太原';show_company = '太原天华'">太<br/>原<br/>办<br/>事<br/>处</div>
+            <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
+              x-bind:class="{ 'bg-thape-bg-gray': show_company == '南昌天华', 'bg-thape-company-gray': show_company != '南昌天华' }"
+              x-on:click="show_city = '南昌';show_company = '南昌天华'">南<br/>昌<br/>办<br/>事<br/>处</div>
+            <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
+              x-bind:class="{ 'bg-thape-bg-gray': show_company == '新疆天华', 'bg-thape-company-gray': show_company != '新疆天华' }"
+              x-on:click="show_city = '新疆';show_company = '新疆天华'">新<br/>疆<br/>办<br/>事<br/>处</div>
+            <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
+              x-bind:class="{ 'bg-thape-bg-gray': show_company == '兰州天华', 'bg-thape-company-gray': show_company != '兰州天华' }"
+              x-on:click="show_city = '兰州';show_company = '兰州天华'">兰<br/>州<br/>办<br/>事<br/>处</div>
+
           </div>
         </div>
         <div class="flex-grid">
@@ -302,10 +318,10 @@
     <%= render partial: 'mobile_map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '福州天华', m: @m_福州天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '太原办事处', m: @m_太原办事处 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '南昌办事处', m: @m_南昌办事处 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '新疆办事处', m: @m_新疆办事处 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '兰州办事处', m: @m_兰州办事处 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '太原天华', m: @m_太原办事处 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '南昌天华', m: @m_南昌办事处 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '新疆天华', m: @m_新疆办事处 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '兰州天华', m: @m_兰州办事处 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '香港易爱迪', m: @m_香港天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海易爱迪', m: @m_易爱迪 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海爱坤', m: @m_爱坤 } -%>
@@ -348,9 +364,12 @@
           <%= render partial: 'city_mini', locals: {c: '济南', e: "JINAN" } %>
           <%= render partial: 'city_mini', locals: {c: '贵阳', e: 'GUIYANG' } %>
           <%= render partial: 'city_mini', locals: {c: '昆明', e: 'KUNMING' } %>
-          <%= render partial: 'city_mini', locals: {c: '太原', e: 'TAIYUAN' } %>
           <%= render partial: 'city_mini', locals: {c: '长沙', e: 'CHANGSHA' } %>
           <%= render partial: 'city_mini', locals: {c: '福州', e: 'FUZHOU' } %>
+          <%= render partial: 'city_mini', locals: {c: '太原', e: 'TAIYUAN' } %>
+          <%= render partial: 'city_mini', locals: {c: '南昌', e: 'NANCHANG' } %>
+          <%= render partial: 'city_mini', locals: {c: '新疆', e: 'URUMQI' } %>
+          <%= render partial: 'city_mini', locals: {c: '兰州', e: 'LANZHOU' } %>
           <%= render partial: 'city_mini', locals: {c: '香港', e: 'HONGKONG' } %>
         </div>
       </div>
@@ -423,7 +442,7 @@
       <%= render partial: 'city_div', locals: {c: '福州', e: 'FUZHOU', m1: @m_福州天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '太原', e: 'TAIYUAN', m1: @m_太原办事处, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '南昌', e: 'NANCHANG', m1: @m_南昌办事处, m2: nil } -%>
-      <%= render partial: 'city_div', locals: {c: '乌鲁木齐', e: 'URUMQI', m1: @m_新疆办事处, m2: nil } -%>
+      <%= render partial: 'city_div', locals: {c: '新疆', e: 'URUMQI', m1: @m_新疆办事处, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '兰州', e: 'LANZHOU', m1: @m_兰州办事处, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '香港', e: 'HONGKONG', m1: @m_香港天华, m2: nil } -%>
     </div>

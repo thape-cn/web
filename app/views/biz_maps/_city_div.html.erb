@@ -1,7 +1,7 @@
 <div style="display: none;" x-show="show_city == '<%= c -%>'">
   <header class="pt-2 pb-1">
     <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c">
-      <span class="hover:text-black6c-t70"><%= c -%></span>
+      <span class="hover:text-black6c-t70"><%= c == '新疆' ? '乌鲁木齐' : c -%></span>
     </h1>
     <h2 class="ml-2 inline-block <%= fdsz("text-lg sm:text-lg", "text-lg sm:text-3xl") -%> text-black6c">
       <span class="font-medium hover:text-black6c-t70"><%= e -%></span>

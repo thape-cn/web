@@ -1,6 +1,6 @@
 <dl class="p-0 sm:px-2 sm:py-1 text-white hover:bg-gray-50 hover:text-black6c cursor-pointer flex items-center flex-wrap"
   x-bind:class="{ 'bg-gray-50 text-black6c': show_city == '<%= c -%>', 'bg-thape-city-gray text-white': show_city != '<%= c -%>' }"
   x-on:click="show_city = '<%= c -%>'; show_company = '' ">
-  <dt class="font-medium <%= fdsz("text-base sm:text-base", "text-base sm:text-xl") -%> text-center flex-none w-full"><%= c -%></dt>
+  <dt class="font-medium <%= fdsz("text-base sm:text-base", "text-base sm:text-xl") -%> text-center flex-none w-full"><%= c == '新疆' ? '乌鲁木齐' : c -%></dt>
   <dd class="font-light text-center <%= fdsz("text-xs sm:text-sm", "text-xs sm:text-base") -%> flex-none w-full tracking-tighter sm:tracking-normal"><%= e -%></dd>
 </dl>
