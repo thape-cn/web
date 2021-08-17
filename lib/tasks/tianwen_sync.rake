@@ -25,9 +25,9 @@ namespace :tianwen_sync do
 
   desc 'Sync persons'
   task sync_persons: :environment do
-    c1_tmpl_path = Rails.root.join('public', 'tianwen_tile', 'C1.xml')
+    tmpl_path = Rails.root.join('public', 'tianwen_tile', 'default.xml')
     Person.all.find_each do |person|
-      tmpl = File.open(c1_tmpl_path) { |f| Nokogiri::XML(f) }
+      tmpl = File.open(tmpl_path) { |f| Nokogiri::XML(f) }
       person.write_tianwen_xml(tmpl)
     end
   end
