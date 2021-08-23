@@ -3,7 +3,7 @@
     <h1 class="block mr-2 <%= fdsz("text-lg sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c mb-0">
       <a href="<%= header_path -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
         <% if !(defined?show_underline) || show_underline %>
-        <span class="h1-cap border-b-4 hidden sm:inline absolute">&emsp;</span>
+          <span class="h1-cap border-b-4 hidden sm:inline absolute">&emsp;</span>
         <% end %>
         <%= c -%>
       </a>
