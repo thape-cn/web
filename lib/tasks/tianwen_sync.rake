@@ -90,7 +90,7 @@ namespace :tianwen_sync do
     ]
     tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(content.join(';'))) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.about_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(about.about_h1.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(about.about_h1.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'about_us')
 
@@ -104,10 +104,10 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_building" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata(I18n.t('services.building.chinese_title'))) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.building_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.building_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.building_url)) # 链接, 必选
     background_img = ActionController::Base.helpers.asset_pack_url(I18n.t('services.building.background_img'), host: root_url)
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(background_img)) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(background_img)) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'building')
     # 室内
@@ -116,9 +116,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_interior" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("室内")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.interior_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.interior_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.interior_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.interior.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.interior.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'interior')
     # 规划
@@ -127,9 +127,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_planning" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("规划")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.planning_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.planning_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.planning_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.planning.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.planning.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'planning')
     # 景观
@@ -138,9 +138,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_landscape" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("景观")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.landscape_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.landscape_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.landscape_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.landscape.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.landscape.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'landscape')
     # 审图
@@ -149,9 +149,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_vetting" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("审图")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.vetting_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.vetting_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vetting_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vetting.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vetting.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'vetting')
     # 技术咨询
@@ -160,9 +160,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_consluting" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("技术咨询")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.consluting_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.consluting_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.consluting_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.consluting.background_img'), host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.consluting.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'consluting')
     # 可视化
@@ -171,9 +171,9 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_PRIMARY').content = "web_vr_tech" # 主键, 必选
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("可视化")) # 标题, 必选
     tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(service_file.vrtech_intro)) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.vrtech_intro)) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vr_tech_url)) # 链接, 必选
-    tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vrtech.background_img')[0], host: root_url))) # 缩略图, 必选
+    tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vrtech.background_img')[0], host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
     Tianwen.xml_to_dir(tmpl.to_xml, 'vr_tech')
   end
