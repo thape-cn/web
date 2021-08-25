@@ -110,6 +110,6 @@ Rails.application.configure do
 
   # 天问xml目录
   config.tianwen_dir = Pathname.new('/home/trs_sync/tianwen_sync')
-  config.tianwen_user = 'trs_sync'
-  config.tianwen_group = 'trs_sync'
+  config.tianwen_uid = 1001
+  config.tianwen_gid = 1001
 end
