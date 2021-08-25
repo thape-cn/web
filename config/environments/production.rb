@@ -107,4 +107,9 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # 天问xml目录
+  config.tianwen_dir = Pathname.new('/home/trs_sync/tianwen_sync')
+  config.tianwen_user = 'trs_sync'
+  config.tianwen_group = 'trs_sync'
 end

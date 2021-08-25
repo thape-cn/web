@@ -31,7 +31,7 @@ class Work < ApplicationRecord
     tmpl.at_css('TRS_CRESERVED4').add_child(tmpl.create_cdata(awards))
     tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
 
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "works_#{id}.xml")
+    tgt_dir = Rails.configuration.tianwen_dir.join("works_#{id}.xml")
     File.open(tgt_dir, 'wb') do |f|
       f.write(tmpl.to_xml)
     end

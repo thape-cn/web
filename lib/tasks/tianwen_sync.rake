@@ -11,6 +11,7 @@ namespace :tianwen_sync do
     Info.all.find_each do |info|
       tmpl = File.open(d4_tmpl_path) { |f| Nokogiri::XML(f) }
       info.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "news_#{info.id}")
     end
   end
 
@@ -20,6 +21,7 @@ namespace :tianwen_sync do
     Work.all.find_each do |work|
       tmpl = File.open(e1_tmpl_path) { |f| Nokogiri::XML(f) }
       work.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "works_#{work.id}")
     end
   end
 
@@ -29,6 +31,7 @@ namespace :tianwen_sync do
     Person.where(leaving_date: nil).all.find_each do |person|
       tmpl = File.open(tmpl_path) { |f| Nokogiri::XML(f) }
       person.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "persons_#{person.id}")
     end
   end
 
@@ -38,6 +41,7 @@ namespace :tianwen_sync do
     Portfolio.all.find_each do |portfolio|
       tmpl = File.open(f3_tmpl_path) { |f| Nokogiri::XML(f) }
       portfolio.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "portfolios_#{portfolio.id}")
     end
   end
 
@@ -47,6 +51,7 @@ namespace :tianwen_sync do
     Publication.all.find_each do |publication|
       tmpl = File.open(f3_tmpl_path) { |f| Nokogiri::XML(f) }
       publication.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "publications_#{publication.id}")
     end
   end
 
@@ -56,6 +61,7 @@ namespace :tianwen_sync do
     MapContact.all.find_each do |map_contact|
       tmpl = File.open(g2_tmpl_path) { |f| Nokogiri::XML(f) }
       map_contact.write_tianwen_xml(tmpl)
+      Tianwen.xml_to_dir(tmpl.to_xml, "map_contacts_#{map_contact.id}")
     end
   end
 
@@ -86,10 +92,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.about_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(about.about_h1.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "about_us.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'about_us')
 
     # 服务
     service_file = ServiceFile.first
@@ -106,10 +109,7 @@ namespace :tianwen_sync do
     background_img = ActionController::Base.helpers.asset_pack_url(I18n.t('services.building.background_img'), host: root_url)
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(background_img)) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "building.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'building')
     # 室内
     seo = Seo.find_by(seo_name: '室内设计服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -120,10 +120,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.interior_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.interior.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "interior.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'interior')
     # 规划
     seo = Seo.find_by(seo_name: '城市规划服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -134,10 +131,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.planning_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.planning.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "planning.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'planning')
     # 景观
     seo = Seo.find_by(seo_name: '景观设计服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -148,10 +142,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.landscape_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.landscape.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "landscape.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'landscape')
     # 审图
     seo = Seo.find_by(seo_name: '审图服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -162,10 +153,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vetting_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vetting.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "vetting.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'vetting')
     # 技术咨询
     seo = Seo.find_by(seo_name: '技术咨询服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -176,10 +164,7 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.consluting_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.consluting.background_img'), host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "consluting.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'consluting')
     # 可视化
     seo = Seo.find_by(seo_name: '可视化服务')
     tmpl = File.open(d2_tmpl_path) { |f| Nokogiri::XML(f) }
@@ -190,9 +175,6 @@ namespace :tianwen_sync do
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vr_tech_url)) # 链接, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(ActionController::Base.helpers.asset_pack_url(I18n.t('services.vrtech.background_img')[0], host: root_url))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "vr_tech.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
+    Tianwen.xml_to_dir(tmpl.to_xml, 'vr_tech')
   end
 end

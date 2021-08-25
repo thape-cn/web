@@ -26,11 +26,6 @@ class Person < ApplicationRecord
     tmpl.at_css('TRS_ATTR3').add_child(tmpl.create_cdata(title.gsub(/\s/, ' '))) # 岗位名称, 必选
     tmpl.at_css('TRS_ATTR5').add_child(tmpl.create_cdata(city_people.collect(&:city).collect(&:company_name)&.join(','))) # 公司, 必选
     tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
-
-    tgt_dir = Rails.root.join('public', 'tianwen_sync', "persons_#{id}.xml")
-    File.open(tgt_dir, 'wb') do |f|
-      f.write(tmpl.to_xml)
-    end
   end
 
   private

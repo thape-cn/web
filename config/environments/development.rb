@@ -65,4 +65,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << 'ericguo.ngrok.io'
+
+  # 天问xml目录
+  config.tianwen_dir = Rails.root.join('public', 'tianwen_sync')
 end
