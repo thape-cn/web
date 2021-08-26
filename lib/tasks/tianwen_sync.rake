@@ -88,7 +88,7 @@ namespace :tianwen_sync do
       I18n.t('abouts.t_plus.content').join(';'),
       I18n.t('abouts.perfection_pursuer.content').join(';'),
     ]
-    tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(content.join(';'))) # 内容, 必选
+    tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(content.join(';'))) # 内容, 必选
     tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.about_url)) # 链接, 必选
     tmpl.at_css('TRS_ATTR1').add_child(tmpl.create_cdata(about.about_h1.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图, 必选
     tmpl.at_css('TRS_OPP').content = 1
