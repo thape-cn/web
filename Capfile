@@ -6,6 +6,9 @@ require 'capistrano/setup'
 # Include default deployment tasks
 require 'capistrano/deploy'
 
+# Include whenever
+require "whenever/capistrano"
+
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
