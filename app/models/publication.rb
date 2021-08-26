@@ -15,11 +15,12 @@ class Publication < ApplicationRecord
     tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata(title)) # 文档标题, 必选
     tmpl.at_css('TRS_ATTACH_NAME').add_child(tmpl.create_cdata(pdf_file.identifier)) # 文件名称, 必选
     tmpl.at_css('TRS_ATTACH_PATH').add_child(tmpl.create_cdata(pdf_file.url)) # 完整路径, 必选
+    tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(pdf_file.url)) # 完整路径, 必选
     tmpl.at_css('TRS_CREATETIME').add_child(tmpl.create_cdata(created_at.to_s(:db))) # 信息时间, 必选
     tmpl.at_css('TRS_CATEGORY').add_child(tmpl.create_cdata('出版物')) # 分类1, 必选
     tmpl.at_css('TRS_CATEGORY1').add_child(tmpl.create_cdata(I18n.t("publication.#{category_status}"))) # 分类1, 必选
     tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(cover_jpg.url(thumb: '?x-oss-process=image/resize,w_327'))) # 缩略图标, 必选
-    tmpl.at_css('TRS_CRESERVED2').add_child(tmpl.create_cdata(cover_jpg.identifier.split('.').pop)) # 缩略图后缀, 必选
+    tmpl.at_css('TRS_CRESERVED2').add_child(tmpl.create_cdata(pdf_file.identifier.split('.').pop)) # 文件后缀, 必选
     tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
   end
 end
