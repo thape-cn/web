@@ -21,4 +21,4 @@
 
 every 6.hours do
   rake "tianwen_sync:all"
-end
+end if Rails.env.production?
