@@ -45,7 +45,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '3.0.2'
 
 set :puma_init_active_record, true
-set :whenever_environment, 'production'
+set :whenever_environment, -> { fetch :rails_env, 'production' }
 
 # https://stackoverflow.com/a/48627238/262826
 Rake::Task['deploy:assets:backup_manifest'].clear_actions
