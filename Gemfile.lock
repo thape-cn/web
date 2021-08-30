@@ -320,7 +320,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap (>= 1.8.1)
   browser
   byebug
   canonical-rails
@@ -335,7 +335,7 @@ DEPENDENCIES
   dalli
   enumize
   globalize (~> 6.0.0.alpha.1)
-  jbuilder (~> 2.7)
+  jbuilder (~> 2.11)
   kaminari
   listen
   pg
@@ -349,7 +349,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 5.3)
+  webpacker (~> 5.4)
   wechat!
   whenever
 
