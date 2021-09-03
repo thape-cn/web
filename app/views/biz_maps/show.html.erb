@@ -73,8 +73,6 @@
             x-bind:class="{ 'map-star-a': show_city == '杭州', 'map-dot-a': show_city != '杭州' }">杭州</div>
           <div class="absolute" style="left:67%;top:59%;"
             x-bind:class="{ 'map-star-a': show_city == '合肥', 'map-dot-a': show_city != '合肥' }">合肥</div>
-          <div class="absolute" style="left:68%;top:47%;"
-            x-bind:class="{ 'map-star-a': show_city == '济南', 'map-dot-a': show_city != '济南' }">济南</div>
           <div class="absolute" style="left:47%;top:77%;"
             x-bind:class="{ 'map-star-b': show_city == '贵阳', 'map-dot-b': show_city != '贵阳' }">贵阳</div>
 
@@ -124,7 +122,6 @@
           <%= render partial: 'map_address', locals: {c: '郑州天华', m: @m_郑州天华 } -%>
           <%= render partial: 'map_address', locals: {c: '杭州天华', m: @m_杭州天华 } -%>
           <%= render partial: 'map_address', locals: {c: '合肥天华', m: @m_合肥天华 } -%>
-          <%= render partial: 'map_address', locals: {c: '济南天华', m: @m_济南天华 } -%>
           <%= render partial: 'map_address', locals: {c: '贵阳天华', m: @m_贵阳天华 } -%>
           <%= render partial: 'map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
           <%= render partial: 'map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
@@ -202,9 +199,6 @@
             <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
               x-bind:class="{ 'bg-thape-bg-gray': show_company == '合肥天华', 'bg-thape-company-gray': show_company != '合肥天华' }"
               x-on:click="show_city = '合肥';show_company = '合肥天华'">合<br/>肥<br/>天<br/>华</div>
-            <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
-              x-bind:class="{ 'bg-thape-bg-gray': show_company == '济南天华', 'bg-thape-company-gray': show_company != '济南天华' }"
-              x-on:click="show_city = '济南';show_company = '济南天华'">济<br/>南<br/>天<br/>华</div>
             <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
               x-bind:class="{ 'bg-thape-bg-gray': show_company == '贵阳天华', 'bg-thape-company-gray': show_company != '贵阳天华' }"
               x-on:click="show_city = '贵阳';show_company = '贵阳天华'">贵<br/>阳<br/>天<br/>华</div>
@@ -313,7 +307,6 @@
     <%= render partial: 'mobile_map_address', locals: {c: '郑州天华', m: @m_郑州天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '杭州天华', m: @m_杭州天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '合肥天华', m: @m_合肥天华 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '济南天华', m: @m_济南天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '贵阳天华', m: @m_贵阳天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '昆明天华', m: @m_昆明天华 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '长沙天华', m: @m_长沙天华 } -%>
@@ -361,7 +354,6 @@
           <%= render partial: 'city_mini', locals: {c: '郑州', e: 'ZHENGZHOU' } %>
           <%= render partial: 'city_mini', locals: {c: '杭州', e: 'HANGZHOU' } %>
           <%= render partial: 'city_mini', locals: {c: '合肥', e: 'HEFEI' } %>
-          <%= render partial: 'city_mini', locals: {c: '济南', e: "JINAN" } %>
           <%= render partial: 'city_mini', locals: {c: '贵阳', e: 'GUIYANG' } %>
           <%= render partial: 'city_mini', locals: {c: '昆明', e: 'KUNMING' } %>
           <%= render partial: 'city_mini', locals: {c: '长沙', e: 'CHANGSHA' } %>
@@ -435,7 +427,6 @@
       <%= render partial: 'city_div', locals: {c: '郑州', e: 'ZHENGZHOU', m1: @m_郑州天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '杭州', e: 'HANGZHOU', m1: @m_杭州天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '合肥', e: 'HEFEI', m1: @m_合肥天华, m2: nil } -%>
-      <%= render partial: 'city_div', locals: {c: '济南', e: "JINAN", m1: @m_济南天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '贵阳', e: 'GUIYANG', m1: @m_贵阳天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '昆明', e: 'KUNMING', m1: @m_昆明天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '长沙', e: 'CHANGSHA', m1: @m_长沙天华, m2: nil } -%>
