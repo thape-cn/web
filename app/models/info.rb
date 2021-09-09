@@ -17,7 +17,7 @@ class Info < ApplicationRecord
 
   def write_tianwen_xml
     Tianwen.write_xml("news_#{id}") do |tmpl|
-      tmpl.at_css('TRS_VERSION').content = 'D04'
+      tmpl.at_css('TRS_VERSION').content = 'D20'
       tmpl.at_css('TRS_ORG').content = '品牌与公关部'
       tmpl.at_css('TRS_CATEGORY').content = '新闻'
       tmpl.at_css('TRS_PRIMARY').content = "web_info_#{id}"
