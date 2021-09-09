@@ -25,7 +25,7 @@ class WorksController < ApplicationController
       @works = if params[:q].present?
         works_query_scope(params[:q]).where(city_id: @city.id).where(published: true)
       else
-        @city.works
+        @city.works.where(published: true)
       end.page(params[:page]).per(params[:per_page])
       render :area_detail
     else
