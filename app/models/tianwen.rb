@@ -6,4 +6,11 @@ class Tianwen
       f.write(content)
     end
   end
+
+  def self.write_xml(file_name)
+    tmpl_path = Rails.root.join('public', 'tianwen_tile', 'default.xml')
+    tmpl = File.open(tmpl_path) { |f| Nokogiri::XML(f) }
+    yield tmpl
+    self.xml_to_dir(tmpl.to_xml, file_name)
+  end
 end
