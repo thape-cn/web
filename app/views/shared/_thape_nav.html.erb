@@ -129,7 +129,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_east') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '华东').limit(21).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '华东').limit(21).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
@@ -140,7 +140,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_north') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '华北').limit(7).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '华北').limit(7).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
@@ -151,7 +151,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_south') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '华南').limit(7).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '华南').limit(7).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
@@ -162,7 +162,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_centre') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '华中').limit(7).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '华中').limit(7).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
@@ -173,7 +173,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_south_west') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '西南').limit(7).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '西南').limit(7).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
@@ -184,7 +184,7 @@ isBigFont = cookies['ts'] == 'big';
               <div class="nav-item">
                 <span><%= t('menu.works.china_north_west') -%></span>
                 <nav>
-                  <% City.includes(:works).where(china_area_name: '西北').limit(7).each do |city| %>
+                  <% City.includes(:works).where(china_area_name: '西北').limit(7).distinct.each do |city| %>
                     <% next if city.works.size.zero? %>
                     <div class="nav-item">
                       <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
