@@ -45,6 +45,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '3.0.2'
 
 set :puma_init_active_record, true
+set :puma_phased_restart, true
 
 # https://stackoverflow.com/a/48627238/262826
 Rake::Task['deploy:assets:backup_manifest'].clear_actions
