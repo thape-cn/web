@@ -180,6 +180,7 @@ GEM
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
+    localhost (1.1.9)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -209,7 +210,7 @@ GEM
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
-    puma (5.4.0)
+    puma (5.5.0)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -339,6 +340,7 @@ DEPENDENCIES
   jbuilder (~> 2.11)
   kaminari
   listen
+  localhost
   pg
   puma
   rails (~> 6.1.4)
