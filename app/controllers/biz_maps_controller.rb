@@ -29,7 +29,6 @@ class BizMapsController < ApplicationController
     @m_长沙天华 = MapContact.find(21)
     @m_香港天华 = MapContact.find(14)
     @m_香港天华 = MapContact.find(14)
-    @m_深圳易筑 = MapContact.find(33)
     @m_武汉易筑 = MapContact.find(34)
     @m_福州天华 = MapContact.find(35)
     @m_太原办事处 = MapContact.find(22)
