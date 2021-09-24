@@ -139,6 +139,8 @@
           <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
           <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
           <%= render partial: 'map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
+          <%= render partial: 'map_address', locals: {c: '上海嘉易', m: @m_上海嘉易 } -%>
+          <%= render partial: 'map_address', locals: {c: '上海医养', m: @m_上海医养 } -%>
         </div>
       </div>
       <div class="w-full xl:w-2/5 flex-none">
@@ -257,6 +259,12 @@
             <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
               x-bind:class="{ 'bg-gray-100': show_company == '武汉易筑', 'bg-gray-50': show_company != '武汉易筑' }"
               x-on:click="show_city = '武汉';show_company = '武汉易筑'">武<br/>汉<br/>天<br/>华<br/>易<br/>筑<br/>室<br/>内</div>
+            <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
+              x-bind:class="{ 'bg-gray-100': show_company == '上海嘉易', 'bg-gray-50': show_company != '上海嘉易' }"
+              x-on:click="show_city = '上海';show_company = '上海嘉易'">上<br/>海<br/>天<br/>华<br/>嘉<br/>易</div>
+            <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
+              x-bind:class="{ 'bg-gray-100': show_company == '上海医养', 'bg-gray-50': show_company != '上海医养' }"
+              x-on:click="show_city = '上海';show_company = '上海医养'">上<br/>海<br/>天<br/>华<br/>医<br/>养</div>
           </div>
         </div>
       </div>
@@ -320,6 +328,8 @@
     <%= render partial: 'mobile_map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海嘉易', m: @m_上海嘉易 } -%>
+    <%= render partial: 'mobile_map_address', locals: {c: '上海医养', m: @m_上海医养 } -%>
   </div>
   <div class="w-full mx-auto px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray" id="thape-address">
     <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
@@ -404,6 +414,8 @@
           <%= render partial: 'office_address', locals: { m: @m_上海园林 } %>
           <%= render partial: 'office_address', locals: { m: @m_易术家互娱 } %>
           <%= render partial: 'office_address', locals: { m: @m_虹核审图 } %>
+          <%= render partial: 'office_address', locals: { m: @m_上海嘉易 } %>
+          <%= render partial: 'office_address', locals: { m: @m_上海医养 } %>
         </div>
       </div>
 
