@@ -6,14 +6,14 @@ namespace :tianwen_sync do
 
   desc 'Sync news'
   task sync_news: :environment do
-    Info.all.find_each do |info|
+    Info.where('hide_in_design_staff_news = ?', false).where('hide_in_index_news = ?', false).all.find_each do |info|
       info.write_tianwen_xml
     end
   end
 
   desc 'Sync works'
   task sync_works: :environment do
-    Work.all.find_each do |work|
+    Work.where('published = ?', true).all.find_each do |work|
       work.write_tianwen_xml
     end
   end
