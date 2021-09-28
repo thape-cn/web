@@ -3,8 +3,8 @@
 class MapContact < ApplicationRecord
   translates :name, :long_name, :alt_name, :address, :tel, :fax, :website_name
 
-  def write_tianwen_xml
-    Tianwen.write_xml("map_contacts_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'map_contacts')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'G02'
       tmpl.at_css('TRS_ORG').content = '品牌与公关部'
       tmpl.at_css('TRS_CATEGORY').content = '联系方式'

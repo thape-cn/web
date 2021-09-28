@@ -18,8 +18,8 @@ class Work < ApplicationRecord
   translates :project_name, :client, :services, :team, :cooperation, :awards,
     :design_completion_lines, :construction_completion_lines, :architecture_area_lines
 
-  def write_tianwen_xml
-    Tianwen.write_xml("works_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'works')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'E01'
       tmpl.at_css('TRS_CATEGORY').content = '作品'
       tmpl.at_css('TRS_PRIMARY').content = "web_work_#{id}"

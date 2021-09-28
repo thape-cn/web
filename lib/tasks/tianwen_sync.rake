@@ -6,49 +6,62 @@ namespace :tianwen_sync do
 
   desc 'Sync news'
   task sync_news: :environment do
+    prefix = 'news'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     Info.where('hide_in_design_staff_news = ?', false).where('hide_in_index_news = ?', false).all.find_each do |info|
-      info.write_tianwen_xml
+      info.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync works'
   task sync_works: :environment do
+    prefix = 'works'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     Work.where('published = ?', true).all.find_each do |work|
-      work.write_tianwen_xml
+      work.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync persons'
   task sync_persons: :environment do
+    prefix = 'persons'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     Person.where(leaving_date: nil).all.find_each do |person|
-      person.write_tianwen_xml
+      person.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync portfolios'
   task sync_portfolios: :environment do
+    prefix = 'portfolios'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     Portfolio.all.find_each do |portfolio|
-      portfolio.write_tianwen_xml
+      portfolio.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync publications'
   task sync_publications: :environment do
+    prefix = 'publications'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     Publication.all.find_each do |publication|
-      publication.write_tianwen_xml
+      publication.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync map_contacts'
   task sync_map_contacts: :environment do
+    prefix = 'map_contacts'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
     MapContact.all.find_each do |map_contact|
-      map_contact.write_tianwen_xml
+      map_contact.write_tianwen_xml(prefix)
     end
   end
 
   desc 'Sync intro'
   task sync_intro: :environment do
     # 关于我们
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("about_us.xml").to_s}"
     Tianwen.write_xml("about_us") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -82,6 +95,7 @@ namespace :tianwen_sync do
 
     # 建筑
     seo = Seo.find_by(seo_name: '建筑设计服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("building.xml").to_s}"
     Tianwen.write_xml("building") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -96,6 +110,7 @@ namespace :tianwen_sync do
     end
     # 室内
     seo = Seo.find_by(seo_name: '室内设计服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("interior.xml").to_s}"
     Tianwen.write_xml("interior") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -109,6 +124,7 @@ namespace :tianwen_sync do
     end
     # 规划
     seo = Seo.find_by(seo_name: '城市规划服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("planning.xml").to_s}"
     Tianwen.write_xml("planning") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -122,6 +138,7 @@ namespace :tianwen_sync do
     end
     # 景观
     seo = Seo.find_by(seo_name: '景观设计服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("landscape.xml").to_s}"
     Tianwen.write_xml("landscape") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -135,6 +152,7 @@ namespace :tianwen_sync do
     end
     # 审图
     seo = Seo.find_by(seo_name: '审图服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vetting.xml").to_s}"
     Tianwen.write_xml("vetting") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -148,6 +166,7 @@ namespace :tianwen_sync do
     end
     # 技术咨询
     seo = Seo.find_by(seo_name: '技术咨询服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("consluting.xml").to_s}"
     Tianwen.write_xml("consluting") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
@@ -161,6 +180,7 @@ namespace :tianwen_sync do
     end
     # 可视化
     seo = Seo.find_by(seo_name: '可视化服务')
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vr_tech.xml").to_s}"
     Tianwen.write_xml("vr_tech") do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'

@@ -12,8 +12,8 @@ class Person < ApplicationRecord
 
   before_create :set_new_position
 
-  def write_tianwen_xml
-    Tianwen.write_xml("persons_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'persons')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = "C02" # 前端模板, 必选
       tmpl.at_css('TRS_PRIMARY').content = "web_person_#{id}" # 主键, 必选
       tmpl.at_css('TRS_CATEGORY').content = "人物" # 主键, 必选

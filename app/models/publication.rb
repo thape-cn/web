@@ -10,8 +10,8 @@ class Publication < ApplicationRecord
   mount_uploader :page_cover, PngUploader
   enum category_status: %i[monographs standard_specification paper_patent]
 
-  def write_tianwen_xml
-    Tianwen.write_xml("publications_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'publications')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'F03'
       tmpl.at_css('TRS_ORG').content = '品牌与公关部'
       tmpl.at_css('TRS_CATEGORY').content = '出版物'

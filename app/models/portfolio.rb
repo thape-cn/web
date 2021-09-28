@@ -9,8 +9,8 @@ class Portfolio < ApplicationRecord
   mount_uploader :mobile_cover_webp, WebpUploader
   mount_uploader :page_cover, PngUploader
 
-  def write_tianwen_xml
-    Tianwen.write_xml("portfolios_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'portfolios')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'F03'
       tmpl.at_css('TRS_ORG').content = '品牌与公关部'
       tmpl.at_css('TRS_CATEGORY').content = '作品集'

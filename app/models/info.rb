@@ -15,8 +15,8 @@ class Info < ApplicationRecord
   paginates_per 12
 
 
-  def write_tianwen_xml
-    Tianwen.write_xml("news_#{id}") do |tmpl|
+  def write_tianwen_xml(prefix = 'news')
+    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D20'
       tmpl.at_css('TRS_ORG').content = '品牌与公关部'
       tmpl.at_css('TRS_CATEGORY').content = '新闻'
