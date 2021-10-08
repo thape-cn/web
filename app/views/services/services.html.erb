@@ -50,12 +50,12 @@
   </div>
 <% else %>
   <div class="flex-none w-full max-h-full overflow-hidden" data-service-target="bgImg">
-    <picture class="w-full">
+    <picture>
       <% if background_img_webp.present? %>
         <source srcset="<%= asset_pack_path(background_img_webp) -%>" type="image/webp">
       <% end %>
       <source srcset="<%= asset_pack_path(background_img) -%>" type="image/jpeg">
-      <img src="<%= asset_pack_path(background_img) -%>" data-action="load->service#resize">
+      <img class="w-full" src="<%= asset_pack_path(background_img) -%>" data-action="load->service#resize">
     </picture>
   </div>
 <% end %>
