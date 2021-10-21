@@ -110,7 +110,7 @@ img{
   content: "★";
   position: absolute;
   top: -6px;
-  font-size: 20px;
+  font-size: 16px;
   color: #f50000;
 }
 
@@ -130,6 +130,12 @@ img{
   left: 8px;
 }
 
+.map-dot-d::before {
+  @extend .map-content-dot;
+  top: -15px;
+  left: 12px;
+}
+
 .map-star-b::before {
   @extend .map-content-star;
   left: -16px;
@@ -144,6 +150,12 @@ img{
   @extend .map-content-star;
   top: 15px;
   left: 8px;
+}
+
+.map-star-d::before {
+  @extend .map-content-star;
+  top: -18px;
+  left: 12px;
 }
 
 p {

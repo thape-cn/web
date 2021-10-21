@@ -39,11 +39,11 @@
           <%= image_pack_tag 'media/images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
           <div class="absolute" style="left:81%;top:61%;"
             x-bind:class="{ 'map-star-b': show_city == '上海', 'map-dot-b': show_city != '上海' }">上海</div>
-          <div class="absolute" style="left:68%;top:35%;"
+          <div class="absolute" style="left:67%;top:35%;"
             x-bind:class="{ 'map-star-t': show_city == '北京', 'map-dot-t': show_city != '北京' }">北京</div>
           <div class="absolute" style="left:67.5%;top:84.5%;"
             x-bind:class="{ 'map-star-b': show_city == '深圳', 'map-dot-b': show_city != '深圳' }">深圳</div>
-          <div class="absolute" style="left:64%;top:81%;"
+          <div class="absolute" style="left:63%;top:80%;"
             x-bind:class="{ 'map-star-t': show_city == '广州', 'map-dot-t': show_city != '广州' }">广州</div>
           <div class="absolute" style="left:72%;top:39%;"
             x-bind:class="{ 'map-star-b': show_city == '天津', 'map-dot-b': show_city != '天津' }">天津</div>
@@ -58,8 +58,8 @@
             x-bind:class="{ 'map-star-b': show_city == '西安', 'map-dot-b': show_city != '西安' }">西安</div>
           <div class="absolute" style="left:78%;top:28%;"
             x-bind:class="{ 'map-star-t': show_city == '沈阳', 'map-dot-t': show_city != '沈阳' }">沈阳</div>
-          <div class="absolute" style="left:76%;top:79%;"
-            x-bind:class="{ 'map-star-b': show_city == '厦门', 'map-dot-b': show_city != '厦门' }">厦门</div>
+          <div class="absolute" style="left:74%;top:82%;"
+            x-bind:class="{ 'map-star-d': show_city == '厦门', 'map-dot-d': show_city != '厦门' }">厦门</div>
           <div class="absolute" style="left:75%;top:75%;"
             x-bind:class="{ 'map-star-t': show_city == '福州', 'map-dot-t': show_city != '福州' }">福州</div>
           <div class="absolute" style="left:78%;top:46%;"
@@ -86,10 +86,10 @@
             x-bind:class="{ 'map-star-b': show_city == '新疆', 'map-dot-b': show_city != '新疆' }">乌鲁木齐</div>
           <div class="absolute" style="left:41%;top:46%;"
             x-bind:class="{ 'map-star-b': show_city == '兰州', 'map-dot-b': show_city != '兰州' }">兰州</div>
-          <div class="absolute" style="left:67%;top:68%;"
-            x-bind:class="{ 'map-star-b': show_city == '长沙', 'map-dot-b': show_city != '长沙' }">长沙</div>
-          <div class="absolute" style="left:68%;top:86.5%;"
-            x-bind:class="{ 'map-star-b': show_city == '香港', 'map-dot-b': show_city != '香港' }">香港</div>
+          <div class="absolute" style="left:64%;top:70%;"
+            x-bind:class="{ 'map-star-d': show_city == '长沙', 'map-dot-d': show_city != '长沙' }">长沙</div>
+          <div class="absolute" style="left:65%;top:88%;"
+            x-bind:class="{ 'map-star-d': show_city == '香港', 'map-dot-d': show_city != '香港' }">香港</div>
           <div class="absolute inset-x-0 top-0 xxl:top-12 xxxl:top-20" style="display: none;" x-show="show_company == '上海天华'">
             <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
               <div class="bg-thape-white-t80 p-2 border border-2 border-gray-300 w-full leading-loose">
