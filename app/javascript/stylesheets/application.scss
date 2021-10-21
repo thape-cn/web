@@ -124,6 +124,12 @@ img{
   right: -15px;
 }
 
+.map-dot-t::before {
+  @extend .map-content-dot;
+  top: 15px;
+  left: 8px;
+}
+
 .map-star-b::before {
   @extend .map-content-star;
   left: -16px;
@@ -132,6 +138,12 @@ img{
 .map-star-a::after {
   @extend .map-content-star;
   right: -16px;
+}
+
+.map-star-t::before {
+  @extend .map-content-star;
+  top: 15px;
+  left: 8px;
 }
 
 p {
