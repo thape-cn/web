@@ -943,7 +943,7 @@
 
 "@rails/ujs@^6.1.4-1":
   version "6.1.4-1"
-  resolved "https://registry.nlark.com/@rails/ujs/download/@rails/ujs-6.1.4-1.tgz#37507fe288a1c7c3a593602aa4dea42e5cb5797f"
+  resolved "https://registry.npmmirror.com/@rails/ujs/download/@rails/ujs-6.1.4-1.tgz#37507fe288a1c7c3a593602aa4dea42e5cb5797f"
   integrity sha1-N1B/4oihx8Olk2AqpN6kLly1eX8=
 
 "@rails/webpacker@^5.4.3":
@@ -1011,7 +1011,7 @@
 
 "@stimulus/polyfills@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.nlark.com/@stimulus/polyfills/download/@stimulus/polyfills-2.0.0.tgz#64b3e247c762330f80d88e993d1d26b24e3c13b1"
+  resolved "https://registry.npmmirror.com/@stimulus/polyfills/download/@stimulus/polyfills-2.0.0.tgz#64b3e247c762330f80d88e993d1d26b24e3c13b1"
   integrity sha1-ZLPiR8diMw+A2I6ZPR0msk48E7E=
   dependencies:
     core-js "^3.4.0"
@@ -1040,7 +1040,7 @@
 
 "@tailwindcss/ui@^0.7.2":
   version "0.7.2"
-  resolved "https://registry.nlark.com/@tailwindcss/ui/download/@tailwindcss/ui-0.7.2.tgz#1f0a5ddf47b75b6f892553e6741764d351782a12"
+  resolved "https://registry.npmmirror.com/@tailwindcss/ui/download/@tailwindcss/ui-0.7.2.tgz#1f0a5ddf47b75b6f892553e6741764d351782a12"
   integrity sha1-Hwpd30e3W2+JJVPmdBdk01F4KhI=
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
@@ -1713,13 +1713,13 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.16.6, browserslist@^4.17.5, browserslist@^4.6.4:
-  version "4.17.5"
-  resolved "https://registry.npmmirror.com/browserslist/download/browserslist-4.17.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.17.5.tgz#c827bbe172a4c22b123f5e337533ceebadfdd559"
-  integrity sha1-yCe74XKkwisSP14zdTPO66391Vk=
+browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.16.6, browserslist@^4.17.6, browserslist@^4.6.4:
+  version "4.17.6"
+  resolved "https://registry.npmmirror.com/browserslist/download/browserslist-4.17.6.tgz#c76be33e7786b497f66cad25a73756c8b938985d"
+  integrity sha1-x2vjPneGtJf2bK0lpzdWyLk4mF0=
   dependencies:
-    caniuse-lite "^1.0.30001271"
-    electron-to-chromium "^1.3.878"
+    caniuse-lite "^1.0.30001274"
+    electron-to-chromium "^1.3.886"
     escalade "^3.1.1"
     node-releases "^2.0.1"
     picocolors "^1.0.0"
@@ -1875,7 +1875,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001271:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001274:
   version "1.0.30001274"
   resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001274.tgz#26ca36204d15b17601ba6fc35dbdad950a647cc7"
   integrity sha1-Jso2IE0VsXYBum/DXb2tlQpkfMc=
@@ -2173,17 +2173,17 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js-compat@^3.18.0, core-js-compat@^3.19.0:
-  version "3.19.0"
-  resolved "https://registry.npmmirror.com/core-js-compat/download/core-js-compat-3.19.0.tgz#b3b93f93c8721b3ed52b91f12f964cc410967f8b"
-  integrity sha1-s7k/k8hyGz7VK5HxL5ZMxBCWf4s=
+  version "3.19.1"
+  resolved "https://registry.npmmirror.com/core-js-compat/download/core-js-compat-3.19.1.tgz?cache=0&sync_timestamp=1635883211921&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js-compat%2Fdownload%2Fcore-js-compat-3.19.1.tgz#fe598f1a9bf37310d77c3813968e9f7c7bb99476"
+  integrity sha1-/lmPGpvzcxDXfDgTlo6ffHu5lHY=
   dependencies:
-    browserslist "^4.17.5"
+    browserslist "^4.17.6"
     semver "7.0.0"
 
 core-js@^3.16.2, core-js@^3.4.0, core-js@^3.6.4:
-  version "3.19.0"
-  resolved "https://registry.npmmirror.com/core-js/download/core-js-3.19.0.tgz#9e40098a9bc326c7e81b486abbd5e12b9d275176"
-  integrity sha1-nkAJipvDJsfoG0hqu9XhK50nUXY=
+  version "3.19.1"
+  resolved "https://registry.npmmirror.com/core-js/download/core-js-3.19.1.tgz#f6f173cae23e73a7d88fa23b6e9da329276c6641"
+  integrity sha1-9vFzyuI+c6fYj6I7bp2jKSdsZkE=
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -2382,7 +2382,7 @@ cssesc@^3.0.0:
 
 cssnano-preset-default@^4.0.8:
   version "4.0.8"
-  resolved "https://registry.nlark.com/cssnano-preset-default/download/cssnano-preset-default-4.0.8.tgz?cache=0&sync_timestamp=1629280558765&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcssnano-preset-default%2Fdownload%2Fcssnano-preset-default-4.0.8.tgz#920622b1fc1e95a34e8838203f1397a504f2d3ff"
+  resolved "https://registry.npmmirror.com/cssnano-preset-default/download/cssnano-preset-default-4.0.8.tgz?cache=0&sync_timestamp=1635856906808&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano-preset-default%2Fdownload%2Fcssnano-preset-default-4.0.8.tgz#920622b1fc1e95a34e8838203f1397a504f2d3ff"
   integrity sha1-kgYisfwelaNOiDggPxOXpQTy0/8=
   dependencies:
     css-declaration-sorter "^4.0.1"
@@ -2440,7 +2440,7 @@ cssnano-util-same-parent@^4.0.0:
 
 cssnano@^4.1.10:
   version "4.1.11"
-  resolved "https://registry.nlark.com/cssnano/download/cssnano-4.1.11.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcssnano%2Fdownload%2Fcssnano-4.1.11.tgz#c7b5f5b81da269cb1fd982cb960c1200910c9a99"
+  resolved "https://registry.npmmirror.com/cssnano/download/cssnano-4.1.11.tgz?cache=0&sync_timestamp=1635856907622&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcssnano%2Fdownload%2Fcssnano-4.1.11.tgz#c7b5f5b81da269cb1fd982cb960c1200910c9a99"
   integrity sha1-x7X1uB2iacsf2YLLlgwSAJEMmpk=
   dependencies:
     cosmiconfig "^5.0.0"
@@ -2677,10 +2677,10 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.878:
-  version "1.3.886"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.886.tgz?cache=0&sync_timestamp=1635822719687&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.886.tgz#ac039c4001b665b1dd0f0ed9c2e4da90ff3c9267"
-  integrity sha1-rAOcQAG2ZbHdDw7ZwuTakP88kmc=
+electron-to-chromium@^1.3.886:
+  version "1.3.887"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.3.887.tgz#b36aeed12a28aaa19460a467823f5bbe1f3c6f06"
+  integrity sha1-s2ru0SooqqGUYKRngj9bvh88bwY=
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -3095,9 +3095,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.14.4"
-  resolved "https://registry.nlark.com/follow-redirects/download/follow-redirects-1.14.4.tgz?cache=0&sync_timestamp=1631622129411&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffollow-redirects%2Fdownload%2Ffollow-redirects-1.14.4.tgz#838fdf48a8bbdd79e52ee51fb1c94e3ed98b9379"
-  integrity sha1-g4/fSKi73XnlLuUfsclOPtmLk3k=
+  version "1.14.5"
+  resolved "https://registry.npmmirror.com/follow-redirects/download/follow-redirects-1.14.5.tgz#f09a5848981d3c772b5392309778523f8d85c381"
+  integrity sha1-8JpYSJgdPHcrU5Iwl3hSP42Fw4E=
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -4303,13 +4303,13 @@ mime-types@~2.1.17, mime-types@~2.1.24:
 
 mime@1.6.0:
   version "1.6.0"
-  resolved "https://registry.npm.taobao.org/mime/download/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
+  resolved "https://registry.npmmirror.com/mime/download/mime-1.6.0.tgz?cache=0&sync_timestamp=1635876167352&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
 
 mime@^2.4.4:
-  version "2.5.2"
-  resolved "https://registry.npm.taobao.org/mime/download/mime-2.5.2.tgz#6e3dc6cc2b9510643830e5f19d5cb753da5eeabe"
-  integrity sha1-bj3GzCuVEGQ4MOXxnVy3U9pe6r4=
+  version "2.6.0"
+  resolved "https://registry.npmmirror.com/mime/download/mime-2.6.0.tgz?cache=0&sync_timestamp=1635876167352&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
+  integrity sha1-oqaCqVzU0MsdYlfij4PafjWAA2c=
 
 mini-css-extract-plugin@^0.9.0:
   version "0.9.0"
@@ -5065,7 +5065,7 @@ postcss-color-rebeccapurple@^4.0.1:
 
 postcss-colormin@^4.0.3:
   version "4.0.3"
-  resolved "https://registry.nlark.com/postcss-colormin/download/postcss-colormin-4.0.3.tgz#ae060bce93ed794ac71264f08132d550956bd381"
+  resolved "https://registry.npmmirror.com/postcss-colormin/download/postcss-colormin-4.0.3.tgz#ae060bce93ed794ac71264f08132d550956bd381"
   integrity sha1-rgYLzpPteUrHEmTwgTLVUJVr04E=
   dependencies:
     browserslist "^4.0.0"
@@ -5076,7 +5076,7 @@ postcss-colormin@^4.0.3:
 
 postcss-convert-values@^4.0.1:
   version "4.0.1"
-  resolved "https://registry.nlark.com/postcss-convert-values/download/postcss-convert-values-4.0.1.tgz?cache=0&sync_timestamp=1621449733448&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-convert-values%2Fdownload%2Fpostcss-convert-values-4.0.1.tgz#ca3813ed4da0f812f9d43703584e449ebe189a7f"
+  resolved "https://registry.npmmirror.com/postcss-convert-values/download/postcss-convert-values-4.0.1.tgz#ca3813ed4da0f812f9d43703584e449ebe189a7f"
   integrity sha1-yjgT7U2g+BL51DcDWE5Enr4Ymn8=
   dependencies:
     postcss "^7.0.0"
@@ -5151,7 +5151,7 @@ postcss-double-position-gradients@^1.0.0:
 
 postcss-env-function@^2.0.2:
   version "2.0.2"
-  resolved "https://registry.nlark.com/postcss-env-function/download/postcss-env-function-2.0.2.tgz#0f3e3d3c57f094a92c2baf4b6241f0b0da5365d7"
+  resolved "https://registry.npmmirror.com/postcss-env-function/download/postcss-env-function-2.0.2.tgz#0f3e3d3c57f094a92c2baf4b6241f0b0da5365d7"
   integrity sha1-Dz49PFfwlKksK69LYkHwsNpTZdc=
   dependencies:
     postcss "^7.0.2"
@@ -5308,7 +5308,7 @@ postcss-minify-font-values@^4.0.2:
 
 postcss-minify-gradients@^4.0.2:
   version "4.0.2"
-  resolved "https://registry.nlark.com/postcss-minify-gradients/download/postcss-minify-gradients-4.0.2.tgz?cache=0&sync_timestamp=1629280548352&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-minify-gradients%2Fdownload%2Fpostcss-minify-gradients-4.0.2.tgz#93b29c2ff5099c535eecda56c4aa6e665a663471"
+  resolved "https://registry.npmmirror.com/postcss-minify-gradients/download/postcss-minify-gradients-4.0.2.tgz#93b29c2ff5099c535eecda56c4aa6e665a663471"
   integrity sha1-k7KcL/UJnFNe7NpWxKpuZlpmNHE=
   dependencies:
     cssnano-util-get-arguments "^4.0.0"
@@ -5627,7 +5627,7 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
 
 postcss-svgo@^4.0.3:
   version "4.0.3"
-  resolved "https://registry.nlark.com/postcss-svgo/download/postcss-svgo-4.0.3.tgz#343a2cdbac9505d416243d496f724f38894c941e"
+  resolved "https://registry.npmmirror.com/postcss-svgo/download/postcss-svgo-4.0.3.tgz?cache=0&sync_timestamp=1635857761721&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fpostcss-svgo%2Fdownload%2Fpostcss-svgo-4.0.3.tgz#343a2cdbac9505d416243d496f724f38894c941e"
   integrity sha1-NDos26yVBdQWJD1Jb3JPOIlMlB4=
   dependencies:
     postcss "^7.0.0"
@@ -6664,7 +6664,7 @@ supports-color@^7.0.0, supports-color@^7.1.0:
 
 svgo@^1.0.0:
   version "1.3.2"
-  resolved "https://registry.npmmirror.com/svgo/download/svgo-1.3.2.tgz?cache=0&sync_timestamp=1633354062790&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsvgo%2Fdownload%2Fsvgo-1.3.2.tgz#b6dc511c063346c9e415b81e43401145b96d4167"
+  resolved "https://registry.npmmirror.com/svgo/download/svgo-1.3.2.tgz?cache=0&sync_timestamp=1635850398965&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsvgo%2Fdownload%2Fsvgo-1.3.2.tgz#b6dc511c063346c9e415b81e43401145b96d4167"
   integrity sha1-ttxRHAYzRsnkFbgeQ0ARRbltQWc=
   dependencies:
     chalk "^2.4.1"
