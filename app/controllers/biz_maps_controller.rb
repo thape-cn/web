@@ -37,5 +37,7 @@ class BizMapsController < ApplicationController
     @m_兰州办事处 = MapContact.find(38)
     @m_上海嘉易 = MapContact.find(39)
     @m_上海医养 = MapContact.find(40)
+    @m_深圳AICO = MapContact.find(41)
+    @m_香港AICO = MapContact.find(42)
   end
 end
