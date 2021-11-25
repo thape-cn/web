@@ -81,7 +81,7 @@ GEM
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
     bindex (0.8.1)
-    bootsnap (1.9.1)
+    bootsnap (1.9.3)
       msgpack (~> 1.0)
     browser (5.3.1)
     builder (3.2.4)
@@ -141,7 +141,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    globalid (0.5.2)
+    globalid (0.6.0)
       activesupport (>= 5.0)
     globalize (6.0.1)
       activemodel (>= 4.2, < 7.0)
@@ -363,4 +363,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.2.31
+   2.2.32
