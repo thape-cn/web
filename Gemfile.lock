@@ -130,7 +130,7 @@ GEM
     chronic (0.10.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    dalli (3.0.5)
+    dalli (3.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     enumize (0.2.0)
