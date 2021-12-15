@@ -261,9 +261,9 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.16.0", "@babel/parser@^7.16.5":
-  version "7.16.5"
-  resolved "https://registry.npmmirror.com/@babel/parser/download/@babel/parser-7.16.5.tgz#beb3af702e54d24796341ab9420fb329131ad658"
-  integrity sha512-+Ce7T5iPNWzfu9C1aB5tN3Lyafs5xb3Ic7vBWyZL2KXT3QSdD1dD3CvgOzPmQKoNNRt6uauc0XwNJTQtXC2/Mw==
+  version "7.16.6"
+  resolved "https://registry.npmmirror.com/@babel/parser/download/@babel/parser-7.16.6.tgz#8f194828193e8fa79166f34a4b4e52f3e769a314"
+  integrity sha512-Gr86ujcNuPDnNOY8mi383Hvi8IYrJVJYuf3XcuBM/Dgd+bINn/7tHqsj+tKkoreMbmGsFLsltI/JJd8fOFWGDQ==
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.16.2":
   version "7.16.2"
@@ -940,22 +940,22 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@rails/actioncable@^6.1.4-1":
-  version "6.1.4-1"
-  resolved "https://registry.npmmirror.com/@rails/actioncable/download/@rails/actioncable-6.1.4-1.tgz#69982e7f352d732f71fda0cc01b7ba8269c9945b"
-  integrity sha1-aZgufzUtcy9x/aDMAbe6gmnJlFs=
+"@rails/actioncable@^6.1.4-3":
+  version "6.1.4-3"
+  resolved "https://registry.npmmirror.com/@rails/actioncable/download/@rails/actioncable-6.1.4-3.tgz#ff1c0475ea704ed8133d9ffa7d7b087bc8c7c8c1"
+  integrity sha512-zBLMmQYdFApc5NHNGAmxqBTicpTrW+fYepziE4Iv57ksEAq4LjRDpSnuCQ3cIlK1DgWG+/TWC+W/mJ0rHaXOuA==
 
-"@rails/activestorage@^6.1.4-1":
-  version "6.1.4-1"
-  resolved "https://registry.npmmirror.com/@rails/activestorage/download/@rails/activestorage-6.1.4-1.tgz#5088854f536716c54566b530a97491d4b885528f"
-  integrity sha1-UIiFT1NnFsVFZrUwqXSR1LiFUo8=
+"@rails/activestorage@^6.1.4-3":
+  version "6.1.4-3"
+  resolved "https://registry.npmmirror.com/@rails/activestorage/download/@rails/activestorage-6.1.4-3.tgz#a9c624c4e28fa2ec5f59ceb179cff6120dda8662"
+  integrity sha512-amLpx+n8C4vRZW10DQ80bzD476O6ztM7AKwP9/6oXuJLDmarAtpx2U1eyiKvT4dvOlygpsmZiIJPCu7HwdnhYA==
   dependencies:
     spark-md5 "^3.0.0"
 
-"@rails/ujs@^6.1.4-1":
-  version "6.1.4-1"
-  resolved "https://registry.npmmirror.com/@rails/ujs/download/@rails/ujs-6.1.4-1.tgz#37507fe288a1c7c3a593602aa4dea42e5cb5797f"
-  integrity sha1-N1B/4oihx8Olk2AqpN6kLly1eX8=
+"@rails/ujs@^6.1.4-3":
+  version "6.1.4-3"
+  resolved "https://registry.npmmirror.com/@rails/ujs/download/@rails/ujs-6.1.4-3.tgz#6f990e58cb734f39caa9c98c3369d37c06aeb94d"
+  integrity sha512-n8XvY6Zb76HaBGPmRQ8e6RUoFlqPzHx+teK18kxN5F24c3CSgUjOeMT9WBL5HfUZ+ONH0DPfTEh0Pl6RfKAJPA==
 
 "@rails/webpacker@^5.4.3":
   version "5.4.3"
@@ -1078,9 +1078,9 @@
   integrity sha1-EAHMXmo3BLg8I2An538vWOoBD0A=
 
 "@types/node@*":
-  version "16.11.12"
-  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.12.tgz#ac7fb693ac587ee182c3780c26eb65546a1a3c10"
-  integrity sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==
+  version "16.11.13"
+  resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.13.tgz#6b71641b81a98c6a538d89892440c06f147edddc"
+  integrity sha512-eUXZzHLHoZqj1frtUetNkUetYoJ6X55UmrVnFD4DMhVeAmwLjniZhtBmsRiemQh4uq4G3vUra/Ws/hs9vEvL3Q==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1700,12 +1700,12 @@ browserify-zlib@^0.2.0:
     pako "~1.0.5"
 
 browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.17.5, browserslist@^4.18.1, browserslist@^4.6.4:
-  version "4.18.1"
-  resolved "https://registry.npmmirror.com/browserslist/download/browserslist-4.18.1.tgz?cache=0&sync_timestamp=1636995628981&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.18.1.tgz#60d3920f25b6860eb917c6c7b185576f4d8b017f"
-  integrity sha512-8ScCzdpPwR2wQh8IT82CA2VgDwjHyqMovPBZSNH54+tm4Jk2pCuv90gmAdH6J84OCRWi0b4gMe6O6XPXuJnjgQ==
+  version "4.19.1"
+  resolved "https://registry.npmmirror.com/browserslist/download/browserslist-4.19.1.tgz#4ac0435b35ab655896c31d53018b6dd5e9e4c9a3"
+  integrity sha512-u2tbbG5PdKRTUoctO3NBD8FQ5HdPh1ZXPHzp1rwaa5jTc+RV9/+RlWiAIKmjRPQF+xbGM9Kklj5bZQFa2s/38A==
   dependencies:
-    caniuse-lite "^1.0.30001280"
-    electron-to-chromium "^1.3.896"
+    caniuse-lite "^1.0.30001286"
+    electron-to-chromium "^1.4.17"
     escalade "^3.1.1"
     node-releases "^2.0.1"
     picocolors "^1.0.0"
@@ -1866,7 +1866,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001280:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001286:
   version "1.0.30001286"
   resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001286.tgz#3e9debad420419618cfdf52dc9b6572b28a8fff6"
   integrity sha512-zaEMRH6xg8ESMi2eQ3R4eZ5qw/hJiVsO/HlLwniIwErij0JDr9P+8V4dtx1l+kLq6j3yy8l8W4fst1lBnat5wQ==
@@ -2649,10 +2649,10 @@ ee-first@1.1.1:
   resolved "https://registry.npmmirror.com/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.896:
-  version "1.4.17"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.4.17.tgz#16ec40f61005582d5d41fac08400a254dccfb85f"
-  integrity sha512-zhk1MravPtq/KBhmGB7TLBILmXTgRG9TFSI3qS3DbgyfHzIl72iiTE37r/BHIbPCJJlWIo5rySyxiH4vWhu2ZA==
+electron-to-chromium@^1.4.17:
+  version "1.4.18"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.4.18.tgz#2fb282213937986a20a653315963070e8321b3f3"
+  integrity sha512-i7nKjGGBE1+YUIbfLObA1EZPmN7J1ITEllbhusDk+KIk6V6gUxN9PFe36v+Sd+8Cg0k3cgUv9lQhQZalr8rggw==
 
 element-closest@^2.0.2:
   version "2.0.2"
