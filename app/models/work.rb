@@ -11,6 +11,8 @@ class Work < ApplicationRecord
 
   has_many :work_pictures
 
+  default_scope { where(published: true) }
+
   mount_uploader :snapshot_jpg, JpgUploader
   mount_uploader :snapshot_webp, WebpUploader
   paginates_per 6
