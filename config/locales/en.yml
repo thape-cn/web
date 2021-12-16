@@ -69,6 +69,7 @@ en:
       china_centre: "CENTRE"
       china_south_west: "SOUTH WEST"
       china_north_west: "NORTH WEST"
+      china_north_east: "NORTH EAST"
     service:
       text: "SERVICE"
       architecture: "ARCHITECTURE"

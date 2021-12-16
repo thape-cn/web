@@ -64,6 +64,7 @@ cn:
       china_centre: "华中"
       china_south_west: "西南"
       china_north_west: "西北"
+      china_north_east: "东北"
     service:
       text: "服务"
       architecture: "建筑"
