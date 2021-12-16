@@ -17,7 +17,7 @@ namespace :tianwen_sync do
   task sync_works: :environment do
     prefix = 'works'
     sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
-    Work.where('published = ?', true).all.find_each do |work|
+    Work.all.find_each do |work|
       work.write_tianwen_xml(prefix)
     end
   end

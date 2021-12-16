@@ -21,7 +21,7 @@ class NewsController < ApplicationController
     end
     @seo.abstract = @seo.description
 
-    two_random_works = Work.where(published: true).pluck(:id).sample(2)
+    two_random_works = Work.pluck(:id).sample(2)
     @first_work = Work.find two_random_works[0]
     @second_work = Work.find two_random_works[1]
 

@@ -5,7 +5,7 @@ class WorksController < ApplicationController
     @project_type = {}
     @self_path = works_path
     if params[:q].present?
-      @works = works_query_scope(params[:q]).where(published: true).page(params[:page]).per(params[:per_page])
+      @works = works_query_scope(params[:q]).page(params[:page]).per(params[:per_page])
       render :search_detail
     else
       @work_type_page = WorkTypePage.first
@@ -23,9 +23,9 @@ class WorksController < ApplicationController
       @project_type = {}
       @self_path = work_path(id: @city.url_name)
       @works = if params[:q].present?
-        works_query_scope(params[:q]).where(city_id: @city.id).where(published: true)
+        works_query_scope(params[:q]).where(city_id: @city.id)
       else
-        @city.works.where(published: true)
+        @city.works
       end.page(params[:page]).per(params[:per_page])
       render :area_detail
     else
@@ -52,7 +52,7 @@ class WorksController < ApplicationController
       @first_work = Work.find two_random_works[0]
       @second_work = Work.find two_random_works[1]
 
-      work_id_in_sequence = @work.project_types.collect { |p| p.works.where(published: true).pluck(:id) }.flatten.uniq
+      work_id_in_sequence = @work.project_types.collect { |p| p.works.pluck(:id) }.flatten.uniq
       previous_work_id = if work_id_in_sequence.first == @work.id
         work_id_in_sequence.last
       elsif work_id_in_sequence.include?(@work.id)
@@ -75,7 +75,7 @@ class WorksController < ApplicationController
       @relative_works = Work.includes(:translations, :work_project_types)
         .where(work_project_types: { project_type_id: @work.work_project_types.pluck(:project_type_id) })
         .where.not(id: @work.id)
-        .where(published: true).sample(4)
+        .sample(4)
     end
   end
 
@@ -224,7 +224,7 @@ class WorksController < ApplicationController
       end.includes(:work_residential_types, work_project_types: :project_type)
         .where(work_project_types: { project_types: { cn_name: '居住' } })
         .where(work_residential_types: { residential_type_id: @residential_type.id })
-        .where(published: true).page(params[:page]).per(params[:per_page])
+        .page(params[:page]).per(params[:per_page])
       render :residential_detail
     end
 
@@ -235,7 +235,7 @@ class WorksController < ApplicationController
         Work.all.order(position: :asc)
       end.includes(:work_project_types)
         .where(work_project_types: { project_type_id: @project_type.id })
-        .where(published: true).page(params[:page]).per(params[:per_page])
+        .page(params[:page]).per(params[:per_page])
       render :works_detail
     end
 end

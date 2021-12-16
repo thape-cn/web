@@ -10,7 +10,7 @@ class SearchController < ApplicationController
       .where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
       .order(position: :asc)
       .limit(15)
-    end.where(published: true)
+    end
     @people_results = if @city.present?
       Person.includes(:city_people).where(leaving_date: nil).where(city_people: { city_id: @city.id }).order(position: :asc)
     else

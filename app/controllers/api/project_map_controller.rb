@@ -2,6 +2,6 @@
 
 class Api::ProjectMapController < ApplicationController
   def index
-    @works = Work.includes(:translations).where(published: true).where.not(coordinate_lat: nil).where.not(coordinate_lng: nil).all
+    @works = Work.includes(:translations).where.not(coordinate_lat: nil).where.not(coordinate_lng: nil).all
   end
 end

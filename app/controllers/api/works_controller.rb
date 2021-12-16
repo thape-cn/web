@@ -2,7 +2,7 @@
 
 class Api::WorksController < ApplicationController
   def index
-    works = Work.select(:id).where(published: true)
+    works = Work.select(:id)
     works_with_q = if params[:q].present?
       works.joins(:translations).where('work_translations.project_name LIKE ?', "%#{params[:q]}%")
     else
