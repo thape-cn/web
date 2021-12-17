@@ -85,7 +85,6 @@ GEM
       msgpack (~> 1.0)
     browser (5.3.1)
     builder (3.2.4)
-    byebug (11.1.3)
     canonical-rails (0.2.13)
       rails (>= 4.1, <= 7.0)
     capistrano (3.16.0)
@@ -131,6 +130,9 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     dalli (3.1.4)
+    debug (1.3.4)
+      irb (>= 1.3.6)
+      reline (>= 0.2.7)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     enumize (0.2.0)
@@ -161,6 +163,9 @@ GEM
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    io-console (0.5.9)
+    irb (1.3.7)
+      reline (>= 0.2.7)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     kaminari (1.2.1)
@@ -251,6 +256,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
+    reline (0.2.7)
+      io-console (~> 0.5)
     request_store (1.5.0)
       rack (>= 1.4)
     rest-client (2.1.0)
@@ -327,7 +334,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.8.1)
   browser
-  byebug
   canonical-rails
   capistrano
   capistrano-rails
@@ -338,6 +344,7 @@ DEPENDENCIES
   carrierwave-aliyun
   chinese_pinyin
   dalli
+  debug
   enumize
   globalize (~> 6.0.0.alpha.1)
   jbuilder (~> 2.11)
