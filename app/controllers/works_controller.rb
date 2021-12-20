@@ -29,7 +29,7 @@ class WorksController < ApplicationController
       end.page(params[:page]).per(params[:per_page])
       render :area_detail
     else
-      @work = Work.includes(:translations).find params[:id]
+      @work = Work.unscoped.includes(:translations).find params[:id]
 
       work_project_cn_name = I18n.with_locale(:cn) { @work.project_name }
       work_project_type_names = @work.project_types.collect(&:cn_name).join('、')
