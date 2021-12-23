@@ -23,7 +23,7 @@ const imagePath = (name) => images(name, true)
 
 import "controllers"
 import "alpine/alpine_slide_show"
-import "stylesheets/application"
+import "stylesheets/application.scss"
 
 var _hmt = _hmt || [];
 (function() {
