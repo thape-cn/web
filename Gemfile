@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.11'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.8.1', require: false
+gem 'bootsnap', '>= 1.9.3', require: false
 
 gem 'browser'
 
@@ -52,7 +52,7 @@ end
 gem 'carrierwave'
 gem 'carrierwave-aliyun'
 
-gem 'globalize', '~> 6.0.0.alpha.1'
+gem 'globalize'
 gem 'kaminari'
 gem 'chinese_pinyin', require: false
 
@@ -60,7 +60,7 @@ group :development do
   gem 'localhost', require: 'localhost/authority' # supports puma for self-signed certificates.
 
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen'
 
   gem 'capistrano'
@@ -71,7 +71,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'rexml' # required by selenium-webdriver for ruby 3.0
 

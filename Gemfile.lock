@@ -333,21 +333,21 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  bootsnap (>= 1.8.1)
+  bootsnap (>= 1.9.3)
   browser
   canonical-rails
   capistrano
   capistrano-rails
   capistrano-rbenv
   capistrano3-puma
-  capybara (>= 2.15)
+  capybara
   carrierwave
   carrierwave-aliyun
   chinese_pinyin
   dalli
   debug
   enumize
-  globalize (~> 6.0.0.alpha.1)
+  globalize
   jbuilder (~> 2.11)
   kaminari
   listen
@@ -361,7 +361,7 @@ DEPENDENCIES
   sitemap_generator
   sqlite3
   tzinfo-data
-  web-console (>= 3.3.0)
+  web-console
   webdrivers
   webpacker (~> 5.4)
   wechat!
