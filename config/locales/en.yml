@@ -156,43 +156,43 @@ en:
       content: "Through an office network spanning 25 major cities of China, TIANHUA provides full-process, seamless architectural design that is available nationwide. By integrating resources and collaborating with talent, TIANHUA achieves highly efficient cross-brand, cross-regional collaboration, offering consistent, high-quality professional consulting services to clients all around the country."
   services:
     building:
-      background_img: "media/images/building.jpg"
+      background_img: "static/building.jpg"
       background_img_webp: ""
       chinese_title: "建筑设计"
       english_title: "ARCHITECTURE"
     interior:
-      background_img: "media/images/interior.jpg"
+      background_img: "static/interior.jpg"
       background_img_webp: ""
       chinese_title: "室内设计"
       english_title: "INTERIOR"
     planning:
-      background_img: "media/images/planning.jpg"
+      background_img: "static/planning.jpg"
       background_img_webp: ""
       chinese_title: "城市规划"
       english_title: "URBAN PLANNING"
     landscape:
-      background_img: "media/images/landscape.jpg"
+      background_img: "static/landscape.jpg"
       background_img_webp: ""
       chinese_title: "景观设计"
       english_title: "LANDSCAPE"
     vetting:
-      background_img: "media/images/vetting.jpg"
+      background_img: "static/vetting.jpg"
       background_img_webp: ""
       chinese_title: "审图"
       english_title: "DRAWING REVIEW"
     consluting:
-      background_img: "media/images/consluting.jpg"
+      background_img: "static/consluting.jpg"
       background_img_webp: ""
       chinese_title: "技术咨询"
       english_title: "CONSULTATION"
     vrtech:
       background_img:
-        - "media/images/vrtech-1.jpg"
-        - "media/images/vrtech-2.jpg"
-        - "media/images/vrtech-3.jpg"
-        - "media/images/vrtech-4.jpg"
-        - "media/images/vrtech-5.jpg"
-        - "media/images/vrtech-6.jpg"
+        - "static/vrtech-1.jpg"
+        - "static/vrtech-2.jpg"
+        - "static/vrtech-3.jpg"
+        - "static/vrtech-4.jpg"
+        - "static/vrtech-5.jpg"
+        - "static/vrtech-6.jpg"
       background_img_webp: []
       chinese_title: "可视化"
       english_title: "VISUALIZATION"
