@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '>= 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 7.0.0'
 gem 'enumize'
 gem 'sqlite3'
 gem 'pg'
@@ -52,7 +52,9 @@ end
 gem 'carrierwave'
 gem 'carrierwave-aliyun'
 
-gem 'globalize'
+# bundle config local.globalize /Users/guochunzhong/git/oss/globalize/
+gem 'globalize', git: 'https://github.com/ekampp/globalize', branch: 'patch-1'
+
 gem 'kaminari'
 gem 'chinese_pinyin', require: false
 
