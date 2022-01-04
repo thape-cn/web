@@ -40,10 +40,10 @@
       <% end %>
     </div>
     <div class="action-area action-left" data-action="click->carousel2#toLast mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
-      <img class="w-4 lg:w-8" src="<%= asset_pack_path('media/images/arrow_left.svg') -%>" alt="上一张" />
+      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/arrow_left.svg') -%>" alt="上一张" />
     </div>
     <div class="action-area action-right" data-action="click->carousel2#toNext mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
-      <img class="w-4 lg:w-8" src="<%= asset_pack_path('media/images/arrow_right.svg') -%>" alt="下一张" />
+      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>
   <div class="absolute bottom-0 inset-x-0 bg-white bg-opacity-75 hidden lg:block" style="background-color: rgba(255, 255, 255, .75)">
@@ -85,16 +85,16 @@
 </div>
 <div class="flex-grid my-2 scroller-step">
   <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 lg:flex-grid-cols-2-gap-2">
-  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g1.jpg',
+  <%= render partial: 'about_div', locals: { g_image: 'static/about-g1.jpg',
     h1: t('abouts.research.title'), h2: t('abouts.research.subtitle'), h3s: t('abouts.research.content_title'),
     ps: t('abouts.research.content') } %>
-  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g2.jpg',
+  <%= render partial: 'about_div', locals: { g_image: 'static/about-g2.jpg',
     h1: t('abouts.design_lab.title'), h2: t('abouts.design_lab.subtitle'), h3s: t('abouts.design_lab.content_title'),
     ps: t('abouts.design_lab.content') } %>
-  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g3.jpg',
+  <%= render partial: 'about_div', locals: { g_image: 'static/about-g3.jpg',
     h1: t('abouts.t_plus.title'), h2: t('abouts.t_plus.subtitle'), h3s: t('abouts.t_plus.content_title'),
     ps: t('abouts.t_plus.content') } %>
-  <%= render partial: 'about_div', locals: { g_image: 'media/images/about-g4.jpg',
+  <%= render partial: 'about_div', locals: { g_image: 'static/about-g4.jpg',
     h1: t('abouts.perfection_pursuer.title'), h2: t('abouts.perfection_pursuer.subtitle'), h3s: t('abouts.perfection_pursuer.content_title'),
     ps: t('abouts.perfection_pursuer.content') } %>
   </div>

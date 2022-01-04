@@ -4,7 +4,7 @@
 <%= render partial: 'shared/thape_nav'  -%>
 
 <div class="relative">
-  <%= image_pack_tag 'media/images/people-banner-2.jpg', class: "w-full" -%>
+  <%= image_pack_tag 'static/people-banner-2.jpg', class: "w-full" -%>
 </div>
 
 <div class="relative">
@@ -48,7 +48,7 @@
 
   <% if @management_people.blank? && @speciality_people.blank? %>
     <div class="flex mt-0 pt-20 sm:pt-32 pb-12 justify-center flex-wrap">
-      <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('media/images/no-data.png') -%>">
+      <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('static/no-data.png') -%>">
       <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
     </div>
   <% end %>

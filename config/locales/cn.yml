@@ -158,43 +158,43 @@ cn:
       content: "天华通过全国25个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。"
   services:
     building:
-      background_img: "media/images/building.jpg"
+      background_img: "static/building.jpg"
       background_img_webp: ""
       chinese_title: "建筑设计"
       english_title: "ARCHITECTURE"
     interior:
-      background_img: "media/images/interior.jpg"
+      background_img: "static/interior.jpg"
       background_img_webp: ""
       chinese_title: "室内设计"
       english_title: "INTERIOR"
     planning:
-      background_img: "media/images/planning.jpg"
+      background_img: "static/planning.jpg"
       background_img_webp: ""
       chinese_title: "城市规划"
       english_title: "URBAN PLANNING"
     landscape:
-      background_img: "media/images/landscape.jpg"
+      background_img: "static/landscape.jpg"
       background_img_webp: ""
       chinese_title: "景观设计"
       english_title: "LANDSCAPE"
     vetting:
-      background_img: "media/images/vetting.jpg"
+      background_img: "static/vetting.jpg"
       background_img_webp: ""
       chinese_title: "审图"
       english_title: "DRAWING REVIEW"
     consluting:
-      background_img: "media/images/consluting.jpg"
+      background_img: "static/consluting.jpg"
       background_img_webp: ""
       chinese_title: "技术咨询"
       english_title: "CONSULTATION"
     vrtech:
       background_img:
-        - "media/images/vrtech-1.jpg"
-        - "media/images/vrtech-2.jpg"
-        - "media/images/vrtech-3.jpg"
-        - "media/images/vrtech-4.jpg"
-        - "media/images/vrtech-5.jpg"
-        - "media/images/vrtech-6.jpg"
+        - "static/vrtech-1.jpg"
+        - "static/vrtech-2.jpg"
+        - "static/vrtech-3.jpg"
+        - "static/vrtech-4.jpg"
+        - "static/vrtech-5.jpg"
+        - "static/vrtech-6.jpg"
       background_img_webp: []
       chinese_title: "可视化"
       english_title: "VISUALIZATION"

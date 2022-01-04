@@ -3,7 +3,7 @@ const tailwindcss = require('tailwindcss');
 const environment = {
   plugins: [
     require('postcss-import'),
-    tailwindcss('./app/javascript/stylesheets/tailwind.config.js'),
+    tailwindcss('./app/packs/stylesheets/tailwind.config.js'),
     require('postcss-flexbugs-fixes'),
     require('postcss-preset-env')({
       autoprefixer: {
@@ -20,10 +20,10 @@ if (process.env.RAILS_ENV === "production" || process.env.RAILS_ENV === "staging
       content: [
         './app/**/*.html.erb',
         './app/helpers/**/*.rb',
-        './app/javascript/stylesheets/nav-bar.scss',
-        './app/javascript/stylesheets/works.scss',
-        './app/javascript/stylesheets/publications.scss',
-        './app/javascript/**/*.js',
+        './app/packs/stylesheets/nav-bar.scss',
+        './app/packs/stylesheets/works.scss',
+        './app/packs/stylesheets/publications.scss',
+        './app/packs/**/*.js',
       ],
       // This is the function used to extract class names from your templates
       defaultExtractor: content => {
