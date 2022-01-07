@@ -7,7 +7,7 @@ namespace :export_people do
       person.photo.cache_stored_file!
     end
     Person.where(leaving_date: nil).each do |person|
-      puts person.photo.full_cache_path
+      FileUtils.cp person.photo.path, "#{person.name}.jpg"
     end
   end
 end
