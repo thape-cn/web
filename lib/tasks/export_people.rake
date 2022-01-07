@@ -5,9 +5,10 @@ namespace :export_people do
   task export_people_photo: :environment do
     Person.where(leaving_date: nil).each do |person|
       person.photo.cache_stored_file!
-    end
-    Person.where(leaving_date: nil).each do |person|
-      FileUtils.cp person.photo.path, "#{person.name}.jpg"
+      bits = person.photo.read.unpack('B*')
+      File.open("#{person.name}.jpg", 'wb') do |f|
+        f.write(bits.pack('B*'))
+      end
     end
   end
 end
