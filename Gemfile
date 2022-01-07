@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '>= 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 7.0.1'
 gem 'enumize'
 gem 'sqlite3'
 gem 'pg'
@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.9.3', require: false
 
 gem 'browser'
 
-gem 'canonical-rails'
+gem 'canonical-rails', git: 'https://github.com/Eric-Guo/canonical-rails', branch: :master
 
 gem 'sitemap_generator'
 
