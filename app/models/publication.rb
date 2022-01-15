@@ -8,7 +8,7 @@ class Publication < ApplicationRecord
   mount_uploader :mobile_cover_jpg, JpgPngUploader
   mount_uploader :mobile_cover_webp, WebpUploader
   mount_uploader :page_cover, PngUploader
-  enum category_status: %i[monographs standard_specification paper_patent]
+  enum category_status: { monographs: 0, standard_specification: 1, paper_patent: 2 }
 
   def write_tianwen_xml(prefix = 'publications')
     Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
