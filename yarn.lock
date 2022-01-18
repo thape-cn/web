@@ -2066,9 +2066,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.4.17:
-  version "1.4.46"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.4.46.tgz#c88a6fedc766589826db0481602a888864ade1ca"
-  integrity sha512-UtV0xUA/dibCKKP2JMxOpDtXR74zABevuUEH4K0tvduFSIoxRVcYmQsbB51kXsFTX8MmOyWMt8tuZAlmDOqkrQ==
+  version "1.4.47"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/download/electron-to-chromium-1.4.47.tgz#5d5535cdbca2b9264abee4d6ea121995e9554bbe"
+  integrity sha512-ZHc8i3/cgeCRK/vC7W2htAG6JqUmOUgDNn/f9yY9J8UjfLjwzwOVEt4MWmgJAdvmxyrsR5KIFA/6+kUHGY0eUA==
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -2943,9 +2943,9 @@ mimic-fn@^2.1.0:
   integrity sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs=
 
 mini-css-extract-plugin@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.npmmirror.com/mini-css-extract-plugin/download/mini-css-extract-plugin-2.5.1.tgz#af8c7c40d08251f165ac3e046a5cae9d2c1a58c8"
-  integrity sha512-CRC6E2yedNjfOA3nQjpqAkpnranxhxmilhBPYtldnXcPT/QZb3aJFzvt0pp8W1jhuLR/E0zDa+QEHuC/HhhaLQ==
+  version "2.5.2"
+  resolved "https://registry.npmmirror.com/mini-css-extract-plugin/download/mini-css-extract-plugin-2.5.2.tgz#b3b9b98320c2c054d92c16f6a94ddfdbbba13755"
+  integrity sha512-Lwgq9qLNyBK6yNLgzssXnq4r2+mB9Mz3cJWlM8kseysHIvTicFhDNimFgY94jjqlwhNzLPsq8wv4X+vOHtMdYA==
   dependencies:
     schema-utils "^4.0.0"
 
