@@ -14,7 +14,7 @@
   resolved "https://registry.npmmirror.com/@babel/compat-data/download/@babel/compat-data-7.16.8.tgz#31560f9f29fdf1868de8cb55049538a1b9732a60"
   integrity sha512-m7OkX0IdKLKPpBlJtF561YJal5y/jyI5fNfWbPxh2D/nbzzGI4qRyrD8xO2jB24u7l+5I2a43scCG2IrfjC50Q==
 
-"@babel/core@^7.15.5":
+"@babel/core@^7.16.10":
   version "7.16.10"
   resolved "https://registry.npmmirror.com/@babel/core/download/@babel/core-7.16.10.tgz#ebd034f8e7ac2b6bfcdaa83a161141a646f74b50"
   integrity sha512-pbiIdZbCiMx/MM6toR+OfXarYix3uz0oVsnNtfdAGTcCTu3w/JGF8JhirevXLBJUu0WguSZI12qpKnx7EeMyLA==
@@ -290,7 +290,7 @@
     "@babel/helper-remap-async-to-generator" "^7.16.8"
     "@babel/plugin-syntax-async-generators" "^7.8.4"
 
-"@babel/plugin-proposal-class-properties@^7.14.5", "@babel/plugin-proposal-class-properties@^7.16.7":
+"@babel/plugin-proposal-class-properties@^7.16.7":
   version "7.16.7"
   resolved "https://registry.npmmirror.com/@babel/plugin-proposal-class-properties/download/@babel/plugin-proposal-class-properties-7.16.7.tgz#925cad7b3b1a2fcea7e59ecc8eb5954f961f91b0"
   integrity sha512-IobU0Xme31ewjYOShSIqd/ZGM/r/cuOz2z0MDbNrhF5FW+ZVgi0f2lyeoj9KFPDOAqsYxmLWZte1WOwlvY9aww==
@@ -706,7 +706,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.16.7"
 
-"@babel/plugin-transform-runtime@^7.15.0":
+"@babel/plugin-transform-runtime@^7.16.10":
   version "7.16.10"
   resolved "https://registry.npmmirror.com/@babel/plugin-transform-runtime/download/@babel/plugin-transform-runtime-7.16.10.tgz#53d9fd3496daedce1dd99639097fa5d14f4c7c2c"
   integrity sha512-9nwTiqETv2G7xI4RvXHNfpGdr8pAA+Q/YtN3yLK7OoK7n9OibVm/xymJ838a9A6E/IciOLPj82lZk0fW6O4O7w==
@@ -769,7 +769,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.16.7"
     "@babel/helper-plugin-utils" "^7.16.7"
 
-"@babel/preset-env@^7.15.6":
+"@babel/preset-env@^7.16.10":
   version "7.16.10"
   resolved "https://registry.npmmirror.com/@babel/preset-env/download/@babel/preset-env-7.16.10.tgz#84400e6b5ee1efd982f55c61f3b6ac3fb5c8ab57"
   integrity sha512-iCac3fZn9oOcLqc1N2/copPiX7aoxzsvjeDdXoZobrlbQ6YGgS3bL9HyldOJ8V8AY5P7pFynCATrn7M4dMw0Yg==
@@ -860,7 +860,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime@^7.15.4", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.16.7", "@babel/runtime@^7.8.4":
   version "7.16.7"
   resolved "https://registry.npmmirror.com/@babel/runtime/download/@babel/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
   integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
@@ -957,29 +957,6 @@
   version "7.0.1"
   resolved "https://registry.npmmirror.com/@rails/ujs/download/@rails/ujs-7.0.1.tgz#cb515d52c85be107908dd00822042f04e52cdea7"
   integrity sha512-ZUkgsbz5KFLfBwjIQ2D/kvyq+2w5BuNnkUJf3940VVJxov9GECu6n2BSXUTmyNAx+R6JQdibzXBuR7nz3crZYw==
-
-"@rails/webpacker@^6.0.0-rc.6":
-  version "6.0.0-rc.6"
-  resolved "https://registry.npmmirror.com/@rails/webpacker/download/@rails/webpacker-6.0.0-rc.6.tgz#04af15dc33697e09aa492da54d2093cdd15573ff"
-  integrity sha1-BK8V3DNpfgmqSS2lTSCTzdFVc/8=
-  dependencies:
-    "@babel/core" "^7.15.5"
-    "@babel/plugin-proposal-class-properties" "^7.14.5"
-    "@babel/plugin-transform-runtime" "^7.15.0"
-    "@babel/preset-env" "^7.15.6"
-    "@babel/runtime" "^7.15.4"
-    babel-loader "^8.2.2"
-    compression-webpack-plugin "^9.0.0"
-    glob "^7.2.0"
-    js-yaml "^4.1.0"
-    path-complete-extname "^1.0.0"
-    pnp-webpack-plugin "^1.7.0"
-    terser-webpack-plugin "^5.2.4"
-    webpack "^5.53.0"
-    webpack-assets-manifest "^5.0.6"
-    webpack-cli "^4.8.0"
-    webpack-merge "^5.8.0"
-    webpack-sources "^3.2.1"
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
@@ -1501,7 +1478,7 @@ autoprefixer@^9.4.5, autoprefixer@^9.8.8:
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
 
-babel-loader@^8.2.2:
+babel-loader@^8.2.3:
   version "8.2.3"
   resolved "https://registry.npmmirror.com/babel-loader/download/babel-loader-8.2.3.tgz#8986b40f1a64cacfcb4b8429320085ef68b1342d"
   integrity sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==
@@ -1787,7 +1764,7 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression-webpack-plugin@^9.0.0:
+compression-webpack-plugin@^9.2.0:
   version "9.2.0"
   resolved "https://registry.npmmirror.com/compression-webpack-plugin/download/compression-webpack-plugin-9.2.0.tgz#57fd539d17c5907eebdeb4e83dcfe2d7eceb9ef6"
   integrity sha512-R/Oi+2+UHotGfu72fJiRoVpuRifZT0tTC6UqFD/DUo+mv8dbOow9rVOuTvDv5nPPm3GZhHL/fKkwxwIHnJ8Nyw==
@@ -4005,6 +3982,15 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmmirror.com/setprototypeof/download/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=
 
+shakapacker@^6.0.0-rc.13:
+  version "6.0.0-rc.13"
+  resolved "https://registry.npmmirror.com/shakapacker/download/shakapacker-6.0.0-rc.13.tgz#d547cdf593912fb336ff9aa3c8192f056c2dfe34"
+  integrity sha512-wMSa8msfEefLaWBc7QJ+fguWAh7OY9duNiPgWcB4X62Pu49XU4HQYGfFAnn11jZfoKD4bDPPhMyAc1N1/ncQFg==
+  dependencies:
+    glob "^7.2.0"
+    js-yaml "^4.1.0"
+    path-complete-extname "^1.0.0"
+
 shallow-clone@^3.0.0:
   version "3.0.1"
   resolved "https://registry.npmmirror.com/shallow-clone/download/shallow-clone-3.0.1.tgz#8f2981ad92531f55035b01fb230769a40e02efa3"
@@ -4211,7 +4197,7 @@ tapable@^2.0, tapable@^2.1.1, tapable@^2.2.0:
   resolved "https://registry.npmmirror.com/tapable/download/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
 
-terser-webpack-plugin@^5.1.3, terser-webpack-plugin@^5.2.4:
+terser-webpack-plugin@^5.1.3, terser-webpack-plugin@^5.3.0:
   version "5.3.0"
   resolved "https://registry.npmmirror.com/terser-webpack-plugin/download/terser-webpack-plugin-5.3.0.tgz#21641326486ecf91d8054161c816e464435bae9f"
   integrity sha512-LPIisi3Ol4chwAaPP8toUJ3L4qCM1G0wao7L3qNv57Drezxj6+VEyySpPw4B1HSO2Eg/hDY/MNF5XihCAoqnsQ==
@@ -4351,7 +4337,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpack-assets-manifest@^5.0.6:
+webpack-assets-manifest@^5.1.0:
   version "5.1.0"
   resolved "https://registry.npmmirror.com/webpack-assets-manifest/download/webpack-assets-manifest-5.1.0.tgz#5af328f6c8fa760cb9a62af631a83da2b478b791"
   integrity sha512-kPuTMEjBrqZQVJ5M6yXNBCEdFbQQn7p+loNXt8NOeDFaAbsNFWqqwR0YL1mfG5LbwhK5FLXWXpuK3GuIIZ46rg==
@@ -4364,7 +4350,7 @@ webpack-assets-manifest@^5.0.6:
     schema-utils "^3.0"
     tapable "^2.0"
 
-webpack-cli@^4.8.0, webpack-cli@^4.9.1:
+webpack-cli@^4.9.1:
   version "4.9.1"
   resolved "https://registry.npmmirror.com/webpack-cli/download/webpack-cli-4.9.1.tgz#b64be825e2d1b130f285c314caa3b1ba9a4632b3"
   integrity sha512-JYRFVuyFpzDxMDB+v/nanUdQYcZtqFPGzmlW4s+UkPMFhSpfRNmf1z4AwYcHJVdvEFAM7FFCQdNTpsBYhDLusQ==
@@ -4393,7 +4379,7 @@ webpack-dev-middleware@^5.3.0:
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
 
-webpack-dev-server@^4.7.1:
+webpack-dev-server@^4.7.3:
   version "4.7.3"
   resolved "https://registry.npmmirror.com/webpack-dev-server/download/webpack-dev-server-4.7.3.tgz#4e995b141ff51fa499906eebc7906f6925d0beaa"
   integrity sha512-mlxq2AsIw2ag016nixkzUkdyOE8ST2GTy34uKSABp1c4nhjZvH90D5ZRR+UOLSsG4Z3TFahAi72a3ymRtfRm+Q==
@@ -4436,12 +4422,12 @@ webpack-merge@^5.7.3, webpack-merge@^5.8.0:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-sources@^3.2.1, webpack-sources@^3.2.2:
+webpack-sources@^3.2.2, webpack-sources@^3.2.3:
   version "3.2.3"
   resolved "https://registry.npmmirror.com/webpack-sources/download/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack@^5.53.0, webpack@^5.65.0:
+webpack@^5.66.0:
   version "5.66.0"
   resolved "https://registry.npmmirror.com/webpack/download/webpack-5.66.0.tgz#789bf36287f407fc92b3e2d6f978ddff1bfc2dbb"
   integrity sha512-NJNtGT7IKpGzdW7Iwpn/09OXz9inIkeIQ/ibY6B+MdV1x6+uReqz/5z1L89ezWnpPDWpXF0TY5PCYKQdWVn8Vg==
