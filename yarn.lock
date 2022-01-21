@@ -3238,13 +3238,6 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-pnp-webpack-plugin@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.npmmirror.com/pnp-webpack-plugin/download/pnp-webpack-plugin-1.7.0.tgz#65741384f6d8056f36e2255a8d67ffc20866f5c9"
-  integrity sha1-ZXQThPbYBW824iVajWf/wghm9ck=
-  dependencies:
-    ts-pnp "^1.1.6"
-
 portfinder@^1.0.28:
   version "1.0.28"
   resolved "https://registry.npmmirror.com/portfinder/download/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -3982,10 +3975,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmmirror.com/setprototypeof/download/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=
 
-shakapacker@^6.0.0-rc.13:
-  version "6.0.0-rc.13"
-  resolved "https://registry.npmmirror.com/shakapacker/download/shakapacker-6.0.0-rc.13.tgz#d547cdf593912fb336ff9aa3c8192f056c2dfe34"
-  integrity sha512-wMSa8msfEefLaWBc7QJ+fguWAh7OY9duNiPgWcB4X62Pu49XU4HQYGfFAnn11jZfoKD4bDPPhMyAc1N1/ncQFg==
+shakapacker@^6.0.0-rc.14:
+  version "6.0.0-rc.14"
+  resolved "https://registry.npmmirror.com/shakapacker/download/shakapacker-6.0.0-rc.14.tgz#2e16b364f2192f066227e77289b8cd63fc5fb430"
+  integrity sha512-yaoJnvUqEHDfckea6GK57+N7viKBYygj2Yw8m+QycndUJPKuOk7hfOjqFbEODYn5+haxJ+WJEqfXFDOtoduChA==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
@@ -4243,11 +4236,6 @@ traverse@^0.6.6:
   version "0.6.6"
   resolved "https://registry.npmmirror.com/traverse/download/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
   integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
-
-ts-pnp@^1.1.6:
-  version "1.2.0"
-  resolved "https://registry.npmmirror.com/ts-pnp/download/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
-  integrity sha1-pQCtCEsHmPHDBxrzkeZZEshrypI=
 
 type-is@~1.6.18:
   version "1.6.18"
