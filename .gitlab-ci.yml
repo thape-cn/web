@@ -11,9 +11,8 @@ services:
 variables:
   POSTGRES_HOST: postgres
   POSTGRES_DB: thape_web_test
-  POSTGRES_USER: thape_web_test
-  POSTGRES_PASSWORD: "somepassword"
-  POSTGRES_HOST_AUTH_METHOD: trust
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: "postgres"
 
 # Cache gems in between builds
 cache:

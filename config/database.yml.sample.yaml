@@ -28,9 +28,9 @@ test:
   primary:
     <<: *default
     host: <%= ENV.fetch("POSTGRES_HOST", 'postgres') %>
-    database: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
-    username: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
-    password: <%= ENV.fetch("POSTGRES_PASSWORD", nil) %>
+    database: <%= ENV.fetch("POSTGRES_DB", 'thape_web_test') %>
+    username: <%= ENV.fetch("POSTGRES_USER", 'postgres') %>
+    password: <%= ENV.fetch("POSTGRES_PASSWORD", 'postgres') %>
   tianhua2019:
     <<: *default
     adapter: sqlite3
