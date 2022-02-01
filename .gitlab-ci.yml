@@ -29,6 +29,6 @@ rails:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
-    - rails db:migrate
-    - rails db:seed
-    - rails test
+    - bin/rails db:migrate
+    - bin/rails db:seed
+    - bin/rails test
