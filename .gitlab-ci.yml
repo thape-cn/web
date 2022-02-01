@@ -9,7 +9,10 @@ services:
   - postgres:12.9
 
 variables:
-  POSTGRES_DB: thape_web_test
+  POSTGRES_DB: $POSTGRES_DB
+  POSTGRES_USER: $POSTGRES_USER
+  POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  POSTGRES_HOST_AUTH_METHOD: trust
 
 # Cache gems in between builds
 cache:
@@ -22,6 +25,7 @@ before_script:
   - ruby -v  # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
   # - apt-get update -q && apt-get install nodejs -yqq
+  - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
   - bundle config set path 'vendor'  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
 
@@ -29,6 +33,7 @@ rails:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
+    - cp config/database.yml.sample.yaml config/database.yml
     - bin/rails db:migrate
     - bin/rails db:seed
     - bin/rails test
