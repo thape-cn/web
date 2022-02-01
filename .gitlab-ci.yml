@@ -8,6 +8,12 @@ image: ruby:3.0
 services:
   - postgres:12.9
 
+variables:
+  POSTGRES_DB: thape_web_test
+  POSTGRES_USER: bernhard
+  POSTGRES_PASSWORD: "somepassword"
+  POSTGRES_HOST_AUTH_METHOD: trust
+
 # Cache gems in between builds
 cache:
   key: $CI_COMMIT_REF_SLUG
