@@ -1,0 +1,34 @@
+# Official language image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/ruby/tags/
+image: ruby:3.0
+
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
+services:
+  - postgres:12.9
+
+variables:
+  POSTGRES_DB: thape_web_test
+
+# Cache gems in between builds
+cache:
+  paths:
+    - vendor/ruby
+
+# This is a basic example for a gem or script which doesn't use
+# services such as redis or postgres
+before_script:
+  - ruby -v  # Print out ruby version for debugging
+  # Uncomment next line if your rails app needs a JS runtime:
+  # - apt-get update -q && apt-get install nodejs -yqq
+  - bundle config set path 'vendor'  # Install dependencies into ./vendor/ruby
+  - bundle install -j $(nproc)
+
+rails:
+  variables:
+    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
+  script:
+    - rails db:migrate
+    - rails db:seed
+    - rails test
