@@ -35,6 +35,5 @@ rails:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
     - cp config/database.yml.sample.yaml config/database.yml
-    # - bin/rails db:migrate
-    # - bin/rails db:seed
-    # - bin/rails test
+    - bin/rails db:setup
+    - bin/rails test
