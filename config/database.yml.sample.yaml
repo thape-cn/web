@@ -27,8 +27,9 @@ development:
 test:
   primary:
     <<: *default
-    database: thape_web_test
-    username: <%= ENV.fetch("POSTGRES_USER", nil) %>
+    host: <%= ENV.fetch("POSTGRES_HOST", 'localhost') %>
+    database: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
+    username: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
     password: <%= ENV.fetch("POSTGRES_PASSWORD", nil) %>
   tianhua2019:
     <<: *default
