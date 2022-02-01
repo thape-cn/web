@@ -9,7 +9,7 @@ services:
   - postgres:12.9
 
 variables:
-  POSTGRES_HOST: localhost
+  POSTGRES_HOST: postgres
   POSTGRES_DB: thape_web_test
   POSTGRES_USER: thape_web_test
   POSTGRES_PASSWORD: "somepassword"

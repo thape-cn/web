@@ -27,7 +27,7 @@ development:
 test:
   primary:
     <<: *default
-    host: <%= ENV.fetch("POSTGRES_HOST", 'localhost') %>
+    host: <%= ENV.fetch("POSTGRES_HOST", 'postgres') %>
     database: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
     username: <%= ENV.fetch("POSTGRES_USER", 'thape_web_test') %>
     password: <%= ENV.fetch("POSTGRES_PASSWORD", nil) %>
