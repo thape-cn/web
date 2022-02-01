@@ -13,12 +13,20 @@ variables:
   POSTGRES_DB: thape_web_test
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: "postgres"
+  CACHE_FALLBACK_KEY: $CI_COMMIT_REF_SLUG
 
 # Cache gems in between builds
 cache:
-  key: $CI_COMMIT_REF_SLUG
-  paths:
-    - vendor/ruby
+  - key:
+      files:
+        - Gemfile.lock
+    paths:
+      - vendor/ruby
+  - key:
+      files:
+        - yarn.lock
+    paths:
+      - .yarn-cache/
 
 # This is a basic example for a gem or script which doesn't use
 # services such as redis or postgres
@@ -28,6 +36,7 @@ before_script:
   - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
   - bundle config set path 'vendor'  # Install dependencies into ./vendor/ruby
   - bundle install -j $(nproc)
+  - yarn install --cache-folder .yarn-cache
 
 rails:
   variables:
