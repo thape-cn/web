@@ -21,13 +21,13 @@ cache:
   - key:
       files:
         - Gemfile.lock
-      paths:
-        - vendor/ruby
+    paths:
+      - vendor/ruby
   - key:
       files:
         - yarn.lock
-      paths:
-        - ".yarn-cache/"
+    paths:
+      - ".yarn-cache/"
 
 artifacts:
   name: sast
