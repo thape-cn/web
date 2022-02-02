@@ -20,8 +20,6 @@ stages:
   variables:
     SAST_EXCLUDED_ANALYZERS: eslint, nodejs-scan, semgrep
   allow_failure: true
-  # `rules` must be overridden explicitly by each child job
-  # see https://gitlab.com/gitlab-org/gitlab/-/issues/218444
   script:
     - /analyzer run
 
