@@ -29,14 +29,6 @@ cache:
     paths:
       - ".yarn-cache/"
 
-artifacts:
-  name: sast
-  paths:
-    - gl-sast-report.json
-  reports:
-    sast: gl-sast-report.json
-  when: always
-
 before_script:
   - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
   - bundle config set path 'vendor'
@@ -60,3 +52,12 @@ sast:
 
 include:
   - template: Security/SAST.gitlab-ci.yml
+
+artifacts:
+  name: sast
+  paths:
+    - gl-sast-report.json
+  reports:
+    sast: gl-sast-report.json
+  when: always
+  script:
