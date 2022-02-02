@@ -18,7 +18,7 @@ stages:
     paths:
       - gl-sast-report.json
   variables:
-    SAST_EXCLUDED_ANALYZERS: eslint, nodejs-scan, semgrep
+    SAST_EXCLUDED_ANALYZERS: eslint, nodejs-scan, semgrep, brakeman
   allow_failure: true
   script:
     - /analyzer run
