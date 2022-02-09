@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/Eric-Guo/canonical-rails
-  revision: 2b0d3396e23ab425aa538c2cd75306107f55dcdd
+  revision: 2e42cdbc97e7bc6948c83a3a287aeb5e81047064
   branch: master
   specs:
     canonical-rails (0.2.13)
-      rails (>= 4.1, <= 8)
+      rails (>= 4.1, <= 7.1)
 
 GIT
   remote: https://github.com/Eric-Guo/wechat
