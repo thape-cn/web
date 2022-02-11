@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/Eric-Guo/canonical-rails
-  revision: 2e42cdbc97e7bc6948c83a3a287aeb5e81047064
-  branch: master
-  specs:
-    canonical-rails (0.2.13)
-      rails (>= 4.1, <= 7.1)
-
-GIT
   remote: https://github.com/Eric-Guo/wechat
   revision: d2a3ee3bdaee854b52edd7641c2a12ad87839e65
   branch: main
@@ -109,6 +101,8 @@ GEM
       msgpack (~> 1.2)
     browser (5.3.1)
     builder (3.2.4)
+    canonical-rails (0.2.14)
+      rails (>= 4.1, <= 7.1)
     capistrano (3.16.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -365,7 +359,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.9.3)
   browser
-  canonical-rails!
+  canonical-rails
   capistrano
   capistrano-rails
   capistrano-rbenv
@@ -401,4 +395,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.6
+   2.3.7

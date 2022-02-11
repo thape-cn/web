@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.9.3', require: false
 
 gem 'browser'
 
-gem 'canonical-rails', git: 'https://github.com/Eric-Guo/canonical-rails', branch: :master
+gem 'canonical-rails'
 
 gem 'sitemap_generator'
 
