@@ -13,8 +13,8 @@ GIT
 
 GIT
   remote: https://github.com/ekampp/globalize
-  revision: accb0d06d02eb7fbab0a757ff75a35f7fe633d3f
-  branch: patch-1
+  revision: 484ed7ffec8931bf694004fa6486ed5c2a4a12f8
+  branch: master
   specs:
     globalize (6.0.1)
       activemodel (>= 4.2, < 7.1)

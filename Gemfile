@@ -52,7 +52,7 @@ gem 'carrierwave'
 gem 'carrierwave-aliyun'
 
 # bundle config local.globalize /Users/guochunzhong/git/oss/globalize/
-gem 'globalize', git: 'https://github.com/ekampp/globalize', branch: 'patch-1'
+gem 'globalize', git: 'https://github.com/ekampp/globalize', branch: 'master'
 
 gem 'kaminari'
 gem 'chinese_pinyin', require: false
