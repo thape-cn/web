@@ -1,4 +1,14 @@
 GIT
+  remote: https://git.thape.com.cn/rails/globalize.git
+  revision: 484ed7ffec8931bf694004fa6486ed5c2a4a12f8
+  branch: master
+  specs:
+    globalize (6.0.1)
+      activemodel (>= 4.2, < 7.1)
+      activerecord (>= 4.2, < 7.1)
+      request_store (~> 1.0)
+
+GIT
   remote: https://github.com/Eric-Guo/wechat
   revision: d2a3ee3bdaee854b52edd7641c2a12ad87839e65
   branch: main
@@ -10,16 +20,6 @@ GIT
       rexml
       thor
       zeitwerk (~> 2.4)
-
-GIT
-  remote: https://github.com/ekampp/globalize
-  revision: 484ed7ffec8931bf694004fa6486ed5c2a4a12f8
-  branch: master
-  specs:
-    globalize (6.0.1)
-      activemodel (>= 4.2, < 7.1)
-      activerecord (>= 4.2, < 7.1)
-      request_store (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
