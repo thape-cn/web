@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/rails/globalize.git
-  revision: 484ed7ffec8931bf694004fa6486ed5c2a4a12f8
+  revision: 018cc95ea72ba5f685e9faaef6de0eda88429946
   branch: master
   specs:
     globalize (6.0.1)
