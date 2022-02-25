@@ -51,8 +51,7 @@ end
 gem 'carrierwave'
 gem 'carrierwave-aliyun'
 
-# bundle config local.globalize /Users/guochunzhong/git/oss/globalize/
-gem 'globalize', git: 'https://git.thape.com.cn/rails/globalize.git', branch: 'master'
+gem 'globalize'
 
 gem 'kaminari'
 gem 'chinese_pinyin', require: false

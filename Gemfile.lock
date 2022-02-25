@@ -1,14 +1,4 @@
 GIT
-  remote: https://git.thape.com.cn/rails/globalize.git
-  revision: 018cc95ea72ba5f685e9faaef6de0eda88429946
-  branch: master
-  specs:
-    globalize (6.0.1)
-      activemodel (>= 4.2, < 7.1)
-      activerecord (>= 4.2, < 7.1)
-      request_store (~> 1.0)
-
-GIT
   remote: https://github.com/Eric-Guo/wechat
   revision: 2a21aef52f10ca2f14b5b80172f4509dc4f8cca2
   branch: main
@@ -162,6 +152,10 @@ GEM
       rake
     globalid (1.0.0)
       activesupport (>= 5.0)
+    globalize (6.1.0)
+      activemodel (>= 4.2, < 7.1)
+      activerecord (>= 4.2, < 7.1)
+      request_store (~> 1.0)
     http (5.0.4)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -375,7 +369,7 @@ DEPENDENCIES
   dalli
   debug
   enumize
-  globalize!
+  globalize
   jbuilder (~> 2.11)
   kaminari
   listen
@@ -399,4 +393,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.7
+   2.3.8
