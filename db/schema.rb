@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_25_060205) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_12_25_060205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "about_page_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "about_page_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "thape_intro"
     t.index ["about_page_id"], name: "index_about_page_translations_on_about_page_id"
     t.index ["locale"], name: "index_about_page_translations_on_locale"
@@ -41,15 +40,15 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "about_h6_mobile"
     t.text "about_h7"
     t.text "about_h7_mobile"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "about_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "about_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "about_title"
     t.text "about_content"
     t.text "about_img_alt"
@@ -62,8 +61,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "about_content"
     t.text "about_img"
     t.text "about_img_alt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "active_storage_attachments", id: :bigint, default: nil, force: :cascade do |t|
@@ -71,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -84,7 +83,7 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "service_name", null: false
     t.bigint "byte_size", null: false
     t.text "checksum"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -97,8 +96,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "case_pictures", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "case_id"
     t.text "album"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["case_id"], name: "index_case_pictures_on_case_id"
   end
 
@@ -106,8 +105,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "title"
     t.text "market"
     t.text "snapshot"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "professional"
     t.text "other"
     t.bigint "position", default: 0
@@ -119,8 +118,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "cities", id: :bigint, default: nil, force: :cascade do |t|
     t.text "name"
     t.text "china_area_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "url_name"
     t.text "company_name"
     t.bigint "company_position"
@@ -130,8 +129,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "city_people", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "city_id"
     t.bigint "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "city_title"
     t.boolean "is_management", default: false
     t.boolean "is_professional", default: false
@@ -144,8 +143,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.string "from_clerkcode"
     t.string "to_clerkcode"
     t.text "message"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "guest_messages", id: :bigint, default: nil, force: :cascade do |t|
@@ -153,8 +152,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "name"
     t.text "company"
     t.text "contact_details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "homes", id: :bigint, default: nil, force: :cascade do |t|
@@ -197,8 +196,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "info_title_3"
     t.text "info_subtitle_3"
     t.text "info_link_3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "banner_phone_1"
     t.text "banner_phone_2"
     t.text "banner_phone_3"
@@ -234,8 +233,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.bigint "pushlist"
     t.text "banner"
     t.text "snapshot"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "position", default: 0
     t.text "snapshot_alt"
     t.text "banner_alt"
@@ -251,8 +250,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "map_contact_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "map_contact_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "name"
     t.text "address"
     t.text "tel"
@@ -285,8 +284,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "title"
     t.text "introduce"
     t.text "works"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "url_name"
     t.bigint "position", default: 0
     t.date "leaving_date"
@@ -296,8 +295,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "person_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "person_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "name"
     t.text "title"
     t.text "introduce"
@@ -308,16 +307,16 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "pictures", id: :bigint, default: nil, force: :cascade do |t|
     t.text "image"
     t.bigint "info_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["info_id"], name: "index_pictures_on_info_id"
   end
 
   create_table "portfolio_translations", force: :cascade do |t|
     t.bigint "portfolio_id", null: false
     t.string "locale", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.string "sub_title"
     t.index ["locale"], name: "index_portfolio_translations_on_locale"
@@ -328,8 +327,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.string "pdf_file"
     t.string "cover_jpg"
     t.string "cover_webp"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "pixel_height", default: 900
     t.integer "pixel_width", default: 700
     t.integer "position", default: 0
@@ -341,15 +340,15 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "project_types", id: :bigint, default: nil, force: :cascade do |t|
     t.text "cn_name"
     t.text "en_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "publication_translations", force: :cascade do |t|
     t.bigint "publication_id", null: false
     t.string "locale", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "title"
     t.string "sub_title"
     t.index ["locale"], name: "index_publication_translations_on_locale"
@@ -361,8 +360,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.string "pdf_file"
     t.string "cover_jpg"
     t.string "cover_webp"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "pixel_height", default: 900
     t.integer "pixel_width", default: 700
     t.integer "position", default: 0
@@ -374,8 +373,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "residential_types", id: :bigint, default: nil, force: :cascade do |t|
     t.text "cn_name"
     t.text "en_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "seos", id: :bigint, default: nil, force: :cascade do |t|
@@ -383,8 +382,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "description"
     t.text "abstract"
     t.text "keywords"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "about_title"
     t.text "management_title"
     t.text "designing_title"
@@ -395,8 +394,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "service_file_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "service_file_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "building_intro"
     t.text "interior_intro"
     t.text "planning_intro"
@@ -410,8 +409,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
 
   create_table "service_files", id: :bigint, default: nil, force: :cascade do |t|
     t.text "interior_intro_file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "building_intro"
     t.text "interior_intro"
     t.text "planning_intro"
@@ -429,8 +428,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.string "new_project_photo_4"
     t.string "new_project_photo_5"
     t.string "new_project_photo_6"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "hero_news_photo"
     t.bigint "hero_news_id"
     t.bigint "hero_news_title_cap"
@@ -506,8 +505,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "users", id: :bigint, default: nil, force: :cascade do |t|
     t.text "name"
     t.text "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
@@ -516,16 +515,16 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "album_jpg"
     t.text "album_webp"
     t.bigint "work_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["work_id"], name: "index_work_pictures_on_work_id"
   end
 
   create_table "work_project_types", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "work_id", null: false
     t.bigint "project_type_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["project_type_id"], name: "index_work_project_types_on_project_type_id"
     t.index ["work_id"], name: "index_work_project_types_on_work_id"
   end
@@ -533,8 +532,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "work_residential_types", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "work_id", null: false
     t.bigint "residential_type_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["residential_type_id"], name: "index_work_residential_types_on_residential_type_id"
     t.index ["work_id"], name: "index_work_residential_types_on_work_id"
   end
@@ -542,8 +541,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
   create_table "work_translations", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "work_id", null: false
     t.text "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "project_name"
     t.text "client"
     t.text "services"
@@ -586,8 +585,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.text "landscape_webp"
     t.text "interior_jpg"
     t.text "interior_webp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "cultural_wide_jpg"
     t.text "cultural_wide_webp"
   end
@@ -599,8 +598,8 @@ ActiveRecord::Schema.define(version: 2021_12_25_060205) do
     t.bigint "site_area"
     t.decimal "planning_area"
     t.bigint "architecture_area"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "snapshot_jpg"
     t.text "snapshot_webp"
     t.boolean "published", default: true

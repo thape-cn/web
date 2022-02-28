@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_093127) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_01_21_093127) do
   create_table "tianhua2020s", force: :cascade do |t|
     t.string "name"
     t.string "clerkcode", null: false
@@ -51,8 +50,8 @@ ActiveRecord::Schema.define(version: 2021_01_21_093127) do
     t.integer "p17_oa_task"
     t.integer "p17_oa_login"
     t.integer "p17_oa_pv"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "p10_teacher_level"
     t.float "p11_study_rate"
     t.string "wecom_id"

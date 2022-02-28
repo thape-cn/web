@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
-
+ActiveRecord::Schema[7.0].define(version: 0) do
   create_table "tianhua2019s", force: :cascade do |t|
     t.string "name"
     t.string "clerkcode"
@@ -43,8 +42,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.decimal "prj_area"
     t.string "teacher"
     t.string "upgrade_postname"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "max_month_unit"
     t.integer "student_no"
     t.integer "learn_times"
