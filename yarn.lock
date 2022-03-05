@@ -938,9 +938,9 @@
     postcss-value-parser "^4.2.0"
 
 "@csstools/postcss-is-pseudo-class@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmmirror.com/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.0.tgz#219a1c1d84de7d9e9b7e662a57fdc194eac38ea7"
-  integrity sha512-WnfZlyuh/CW4oS530HBbrKq0G8BKl/bsNr5NMFoubBFzJfvFRGJhplCgIJYWUidLuL3WJ/zhMtDIyNFTqhx63Q==
+  version "2.0.1"
+  resolved "https://registry.npmmirror.com/@csstools/postcss-is-pseudo-class/-/postcss-is-pseudo-class-2.0.1.tgz#472fff2cf434bdf832f7145b2a5491587e790c9e"
+  integrity sha512-Og5RrTzwFhrKoA79c3MLkfrIBYmwuf/X83s+JQtz/Dkk/MpsaKtqHV1OOzYkogQ+tj3oYp5Mq39XotBXNqVc3Q==
   dependencies:
     postcss-selector-parser "^6.0.9"
 
@@ -3537,11 +3537,11 @@ postcss-nested@^4.1.1:
     postcss-selector-parser "^6.0.2"
 
 postcss-nesting@^10.1.2:
-  version "10.1.2"
-  resolved "https://registry.npmmirror.com/postcss-nesting/-/postcss-nesting-10.1.2.tgz#2e5f811b3d75602ea18a95dd445bde5297145141"
-  integrity sha512-dJGmgmsvpzKoVMtDMQQG/T6FSqs6kDtUDirIfl4KnjMCiY9/ETX8jdKyCd20swSRAbUYkaBKV20pxkzxoOXLqQ==
+  version "10.1.3"
+  resolved "https://registry.npmmirror.com/postcss-nesting/-/postcss-nesting-10.1.3.tgz#f0b1cd7ae675c697ab6a5a5ca1feea4784a2ef77"
+  integrity sha512-wUC+/YCik4wH3StsbC5fBG1s2Z3ZV74vjGqBFYtmYKlVxoio5TYGM06AiaKkQPPlkXWn72HKfS7Cw5PYxnoXSw==
   dependencies:
-    postcss-selector-parser "^6.0.8"
+    postcss-selector-parser "^6.0.9"
 
 postcss-opacity-percentage@^1.1.2:
   version "1.1.2"
@@ -3632,7 +3632,7 @@ postcss-selector-not@^5.0.0:
   dependencies:
     balanced-match "^1.0.0"
 
-postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.8, postcss-selector-parser@^6.0.9:
+postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.0.9:
   version "6.0.9"
   resolved "https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.9.tgz#ee71c3b9ff63d9cd130838876c13a2ec1a992b2f"
   integrity sha512-UO3SgnZOVTwu4kyLR22UQ1xZh086RyNZppb7lLAKBFK8a32ttG5i87Y/P3+2bRSjZNyJ1B7hfFNo273tKe9YxQ==
