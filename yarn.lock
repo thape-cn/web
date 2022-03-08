@@ -1026,21 +1026,21 @@
     fastq "^1.6.0"
 
 "@rails/actioncable@^7.0.2-2":
-  version "7.0.2-2"
-  resolved "https://registry.npmmirror.com/@rails/actioncable/-/actioncable-7.0.2-2.tgz#cc0f57a5e815b28a78a0053fc1b95ac073bcef76"
-  integrity sha512-DgkWkU/GJ1EBUBfs9PWDDy49k1QGJ/zvebGWEAnMChyt/FI9aXkCy5SOcXwDf1A6uY4Aif8jRlFbUgHS6UJHcA==
+  version "7.0.2-3"
+  resolved "https://registry.npmmirror.com/@rails/actioncable/-/actioncable-7.0.2-3.tgz#d083480b8fb9edf4e525c2626e3db2599258da31"
+  integrity sha512-7F2o7oTsinv2qHY/13RFJbQAtCNj94sxKqfEFBOQlMv6QvB+qsHjhuViaY5pvvUK/Eel2hdtHq5fFIgSM2IRLw==
 
 "@rails/activestorage@^7.0.2-2":
-  version "7.0.2-2"
-  resolved "https://registry.npmmirror.com/@rails/activestorage/-/activestorage-7.0.2-2.tgz#3b9cb1f0508e5d72d96e9f9fce8ebb74b77c7bd8"
-  integrity sha512-ry8vuHIFE4izF2jttkIPCN6YN607rCekWZfTitO6WbUUWfnhrMQ7XEPcDobujebBBYEylSUVVopD2LH1Q30jmQ==
+  version "7.0.2-3"
+  resolved "https://registry.npmmirror.com/@rails/activestorage/-/activestorage-7.0.2-3.tgz#20b5a9b781ffe194eb28aeef2b60ec72cecd1fc1"
+  integrity sha512-yqQj9HeEHWjPLTOjhF+VGys9dAgLPl9P3UVcZuK/TqfPvTloaY0N2mJWex8EI2Mq9BODO5wcFzLBMsIDcWgy2Q==
   dependencies:
     spark-md5 "^3.0.1"
 
 "@rails/ujs@^7.0.2-2":
-  version "7.0.2-2"
-  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.2-2.tgz#9f2f114f4777627034be541151a1240ebe585199"
-  integrity sha512-2M+stexFdUwVXMo4sborFkGEI7A7qEl8iIZX9oqW/JOjEyl6jpjpKAtPCAvKrXQAduX8lBQKHj/eTQKqONVB0Q==
+  version "7.0.2-3"
+  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.2-3.tgz#282781a997377d3a8f77c636dc86fa32fc2a82a8"
+  integrity sha512-PUGhE4lzFAbfsBcB/NWQu7VNOy2fYUmzQ9PsnZ/G/v0xviU1nadbLp1Y9KMJVxHWwHEwJKDk0+rNuttSWB1wIQ==
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
@@ -1961,9 +1961,9 @@ css-has-pseudo@^3.0.4:
     postcss-selector-parser "^6.0.9"
 
 css-loader@^6.5.1:
-  version "6.7.0"
-  resolved "https://registry.npmmirror.com/css-loader/-/css-loader-6.7.0.tgz#c1200da1dfffe6643b18bda20fdd84cad3e36d39"
-  integrity sha512-S7HCfCiDHLA+VXKqdZwyRZgoO0R9BnKDnVIoHMq5grl3N86zAu7MB+FBWHr5xOJC8SmvpTLha/2NpfFkFEN/ig==
+  version "6.7.1"
+  resolved "https://registry.npmmirror.com/css-loader/-/css-loader-6.7.1.tgz#e98106f154f6e1baf3fc3bc455cb9981c1d5fd2e"
+  integrity sha512-yB5CNFa14MbPJcomwNh3wLThtkZgcNyI2bNMRt8iE5Z8Vwl7f8vQXFAzn2HDOJvtDq2NTZBUGMSUNNyrv3/+cw==
   dependencies:
     icss-utils "^5.1.0"
     postcss "^8.4.7"
