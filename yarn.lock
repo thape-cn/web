@@ -1026,21 +1026,21 @@
     fastq "^1.6.0"
 
 "@rails/actioncable@^7.0.2-2":
-  version "7.0.2-3"
-  resolved "https://registry.npmmirror.com/@rails/actioncable/-/actioncable-7.0.2-3.tgz#d083480b8fb9edf4e525c2626e3db2599258da31"
-  integrity sha512-7F2o7oTsinv2qHY/13RFJbQAtCNj94sxKqfEFBOQlMv6QvB+qsHjhuViaY5pvvUK/Eel2hdtHq5fFIgSM2IRLw==
+  version "7.0.2"
+  resolved "https://registry.npmmirror.com/@rails/actioncable/-/actioncable-7.0.2.tgz#69a6d999f4087e0537dd38fe0963db1f4305d650"
+  integrity sha512-G26maXW1Kx0LxQdmNNuNjQlRO/QlXNr3QfuwKiOKb5FZQGYe2OwtHTGXBAjSoiu4dW36XYMT/+L1Wo1Yov4ZXA==
 
 "@rails/activestorage@^7.0.2-2":
-  version "7.0.2-3"
-  resolved "https://registry.npmmirror.com/@rails/activestorage/-/activestorage-7.0.2-3.tgz#20b5a9b781ffe194eb28aeef2b60ec72cecd1fc1"
-  integrity sha512-yqQj9HeEHWjPLTOjhF+VGys9dAgLPl9P3UVcZuK/TqfPvTloaY0N2mJWex8EI2Mq9BODO5wcFzLBMsIDcWgy2Q==
+  version "7.0.2"
+  resolved "https://registry.npmmirror.com/@rails/activestorage/-/activestorage-7.0.2.tgz#81986034e1a38d931c40213073973b5a4c5b86e0"
+  integrity sha512-E/W80bMnlhmLz63GvY4fn82s9nDk8ZnzWBO++G3uQhwKAT/xdHgdL8VNfTOK14VKCQwHxJuBCXYnFXY68FOfFw==
   dependencies:
     spark-md5 "^3.0.1"
 
 "@rails/ujs@^7.0.2-2":
-  version "7.0.2-3"
-  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.2-3.tgz#282781a997377d3a8f77c636dc86fa32fc2a82a8"
-  integrity sha512-PUGhE4lzFAbfsBcB/NWQu7VNOy2fYUmzQ9PsnZ/G/v0xviU1nadbLp1Y9KMJVxHWwHEwJKDk0+rNuttSWB1wIQ==
+  version "7.0.2"
+  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.2.tgz#6e0f843fb810b23ce1c33457b27e0accce6755e4"
+  integrity sha512-eAn41MQI6z9Yj4RVAIL9qzYorHRM22hPJp9MR86ra62UmcAsI3HEkIgeguN2qWJRxUbztLer+T4fycmTqB/Osw==
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
@@ -2981,22 +2981,17 @@ micromatch@^4.0.2, micromatch@^4.0.4:
     braces "^3.0.1"
     picomatch "^2.2.3"
 
-mime-db@1.51.0:
-  version "1.51.0"
-  resolved "https://registry.npmmirror.com/mime-db/-/mime-db-1.51.0.tgz#d9ff62451859b18342d960850dc3cfb77e63fb0c"
-  integrity sha512-5y8A56jg7XVQx2mbv1lu49NR4dokRnhZYTtL+KGfaa27uq4pSTXkwQkFJl4pkRMyNFz/EtYDSkiiEHx3F7UN6g==
-
-"mime-db@>= 1.43.0 < 2":
+mime-db@1.52.0, "mime-db@>= 1.43.0 < 2":
   version "1.52.0"
   resolved "https://registry.npmmirror.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
   integrity sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==
 
 mime-types@^2.1.27, mime-types@^2.1.31, mime-types@~2.1.17, mime-types@~2.1.24, mime-types@~2.1.34:
-  version "2.1.34"
-  resolved "https://registry.npmmirror.com/mime-types/-/mime-types-2.1.34.tgz#5a712f9ec1503511a945803640fafe09d3793c24"
-  integrity sha512-6cP692WwGIs9XXdOO4++N+7qjqv0rqxxVvJ3VHPh/Sc9mVZcQP+ZGhkKiTvWMQRr2tbHkJP/Yn7Y0npb3ZBs4A==
+  version "2.1.35"
+  resolved "https://registry.npmmirror.com/mime-types/-/mime-types-2.1.35.tgz#381a871b62a734450660ae3deee44813f70d959a"
+  integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
   dependencies:
-    mime-db "1.51.0"
+    mime-db "1.52.0"
 
 mime@1.6.0:
   version "1.6.0"

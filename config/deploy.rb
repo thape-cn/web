@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.16.0'
+lock '~> 3.17.0'
 
 set :application, 'thape_web'
 set :repo_url, 'https://git.thape.com.cn/rails/thape_web.git'
