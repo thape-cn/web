@@ -1716,9 +1716,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001297, caniuse-lite@^1.0.30001313:
-  version "1.0.30001314"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001314.tgz#65c7f9fb7e4594fca0a333bec1d8939662377596"
-  integrity sha512-0zaSO+TnCHtHJIbpLroX7nsD+vYuOVjl3uzFbJO1wMVbuveJA0RK2WcQA9ZUIOiO0/ArMiMgHJLxfEZhQiC0kw==
+  version "1.0.30001315"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001315.tgz#f1b1efd1171ee1170d52709a7252632dacbd7c77"
+  integrity sha512-5v7LFQU4Sb/qvkz7JcZkvtSH1Ko+1x2kgo3ocdBeMGZSOFpuE1kkm0kpTwLtWeFrw5qw08ulLxJjVIXIS8MkiQ==
 
 chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -2569,9 +2569,9 @@ http-parser-js@>=0.5.1:
   integrity sha512-vDlkRPDJn93swjcjqMSaGSPABbIarsr1TLAui/gLDXzV5VsJNdXNzMYDyNBLQkjWQCJ1uizu8T2oDMhmGt0PRA==
 
 http-proxy-middleware@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.npmmirror.com/http-proxy-middleware/-/http-proxy-middleware-2.0.3.tgz#5df04f69a89f530c2284cd71eeaa51ba52243289"
-  integrity sha512-1bloEwnrHMnCoO/Gcwbz7eSVvW50KPES01PecpagI+YLNLci4AcuKJrujW4Mc3sBLpFxMSlsLNHS5Nl/lvrTPA==
+  version "2.0.4"
+  resolved "https://registry.npmmirror.com/http-proxy-middleware/-/http-proxy-middleware-2.0.4.tgz#03af0f4676d172ae775cb5c33f592f40e1a4e07a"
+  integrity sha512-m/4FxX17SUvz4lJ5WPXOHDUuCwIqXLfLHs1s0uZ3oYjhoXlx9csYxaOa0ElDEJ+h8Q4iJ1s+lTMbiCa4EXIJqg==
   dependencies:
     "@types/http-proxy" "^1.17.8"
     http-proxy "^1.18.1"
