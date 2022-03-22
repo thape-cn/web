@@ -133,7 +133,7 @@ GEM
     childprocess (4.1.0)
     chinese_pinyin (1.1.0)
     chronic (0.10.2)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     dalli (3.2.1)
     debug (1.4.0)
@@ -318,7 +318,7 @@ GEM
     timeout (0.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2021.5)
+    tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
