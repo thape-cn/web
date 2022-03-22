@@ -3026,9 +3026,9 @@ minimatch@^3.0.4:
     brace-expansion "^1.1.7"
 
 minimist@^1.1.1, minimist@^1.2.0, minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.npmmirror.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.6"
+  resolved "https://registry.npmmirror.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
+  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
 mkdirp@^0.5.5:
   version "0.5.5"
@@ -4082,9 +4082,9 @@ setprototypeof@1.2.0:
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
 shakapacker@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-6.1.1.tgz#c699a0d1012f6afdc0d0b77ba06d055877bbcca0"
-  integrity sha512-C6LNGfgxfK/CRyN7Cpi0TmRgqTQ0O7Ua/n1g/dp7IIjPIKuf/1khAEF5u6lG0A92eFSlLWxvF3fjyjBw/oLqVw==
+  version "6.2.0"
+  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-6.2.0.tgz#4f3cb0f99b8c7ff63e676fbf253331643388bd22"
+  integrity sha512-n9QAJGInUK7+Brn4JSaGGD9mWUdFAD60vP19qn9JlcqG3zAev0oKenUsLUcWFyKBFbpZMbGdWURuWYcp1iayog==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
