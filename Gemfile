@@ -13,7 +13,7 @@ gem 'pg'
 
 # Use Puma as the app server
 gem 'puma'
-gem 'shakapacker'
+gem 'shakapacker', '~> 6.2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production

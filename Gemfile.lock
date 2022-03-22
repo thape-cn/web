@@ -373,7 +373,7 @@ DEPENDENCIES
   rake
   rexml
   selenium-webdriver
-  shakapacker
+  shakapacker (~> 6.2.0)
   sitemap_generator
   sqlite3
   tzinfo-data
