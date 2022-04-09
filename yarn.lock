@@ -1667,9 +1667,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001317:
-  version "1.0.30001325"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001325.tgz#2b4ad19b77aa36f61f2eaf72e636d7481d55e606"
-  integrity sha512-sB1bZHjseSjDtijV1Hb7PB2Zd58Kyx+n/9EotvZ4Qcz2K3d0lWB8dB4nb8wN/TsOGFq3UuAm0zQZNQ4SoR7TrQ==
+  version "1.0.30001327"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001327.tgz#c1546d7d7bb66506f0ccdad6a7d07fc6d668c858"
+  integrity sha512-1/Cg4jlD9qjZzhbzkzEaAC2JHsP0WrOc8Rd/3a3LuajGzGWR/hD7TVyvq99VqmTy99eVh8Zkmdq213OgvgXx7w==
 
 chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -3156,9 +3156,9 @@ postcss-custom-media@^8.0.0:
   integrity sha512-FvO2GzMUaTN0t1fBULDeIvxr5IvbDXcIatt6pnJghc736nqNgsGao5NT+5+WVLAQiTt6Cb3YUms0jiPaXhL//g==
 
 postcss-custom-properties@^12.1.5:
-  version "12.1.6"
-  resolved "https://registry.npmmirror.com/postcss-custom-properties/-/postcss-custom-properties-12.1.6.tgz#345b5b64c9520bb66390393646e8d5fbb7f10b58"
-  integrity sha512-QEnQkDkb+J+j2bfJisJJpTAFL+lUFl66rUNvnjPBIvRbZACLG4Eu5bmBCIY4FJCqhwsfbBpmJUyb3FcR/31lAg==
+  version "12.1.7"
+  resolved "https://registry.npmmirror.com/postcss-custom-properties/-/postcss-custom-properties-12.1.7.tgz#ca470fd4bbac5a87fd868636dafc084bc2a78b41"
+  integrity sha512-N/hYP5gSoFhaqxi2DPCmvto/ZcRDVjE3T1LiAMzc/bg53hvhcHOLpXOHb526LzBBp5ZlAUhkuot/bfpmpgStJg==
   dependencies:
     postcss-value-parser "^4.2.0"
 
