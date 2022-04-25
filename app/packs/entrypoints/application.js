@@ -22,5 +22,4 @@ importAll(images)
 const imagePath = (name) => images(name, true)
 
 import "controllers"
-import "alpine/alpine_slide_show"
 import "stylesheets/application.scss"
