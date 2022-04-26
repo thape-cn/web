@@ -137,7 +137,6 @@
           <%= render partial: 'map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
           <%= render partial: 'map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
           <%= render partial: 'map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
-          <%= render partial: 'map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
           <%= render partial: 'map_address', locals: {c: '上海嘉易', m: @m_上海嘉易 } -%>
           <%= render partial: 'map_address', locals: {c: '上海医养', m: @m_上海医养 } -%>
           <%= render partial: 'map_address', locals: {c: '深圳AICO', m: @m_深圳AICO } -%>
@@ -264,9 +263,6 @@
               x-bind:class="{ 'bg-gray-100': show_company == '虹核审图', 'bg-gray-50': show_company != '虹核审图' }"
               x-on:click="show_city = '上海';show_company = '虹核审图'">上<br/>海<br/>虹<br/>核<br/>审<br/>图</div>
             <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
-              x-bind:class="{ 'bg-gray-100': show_company == '武汉易筑', 'bg-gray-50': show_company != '武汉易筑' }"
-              x-on:click="show_city = '武汉';show_company = '武汉易筑'">武<br/>汉<br/>天<br/>华<br/>易<br/>筑<br/>室<br/>内</div>
-            <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
               x-bind:class="{ 'bg-gray-100': show_company == '上海嘉易', 'bg-gray-50': show_company != '上海嘉易' }"
               x-on:click="show_city = '上海';show_company = '上海嘉易'">上<br/>海<br/>天<br/>华<br/>嘉<br/>易</div>
             <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex justify-center pt-2"
@@ -333,7 +329,6 @@
     <%= render partial: 'mobile_map_address', locals: {c: '上海园林', m: @m_上海园林 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '虹核审图', m: @m_虹核审图 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '易术家互娱', m: @m_易术家互娱 } -%>
-    <%= render partial: 'mobile_map_address', locals: {c: '武汉易筑', m: @m_武汉易筑 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海嘉易', m: @m_上海嘉易 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '上海医养', m: @m_上海医养 } -%>
     <%= render partial: 'mobile_map_address', locals: {c: '深圳爱坤', m: @m_深圳AICO } -%>
@@ -433,7 +428,7 @@
       <%= render partial: 'city_div', locals: {c: '广州', e: 'GUANGZHOU', m1: @m_广州天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '天津', e: 'TIANJIN', m1: @m_天津天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '重庆', e: 'CHONGQING', m1: @m_重庆天华, m2: nil } -%>
-      <%= render partial: 'city_div', locals: {c: '武汉', e: 'WUHAN', m1: @m_武汉天华, m2: @m_武汉易筑 } -%>
+      <%= render partial: 'city_div', locals: {c: '武汉', e: 'WUHAN', m1: @m_武汉天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '成都', e: 'CHENGDU', m1: @m_成都天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '西安', e: "XI'AN", m1: @m_西安天华, m2: nil } -%>
       <%= render partial: 'city_div', locals: {c: '沈阳', e: 'SHENYANG', m1: @m_沈阳天华, m2: nil } -%>
