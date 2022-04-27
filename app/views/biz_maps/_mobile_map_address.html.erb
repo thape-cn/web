@@ -1,10 +1,11 @@
 <div class="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-50 flex items-center px-4" style="display: none;" x-show="show_company == '<%= c -%>'" x-on:click="show_company=''">
   <div class="w-full p-4 bg-white rounded-md shadow-md">
+    <% marks.each do |m| %>
       <% if m.alt_name.present? %>
-        <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
+        <h1 class="font-medium pb-1 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
         <h1 class="<%= fdsz('text-xl') -%> font-medium pb-1 leading-normal"><%= m.alt_name -%></h1>
       <% else %>
-        <h1 class="font-medium pb-2 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
+        <h1 class="font-medium pb-1 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
       <% end %>
       <div class="flex">
         <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
@@ -44,5 +45,6 @@
           </div>
         </div>
       <% end %>
+    <% end %>
   </div>
 </div>
