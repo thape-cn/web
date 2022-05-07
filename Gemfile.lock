@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 2b55c353805c48814938f95c66d953165ab1395d
+  revision: 36d382ed82f8a594364a0cad72708264e78b45d3
   branch: main
   specs:
     wechat (0.15.1)
@@ -232,6 +232,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.5)
       mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.13.5-arm64-darwin)
       racc (~> 1.4)
     pg (1.3.5)
     public_suffix (4.0.7)
