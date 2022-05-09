@@ -6,14 +6,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '>= 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.1'
+gem 'rails', '~> 7.0.3'
 gem 'enumize'
 gem 'sqlite3'
 gem 'pg'
 
 # Use Puma as the app server
 gem 'puma'
-gem 'shakapacker', '~> 6.2.0'
+gem 'shakapacker', '~> 6.2.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
