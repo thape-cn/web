@@ -45,7 +45,8 @@
     "webpack-dev-server": "^4.7.3"
   },
   "resolutions": {
-    "chokidar": "^3.5.2"
+    "chokidar": "^3.5.2",
+    "postcss": "^7.0.36"
   },
   "babel": {
     "presets": [
