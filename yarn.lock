@@ -917,9 +917,9 @@
     postcss-value-parser "^4.2.0"
 
 "@csstools/postcss-hwb-function@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-1.0.0.tgz#d6785c1c5ba8152d1d392c66f3a6a446c6034f6d"
-  integrity sha512-VSTd7hGjmde4rTj1rR30sokY3ONJph1reCBTUXqeW1fKwETPy1x4t/XIeaaqbMbC5Xg4SM/lyXZ2S8NELT2TaA==
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/@csstools/postcss-hwb-function/-/postcss-hwb-function-1.0.1.tgz#5224db711ed09a965f85c80c18144ac1c2702fce"
+  integrity sha512-AMZwWyHbbNLBsDADWmoXT9A5yl5dsGEBeJSJRUJt8Y9n8Ziu7Wstt4MC8jtPW7xjcLecyfJwtnUTNSmOzcnWeg==
   dependencies:
     postcss-value-parser "^4.2.0"
 
@@ -2789,10 +2789,10 @@ media-typer@0.3.0:
   resolved "https://registry.npmmirror.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
 
-memfs@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.npmmirror.com/memfs/-/memfs-3.4.1.tgz#b78092f466a0dce054d63d39275b24c71d3f1305"
-  integrity sha512-1c9VPVvW5P7I85c35zAdEr1TD5+F11IToIHIlrVIcflfnzPkJa0ZoYEoEdYDP8KgPFoSZ/opDrUsAoZWym3mtw==
+memfs@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.npmmirror.com/memfs/-/memfs-3.4.3.tgz#fc08ac32363b6ea6c95381cabb4d67838180d4e1"
+  integrity sha512-eivjfi7Ahr6eQTn44nvTnR60e4a1Fs1Via2kCR5lHo/kyNoiMWaXCNJ/GpSd0ilXas2JSOl9B5FTIhflXu0hlg==
   dependencies:
     fs-monkey "1.0.3"
 
@@ -2898,7 +2898,7 @@ mutation-observer-inner-html-shim@^1.0.0:
   resolved "https://registry.npmmirror.com/mutation-observer-inner-html-shim/-/mutation-observer-inner-html-shim-1.0.1.tgz#84349f51dfc390d0af85011de8fa14e645fb400e"
   integrity sha512-YmJPDSUWJgBhwqRJP6AMvjdfDHU1gsrT5YdgpxMit2+x1khLYhdYq9fvp4clPsYecVT3JOprBf/KjEX7IqlU+g==
 
-nanoid@^3.3.3:
+nanoid@^3.3.4:
   version "3.3.4"
   resolved "https://registry.npmmirror.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
@@ -3464,11 +3464,11 @@ postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0, postcss-value-parser@^
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
 postcss@7.0.32, postcss@^6.0.9, postcss@^7.0.11, postcss@^7.0.18, postcss@^7.0.32, postcss@^8.2.1, postcss@^8.4.13, postcss@^8.4.5, postcss@^8.4.7:
-  version "8.4.13"
-  resolved "https://registry.npmmirror.com/postcss/-/postcss-8.4.13.tgz#7c87bc268e79f7f86524235821dfdf9f73e5d575"
-  integrity sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==
+  version "8.4.14"
+  resolved "https://registry.npmmirror.com/postcss/-/postcss-8.4.14.tgz#ee9274d5622b4858c1007a74d76e42e56fd21caf"
+  integrity sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==
   dependencies:
-    nanoid "^3.3.3"
+    nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
@@ -4226,12 +4226,12 @@ webpack-cli@^4.9.1:
     webpack-merge "^5.7.3"
 
 webpack-dev-middleware@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.npmmirror.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.1.tgz#aa079a8dedd7e58bfeab358a9af7dab304cee57f"
-  integrity sha512-81EujCKkyles2wphtdrnPg/QqegC/AtqNH//mQkBYSMqwFVCQrxM6ktB2O/SPlZy7LqeEfTbV3cZARGQz6umhg==
+  version "5.3.3"
+  resolved "https://registry.npmmirror.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.3.tgz#efae67c2793908e7311f1d9b06f2a08dcc97e51f"
+  integrity sha512-hj5CYrY0bZLB+eTO+x/j67Pkrquiy7kWepMHmUMoPsmcUaeEnQJqFzHJOyxgWlq746/wUuA64p9ta34Kyb01pA==
   dependencies:
     colorette "^2.0.10"
-    memfs "^3.4.1"
+    memfs "^3.4.3"
     mime-types "^2.1.31"
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
