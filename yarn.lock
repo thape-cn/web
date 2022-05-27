@@ -2071,9 +2071,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.118:
-  version "1.4.139"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.139.tgz#e634b69769ab4a54626bbd9e1475de872839c89a"
-  integrity sha512-lYxzcUCjWxxVug+A7UxBCUiVr13TCjfZFYJS9Lq1VpU/ErwV4a6zUQo9dfojuGpw/L/x9REGuBl6ICQPGgbs3g==
+  version "1.4.140"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.140.tgz#1b5836b7244aff341a11c8efd63dfe003dee4a19"
+  integrity sha512-NLz5va823QfJBYOO/hLV4AfU4Crmkl/6Hl2pH3qdJcmi0ySZ3YTWHxOlDm3uJOFBEPy3pIhu8gKQo6prQTWKKA==
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -2292,9 +2292,9 @@ find-up@^4.0.0:
     path-exists "^4.0.0"
 
 follow-redirects@^1.0.0:
-  version "1.15.0"
-  resolved "https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.0.tgz#06441868281c86d0dda4ad8bdaead2d02dca89d4"
-  integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
+  version "1.15.1"
+  resolved "https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 forwarded@0.2.0:
   version "0.2.0"
@@ -2983,9 +2983,9 @@ object-hash@^2.0.3:
   integrity sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==
 
 object-inspect@^1.9.0:
-  version "1.12.1"
-  resolved "https://registry.npmmirror.com/object-inspect/-/object-inspect-1.12.1.tgz#28a661153bad7e470e4b01479ef1cb91ce511191"
-  integrity sha512-Y/jF6vnvEtOPGiKD1+q+X0CiUYRQtEHp89MLLUJ7TUivtH8Ugn2+3A7Rynqk7BRsAoqeOQWnFnjpDrKSxDgIGA==
+  version "1.12.2"
+  resolved "https://registry.npmmirror.com/object-inspect/-/object-inspect-1.12.2.tgz#c0641f26394532f28ab8d796ab954e43c009a8ea"
+  integrity sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==
 
 object-keys@^1.1.1:
   version "1.1.1"
@@ -4370,9 +4370,9 @@ wrappy@1:
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
 ws@^8.4.2:
-  version "8.6.0"
-  resolved "https://registry.npmmirror.com/ws/-/ws-8.6.0.tgz#e5e9f1d9e7ff88083d0c0dd8281ea662a42c9c23"
-  integrity sha512-AzmM3aH3gk0aX7/rZLYvjdvZooofDu3fFOzGqcSnQ1tOcTWwhM/o+q++E8mAyVVIyUdajrkzWUGftaVSDLn1bw==
+  version "8.7.0"
+  resolved "https://registry.npmmirror.com/ws/-/ws-8.7.0.tgz#eaf9d874b433aa00c0e0d8752532444875db3957"
+  integrity sha512-c2gsP0PRwcLFzUiA8Mkr37/MI7ilIlHQxaEAtd0uNMbVMoy8puJyafRlm0bV9MbGSabUPeLrRRaqIBcFcA2Pqg==
 
 xtend@^4.0.2:
   version "4.0.2"
