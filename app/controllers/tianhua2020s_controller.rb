@@ -54,7 +54,7 @@ class Tianhua2020sController < ApplicationController
     end
 
     p10_teacher_level = if r.p10_teacher_level.present?
-      '作为天华的<b style="font-size: 50px;"><font color="#df695a">' + r.p10_teacher_level.gsub('讲师','').to_s + '</font></b>讲师'
+      '作为天华的<b style="font-size: 50px;"><font color="#df695a">' + r.p10_teacher_level.gsub('讲师', '').to_s + '</font></b>讲师'
     end
     p10_course_number = '<b><font color="#df695a" style="font-size: 50px;">' + r.p10_course_number.to_s + '</font></b>次课程'
 

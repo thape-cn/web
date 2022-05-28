@@ -14,9 +14,9 @@ class Person < ApplicationRecord
 
   def write_tianwen_xml(prefix = 'persons')
     Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
-      tmpl.at_css('TRS_VERSION').content = "C02" # 前端模板, 必选
+      tmpl.at_css('TRS_VERSION').content = 'C02' # 前端模板, 必选
       tmpl.at_css('TRS_PRIMARY').content = "web_person_#{id}" # 主键, 必选
-      tmpl.at_css('TRS_CATEGORY').content = "人物" # 主键, 必选
+      tmpl.at_css('TRS_CATEGORY').content = '人物' # 主键, 必选
       tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata(name)) # 姓名, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(url_name)) # 英文名称, 必选
       tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(ActionController::Base.helpers.strip_tags(introduce))) # 介绍, 必选

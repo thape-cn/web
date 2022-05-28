@@ -7,7 +7,7 @@ require 'capistrano/setup'
 require 'capistrano/deploy'
 
 # Include whenever
-require "whenever/capistrano"
+require 'whenever/capistrano'
 
 # Load the SCM plugin appropriate to your project:
 #

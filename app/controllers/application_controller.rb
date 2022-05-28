@@ -25,11 +25,9 @@ class ApplicationController < ActionController::Base
     end
 
     def extract_locale_from_accept_language_header
-      
-        @http_locale ||= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-      rescue Exception => e
-        'cn'
-      
+      @http_locale ||= request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    rescue Exception => e
+      'cn'
     end
 
     def set_ts
@@ -47,10 +45,10 @@ class ApplicationController < ActionController::Base
         flash.now[:alert] = "本站点推荐在Chrome, Edge, Firefox等非IE浏览器下浏览，Chrome浏览器可以在<a href='https://www.google.cn/intl/zh-CN/chrome/'>https://www.google.cn/intl/zh-CN/chrome/</a>下载。".html_safe
       end
     end
-    
+
     def set_not_mobile_wechat
       if browser.wechat? && !browser.device.mobile?
-        flash.now[:alert] = "请使用系统浏览器打开本站点".html_safe
+        flash.now[:alert] = '请使用系统浏览器打开本站点'.html_safe
       end
     end
 end

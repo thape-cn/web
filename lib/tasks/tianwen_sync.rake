@@ -7,7 +7,7 @@ namespace :tianwen_sync do
   desc 'Sync news'
   task sync_news: :environment do
     prefix = 'news'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     Info.where('hide_in_design_staff_news = ?', false).where('hide_in_index_news = ?', false).all.find_each do |info|
       info.write_tianwen_xml(prefix)
     end
@@ -16,7 +16,7 @@ namespace :tianwen_sync do
   desc 'Sync works'
   task sync_works: :environment do
     prefix = 'works'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     Work.all.find_each do |work|
       work.write_tianwen_xml(prefix)
     end
@@ -25,7 +25,7 @@ namespace :tianwen_sync do
   desc 'Sync persons'
   task sync_persons: :environment do
     prefix = 'persons'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     Person.where(leaving_date: nil).all.find_each do |person|
       person.write_tianwen_xml(prefix)
     end
@@ -34,7 +34,7 @@ namespace :tianwen_sync do
   desc 'Sync portfolios'
   task sync_portfolios: :environment do
     prefix = 'portfolios'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     Portfolio.all.find_each do |portfolio|
       portfolio.write_tianwen_xml(prefix)
     end
@@ -43,7 +43,7 @@ namespace :tianwen_sync do
   desc 'Sync publications'
   task sync_publications: :environment do
     prefix = 'publications'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     Publication.all.find_each do |publication|
       publication.write_tianwen_xml(prefix)
     end
@@ -52,7 +52,7 @@ namespace :tianwen_sync do
   desc 'Sync map_contacts'
   task sync_map_contacts: :environment do
     prefix = 'map_contacts'
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml").to_s}"
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
     MapContact.all.find_each do |map_contact|
       map_contact.write_tianwen_xml(prefix)
     end
@@ -61,19 +61,19 @@ namespace :tianwen_sync do
   desc 'Sync intro'
   task sync_intro: :environment do
     # 关于我们
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("about_us.xml").to_s}"
-    Tianwen.write_xml("about_us") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("about_us.xml")}"
+    Tianwen.write_xml('about_us') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_about_us" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("关于我们")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_about_us' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('关于我们')) # 标题, 必选
       keywords = [
         I18n.t('abouts.intro.title'),
         I18n.t('abouts.research.title'),
         I18n.t('abouts.design_lab.title'),
         I18n.t('abouts.t_plus.title'),
         I18n.t('abouts.perfection_pursuer.title'),
-      ];
+      ]
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(keywords.join(';'))) # 关键词, 必选
       about = AboutPage.first
       content = [
@@ -95,11 +95,11 @@ namespace :tianwen_sync do
 
     # 建筑
     seo = Seo.find_by(seo_name: '建筑设计服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("building.xml").to_s}"
-    Tianwen.write_xml("building") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("building.xml")}"
+    Tianwen.write_xml('building') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_building" # 主键, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_building' # 主键, 必选
       tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata(I18n.t('services.building.chinese_title'))) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.building_intro)) # 内容, 必选
@@ -110,12 +110,12 @@ namespace :tianwen_sync do
     end
     # 室内
     seo = Seo.find_by(seo_name: '室内设计服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("interior.xml").to_s}"
-    Tianwen.write_xml("interior") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("interior.xml")}"
+    Tianwen.write_xml('interior') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_interior" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("室内")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_interior' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('室内')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.interior_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.interior_url)) # 链接, 必选
@@ -124,12 +124,12 @@ namespace :tianwen_sync do
     end
     # 规划
     seo = Seo.find_by(seo_name: '城市规划服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("planning.xml").to_s}"
-    Tianwen.write_xml("planning") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("planning.xml")}"
+    Tianwen.write_xml('planning') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_planning" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("规划")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_planning' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('规划')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.planning_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.planning_url)) # 链接, 必选
@@ -138,12 +138,12 @@ namespace :tianwen_sync do
     end
     # 景观
     seo = Seo.find_by(seo_name: '景观设计服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("landscape.xml").to_s}"
-    Tianwen.write_xml("landscape") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("landscape.xml")}"
+    Tianwen.write_xml('landscape') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_landscape" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("景观")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_landscape' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('景观')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.landscape_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.landscape_url)) # 链接, 必选
@@ -152,12 +152,12 @@ namespace :tianwen_sync do
     end
     # 审图
     seo = Seo.find_by(seo_name: '审图服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vetting.xml").to_s}"
-    Tianwen.write_xml("vetting") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vetting.xml")}"
+    Tianwen.write_xml('vetting') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_vetting" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("审图")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_vetting' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('审图')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.vetting_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vetting_url)) # 链接, 必选
@@ -166,12 +166,12 @@ namespace :tianwen_sync do
     end
     # 技术咨询
     seo = Seo.find_by(seo_name: '技术咨询服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("consluting.xml").to_s}"
-    Tianwen.write_xml("consluting") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("consluting.xml")}"
+    Tianwen.write_xml('consluting') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_consluting" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("技术咨询")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_consluting' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('技术咨询')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.consluting_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.consluting_url)) # 链接, 必选
@@ -180,12 +180,12 @@ namespace :tianwen_sync do
     end
     # 可视化
     seo = Seo.find_by(seo_name: '可视化服务')
-    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vr_tech.xml").to_s}"
-    Tianwen.write_xml("vr_tech") do |tmpl|
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("vr_tech.xml")}"
+    Tianwen.write_xml('vr_tech') do |tmpl|
       tmpl.at_css('TRS_VERSION').content = 'D02'
       tmpl.at_css('TRS_CATEGORY').content = '官网介绍'
-      tmpl.at_css('TRS_PRIMARY').content = "web_vr_tech" # 主键, 必选
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata("可视化")) # 标题, 必选
+      tmpl.at_css('TRS_PRIMARY').content = 'web_vr_tech' # 主键, 必选
+      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata('可视化')) # 标题, 必选
       tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo.keywords)) # 关键词, 必选
       tmpl.at_css('TRS_ATTACH_CONTENT').add_child(tmpl.create_cdata(service_file.vrtech_intro)) # 内容, 必选
       tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.vr_tech_url)) # 链接, 必选
