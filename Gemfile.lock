@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 2f5671d73affc1e6544d435bc359898d5810bedb
+  revision: f05d648dfd53a977cbdd9ae2827e0c1f1ff55518
   branch: main
   specs:
     wechat (0.15.1)
@@ -293,7 +293,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
-    selenium-webdriver (4.2.0)
+    selenium-webdriver (4.2.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
