@@ -65,6 +65,10 @@ staging:
   # Cache manifest.json for performance
   cache_manifest: true
 
+  # Fix v6.3.0 after https://github.com/shakacode/shakapacker/pull/102
+  webpacker_precompile: true
+  compiler_strategy: digest
+
 production:
   <<: *default
 
