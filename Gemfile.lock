@@ -1,12 +1,13 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: f05d648dfd53a977cbdd9ae2827e0c1f1ff55518
+  revision: dec0ec787b2c6d482b5614dd90f121163cb5c039
   branch: main
   specs:
     wechat (0.15.1)
       activesupport (>= 6.0)
       http (>= 1.0.4, < 6)
       nokogiri (>= 1.6.0)
+      psych (>= 3.3.2)
       rexml
       thor
       zeitwerk (~> 2.4)
@@ -234,6 +235,8 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pg (1.3.5)
+    psych (4.0.4)
+      stringio
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -311,6 +314,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     ssrf_filter (1.0.7)
+    stringio (3.0.2)
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.3.0)
