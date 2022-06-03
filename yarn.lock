@@ -3742,9 +3742,9 @@ sass-loader@^12.4.0:
     neo-async "^2.6.2"
 
 sass@^1.45.1:
-  version "1.52.1"
-  resolved "https://registry.npmmirror.com/sass/-/sass-1.52.1.tgz#554693da808543031f9423911d62c60a1acf7889"
-  integrity sha512-fSzYTbr7z8oQnVJ3Acp9hV80dM1fkMN7mSD/25mpcct9F7FPBMOI8krEYALgU1aZoqGhQNhTPsuSmxjnIvAm4Q==
+  version "1.52.2"
+  resolved "https://registry.npmmirror.com/sass/-/sass-1.52.2.tgz#cd1f03e0e7be5bb2cebcf1c34d735f087d790936"
+  integrity sha512-mfHB2VSeFS7sZlPv9YohB9GB7yWIgQNTGniQwfQ04EoQN0wsQEv7SwpCwy/x48Af+Z3vDeFXz+iuXM3HK/phZQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -3871,10 +3871,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmmirror.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakapacker@=6.3.0:
-  version "6.3.0"
-  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-6.3.0.tgz#bca78307ab1a18eb9ba3d01b66c39e1fb898cdaa"
-  integrity sha512-u75erqMnpRH7IjRZWjyZD6W04569g53X7PLaWBolgrwTkNDXX28qbmICBRJNO3F4tOmuVaiWS6fhy3Awp0raew==
+shakapacker@=6.4.0:
+  version "6.4.0"
+  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-6.4.0.tgz#f49ad8bb51eb1a151b190b588ad467c6e6f62e69"
+  integrity sha512-bxxi7Lla3n2fnFjxVv6BtD2vcTEZIm2eb29WkJqZBmpFVT9tnwbd3XQISD9eOst6kTEJu2ruUp7dGvuEjpxwkg==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
