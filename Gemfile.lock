@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 1ac476aa307deae92bb91e66046e6d0ed0983d5b
+  revision: 29946fc6c75510ce7ff49235ce244d338ad01939
   branch: main
   specs:
     wechat (0.16.0)
@@ -87,6 +87,7 @@ GEM
     aliyun-sdk (0.8.0)
       nokogiri (~> 1.6)
       rest-client (~> 2.0)
+    bcrypt_pbkdf (1.1.0)
     bindex (0.8.1)
     bootsnap (1.12.0)
       msgpack (~> 1.2)
@@ -143,6 +144,7 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    ed25519 (1.3.0)
     enumize (0.2.1)
       rails (>= 5.0.0)
     erubi (1.10.0)
@@ -351,6 +353,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  bcrypt_pbkdf
   bootsnap (>= 1.9.3)
   browser
   canonical-rails
@@ -364,6 +367,7 @@ DEPENDENCIES
   chinese_pinyin
   dalli
   debug
+  ed25519
   enumize
   globalize
   jbuilder (~> 2.11)
