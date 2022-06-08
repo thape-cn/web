@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2021_12_25_060205) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_081727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -245,6 +245,31 @@ ActiveRecord::Schema[7.0].define(version: 2021_12_25_060205) do
     t.text "seo_description"
     t.text "sub_title"
     t.text "pdf_file"
+  end
+
+  create_table "insight_translations", force: :cascade do |t|
+    t.bigint "insight_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "sub_title"
+    t.index ["insight_id"], name: "index_insight_translations_on_insight_id"
+    t.index ["locale"], name: "index_insight_translations_on_locale"
+  end
+
+  create_table "insights", force: :cascade do |t|
+    t.string "pdf_file"
+    t.string "cover_jpg"
+    t.string "cover_webp"
+    t.integer "pixel_height"
+    t.integer "pixel_width"
+    t.integer "position"
+    t.string "mobile_cover_jpg"
+    t.string "mobile_cover_webp"
+    t.string "page_cover"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "map_contact_translations", id: :bigint, default: nil, force: :cascade do |t|
