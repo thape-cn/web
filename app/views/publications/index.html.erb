@@ -6,61 +6,71 @@
   data-controller="publications"
   data-action="resize@window->publications#resize scroll@window->publications#resize"
 >
-  <div class="w-full">
-    <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
-      header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
-  </div>
-
-  <div class="w-full mt-6 md:mt-12 xl:mt-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
-      <% @works.each do |item| %>
-      <%= render partial: 'list_item', locals: { item: item } %>
-      <% end %>
+  <% first_existed = false %>
+  <% if @works.present? %>
+    <div class="w-full <%= first_existed ? 'mt-6 md:mt-12 lg:mt-24' : '' %>">
+      <%= render partial: 'shared/header', locals: { c: '作品集', e: 'PORTFOLIO',
+        header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
     </div>
-  </div>
 
-  <div class="relative w-full mt-6 md:mt-12 lg:mt-24" data-publications-target="marker">
-    <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
-      header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
-    <div class="flex relative pt-4 <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> w-full lg:w-auto overflow-auto" data-publications-target="categoryOrigin">
-      <% @publication_categoty.each_with_index do |item, index| %>
-      <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
-        x-on:click="current_category='<%= item[:name] %>'"
-        x-bind:class="{ 'text-white bg-black6c': current_category == '<%= item[:name] %>', 'text-thape-copyright-gray bg-thape-dark-gray': current_category != '<%= item[:name] %>' }" href="javascript:void(0)"><%= item[:title] %></a>
-      <% end %>
-    </div>
-    <div class="flex fixed md:hidden <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> bg-white py-2 overflow-auto" style="z-index: 1000; top: 50px;" data-publications-target="categoryFixed" data-action="scroll->publications#onCategoryFixedScroll">
-      <% @publication_categoty.each_with_index do |item, index| %>
-      <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
-        x-on:click="current_category='<%= item[:name] %>'"
-        x-bind:class="{ 'text-white bg-black6c': current_category == '<%= item[:name] %>', 'text-thape-copyright-gray bg-thape-dark-gray': current_category != '<%= item[:name] %>' }" href="javascript:void(0)"
-        data-action="click->publications#clickCate"><%= item[:title] %></a>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="w-full mt-6 md:mt-12 xl:mt-16">
-    <% @publication_categoty.each do |category| %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list" x-show="current_category == '<%= category[:name] %>'">
-        <% @publications.select { |item| item[:category] == category[:name] }.each do |item| %>
+    <div class="w-full my-6 md:my-12 xl:my-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
+        <% @works.each do |item| %>
         <%= render partial: 'list_item', locals: { item: item } %>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+    <% first_existed = true %>
+  <% end %>
 
-  <div class="w-full mt-6 md:mt-12 lg:mt-24">
-    <%= render partial: 'shared/header', locals: { c: '天华内刊', e: 'TIANHUA INSIGHT',
-      header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
-  </div>
+  <% if @publications.present? %>
+    <div class="relative w-full <%= first_existed ? 'mt-6 md:mt-12 lg:mt-24' : '' %>" data-publications-target="marker">
+      <%= render partial: 'shared/header', locals: { c: '学术研究与出版物', e: 'RESEARCH & PUBLICATIONS',
+        header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+      <div class="flex relative pt-4 <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> w-full lg:w-auto overflow-auto" data-publications-target="categoryOrigin">
+        <% @publication_categoty.each_with_index do |item, index| %>
+        <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
+          x-on:click="current_category='<%= item[:name] %>'"
+          x-bind:class="{ 'text-white bg-black6c': current_category == '<%= item[:name] %>', 'text-thape-copyright-gray bg-thape-dark-gray': current_category != '<%= item[:name] %>' }" href="javascript:void(0)"><%= item[:title] %></a>
+        <% end %>
+      </div>
+      <div class="flex fixed md:hidden <%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> bg-white py-2 overflow-auto" style="z-index: 1000; top: 50px;" data-publications-target="categoryFixed" data-action="scroll->publications#onCategoryFixedScroll">
+        <% @publication_categoty.each_with_index do |item, index| %>
+        <a class="px-3 py-1 rounded-full whitespace-no-wrap <%= (index != 0 && index != @publication_categoty.size - 1) ? fdsz('mx-3 sm:mx-4 lg:mx-5', 'mx-4 sm:mx-6 lg:mx-10') : '' %>"
+          x-on:click="current_category='<%= item[:name] %>'"
+          x-bind:class="{ 'text-white bg-black6c': current_category == '<%= item[:name] %>', 'text-thape-copyright-gray bg-thape-dark-gray': current_category != '<%= item[:name] %>' }" href="javascript:void(0)"
+          data-action="click->publications#clickCate"><%= item[:title] %></a>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="w-full mt-6 md:mt-12 xl:mt-16 pb-6 md:pb-12 lg:pb-24 ">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
-      <% @insights.each do |item| %>
-      <%= render partial: 'list_item', locals: { item: item } %>
+    <div class="w-full my-6 md:my-12 xl:my-16">
+      <% @publication_categoty.each do |category| %>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list" x-show="current_category == '<%= category[:name] %>'">
+          <% @publications.select { |item| item[:category] == category[:name] }.each do |item| %>
+          <%= render partial: 'list_item', locals: { item: item } %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  </div>
+    <% first_existed = true %>
+  <% end %>
+
+  <% if @insights.present? %>
+    <div class="w-full <%= first_existed ? 'mt-6 md:mt-12 lg:mt-24' : '' %>">
+      <%= render partial: 'shared/header', locals: { c: '天华内刊', e: 'TIANHUA INSIGHT',
+        header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+    </div>
+
+    <div class="w-full my-6 md:my-12 xl:my-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
+        <% @insights.each do |item| %>
+        <%= render partial: 'list_item', locals: { item: item } %>
+        <% end %>
+      </div>
+    </div>
+    <% first_existed = true %>
+  <% end %>
 
   <div class="hidden fixed top-0 bottom-0 left-0 right-0" style="z-index: 9999" data-publications-target="wxDownload" onclick="this.style.display=''">
     <img class="w-full min-h-full" src="/wx_download.png" alt="">
