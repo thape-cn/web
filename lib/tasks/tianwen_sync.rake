@@ -49,6 +49,15 @@ namespace :tianwen_sync do
     end
   end
 
+  desc 'Sync insights'
+  task sync_insights: :environment do
+    prefix = 'insights'
+    sh "rm -rf #{Rails.configuration.tianwen_dir.join("#{prefix}_*.xml")}"
+    Insight.all.find_each do |insight|
+      insight.write_tianwen_xml(prefix)
+    end
+  end
+
   desc 'Sync map_contacts'
   task sync_map_contacts: :environment do
     prefix = 'map_contacts'
