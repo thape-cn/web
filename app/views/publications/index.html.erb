@@ -12,7 +12,7 @@
   </div>
 
   <div class="w-full mt-6 md:mt-12 xl:mt-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
       <% @works.each do |item| %>
       <%= render partial: 'list_item', locals: { item: item } %>
       <% end %>
@@ -39,15 +39,29 @@
     </div>
   </div>
 
-  <div class="w-full pb-6 md:pb-12 lg:pb-24 mt-6 md:mt-12 xl:mt-16">
+  <div class="w-full mt-6 md:mt-12 xl:mt-16">
     <% @publication_categoty.each do |category| %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-x-16 xl:gap-x-32 xl:gap-y-24 list" x-show="current_category == '<%= category[:name] %>'">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list" x-show="current_category == '<%= category[:name] %>'">
         <% @publications.select { |item| item[:category] == category[:name] }.each do |item| %>
         <%= render partial: 'list_item', locals: { item: item } %>
         <% end %>
       </div>
     <% end %>
   </div>
+
+  <div class="w-full mt-6 md:mt-12 lg:mt-24">
+    <%= render partial: 'shared/header', locals: { c: '天华内刊', e: 'TIANHUA INSIGHT',
+      header_path: publications_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: false } %>
+  </div>
+
+  <div class="w-full mt-6 md:mt-12 xl:mt-16 pb-6 md:pb-12 lg:pb-24 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-16 gap-y-9 md:gap-x-18 md:gap-y-12 lg:gap-x-24 lg:gap-y-16 xl:gap-x-32 xl:gap-y-24 list">
+      <% @insights.each do |item| %>
+      <%= render partial: 'list_item', locals: { item: item } %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="hidden fixed top-0 bottom-0 left-0 right-0" style="z-index: 9999" data-publications-target="wxDownload" onclick="this.style.display=''">
     <img class="w-full min-h-full" src="/wx_download.png" alt="">
   </div>
