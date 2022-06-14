@@ -311,7 +311,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.2.1)
       builder (~> 3.0)
-    sqlite3 (1.4.2)
+    sqlite3 (1.4.4)
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -382,7 +382,7 @@ DEPENDENCIES
   selenium-webdriver
   shakapacker (~> 6.4.0)
   sitemap_generator
-  sqlite3 (= 1.4.2)
+  sqlite3
   tzinfo-data
   web-console
   webdrivers
