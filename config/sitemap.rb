@@ -63,7 +63,7 @@ SitemapGenerator::Sitemap.create do
   add privacy_sites_path, priority: 0.60, changefreq: 'weekly'
   add disclaimer_sites_path, priority: 0.60, changefreq: 'weekly'
   add news_index_path, priority: 0.60, changefreq: 'weekly'
-  Info.where(hide_in_index_news: false).find_each do |info|
+  Info.where(hide_in_index_news: false, hide_in_design_staff_news: false).find_each do |info|
     add news_path(info), lastmod: info.updated_at
   end
 end
