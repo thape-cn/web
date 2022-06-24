@@ -44,8 +44,7 @@
   },
   "resolutions": {
     "chokidar": "^3.5.2",
-    "postcss": "^8.4.13",
-    "browserslist": "=4.20.4"
+    "postcss": "^8.4.13"
   },
   "babel": {
     "presets": [
@@ -54,13 +53,13 @@
   },
   "browserslist": {
     "production": [
-      "ie > 9",
+      "ie 11",
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
     "development": [
-      "ie > 9",
+      "ie 11",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
