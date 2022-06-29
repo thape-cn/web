@@ -40,7 +40,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "@webpack-cli/serve": "^1.6.0",
-    "webpack-dev-server": "^4.7.3"
+    "webpack-dev-server": "^4.9.3"
   },
   "resolutions": {
     "chokidar": "^3.5.2",
