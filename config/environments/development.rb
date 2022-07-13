@@ -63,6 +63,8 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
+  config.active_record.yaml_column_permitted_classes = [Symbol]
+
   # 天问xml目录
   config.tianwen_dir = Rails.root.join('public', 'tianwen_sync')
 end

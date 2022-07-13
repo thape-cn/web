@@ -81,6 +81,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.active_record.yaml_column_permitted_classes = [Symbol]
+
   # 天问xml目录
   config.tianwen_dir = Pathname.new('/home/trs_sync/tianwen_sync')
 end
