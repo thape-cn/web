@@ -236,6 +236,8 @@ GEM
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.7-arm64-darwin)
+      racc (~> 1.4)
     pg (1.4.1)
     psych (4.0.4)
       stringio
