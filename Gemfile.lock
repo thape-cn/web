@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 33dd923abd345243fbc4f5f0e3e8e3a9f9bec53d
+  revision: 834eb087060d7685a34b99c9055d1e1a11898461
   branch: main
   specs:
     wechat (0.16.0)
@@ -236,6 +236,8 @@ GEM
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.7-arm64-darwin)
+      racc (~> 1.4)
     pg (1.4.1)
     psych (4.0.4)
       stringio
@@ -393,4 +395,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.17
+   2.3.18
