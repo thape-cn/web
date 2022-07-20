@@ -236,8 +236,6 @@ GEM
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.7-arm64-darwin)
-      racc (~> 1.4)
     pg (1.4.1)
     psych (4.0.4)
       stringio
@@ -322,7 +320,7 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.3.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
