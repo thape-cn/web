@@ -27,7 +27,6 @@
     <div class="flex-grid mt-8 mb-4">
       <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2 lg:flex-grid-cols-3-gap-2">
         <% @works_results.each do |work| %>
-          <% puts 'work内容:', work.inspect %>
           <div class="relative overflow-hidden hover-scale">
             <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
               <img src="<%= work.snapshot_jpg.url %>" alt="", class="w-full h-full object-cover scale-img">
