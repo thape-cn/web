@@ -4,10 +4,11 @@
 <%= render partial: 'shared/thape_nav' -%>
 
 <div class="relative">
-  <%= image_pack_tag 'static/people-banner-1.jpg', class: "w-full" -%>
+  <%= image_pack_tag 'static/people-banner-2.jpg', class: "w-full" -%>
 </div>
+
 <div class="relative">
-  <%= render partial: 'search_form' %>
+  <%= render partial: 'area_search_form', locals: { search_url: leadership_path(id: 'AICO')} %>
 
   <% if @AICO_SH_people.present? %>
     <div class="w-full mx-auto sm:pb-4 sm:pt-0 lg:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
