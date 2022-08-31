@@ -38,7 +38,7 @@ cn:
       leadership: "集团高管"
       area_leadership: "区域团队"
     leadership:
-      china_area_company: "公司"
+      china_area_company: "分支机构"
     works:
       text: "作品"
       project_type: "类型"
