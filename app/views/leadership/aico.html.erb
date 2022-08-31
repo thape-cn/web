@@ -1,0 +1,74 @@
+<% provide(:title, "集团高管") %>
+<% provide(:meta_title, "集团高管") %>
+
+<%= render partial: 'shared/thape_nav' -%>
+
+<div class="relative">
+  <%= image_pack_tag 'static/people-banner-1.jpg', class: "w-full" -%>
+</div>
+<div class="relative">
+  <%= render partial: 'search_form' %>
+
+  <% if @AICO_SH_people.present? %>
+    <div class="w-full mx-auto sm:pb-4 sm:pt-0 lg:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+      <%= render partial: 'shared/header', locals: { c: 'AICO上海办公室', e: 'AICO SHANGHAI OFFICE',
+        header_path: leadership_index_path, header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
+    </div>
+
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+      <div class="flex-grid">
+        <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
+        <% @AICO_SH_people.each do |person| %>
+          <%= render partial: 'person_square',
+            locals: { person: person, person_class: 'relative overflow-hidden', city: City.find(74) } %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @AICO_SZ_people.present? %>
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+      <%= render partial: 'shared/header', locals: { c: 'AICO深圳办公室', e: 'AICO SHENZHEN OFFICE',
+        header_path: leadership_index_path, header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
+    </div>
+
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+      <div class="flex-grid">
+        <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
+        <% @AICO_SZ_people.each do |person| %>
+          <%= render partial: 'person_square',
+            locals: { person: person, person_class: 'relative overflow-hidden', city: City.find(75) } %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @AICO_XG_people.present? %>
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+      <%= render partial: 'shared/header', locals: { c: 'AICO香港办公室', e: 'AICO HONG KONG OFFICE',
+        header_path: leadership_index_path, header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
+    </div>
+
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+      <div class="flex-grid">
+        <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
+        <% @AICO_XG_people.each do |person| %>
+          <%= render partial: 'person_square',
+            locals: { person: person, person_class: 'relative overflow-hidden', city: City.find(76) } %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @AICO_SH_people.blank? && @AICO_SZ_people.blank? && @AICO_XG_people.blank? %>
+    <div class="flex mt-0 pt-20 sm:pt-32 pb-12 justify-center flex-wrap">
+      <img class="flex-none" style="margin-left: 1rem" src="<%= asset_pack_path('static/no-data.png') -%>">
+      <p class="w-full flex-none text-center mt-3" style="color: #b2b2b2;">暂无搜索结果</p>
+    </div>
+  <% end %>
+</div>
+
+<%= render partial: 'shared/footer' %>
