@@ -149,10 +149,9 @@ class BizMapsController < ApplicationController
     @under_map_companies = [
       { name: '易爱迪（香港）', city: '香港', company: '香港易爱迪' },
       { name: '易爱迪（上海）', city: '上海', company: '上海易爱迪' },
-      { name: '上海AICO建筑', city: '上海', company: '上海爱坤' },
-      { name: '上海AICO室内', city: '上海', company: '上海爱坤' },
-      { name: '深圳AICO', city: '深圳', company: '深圳爱坤' },
-      { name: '香港AICO', city: '香港', company: '香港爱坤' },
+      { name: 'AICO（上海）', city: '上海', company: '上海爱坤' },
+      { name: 'AICO（深圳）', city: '深圳', company: '深圳爱坤' },
+      { name: 'AICO（香港）', city: '香港', company: '香港爱坤' },
       { name: '上海天华规划', city: '上海', company: '上海城规' },
       { name: '深圳天华规划', city: '深圳', company: '深圳城规' },
       { name: '上海天华室内', city: '上海', company: '上海室内' },
