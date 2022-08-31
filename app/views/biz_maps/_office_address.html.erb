@@ -1,14 +1,16 @@
 <div class="w-full lg:w-1/2 leading-loose my-2 lg:my-6">
+  <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> leading-normal sm:leading-tight"><%= m.long_name -%></h1>
   <% if m.alt_name.present? %>
-    <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> leading-normal sm:leading-tight"><%= m.long_name -%></h1>
-    <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> pb-1 leading-normal"><%= m.alt_name -%></h1>
-  <% else %>
-    <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> leading-normal sm:leading-tight pb-2"><%= m.long_name -%></h1>
+    <% m.alt_name.split(',').each do |name| %>
+      <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> leading-normal"><%= name -%></h1>
+    <% end %>
   <% end %>
-  <div class="flex <%= fdsz("text-sm", "text-xl") -%>">
+  <div class="flex <%= fdsz("text-sm", "text-xl") -%> mt-2">
     <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
     <div>
-      <p class="leading-normal"><%= m.address -%></p>
+      <% m.address.split(',').each do |address| %>
+        <p class="leading-normal"><%= address -%></p>
+      <% end %>
     </div>
   </div>
   <% if m.tel.present? || m.marketing_phone.present? || m.media_phone.present? %>
@@ -16,7 +18,9 @@
       <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
       <div>
         <% if m.tel.present? %>
-          <p class="leading-normal"><%= m.tel -%></p>
+          <% m.tel.split(',').each do |tel| %>
+            <p class="leading-normal"><%= tel -%></p>
+          <% end %>
         <% end %>
         <% if m.marketing_phone.present? %>
           <p class="leading-normal"><%= m.marketing_phone -%> (<%= t('map.marketing') -%>)</p>

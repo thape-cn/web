@@ -1,3 +1,5 @@
+<% ms ||= [] %>
+
 <div style="display: none;" x-show="show_city == '<%= c -%>'">
   <header class="pt-2 pb-1">
     <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c">
@@ -8,18 +10,8 @@
     </h2>
   </header>
   <div class="flex flex-wrap">
-    <%= render partial: 'office_address', locals: { m: m1 } %>
-    <% if m2.present? %>
-      <%= render partial: 'office_address', locals: { m: m2 } %>
-    <% end %>
-    <% if m3.present? %>
-      <%= render partial: 'office_address', locals: { m: m3 } %>
-    <% end %>
-    <% if m4.present? %>
-      <%= render partial: 'office_address', locals: { m: m4 } %>
-    <% end %>
-    <% if m5.present? %>
-      <%= render partial: 'office_address', locals: { m: m5 } %>
+    <% ms.each do |m| %>
+      <%= render partial: 'office_address', locals: { m: m } %>
     <% end %>
   </div>
 </div>
