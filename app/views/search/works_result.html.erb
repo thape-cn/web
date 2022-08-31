@@ -27,9 +27,10 @@
     <div class="flex-grid mt-8 mb-4">
       <div class="flex-grid-box flex-grid-cols-1-gap-1 sm:flex-grid-cols-1-gap-2 md:flex-grid-cols-2-gap-2 lg:flex-grid-cols-3-gap-2">
         <% @works_results.each do |work| %>
+          <% puts 'work内容:', work.inspect %>
           <div class="relative overflow-hidden hover-scale">
             <a href="<%= work_path(id: work.id) -%>" class="cursor-pointer">
-              <%= image_tag work.snapshot_jpg.url, class: 'w-full h-full object-cover scale-img' -%>
+              <img src="<%= work.snapshot_jpg.url %>" alt="", class="w-full h-full object-cover scale-img">
               <div class="w-full absolute left-0 bottom-0 px-1 sm:px-2 py-1 text-white card-title-mask">
                 <p class="<%= fdsz("text-lg", "text-3xl") -%> text-left pb-1 font-medium"><%= I18n.with_locale(:cn) { work.project_name } -%></p>
                 <p class="<%= fdsz("text-sm", "text-2xl") -%> text-left leading-snug"><%= I18n.with_locale(:en) { work.project_name } -%></p>
