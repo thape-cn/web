@@ -1,5 +1,5 @@
 <div class="<%= person_class -%>">
-  <a href="<%= leadership_path(id: person.url_name) -%>">
+  <a href="<%= leadership_path(id: person.url_name.presence || person.id) -%>">
     <% if person.avatar.url.present? %>
       <%= image_tag person.avatar.url, class: 'w-full h-full object-cover scale-img' -%>
     <% else %>
@@ -12,7 +12,7 @@
       <% if titles.length > 1 %>
         <p class="<%= fdsz("#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-none relative" style="top: -0.5rem;">...</p>
       <% else %>
-        <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-none">&nbsp</p>
+        <p class="<%= fdsz("text-xs sm:#{I18n.locale == :en ? "text-xs" : "text-sm"}", "text-xs sm:text-base") -%> text-center font-light leading-none">&nbsp;</p>
       <% end %>
     </div>
   </a>
