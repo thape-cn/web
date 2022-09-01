@@ -7,7 +7,7 @@
   <%= image_pack_tag 'static/people-banner-2.jpg', class: "w-full" -%>
 </div>
 
-<div class="relative">
+<div class="relative pb-1 md:pb-3 lg:pb-4 xl:pb-5 xxl:pb-6 xxxl:pb-8">
   <%= render partial: 'area_search_form', locals: { search_url: leadership_path(id: 'AICO')} %>
 
   <% if @AICO_SH_people.present? %>
@@ -29,12 +29,12 @@
   <% end %>
 
   <% if @AICO_SZ_people.present? %>
-    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 mt-1 md:mt-3 lg:mt-4 xl:mt-5 xxl:mt-6 xxxl:mt-8">
       <%= render partial: 'shared/header', locals: { c: 'AICO深圳办公室', e: 'AICO SHENZHEN OFFICE',
         header_path: leadership_path(id: 'AICO'), header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
     </div>
 
-    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
       <div class="flex-grid">
         <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
         <% @AICO_SZ_people.each do |person| %>
@@ -47,12 +47,12 @@
   <% end %>
 
   <% if @AICO_XG_people.present? %>
-    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+    <div class="w-full mx-auto sm:py-4 md:py-8 px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 mt-1 md:mt-3 lg:mt-4 xl:mt-5 xxl:mt-6 xxxl:mt-8">
       <%= render partial: 'shared/header', locals: { c: 'AICO香港办公室', e: 'AICO HONG KONG OFFICE',
         header_path: leadership_path(id: 'AICO'), header_class: 'border-gray-200 border-solid border-b-0 lg:border-b', show_header_right: false } %>
     </div>
 
-    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8 mb-1 md:mb-3 lg:mb-4 xl:mb-5 xxl:mb-6 xxxl:mb-8">
+    <div class="w-full mx-auto px-1 md:px-3 lg:px-4 xl:px-5 xxl:px-6 xxxl:px-8">
       <div class="flex-grid">
         <div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2 xxl:flex-grid-cols-6-gap-2">
         <% @AICO_XG_people.each do |person| %>
