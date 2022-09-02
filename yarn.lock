@@ -2110,9 +2110,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.237"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.237.tgz#c695c5fedc3bb48f04ba1b39470c5aef2aaafd84"
-  integrity sha512-vxVyGJcsgArNOVUJcXm+7iY3PJAfmSapEszQD1HbyPLl0qoCmNQ1o/EX3RI7Et5/88In9oLxX3SGF8J3orkUgA==
+  version "1.4.240"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.240.tgz#b11fb838f2e79f34fbe8b57eec55e7e5d81ee6ea"
+  integrity sha512-r20dUOtZ4vUPTqAajDGonIM1uas5tf85Up+wPdtNBNvBSqGCfkpvMVvQ1T8YJzPV9/Y9g3FbUDcXb94Rafycow==
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -3772,9 +3772,9 @@ sass-loader@^12.4.0:
     neo-async "^2.6.2"
 
 sass@^1.45.1:
-  version "1.54.7"
-  resolved "https://registry.npmmirror.com/sass/-/sass-1.54.7.tgz#a93fb1690472b161fab8f4ab34a66a0f3000c478"
-  integrity sha512-3q7MQz7sCpVG6TLhUfZwGOcd2/sm2ghYN2JEdRjNiW04ILdvahdo9GuAs+bxsxZ3hDCKv+wUT5w0iFWGU0CxlA==
+  version "1.54.8"
+  resolved "https://registry.npmmirror.com/sass/-/sass-1.54.8.tgz#4adef0dd86ea2b1e4074f551eeda4fc5f812a996"
+  integrity sha512-ib4JhLRRgbg6QVy6bsv5uJxnJMTS2soVcCp9Y88Extyy13A8vV0G1fAwujOzmNkFQbR3LvedudAMbtuNRPbQww==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -4186,9 +4186,9 @@ unpipe@1.0.0, unpipe@~1.0.0:
   integrity sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==
 
 update-browserslist-db@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npmmirror.com/update-browserslist-db/-/update-browserslist-db-1.0.5.tgz#be06a5eedd62f107b7c19eb5bcefb194411abf38"
-  integrity sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q==
+  version "1.0.6"
+  resolved "https://registry.npmmirror.com/update-browserslist-db/-/update-browserslist-db-1.0.6.tgz#044fddb5c26989628da5cff7a82ce1472152bce6"
+  integrity sha512-We7BqM9XFlcW94Op93uW8+2LXvGezs7QA0WY+f1H7RR1q46B06W6hZF6LbmOlpCS1HU22q/6NOGTGW5sCm7NJQ==
   dependencies:
     escalade "^3.1.1"
     picocolors "^1.0.0"
