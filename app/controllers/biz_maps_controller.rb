@@ -46,8 +46,8 @@ class BizMapsController < ApplicationController
     @m_上海天华 = MapContact.new({
       long_name: t('map.contact-shanghai-name'),
       alt_name: '',
-      address: [t('map.contact-shanghai-address-1'), t('map.contact-shanghai-address-2')].join(','),
-      tel: ['021-34189900', '021-64281588'].join(','),
+      address: [t('map.contact-shanghai-address-1'), t('map.contact-shanghai-address-2')].join('|||'),
+      tel: ['021-34189900', '021-64281588'].join('|||'),
       marketing_phone: '',
       media_phone: '',
       fax: '021-64281587',
