@@ -5,18 +5,18 @@
       <div class="bg-thape-white-t80 p-2 border border-1 border-gray-300 w-full leading-loose">
         <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:text-3xl") -%> font-medium leading-tight"><%= m.long_name -%></h1>
         <% if m.alt_name.present? %>
-          <% m.alt_name.split(',').each do |name| %>
+          <% m.alt_name.split('|||').each do |name| %>
             <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:text-3xl") -%> font-medium"><%= name -%></h1>
           <% end %>
         <% end %>
         <div class="mt-2 <%= fdsz("text-sm", "text-xl") -%>">
           <label class="float-left"><%= t('map.address') -%>：</label>
-          <% m.address.split(',').each do |address| %>
+          <% m.address.split('|||').each do |address| %>
             <p class="<%= mlp -%>"><%= address -%></p>
           <% end %>
           <% if m.tel.present? %>
             <label class="float-left"><%= t('map.tel') -%>：</label>
-            <% m.tel.split(',').each do |tel| %>
+            <% m.tel.split('|||').each do |tel| %>
               <p class="<%= mlp -%>"><%= tel -%></p>
             <% end %>
           <% end %>

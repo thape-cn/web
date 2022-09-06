@@ -3,14 +3,14 @@
     <% marks.each do |m| %>
       <h1 class="font-medium pb-1 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
       <% if m.alt_name.present? %>
-        <% m.alt_name.split(',').each do |name| %>
+        <% m.alt_name.split('|||').each do |name| %>
           <h1 class="<%= fdsz('text-xl') -%> font-medium leading-normal"><%= name -%></h1>
         <% end %>
       <% end %>
       <div class="flex mt-1">
         <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
         <div>
-          <% m.address.split(',').each do |address| %>
+          <% m.address.split('|||').each do |address| %>
             <p class="leading-normal"><%= address -%></p>
           <% end %>
         </div>
@@ -20,7 +20,7 @@
           <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
           <div>
             <% if m.tel.present? %>
-              <% m.tel.split(',').each do |tel| %>
+              <% m.tel.split('|||').each do |tel| %>
                 <p class="leading-normal"><%= tel -%></p>
               <% end %>
             <% end %>
