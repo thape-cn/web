@@ -237,7 +237,7 @@ GEM
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pg (1.4.3)
-    psych (4.0.4)
+    psych (4.0.5)
       stringio
     public_suffix (5.0.0)
     puma (5.6.5)
@@ -393,4 +393,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.3.21
+   2.3.22
