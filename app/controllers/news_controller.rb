@@ -48,7 +48,7 @@ class NewsController < ApplicationController
   end
 
   def index
-    @seo.home_title = '天华建筑公司动态-新闻动态'
+    @seo.home_title = '上海天华建筑设计有限公司动态-新闻动态'
     @seo.description = '公司动态,公司新闻'
     @seo.abstract = @seo.description
     @seo.keywords = '天华建设新闻栏目为您提供最新的天华建筑公司动态，公司新闻等内容，欢迎访问天华建筑官网了解更多天华建筑最新动态'
