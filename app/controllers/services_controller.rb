@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
       chinese_title: t('services.interior.chinese_title'),
       english_title: t('services.interior.english_title'),
       ps: @service_file.interior_intro.split("\n"),
-      link_site_url: 'http://www.thyizhu.com/',
+      link_site_url: interior_path,
       link_site_title: '天华易筑'
     }
   end
