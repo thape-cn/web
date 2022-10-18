@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
       english_title: t('services.interior.english_title'),
       ps: @service_file.interior_intro.split("\n"),
       link_site_url: interior_works_path,
-      link_site_title: '天华易筑'
+      link_site_title: '天华室内项目'
     }
   end
 
