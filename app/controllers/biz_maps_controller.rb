@@ -34,7 +34,6 @@ class BizMapsController < ApplicationController
     @m_上海医养 = MapContact.find(40)
     @m_深圳AICO = MapContact.find(41)
     @m_香港AICO = MapContact.find(42)
-    @m_深圳城规 = MapContact.find(43)
 
     # 西北天华
     @m_西安天华 = MapContact.find(4)
@@ -111,7 +110,6 @@ class BizMapsController < ApplicationController
       { c: '上海爱坤', marks: [@m_爱坤] },
       { c: '上海室内', marks: [@m_上海室内] },
       { c: '上海城规', marks: [@m_上海城规] },
-      { c: '深圳城规', marks: [@m_深圳城规] },
       { c: '上海园林', marks: [@m_上海园林] },
       { c: '虹核审图', marks: [@m_虹核审图] },
       { c: '易术家互娱', marks: [@m_易术家互娱] },
@@ -153,7 +151,6 @@ class BizMapsController < ApplicationController
       { name: 'AICO（深圳）', city: '深圳', company: '深圳爱坤' },
       { name: 'AICO（香港）', city: '香港', company: '香港爱坤' },
       { name: '上海天华规划', city: '上海', company: '上海城规' },
-      { name: '深圳天华规划', city: '深圳', company: '深圳城规' },
       { name: '上海天华室内', city: '上海', company: '上海室内' },
       { name: '上海天华景观', city: '上海', company: '上海园林' },
       { name: '易术家互娱科技', city: '上海', company: '易术家互娱' },
@@ -166,7 +163,7 @@ class BizMapsController < ApplicationController
     @cities = [
       { c: '上海', e: 'SHANGHAI', ms: [@m_上海天华, @m_爱坤, @m_易爱迪, @m_上海城规, @m_上海室内, @m_上海园林, @m_易术家互娱, @m_虹核审图, @m_上海嘉易, @m_上海医养] },
       { c: '北京', e: 'BEIJING', ms: [@m_北京天华] },
-      { c: '深圳', e: 'SHENZHEN', ms: [@m_深圳天华, @m_深圳AICO, @m_深圳城规] },
+      { c: '深圳', e: 'SHENZHEN', ms: [@m_深圳天华, @m_深圳AICO] },
       { c: '广州', e: 'GUANGZHOU', ms: [@m_广州天华] },
       { c: '天津', e: 'TIANJIN', ms: [@m_天津天华] },
       { c: '重庆', e: 'CHONGQING', ms: [@m_重庆天华] },
