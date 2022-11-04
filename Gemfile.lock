@@ -368,7 +368,7 @@ DEPENDENCIES
   listen
   localhost
   pg
-  puma
+  puma (< 6)
   rails (~> 7.0.4)
   rake
   rexml
