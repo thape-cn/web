@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2021_01_21_093127) do
   create_table "tianhua2020s", force: :cascade do |t|
     t.string "name"
     t.string "clerkcode", null: false
-    t.datetime "p1_firstday"
+    t.datetime "p1_firstday", precision: nil
     t.float "p3_workrate"
     t.integer "p4_busymonth"
     t.string "p4_workcom"
