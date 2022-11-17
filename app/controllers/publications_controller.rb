@@ -13,7 +13,7 @@ class PublicationsController < ApplicationController
         preview_url: helpers.pdf_view_url(item.pdf_file.url),
         download_url: item.pdf_file.url,
         width: "#{100 * item.pixel_width / 700}%",
-        height: "#{100 * item.pixel_height / 900}%",
+        height: "#{100 * item.pixel_height / 900}%"
       }
     end
 
@@ -29,14 +29,14 @@ class PublicationsController < ApplicationController
         download_url: item.pdf_file.url,
         width: "#{100 * item.pixel_width / 700}%",
         height: "#{100 * item.pixel_height / 900}%",
-        category: item.category_status,
+        category: item.category_status
       }
     end
 
     @publication_categoty = [
-      { name: 'monographs', title: t('publication.monographs') },
-      { name: 'standard_specification', title: t('publication.standard_specification') },
-      { name: 'paper_patent', title: t('publication.paper_patent') },
+      {name: "monographs", title: t("publication.monographs")},
+      {name: "standard_specification", title: t("publication.standard_specification")},
+      {name: "paper_patent", title: t("publication.paper_patent")}
     ]
 
     insights = Insight.order(position: :asc).all
@@ -50,7 +50,7 @@ class PublicationsController < ApplicationController
         preview_url: helpers.pdf_view_url(item.pdf_file.url),
         download_url: item.pdf_file.url,
         width: "#{100 * item.pixel_width / 700}%",
-        height: "#{100 * item.pixel_height / 900}%",
+        height: "#{100 * item.pixel_height / 900}%"
       }
     end
   end

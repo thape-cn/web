@@ -22,5 +22,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 6.hours do
-  rake 'tianwen_sync:all'
+  rake "tianwen_sync:all"
 end

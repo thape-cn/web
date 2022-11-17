@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.17.0'
+lock "~> 3.17.0"
 
-set :application, 'thape_web'
-set :repo_url, 'https://git.thape.com.cn/rails/thape_web.git'
+set :application, "thape_web"
+set :repo_url, "https://git.thape.com.cn/rails/thape_web.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -42,11 +42,11 @@ append :linked_dirs, *%w[log tmp/pids tmp/cache tmp/sockets public/system public
 # set :ssh_options, verify_host_key: :secure
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.1.2'
+set :rbenv_ruby, "3.1.2"
 
 set :puma_init_active_record, true
 set :puma_phased_restart, true
 
 # https://stackoverflow.com/a/48627238/262826
-Rake::Task['deploy:assets:backup_manifest'].clear_actions
-Rake::Task['deploy:assets:restore_manifest'].clear_actions
+Rake::Task["deploy:assets:backup_manifest"].clear_actions
+Rake::Task["deploy:assets:restore_manifest"].clear_actions

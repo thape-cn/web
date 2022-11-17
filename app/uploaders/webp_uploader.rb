@@ -6,6 +6,6 @@ class WebpUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(webp)
+    %w[webp]
   end
 end

@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class TailHome < ApplicationRecord
-  has_one :hero_news, class_name: 'Info', foreign_key: :id, primary_key: :hero_news_id
-  has_one :work_1, class_name: 'Work', foreign_key: :id, primary_key: :new_project_1_id
-  has_one :work_2, class_name: 'Work', foreign_key: :id, primary_key: :new_project_2_id
-  has_one :work_3, class_name: 'Work', foreign_key: :id, primary_key: :new_project_3_id
-  has_one :work_4, class_name: 'Work', foreign_key: :id, primary_key: :new_project_4_id
-  has_one :work_5, class_name: 'Work', foreign_key: :id, primary_key: :new_project_5_id
-  has_one :work_6, class_name: 'Work', foreign_key: :id, primary_key: :new_project_6_id
+  has_one :hero_news, class_name: "Info", foreign_key: :id, primary_key: :hero_news_id
+  has_one :work_1, class_name: "Work", foreign_key: :id, primary_key: :new_project_1_id
+  has_one :work_2, class_name: "Work", foreign_key: :id, primary_key: :new_project_2_id
+  has_one :work_3, class_name: "Work", foreign_key: :id, primary_key: :new_project_3_id
+  has_one :work_4, class_name: "Work", foreign_key: :id, primary_key: :new_project_4_id
+  has_one :work_5, class_name: "Work", foreign_key: :id, primary_key: :new_project_5_id
+  has_one :work_6, class_name: "Work", foreign_key: :id, primary_key: :new_project_6_id
 
-  has_one :news_1, class_name: 'Info', foreign_key: :id, primary_key: :info_1_id
-  has_one :news_2, class_name: 'Info', foreign_key: :id, primary_key: :info_2_id
-  has_one :news_3, class_name: 'Info', foreign_key: :id, primary_key: :info_3_id
+  has_one :news_1, class_name: "Info", foreign_key: :id, primary_key: :info_1_id
+  has_one :news_2, class_name: "Info", foreign_key: :id, primary_key: :info_2_id
+  has_one :news_3, class_name: "Info", foreign_key: :id, primary_key: :info_3_id
 
   mount_uploader :background_1, PictureUploader
   mount_uploader :background_1_webp, PictureUploader

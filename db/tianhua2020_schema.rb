@@ -58,5 +58,4 @@ ActiveRecord::Schema[7.0].define(version: 2021_01_21_093127) do
     t.string "orgcode"
     t.string "deptcode_sum"
   end
-
 end

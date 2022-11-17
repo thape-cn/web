@@ -3,19 +3,18 @@
 class LeadershipController < ApplicationController
   def index
     @search_name = params[:name].presence
-    jituan_people = Person.includes(city_people: :city).where(cities: { name: '集团' })
+    jituan_people = Person.includes(city_people: :city).where(cities: {name: "集团"})
       .where(leaving_date: nil).order(position: :asc)
     @management_people = if @search_name.present?
-      jituan_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-        .where(category: 1).where('person_translations.name like ?', "%#{@search_name}%")
+      jituan_people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
+        .where(category: 1).where("person_translations.name like ?", "%#{@search_name}%")
     else
       jituan_people.where(category: 1)
     end
 
-
     @speciality_people = if @search_name.present?
-      jituan_people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-        .where(category: 2).where('person_translations.name like ?', "%#{@search_name}%")
+      jituan_people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
+        .where(category: 2).where("person_translations.name like ?", "%#{@search_name}%")
     else
       jituan_people.where(category: 2)
     end
@@ -56,60 +55,60 @@ class LeadershipController < ApplicationController
         26, # 天华景观
         28, # 易术家
         27, # 虹核审图
-        60, # 上海天华医养
+        60 # 上海天华医养
       ]
 
       # 分支机构
-      @branches = City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).in_order_of(:id, city_ids).uniq{ |city| city.url_name }
+      @branches = City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).in_order_of(:id, city_ids).uniq { |city| city.url_name }
 
-      if city_area.url_name.upcase == 'AICO'
+      if city_area.url_name.upcase == "AICO"
         people = Person.includes(:city_people).where(leaving_date: nil).order(position: :asc).distinct
 
         if @search_name.present?
-          people = people.joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-          .where('person_translations.name like ?', "%#{@search_name}%")
+          people = people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
+            .where("person_translations.name like ?", "%#{@search_name}%")
         end
 
         # AICO上海
-        @AICO_SH_people = people.where(city_people: { city_id: 74 })
+        @AICO_SH_people = people.where(city_people: {city_id: 74})
 
         # AICO深圳
-        @AICO_SZ_people = people.where(city_people: { city_id: 75 })
+        @AICO_SZ_people = people.where(city_people: {city_id: 75})
 
         # AICO香港
-        @AICO_XG_people = people.where(city_people: { city_id: 76 })
+        @AICO_XG_people = people.where(city_people: {city_id: 76})
 
-        render 'aico'
+        render "aico"
       else
-        city_area_people = Person.includes(:city_people).where(city_people: { city_id: city_area.id })
+        city_area_people = Person.includes(:city_people).where(city_people: {city_id: city_area.id})
           .where(leaving_date: nil)
           .order(position: :asc)
-        city_management_ids = city_area_people.where(city_people: { is_management: true }).pluck(:id)
-        city_professional_ids = city_area_people.where(city_people: { is_professional: true }).pluck(:id)
+        city_management_ids = city_area_people.where(city_people: {is_management: true}).pluck(:id)
+        city_professional_ids = city_area_people.where(city_people: {is_professional: true}).pluck(:id)
         @management_people = if @search_name.present?
-          city_area_people.where(category: 1).or(city_area_people.where(city_people: { is_management: true }))
-            .joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-            .where('person_translations.name like ?', "%#{@search_name}%")
+          city_area_people.where(category: 1).or(city_area_people.where(city_people: {is_management: true}))
+            .joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
+            .where("person_translations.name like ?", "%#{@search_name}%")
         else
-          city_area_people.where(category: 1).or(city_area_people.where(city_people: { is_management: true }))
+          city_area_people.where(category: 1).or(city_area_people.where(city_people: {is_management: true}))
         end.where.not(id: city_professional_ids)
-  
+
         @speciality_people = if @search_name.present?
-          city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
-            .joins('INNER JOIN person_translations ON person_translations.person_id = people.id')
-            .where('person_translations.name like ?', "%#{@search_name}%")
+          city_area_people.where(category: 2).or(city_area_people.where(city_people: {is_professional: true}))
+            .joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
+            .where("person_translations.name like ?", "%#{@search_name}%")
         else
-          city_area_people.where(category: 2).or(city_area_people.where(city_people: { is_professional: true }))
+          city_area_people.where(category: 2).or(city_area_people.where(city_people: {is_professional: true}))
         end.where.not(id: city_management_ids)
         e_title = city_area.company_name_english&.upcase
 
-        render 'area_leadership', locals: { c: city_area.company_name, city_url_name: city_area.url_name, e_title: e_title, city: city_area }
+        render "area_leadership", locals: {c: city_area.company_name, city_url_name: city_area.url_name, e_title: e_title, city: city_area}
       end
     else
       @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
         || Person.where(leaving_date: nil).find_by!(url_name: params[:id])
       @infos = Info.order(position: :asc).where(hide_in_design_staff_news: false).limit(4)
-      @infos = @infos.where('title LIKE ?', "%#{@person.name}%").or(@infos.where('content LIKE ?', "%#{@person.name}%"))
+      @infos = @infos.where("title LIKE ?", "%#{@person.name}%").or(@infos.where("content LIKE ?", "%#{@person.name}%"))
     end
   end
 end

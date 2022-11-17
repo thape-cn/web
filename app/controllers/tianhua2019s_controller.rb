@@ -2,7 +2,7 @@
 
 class Tianhua2019sController < ApplicationController
   wechat_api
-  layout 'tianhua2019'
+  layout "tianhua2019"
 
   def show
     release_date = Date.new(2020, 1, 20)
@@ -10,30 +10,30 @@ class Tianhua2019sController < ApplicationController
     page2_age = years_between_dates(r.firstday)
     page2_day = "#{(release_date - r.firstday).floor}<span style='caret-color: rgb(57, 106, 141); color: rgb(57, 106, 141); font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft YaHei&quot;, &quot;Microsoft JhengHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Source Han Sans CN&quot;, &quot;Noto Sans SC&quot;, &quot;Source Han Sans TC&quot;, &quot;Noto Sans CJK TC&quot;, &quot;WenQuanYi Micro Hei&quot;, SimSun, sans-serif; font-size: 24px; font-weight: normal;'>天</span>".html_safe
     page2_comment = if page2_age >= 3
-      '我们之间的默契，旁人无法了解'
+      "我们之间的默契，旁人无法了解"
     elsif page2_age > 1 && page2_age < 3
-      '我们都已经习惯了彼此的陪伴'
+      "我们都已经习惯了彼此的陪伴"
     else
-      '蜜月总会过去，未来定会更好'
+      "蜜月总会过去，未来定会更好"
     end
 
     page3_busy_percent = if r.rank.present?
-      "#{(r.rank*100).to_i}%"
+      "#{(r.rank * 100).to_i}%"
     end
     page3_filling_rate = if r.fill_rate.present?
       if r.fill_rate < 0.01
-        '1%'
+        "1%"
       else
-        "#{(r.fill_rate*100).to_i}%"
+        "#{(r.fill_rate * 100).to_i}%"
       end
     end
     page3_comment = if r.fill_rate.present?
       if r.fill_rate >= 0.95
-        '你的灵魂伴侣除了CAD还有我～<br>继续加油'.html_safe
+        "你的灵魂伴侣除了CAD还有我～<br>继续加油".html_safe
       elsif r.fill_rate >= 0.60 && r.fill_rate < 0.95
-        '有那么几天你忘了和我“见面”<br>但我依然在等着你！'.html_safe
+        "有那么几天你忘了和我“见面”<br>但我依然在等着你！".html_safe
       else
-        '你没有填报的第一天，想你…<br>你没有填报的第N天，想你xN…'.html_safe
+        "你没有填报的第一天，想你…<br>你没有填报的第N天，想你xN…".html_safe
       end
     end
     page3_busy_month = r.max_month.month
@@ -45,7 +45,7 @@ class Tianhua2019sController < ApplicationController
       "#{r.prj_area.to_i}<font face='-apple-system, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, STHeiti, Microsoft YaHei, Microsoft JhengHei, Source Han Sans SC, Noto Sans CJK SC, Source Han Sans CN, Noto Sans SC, Source Han Sans TC, Noto Sans CJK TC, WenQuanYi Micro Hei, SimSun, sans-serif' size='4' style='font-weight: normal;' color='#386a8e'>平方米</font>".html_safe
     end
     page5a_certificate = if r.certificate.present?
-      r.certificate.split(',').reject(&:blank?).join('<br />').html_safe
+      r.certificate.split(",").reject(&:blank?).join("<br />").html_safe
     end
     page6_course_num = if r.learn_course.present?
       "你今年一共学习了<b><font face='Avenir, Helvetica, Arial, sans-serif' color='#ffaa48' size='7'>#{r.learn_course}</font></b>个课程".html_safe
@@ -55,7 +55,7 @@ class Tianhua2019sController < ApplicationController
     end
 
     page9_plugin_name = if r.skywalker.present?
-      r.skywalker.split('/n').join('<br />').html_safe
+      r.skywalker.split("/n").join("<br />").html_safe
     end
 
     page10_project_name_hours = if r.max_parter_project3.present?
@@ -67,7 +67,7 @@ class Tianhua2019sController < ApplicationController
     end
 
     page10_hours = if r.max_parter_hours.present?
-      "#{r.max_parter_hours}"
+      r.max_parter_hours.to_s
     end
 
     page11_folk_course = if r.old_folk_course.present?
@@ -105,7 +105,7 @@ class Tianhua2019sController < ApplicationController
       page4_project_name: r.max_projectname,
       page4_work_day: r.max_workdays,
       page5_complete_area: page5_complete_area,
-      page5_football_num: ((r.prj_area||0)/137.5).to_i,
+      page5_football_num: ((r.prj_area || 0) / 137.5).to_i,
       page5_working_city: r.work_place,
       page5_hometown: r.home_town.presence,
       page5a_certificate: page5a_certificate,
@@ -117,7 +117,7 @@ class Tianhua2019sController < ApplicationController
       page8_my_students: r.student_no,
       page8_my_course: r.pop_course,
       page8_my_attendance: r.learn_times&.to_i,
-      page9_nickname: 'Skywalker',
+      page9_nickname: "Skywalker",
       page9_plugin_name: page9_plugin_name,
       page10_name: r.max_parter_name,
       page10_project_name_hours: page10_project_name_hours,
@@ -145,18 +145,18 @@ class Tianhua2019sController < ApplicationController
 
   private
 
-    def years_between_dates(date_from, date_to = Date.new(2020, 1, 20))
-      ((date_to - date_from) / 365).ceil
-    end
+  def years_between_dates(date_from, date_to = Date.new(2020, 1, 20))
+    ((date_to - date_from) / 365).ceil
+  end
 
-    def max_workday(max_key)
-      return '周四' unless max_key.present?
-      {
-        Monday: '周一',
-        Tuesday: '周二',
-        Wednesday: '周三',
-        Thursday: '周四',
-        Friday: '周五',
-      }[max_key.to_sym]
-    end
+  def max_workday(max_key)
+    return "周四" unless max_key.present?
+    {
+      Monday: "周一",
+      Tuesday: "周二",
+      Wednesday: "周三",
+      Thursday: "周四",
+      Friday: "周五"
+    }[max_key.to_sym]
+  end
 end

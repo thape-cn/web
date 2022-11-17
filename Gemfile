@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org/'
+source "https://rubygems.org/"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.7'
+ruby ">= 2.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.4'
-gem 'enumize'
-gem 'sqlite3'
-gem 'pg'
+gem "rails", "~> 7.0.4"
+gem "enumize"
+gem "sqlite3"
+gem "pg"
 
-gem 'puma', '< 6' # current thape_web server not ready for puma 6
+gem "puma", "< 6" # current thape_web server not ready for puma 6
 
-gem 'shakapacker'
+gem "shakapacker"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.11'
+gem "jbuilder", "~> 2.11"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -25,62 +25,62 @@ gem 'jbuilder', '~> 2.11'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.9.3', require: false
+gem "bootsnap", ">= 1.9.3", require: false
 
-gem 'browser'
+gem "browser"
 
-gem 'canonical-rails'
+gem "canonical-rails"
 
-gem 'sitemap_generator'
+gem "sitemap_generator"
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
-gem 'wechat', git: 'https://github.com/Eric-Guo/wechat', branch: :main
-gem 'rake'
+gem "wechat", git: "https://github.com/Eric-Guo/wechat", branch: :main
+gem "rake"
 
 group :production do
-  gem 'dalli'
+  gem "dalli"
 end
 
-gem 'whenever', require: false
+gem "whenever", require: false
 
 group :development, :test do
   gem "standard"
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debug'
+  gem "debug"
 end
 
-gem 'carrierwave'
-gem 'carrierwave-aliyun'
+gem "carrierwave"
+gem "carrierwave-aliyun"
 
-gem 'globalize'
+gem "globalize"
 
-gem 'kaminari'
-gem 'chinese_pinyin', require: false
+gem "kaminari"
+gem "chinese_pinyin", require: false
 
 group :development do
-  gem 'localhost', require: 'localhost/authority' # supports puma for self-signed certificates.
+  gem "localhost", require: "localhost/authority" # supports puma for self-signed certificates.
 
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console'
-  gem 'listen'
+  gem "web-console"
+  gem "listen"
 
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-puma', '~> 5.2.0'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "capistrano-rbenv"
+  gem "capistrano3-puma", "~> 5.2.0"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'rexml' # required by selenium-webdriver for ruby 3.0
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "rexml" # required by selenium-webdriver for ruby 3.0
 
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem "webdrivers"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

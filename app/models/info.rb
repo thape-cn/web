@@ -14,27 +14,26 @@ class Info < ApplicationRecord
   before_create :set_new_position
   paginates_per 12
 
-
-  def write_tianwen_xml(prefix = 'news')
-    Tianwen.write_xml([prefix, id].join('_')) do |tmpl|
-      tmpl.at_css('TRS_VERSION').content = 'D20'
-      tmpl.at_css('TRS_ORG').content = '品牌与公关部'
-      tmpl.at_css('TRS_CATEGORY').content = '新闻'
-      tmpl.at_css('TRS_PRIMARY').content = "web_info_#{id}"
-      tmpl.at_css('TRS_TITLE').add_child(tmpl.create_cdata(title))
-      tmpl.at_css('TRS_CONTENT').add_child(tmpl.create_cdata(ActionController::Base.helpers.strip_tags(content)))
-      tmpl.at_css('TRS_CREATETIME').add_child(tmpl.create_cdata(created_at.to_s(:db)))
-      tmpl.at_css('TRS_KEYWORDS').add_child(tmpl.create_cdata(seo_keywords))
-      tmpl.at_css('TRS_SUMMARY').add_child(tmpl.create_cdata(seo_description))
-      tmpl.at_css('TRS_BACKLINK').add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.news_url(id: id)))
-      tmpl.at_css('TRS_CRESERVED1').add_child(tmpl.create_cdata(snapshot.url(thumb: '?x-oss-process=image/resize,w_327')))
-      tmpl.at_css('TRS_OPP').content = 1 # 1 for create, 2 for modify
+  def write_tianwen_xml(prefix = "news")
+    Tianwen.write_xml([prefix, id].join("_")) do |tmpl|
+      tmpl.at_css("TRS_VERSION").content = "D20"
+      tmpl.at_css("TRS_ORG").content = "品牌与公关部"
+      tmpl.at_css("TRS_CATEGORY").content = "新闻"
+      tmpl.at_css("TRS_PRIMARY").content = "web_info_#{id}"
+      tmpl.at_css("TRS_TITLE").add_child(tmpl.create_cdata(title))
+      tmpl.at_css("TRS_CONTENT").add_child(tmpl.create_cdata(ActionController::Base.helpers.strip_tags(content)))
+      tmpl.at_css("TRS_CREATETIME").add_child(tmpl.create_cdata(created_at.to_s(:db)))
+      tmpl.at_css("TRS_KEYWORDS").add_child(tmpl.create_cdata(seo_keywords))
+      tmpl.at_css("TRS_SUMMARY").add_child(tmpl.create_cdata(seo_description))
+      tmpl.at_css("TRS_BACKLINK").add_child(tmpl.create_cdata(Rails.application.routes.url_helpers.news_url(id: id)))
+      tmpl.at_css("TRS_CRESERVED1").add_child(tmpl.create_cdata(snapshot.url(thumb: "?x-oss-process=image/resize,w_327")))
+      tmpl.at_css("TRS_OPP").content = 1 # 1 for create, 2 for modify
     end
   end
 
   private
 
-    def set_new_position
-      self.position = Info.count
-    end
+  def set_new_position
+    self.position = Info.count
+  end
 end

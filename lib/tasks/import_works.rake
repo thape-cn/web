@@ -1,41 +1,41 @@
 # frozen_string_literal: true
 
-require 'csv'
+require "csv"
 
 namespace :import_works do
-  desc 'Import the CSV to works'
+  desc "Import the CSV to works"
   task :from_csv, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file]
     CSV.foreach(csv_file_path, headers: true) do |row|
-      大类别s = row['大类别'].split(',')
+      大类别s = row["大类别"].split(",")
 
-      中文项目名称 = row['中文项目名称']&.strip
-      英文项目名称 = row['英文项目名称']&.strip
+      中文项目名称 = row["中文项目名称"]&.strip
+      英文项目名称 = row["英文项目名称"]&.strip
 
-      客户名称 = row['客户名称']&.strip
-      CLIENT = row['CLIENT']&.strip
+      客户名称 = row["客户名称"]&.strip
+      CLIENT = row["CLIENT"]&.strip
 
-      设计完成时间 = row['设计完成时间']&.strip
+      设计完成时间 = row["设计完成时间"]&.strip
 
-      所在城市 = row['所在城市']&.strip
-      所属区域 = row['区域']&.strip
-      LOCATION = row['LOCATION']&.strip
+      所在城市 = row["所在城市"]&.strip
+      所属区域 = row["区域"]&.strip
+      LOCATION = row["LOCATION"]&.strip
 
-      用地面积 = row['用地面积']&.strip
-      规划面积 = row['规划面积']&.strip
-      建筑面积 = row['建筑面积']&.strip
+      用地面积 = row["用地面积"]&.strip
+      规划面积 = row["规划面积"]&.strip
+      建筑面积 = row["建筑面积"]&.strip
 
-      服务范围 = row['服务范围']&.strip
-      SERVICES = row['SERVICES']&.strip
+      服务范围 = row["服务范围"]&.strip
+      SERVICES = row["SERVICES"]&.strip
 
-      设计团队 = row['设计团队']&.strip
-      TEAM = row['TEAM']&.strip
+      设计团队 = row["设计团队"]&.strip
+      TEAM = row["TEAM"]&.strip
 
-      合作单位 = row['合作单位']&.strip
-      COOPERATION = row['COOPERATION']&.strip
+      合作单位 = row["合作单位"]&.strip
+      COOPERATION = row["COOPERATION"]&.strip
 
-      获奖 = row['获奖']&.strip
-      AWARDS = row['AWARDS']&.strip
+      获奖 = row["获奖"]&.strip
+      AWARDS = row["AWARDS"]&.strip
 
       I18n.locale = :cn
 
@@ -48,7 +48,6 @@ namespace :import_works do
       work.team = 设计团队
       work.cooperation = 合作单位
       work.awards = 获奖
-
 
       work.design_completion = Date.ordinal(设计完成时间.to_i)
       work.construction_completion = Date.ordinal(设计完成时间.to_i)

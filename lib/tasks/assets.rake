@@ -2,5 +2,5 @@
 
 namespace :assets do
   desc "Compile all the assets"
-  task :precompile => ["yarn:install", "webpacker:compile"]
+  task precompile: ["yarn:install", "webpacker:compile"]
 end
