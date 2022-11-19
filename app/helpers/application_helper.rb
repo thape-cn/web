@@ -55,6 +55,7 @@ module ApplicationHelper
     when "展示区/示范区"
       "w-48"
     when "城市设计/更新"
+      "w-40"
     when "综合体/TOD"
       "w-40"
     else
