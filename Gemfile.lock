@@ -326,7 +326,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sqlite3 (1.5.3)
+    sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
     sshkit (1.21.3)
       net-scp (>= 1.1.2)
