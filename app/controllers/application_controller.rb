@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  wechat_api
+  wechat_api account: :thmp_account
+
   before_action :set_locale
   before_action :set_ts
   before_action :prepare_seo_variable
