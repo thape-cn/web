@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Tianhua2019sController < ApplicationController
-  wechat_api account: :thmp_account
+  wechat_api account: :thmp
   layout "tianhua2019"
 
   def show
