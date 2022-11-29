@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-set :rbenv_ruby, "3.1.3"
+set :rbenv_ruby, "3.1.2"
 set :nginx_use_ssl, true
 set :rails_env, "production"
 set :branch, :main
