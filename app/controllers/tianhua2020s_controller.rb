@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Tianhua2020sController < ApplicationController
+  wechat_api
   layout "tianhua2020"
 
   def show
