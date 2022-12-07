@@ -10,9 +10,11 @@
           <% end %>
         <% end %>
         <div class="mt-2 <%= fdsz("text-sm", "text-xl") -%>">
-          <label class="float-left"><%= t('map.address') -%>：</label>
-          <% m.address.split('|||').each do |address| %>
-            <p class="<%= mlp -%>"><%= address -%></p>
+          <% if m.address.present? %>
+            <label class="float-left"><%= t('map.address') -%>：</label>
+            <% m.address.split('|||').each do |address| %>
+              <p class="<%= mlp -%>"><%= address -%></p>
+            <% end %>
           <% end %>
           <% if m.tel.present? %>
             <label class="float-left"><%= t('map.tel') -%>：</label>

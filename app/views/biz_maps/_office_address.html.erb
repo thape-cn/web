@@ -5,14 +5,16 @@
       <h1 class="<%= fdsz("text-lg sm:text-lg font-semibold", "text-lg sm:text-3xl font-medium") -%> leading-normal"><%= name -%></h1>
     <% end %>
   <% end %>
-  <div class="flex <%= fdsz("text-sm", "text-xl") -%> mt-2">
-    <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
-    <div>
-      <% m.address.split('|||').each do |address| %>
-        <p class="leading-normal"><%= address -%></p>
-      <% end %>
+  <% if m.address.present? %>
+    <div class="flex <%= fdsz("text-sm", "text-xl") -%> mt-2">
+      <label class="flex-none leading-normal"><%= t('map.address') -%>：</label>
+      <div>
+        <% m.address.split('|||').each do |address| %>
+          <p class="leading-normal"><%= address -%></p>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <% if m.tel.present? || m.marketing_phone.present? || m.media_phone.present? %>
     <div class="flex <%= fdsz("text-sm", "text-xl") -%>">
       <label class="flex-none leading-normal"><%= t('map.tel') -%>：</label>
