@@ -158,7 +158,7 @@ GEM
       activemodel (>= 4.2, < 7.1)
       activerecord (>= 4.2, < 7.1)
       request_store (~> 1.0)
-    http (5.1.0)
+    http (5.1.1)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
