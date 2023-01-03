@@ -43,10 +43,20 @@
       </div>
     </div>
   </div>
-  <div class="description text-left mt-0 md:mt-6 xl:mt-8">
-    <div class="title tracking-wider font-semibold text-black6c <%= fdsz("text-sm sm:text-base lg:text-xl", "text-sm sm:text-xl lg:text-2xl") -%>"><%= item[:title] %></div>
+  <div class="description text-left mt-0 md:mt-6 xl:mt-8" style="overflow: visible;">
+    <div class="title tracking-wider font-semibold text-black6c <%= fdsz("text-sm sm:text-base lg:text-xl", "text-sm sm:text-xl lg:text-2xl") -%>" style="overflow: visible;">
+      <% titles = item[:title].split('|||') %>
+      <% titles.each do |title| %>
+        <div style="white-space: nowrap; overflow: visible;"><%= title %></div>
+      <% end %>
+    </div>
     <% if item[:subtitle].present? %>
-    <div class="subtitle tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-xs sm:text-sm lg:text-base", "text-xs sm:text-lg lg:text-xl") -%>"><%= item[:subtitle] %></div>
+    <div class="subtitle tracking-wider font-normal text-thape-copyright-gray <%= fdsz("text-xs sm:text-sm lg:text-base", "text-xs sm:text-lg lg:text-xl") -%>" style="overflow: visible;">
+      <% subtitles = item[:subtitle].split('|||') %>
+      <% subtitles.each do |subtitle| %>
+        <div style="white-space: nowrap; overflow: visible;"><%= subtitle %></div>
+      <% end %>
+    </div>
     <% end %>
     <div class="btns lg:hidden mt-4">
       <div>
