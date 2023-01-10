@@ -2002,9 +2002,9 @@ css-unit-converter@^1.1.1:
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
 cssdb@^7.1.0:
-  version "7.2.0"
-  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.2.0.tgz#f44bd4abc430f0ff7f4c64b8a1fb857a753f77a8"
-  integrity sha512-JYlIsE7eKHSi0UNuCyo96YuIDFqvhGgHw4Ck6lsN+DP0Tp8M64UTDT2trGbkMDqnCoEjks7CkS0XcjU0rkvBdg==
+  version "7.2.1"
+  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.2.1.tgz#f6f59e2c4249bcb5ca5606fc4ab6f9a808d55486"
+  integrity sha512-btohrCpVaLqOoMt90aumHe6HU4c06duiYA8ymwtpGfwuZAhWKDBve/c2k+E85Jeq5iojPkeonqiKV+aLeY8QlA==
 
 cssesc@^3.0.0:
   version "3.0.0"
