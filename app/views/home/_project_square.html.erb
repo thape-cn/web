@@ -2,10 +2,10 @@
   <a href="<%= work_path(id: work.id) -%>">
     <picture>
       <% if prj_webp.present? %>
-        <source srcset="<%= asset_pack_path(prj_webp) -%>" type="image/webp">
+        <source srcset="<%= prj_webp -%>" type="image/webp">
       <% end %>
-      <source srcset="<%= asset_pack_path(prj_image) -%>" type="image/jpeg">
-      <img class="cover object-cover w-full h-full" src="<%= asset_pack_path(prj_image) -%>">
+      <source srcset="<%= prj_image -%>" type="image/jpeg">
+      <img class="cover object-cover w-full h-full" src="<%= prj_image -%>">
     </picture>
   </a>
   <div class="description absolute text-white left-0 bottom-0 w-full px-2 sm:px-6 py-2 sm:py-4">

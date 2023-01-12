@@ -1,6 +1,6 @@
 <td class="p-1 overflow-hidden relative <%= prj_class -%>" <%= row_col_span -%>>
   <a href="<%= work_path(id: work.id) -%>">
-    <img src="<%= asset_pack_path(prj_image) -%>" class="cover object-cover w-full h-full">
+    <img src="<%= prj_image -%>" class="cover object-cover w-full h-full">
   </a>
   <div class="absolute text-white left-6 bottom-4">
     <p class="text-left pb-1 font-medium"><%= link_to work.project_types.first["#{I18n.locale}_name"], project_type_path(work.project_types.first) -%></p>
