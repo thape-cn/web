@@ -134,7 +134,7 @@ GEM
       carrierwave (>= 1)
     chinese_pinyin (1.1.0)
     chronic (0.10.2)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     crass (1.0.6)
     dalli (3.2.3)
     date (3.3.3)
