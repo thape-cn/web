@@ -1756,9 +1756,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001426, caniuse-lite@^1.0.30001449:
-  version "1.0.30001454"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001454.tgz#033f6df4452643a64173d02543902caa158dfd9a"
-  integrity sha512-4E63M5TBbgDoA9dQoFRdjL6iAmzTrz3rwYWoKDlvnvyvBxjCZ0rrUoX3THhEMie0/RYuTCeMbeTYLGAWgnLwEg==
+  version "1.0.30001456"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001456.tgz#734ec1dbfa4f3abe6e435b78ecf40d68e8c32ce4"
+  integrity sha512-XFHJY5dUgmpMV25UqaD4kVq2LsiaU5rS8fb0f17pCoXQiQslzmFgnfOxfvo1bTpTqf7dwG/N/05CnLCnOEKmzA==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -3862,9 +3862,9 @@ sass-loader@^12.4.0:
     neo-async "^2.6.2"
 
 sass@^1.45.1:
-  version "1.58.1"
-  resolved "https://registry.npmmirror.com/sass/-/sass-1.58.1.tgz#17ab0390076a50578ed0733f1cc45429e03405f6"
-  integrity sha512-bnINi6nPXbP1XNRaranMFEBZWUfdW/AF16Ql5+ypRxfTvCRTTKrLsMIakyDcayUt2t/RZotmL4kgJwNH5xO+bg==
+  version "1.58.2"
+  resolved "https://registry.npmmirror.com/sass/-/sass-1.58.2.tgz#ef3c5098a02dd006f09a2350b114f1ac445e38ce"
+  integrity sha512-2mbyOWOv/lhEXD6nVrQZQ4KT2DlwcODbTskM42EyqBAFUWOhiiYtAXZqjZz1ygzapYf+N+2GwfIH9M5FM4GUMg==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
