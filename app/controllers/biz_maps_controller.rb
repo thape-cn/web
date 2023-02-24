@@ -24,8 +24,6 @@ class BizMapsController < ApplicationController
     @m_贵阳天华 = MapContact.find(19)
     @m_昆明天华 = MapContact.find(20)
     @m_长沙天华 = MapContact.find(21)
-    @m_香港天华 = MapContact.find(14)
-    @m_香港天华 = MapContact.find(14)
     @m_武汉易筑 = MapContact.find(34) # no use any more
     @m_福州天华 = MapContact.find(35)
     @m_南昌办事处 = MapContact.find(36)
@@ -104,7 +102,6 @@ class BizMapsController < ApplicationController
       {c: "长沙天华", marks: [@m_长沙天华]},
       {c: "福州天华", marks: [@m_福州天华]},
       {c: "南昌天华", marks: [@m_南昌办事处]},
-      {c: "香港易爱迪", marks: [@m_香港天华]},
       {c: "上海易爱迪", marks: [@m_易爱迪]},
       {c: "上海爱坤", marks: [@m_爱坤]},
       {c: "上海室内", marks: [@m_上海室内]},
@@ -143,7 +140,6 @@ class BizMapsController < ApplicationController
 
     # 地图旁边下半部分的公司列表
     @under_map_companies = [
-      {name: "易爱迪（香港）", city: "香港", company: "香港易爱迪"},
       {name: "易爱迪（上海）", city: "上海", company: "上海易爱迪"},
       {name: "AICO（上海）", city: "上海", company: "上海爱坤"},
       {name: "AICO（深圳）", city: "深圳", company: "深圳爱坤"},
@@ -178,7 +174,7 @@ class BizMapsController < ApplicationController
       {c: "长沙", e: "CHANGSHA", ms: [@m_长沙天华]},
       {c: "福州", e: "FUZHOU", ms: [@m_福州天华]},
       {c: "南昌", e: "NANCHANG", ms: [@m_南昌办事处]},
-      {c: "香港", e: "HONGKONG", ms: [@m_香港天华, @m_香港AICO]}
+      {c: "香港", e: "HONGKONG", ms: [@m_香港AICO]}
     ]
   end
 end
