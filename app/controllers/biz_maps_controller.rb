@@ -8,7 +8,6 @@ class BizMapsController < ApplicationController
     @m_上海城规 = MapContact.find(27)
     @m_上海园林 = MapContact.find(28)
     @m_虹核审图 = MapContact.find(29)
-    @m_易术家互娱 = MapContact.find(26)
     @m_北京天华 = MapContact.find(3)
     @m_深圳天华 = MapContact.find(9)
     @m_广州天华 = MapContact.find(17)
@@ -112,7 +111,6 @@ class BizMapsController < ApplicationController
       {c: "上海城规", marks: [@m_上海城规]},
       {c: "上海园林", marks: [@m_上海园林]},
       {c: "虹核审图", marks: [@m_虹核审图]},
-      {c: "易术家互娱", marks: [@m_易术家互娱]},
       {c: "上海嘉易", marks: [@m_上海嘉易]},
       {c: "上海医养", marks: [@m_上海医养]},
       {c: "深圳爱坤", marks: [@m_深圳AICO]},
@@ -153,7 +151,6 @@ class BizMapsController < ApplicationController
       {name: "上海天华规划", city: "上海", company: "上海城规"},
       {name: "上海天华室内", city: "上海", company: "上海室内"},
       {name: "上海天华景观", city: "上海", company: "上海园林"},
-      {name: "易术家互娱科技", city: "上海", company: "易术家互娱"},
       {name: "上海虹核审图", city: "上海", company: "虹核审图"},
       {name: "上海天华嘉易", city: "上海", company: "上海嘉易"},
       {name: "上海天华医养", city: "上海", company: "上海医养"}
@@ -161,7 +158,7 @@ class BizMapsController < ApplicationController
 
     # 机构的城市列表
     @cities = [
-      {c: "上海", e: "SHANGHAI", ms: [@m_上海天华, @m_爱坤, @m_易爱迪, @m_上海城规, @m_上海室内, @m_上海园林, @m_易术家互娱, @m_虹核审图, @m_上海嘉易, @m_上海医养]},
+      {c: "上海", e: "SHANGHAI", ms: [@m_上海天华, @m_爱坤, @m_易爱迪, @m_上海城规, @m_上海室内, @m_上海园林, @m_虹核审图, @m_上海嘉易, @m_上海医养]},
       {c: "北京", e: "BEIJING", ms: [@m_北京天华]},
       {c: "深圳", e: "SHENZHEN", ms: [@m_深圳天华, @m_深圳AICO]},
       {c: "广州", e: "GUANGZHOU", ms: [@m_广州天华]},
