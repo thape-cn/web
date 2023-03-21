@@ -335,10 +335,10 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     ssrf_filter (1.1.1)
-    standard (1.25.2)
+    standard (1.25.3)
       language_server-protocol (~> 3.17.0.2)
-      rubocop (= 1.48.1)
-      rubocop-performance (= 1.16.0)
+      rubocop (~> 1.48.1)
+      rubocop-performance (~> 1.16.0)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -414,4 +414,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.4.8
+   2.4.9
