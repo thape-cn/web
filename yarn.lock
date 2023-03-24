@@ -1257,9 +1257,9 @@
   integrity sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==
 
 "@types/node@*":
-  version "18.15.6"
-  resolved "https://registry.npmmirror.com/@types/node/-/node-18.15.6.tgz#af98ef4a36e7ac5f2d03040f3109fcce972bf6cb"
-  integrity sha512-YErOafCZpK4g+Rp3Q/PBgZNAsWKGunQTm9FA3/Pbcm0VCriTEzcrutQ/SxSc0rytAp0NoFWue669jmKhEtd0sA==
+  version "18.15.7"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-18.15.7.tgz#33514fca9bdf136f77027358850c0fb9cd93c669"
+  integrity sha512-LFmUbFunqmBn26wJZgZPYZPrDR1RwGOu2v79Mgcka1ndO6V0/cwjivPTc4yoK6n9kmw4/ls1r8cLrvh2iMibFA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2034,9 +2034,9 @@ css-unit-converter@^1.1.1:
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
 cssdb@^7.1.0:
-  version "7.4.1"
-  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.4.1.tgz#61d55c0173126689922a219e15e131e4b5caf422"
-  integrity sha512-0Q8NOMpXJ3iTDDbUv9grcmQAfdDx4qz+fN/+Md2FGbevT+6+bJNQ2LjB2YIUlLbpBTM32idU1Sb+tb/uGt6/XQ==
+  version "7.5.1"
+  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.5.1.tgz#1cd18e13994adf07cb30f4dc21d93b0cff212519"
+  integrity sha512-YdmjGmoS9TT5wgoKjySaBqgbPYtyxbbegeK8WNqWbZRa7SJcX9V0qGfDjbI8oPQwmh/zuA6ZSnQBCKLj9bZufw==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -2126,9 +2126,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.338"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.338.tgz#f2f7641e4cebccd98fc46fa39984761935f4e1ba"
-  integrity sha512-Kfq90LFsNtGOwCZJ77XQa2fSuGQVlEBIGqiccfXxkoYTe5o79dE/9GMXR2R9OWjKGFfRVX4GHYxeCUyA8mRJlw==
+  version "1.4.339"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.339.tgz#bfa611a7707ca8bbb784e01fe247c18a35bd8d28"
+  integrity sha512-MSXHBJGcbBydq/DQDlpBeUKnJ6C7aTiNCTRpfDV5Iz0sNr/Ng6RJFloq82AAicp/SrmDq4zF6XsKG0B8Xwn1UQ==
 
 element-closest@^2.0.2:
   version "2.0.2"
