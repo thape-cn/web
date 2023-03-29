@@ -1,0 +1,2 @@
+class Znzmo < ApplicationRecord
+end
