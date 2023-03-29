@@ -118,6 +118,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :works, only: [:index, :show]
     resources :project_map, only: [:index]
+    resources :znzmos, only: [:create]
   end
 
   default_url_options host: "www.thape.com", protocol: "https"
