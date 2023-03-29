@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Api::ZnzmosController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     z = Znzmo.find_or_initialize_by(url: params[:url])
     z.keywords = params[:keywords]
