@@ -2513,9 +2513,9 @@ html-entities@^2.3.2:
   integrity sha512-DV5Ln36z34NNTDgnz0EWGBLZENelNAtkiFA4kyNOG2tDI6Mz1uSWiq1wAKdyjnJwyDiDO7Fa2SO1CTxPXL8VxA==
 
 html-tags@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.npmmirror.com/html-tags/-/html-tags-3.2.0.tgz#dbb3518d20b726524e4dd43de397eb0a95726961"
-  integrity sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==
+  version "3.3.0"
+  resolved "https://registry.npmmirror.com/html-tags/-/html-tags-3.3.0.tgz#02b73689e4b31647edd447bfe9bf5878427582e7"
+  integrity sha512-mH3dWNbvfCKcAEysbpD7wvtIJ6ImPog8aFhfzqog9gCN8CJFhKjLDtjpohG3IxYRLqHMJ1PWpBvnSMkFJBQ6Jg==
 
 http-deceiver@^1.2.7:
   version "1.2.7"
