@@ -1754,9 +1754,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
-  version "1.0.30001475"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001475.tgz#1cf0a3003eddc6986f79b54c804981423ce127e3"
-  integrity sha512-6xvTuQbEjQvvdknKCA/B6w6edEG9OMrkTY3M2sre8Iau/5f9stnJA3RfnzUMZlVhcsp1Lyl2KsM8T2R8B3P0Kg==
+  version "1.0.30001477"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001477.tgz#a2ffb2276258233034bbb869d4558b02658a511e"
+  integrity sha512-lZim4iUHhGcy5p+Ri/G7m84hJwncj+Kz7S5aD4hoQfslKZJgt0tHc/hafVbqHC5bbhHb+mrW2JOUHkI5KH7toQ==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -2031,9 +2031,9 @@ css-unit-converter@^1.1.1:
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
 cssdb@^7.1.0:
-  version "7.5.3"
-  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.5.3.tgz#6bbd0c6a935919d7f78b8a3ce098faacda01ae8a"
-  integrity sha512-NQNRhrEnS6cW+RU/foLphb6xI/MDA70bI3Cy6VxJU8ilxgyTYz1X9zUzFGVTG5nGPylcKAGIt/UNc4deT56lQQ==
+  version "7.5.4"
+  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.5.4.tgz#e34dafee5184d67634604e345e389ca79ac179ea"
+  integrity sha512-fGD+J6Jlq+aurfE1VDXlLS4Pt0VtNlu2+YgfGOdMxRyl/HQ9bDiHTwSck1Yz8A97Dt/82izSK6Bp/4nVqacOsg==
 
 cssesc@^3.0.0:
   version "3.0.0"
