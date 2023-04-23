@@ -91,9 +91,7 @@ class ServicesController < ApplicationController
       background_img_webp: t("services.vrtech.background_img_webp"),
       chinese_title: t("services.vrtech.chinese_title"),
       english_title: t("services.vrtech.english_title"),
-      ps: @service_file.vrtech_intro.split("\n"),
-      link_site_url: "http://www.evartech.com/",
-      link_site_title: "易术家"
+      ps: @service_file.vrtech_intro.split("\n")
     }
   end
 
