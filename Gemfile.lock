@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: e11dd5419071b8c95bc82b59c4f907d17cf874e5
+  revision: e104ffa422d8144dc0001c06b56a6e438aa228cb
   branch: main
   specs:
-    wechat (0.16.2)
+    wechat (0.16.3)
       activesupport (>= 6.0)
       http (>= 1.0.4, < 6)
       nokogiri (>= 1.6.0)
@@ -95,7 +95,7 @@ GEM
     builder (3.2.4)
     canonical-rails (0.2.14)
       rails (>= 4.1, <= 7.1)
-    capistrano (3.17.2)
+    capistrano (3.17.3)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -232,14 +232,14 @@ GEM
     net-ssh (7.1.0)
     netrc (0.11.0)
     nio4r (2.5.9)
-    nokogiri (1.15.1)
+    nokogiri (1.15.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.15.1-arm64-darwin)
+    nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.1-x86_64-darwin)
+    nokogiri (1.15.2-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.1-x86_64-linux)
+    nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.1)
@@ -286,7 +286,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.8.0)
-    reline (0.3.3)
+    reline (0.3.4)
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
