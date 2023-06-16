@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_29_142824) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_023228) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -428,6 +428,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_142824) do
     t.text "vetting_intro"
     t.text "consluting_intro"
     t.text "vrtech_intro"
+    t.text "sustainable_intro"
     t.index ["locale"], name: "index_service_file_translations_on_locale"
     t.index ["service_file_id"], name: "index_service_file_translations_on_service_file_id"
   end
