@@ -91,6 +91,7 @@ Rails.application.routes.draw do
   get "vetting", to: "services#vetting"
   get "consluting", to: "services#consluting"
   get "vr-tech", to: "services#vrtech"
+  get "sustainable", to: "services#sustainable"
   get "biz-map", to: "biz_maps#show"
 
   resources :sites, only: [] do

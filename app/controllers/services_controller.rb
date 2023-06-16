@@ -95,6 +95,18 @@ class ServicesController < ApplicationController
     }
   end
 
+  def sustainable
+    @seo = Seo.find_by(seo_name: "可持续设计咨询")
+
+    render "services", locals: {
+      background_img: t("services.sustainable.background_img"),
+      background_img_webp: t("services.sustainable.background_img_webp"),
+      chinese_title: t("services.sustainable.chinese_title"),
+      english_title: t("services.sustainable.english_title"),
+      ps: @service_file.sustainable_intro.split("\n")
+    }
+  end
+
   private
 
   def set_service_file

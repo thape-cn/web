@@ -16,7 +16,8 @@ isLandscape = controller.controller_name == 'services' && controller.action_name
 isVetting = controller.controller_name == 'services' && controller.action_name == 'vetting';
 isConsluting = controller.controller_name == 'services' && controller.action_name == 'consluting';
 isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
-isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech;
+isSustainable = controller.controller_name == 'services' && controller.action_name == 'sustainable';
+isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech || isSustainable;
 
 isNewsIndex = controller.controller_name == 'news' && controller.action_name != 'show';
 isNewsShow = controller.controller_name == 'news' && controller.action_name == 'show';
@@ -232,6 +233,9 @@ isBigFont = cookies['ts'] == 'big';
         </div>
         <div class="nav-item">
           <a href="<%= vr_tech_path -%>" class="<%= isVrtech ? 'active' : '' -%>"><%= t('menu.service.vr_technology') -%></a>
+        </div>
+        <div class="nav-item">
+          <a href="<%= sustainable_path -%>" class="<%= isSustainable ? 'active' : '' -%>"><%= t('menu.service.sustainable') -%></a>
         </div>
       </nav>
     </div>

@@ -73,6 +73,7 @@ cn:
       drawing_review: "审图"
       consultation: "技术咨询"
       vr_technology: "可视化"
+      sustainable: "可持续"
     news:
       text: "新闻"
     publications:
@@ -197,3 +198,8 @@ cn:
       background_img_webp: []
       chinese_title: "可视化"
       english_title: "VISUALIZATION"
+    sustainable:
+      background_img: "static/sustainable.jpg"
+      background_img_webp: ""
+      chinese_title: "可持续设计咨询"
+      english_title: "SUSTAINABLE CONSULTING"
