@@ -6,9 +6,9 @@
 <div class="relative">
 
   <picture>
-    <source srcset="<%= asset_pack_path('static/contact.webp') -%>" type="image/webp">
-    <source srcset="<%= asset_pack_path('static/contact.jpg') -%>" type="image/jpeg">
-    <img src="<%= asset_pack_path('static/contact.jpg') -%>" class="w-full">
+    <source srcset="<%= asset_pack_path('static/images/contact.webp') -%>" type="image/webp">
+    <source srcset="<%= asset_pack_path('static/images/contact.jpg') -%>" type="image/jpeg">
+    <img src="<%= asset_pack_path('static/images/contact.jpg') -%>" class="w-full">
   </picture>
   <div class="sm:absolute sm:bottom-0 sm:inset-x-0 w-full sm:flex sm:items-center bg-white opacity-75 py-6 mt-4 sm:mt-0">
     <div class="w-full flex justify-center sm:justify-between items-center flex-wrap sm:flex-no-wrap px-4 sm:px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
@@ -39,7 +39,7 @@
     <div class="w-full my-8 xxl:my-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36 flex flex-wrap xl:flex-no-wrap">
       <div class="w-full xl:w-3/5 flex-none hidden xl:block <%= fdsz("text-sm sm:text-sm", "text-sm sm:text-base") -%>">
         <div class="relative" style="padding-top: 78%; left: -1rem;">
-          <%= image_pack_tag 'static/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
+          <%= image_pack_tag 'images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
           <%# 地图点 %>
           <% @map_cities.each do |city| %>
             <div class="absolute" style="left: <%= city[:left] %>; top: <%= city[:top] %>;"
@@ -57,7 +57,7 @@
           <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:text-3xl") -%> flex-none sm:flex-no-wrap w-full sm:w-auto sm:ml-1"><%= t('biz_maps.intro.subtitle')%></h1>
         </div>
         <p class="pt-2 <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%>"><%= t('biz_maps.intro.content')%></p>
-        <%= image_pack_tag 'static/map-mobile.jpg', class: 'w-full block xl:hidden my-6 sm:my-0' -%>
+        <%= image_pack_tag 'images/map-mobile.jpg', class: 'w-full block xl:hidden my-6 sm:my-0' -%>
         <%# 地图上半部分中公司列表 %>
         <div class="flex-grid">
           <div class="flex-grid-box flex-grid-cols-11-gap-1 md:flex-grid-cols-11-gap-3 lg:flex-grid-cols-14-gap-2 xxl:flex-grid-cols-14-gap-3 text-center w-full <%= fdsz("text-sm sm:text-base", "text-sm sm:text-xl") -%> py-2 xl:py-4">

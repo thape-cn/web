@@ -322,7 +322,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (6.6.0)
+    shakapacker (7.0.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -350,7 +350,7 @@ GEM
       lint_roller (~> 1.0)
       rubocop-performance (~> 1.18.0)
     thor (1.2.2)
-    timeout (0.3.2)
+    timeout (0.4.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -384,7 +384,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt_pbkdf
-  bootsnap (>= 1.9.3)
+  bootsnap
   browser
   canonical-rails
   capistrano
@@ -406,7 +406,7 @@ DEPENDENCIES
   localhost
   pg
   puma (< 6)
-  rails (~> 7.0.4)
+  rails (~> 7.0.5)
   rake
   rexml
   selenium-webdriver

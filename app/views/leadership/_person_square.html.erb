@@ -3,7 +3,7 @@
     <% if person.avatar.url.present? %>
       <%= image_tag person.avatar.url, class: 'w-full h-full object-cover scale-img' -%>
     <% else %>
-      <%= image_pack_tag 'static/default_avatar.jpg', class: "w-full h-full object-cover scale-img" -%>
+      <%= image_pack_tag 'images/default_avatar.jpg', class: "w-full h-full object-cover scale-img" -%>
     <% end %>
     <div class="absolute text-white inset-x-0 bottom-0 pt-1 sm:pt-2 card-title-mask">
       <p class="<%= fdsz("text-base sm:#{I18n.locale == :en ? "text-base" : "text-lg"}", "text-base sm:text-2xl") -%> text-center font-medium"><%= person.name -%></p>

@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby ">= 2.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.0.4"
+gem "rails", "~> 7.0.5"
 gem "enumize"
 gem "sqlite3"
 gem "pg"
@@ -25,7 +25,7 @@ gem "jbuilder", "~> 2.11"
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.9.3", require: false
+gem "bootsnap", require: false
 
 gem "browser"
 

@@ -8,7 +8,7 @@
     <% if @person.photo.url.present? %>
       <%= image_tag(@person.photo.url, class: 'w-full sm:w-3/4 inline-block sm:block') %>
     <% else %>
-      <%= image_pack_tag 'static/default_avatar.jpg', class: "w-full sm:w-3/4 inline-block sm:block" -%>
+      <%= image_pack_tag 'images/default_avatar.jpg', class: "w-full sm:w-3/4 inline-block sm:block" -%>
     <% end %>
     <div class="pt-10 w-3/4 hidden sm:block">
       <% if @infos.present? %>

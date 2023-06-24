@@ -45,7 +45,7 @@
   </div>
   <div class="description text-left mt-0 md:mt-6 xl:mt-8" style="overflow: visible;">
     <div class="title tracking-wider font-semibold text-black6c <%= fdsz("text-sm sm:text-base lg:text-xl", "text-sm sm:text-xl lg:text-2xl") -%>" style="overflow: visible;">
-      <% titles = item[:title].split('|||') %>
+      <% titles = item[:title]&.split('|||') || [] %>
       <% titles.each do |title| %>
         <div style="white-space: nowrap; overflow: visible;"><%= title %></div>
       <% end %>
