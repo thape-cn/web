@@ -65,6 +65,7 @@ group :development do
   gem "listen"
 
   gem "capistrano"
+  gem "capistrano-yarn"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
   gem "capistrano3-puma", "~> 5.2.0"

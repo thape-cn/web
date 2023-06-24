@@ -108,6 +108,8 @@ GEM
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-yarn (2.0.2)
+      capistrano (~> 3.0)
     capistrano3-puma (5.2.0)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -215,7 +217,6 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.2)
     minitest (5.18.1)
     msgpack (1.7.1)
     net-imap (0.3.6)
@@ -232,9 +233,6 @@ GEM
     net-ssh (7.1.0)
     netrc (0.11.0)
     nio4r (2.5.9)
-    nokogiri (1.15.2)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.15.2-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.15.2-x86_64-darwin)
@@ -329,8 +327,6 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sqlite3 (1.6.3)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (1.6.3-arm64-darwin)
     sqlite3 (1.6.3-x86_64-darwin)
     sqlite3 (1.6.3-x86_64-linux)
@@ -378,7 +374,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  ruby
   x86_64-darwin-19
   x86_64-linux
 
@@ -390,6 +385,7 @@ DEPENDENCIES
   capistrano
   capistrano-rails
   capistrano-rbenv
+  capistrano-yarn
   capistrano3-puma (~> 5.2.0)
   capybara
   carrierwave
