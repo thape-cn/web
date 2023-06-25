@@ -171,28 +171,32 @@
     <aside class="lg:inline-block w-full lg:w-80 float:none lg:float-right mt-4 lg:mt-0">
       <div class="space-y-4 pb-3 sm:pb-6 border-gray-200 border-solid border-b w-full sm:w-2/3">
         <h3 class="text-black6c <%= fdsz("text-lg", "text-2xl") -%>">推荐阅读</h3>
-        <a href="<%= work_path(id: @first_work.id) -%>">
-          <figure class="sm:space-y-1 flex sm:block my-2 sm:my-0">
-            <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
-            <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
-            </div>
-            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
-              <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.project_name -%></figcaption>
-              <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
-            </div>
-          </figure>
-        </a>
-        <a href="<%= work_path(id: @second_work.id) -%>">
-          <figure class="sm:space-y-1 flex sm:block my-2 sm:mt-4 sm:mb-2">
-            <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
-            <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
-            </div>
-            <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
-              <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.project_name -%></figcaption>
-              <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
-            </div>
-          </figure>
-        </a>
+        <% if @first_work.snapshot_jpg.url %>
+          <a href="<%= work_path(id: @first_work.id) -%>">
+            <figure class="sm:space-y-1 flex sm:block my-2 sm:my-0">
+              <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
+              <%= image_tag @first_work.snapshot_jpg.url, class: 'w-full' -%>
+              </div>
+              <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
+                <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.project_name -%></figcaption>
+                <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @first_work.construction_completion&.year == 0 ? '' : @first_work.construction_completion&.year %></p>
+              </div>
+            </figure>
+          </a>
+        <% end %>
+        <% if @second_work.snapshot_jpg.url %>
+          <a href="<%= work_path(id: @second_work.id) -%>">
+            <figure class="sm:space-y-1 flex sm:block my-2 sm:mt-4 sm:mb-2">
+              <div class="w-1/3 sm:w-auto flex-none sm:flex-initial">
+              <%= image_tag @second_work.snapshot_jpg.url, class: 'w-full' -%>
+              </div>
+              <div class="w-2/3 sm:w-auto pl-2 sm:pl-0 flex-1 sm:flex-initial flex sm:block content-between sm:content-start flex-wrap sm:flex-no-wrap <%= fdsz("text-xs", "text-base") -%>">
+                <figcaption class="p-0 sm:pt-2 text-black6c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.project_name -%></figcaption>
+                <p class="text-gray1c block w-full sm:w-auto flex-none sm:flex-initial"><%= @second_work.construction_completion&.year == 0 ? '' : @second_work.construction_completion&.year %></p>
+              </div>
+            </figure>
+          </a>
+        <% end %>
       </div>
       <nav class="pt-6 w-full sm:w-2/3">
         <ol class="space-y-4 <%= fdsz("text-xs", "text-base") -%>">
