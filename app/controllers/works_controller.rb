@@ -44,7 +44,7 @@ class WorksController < ApplicationController
         "#{@work.architecture_area}㎡"
       end
       @seo.home_title = "#{work_project_cn_name}-#{work_project_type_names}设计案例"
-      @seo.description = "#{@work.city.name}#{work_project_type_names}设计案例：#{work_project_cn_name}，设计完成时间：#{design_completion_time}，建筑面积：#{architecture_area}，设计团队：#{@work.team.split("\n").join(" ")}"
+      @seo.description = "#{@work.city.name}#{work_project_type_names}设计案例：#{work_project_cn_name}，设计完成时间：#{design_completion_time}，建筑面积：#{architecture_area}，设计团队：#{@work.team&.split("\n")&.join(" ")}"
       @seo.abstract = @seo.description
       @seo.keywords = "#{work_project_cn_name}，#{work_project_type_names}设计案例"
 
