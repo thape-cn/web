@@ -353,6 +353,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
+    uri (0.12.2)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -412,6 +413,7 @@ DEPENDENCIES
   sqlite3
   standard
   tzinfo-data
+  uri (>= 0.12.2)
   web-console
   webdrivers
   wechat!
