@@ -2180,9 +2180,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.431:
-  version "1.4.445"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.445.tgz#058d2c5f3a2981ab1a37440f5a5e42d15672aa6d"
-  integrity sha512-++DB+9VK8SBJwC+X1zlMfJ1tMA3F0ipi39GdEp+x3cV2TyBihqAgad8cNMWtLDEkbH39nlDQP7PfGrDr3Dr7HA==
+  version "1.4.446"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.446.tgz#c23fbc7884bfe43088d5eb908a858dbb35ab190b"
+  integrity sha512-4Gnw7ztEQ/E0eOt5JWfPn9jjeupfUlKoeW5ETKP9nLdWj+4spFoS3Stj19fqlKIaX28UQs0fNX+uKEyoLCBnkw==
 
 element-closest@^2.0.2:
   version "2.0.2"
