@@ -1,4 +1,22 @@
+<%= wechat_config_js debug: false, api: %w(onMenuShareTimeline onMenuShareAppMessage) -%>
+<script type="application/javascript">
+  if (wx) {
+    wx.ready(function() {
+      wx.onMenuShareTimeline({
+          title: '<%= @name -%>的天华年度账单',
+          link: '<%= tianhua2020_url(id: @clerkcode) -%>',
+          imgUrl: '<%= asset_pack_url("static/images/tianhua2020-bill.png") -%>'
+      });
 
+      wx.onMenuShareAppMessage({
+          title: '<%= @name -%>的天华年度账单',
+          desc: '一起回顾<%= @name -%>与天华的2020',
+          link: '<%= tianhua2020_url(id: @clerkcode) -%>',
+          imgUrl: '<%= asset_pack_url("static/images/tianhua2020-bill.png") -%>'
+      });
+    });
+  }
+</script>
 
 <script type="text/javascript">
   tianhua2020 = JSON.parse("<%= j @tianhua2020.to_json.html_safe -%>");

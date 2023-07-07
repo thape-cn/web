@@ -4,6 +4,26 @@
 <%= render partial: 'shared/thape_nav' -%>
 
 
+<%= wechat_config_js debug: false, api: %w(onMenuShareTimeline onMenuShareAppMessage) -%>
+<script type="application/javascript">
+  if (wx) {
+    wx.ready(function() {
+      wx.onMenuShareTimeline({
+          title: '<%= @info.title -%>',
+          link: '<%= news_url(id: @info.id) -%>',
+          imgUrl: '<%= @info.snapshot.present? ? @info.snapshot.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
+      });
+
+      wx.onMenuShareAppMessage({
+          title: '<%= @info.title -%>',
+          desc: '<%= @info.sub_title -%>',
+          link: '<%= news_url(id: @info.id) -%>',
+          imgUrl: '<%= @info.snapshot.present? ? @info.snapshot.url(thumb: '?x-oss-process=image/resize,h_300') : @tail_home.hero_news_photo.url(thumb: '?x-oss-process=image/resize,h_300') -%>'
+      });
+    });
+  }
+</script>
+
 <% if @info.banner_identifier.present? %>
   <%= image_tag @info.banner.url -%>
 <% else %>
