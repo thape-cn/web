@@ -341,8 +341,9 @@ GEM
       rubocop (~> 1.52.0)
       standard-custom (~> 1.0.0)
       standard-performance (~> 1.1.0)
-    standard-custom (1.0.1)
+    standard-custom (1.0.2)
       lint_roller (~> 1.0)
+      rubocop (~> 1.50)
     standard-performance (1.1.1)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.18.0)
@@ -424,4 +425,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.4.16
+   2.4.17
