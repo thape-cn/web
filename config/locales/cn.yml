@@ -44,7 +44,7 @@ cn:
       project_type: "类型"
       residential: "居住"
       demonstration_zone: "展示区/示范区"
-      office: "商务办公"
+      office: "商务办公/产业办公"
       supertall: "超高层"
       commercial: "商业空间"
       mixed_used_tod: "综合体/TOD"

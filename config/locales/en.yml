@@ -49,7 +49,7 @@ en:
       project_type: "CATEGORY"
       residential: "RESIDENTIAL"
       demonstration_zone: "DEMONSTRATION ZONE"
-      office: "OFFICE"
+      office: "INDUSTRY/OFFICE"
       supertall: "SUPERTALL"
       commercial: "COMMERCIAL"
       mixed_used_tod: "MIXED-USED/TOD"

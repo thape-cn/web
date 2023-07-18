@@ -69,7 +69,7 @@ module ApplicationHelper
       residential_works_path
     when "展示区/示范区"
       demonstration_zone_works_path
-    when "商务办公"
+    when "商业办公", "商务办公/产业办公"
       office_works_path
     when "超高层"
       supertall_works_path
