@@ -1,5 +1,5 @@
 <form action="<%= @self_path -%>" method="GET" class="flex flex-wrap sm:flex-no-wrap justify-between sm:justify-start">
-  <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-40'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-44'}") -%> flex-none sm:flex-initial" x-data="{ show_drop_menu_project_type: false }" @keydown.window.escape="show_drop_menu_project_type = false" @click.away="show_drop_menu_project_type = false">
+  <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-44'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-48'}") -%> flex-none sm:flex-initial" x-data="{ show_drop_menu_project_type: false }" @keydown.window.escape="show_drop_menu_project_type = false" @click.away="show_drop_menu_project_type = false">
     <button type="button" class="w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "text-base") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" x-on:click="show_drop_menu_project_type = !show_drop_menu_project_type; show_drop_menu_china_area = false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>
       <svg class="-mr-1 ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -9,7 +9,7 @@
     <div class="w-full origin-top-right absolute right-0 mt-1 <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md shadow-lg overflow-y-auto h-64 z-10" x-show="show_drop_menu_project_type">
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1 <%= fdsz("text-sm", "text-base") -%>">
-          <% ProjectType.all.each do |project_type| %>
+          <% ProjectType.order(id: :asc).all.each do |project_type| %>
             <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 <%= fdsz("text-sm", "text-base") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
           <% end %>
         </div>
