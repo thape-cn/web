@@ -157,8 +157,8 @@ class WorksController < ApplicationController
   end
 
   def office
-    @seo = Seo.find_by(seo_name: "商务办公")
-    @project_type = ProjectType.find_by cn_name: "商务办公"
+    @seo = Seo.find_by(seo_name: "商务办公/产业办公")
+    @project_type = ProjectType.find_by cn_name: "商务办公/产业办公"
     @self_path = office_works_path
     render_project_type
   end
