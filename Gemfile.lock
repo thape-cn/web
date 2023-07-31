@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Eric-Guo/wechat
-  revision: 4ad4b0eb9c6858e30bd70b7bc6dd93e04fa344ca
+  revision: 559d7fe36e7cf1de95b0ca4a35787073d7c8c042
   branch: main
   specs:
     wechat (0.17.1)
@@ -248,7 +248,7 @@ GEM
     puma (5.6.6)
       nio4r (~> 2.0)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-proxy (0.7.6)
       rack
     rack-test (2.1.0)
