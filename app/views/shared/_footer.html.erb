@@ -30,11 +30,22 @@
       <p class="md:hidden text-center"><%= raw t("footer.corporation") -%></p>
     </div>
 
-    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4" x-data="{ show_wechat_qr: false }">
-      <%= image_pack_tag 'images/wechat-qr.jpg', class: 'absolute w-24 bottom-0 right-32 z-50', "x-show": 'show_wechat_qr' %>
-      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'images/wechat.svg', class: 'h-4 md:h-6 mx-2 md:mr-2 md:ml-0' -%></a>
+    <div class="flex order-first flex-none w-full pb-2 text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4" x-data="{ show_wechat_qr: false, show_shipinhao_qr: false, show_xiaohongshu_qr: false  }">
+      <div class="relative">
+        <%= image_pack_tag 'images/wechat-qr.jpg', class: 'absolute w-36 z-50 max-w-none', style: 'top: -168px; left: -64px;', "x-show": 'show_wechat_qr' %>
+        <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><%= image_pack_tag 'images/wechat.svg', class: 'h-4 md:h-6 mx-2 md:mr-2 md:ml-0' -%></a>
+      </div>
       <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><%= image_pack_tag 'images/weibo.svg', class: 'h-4 md:h-6 mx-2' %></a>
-      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><%= image_pack_tag 'images/zhihu.svg', class: 'h-4 md:h-6 mx-2 md:ml-2 md:mr-0' %></a>
+      <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><%= image_pack_tag 'images/zhihu.svg', class: 'h-4 md:h-6 mx-2' %></a>
+      <div class="relative">
+        <%= image_pack_tag 'images/shipinhao-qr.jpg', class: 'absolute w-44 z-50 max-w-none', style: 'top: -220px; left: -74px;', "x-show": 'show_shipinhao_qr' %>
+        <a x-on:mouseenter="show_shipinhao_qr = true" x-on:mouseleave="show_shipinhao_qr = false"><%= image_pack_tag 'images/shipinhao.svg', class: 'h-4 md:h-6 mx-2' -%></a>
+      </div>
+      <a href="https://space.bilibili.com/380792461" target="_blank" rel="noreferrer"><%= image_pack_tag 'images/bilibili.svg', class: 'h-4 md:h-6 mx-2' %></a>
+      <div class="relative">
+        <%= image_pack_tag 'images/xiaohongshu-qr.jpg', class: 'absolute w-44 z-50 max-w-none', style: 'top: -220px; right: 0px;', "x-show": 'show_xiaohongshu_qr' %>
+        <a x-on:mouseenter="show_xiaohongshu_qr = true" x-on:mouseleave="show_xiaohongshu_qr = false"><%= image_pack_tag 'images/xiaohongshu.svg', class: 'h-4 md:h-6 mx-2 md:ml-2 md:mr-0' -%></a>
+      </div>
     </div>
   </div>
 </footer>
