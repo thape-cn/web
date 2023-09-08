@@ -40,7 +40,6 @@ class SearchController < ApplicationController
       info_scope.where.not(id: @info_results_introduction.collect(&:id))
     else
       info_scope
-    end
     end.where("content LIKE ?", "%#{q}%")
 
     if params[:tab].present? && params[:tab] == "work"
