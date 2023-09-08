@@ -19,8 +19,12 @@ class SearchController < ApplicationController
         .where(leaving_date: nil).where("person_translations.name like ?", "%#{q}%").limit(15)
     end
 
-    @info_results = Info.where(hide_in_index_news: false)
+    @info_results_title = Info.where(hide_in_index_news: false)
       .where("title LIKE ?", "%#{q}%").order(position: :asc).limit(15)
+    @info_results_introduction = Info.where(hide_in_index_news: false)
+      .where("introduction LIKE ?", "%#{q}%").order(position: :asc).limit(15)
+    @info_results_content = Info.where(hide_in_index_news: false)
+      .where("content LIKE ?", "%#{q}%").order(position: :asc).limit(15)
 
     if params[:tab].present? && params[:tab] == "work"
       render :works_result

@@ -17,7 +17,7 @@
     </h3>
     <h3 class="ml-4 sm:ml-10 inline-block <%= fdsz("text-base", "text-xl") -%> text-thape-copyright-gray">
       <a href="<%= search_path(q: params[:q], tab: :info) -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">
-        <%= t('menu.news.text') -%>&nbsp;&nbsp;(<%= @info_results.count -%>)
+        <%= t('menu.news.text') -%>&nbsp;&nbsp;(<%= @info_results_title.count + @info_results_introduction.count + @info_results_content.count -%>)
       </a>
     </h3>
   </header>
