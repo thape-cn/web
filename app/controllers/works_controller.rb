@@ -5,7 +5,8 @@ class WorksController < ApplicationController
     @project_type = {}
     @self_path = works_path
     if params[:q].present?
-      @works = works_query_scope(params[:q]).page(params[:page]).per(params[:per_page])
+      q = Work.sanitize_sql_like(params[:q])
+      @works = works_query_scope(q).page(params[:page]).per(params[:per_page])
       render :search_detail
     else
       @work_type_page = WorkTypePage.first
@@ -23,7 +24,8 @@ class WorksController < ApplicationController
       @project_type = {}
       @self_path = work_path(id: @city.url_name)
       @works = if params[:q].present?
-        works_query_scope(params[:q]).where(city_id: @city.id)
+        q = Work.sanitize_sql_like(params[:q])
+        works_query_scope(q).where(city_id: @city.id)
       else
         @city.works
       end.page(params[:page]).per(params[:per_page])
@@ -218,7 +220,8 @@ class WorksController < ApplicationController
 
   def render_residential
     @works = if params[:q].present?
-      works_query_scope(params[:q])
+      q = Work.sanitize_sql_like(params[:q])
+      works_query_scope(q)
     else
       Work.all.order(position: :asc)
     end.includes(:work_residential_types, work_project_types: :project_type)
@@ -230,7 +233,8 @@ class WorksController < ApplicationController
 
   def render_project_type
     @works = if params[:q].present?
-      works_query_scope(params[:q])
+      q = Work.sanitize_sql_like(params[:q])
+      works_query_scope(q)
     else
       Work.all.order(position: :asc)
     end.includes(:work_project_types)
