@@ -6,15 +6,17 @@ class LeadershipController < ApplicationController
     jituan_people = Person.includes(city_people: :city).where(cities: {name: "集团"})
       .where(leaving_date: nil).order(position: :asc)
     @management_people = if @search_name.present?
+      search_name = Person.sanitize_sql_like(@search_name)
       jituan_people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-        .where(category: 1).where("person_translations.name like ?", "%#{@search_name}%")
+        .where(category: 1).where("person_translations.name LIKE ?", "%#{search_name}%")
     else
       jituan_people.where(category: 1)
     end
 
     @speciality_people = if @search_name.present?
+      search_name = Person.sanitize_sql_like(@search_name)
       jituan_people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-        .where(category: 2).where("person_translations.name like ?", "%#{@search_name}%")
+        .where(category: 2).where("person_translations.name LIKE ?", "%#{search_name}%")
     else
       jituan_people.where(category: 2)
     end
@@ -65,8 +67,9 @@ class LeadershipController < ApplicationController
         people = Person.includes(:city_people).where(leaving_date: nil).order(position: :asc).distinct
 
         if @search_name.present?
+          search_name = Person.sanitize_sql_like(@search_name)
           people = people.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-            .where("person_translations.name like ?", "%#{@search_name}%")
+            .where("person_translations.name LIKE ?", "%#{search_name}%")
         end
 
         # AICO上海
@@ -86,17 +89,19 @@ class LeadershipController < ApplicationController
         city_management_ids = city_area_people.where(city_people: {is_management: true}).pluck(:id)
         city_professional_ids = city_area_people.where(city_people: {is_professional: true}).pluck(:id)
         @management_people = if @search_name.present?
+          search_name = Person.sanitize_sql_like(@search_name)
           city_area_people.where(category: 1).or(city_area_people.where(city_people: {is_management: true}))
             .joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-            .where("person_translations.name like ?", "%#{@search_name}%")
+            .where("person_translations.name LIKE ?", "%#{search_name}%")
         else
           city_area_people.where(category: 1).or(city_area_people.where(city_people: {is_management: true}))
         end.where.not(id: city_professional_ids)
 
         @speciality_people = if @search_name.present?
+          search_name = Person.sanitize_sql_like(@search_name)
           city_area_people.where(category: 2).or(city_area_people.where(city_people: {is_professional: true}))
             .joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-            .where("person_translations.name like ?", "%#{@search_name}%")
+            .where("person_translations.name LIKE ?", "%#{search_name}%")
         else
           city_area_people.where(category: 2).or(city_area_people.where(city_people: {is_professional: true}))
         end.where.not(id: city_management_ids)
