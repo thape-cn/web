@@ -19,12 +19,29 @@ class SearchController < ApplicationController
         .where(leaving_date: nil).where("person_translations.name like ?", "%#{q}%").limit(15)
     end
 
-    @info_results_title = Info.where(hide_in_index_news: false)
-      .where("title LIKE ?", "%#{q}%").order(position: :asc).limit(15)
-    @info_results_introduction = Info.where(hide_in_index_news: false)
-      .where("introduction LIKE ?", "%#{q}%").order(position: :asc).limit(15)
-    @info_results_content = Info.where(hide_in_index_news: false)
-      .where("content LIKE ?", "%#{q}%").order(position: :asc).limit(15)
+    info_scope = Info.where(hide_in_index_news: false).order(position: :asc).limit(15)
+
+    @info_results_title = info_scope.where("title LIKE ?", "%#{q}%")
+
+    @info_results_introduction = if @info_results_title.present?
+      info_scope.where.not(id: @info_results_title.collect(&:id))
+    else
+      info_scope
+    end.where("introduction LIKE ?", "%#{q}%")
+
+    @info_results_content = if @info_results_title.present?
+      if @info_results_introduction.present?
+        info_scope.where.not(id: @info_results_title.collect(&:id))
+          .where.not(id: @info_results_introduction.collect(&:id))
+      else
+        info_scope.where.not(id: @info_results_title.collect(&:id))
+      end
+    elsif @info_results_introduction.present?
+      info_scope.where.not(id: @info_results_introduction.collect(&:id))
+    else
+      info_scope
+    end
+    end.where("content LIKE ?", "%#{q}%")
 
     if params[:tab].present? && params[:tab] == "work"
       render :works_result
