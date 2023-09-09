@@ -3,7 +3,7 @@
 class SearchController < ApplicationController
   def query
     @city = City.find_by name: params[:q]
-    q = Info.sanitize_sql_like(params[:q])
+    q = Info.sanitize_sql_like(params[:q].presence || params[:b].presence || || prams[:k].presence)
     @works_results = if @city.present?
       Work.where(city_id: @city.id).order(position: :asc)
     else
