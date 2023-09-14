@@ -6,6 +6,7 @@
 <div class="w-full relative">
   <div class="thape-slide"
     data-controller="carousel2"
+    data-carousel2-auto-play-value="false"
     data-carousel2-item-data-type-value="slide-item"
     data-carousel2-active-class-value="active"
     data-carousel2-animation-class-base-value="animate"
@@ -39,10 +40,10 @@
         </div>
       <% end %>
     </div>
-    <div class="action-area action-left" data-action="click->carousel2#toLast mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
+    <div class="action-area action-left" data-action="click->carousel2#toLast">
       <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_left.svg') -%>" alt="上一张" />
     </div>
-    <div class="action-area action-right" data-action="click->carousel2#toNext mouseover->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
+    <div class="action-area action-right" data-action="click->carousel2#toNext">
       <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_right.svg') -%>" alt="下一张" />
     </div>
   </div>

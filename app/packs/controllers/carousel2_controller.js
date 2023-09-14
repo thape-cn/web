@@ -11,12 +11,14 @@ export default class extends Controller {
     animationClassRightOut: String,
     animationDuration: Number,
     intervalTime: Number,
+    autoPlay: Boolean,
   }
 
   initialize() {
     this.inAnimation = false; // 动画是否正在进行中
     this.autoPlayIntervalNum = null; // 动画自动播放的setIntervalTime返回值
     this.supportAnimationEvent = 'onanimationstart' in window; // 是否支持动画事件
+    this.autoPlay = this.autoPlayValue, // 是否自动轮播
     this.config = {
       itemDataType: this.itemDataTypeValue, // 子项定义的data-type
       activeClass: this.activeClassValue, // 活跃的幻灯片
@@ -32,9 +34,9 @@ export default class extends Controller {
     }
   }
 
-
-  connect() {
-    this.startAutoPlay();
+  autoPlayValueChanged(autoPlay) {
+    this.autoPlay = autoPlay;
+    this.autoPlay ? this.startAutoPlay() : this.stopAutoPlay();
   }
 
   // 动画开始
