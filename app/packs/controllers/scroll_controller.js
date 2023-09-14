@@ -16,7 +16,7 @@ export default class extends Controller {
       if (direction == 'down') {
         if (index === 0) {
           const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel2');
-          if (carousel_controller) {
+          if (carousel_controller && carousel_controller.autoPlay) {
             carousel_controller.stopAutoPlay();
           }
         }
@@ -28,7 +28,7 @@ export default class extends Controller {
       if (direction == 'up') {
         if (index === 0) {
           const carousel_controller = web_app.controllers.find(c => c.identifier == 'carousel2');
-          if (carousel_controller) {
+          if (carousel_controller && carousel_controller.autoPlay) {
             carousel_controller.startAutoPlay();
           }
         }
