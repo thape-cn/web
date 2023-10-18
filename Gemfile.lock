@@ -96,7 +96,7 @@ GEM
     builder (3.2.4)
     canonical-rails (0.2.14)
       rails (>= 4.1, <= 7.1)
-    capistrano (3.17.3)
+    capistrano (3.18.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -410,10 +410,10 @@ DEPENDENCIES
   localhost
   pg
   puma (< 6)
-  rails (~> 7.0.5)
+  rails (~> 7.0.8)
   rake
   rexml
-  selenium-webdriver (>= 4.11.0)
+  selenium-webdriver (>= 4.14.0)
   shakapacker
   sitemap_generator
   sqlite3
@@ -428,4 +428,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.4.20
+   2.4.21

@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby ">= 2.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.0.5"
+gem "rails", "~> 7.0.8"
 gem "uri", ">= 0.12.2"
 gem "enumize"
 gem "sqlite3"
@@ -77,7 +77,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 3.39"
-  gem "selenium-webdriver", ">= 4.11.0"
+  gem "selenium-webdriver", ">= 4.14.0"
   gem "rexml" # required by selenium-webdriver for ruby 3.0
 end
 
