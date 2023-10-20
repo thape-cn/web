@@ -155,9 +155,9 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    globalize (6.2.1)
-      activemodel (>= 4.2, < 7.1)
-      activerecord (>= 4.2, < 7.1)
+    globalize (6.3.0)
+      activemodel (>= 4.2, < 7.2)
+      activerecord (>= 4.2, < 7.2)
       request_store (~> 1.0)
     http (5.1.1)
       addressable (~> 2.8)
