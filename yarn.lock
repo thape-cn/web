@@ -1541,9 +1541,9 @@ acorn@^7.0.0:
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
 acorn@^8.7.1, acorn@^8.8.2:
-  version "8.11.0"
-  resolved "https://registry.npmmirror.com/acorn/-/acorn-8.11.0.tgz#04306e13732231c995ac4363f331ee09db278d82"
-  integrity sha512-hNiSyky+cuYVALBrsjB7f9gMN9P4u09JyAiMNMLaVfsmkDJuH84M1T/0pfDX/OJfGWcobd2A7ecXYzygn8wibA==
+  version "8.11.2"
+  resolved "https://registry.npmmirror.com/acorn/-/acorn-8.11.2.tgz#ca0d78b51895be5390a5903c5b3bdcdaf78ae40b"
+  integrity sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
