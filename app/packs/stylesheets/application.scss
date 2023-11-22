@@ -2,7 +2,10 @@
 @import 'animate';
 @import 'flex-grid';
 @tailwind base;
+// autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated.
+// happen below, you can comment out while developing:
 @tailwind components;
+
 @import 'nav-bar';
 @import 'works';
 @import 'publications';
