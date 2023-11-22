@@ -25,8 +25,8 @@ class BizMapsController < ApplicationController
     @m_昆明天华 = MapContact.find(20)
     @m_长沙天华 = MapContact.find(21)
     @m_武汉易筑 = MapContact.find(34) # no use any more
-    @m_福州天华 = MapContact.find(35)
-    @m_南昌办事处 = MapContact.find(36)
+    @m_福州天华 = MapContact.find(35)  # no use any more
+    @m_南昌办事处 = MapContact.find(36) # no use any more
     @m_上海嘉易 = MapContact.find(39)
     @m_上海医养 = MapContact.find(40)
     @m_深圳AICO = MapContact.find(41)
@@ -59,12 +59,11 @@ class BizMapsController < ApplicationController
       {name: "广州", area: "广州", left: "63%", top: "80%"},
       {name: "天津", area: "天津", left: "72%", top: "39%"},
       {name: "重庆", area: "重庆", left: "54%", top: "66%"},
-      {name: "武汉", area: "武汉", left: "68%", top: "64%"},
+      {name: "武汉", area: "武汉", left: "68%", top: "65%"},
       {name: "成都", area: "成都", left: "48%", top: "63%"},
       {name: "西安", area: "西北地区", left: "53%", top: "54%"},
       {name: "沈阳", area: "沈阳", left: "78%", top: "28%"},
       {name: "厦门", area: "厦门", left: "73.5%", top: "81%"},
-      {name: "福州", area: "福州", left: "75%", top: "74%"},
       {name: "青岛", area: "青岛", left: "78%", top: "46%"},
       {name: "南京", area: "南京", left: "74%", top: "55%"},
       {name: "郑州", area: "西北地区", left: "66%", top: "52%"},
@@ -73,7 +72,6 @@ class BizMapsController < ApplicationController
       {name: "贵阳", area: "贵阳", left: "52%", top: "75%"},
       {name: "昆明", area: "昆明", left: "42%", top: "77%"},
       {name: "太原", area: "西北地区", left: "65%", top: "43%"},
-      {name: "南昌", area: "南昌", left: "72%", top: "67%"},
       {name: "乌鲁木齐", area: "西北地区", left: "24%", top: "29%"},
       {name: "兰州", area: "西北地区", left: "41%", top: "46%"},
       {name: "长沙", area: "长沙", left: "64%", top: "70%"},
@@ -100,8 +98,6 @@ class BizMapsController < ApplicationController
       {c: "贵阳天华", marks: [@m_贵阳天华]},
       {c: "昆明天华", marks: [@m_昆明天华]},
       {c: "长沙天华", marks: [@m_长沙天华]},
-      {c: "福州天华", marks: [@m_福州天华]},
-      {c: "南昌天华", marks: [@m_南昌办事处]},
       {c: "上海易爱迪", marks: [@m_易爱迪]},
       {c: "上海爱坤", marks: [@m_爱坤]},
       {c: "上海室内", marks: [@m_上海室内]},
@@ -134,8 +130,6 @@ class BizMapsController < ApplicationController
       {name: "贵阳天华", city: "贵阳", company: "贵阳天华"},
       {name: "昆明天华", city: "昆明", company: "昆明天华"},
       {name: "长沙天华", city: "长沙", company: "长沙天华"},
-      {name: "福州天华", city: "福州", company: "福州天华"},
-      {name: "南昌办事处", city: "南昌", company: "南昌天华"}
     ]
 
     # 地图旁边下半部分的公司列表
@@ -172,8 +166,6 @@ class BizMapsController < ApplicationController
       {c: "贵阳", e: "GUIYANG", ms: [@m_贵阳天华]},
       {c: "昆明", e: "KUNMING", ms: [@m_昆明天华]},
       {c: "长沙", e: "CHANGSHA", ms: [@m_长沙天华]},
-      {c: "福州", e: "FUZHOU", ms: [@m_福州天华]},
-      {c: "南昌", e: "NANCHANG", ms: [@m_南昌办事处]},
       {c: "香港", e: "HONGKONG", ms: [@m_香港AICO]}
     ]
   end
