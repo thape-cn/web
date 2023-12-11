@@ -2083,9 +2083,9 @@ css-unit-converter@^1.1.1:
   integrity sha512-IiJwMC8rdZE0+xiEZHeru6YoONC4rfPMqGm2W85jMIbkFvv5nFTwJVFHam2eFrN6txmoUYFAFXiv8ICVeTO0MA==
 
 cssdb@^7.1.0:
-  version "7.9.0"
-  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.9.0.tgz#d42d8269ff3d3e1c366280ab1f9f6207057b262c"
-  integrity sha512-WPMT9seTQq6fPAa1yN4zjgZZeoTriSN2LqW9C+otjar12DQIWA4LuSfFrvFJiKp4oD0xIk1vumDLw8K9ur4NBw==
+  version "7.9.1"
+  resolved "https://registry.npmmirror.com/cssdb/-/cssdb-7.9.1.tgz#d76e06509dc1e11050836c3d556988fdbffa749e"
+  integrity sha512-fqy6ZnNfpb8qAvTT0qijWyTsUmYThsDX2F2ctMG4ceI7mI4DtsMILSiMBiuuDnVIYTyWvCctdp9Nb08p/6m2SQ==
 
 cssesc@^3.0.0:
   version "3.0.0"
