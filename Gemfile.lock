@@ -80,7 +80,6 @@ GEM
       marcel (~> 1.0)
     activesupport (7.1.2)
       base64
-      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       connection_pool (>= 2.2.5)
       drb
@@ -98,7 +97,6 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt_pbkdf (1.1.0)
-    bigdecimal (3.1.5)
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
