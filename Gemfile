@@ -3,16 +3,15 @@
 source "https://rubygems.org/"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby ">= 2.7"
+ruby ">= 3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.0.8"
-gem "uri", ">= 0.12.2"
+gem "rails", "~> 7.1.2"
 gem "enumize"
 gem "sqlite3"
 gem "pg"
 
-gem "puma", "< 6" # current thape_web server not ready for puma 6
+gem "puma", "~> 6.4" # current thape_web server not ready for puma 6
 
 gem "shakapacker"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -69,7 +68,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
-  gem "capistrano3-puma", "~> 5.2.0"
+  gem "capistrano3-puma", "~> 6.0.0.beta.1"
   gem "ed25519"
   gem "bcrypt_pbkdf"
 end
