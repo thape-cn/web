@@ -129,7 +129,7 @@ class BizMapsController < ApplicationController
       {name: "合肥天华", city: "合肥", company: "合肥天华"},
       {name: "贵阳天华", city: "贵阳", company: "贵阳天华"},
       {name: "昆明天华", city: "昆明", company: "昆明天华"},
-      {name: "长沙天华", city: "长沙", company: "长沙天华"},
+      {name: "长沙天华", city: "长沙", company: "长沙天华"}
     ]
 
     # 地图旁边下半部分的公司列表

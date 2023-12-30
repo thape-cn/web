@@ -58,7 +58,7 @@ class LeadershipController < ApplicationController
         28, # 易术家
         27, # 虹核审图
         60, # 上海天华医养
-        79, # 天华嘉易
+        79 # 天华嘉易
       ]
 
       # 分支机构
