@@ -1,0 +1,26 @@
+[Unit]
+Description=Puma HTTP Server for thape_web (staging)
+After=network.target
+
+
+[Service]
+Type=simple
+User=thape_web
+WorkingDirectory=/var/www/thape_web/current
+# Support older bundler versions where file descriptors weren't kept
+# See https://github.com/rubygems/rubygems/issues/3254
+ExecStart=/home/thape_web/.rbenv/bin/rbenv exec bundle exec --keep-file-descriptors puma -C /var/www/thape_web/shared/puma.rb
+ExecReload=/bin/kill -USR1 $MAINPID
+StandardOutput=append:/var/www/thape_web/shared/log/puma_access.log
+StandardError=append:/var/www/thape_web/shared/log/puma_error.log
+
+
+
+
+Restart=always
+RestartSec=1
+
+SyslogIdentifier=puma
+
+[Install]
+WantedBy=multi-user.target
