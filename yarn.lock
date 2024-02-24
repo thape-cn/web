@@ -1812,7 +1812,7 @@ chalk@^2.4.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-"chalk@^3.0.0 || ^4.0.0", chalk@^4.0, chalk@^4.1.2:
+"chalk@^3.0.0 || ^4.0.0", chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -2099,7 +2099,7 @@ debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   dependencies:
     ms "2.1.2"
 
-deepmerge@^4.0:
+deepmerge@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npmmirror.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
   integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
@@ -2172,9 +2172,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.668:
-  version "1.4.680"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.680.tgz#18a30d3f557993eda2d5b1e21a06c4d51875392f"
-  integrity sha512-4nToZ5jlPO14W82NkF32wyjhYqQByVaDmLy4J2/tYcAbJfgO2TKJC780Az1V13gzq4l73CJ0yuyalpXvxXXD9A==
+  version "1.4.681"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.681.tgz#5f23fad8aa7e1f64cbb7dd9d15c7e39a1cd7e6e3"
+  integrity sha512-1PpuqJUFWoXZ1E54m8bsLPVYwIVCRzvaL+n5cjigGga4z854abDnFRc+cTa2th4S79kyGqya/1xoR7h+Y5G5lg==
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -2928,7 +2928,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lockfile@^1.0:
+lockfile@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmmirror.com/lockfile/-/lockfile-1.0.4.tgz#07f819d25ae48f87e538e6578b6964a4981a5609"
   integrity sha512-cvbTwETRfsFh4nHsL1eGWapU1XFi5Ot9E85sWAwia7Y7EgB7vfqcZhTKZ+l7hCGxSPoushMv5GKhT5PdLv03WA==
@@ -2940,12 +2940,12 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.npmmirror.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
 
-lodash.get@^4.0:
+lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.npmmirror.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
 
-lodash.has@^4.0:
+lodash.has@^4.5.2:
   version "4.5.2"
   resolved "https://registry.npmmirror.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
   integrity sha512-rnYUdIo6xRCJnQmbVFEwcxF144erlD+M3YcJUVesflU9paQaE8p+fJDcIQrlMYbxoANFL+AB9hZrzSBBk5PL+g==
@@ -3968,7 +3968,7 @@ schema-utils@^2.6.5:
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-schema-utils@^3.0, schema-utils@^3.1.1, schema-utils@^3.2.0:
+schema-utils@^3.1.1, schema-utils@^3.2.0, schema-utils@^3.3.0:
   version "3.3.0"
   resolved "https://registry.npmmirror.com/schema-utils/-/schema-utils-3.3.0.tgz#f50a88877c3c01652a15b622ae9e9795df7a60fe"
   integrity sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==
@@ -4296,7 +4296,7 @@ tailwindcss@^1.9.6:
     reduce-css-calc "^2.1.6"
     resolve "^1.14.2"
 
-tapable@^2.0, tapable@^2.1.1, tapable@^2.2.0, tapable@^2.2.1:
+tapable@^2.1.1, tapable@^2.2.0, tapable@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmmirror.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
@@ -4313,9 +4313,9 @@ terser-webpack-plugin@^5.3.0, terser-webpack-plugin@^5.3.10:
     terser "^5.26.0"
 
 terser@^5.26.0:
-  version "5.28.0"
-  resolved "https://registry.npmmirror.com/terser/-/terser-5.28.0.tgz#5b335fdb45f2ebf4061bf55df9e6600eb4d2b48e"
-  integrity sha512-UK1n2JZN6gqfwmjzcikRp+uF/7jdwPXO7M0k/Hnqxzj3T5POL4YBVrv5Y4MKixTzBq4OmH7FfEYRxcy/Eh7YhA==
+  version "5.28.1"
+  resolved "https://registry.npmmirror.com/terser/-/terser-5.28.1.tgz#bf00f7537fd3a798c352c2d67d67d65c915d1b28"
+  integrity sha512-wM+bZp54v/E9eRRGXb5ZFDvinrJIOaTapx3WUokyVGZu5ucVCK55zEgGd5Dl2fSr3jUo5sDiERErUWLY6QPFyA==
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
     acorn "^8.8.2"
@@ -4463,17 +4463,17 @@ wbuf@^1.1.0, wbuf@^1.7.3:
     minimalistic-assert "^1.0.0"
 
 webpack-assets-manifest@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.npmmirror.com/webpack-assets-manifest/-/webpack-assets-manifest-5.1.0.tgz#5af328f6c8fa760cb9a62af631a83da2b478b791"
-  integrity sha512-kPuTMEjBrqZQVJ5M6yXNBCEdFbQQn7p+loNXt8NOeDFaAbsNFWqqwR0YL1mfG5LbwhK5FLXWXpuK3GuIIZ46rg==
+  version "5.2.1"
+  resolved "https://registry.npmmirror.com/webpack-assets-manifest/-/webpack-assets-manifest-5.2.1.tgz#7ebe4c882efdc343029ed2f54a6f7ce990406f08"
+  integrity sha512-MsEcXVio1GY6R+b4dVfTHIDMB0RB90KajQG8neRbH92vE2S1ClGw9mNa9NPlratYBvZOhExmN0qqMNFTaCTuIg==
   dependencies:
-    chalk "^4.0"
-    deepmerge "^4.0"
-    lockfile "^1.0"
-    lodash.get "^4.0"
-    lodash.has "^4.0"
-    schema-utils "^3.0"
-    tapable "^2.0"
+    chalk "^4.1.2"
+    deepmerge "^4.3.1"
+    lockfile "^1.0.4"
+    lodash.get "^4.4.2"
+    lodash.has "^4.5.2"
+    schema-utils "^3.3.0"
+    tapable "^2.2.1"
 
 webpack-cli@^5.1.4:
   version "5.1.4"
