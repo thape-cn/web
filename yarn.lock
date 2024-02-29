@@ -1227,9 +1227,9 @@
     "@types/estree" "*"
 
 "@types/eslint@*":
-  version "8.56.4"
-  resolved "https://registry.npmmirror.com/@types/eslint/-/eslint-8.56.4.tgz#1ce772b385cf23982d048c3ddadba6ff5787c761"
-  integrity sha512-lG1GLUnL5vuRBGb3MgWUWLdGMH2Hps+pERuyQXCfWozuGKdnhf9Pbg4pkcrVUHjKrU7Rl+GCZ/299ObBXZFAxg==
+  version "8.56.5"
+  resolved "https://registry.npmmirror.com/@types/eslint/-/eslint-8.56.5.tgz#94b88cab77588fcecdd0771a6d576fa1c0af9d02"
+  integrity sha512-u5/YPJHo1tvkSF2CE0USEkxon82Z5DBy2xR+qfyYNszpX9qcs4sT6uq2kBbj4BXY1+DBGDPnrhMZV3pKWGNukw==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -1294,9 +1294,9 @@
     "@types/node" "*"
 
 "@types/node@*":
-  version "20.11.21"
-  resolved "https://registry.npmmirror.com/@types/node/-/node-20.11.21.tgz#ad67e65652f7be15686e2df87a38076a81c5e9c5"
-  integrity sha512-/ySDLGscFPNasfqStUuWWPfL78jompfIoVzLJPVVAHBh6rpG68+pI2Gk+fNLeI8/f1yPYL4s46EleVIc20F1Ow==
+  version "20.11.22"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-20.11.22.tgz#9a192c3d7e7e71fa3a4b15032654f64643815cd6"
+  integrity sha512-/G+IxWxma6V3E+pqK1tSl2Fo1kl41pK1yeCyDsgkF9WlVAme4j5ISYM2zR11bgLFJGLN5sVK40T4RJNuiZbEjA==
   dependencies:
     undici-types "~5.26.4"
 
@@ -2172,9 +2172,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.668:
-  version "1.4.685"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.685.tgz#3ce988e4dfbb3aa984840394b1d7064c01ad74c1"
-  integrity sha512-yDYeobbTEe4TNooEzOQO6xFqg9XnAkVy2Lod1C1B2it8u47JNLYvl9nLDWBamqUakWB8Jc1hhS1uHUNYTNQdfw==
+  version "1.4.686"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.686.tgz#54105e8d48aec0315951d0a45f2104907b2d1807"
+  integrity sha512-3avY1B+vUzNxEgkBDpKOP8WarvUAEwpRaiCL0He5OKWEFxzaOFiq4WoZEZe7qh0ReS7DiWoHMnYoQCKxNZNzSg==
 
 element-closest@^2.0.2:
   version "2.0.2"
