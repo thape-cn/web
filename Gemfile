@@ -8,7 +8,7 @@ ruby ">= 3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.1.2"
 gem "enumize"
-gem "sqlite3"
+gem "sqlite3", "~> 1.7"
 gem "pg"
 
 gem "puma", "~> 6.4" # current thape_web server not ready for puma 6

@@ -449,7 +449,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.14.0)
   shakapacker
   sitemap_generator
-  sqlite3
+  sqlite3 (~> 1.7)
   standard
   tzinfo-data
   web-console
