@@ -58,8 +58,6 @@ gem "kaminari"
 gem "chinese_pinyin", require: false
 
 group :development do
-  gem "localhost", require: "localhost/authority" # supports puma for self-signed certificates.
-
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console"
   gem "listen"
