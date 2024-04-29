@@ -7,6 +7,7 @@ ruby ">= 3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.1.2"
+gem "csv"
 gem "enumize"
 gem "sqlite3", "~> 1.7"
 gem "pg"
