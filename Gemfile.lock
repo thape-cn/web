@@ -102,7 +102,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
-    browser (6.0.0)
+    browser (5.3.1)
     builder (3.2.4)
     canonical-rails (0.2.15)
       actionview (>= 4.1, <= 7.2)
@@ -319,7 +319,7 @@ GEM
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.5.4)
+    reline (0.5.5)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -421,7 +421,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt_pbkdf
   bootsnap
-  browser
+  browser (< 6)
   canonical-rails
   capistrano
   capistrano-rails
@@ -460,4 +460,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.9
+   2.5.10

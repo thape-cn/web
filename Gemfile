@@ -28,7 +28,7 @@ gem "jbuilder", "~> 2.11"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "browser"
+gem "browser", "< 6" # support ruby 3.0
 
 gem "canonical-rails"
 
