@@ -45,7 +45,7 @@ psql -d thape_web_dev -f thape_web_prod.sql
 ## Export production DB
 
 ```bash
-/usr/pgsql-13/bin/pg_dump thape_web_prod -O -x > thape_web_prod.sql
+pg_dump thape_web_prod -O -x > thape_web_prod.sql
 zip thape_web_prod.zip thape_web_prod.sql
 ```
 
