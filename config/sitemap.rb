@@ -44,6 +44,7 @@ SitemapGenerator::Sitemap.create do
   end
   add leadership_index_path, priority: 0.60, changefreq: "weekly"
   Person.where(leaving_date: nil).find_each do |person|
+    next if person.url_name.blank?
     add leadership_path(id: person.url_name), lastmod: person.updated_at
   end
   City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).each do |city|
