@@ -105,7 +105,7 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     browser (5.3.1)
-    builder (3.2.4)
+    builder (3.3.0)
     canonical-rails (0.2.15)
       actionview (>= 4.1, <= 7.2)
     capistrano (3.18.1)
