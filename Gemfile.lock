@@ -321,7 +321,7 @@ GEM
     rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    reline (0.5.8)
+    reline (0.5.9)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -358,7 +358,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (7.2.3)
+    shakapacker (8.0.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
