@@ -21,9 +21,6 @@ class BizMapsController < ApplicationController
     @m_南京天华 = MapContact.find(13)
     @m_杭州天华 = MapContact.find(16)
     @m_合肥天华 = MapContact.find(18)
-    @m_贵阳天华 = MapContact.find(19)
-    @m_昆明天华 = MapContact.find(20)
-    @m_长沙天华 = MapContact.find(21)
     @m_武汉易筑 = MapContact.find(34) # no use any more
     @m_福州天华 = MapContact.find(35)  # no use any more
     @m_南昌办事处 = MapContact.find(36) # no use any more
@@ -69,12 +66,9 @@ class BizMapsController < ApplicationController
       {name: "郑州", area: "西北地区", left: "66%", top: "52%"},
       {name: "杭州", area: "杭州", left: "74%", top: "63%"},
       {name: "合肥", area: "合肥", left: "68%", top: "59%"},
-      {name: "贵阳", area: "贵阳", left: "52%", top: "75%"},
-      {name: "昆明", area: "昆明", left: "42%", top: "77%"},
       {name: "太原", area: "西北地区", left: "65%", top: "43%"},
       {name: "乌鲁木齐", area: "西北地区", left: "24%", top: "29%"},
       {name: "兰州", area: "西北地区", left: "41%", top: "46%"},
-      {name: "长沙", area: "长沙", left: "64%", top: "70%"},
       {name: "香港", area: "香港", left: "65%", top: "88%"}
     ]
 
@@ -95,9 +89,6 @@ class BizMapsController < ApplicationController
       {c: "南京天华", marks: [@m_南京天华]},
       {c: "杭州天华", marks: [@m_杭州天华]},
       {c: "合肥天华", marks: [@m_合肥天华]},
-      {c: "贵阳天华", marks: [@m_贵阳天华]},
-      {c: "昆明天华", marks: [@m_昆明天华]},
-      {c: "长沙天华", marks: [@m_长沙天华]},
       {c: "上海易爱迪", marks: [@m_易爱迪]},
       {c: "上海爱坤", marks: [@m_爱坤]},
       {c: "上海室内", marks: [@m_上海室内]},
@@ -127,9 +118,6 @@ class BizMapsController < ApplicationController
       {name: "南京天华", city: "南京", company: "南京天华"},
       {name: "杭州天华", city: "杭州", company: "杭州天华"},
       {name: "合肥天华", city: "合肥", company: "合肥天华"},
-      {name: "贵阳天华", city: "贵阳", company: "贵阳天华"},
-      {name: "昆明天华", city: "昆明", company: "昆明天华"},
-      {name: "长沙天华", city: "长沙", company: "长沙天华"}
     ]
 
     # 地图旁边下半部分的公司列表
@@ -163,9 +151,6 @@ class BizMapsController < ApplicationController
       {c: "南京", e: "NANJING", ms: [@m_南京天华]},
       {c: "杭州", e: "HANGZHOU", ms: [@m_杭州天华]},
       {c: "合肥", e: "HEFEI", ms: [@m_合肥天华]},
-      {c: "贵阳", e: "GUIYANG", ms: [@m_贵阳天华]},
-      {c: "昆明", e: "KUNMING", ms: [@m_昆明天华]},
-      {c: "长沙", e: "CHANGSHA", ms: [@m_长沙天华]},
       {c: "香港", e: "HONGKONG", ms: [@m_香港AICO]}
     ]
   end

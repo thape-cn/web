@@ -43,9 +43,6 @@ class LeadershipController < ApplicationController
         3, # 南京天华
         2, # 杭州天华
         4, # 合肥天华
-        20, # 贵阳天华
-        21, # 昆明天华
-        16, # 长沙天华
         29, # 福州天华
         32, # 武汉天华南昌办事处
         74, # AICO - 上海
