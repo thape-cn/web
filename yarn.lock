@@ -1558,9 +1558,9 @@ acorn@^7.0.0:
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
 acorn@^8.7.1, acorn@^8.8.2:
-  version "8.11.3"
-  resolved "https://registry.npmmirror.com/acorn/-/acorn-8.11.3.tgz#71e0b14e13a4ec160724b38fb7b0f233b1b81d7a"
-  integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
+  version "8.12.0"
+  resolved "https://registry.npmmirror.com/acorn/-/acorn-8.12.0.tgz#1627bfa2e058148036133b8d9b51a700663c294c"
+  integrity sha512-RTvkC4w+KNXrM39/lWCUaG0IbRkWdCv7W/IOW9oU6SawyxulvkQy5HQPVTKxEjczcUvapcrw3cFx/60VN/NRNw==
 
 ajv-formats@^2.1.1:
   version "2.1.1"
@@ -2248,9 +2248,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.796:
-  version "1.4.801"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.801.tgz#0dba4f20638d80a2de512ca5aab138fda0b13637"
-  integrity sha512-PnlUz15ii38MZMD2/CEsAzyee8tv9vFntX5nhtd2/4tv4HqY7C5q2faUAjmkXS/UFpVooJ/5H6kayRKYWoGMXQ==
+  version "1.4.802"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.802.tgz#49b397eadc95a49b1ac33eebee146b8e5a93773f"
+  integrity sha512-TnTMUATbgNdPXVSHsxvNVSG0uEd6cSZsANjm8c9HbvflZVVn1yTRcmVXYT1Ma95/ssB/Dcd30AHweH2TE+dNpA==
 
 element-closest@^2.0.2:
   version "2.0.2"
