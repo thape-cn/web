@@ -9,7 +9,6 @@ variables:
   CACHE_FALLBACK_KEY: "$CI_COMMIT_REF_SLUG"
 
 before_script:
-  - bundle config mirror.https://rubygems.org https://gems.ruby-china.com
   - bundle config set path 'vendor'  # Install dependencies into ./vendor/ruby
 
 stages:
