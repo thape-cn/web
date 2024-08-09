@@ -264,8 +264,8 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     package_json (0.1.0)
-    parallel (1.25.1)
-    parser (3.3.4.1)
+    parallel (1.26.1)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
     pg (1.5.7)
