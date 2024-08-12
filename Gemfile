@@ -36,7 +36,7 @@ gem "canonical-rails"
 gem "sitemap_generator"
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
-gem "wechat", git: "https://github.com/Eric-Guo/wechat", branch: :main
+gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
 group :production do
