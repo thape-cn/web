@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2021_01_21_093127) do
+ActiveRecord::Schema[7.1].define(version: 2021_01_21_093127) do
   create_table "tianhua2020s", force: :cascade do |t|
     t.string "name"
     t.string "clerkcode", null: false
@@ -58,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2021_01_21_093127) do
     t.string "orgcode"
     t.string "deptcode_sum"
   end
+
 end

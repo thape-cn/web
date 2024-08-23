@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 0) do
   create_table "tianhua2019s", force: :cascade do |t|
     t.string "name"
     t.string "clerkcode"
@@ -57,4 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.integer "folk_alumni_sign"
     t.string "upgrade_org"
   end
+
 end
