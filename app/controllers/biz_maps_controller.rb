@@ -23,6 +23,7 @@ class BizMapsController < ApplicationController
     @m_贵阳办事处 = MapContact.find(46)
     @m_昆明办事处 = MapContact.find(45)
     @m_长沙办事处 = MapContact.find(44)
+    @m_合肥办事处 = MapContact.find(47)
     @m_武汉易筑 = MapContact.find(34) # no use any more
     @m_福州天华 = MapContact.find(35)  # no use any more
     @m_南昌办事处 = MapContact.find(36) # no use any more
@@ -71,6 +72,7 @@ class BizMapsController < ApplicationController
       {name: "太原", area: "西北地区", left: "65%", top: "43%"},
       {name: "兰州", area: "西北地区", left: "41%", top: "46%"},
       {name: "长沙", area: "武汉", left: "64%", top: "70%"},
+      {name: "合肥", area: "武汉", left: "68%", top: "59%"},
       {name: "香港", area: "香港", left: "65%", top: "88%"}
     ]
 
@@ -82,7 +84,7 @@ class BizMapsController < ApplicationController
       {c: "广州天华", marks: [@m_广州天华]},
       {c: "天津天华", marks: [@m_天津天华]},
       {c: "重庆天华", marks: [@m_重庆天华, @m_昆明办事处, @m_贵阳办事处]},
-      {c: "武汉天华", marks: [@m_武汉天华, @m_长沙办事处]},
+      {c: "武汉天华", marks: [@m_武汉天华, @m_长沙办事处, @m_合肥办事处]},
       {c: "成都天华", marks: [@m_成都天华]},
       {c: "西北地区集团", marks: [@m_西安天华, @m_郑州天华, @m_太原办事处, @m_兰州办事处]},
       {c: "沈阳天华", marks: [@m_沈阳天华]},
@@ -142,7 +144,7 @@ class BizMapsController < ApplicationController
       {c: "广州", e: "GUANGZHOU", ms: [@m_广州天华]},
       {c: "天津", e: "TIANJIN", ms: [@m_天津天华]},
       {c: "重庆", e: "CHONGQING", ms: [@m_重庆天华, @m_昆明办事处, @m_贵阳办事处]},
-      {c: "武汉", e: "WUHAN", ms: [@m_武汉天华, @m_长沙办事处]},
+      {c: "武汉", e: "WUHAN", ms: [@m_武汉天华, @m_长沙办事处, @m_合肥办事处]},
       {c: "成都", e: "CHENGDU", ms: [@m_成都天华]},
       {c: "西北", dc: "西北地区", e: "NORTHWEST", ms: [@m_西安天华, @m_郑州天华, @m_太原办事处, @m_兰州办事处]},
       {c: "沈阳", e: "SHENYANG", ms: [@m_沈阳天华]},
