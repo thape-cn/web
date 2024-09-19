@@ -20,7 +20,6 @@ class BizMapsController < ApplicationController
     @m_青岛天华 = MapContact.find(12)
     @m_南京天华 = MapContact.find(13)
     @m_杭州天华 = MapContact.find(16)
-    @m_合肥天华 = MapContact.find(18)
     @m_贵阳办事处 = MapContact.find(46)
     @m_昆明办事处 = MapContact.find(45)
     @m_长沙办事处 = MapContact.find(44)
@@ -67,7 +66,6 @@ class BizMapsController < ApplicationController
       {name: "南京", area: "南京", left: "74%", top: "55%"},
       {name: "郑州", area: "西北地区", left: "66%", top: "52%"},
       {name: "杭州", area: "杭州", left: "74%", top: "63%"},
-      {name: "合肥", area: "合肥", left: "68%", top: "59%"},
       {name: "贵阳", area: "重庆", left: "52%", top: "75%"},
       {name: "昆明", area: "重庆", left: "42%", top: "77%"},
       {name: "太原", area: "西北地区", left: "65%", top: "43%"},
@@ -92,7 +90,6 @@ class BizMapsController < ApplicationController
       {c: "青岛天华", marks: [@m_青岛天华]},
       {c: "南京天华", marks: [@m_南京天华]},
       {c: "杭州天华", marks: [@m_杭州天华]},
-      {c: "合肥天华", marks: [@m_合肥天华]},
       {c: "上海易爱迪", marks: [@m_易爱迪]},
       {c: "上海爱坤", marks: [@m_爱坤]},
       {c: "上海室内", marks: [@m_上海室内]},
@@ -121,7 +118,6 @@ class BizMapsController < ApplicationController
       {name: "青岛天华", city: "青岛", company: "青岛天华"},
       {name: "南京天华", city: "南京", company: "南京天华"},
       {name: "杭州天华", city: "杭州", company: "杭州天华"},
-      {name: "合肥天华", city: "合肥", company: "合肥天华"},
     ]
 
     # 地图旁边下半部分的公司列表
@@ -154,7 +150,6 @@ class BizMapsController < ApplicationController
       {c: "青岛", e: "QINGDAO", ms: [@m_青岛天华]},
       {c: "南京", e: "NANJING", ms: [@m_南京天华]},
       {c: "杭州", e: "HANGZHOU", ms: [@m_杭州天华]},
-      {c: "合肥", e: "HEFEI", ms: [@m_合肥天华]},
       {c: "香港", e: "HONGKONG", ms: [@m_香港AICO]}
     ]
   end
