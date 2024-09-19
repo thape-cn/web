@@ -42,7 +42,6 @@ class LeadershipController < ApplicationController
         6, # 青岛天华
         3, # 南京天华
         2, # 杭州天华
-        4, # 合肥天华
         46, # 贵阳办事处
         45, # 昆明办事处
         44, # 长沙办事处
