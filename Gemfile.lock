@@ -234,7 +234,7 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
-    msgpack (1.7.2)
+    msgpack (1.7.3)
     mutex_m (0.2.0)
     net-imap (0.4.16)
       date
@@ -468,4 +468,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.20
+   2.5.21
