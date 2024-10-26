@@ -1,9 +1,9 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 79a714f8b84ceb10804c6afed2faafc4cb4eb35a
+  revision: 37cc550a4a934e09b0ecd9a91021d71c611bd78c
   branch: main
   specs:
-    wechat (0.17.4)
+    wechat (0.17.5)
       activesupport (>= 6.0, < 8)
       http (>= 1.0.4, < 6)
       nokogiri (>= 1.6.0)
@@ -195,7 +195,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.7.3)
+    json (2.7.4)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -217,7 +217,7 @@ GEM
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
     logger (1.6.1)
-    loofah (2.23.0)
+    loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
