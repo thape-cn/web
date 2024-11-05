@@ -271,7 +271,7 @@ GEM
     ostruct (0.6.0)
     package_json (0.1.0)
     parallel (1.26.3)
-    parser (3.3.5.1)
+    parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
@@ -470,4 +470,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.22
+   2.5.23
