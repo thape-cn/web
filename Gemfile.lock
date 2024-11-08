@@ -103,7 +103,7 @@ GEM
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
-    benchmark (0.3.0)
+    benchmark (0.4.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.4)
@@ -240,7 +240,7 @@ GEM
     minitest (5.25.1)
     msgpack (1.7.3)
     mutex_m (0.2.0)
-    net-imap (0.4.17)
+    net-imap (0.5.0)
       date
       net-protocol
     net-pop (0.1.2)
@@ -327,7 +327,7 @@ GEM
     rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -385,7 +385,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    ssrf_filter (1.1.2)
+    ssrf_filter (1.2.0)
     standard (1.41.1)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
