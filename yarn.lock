@@ -1056,9 +1056,9 @@
     "@parcel/watcher-win32-x64" "2.5.0"
 
 "@rails/ujs@~7.0.8":
-  version "7.0.806"
-  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.806.tgz#91ef7af6e147f28a6858c72f0a6df156afb278d9"
-  integrity sha512-KrDhXnJx5Qdb4kOS4+mIL1G6L9fh1jJ9hOSmQUxdlvUA6f/HOrakzjmfYOnqK8c1f2zcOkcseMnSJm6Bx+Tg1Q==
+  version "7.0.807"
+  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.807.tgz#2f9cf852c5da1d24a12b59fe170682b84cac7e49"
+  integrity sha512-6DW28OZWiSFeZnKlr2QQ5bAH2QjjVW08FrDrBz5JpGxJ/WFa4cYa6SH7tDWEdsSChlJVc3wvUrh4CGBM/R9x1Q==
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
