@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_06_16_023228) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_13_072947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -154,6 +154,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_06_16_023228) do
     t.text "contact_details"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.integer "spam_score"
   end
 
   create_table "homes", id: :bigint, default: nil, force: :cascade do |t|
