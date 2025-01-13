@@ -46,6 +46,11 @@ gem "sitemap_generator"
 gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
+gem "ruby-openai"
+gem "uri", "~> 0.13.1"
+gem "faraday-net_http", "~> 3.3.0"
+gem "net-http", "~> 0.4.1"
+
 group :production do
   gem "dalli"
 end
