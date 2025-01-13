@@ -241,7 +241,7 @@ GEM
     minitest (5.25.4)
     msgpack (1.7.5)
     mutex_m (0.3.0)
-    net-imap (0.4.17)
+    net-imap (0.4.18)
       date
       net-protocol
     net-pop (0.1.2)
@@ -452,23 +452,30 @@ DEPENDENCIES
   enumize
   ffi (~> 1.16.0)
   globalize
+  io-console (~> 0.7.2)
   jbuilder (~> 2.11)
   kaminari
   listen
+  net-imap (~> 0.4.17)
+  nokogiri (~> 1.17.2)
   pg
   puma (~> 6.4)
   rails (~> 7.1.2)
   rake
+  reline (~> 0.5.12)
   rexml
-  selenium-webdriver (>= 4.14.0)
+  securerandom (~> 0.3.2)
+  selenium-webdriver (= 4.26.0)
   shakapacker (~> 8.0)
   sitemap_generator
   sqlite3 (~> 1.7)
   standard
   tzinfo-data
+  unicode-display_width (~> 2.6)
   web-console
   wechat!
   whenever
+  zeitwerk (~> 2.6.18)
 
 RUBY VERSION
    ruby 3.2.2p53
