@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 class GuestMessage < ApplicationRecord
+  after_create :auto_fill_spam_score
+
+  def auto_fill_spam_score
+    ai_result = JSON.parse(ai_spam_score)
+
+    if ai_result.present?
+      spam_score = ai_result["spam_score"]
+      update_column(:spam_score, spam_score)
+    end
+  end
+
   def ai_spam_score
 system_prompt =<<'EOS_PROMPT' # Disabled interpolation
 User will provide some message from a website called 上海天华建筑设计有限公司官网 天华集团.
