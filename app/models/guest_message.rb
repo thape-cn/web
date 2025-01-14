@@ -53,7 +53,7 @@ EOS_PROMPT
         model: "deepseek-chat",
         response_format: {type: "json_object"},
         messages: [{role: "system", content: system_prompt},
-          {role: "user", content: "#{name}:#{message}"}],
+          {role: "user", content: "#{name} from company #{company} (#{contact_details}) leaving message:\n\n#{message}"}],
         temperature: 0.7
       }
     )
