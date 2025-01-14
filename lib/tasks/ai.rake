@@ -4,7 +4,7 @@ namespace :ai do
   desc "Mark guest message spam score"
   task mark_spam_message: :environment do
     GuestMessage.where(spam_score: nil).find_each do |m|
-      ai_result = JSON.parse(m.spam_score)
+      ai_result = JSON.parse(m.ai_spam_score)
 
       if ai_result.present?
         spam_score = ai_result["spam_score"]

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GuestMessage < ApplicationRecord
-  def spam_score
+  def ai_spam_score
 system_prompt =<<'EOS_PROMPT' # Disabled interpolation
 User will provide some message from a website called 上海天华建筑设计有限公司官网 天华集团.
 Read and evaluate what the guest want from the webmaster perspective, output spam score (range from 0 to 10, 10 means message is fully spam) in JSON format.
