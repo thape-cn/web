@@ -3,13 +3,14 @@
 namespace :ai do
   desc "Mark guest message spam score"
   task mark_spam_message: :environment do
-    m = GuestMessage.find 2009
-    puts "#{m.name}:#{m.message}"
-    ai_result = JSON.parse(m.spam_score)
+    GuestMessage.where(spam_score: nil).find_each do |m|
+      ai_result = JSON.parse(m.spam_score)
 
-    if ai_result.present?
-      spam_score = ai_result["spam_score"]
-      puts "spam_score: #{spam_score}"
+      if ai_result.present?
+        spam_score = ai_result["spam_score"]
+        puts "#{m.id}:#{m.name} spam_score: #{spam_score}"
+        m.update_column(:spam_score, spam_score)
+      end
     end
   end
 
