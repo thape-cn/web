@@ -152,7 +152,7 @@ GEM
       carrierwave (>= 1)
     chinese_pinyin (1.1.0)
     chronic (0.10.2)
-    concurrent-ruby (1.3.4)
+    concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
     crass (1.0.6)
     csv (3.3.2)
