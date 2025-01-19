@@ -57,6 +57,8 @@ end
 
 gem "whenever", require: false
 
+gem "rorvswild"
+
 group :development, :test do
   gem "standard"
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
