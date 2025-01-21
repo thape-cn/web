@@ -45,7 +45,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-cli": "^6",
+    "webpack-cli": "~5.1",
     "webpack-dev-server": "^4.9.3"
   },
   "resolutions": {
