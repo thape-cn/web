@@ -84,6 +84,10 @@ group :development do
   gem "capistrano3-puma", "~> 6.0.0.beta.1"
   gem "ed25519"
   gem "bcrypt_pbkdf"
+
+  # Support cursor / vs code
+  gem "ruby-lsp", require: false
+  gem "ruby-lsp-rails", require: false
 end
 
 group :test do
