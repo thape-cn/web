@@ -14,7 +14,6 @@ gem "net-imap", "~> 0.4.17"
 gem "securerandom", "~> 0.3.2"
 gem "reline", "~> 0.5.12"
 gem "unicode-display_width", "~> 2.6"
-gem "zeitwerk", "~> 2.6.18"
 gem "csv"
 gem "enumize"
 gem "sqlite3"
@@ -47,8 +46,8 @@ gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
 gem "ruby-openai"
-gem "uri", "~> 0.13.1"
-gem "faraday-net_http", "~> 3.3.0"
+gem "uri"
+gem "faraday-net_http"
 gem "net-http", "~> 0.4.1"
 
 group :production do
