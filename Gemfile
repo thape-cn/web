@@ -9,7 +9,7 @@ gem 'ffi', "~> 1.16.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.1.2"
 gem "io-console", "~> 0.7.2"
-gem "nokogiri", "~> 1.17.2"
+gem "nokogiri", "~> 1.18.2"
 gem "net-imap", "~> 0.4.17"
 gem "securerandom", "~> 0.3.2"
 gem "reline", "~> 0.5.12"
@@ -17,7 +17,7 @@ gem "unicode-display_width", "~> 2.6"
 gem "zeitwerk", "~> 2.6.18"
 gem "csv"
 gem "enumize"
-gem "sqlite3", "~> 1.7"
+gem "sqlite3"
 gem "pg"
 
 gem "puma", "~> 6.4" # current thape_web server not ready for puma 6
