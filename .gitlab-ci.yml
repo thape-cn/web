@@ -1,5 +1,5 @@
 ---
-image: circleci/ruby:3.0.3-node-browsers
+image: cimg/ruby:3.4-node-browsers
 
 variables:
   POSTGRES_HOST: postgres
