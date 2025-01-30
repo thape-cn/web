@@ -68,6 +68,6 @@ EOS_PROMPT
         temperature: 0.7
       }
     )
-    response.dig("choices", 0, "message", "content")
+    response&.dig("choices", 0, "message", "content")
   end
 end
