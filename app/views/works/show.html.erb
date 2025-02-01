@@ -1,9 +1,5 @@
-<% cache I18n.locale do %>
-  <%= render partial: 'shared/thape_nav' -%>
-<% end %>
+<%= render partial: 'shared/thape_nav' -%>
 
-<%# Cache the WeChat sharing config since it rarely changes for a work %>
-<% cache [@work, I18n.locale] do %>
 <%= wechat_config_js debug: false, api: %w(onMenuShareTimeline onMenuShareAppMessage) -%>
 <script type="application/javascript">
   if (wx) {
@@ -23,10 +19,7 @@
     });
   }
 </script>
-<% end %>
 
-<%# Cache the main work content %>
-<% cache [@work, @work.work_pictures.maximum(:updated_at), I18n.locale] do %>
 <div class="w-full relative">
   <div
     class="thape-slide"
@@ -73,10 +66,6 @@
     </div>
   </div>
 </div>
-<% end %>
-
-<%# Cache the work details section %>
-<% cache [@work, I18n.locale] do %>
 <div class="w-full mx-auto clearfix sm:py-4 md:py-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <header class="relative py-3 leading-snug clearfix border-gray-200 border-solid border-b-0 lg:border-b">
       <div class="block lg:inline-block">
@@ -248,10 +237,7 @@
     </aside>
   </div>
 </div>
-<% end %>
 
-<%# Cache the related projects section %>
-<% cache [@work, @relative_works.map(&:id), I18n.locale] do %>
 <div class="w-full mx-auto sm:pt-4 md:pt-8 px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
   <h2 class="<%= fdsz("text-lg", "text-2xl") -%> text-black6c">相关项目</h2>
 </div>
@@ -270,6 +256,5 @@
   <% end %>
   </div>
 </div>
-<% end %>
 
 <%= render partial: 'shared/footer' %>
