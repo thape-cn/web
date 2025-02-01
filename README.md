@@ -25,12 +25,11 @@ bin/rails s # run in seperate console
 ## Import to dev DB.
 
 ```bash
-unzip thape_web_prod.zip
 psql -d postgres
 DROP DATABASE thape_web_dev;
 CREATE DATABASE thape_web_dev WITH ENCODING='UTF8';
 \q
-psql -d thape_web_dev -f thape_web_prod.sql
+gunzip < thape_web_prod.sql.gz | psql -d thape_web_dev
 ```
 
 ## Import to dev DB in WSL2 Ubuntu
@@ -39,14 +38,13 @@ psql -d thape_web_dev -f thape_web_prod.sql
 sudo service postgresql start
 sudo -u postgres createuser yxh
 sudo -u postgres createdb thape_web_dev
-psql -d thape_web_dev -f thape_web_prod.sql
+gunzip < thape_web_prod.sql.gz | psql -d thape_web_dev
 ```
 
 ## Export production DB
 
 ```bash
-pg_dump thape_web_prod -O -x > thape_web_prod.sql
-zip thape_web_prod.zip thape_web_prod.sql
+pg_dump thape_web_prod -O -x | gzip > thape_web_prod.sql.gz
 ```
 
 # Develop notes
