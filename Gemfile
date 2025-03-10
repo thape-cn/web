@@ -52,6 +52,7 @@ gem "net-http", "~> 0.4.1"
 
 group :production do
   gem "dalli"
+  gem "rorvswild"
 end
 
 gem "whenever", require: false
