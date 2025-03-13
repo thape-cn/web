@@ -1686,9 +1686,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001688, caniuse-lite@^1.0.30001702:
-  version "1.0.30001703"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001703.tgz#977cb4920598c158f491ecf4f4f2cfed9e354718"
-  integrity sha512-kRlAGTRWgPsOj7oARC9m1okJEXdL/8fekFVcxA8Hl7GH4r/sN4OJn/i6Flde373T50KS7Y37oFbMwlE8+F42kQ==
+  version "1.0.30001704"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001704.tgz#6644fe909d924ac3a7125e8a0ab6af95b1f32990"
+  integrity sha512-+L2IgBbV6gXB4ETf0keSvLr7JUrRVbIaB/lrQ1+z8mRcQiisG5k+lG6O4n6Y5q6f5EuNfaYXKgymucphlEXQew==
 
 "chalk@^3.0.0 || ^4.0.0", chalk@^4.1.2:
   version "4.1.2"
@@ -2095,9 +2095,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.73:
-  version "1.5.115"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.115.tgz#193dd534948b3ea77e3d95dd38ca12cdc01c76a9"
-  integrity sha512-MN1nahVHAQMOz6dz6bNZ7apgqc9InZy7Ja4DBEVCTdeiUcegbyOYE9bi/f2Z/z6ZxLi0RxLpyJ3EGe+4h3w73A==
+  version "1.5.116"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.116.tgz#b779d73cd0cc75305d12ae4f061d7f7bcee4c761"
+  integrity sha512-mufxTCJzLBQVvSdZzX1s5YAuXsN1M4tTyYxOOL1TcSKtIzQ9rjIrm7yFK80rN5dwGTePgdoABDSHpuVtRQh0Zw==
 
 element-closest@^2.0.2:
   version "2.0.2"
@@ -4437,10 +4437,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmmirror.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakapacker@=8.1.0:
-  version "8.1.0"
-  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-8.1.0.tgz#cb9f318f70cd59a99d3a46dda478aede657034c2"
-  integrity sha512-2OCl9KoKraW7CbUUfcEmTt/hK7IfOJx2h6LwsqEUUMsCcMWv3aFpZPjp5B74VdJxIqTgZo/8XVYKI0mj+itnxA==
+shakapacker@=8.2.0:
+  version "8.2.0"
+  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-8.2.0.tgz#c7bed87b8be2ae565cfe616f68552be545c77e14"
+  integrity sha512-Ct7BFqJVnKbxdqCzG+ja7Q6LPt/PlB7sSVBfG5jsAvmVCADM05cuoNwEgYNjFGKbDzHAxUqy5XgoI9Y030+JKQ==
   dependencies:
     js-yaml "^4.1.0"
     path-complete-extname "^1.0.0"

@@ -33,7 +33,7 @@
     "sass-loader": "^13.3.3",
     "scrollama": "^2.2.3",
     "semver": "^7.5.3",
-    "shakapacker": "=8.1.0",
+    "shakapacker": "=8.2.0",
     "stimulus": "^2.0.0",
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.3.0",

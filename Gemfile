@@ -21,7 +21,7 @@ gem "pg"
 
 gem "puma", "~> 6.4" # current thape_web server not ready for puma 6
 
-gem "shakapacker", "~> 8.1"
+gem "shakapacker", "~> 8.2"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.11"
 # Use Redis adapter to run Action Cable in production
