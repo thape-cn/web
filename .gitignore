@@ -38,7 +38,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-web.sublime-workspace
+thape_web.sublime-workspace
 config/credentials.yml.enc
 workspace.xml
 dataSources.local.xml
