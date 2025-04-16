@@ -59,15 +59,9 @@ EXAMPLE JSON OUTPUT 4:
 }
 EOS_PROMPT
 
-    response = OpenAI::Client.new.chat(
-      parameters: {
-        model: "deepseek-chat",
-        response_format: {type: "json_object"},
-        messages: [{role: "system", content: system_prompt},
-          {role: "user", content: "#{name} from company #{company} (#{contact_details}) leaving message:\n\n#{message}"}],
-        temperature: 0.7
-      }
-    )
-    response&.dig("choices", 0, "message", "content")
+    chat = RubyLLM.chat
+    chat.with_instructions system_prompt
+    response = chat.ask "#{name} from company #{company} (#{contact_details}) leaving message:\n\n#{message}"
+    response.content
   end
 end

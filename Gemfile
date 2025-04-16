@@ -41,11 +41,12 @@ gem "canonical-rails"
 
 gem "sitemap_generator"
 
-# bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
+# bundle config local.wechat /Users/$(whoami)/git/oss/wechat/
 gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
-gem "ruby-openai"
+# bundle config local.ruby_llm /Users/$(whoami)/git/oss/ruby_llm/
+gem "ruby_llm", git: "https://git.thape.com.cn/rails/ruby_llm.git", branch: :main
 gem "uri"
 gem "faraday-net_http"
 gem "net-http", "~> 0.4.1"
