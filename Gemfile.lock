@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: 32e350578c9e05699fdde67e11e28b01645981ba
+  revision: 7dd4377d50fbb527abf5eff37c0cc896fb72592d
   branch: main
   specs:
-    ruby_llm (1.1.2)
+    ruby_llm (1.2.0)
       base64
       event_stream_parser (~> 1)
       faraday (~> 2)
@@ -425,7 +425,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sorbet-runtime (0.5.12020)
+    sorbet-runtime (0.5.12026)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
