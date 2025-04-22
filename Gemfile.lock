@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: 7dd4377d50fbb527abf5eff37c0cc896fb72592d
+  revision: ae29b584003841ab8e8faea7203bc5922ae9ceb2
   branch: main
   specs:
     ruby_llm (1.2.0)
@@ -273,7 +273,7 @@ GEM
     mutex_m (0.3.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.19)
+    net-imap (0.4.20)
       date
       net-protocol
     net-pop (0.1.2)
@@ -426,7 +426,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sorbet-runtime (0.5.12026)
+    sorbet-runtime (0.5.12028)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
