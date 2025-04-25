@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: bd3d88ab61f5741393ad33a28bd8d75e125be551
+  revision: 455c3e4c81e88ec871369e25eacc66a7db945210
   branch: main
   specs:
     ruby_llm (1.2.0)
