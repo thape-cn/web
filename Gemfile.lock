@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: 455c3e4c81e88ec871369e25eacc66a7db945210
-  branch: main
+  revision: 4f4b2c4ff5c278e1d2af048f5088536d0b22bb70
+  branch: WithResponseFormat
   specs:
-    ruby_llm (1.2.0)
+    ruby_llm (1.3.0)
       base64
       event_stream_parser (~> 1)
       faraday (~> 2)

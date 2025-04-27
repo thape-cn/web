@@ -4,12 +4,7 @@ class GuestMessage < ApplicationRecord
   after_create :auto_fill_spam_score
 
   def auto_fill_spam_score
-    ai_result = JSON.parse(ai_spam_score)
-
-    if ai_result.present?
-      spam_score = ai_result["spam_score"]
-      update_column(:spam_score, spam_score)
-    end
+    update_column(:spam_score, ai_spam_score)
   end
 
   def ai_spam_score
@@ -25,25 +20,19 @@ EXAMPLE INPUT 1:
 包淦: 请问贵阳公司在招结构专业负责人吗
 
 EXAMPLE JSON OUTPUT 1:
-{
-    "spam_score": 0
-}
+{"result": 0}
 
 EXAMPLE INPUT 2:
 DavidPop: Igjdfjvkdgvj jfsfcjsjfkj ifjfsifhidjfw iijfosjfd https://mail.ru/?gjvhdfjdfuvdbggf
 
 EXAMPLE JSON OUTPUT 2:
-{
-    "spam_score": 10
-}
+{"result": 10}
 
 EXAMPLE INPUT 3:
 RobertDrale:Hæ, ég vildi vita verð þitt.
 
 EXAMPLE JSON OUTPUT 3:
-{
-    "spam_score": 8
-}
+{"result": 8}
 
 EXAMPLE INPUT 4:
 Eric Jones: Cool website!
@@ -54,13 +43,12 @@ If you'd like to unsubscribe click here http://talkwithcustomer.com/unsubscribe.
 
 
 EXAMPLE JSON OUTPUT 4:
-{
-    "spam_score": 9
-}
+{"result": 9}
 EOS_PROMPT
 
     chat = RubyLLM.chat
     chat.with_instructions system_prompt
+    chat.with_response_format(type: :object, properties: {result: {type: :integer}})
     response = chat.ask "#{name} from company #{company} (#{contact_details}) leaving message:\n\n#{message}"
     response.content
   end
