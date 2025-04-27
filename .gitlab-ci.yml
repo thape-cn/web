@@ -1,5 +1,5 @@
 ---
-image: cimg/ruby:3.4.2-browsers
+image: cimg/ruby:3.4.3-browsers
 
 variables:
   POSTGRES_HOST: postgres
