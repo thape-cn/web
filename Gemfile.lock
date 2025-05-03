@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: 4f4b2c4ff5c278e1d2af048f5088536d0b22bb70
+  revision: e217b2e30b6d27b66b43dbaaadaf79db9eff8415
   branch: WithResponseFormat
   specs:
     ruby_llm (1.3.0)
@@ -425,7 +425,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sorbet-runtime (0.5.12053)
+    sorbet-runtime (0.5.12059)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
