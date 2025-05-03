@@ -51,6 +51,7 @@
   "resolutions": {
     "@types/retry": "^0.12.5",
     "chokidar": "^3.5.2",
+    "cookie": "~0.7.2",
     "inherits": "~2.0.4",
     "micromatch": "~4.0.7",
     "merge-descriptors": "~1.0.3",
