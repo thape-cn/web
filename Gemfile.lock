@@ -251,7 +251,7 @@ GEM
     mime-types (3.6.2)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0429)
+    mime-types-data (3.2025.0506)
     mini_magick (5.2.0)
       benchmark
       logger
@@ -263,7 +263,7 @@ GEM
     mutex_m (0.3.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.21)
+    net-imap (0.4.22)
       date
       net-protocol
     net-pop (0.1.2)
@@ -310,7 +310,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.13)
+    rack (3.1.14)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.1)
@@ -387,7 +387,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    ruby-lsp (0.23.16)
+    ruby-lsp (0.23.17)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
