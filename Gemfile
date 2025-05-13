@@ -46,7 +46,7 @@ gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
 # bundle config local.ruby_llm /Users/$(whoami)/git/oss/ruby_llm/
-gem "ruby_llm", git: "https://git.thape.com.cn/rails/ruby_llm.git", branch: :WithResponseFormat
+gem "ruby_llm", git: "https://git.thape.com.cn/rails/ruby_llm.git", branch: :WithResponseFormat2
 gem "uri"
 gem "faraday-net_http"
 gem "net-http", "~> 0.4.1"
