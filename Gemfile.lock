@@ -14,16 +14,16 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/ruby_llm.git
-  revision: 5d98429cdc827c7ea3e9aecf3e96837029417b3f
+  revision: cdc78ecdff98797ba89e24a091d1bd6000fa7b28
   branch: WithResponseFormat2
   specs:
     ruby_llm (1.3.0rc1)
       base64
       event_stream_parser (~> 1)
-      faraday (~> 2)
-      faraday-multipart (~> 1)
-      faraday-net_http (~> 3)
-      faraday-retry (~> 2)
+      faraday (>= 1.10.0)
+      faraday-multipart (>= 1)
+      faraday-net_http (>= 1)
+      faraday-retry (>= 1)
       marcel (~> 1.0)
       zeitwerk (~> 2)
 
@@ -177,7 +177,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     domain_name (0.6.20240107)
-    drb (2.2.1)
+    drb (2.2.3)
     ed25519 (1.4.0)
     enumize (0.2.1)
       rails (>= 5.0.0)
@@ -418,7 +418,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sorbet-runtime (0.5.12117)
+    sorbet-runtime (0.5.12119)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
