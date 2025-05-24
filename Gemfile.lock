@@ -13,7 +13,7 @@ GIT
       zeitwerk (~> 2.4)
 
 GIT
-  remote: https://git.thape.com.cn/rails/ruby_llm.git
+  remote: https://git.thape.com.cn/ai/ruby_llm.git
   revision: 62b2cfeec87807ce1f5c27ce956db6ddf89d8b76
   branch: WithResponseFormat2
   specs:
