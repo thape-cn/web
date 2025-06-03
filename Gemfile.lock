@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: dd2bfa1eec5614d4ec49f283f6357c4a37056384
+  revision: 820d4be408b49eeaeafd646ac5b7d05896862e31
   branch: WithResponseFormat2
   specs:
     ruby_llm (1.3.0rc1)
@@ -391,12 +391,12 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    ruby-lsp (0.23.23)
+    ruby-lsp (0.23.24)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 5)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.4.3)
+    ruby-lsp-rails (0.4.4)
       ruby-lsp (>= 0.23.18, < 0.24.0)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.3)
