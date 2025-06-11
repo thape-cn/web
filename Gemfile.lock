@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: 5f1343bd7f8412817479866a6cf8076a41eecab7
+  revision: 2a2afbe2a74959030c4c72db0242fb4e621d0464
   branch: WithResponseFormat2
   specs:
-    ruby_llm (1.3.0)
+    ruby_llm (1.3.1)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
@@ -418,7 +418,7 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sorbet-runtime (0.5.12164)
+    sorbet-runtime (0.5.12167)
     sqlite3 (2.7.0-aarch64-linux-gnu)
     sqlite3 (2.7.0-arm-linux-gnu)
     sqlite3 (2.7.0-arm64-darwin)
