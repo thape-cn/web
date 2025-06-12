@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: 2a2afbe2a74959030c4c72db0242fb4e621d0464
+  revision: d3163ca4a437b7531d56b59251b48621e9124a22
   branch: WithResponseFormat2
   specs:
     ruby_llm (1.3.1)
