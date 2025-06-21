@@ -80,7 +80,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
-  gem "capistrano3-puma", "~> 6.0.0.beta.1"
+  gem "capistrano3-puma"
   gem "ed25519"
   gem "bcrypt_pbkdf"
 
