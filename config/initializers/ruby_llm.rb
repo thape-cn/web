@@ -34,4 +34,8 @@ RubyLLM.configure do |config|
   config.retry_interval = 0.1 # Initial delay in seconds (default: 0.1)
   config.retry_backoff_factor = 2 # Multiplier for subsequent retries (default: 2)
   config.retry_interval_randomness = 0.5 # Jitter factor (default: 0.5)
+
+  # --- Logging Settings ---
+  config.log_file = Rails.root.join("log", "ruby_llm.log")
+  config.log_level = :debug # debug level can also be set to debug by setting RUBYLLM_DEBUG envar to true
 end

@@ -4,7 +4,8 @@ class GuestMessage < ApplicationRecord
   after_create :auto_fill_spam_score
 
   def auto_fill_spam_score
-    update_column(:spam_score, ai_spam_score)
+    spam_score = JSON.parse(ai_spam_score)["result"]
+    update_column(:spam_score, spam_score)
   end
 
   def ai_spam_score
@@ -48,7 +49,7 @@ EOS_PROMPT
 
     chat = RubyLLM.chat
     chat.with_instructions system_prompt
-    chat.with_response_format(type: :object, properties: {result: {type: :integer}})
+    chat.with_params(response_format: { type: 'json_object' })
     response = chat.ask "#{name} from company #{company} (#{contact_details}) leaving message:\n\n#{message}"
     response.content
   end
