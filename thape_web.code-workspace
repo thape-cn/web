@@ -9,5 +9,5 @@
 			"**/.bundle": true,
 			"**/node_modules": true
 		}
-        }
+  }
 }
