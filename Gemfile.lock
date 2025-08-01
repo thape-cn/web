@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: 53d410df715c2c95bcd61a8653fdf85828e0a8c6
+  revision: 1f255c96e77d3250d08783de1eb3346a3215833f
   branch: dify_api
   specs:
-    ruby_llm (1.5.0)
+    ruby_llm (1.5.1)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
