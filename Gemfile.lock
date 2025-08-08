@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: 2e149cba086859beddb5f8273eb91df80d64a4af
+  revision: 1383183c018a843404b864e6957340e032c2bcbc
   branch: dify_api
   specs:
     ruby_llm (1.5.1)
