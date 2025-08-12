@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: 944a42af1b7b874dd2aefbb1fb9ca5c4429953d4
+  revision: 0c8de20fa9bebe87d9b88bab92b8641795618a6d
   branch: dify_api
   specs:
     ruby_llm (1.6.0)
@@ -218,7 +218,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.14.0)
+    jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     json (2.13.2)
@@ -253,7 +253,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0805)
+    mime-types-data (3.2025.0812)
     mini_magick (5.3.0)
       logger
     mini_mime (1.1.5)
@@ -364,7 +364,7 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    regexp_parser (2.11.1)
+    regexp_parser (2.11.2)
     reline (0.5.12)
       io-console (~> 0.5)
     request_store (1.7.0)
