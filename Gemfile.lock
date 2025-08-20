@@ -14,10 +14,10 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: d0959fd408a9354f6e1f23df58797d820f7993f2
+  revision: 0f73adfa6fdaecec6796c58f16fd20aa4df8b17b
   branch: dify_api
   specs:
-    ruby_llm (1.6.2)
+    ruby_llm (1.6.3)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
@@ -253,8 +253,8 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0812)
-    mini_magick (5.3.0)
+    mime-types-data (3.2025.0819)
+    mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -400,7 +400,7 @@ GEM
     ruby-lsp-rails (0.4.8)
       ruby-lsp (>= 0.26.0, < 0.27.0)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.4)
+    ruby-vips (2.2.5)
       ffi (~> 1.12)
       logger
     rubyzip (2.4.1)
