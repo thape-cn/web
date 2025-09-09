@@ -12,21 +12,6 @@ GIT
       thor
       zeitwerk (~> 2.4)
 
-GIT
-  remote: https://git.thape.com.cn/ai/ruby_llm.git
-  revision: b83c6750f329396bef433a426b822651576feee3
-  branch: dify_api
-  specs:
-    ruby_llm (1.6.4)
-      base64
-      event_stream_parser (~> 1)
-      faraday (>= 1.10.0)
-      faraday-multipart (>= 1)
-      faraday-net_http (>= 1)
-      faraday-retry (>= 1)
-      marcel (~> 1.0)
-      zeitwerk (~> 2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -177,6 +162,15 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dify_llm (1.6.4)
+      base64
+      event_stream_parser (~> 1)
+      faraday (>= 1.10.0)
+      faraday-multipart (>= 1)
+      faraday-net_http (>= 1)
+      faraday-retry (>= 1)
+      marcel (~> 1.0)
+      zeitwerk (~> 2)
     domain_name (0.6.20240107)
     drb (2.2.3)
     ed25519 (1.4.0)
@@ -497,6 +491,7 @@ DEPENDENCIES
   csv
   dalli
   debug
+  dify_llm
   ed25519
   enumize
   faraday-net_http
@@ -517,7 +512,6 @@ DEPENDENCIES
   rexml
   ruby-lsp
   ruby-lsp-rails
-  ruby_llm!
   securerandom (~> 0.3.2)
   selenium-webdriver (= 4.26.0)
   shakapacker (~> 8.2)
