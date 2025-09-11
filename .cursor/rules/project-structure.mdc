@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+### Project Structure and Entry Points
+
+- **Rails app structure**: Controllers in `app/controllers/**`, views in `app/views/**`, models in `app/models/**`.
+- **Main layout**: `app/views/layouts/application.html.erb` links `stylesheet_pack_tag 'application'` and `javascript_pack_tag 'application'`.
+- **JS bundling (Shakapacker)**:
+  - Source path: `app/packs`
+  - Entrypoints: `app/packs/entrypoints/*.js` (`application.js`, `tianhua_2020.js`)
+  - Stimulus controllers are auto-registered from `app/packs/controllers/**` via `[app/packs/controllers/index.js](mdc:app/packs/controllers/index.js)`.
+- **Routing**: See `[config/routes.rb](mdc:config/routes.rb)` for resource routes and locale redirects.
+- **i18n**: Locale YAMLs under `[config/locales](mdc:config/locales)` (`cn.yml`, `en.yml`).
+- **SEO helper**: `full_title` in `[app/helpers/application_helper.rb](mdc:app/helpers/application_helper.rb)`; `@seo` prepared in `ApplicationController`.
+- **APIs**: JSON is rendered via Jbuilder in `app/views/api/**` for controllers under `app/controllers/api/**`.
+
+Tips
+- Prefer adding new JS to a dedicated entry in `app/packs/entrypoints` when the bundle is page-specific.
+- Place reusable Stimulus controllers under `app/packs/controllers` and ensure filenames end with `_controller.js`.

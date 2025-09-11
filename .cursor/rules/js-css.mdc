@@ -1,0 +1,16 @@
+---
+globs: *.js,*.scss,*.css
+description: Frontend rules (Shakapacker, Stimulus, SCSS)
+---
+### JavaScript & Styles
+
+- **Entrypoints**: Add files under `app/packs/entrypoints`; import shared modules.
+- **Stimulus**:
+  - Controllers live in `app/packs/controllers/*_controller.js`.
+  - Auto-registered via `[app/packs/controllers/index.js](mdc:app/packs/controllers/index.js)`.
+- **Imports**: Resolve relative to `app/packs`.
+- **CSS**:
+  - SCSS in `app/packs/stylesheets` or imported by entrypoints.
+  - Respect Tailwind/postcss config in `[postcss.config.js](mdc:postcss.config.js)`.
+- **Images**: Put under `app/packs/images`; reference via imports or helpers.
+- **IE handling**: Use `home_ie11_controller.js` and `scroll_ie11_controller.js` when needed.

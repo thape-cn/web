@@ -1,0 +1,12 @@
+---
+globs: config/locales/*.yml,app/views/**/*.erb,app/**/*.rb
+description: Internationalization usage rules
+---
+### Internationalization
+
+- **Locales**: Supported locales are `:cn` and `:en`. Default is `:cn`.
+- **Switching**: Locale set via `params[:locale]` or cookie; see `ApplicationController#set_locale`.
+- **Keys**: Add translations in `[config/locales/cn.yml](mdc:config/locales/cn.yml)` and `[config/locales/en.yml](mdc:config/locales/en.yml)` with mirrored structure.
+- **Views**: Use `t('...')` for user-facing text; avoid hardcoding.
+- **Helpers**: Where layout titles/meta are dynamic, use helpers with i18n where appropriate.
+- **Routing**: English routes often pass `?locale=en`; keep redirects consistent with `[config/routes.rb](mdc:config/routes.rb)`.

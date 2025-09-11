@@ -1,0 +1,24 @@
+---
+globs: *.rb
+description: Ruby & Rails conventions for thape_web
+---
+### Ruby & Rails Conventions
+
+- **Frozen string literal**: Keep `# frozen_string_literal: true` at top of Ruby files.
+- **Controllers**:
+  - Set locale, SEO, browser notices centrally in `ApplicationController`.
+  - Avoid logic in views; expose data via instance variables.
+  - Leverage strong parameters and `only:` filters in `routes`.
+- **I18n**:
+  - Use `I18n.locale` and keys from `[config/locales/*.yml](mdc:config/locales)`.
+  - Do not hardcode user-facing text in controllers/models.
+- **Helpers**:
+  - Prefer helpers in `[app/helpers/application_helper.rb](mdc:app/helpers/application_helper.rb)` for title, display logic.
+- **Queries**:
+  - Use scopes and `includes` to avoid N+1 when rendering collections.
+- **Naming**:
+  - Match existing conventions (`works`, `leadership`, `publications`).
+- **Security**:
+  - Use `csrf_meta_tags` in layouts and permit only necessary params.
+- **Browser checks**:
+  - Use `browser` gem helpers as in `ApplicationController#set_ie_warning`.

@@ -1,0 +1,13 @@
+---
+globs: app/views/**/*.erb
+description: ERB templating and layout guidelines
+---
+### ERB & Layouts
+
+- **Layout**: Use `app/views/layouts/application.html.erb` unless a page-specific layout is required.
+- **Packs**: Include `stylesheet_pack_tag 'application'` and `javascript_pack_tag 'application'` in the layout.
+- **Helpers**: Use `full_title`, `canonical_tag`, and Tailwind utility classes as in the layout.
+- **Flash**: Render flash messages consistently (see `application.html.erb`).
+- **I18n**: Do not hardcode user-visible strings; use `t('...')` with keys from locales.
+- **Partials**: Extract repeated sections into partials under `app/views/shared/`.
+- **Analytics**: Preserve the Baidu analytics snippet in the layout head/body unless intentionally changing tracking.

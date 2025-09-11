@@ -1,0 +1,14 @@
+---
+globs: config/routes.rb,app/controllers/api/**/*.rb,app/views/api/**/*.jbuilder
+description: Routes, API namespace, and Jbuilder conventions
+---
+### Routes & API (Jbuilder)
+
+- **Routes**: Define RESTful routes in `[config/routes.rb](mdc:config/routes.rb)`. Use `only:` to limit actions.
+- **API Namespace**: Place API controllers under `app/controllers/api/**` and views under `app/views/api/**`.
+- **Jbuilder**: Render JSON with `*.json.jbuilder` templates collocated with controller actions.
+- **Examples**:
+  - Controllers: `api/works_controller.rb`, `api/people_controller.rb`, `api/project_map_controller.rb`.
+  - Views: `app/views/api/works/index.json.jbuilder`, `show.json.jbuilder`.
+- **Pagination/Filters**: Prefer query params; document expected params in controller comments.
+- **Security**: Strong params in controllers; avoid rendering confidential fields.
