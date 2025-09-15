@@ -162,7 +162,7 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    dify_llm (1.7.1)
+    dify_llm (1.8.0)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
@@ -303,7 +303,7 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.5.0)
+    prism (1.5.1)
     psych (5.2.6)
       date
       stringio
