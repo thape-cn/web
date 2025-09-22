@@ -45,8 +45,8 @@ gem "sitemap_generator"
 gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "rake"
 
-# bundle config local.ruby_llm /Users/$(whoami)/git/oss/ruby_llm/
-gem "dify_llm", require: "ruby_llm"
+# bundle config local.dify_llm /Users/$(whoami)/git/oss/ruby_llm/
+gem "dify_llm"
 gem "uri"
 gem "faraday-net_http"
 gem "net-http", "~> 0.4.1"
