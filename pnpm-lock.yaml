@@ -35,8 +35,8 @@ importers:
         specifier: ^3.1.3
         version: 3.1.3(postcss@8.5.6)
       '@rails/ujs':
-        specifier: ~7.0.807
-        version: 7.0.807
+        specifier: ~7.1.502
+        version: 7.1.502
       '@stimulus/polyfills':
         specifier: ^2.0.0
         version: 2.0.0
@@ -768,8 +768,8 @@ packages:
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
-  '@rails/ujs@7.0.807':
-    resolution: {integrity: sha512-6DW28OZWiSFeZnKlr2QQ5bAH2QjjVW08FrDrBz5JpGxJ/WFa4cYa6SH7tDWEdsSChlJVc3wvUrh4CGBM/R9x1Q==}
+  '@rails/ujs@7.1.502':
+    resolution: {integrity: sha512-SFtA5X59BimNG8cy60pgZhPf1bGpg5KXVYF6Jj5H5hrwwNXKNmD2yNZhHC+WfuLqBN+972cZHR9Fto6nJQz+Xw==}
 
   '@stimulus/core@2.0.0':
     resolution: {integrity: sha512-ff70GafKtzc8zQ1/cG+UvL06GcifPWovf2wBEdjLMh9xO2GOYURO3y2RYgzIGYUIBefQwyfX2CLfJdZFJrEPTw==}
@@ -3921,7 +3921,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@rails/ujs@7.0.807': {}
+  '@rails/ujs@7.1.502': {}
 
   '@stimulus/core@2.0.0':
     dependencies:
