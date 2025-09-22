@@ -1,4 +1,5 @@
-global.Rails = require("@rails/ujs");
+import Rails from "@rails/ujs"
+global.Rails = Rails
 global.Rails.start();
 import { submitFormButton, showOrSkipNextSceneGlobal, 
   showOrSkipPreviousSceneGlobal, setElementGlobal,

@@ -8,8 +8,9 @@ import "regenerator-runtime/runtime";
 import "@stimulus/polyfills";
 import 'waypoints/lib/noframework.waypoints';
 
-require("@rails/ujs").start()
-
+import Rails from "@rails/ujs"
+global.Rails = Rails
+global.Rails.start();
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

@@ -974,10 +974,10 @@
   resolved "https://registry.npmmirror.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.5.tgz#4fc56c15c580b9adb7dc3c333a134e540b44bfb1"
   integrity sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==
 
-"@rails/ujs@~7.0.807":
-  version "7.0.807"
-  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.0.807.tgz#2f9cf852c5da1d24a12b59fe170682b84cac7e49"
-  integrity sha512-6DW28OZWiSFeZnKlr2QQ5bAH2QjjVW08FrDrBz5JpGxJ/WFa4cYa6SH7tDWEdsSChlJVc3wvUrh4CGBM/R9x1Q==
+"@rails/ujs@~7.1.5":
+  version "7.1.502"
+  resolved "https://registry.npmmirror.com/@rails/ujs/-/ujs-7.1.502.tgz#504a05c44ec079432fae894e698556c630fdcd49"
+  integrity sha512-SFtA5X59BimNG8cy60pgZhPf1bGpg5KXVYF6Jj5H5hrwwNXKNmD2yNZhHC+WfuLqBN+972cZHR9Fto6nJQz+Xw==
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
