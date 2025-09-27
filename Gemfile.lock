@@ -200,7 +200,7 @@ GEM
       request_store (~> 1.0)
     http-2 (1.1.1)
     http-accept (1.7.0)
-    http-cookie (1.0.8)
+    http-cookie (1.1.0)
       domain_name (~> 0.5)
     httpx (1.6.2)
       http-2 (>= 1.0.0)
