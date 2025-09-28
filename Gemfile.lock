@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: ab6cf0b86265cf83ef368634537062b0c5285fb8
+  revision: 343b8145c2401d0a4354a3194001c913ab8624b5
   branch: main
   specs:
     wechat (1.0.1)
@@ -180,7 +180,7 @@ GEM
       cgi (>= 0.3.3)
     erubi (1.13.1)
     event_stream_parser (1.0.0)
-    faraday (2.13.4)
+    faraday (2.14.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
