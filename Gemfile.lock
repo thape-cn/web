@@ -169,8 +169,7 @@ GEM
     ed25519 (1.4.0)
     enumize (0.2.1)
       rails (>= 5.0.0)
-    erb (4.0.4)
-      cgi (>= 0.3.3)
+    erb (5.0.2)
     erubi (1.13.1)
     event_stream_parser (1.0.0)
     faraday (2.14.0)
@@ -292,7 +291,7 @@ GEM
     pg (1.6.2-arm64-darwin)
     pg (1.6.2-x86_64-darwin)
     pg (1.6.2-x86_64-linux)
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
     prism (1.5.1)
