@@ -1593,9 +1593,9 @@ balanced-match@^1.0.0:
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
 baseline-browser-mapping@^2.8.9:
-  version "2.8.11"
-  resolved "https://registry.npmmirror.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.11.tgz#70f8d63a5dbcfd82f055be51e2ebe2d477908704"
-  integrity sha512-i+sRXGhz4+QW8aACZ3+r1GAKMt0wlFpeA8M5rOQd0HEYw9zhDrlx9Wc8uQ0IdXakjJRthzglEwfB/yqIjO6iDg==
+  version "2.8.12"
+  resolved "https://registry.npmmirror.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.12.tgz#7cb875f4c5b5ab4528109df277b2f0e1971ba27e"
+  integrity sha512-vAPMQdnyKCBtkmQA6FMCBvU9qFIppS3nzyXnEM+Lo2IAhG4Mpjv9cCxMudhgV3YdNNJv6TNqXy97dfRVL2LmaQ==
 
 batch@0.6.1:
   version "0.6.1"
@@ -1711,9 +1711,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001702, caniuse-lite@^1.0.30001746:
-  version "1.0.30001747"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001747.tgz#2cfbbb7f1f046439ebaf34bba337ee3d3474c7e5"
-  integrity sha512-mzFa2DGIhuc5490Nd/G31xN1pnBnYMadtkyTjefPI7wzypqgCEpeWu9bJr0OnDsyKrW75zA9ZAt7pbQFmwLsQg==
+  version "1.0.30001748"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001748.tgz#628a5a9293014e58f8ba1216bb4966b04c58bee0"
+  integrity sha512-5P5UgAr0+aBmNiplks08JLw+AW/XG/SurlgZLgB1dDLfAw7EfRGxIwzPHxdSCGY/BTKDqIVyJL87cCN6s0ZR0w==
 
 "chalk@^3.0.0 || ^4.0.0", chalk@^4.1.2:
   version "4.1.2"
@@ -2153,9 +2153,9 @@ enhanced-resolve@^5.17.3:
     tapable "^2.2.0"
 
 envinfo@^7.7.3:
-  version "7.15.0"
-  resolved "https://registry.npmmirror.com/envinfo/-/envinfo-7.15.0.tgz#7d5a6d464df38708ee5ac135289c88f0c9bffa7e"
-  integrity sha512-chR+t7exF6y59kelhXw5I3849nTy7KIRO+ePdLMhCD+JRP/JvmkenDWP7QSFGlsHX+kxGxdDutOPrmj5j1HR6g==
+  version "7.16.1"
+  resolved "https://registry.npmmirror.com/envinfo/-/envinfo-7.16.1.tgz#69a0e2a7c1bd1306ab5902f7d709f81b967fdb81"
+  integrity sha512-IugkinfKJlINIece0m1tAtjn4LGNP3APqchokVe090oSI5E3mixxKuc34ZiDHO17MTPODwjHWEt7QdC8Y+xtyQ==
 
 error-ex@^1.3.1:
   version "1.3.4"
