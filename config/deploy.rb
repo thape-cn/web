@@ -27,7 +27,7 @@ set :format_options, truncate: false
 append :linked_files, *%w[puma.rb config/database.yml config/master.key config/secrets.yml db/tianhua2019.sqlite3 db/tianhua2020.sqlite3 config/credentials.yml.enc]
 
 # Default value for linked_dirs is []
-append :linked_dirs, *%w[log tmp/pids tmp/cache tmp/sockets public/system public/packs public/uploads public/news_images public/tianwen_sync node_modules]
+append :linked_dirs, *%w[log tmp/pids tmp/cache tmp/sockets public/system public/packs public/uploads public/news_images public/tianwen_sync]
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -46,6 +46,7 @@ set :rbenv_ruby, "3.4.4"
 
 set :puma_init_active_record, true
 set :puma_phased_restart, true
+set :pnpm_flags, '--silent'
 
 # https://stackoverflow.com/a/48627238/262826
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
