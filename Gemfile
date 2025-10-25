@@ -77,7 +77,7 @@ group :development do
   gem "listen"
 
   gem "capistrano"
-  gem "capistrano-yarn"
+  gem "capistrano-pnpm"
   gem "capistrano-rails"
   gem "capistrano-rbenv"
   gem "capistrano3-puma"

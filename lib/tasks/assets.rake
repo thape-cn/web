@@ -2,5 +2,5 @@
 
 namespace :assets do
   desc "Compile all the assets"
-  task precompile: ["yarn:install", "shakapacker:compile"]
+  task precompile: ["pnpm:install", "shakapacker:compile"]
 end

@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+APP_ROOT = File.expand_path("..", __dir__)
+Dir.chdir(APP_ROOT) do
+  pnpm = ENV["PATH"].split(File::PATH_SEPARATOR).
+    select { |dir| File.expand_path(dir) != __dir__ }.
+    product(["pnpm", "pnpm.cmd", "pnpm.ps1"]).
+    map { |dir, file| File.expand_path(file, dir) }.
+    find { |file| File.executable?(file) }
+
+  if pnpm
+    exec pnpm, *ARGV
+  else
+    $stderr.puts "pnpm executable was not detected in the system."
+    $stderr.puts "Install pnpm by following https://pnpm.io/installation"
+    exit 1
+  end
+end
