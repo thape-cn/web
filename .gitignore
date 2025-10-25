@@ -35,9 +35,6 @@
 /public/packs-test
 /public/tianwen_sync
 /node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
 thape_web.sublime-workspace
 config/credentials.yml.enc
 workspace.xml
