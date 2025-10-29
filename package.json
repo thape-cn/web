@@ -51,14 +51,14 @@
   },
   "resolutions": {
     "@types/retry": "^0.12.5",
-    "chokidar": "^3.5.2",
+    "chokidar": "^3.6.0",
     "cookie": "~0.7.2",
     "inherits": "~2.0.4",
-    "micromatch": "~4.0.7",
+    "micromatch": "~4.0.8",
     "merge-descriptors": "~1.0.3",
     "mime-db": "~1.54.0",
-    "postcss": "^8.4.13",
-    "semver": "^7.5.3"
+    "postcss": "^8.5.6",
+    "semver": "^7.7.3"
   },
   "babel": {
     "presets": [
