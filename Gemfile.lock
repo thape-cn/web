@@ -287,7 +287,7 @@ GEM
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
-    package_json (0.1.0)
+    package_json (0.1.1)
     parallel (1.27.0)
     parser (3.3.10.0)
       ast (~> 2.4.1)
