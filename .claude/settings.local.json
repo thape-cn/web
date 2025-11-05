@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /Users/guochunzhong/git/sso/thape_web/.gitlab-ci.yml)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
