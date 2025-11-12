@@ -400,7 +400,7 @@ GEM
     ruby-vips (2.2.5)
       ffi (~> 1.12)
       logger
-    ruby_llm-schema (0.2.4)
+    ruby_llm-schema (0.2.5)
     rubyzip (2.4.1)
     securerandom (0.3.2)
     selenium-webdriver (4.26.0)
@@ -444,7 +444,7 @@ GEM
     standard-performance (1.8.0)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.25.0)
-    stringio (3.1.7)
+    stringio (3.1.8)
     thor (1.4.0)
     timeout (0.4.4)
     tsort (0.2.0)
