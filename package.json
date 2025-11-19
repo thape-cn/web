@@ -19,7 +19,7 @@
     "babel-loader": "^8.4.1",
     "chokidar": "^3.6.0",
     "compression-webpack-plugin": "^9.2.0",
-    "core-js": "^3.46.0",
+    "core-js": "^3.47.0",
     "css-loader": "^6.11.0",
     "micromatch": "~4.0.8",
     "mini-css-extract-plugin": "^2.9.4",
@@ -39,7 +39,7 @@
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.3.14",
     "waypoints": "^4.0.1",
-    "webpack": "^5.102.1",
+    "webpack": "^5.103.0",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-merge": "^5.10.0",
     "webpack-sources": "^3.3.3"
