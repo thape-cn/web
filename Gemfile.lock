@@ -372,6 +372,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.4.4)
+    rorvswild (1.10.0)
     rubocop (1.81.7)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -514,6 +515,7 @@ DEPENDENCIES
   rake
   reline (~> 0.5.12)
   rexml
+  rorvswild
   ruby-lsp
   ruby-lsp-rails
   securerandom (~> 0.3.2)
