@@ -108,7 +108,7 @@ importers:
         version: 7.7.3
       shakapacker:
         specifier: ^8.4.0
-        version: 8.4.0(@babel/core@7.28.5)(@babel/plugin-transform-runtime@7.28.5(@babel/core@7.28.5))(@babel/preset-env@7.28.5(@babel/core@7.28.5))(@babel/runtime@7.28.4)(babel-loader@8.4.1(@babel/core@7.28.5)(webpack@5.103.0))(compression-webpack-plugin@9.2.0(webpack@5.103.0))(terser-webpack-plugin@5.3.14(webpack@5.103.0))(webpack-assets-manifest@5.2.1(webpack@5.103.0))(webpack-cli@5.1.4)(webpack-dev-server@4.15.2)(webpack-merge@5.10.0)(webpack@5.103.0)
+        version: 8.4.0(@babel/core@7.28.5)(@babel/plugin-transform-runtime@7.28.5(@babel/core@7.28.5))(@babel/preset-env@7.28.5(@babel/core@7.28.5))(@babel/runtime@7.28.4)(babel-loader@8.4.1(@babel/core@7.28.5)(webpack@5.103.0))(compression-webpack-plugin@9.2.0(webpack@5.103.0))(terser-webpack-plugin@5.3.15(webpack@5.103.0))(webpack-assets-manifest@5.2.1(webpack@5.103.0))(webpack-cli@5.1.4)(webpack-dev-server@4.15.2)(webpack-merge@5.10.0)(webpack@5.103.0)
       stimulus:
         specifier: ^2.0.0
         version: 2.0.0
@@ -116,8 +116,8 @@ importers:
         specifier: ^1.9.6
         version: 1.9.6
       terser-webpack-plugin:
-        specifier: ^5.3.14
-        version: 5.3.14(webpack@5.103.0)
+        specifier: ^5.3.15
+        version: 5.3.15(webpack@5.103.0)
       waypoints:
         specifier: ^4.0.1
         version: 4.0.1
@@ -1087,8 +1087,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.9.2:
-    resolution: {integrity: sha512-PxSsosKQjI38iXkmb3d0Y32efqyA0uW4s41u4IVBsLlWLhCiYNpH/AfNOVWRqCQBlD8TFJTz6OUWNd4DFJCnmw==}
+  baseline-browser-mapping@2.9.3:
+    resolution: {integrity: sha512-8QdH6czo+G7uBsNo0GiUfouPN1lRzKdJTGnKXwe12gkFbnnOUaUKGN55dMkfy+mnxmvjwl9zcI4VncczcVXDhA==}
     hasBin: true
 
   batch@0.6.1:
@@ -1396,8 +1396,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.265:
-    resolution: {integrity: sha512-B7IkLR1/AE+9jR2LtVF/1/6PFhY5TlnEHnlrKmGk7PvkJibg5jr+mLXLLzq3QYl6PA1T/vLDthQPqIPAlS/PPA==}
+  electron-to-chromium@1.5.266:
+    resolution: {integrity: sha512-kgWEglXvkEfMH7rxP5OSZZwnaDWT7J9EoZCujhnpLbfi0bbNtRkgdX2E3gt0Uer11c61qCYktB3hwkAS325sJg==}
 
   element-closest@2.0.2:
     resolution: {integrity: sha512-QCqAWP3kwj8Gz9UXncVXQGdrhnWxD8SQBSeZp5pOsyCcQ6RpL738L1/tfuwBiMi6F1fYkxqPnBrFBR4L+f49Cg==}
@@ -2896,8 +2896,8 @@ packages:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
 
-  terser-webpack-plugin@5.3.14:
-    resolution: {integrity: sha512-vkZjpUjb6OMS7dhV+tILUW6BhpDR7P2L/aQSAv+Uwk+m8KATX9EccViHTJR2qDtACKPIYndLGCyl3FMo+r2LMw==}
+  terser-webpack-plugin@5.3.15:
+    resolution: {integrity: sha512-PGkOdpRFK+rb1TzVz+msVhw4YMRT9txLF4kRqvJhGhCM324xuR3REBSHALN+l+sAhKUmz0aotnjp5D+P83mLhQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -4321,7 +4321,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.9.2: {}
+  baseline-browser-mapping@2.9.3: {}
 
   batch@0.6.1: {}
 
@@ -4362,9 +4362,9 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.2
+      baseline-browser-mapping: 2.9.3
       caniuse-lite: 1.0.30001759
-      electron-to-chromium: 1.5.265
+      electron-to-chromium: 1.5.266
       node-releases: 2.0.27
       update-browserslist-db: 1.2.2(browserslist@4.28.1)
 
@@ -4631,7 +4631,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.265: {}
+  electron-to-chromium@1.5.266: {}
 
   element-closest@2.0.2: {}
 
@@ -6076,7 +6076,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shakapacker@8.4.0(@babel/core@7.28.5)(@babel/plugin-transform-runtime@7.28.5(@babel/core@7.28.5))(@babel/preset-env@7.28.5(@babel/core@7.28.5))(@babel/runtime@7.28.4)(babel-loader@8.4.1(@babel/core@7.28.5)(webpack@5.103.0))(compression-webpack-plugin@9.2.0(webpack@5.103.0))(terser-webpack-plugin@5.3.14(webpack@5.103.0))(webpack-assets-manifest@5.2.1(webpack@5.103.0))(webpack-cli@5.1.4)(webpack-dev-server@4.15.2)(webpack-merge@5.10.0)(webpack@5.103.0):
+  shakapacker@8.4.0(@babel/core@7.28.5)(@babel/plugin-transform-runtime@7.28.5(@babel/core@7.28.5))(@babel/preset-env@7.28.5(@babel/core@7.28.5))(@babel/runtime@7.28.4)(babel-loader@8.4.1(@babel/core@7.28.5)(webpack@5.103.0))(compression-webpack-plugin@9.2.0(webpack@5.103.0))(terser-webpack-plugin@5.3.15(webpack@5.103.0))(webpack-assets-manifest@5.2.1(webpack@5.103.0))(webpack-cli@5.1.4)(webpack-dev-server@4.15.2)(webpack-merge@5.10.0)(webpack@5.103.0):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-runtime': 7.28.5(@babel/core@7.28.5)
@@ -6086,7 +6086,7 @@ snapshots:
       compression-webpack-plugin: 9.2.0(webpack@5.103.0)
       js-yaml: 4.1.1
       path-complete-extname: 1.0.0
-      terser-webpack-plugin: 5.3.14(webpack@5.103.0)
+      terser-webpack-plugin: 5.3.15(webpack@5.103.0)
       webpack: 5.103.0(webpack-cli@5.1.4)
       webpack-assets-manifest: 5.2.1(webpack@5.103.0)
       webpack-cli: 5.1.4(webpack-dev-server@4.15.2)(webpack@5.103.0)
@@ -6269,7 +6269,7 @@ snapshots:
 
   tapable@2.3.0: {}
 
-  terser-webpack-plugin@5.3.14(webpack@5.103.0):
+  terser-webpack-plugin@5.3.15(webpack@5.103.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
@@ -6519,7 +6519,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.3
       tapable: 2.3.0
-      terser-webpack-plugin: 5.3.14(webpack@5.103.0)
+      terser-webpack-plugin: 5.3.15(webpack@5.103.0)
       watchpack: 2.4.4
       webpack-sources: 3.3.3
     optionalDependencies:
