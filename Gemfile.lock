@@ -98,6 +98,8 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.2)
+    bcrypt_pbkdf (1.1.2-arm64-darwin)
+    bcrypt_pbkdf (1.1.2-x86_64-darwin)
     benchmark (0.5.0)
     bigdecimal (3.3.1)
     bindex (0.8.1)
@@ -251,7 +253,7 @@ GEM
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.26.2)
+    minitest (5.27.0)
     msgpack (1.8.0)
     multipart-post (2.4.1)
     net-http (0.4.1)
