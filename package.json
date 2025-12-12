@@ -37,7 +37,7 @@
     "shakapacker": "^8.4.0",
     "stimulus": "^2.0.0",
     "tailwindcss": "^1.9.6",
-    "terser-webpack-plugin": "^5.3.15",
+    "terser-webpack-plugin": "^5.3.16",
     "waypoints": "^4.0.1",
     "webpack": "^5.103.0",
     "webpack-assets-manifest": "^5.2.1",
