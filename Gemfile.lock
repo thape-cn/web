@@ -253,12 +253,13 @@ GEM
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.0)
+      prism (~> 1.5)
     msgpack (1.8.0)
     multipart-post (2.4.1)
     net-http (0.4.1)
       uri
-    net-imap (0.4.22)
+    net-imap (0.4.23)
       date
       net-protocol
     net-pop (0.1.2)
