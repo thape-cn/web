@@ -22,7 +22,7 @@
     "core-js": "^3.47.0",
     "css-loader": "^6.11.0",
     "micromatch": "~4.0.8",
-    "mini-css-extract-plugin": "^2.9.4",
+    "mini-css-extract-plugin": "^2.10.0",
     "patch-package": "^6.5.1",
     "postcss": "^8.5.6",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -79,5 +79,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.1"
 }
