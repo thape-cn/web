@@ -1,19 +1,39 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This Rails 7 app keeps domain code in `app/` with controllers, models, and views alongside `app/packs` for Shakapacker entrypoints and Stimulus/Tailwind assets. Shared helpers and background jobs sit under `app/helpers` and `app/jobs`. `lib/` holds PORO extensions; prefer namespaced modules when adding cross-cutting utilities. Configuration lives in `config/`, while feature specs and fixtures belong in `test/`. Static files and compiled uploads land in `public/` and `storage/`. Use `db/migrate` for schema changes and seed data through `db/seeds.rb`.
+- `app/`: Rails MVC (controllers, models, views, helpers, jobs, uploaders).
+- `app/packs/`: Shakapacker assets (entrypoints, Stimulus controllers, stylesheets, images).
+- `config/`: routes, locales (`config/locales/*.yml`), environment settings.
+- `db/`: migrations and multi-database setup (PostgreSQL primary plus SQLite archives).
+- `test/`: Minitest suites and fixtures.
+- `public/`: static assets, compiled packs, and uploads.
 
 ## Build, Test, and Development Commands
-Run `bin/setup` after cloning to install gems, pnpm install packages, and prepare the database. Start the Rails server with `bin/rails s` and the asset compiler with `bin/shakapacker-dev-server` when iterating on front-end packs. Use `bin/rails db:prepare` whenever migrations change. For production-like asset builds invoke `RAILS_ENV=production bin/shakapacker`.
+- `bin/setup`: install gems + pnpm deps, prepare DBs, clear logs, restart app.
+- `bin/rails s`: start Rails server.
+- `bin/shakapacker-dev-server`: run webpack dev server for hot reload.
+- `RAILS_ENV=production bin/shakapacker`: production-like asset build.
+- `bin/rails db:prepare`: create/update all databases after migrations.
+- `bin/rails test`: run full test suite.
+- `bin/rails test test/models/example_test.rb`: run a single test file.
+- `bin/rails test:system test`: system tests (Capybara + Selenium/ChromeDriver).
+- `bundle exec standardrb --fix`: auto-fix Ruby style issues.
 
 ## Coding Style & Naming Conventions
-Ruby code follows the `standard` formatter (two-space indent, single quotes, no trailing semicolons); run `bundle exec standardrb --fix` before committing. Name directories and files using snake_case, and keep classes/modules singular and namespaced by feature (e.g. `Admin::InvoicesController`). JavaScript packs should export camelCase helpers and Stimulus controllers in PascalCase. Tailwind utility additions require touching the relevant stylesheet so PurgeCSS retains the new class.
+- Ruby: 2-space indentation, `standardrb` formatting, `# frozen_string_literal: true` on `.rb` files.
+- Naming: snake_case files and directories; classes are singular.
+- Frontend: entrypoints live in `app/packs/entrypoints/`; Stimulus controllers must end with `_controller.js`.
+- Tailwind CSS 1.9: after adding new utility classes, touch the relevant stylesheet so PurgeCSS picks them up.
 
 ## Testing Guidelines
-Tests use Rails’ Minitest stack. Place unit and integration tests under `test/models` and `test/controllers`; system tests live in `test/system`. Name files after the class under test (`user_test.rb`) and use fixtures from `test/fixtures`. Run the suite with `bin/rails test`; target failing namespaces with `bin/rails test test/models/user_test.rb`. System tests rely on Selenium; ensure ChromeDriver is available locally.
+- Framework: Rails Minitest under `test/` with `_test.rb` naming.
+- System tests live in `test/system/` and require a browser driver.
+- Prefer adding tests alongside feature work; run the narrowest test scope before full suite.
 
 ## Commit & Pull Request Guidelines
-Commit messages are short, imperative summaries (see history: "gem upgrade", "Enable rorvswild"). Group related changes per commit and include migration notes in the body if schema shifts. Pull requests should describe the motivation, the main changes, and any follow-up work. Link planning tickets when available and attach before/after screenshots for UI-facing updates. Mention required environment variables or data seeds when reviewers need them.
+- Commits are short and direct (e.g., `pnpm upgrade`, `Enable rorvswild`). Keep messages concise and action-oriented.
+- PRs should include: a brief summary, test evidence, and screenshots for UI changes. Note any migrations, config updates, or data imports.
 
-## Deployment & Configuration Tips
-Capistrano scripts in `config/deploy` drive deployments; update stage-specific settings there. Manage credentials through `config/credentials.yml.enc` and avoid committing plaintext secrets. Database defaults target PostgreSQL—recreate the dev database via the scripts in `README.md` when syncing production data.
+## Security & Configuration Tips
+- Do not commit secrets. Credentials are stored in `config/credentials.yml.enc` and unlocked via `config/master.key`.
+- Production uses PostgreSQL; development also includes SQLite databases for archived content. Use `bin/rails db:prepare` to keep them in sync.
