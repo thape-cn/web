@@ -39,7 +39,7 @@
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.3.16",
     "waypoints": "^4.0.1",
-    "webpack": "^5.105.0",
+    "webpack": "^5.105.1",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-merge": "^5.10.0",
     "webpack-sources": "^3.3.3"
