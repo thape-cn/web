@@ -42,7 +42,7 @@
     "webpack": "^5.105.2",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-merge": "^5.10.0",
-    "webpack-sources": "^3.3.3"
+    "webpack-sources": "^3.3.4"
   },
   "version": "0.1.0",
   "devDependencies": {
