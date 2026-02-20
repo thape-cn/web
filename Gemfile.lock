@@ -292,7 +292,7 @@ GEM
     ostruct (0.6.3)
     package_json (0.2.0)
     parallel (1.27.0)
-    parser (3.3.10.1)
+    parser (3.3.10.2)
       ast (~> 2.4.1)
       racc
     pg (1.6.3)
@@ -311,7 +311,7 @@ GEM
     puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.4)
+    rack (3.2.5)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.1)
@@ -393,7 +393,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.47.1, < 2.0)
-    ruby-lsp (0.26.6)
+    ruby-lsp (0.26.7)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 5)
