@@ -22,7 +22,7 @@
     "core-js": "^3.48.0",
     "css-loader": "^6.11.0",
     "micromatch": "~4.0.8",
-    "mini-css-extract-plugin": "^2.10.0",
+    "mini-css-extract-plugin": "^2.10.1",
     "patch-package": "^6.5.1",
     "postcss": "^8.5.8",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -37,7 +37,7 @@
     "shakapacker": "^8.4.0",
     "stimulus": "^2.0.0",
     "tailwindcss": "^1.9.6",
-    "terser-webpack-plugin": "^5.3.17",
+    "terser-webpack-plugin": "^5.4.0",
     "waypoints": "^4.0.1",
     "webpack": "^5.105.4",
     "webpack-assets-manifest": "^5.2.1",
@@ -79,5 +79,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@10.31.0"
+  "packageManager": "pnpm@10.32.1"
 }
