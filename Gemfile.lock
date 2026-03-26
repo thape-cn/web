@@ -293,7 +293,7 @@ GEM
     ostruct (0.6.3)
     package_json (0.2.0)
     parallel (1.27.0)
-    parser (3.3.10.2)
+    parser (3.3.11.0)
       ast (~> 2.4.1)
       racc
     pg (1.6.3)
