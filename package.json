@@ -24,7 +24,7 @@
     "micromatch": "~4.0.8",
     "mini-css-extract-plugin": "^2.10.2",
     "patch-package": "^6.5.1",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.9",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^6.2.1",
@@ -39,7 +39,7 @@
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.4.0",
     "waypoints": "^4.0.1",
-    "webpack": "^5.105.4",
+    "webpack": "^5.106.0",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-merge": "^5.10.0",
     "webpack-sources": "^3.3.4"
