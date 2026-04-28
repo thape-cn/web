@@ -175,7 +175,7 @@ GEM
     ed25519 (1.4.0)
     enumize (0.2.1)
       rails (>= 5.0.0)
-    erb (4.0.4)
+    erb (4.0.4.1)
       cgi (>= 0.3.3)
     erubi (1.13.1)
     event_stream_parser (1.0.0)
@@ -421,7 +421,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    sitemap_generator (6.3.0)
+    sitemap_generator (7.0.1)
       builder (~> 3.0)
     sqlite3 (2.9.3-aarch64-linux-gnu)
     sqlite3 (2.9.3-arm-linux-gnu)
@@ -503,6 +503,7 @@ DEPENDENCIES
   dify_llm
   ed25519
   enumize
+  erb (~> 4.0.4.1)
   faraday-net_http
   ffi (~> 1.16.0)
   globalize

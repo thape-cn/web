@@ -8,6 +8,7 @@ gem 'ffi', "~> 1.16.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.2.3.1"
+gem "erb", "~> 4.0.4.1"
 gem "io-console", "~> 0.7.2"
 gem "nokogiri", "~> 1.18.2"
 gem "net-imap", "~> 0.4.17"
