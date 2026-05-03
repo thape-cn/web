@@ -57,7 +57,7 @@
     "micromatch": "~4.0.8",
     "merge-descriptors": "~1.0.3",
     "mime-db": "~1.54.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.12",
     "semver": "^7.7.4"
   },
   "babel": {
