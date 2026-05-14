@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 84e1e9c376e091212022e02d5f23db38e2f2abf2
+  revision: 96f2041e38593987c308325067daae748f794619
   branch: main
   specs:
     wechat (1.1.0)
@@ -103,7 +103,7 @@ GEM
     benchmark (0.5.0)
     bigdecimal (4.1.2)
     bindex (0.8.1)
-    bootsnap (1.24.3)
+    bootsnap (1.24.4)
       msgpack (~> 1.2)
     browser (5.3.1)
     builder (3.3.0)
@@ -201,7 +201,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.1.6)
       domain_name (~> 0.5)
-    httpx (1.7.6)
+    httpx (1.7.8)
       http-2 (>= 1.1.3)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
