@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 96f2041e38593987c308325067daae748f794619
+  revision: 42dce1ab715dcc117e3420641913ab85bcb58901
   branch: main
   specs:
     wechat (1.1.0)
@@ -405,7 +405,7 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    ruby_llm-schema (0.3.0)
+    ruby_llm-schema (0.4.0)
     rubyzip (2.4.1)
     securerandom (0.3.2)
     selenium-webdriver (4.26.0)
