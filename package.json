@@ -37,7 +37,7 @@
     "shakapacker": "^8.4.0",
     "stimulus": "^2.0.0",
     "tailwindcss": "^1.9.6",
-    "terser-webpack-plugin": "^5.6.0",
+    "terser-webpack-plugin": "^5.6.1",
     "waypoints": "^4.0.1",
     "webpack": "^5.107.2",
     "webpack-assets-manifest": "^5.2.1",
@@ -79,5 +79,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@11.4.0"
+  "packageManager": "pnpm@11.5.0"
 }
