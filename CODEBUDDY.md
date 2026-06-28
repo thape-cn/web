@@ -148,7 +148,7 @@ The project uses Rails Minitest with:
 ## Deployment Architecture
 
 Capistrano-based deployment with:
-- **Ruby version**: 3.4.4 (set in `config/deploy.rb`)
+- **Ruby version**: 3.4.8 (set in `config/deploy.rb`)
 - **Web server**: Puma with phased restarts
 - **JavaScript**: pnpm with `--silent` flag
 - **Linked files**: `config/database.yml`, `config/master.key`, `config/credentials.yml.enc`, `puma.rb`
