@@ -1,0 +1,90 @@
+<% project_type_options = t("project_message_form.project_type_options") %>
+<% service_type_options = t("project_message_form.service_type_options") %>
+<% selected_separator = t("project_message_form.selected_separator") %>
+
+<div x-cloak x-show="show_project_message" class="fixed inset-0 z-50 overflow-y-auto">
+  <div class="min-h-screen px-4 py-8 flex items-center justify-center">
+    <div class="fixed inset-0 bg-black opacity-50" x-on:click="show_project_message = false"></div>
+    <div class="relative bg-white w-full max-w-4xl rounded-xl shadow-xl">
+      <button type="button" class="absolute top-0 right-0 mt-4 mr-4 text-3xl leading-none text-black6c hover:text-black focus:outline-none" x-on:click="show_project_message = false" aria-label="<%= t("project_message_form.close") %>">&times;</button>
+
+      <div class="px-5 py-6 sm:px-8 md:px-12">
+        <header class="pb-5 text-center">
+          <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> text-black"><%= t("project_message_form.title") %></h1>
+          <p class="pt-2 text-center <%= fdsz("text-sm sm:text-base", "text-sm sm:text-xl") -%> text-black"><%= t("project_message_form.subtitle") %></p>
+        </header>
+
+        <%= form_with url: project_messages_path, local: false, html: { "x-data": "{ projectTypes: [], serviceTypes: [], showProjectTypeOptions: false, showServiceTypeOptions: false }" } do |f| %>
+          <div class="flex flex-wrap -mx-0 sm:-mx-3">
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label for="project-message-name" class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.name") %></label>
+              <input id="project-message-name" name="project_message[name]" placeholder="<%= t("project_message_form.name_placeholder") -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray <%= fdsz("sm:text-sm") -%> sm:leading-5" />
+            </div>
+
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label for="project-message-phone" class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.phone") %></label>
+              <input id="project-message-phone" name="project_message[phone]" placeholder="<%= t("project_message_form.phone_placeholder") -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray <%= fdsz("sm:text-sm") -%> sm:leading-5" />
+            </div>
+
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label for="project-message-company" class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.company") %></label>
+              <input id="project-message-company" name="project_message[company]" placeholder="<%= t("project_message_form.company_placeholder") -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray <%= fdsz("sm:text-sm") -%> sm:leading-5" />
+            </div>
+
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label for="project-message-area" class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.project_area") %></label>
+              <input id="project-message-area" name="project_message[project_area]" placeholder="<%= t("project_message_form.project_area_placeholder") -%>" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray <%= fdsz("sm:text-sm") -%> sm:leading-5" />
+            </div>
+
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.project_type") %></label>
+              <input type="hidden" name="project_message[project_type]" x-bind:value="projectTypes.join('<%= j selected_separator %>')" />
+              <div class="relative" x-on:click.away="showProjectTypeOptions = false">
+                <button type="button" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-left text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 <%= fdsz("sm:text-sm") -%> sm:leading-5" x-on:click="showProjectTypeOptions = !showProjectTypeOptions; showServiceTypeOptions = false">
+                  <span class="block truncate" x-text="projectTypes.length ? projectTypes.join('<%= j selected_separator %>') : '<%= j t("project_message_form.project_type_placeholder") %>'"></span>
+                </button>
+                <div x-cloak x-show="showProjectTypeOptions" class="absolute left-0 right-0 mt-2 z-20 rounded-xl border border-thape-dark-gray bg-white shadow-lg max-h-64 overflow-y-auto">
+                  <% project_type_options.each do |option| %>
+                    <label class="flex items-center px-4 py-2 <%= fdsz("text-sm") -%> text-black6c hover:bg-form-background cursor-pointer">
+                      <input type="checkbox" value="<%= option %>" x-model="projectTypes" class="form-checkbox mr-2" />
+                      <span><%= option %></span>
+                    </label>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full sm:w-1/2 px-0 sm:px-3 mb-4">
+              <label class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.service_type") %></label>
+              <input type="hidden" name="project_message[service_type]" x-bind:value="serviceTypes.join('<%= j selected_separator %>')" />
+              <div class="relative" x-on:click.away="showServiceTypeOptions = false">
+                <button type="button" class="form-input block w-full py-3 px-6 border border-thape-dark-gray rounded-full text-left text-black6c bg-form-background transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:border-gray-300 <%= fdsz("sm:text-sm") -%> sm:leading-5" x-on:click="showServiceTypeOptions = !showServiceTypeOptions; showProjectTypeOptions = false">
+                  <span class="block truncate" x-text="serviceTypes.length ? serviceTypes.join('<%= j selected_separator %>') : '<%= j t("project_message_form.service_type_placeholder") %>'"></span>
+                </button>
+                <div x-cloak x-show="showServiceTypeOptions" class="absolute left-0 right-0 mt-2 z-20 rounded-xl border border-thape-dark-gray bg-white shadow-lg max-h-64 overflow-y-auto">
+                  <% service_type_options.each do |option| %>
+                    <label class="flex items-center px-4 py-2 <%= fdsz("text-sm") -%> text-black6c hover:bg-form-background cursor-pointer">
+                      <input type="checkbox" value="<%= option %>" x-model="serviceTypes" class="form-checkbox mr-2" />
+                      <span><%= option %></span>
+                    </label>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full px-0 sm:px-3 mb-6">
+              <label for="project-message-content" class="block pb-2 <%= fdsz("text-sm") -%> text-black"><%= t("project_message_form.message") %></label>
+              <textarea id="project-message-content" name="project_message[message]" placeholder="<%= t("project_message_form.message_placeholder") -%>" class="p-3 rounded-xl form-textarea resize-none block w-full h-40 text-black6c border border-thape-dark-gray bg-form-background hover:shadow-lg focus:shadow-lg focus:border-gray-300 placeholder-thape-guest-gray transition duration-150 ease-in-out <%= fdsz("sm:text-sm") -%> sm:leading-5"></textarea>
+            </div>
+
+            <div class="w-full px-0 sm:px-3">
+              <button id="project-message-submit-btn" class="w-full py-3 px-5 border border-black <%= fdsz("text-sm") -%> font-medium rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c focus:text-black6c hover:text-white focus:text-white transition duration-150 ease-in-out">
+                <%= t("project_message_form.submit_button") -%>
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

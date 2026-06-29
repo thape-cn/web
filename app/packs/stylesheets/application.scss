@@ -24,6 +24,10 @@
   -webkit-tap-highlight-color:transparent;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 img{
   image-rendering: crisp-edges;
 }

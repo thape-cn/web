@@ -104,6 +104,7 @@ Rails.application.routes.draw do
 
   resources :news, only: %i[index show]
   resources :guest_messages, only: %i[create]
+  resources :project_messages, only: %i[create]
 
   resources :publications, only: %i[index]
 

@@ -1,0 +1,21 @@
+[
+  "project-message-name",
+  "project-message-phone",
+  "project-message-company",
+  "project-message-area",
+  "project-message-content"
+].forEach(function(id) {
+  var field = document.getElementById(id);
+
+  if (field) {
+    field.disabled = true;
+  }
+});
+
+document.querySelectorAll('input[name="project_message[project_type]"], input[name="project_message[service_type]"], input[type="checkbox"][x-model="projectTypes"], input[type="checkbox"][x-model="serviceTypes"]').forEach(function(field) {
+  field.disabled = true;
+});
+
+document.getElementById("project-message-submit-btn").innerText = "<%= t("project_message_form.submited_button") -%>";
+document.getElementById("project-message-submit-btn").classList.remove("hover:bg-black6c", "hover:text-white");
+document.getElementById("project-message-submit-btn").disabled = true;
