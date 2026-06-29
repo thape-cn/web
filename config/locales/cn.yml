@@ -21,6 +21,7 @@ cn:
     submit_button: "确认提交"
     submited_button: "您的留言已记录"
   project_message_form:
+    popup_button: "填写合作信息"
     title: "项目合作"
     subtitle: "请填写项目合作信息，我们将尽快与您联系！"
     close: "关闭"

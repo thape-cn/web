@@ -21,6 +21,7 @@ en:
     submit_button: "Submit"
     submited_button: "Message has been recorded"
   project_message_form:
+    popup_button: "Collaboration"
     title: "Project Cooperation"
     subtitle: "Please leave your project information. We will contact you soon."
     close: "Close"
