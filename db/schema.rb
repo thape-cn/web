@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_13_072947) do
+ActiveRecord::Schema[7.2].define(version: 2026_06_29_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -361,6 +361,19 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_13_072947) do
     t.string "mobile_cover_jpg"
     t.string "mobile_cover_webp"
     t.string "page_cover"
+  end
+
+  create_table "project_messages", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "company"
+    t.string "project_type"
+    t.string "service_type"
+    t.string "project_area"
+    t.text "message"
+    t.integer "spam_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "project_types", id: :bigint, default: nil, force: :cascade do |t|
