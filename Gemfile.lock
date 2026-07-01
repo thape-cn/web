@@ -448,6 +448,8 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.26.0)
     thor (1.5.0)
+    tidewave (0.5.1)
+      rack (>= 2.0)
     timeout (0.6.1)
     tsort (0.2.0)
     tzinfo (2.0.6)
@@ -525,6 +527,7 @@ DEPENDENCIES
   sitemap_generator
   sqlite3
   standard
+  tidewave
   tzinfo-data
   unicode-display_width (~> 2.6)
   uri
