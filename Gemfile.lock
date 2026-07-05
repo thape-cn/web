@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 9454373c8d516c7ce96464c88eb7eee9310e10ac
+  revision: dd2d07aad51dabed8c224e8f8a7cbdb5127bbc21
   branch: main
   specs:
     wechat (1.2.0)
@@ -230,7 +230,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    language_server-protocol (3.17.0.5)
+    language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
     listen (3.10.0)
       logger
@@ -386,7 +386,7 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.49.1)
+    rubocop-ast (1.50.0)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
     rubocop-performance (1.26.1)
@@ -419,7 +419,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    sitemap_generator (7.0.3)
+    sitemap_generator (7.1.0)
       builder (~> 3.0)
     sqlite3 (2.9.5-aarch64-linux-gnu)
     sqlite3 (2.9.5-arm-linux-gnu)
