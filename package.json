@@ -24,7 +24,7 @@
     "micromatch": "~4.0.8",
     "mini-css-extract-plugin": "^2.10.2",
     "patch-package": "^6.5.1",
-    "postcss": "^8.5.18",
+    "postcss": "^8.5.19",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^6.2.1",
@@ -80,5 +80,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@11.13.0"
+  "packageManager": "pnpm@11.13.1"
 }
