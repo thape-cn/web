@@ -154,7 +154,7 @@ GEM
     connection_pool (2.5.5)
     crass (1.0.7)
     csv (3.3.6)
-    dalli (5.0.5)
+    dalli (5.0.6)
       logger
     date (3.5.1)
     debug (1.11.1)
@@ -471,7 +471,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.8.2)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   aarch64-linux
