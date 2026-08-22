@@ -13,10 +13,11 @@ class SearchController < ApplicationController
         .limit(15)
     end
     @people_results = if @city.present?
-      Person.includes(:city_people).where(leaving_date: nil).where(city_people: {city_id: @city.id}).order(position: :asc)
+      Person.includes(:city_people).preload(:translations).where(leaving_date: nil).where(city_people: {city_id: @city.id}).order(position: :asc)
     else
       Person.joins("INNER JOIN person_translations ON person_translations.person_id = people.id")
-        .where(leaving_date: nil).where("person_translations.name like ?", "%#{q}%").limit(15)
+        .preload(:translations).where(leaving_date: nil)
+        .where("person_translations.name like ?", "%#{q}%").limit(15)
     end
 
     info_scope = Info.where(hide_in_index_news: false).order(position: :asc).limit(15)

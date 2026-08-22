@@ -11,7 +11,13 @@ module ApplicationHelper
   end
 
   def person_titles(person, city)
-    city_person = person.city_people.find_by(city_id: city&.id)
+    city_person = if city.blank?
+      nil
+    elsif person.association(:city_people).loaded?
+      person.city_people.find { |record| record.city_id == city.id }
+    else
+      person.city_people.find_by(city_id: city.id)
+    end
     person_titles = person.title&.split(" ") || []
     if city_person.present? && city_person.city_title.present?
       if I18n.locale == :en

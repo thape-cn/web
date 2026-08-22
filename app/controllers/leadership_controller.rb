@@ -3,7 +3,7 @@
 class LeadershipController < ApplicationController
   def index
     @search_name = params[:name].presence
-    jituan_people = Person.includes(city_people: :city).where(cities: {name: "集团"})
+    jituan_people = Person.includes(city_people: :city).preload(:translations).where(cities: {name: "集团"})
       .where(leaving_date: nil).order(position: :asc)
     @management_people = if @search_name.present?
       search_name = Person.sanitize_sql_like(@search_name)
@@ -66,7 +66,7 @@ class LeadershipController < ApplicationController
       @branches = City.where(id: CityPerson.distinct.pluck(:city_id)).where.not(url_name: nil).in_order_of(:id, city_ids).uniq { |city| city.url_name }
 
       if city_area.url_name.upcase == "AICO"
-        people = Person.includes(:city_people).where(leaving_date: nil).order(position: :asc).distinct
+        people = Person.includes(:city_people).preload(:translations).where(leaving_date: nil).order(position: :asc).distinct
 
         if @search_name.present?
           search_name = Person.sanitize_sql_like(@search_name)
@@ -85,7 +85,7 @@ class LeadershipController < ApplicationController
 
         render "aico"
       else
-        city_area_people = Person.includes(:city_people).where(city_people: {city_id: city_area.id})
+        city_area_people = Person.includes(:city_people).preload(:translations).where(city_people: {city_id: city_area.id})
           .where(leaving_date: nil)
           .order(position: :asc)
         city_management_ids = city_area_people.where(city_people: {is_management: true}).pluck(:id)
