@@ -15,9 +15,8 @@ isPlanning = controller.controller_name == 'services' && controller.action_name 
 isLandscape = controller.controller_name == 'services' && controller.action_name == 'landscape';
 isVetting = controller.controller_name == 'services' && controller.action_name == 'vetting';
 isConsluting = controller.controller_name == 'services' && controller.action_name == 'consluting';
-isVrtech = controller.controller_name == 'services' && controller.action_name == 'vrtech';
 isSustainable = controller.controller_name == 'services' && controller.action_name == 'sustainable';
-isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isVrtech || isSustainable;
+isServices = isBuilding || isInterior || isPlanning || isLandscape || isVetting || isConsluting || isSustainable;
 
 isNewsIndex = controller.controller_name == 'news' && controller.action_name != 'show';
 isNewsShow = controller.controller_name == 'news' && controller.action_name == 'show';
@@ -184,9 +183,6 @@ navCitiesByChinaArea = City.with_published_works
         </div>
         <div class="nav-item">
           <a href="<%= sustainable_path -%>" class="<%= isSustainable ? 'active' : '' -%>"><%= t('menu.service.sustainable') -%></a>
-        </div>
-        <div class="nav-item">
-          <a href="<%= vr_tech_path -%>" class="<%= isVrtech ? 'active' : '' -%>"><%= t('menu.service.vr_technology') -%></a>
         </div>
       </nav>
     </div>
@@ -356,9 +352,6 @@ navCitiesByChinaArea = City.with_published_works
           </div>
           <div class="aside-menu-item">
             <a href="<%= sustainable_path -%>"><%= t('menu.service.sustainable') -%></a>
-          </div>
-          <div class="aside-menu-item">
-            <a href="<%= vr_tech_path -%>"><%= t('menu.service.vr_technology') -%></a>
           </div>
         </div>
       </div>

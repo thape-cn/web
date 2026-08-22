@@ -83,18 +83,6 @@ class ServicesController < ApplicationController
     }
   end
 
-  def vrtech
-    @seo = Seo.find_by(seo_name: "可视化服务")
-
-    render "services", locals: {
-      background_img: t("services.vrtech.background_img"),
-      background_img_webp: t("services.vrtech.background_img_webp"),
-      chinese_title: t("services.vrtech.chinese_title"),
-      english_title: t("services.vrtech.english_title"),
-      ps: @service_file.vrtech_intro.split("\n")
-    }
-  end
-
   def sustainable
     @seo = Seo.find_by(seo_name: "可持续设计咨询")
 

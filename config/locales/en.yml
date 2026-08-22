@@ -117,7 +117,6 @@ en:
       landscape: "LANDSCAPE"
       drawing_review: "DRAWING REVIEW"
       consultation: "CONSULTATION"
-      vr_technology: "VISUALIZATION"
       sustainable: "SUSTAINABLE"
     news:
       text: "NEWS"
@@ -225,17 +224,6 @@ en:
       background_img_webp: ""
       chinese_title: "技术咨询"
       english_title: "CONSULTATION"
-    vrtech:
-      background_img:
-        - "static/images/vrtech-1.jpg"
-        - "static/images/vrtech-2.jpg"
-        - "static/images/vrtech-3.jpg"
-        - "static/images/vrtech-4.jpg"
-        - "static/images/vrtech-5.jpg"
-        - "static/images/vrtech-6.jpg"
-      background_img_webp: []
-      chinese_title: "可视化"
-      english_title: "VISUALIZATION"
     sustainable:
       background_img: "static/images/sustainable.jpg"
       background_img_webp: ""

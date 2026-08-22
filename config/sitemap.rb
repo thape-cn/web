@@ -58,7 +58,6 @@ SitemapGenerator::Sitemap.create do
   add landscape_path, priority: 0.60, changefreq: "weekly"
   add vetting_path, priority: 0.60, changefreq: "weekly"
   add consluting_path, priority: 0.60, changefreq: "weekly"
-  add vr_tech_path, priority: 0.60, changefreq: "weekly"
   add biz_map_path, priority: 0.60, changefreq: "weekly"
   add statement_sites_path, priority: 0.60, changefreq: "weekly"
   add privacy_sites_path, priority: 0.60, changefreq: "weekly"
