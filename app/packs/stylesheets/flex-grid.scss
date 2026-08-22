@@ -47,7 +47,7 @@ $gaps: (
 
         }
 
-        @for $i from 1 through 14 {
+        @for $i from 1 through 15 {
             @include flex-grid-cols-gap($i, $gaps);
         }
     }
