@@ -1,6 +1,9 @@
 {
   "name": "web",
   "private": true,
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "postinstall": "patch-package"
   },
@@ -32,10 +35,10 @@
     "postinstall-postinstall": "^2.1.0",
     "regenerator-runtime": "^0.14.1",
     "sass": "1.77.6",
-    "sass-loader": "^13.3.3",
+    "sass-loader": "^16.0.7",
     "scrollama": "^2.2.3",
     "semver": "^7.8.5",
-    "shakapacker": "^8.4.0",
+    "shakapacker": "^10.3.1",
     "stimulus": "^2.0.0",
     "tailwindcss": "^1.9.6",
     "terser-webpack-plugin": "^5.6.1",
@@ -47,8 +50,9 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "style-loader": "^4.0.0",
     "webpack-cli": "~5.1.4",
-    "webpack-dev-server": "^4.15.2"
+    "webpack-dev-server": "^5.2.2"
   },
   "resolutions": {
     "@types/retry": "^0.12.5",

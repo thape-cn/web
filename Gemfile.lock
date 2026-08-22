@@ -413,7 +413,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.1)
-    shakapacker (8.4.0)
+    shakapacker (10.3.1)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -523,7 +523,7 @@ DEPENDENCIES
   ruby-lsp-rails
   securerandom (~> 0.3.2)
   selenium-webdriver (= 4.26.0)
-  shakapacker (~> 8.2)
+  shakapacker (~> 10.3)
   sitemap_generator
   sqlite3
   standard
