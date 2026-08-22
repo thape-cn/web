@@ -36,6 +36,22 @@ headerIsActive = isCulture || isJtgg || isQytd || isWorksIndex || isNewsIndex ||
 isEnglish = I18n.locale == :en;
 
 isBigFont = cookies['ts'] == 'big';
+
+chinaAreaNavigation = [
+  ['menu.works.china_east', '华东'],
+  ['menu.works.china_north', '华北'],
+  ['menu.works.china_south', '华南'],
+  ['menu.works.china_centre', '华中'],
+  ['menu.works.china_south_west', '西南'],
+  ['menu.works.china_north_west', '西北'],
+  ['menu.works.china_north_east', '东北']
+];
+
+navCitiesByChinaArea = City.with_published_works
+  .where(china_area_name: chinaAreaNavigation.map(&:last))
+  .select(:id, :name, :url_name, :china_area_name)
+  .order(:id)
+  .group_by(&:china_area_name);
 %>
 <header
   class="thape-header thape-header-fixed flex-none text-base <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
@@ -127,83 +143,18 @@ isBigFont = cookies['ts'] == 'big';
           <span><%= t('menu.works.china_area_company') -%></span>
           <div class="list area">
             <div class="list-item" style="width: 25%;height: 11rem;">
-              <div class="nav-item">
-                <span><%= t('menu.works.china_east') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '华东').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_north') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '华北').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_south') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '华南').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_centre') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '华中').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_south_west') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '西南').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_north_west') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '西北').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
-              <div class="nav-item">
-                <span><%= t('menu.works.china_north_east') -%></span>
-                <nav>
-                  <% City.includes(:works).where(china_area_name: '东北').limit(21).distinct.each do |city| %>
-                    <% next if city.works.size.zero? %>
-                    <div class="nav-item">
-                      <a href="<%= work_path(id: city.url_name) -%>"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
-                    </div>
-                  <% end %>
-                </nav>
-              </div>
+              <% chinaAreaNavigation.each do |translationKey, chinaAreaName| %>
+                <div class="nav-item">
+                  <span><%= t(translationKey) -%></span>
+                  <nav>
+                    <% navCitiesByChinaArea.fetch(chinaAreaName, []).first(21).each do |city| %>
+                      <div class="nav-item">
+                        <a href="<%= work_path(id: city.url_name) -%>"><%= isEnglish ? city.url_name.upcase : city.name %></a>
+                      </div>
+                    <% end %>
+                  </nav>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
