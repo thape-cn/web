@@ -35,7 +35,7 @@
     "postinstall-postinstall": "^2.1.0",
     "regenerator-runtime": "^0.14.1",
     "sass": "1.77.6",
-    "sass-loader": "^16.0.7",
+    "sass-loader": "^16.0.8",
     "scrollama": "^2.2.3",
     "semver": "^7.8.5",
     "shakapacker": "^10.3.1",
@@ -52,7 +52,7 @@
   "devDependencies": {
     "style-loader": "^4.0.0",
     "webpack-cli": "~5.1.4",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.6"
   },
   "resolutions": {
     "@types/retry": "^0.12.5",
@@ -84,5 +84,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@11.22.0"
+  "packageManager": "pnpm@11.24.0"
 }
