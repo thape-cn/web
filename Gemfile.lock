@@ -205,7 +205,7 @@ GEM
       http-2 (>= 1.2.0)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    image_processing (2.0.3)
+    image_processing (2.1.0)
     io-console (0.7.2)
     irb (1.18.0)
       pp (>= 0.6.0)
@@ -306,7 +306,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.7)
-    rack-proxy (1.0.1)
+    rack-proxy (1.0.2)
       rack (>= 2.0, < 4)
     rack-session (2.1.2)
       base64 (>= 0.1.0)
@@ -532,4 +532,4 @@ RUBY VERSION
   ruby 3.2.2p53
 
 BUNDLED WITH
-  4.0.19
+  4.0.20
