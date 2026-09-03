@@ -2,11 +2,9 @@
 
 class BizMapsController < ApplicationController
   def show
-    @m_易爱迪 = MapContact.find(23)
     @m_爱坤 = MapContact.find(24)
     @m_上海室内 = MapContact.find(25)
     @m_上海城规 = MapContact.find(27)
-    @m_上海园林 = MapContact.find(28)
     @m_虹核审图 = MapContact.find(29)
     @m_北京天华 = MapContact.find(3)
     @m_深圳天华 = MapContact.find(9)
@@ -86,11 +84,9 @@ class BizMapsController < ApplicationController
       {c: "青岛天华", marks: [@m_青岛天华]},
       {c: "南京天华", marks: [@m_南京天华]},
       {c: "杭州天华", marks: [@m_杭州天华]},
-      {c: "上海易爱迪", marks: [@m_易爱迪]},
       {c: "上海爱坤", marks: [@m_爱坤]},
       {c: "上海室内", marks: [@m_上海室内]},
       {c: "上海城规", marks: [@m_上海城规]},
-      {c: "上海园林", marks: [@m_上海园林]},
       {c: "虹核审图", marks: [@m_虹核审图]},
       {c: "上海嘉易", marks: [@m_上海嘉易]},
       {c: "上海医养", marks: [@m_上海医养]},
@@ -118,13 +114,11 @@ class BizMapsController < ApplicationController
 
     # 地图旁边下半部分的公司列表
     @under_map_companies = [
-      {name: "易爱迪（上海）", city: "上海", company: "上海易爱迪"},
       {name: "AICO（上海）", city: "上海", company: "上海爱坤"},
       {name: "AICO（深圳）", city: "深圳", company: "深圳爱坤"},
       {name: "AICO（香港）", city: "香港", company: "香港爱坤"},
-      {name: "上海天华规划", city: "上海", company: "上海城规"},
+      {name: "上海天华规划景观", city: "上海", company: "上海城规"},
       {name: "上海天华室内", city: "上海", company: "上海室内"},
-      {name: "上海天华景观", city: "上海", company: "上海园林"},
       {name: "上海虹核审图", city: "上海", company: "虹核审图"},
       {name: "上海天华嘉易", city: "上海", company: "上海嘉易"},
       {name: "上海天华医养", city: "上海", company: "上海医养"}
@@ -132,7 +126,7 @@ class BizMapsController < ApplicationController
 
     # 机构的城市列表
     @cities = [
-      {c: "上海", e: "SHANGHAI", ms: [@m_上海天华, @m_爱坤, @m_易爱迪, @m_上海城规, @m_上海室内, @m_上海园林, @m_虹核审图, @m_上海嘉易, @m_上海医养]},
+      {c: "上海", e: "SHANGHAI", ms: [@m_上海天华, @m_爱坤, @m_上海城规, @m_上海室内, @m_虹核审图, @m_上海嘉易, @m_上海医养]},
       {c: "北京", e: "BEIJING", ms: [@m_北京天华]},
       {c: "深圳", e: "SHENZHEN", ms: [@m_深圳天华, @m_深圳AICO]},
       {c: "广州", e: "GUANGZHOU", ms: [@m_广州天华]},
