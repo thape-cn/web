@@ -20,7 +20,6 @@ class BizMapsController < ApplicationController
     @m_青岛天华 = MapContact.find(12)
     @m_南京天华 = MapContact.find(13)
     @m_杭州天华 = MapContact.find(16)
-    @m_贵阳办事处 = MapContact.find(46)
     @m_昆明办事处 = MapContact.find(45)
     @m_长沙办事处 = MapContact.find(44)
     @m_合肥办事处 = MapContact.find(47)
@@ -35,8 +34,6 @@ class BizMapsController < ApplicationController
     # 西北天华
     @m_西安天华 = MapContact.find(4)
     @m_郑州天华 = MapContact.find(15)
-    @m_太原办事处 = MapContact.find(22)
-    @m_兰州办事处 = MapContact.find(38)
 
     @m_上海天华 = MapContact.new({
       long_name: t("map.contact-shanghai-name"),
@@ -67,10 +64,7 @@ class BizMapsController < ApplicationController
       {name: "南京", area: "南京", left: "74%", top: "55%"},
       {name: "郑州", area: "西北地区", left: "66%", top: "52%"},
       {name: "杭州", area: "杭州", left: "74%", top: "63%"},
-      {name: "贵阳", area: "重庆", left: "52%", top: "75%"},
       {name: "昆明", area: "重庆", left: "42%", top: "77%"},
-      {name: "太原", area: "西北地区", left: "65%", top: "43%"},
-      {name: "兰州", area: "西北地区", left: "41%", top: "46%"},
       {name: "长沙", area: "武汉", left: "64%", top: "70%"},
       {name: "合肥", area: "武汉", left: "68%", top: "59%"},
       {name: "香港", area: "香港", left: "65%", top: "88%"}
@@ -83,10 +77,10 @@ class BizMapsController < ApplicationController
       {c: "深圳天华", marks: [@m_深圳天华]},
       {c: "广州天华", marks: [@m_广州天华]},
       {c: "天津天华", marks: [@m_天津天华]},
-      {c: "重庆天华", marks: [@m_重庆天华, @m_昆明办事处, @m_贵阳办事处]},
+      {c: "重庆天华", marks: [@m_重庆天华, @m_昆明办事处]},
       {c: "武汉天华", marks: [@m_武汉天华, @m_长沙办事处, @m_合肥办事处]},
       {c: "成都天华", marks: [@m_成都天华]},
-      {c: "西北地区集团", marks: [@m_西安天华, @m_郑州天华, @m_太原办事处, @m_兰州办事处]},
+      {c: "西北地区集团", marks: [@m_西安天华, @m_郑州天华]},
       {c: "沈阳天华", marks: [@m_沈阳天华]},
       {c: "厦门天华", marks: [@m_厦门天华]},
       {c: "青岛天华", marks: [@m_青岛天华]},
@@ -143,10 +137,10 @@ class BizMapsController < ApplicationController
       {c: "深圳", e: "SHENZHEN", ms: [@m_深圳天华, @m_深圳AICO]},
       {c: "广州", e: "GUANGZHOU", ms: [@m_广州天华]},
       {c: "天津", e: "TIANJIN", ms: [@m_天津天华]},
-      {c: "重庆", e: "CHONGQING", ms: [@m_重庆天华, @m_昆明办事处, @m_贵阳办事处]},
+      {c: "重庆", e: "CHONGQING", ms: [@m_重庆天华, @m_昆明办事处]},
       {c: "武汉", e: "WUHAN", ms: [@m_武汉天华, @m_长沙办事处, @m_合肥办事处]},
       {c: "成都", e: "CHENGDU", ms: [@m_成都天华]},
-      {c: "西北", dc: "西北地区", e: "NORTHWEST", ms: [@m_西安天华, @m_郑州天华, @m_太原办事处, @m_兰州办事处]},
+      {c: "西北", dc: "西北地区", e: "NORTHWEST", ms: [@m_西安天华, @m_郑州天华]},
       {c: "沈阳", e: "SHENYANG", ms: [@m_沈阳天华]},
       {c: "厦门", e: "XIAMEN", ms: [@m_厦门天华]},
       {c: "青岛", e: "QINGDAO", ms: [@m_青岛天华]},
