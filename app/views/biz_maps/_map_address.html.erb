@@ -1,7 +1,6 @@
 <div class="absolute inset-x-0 top-0" style="display: none;" x-show="show_company == '<%= c -%>'">
   <div class="w-full mx-auto sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-32">
     <% marks.each do |m| %>
-      <% mlp = m.marketing_phone.present? ? 'ml-20' : 'ml-12' %>
       <div class="bg-thape-white-t80 p-2 border border-1 border-gray-300 w-full leading-loose">
         <h1 class="<%= fdsz("text-xl sm:text-lg", "text-xl sm:text-3xl") -%> font-medium leading-tight"><%= m.long_name -%></h1>
         <% if m.alt_name.present? %>
@@ -11,32 +10,48 @@
         <% end %>
         <div class="mt-2 <%= fdsz("text-sm", "text-xl") -%>">
           <% if m.address.present? %>
-            <label class="float-left"><%= t('map.address') -%>：</label>
-            <% m.address.split('|||').each do |address| %>
-              <p class="<%= mlp -%>"><%= address -%></p>
-            <% end %>
+            <div class="flex">
+              <label class="flex-none"><%= t('map.address') -%>：</label>
+              <div>
+                <% m.address.split('|||').each do |address| %>
+                  <p><%= address -%></p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
           <% if m.tel.present? %>
-            <label class="float-left"><%= t('map.tel') -%>：</label>
-            <% m.tel.split('|||').each do |tel| %>
-              <p class="<%= mlp -%>"><%= tel -%></p>
-            <% end %>
+            <div class="flex map-contact-tels">
+              <label class="flex-none"><%= t('map.tel') -%>：</label>
+              <div>
+                <% m.tel.split('|||').each do |tel| %>
+                  <p><%= tel -%></p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
           <% if m.marketing_phone.present? %>
-            <label class="float-left"><%= t('map.marketing') -%>：</label>
-            <p class="<%= mlp -%>"><%= m.marketing_phone -%></p>
+            <div class="flex">
+              <label class="flex-none"><%= t('map.marketing') -%>：</label>
+              <p><%= m.marketing_phone -%></p>
+            </div>
           <% end %>
           <% if m.media_phone.present? %>
-            <label class="float-left"><%= t('map.media') -%>：</label>
-            <p class="<%= mlp -%>"><%= m.media_phone -%></p>
+            <div class="flex">
+              <label class="flex-none"><%= t('map.media') -%>：</label>
+              <p><%= m.media_phone -%></p>
+            </div>
           <% end %>
           <% if m.fax.present? %>
-            <label class="float-left"><%= t('map.fax') -%>：</label>
-            <p class="<%= mlp -%>"><%= m.fax -%></p>
+            <div class="flex">
+              <label class="flex-none"><%= t('map.fax') -%>：</label>
+              <p><%= m.fax -%></p>
+            </div>
           <% end %>
           <% if m.website_name.present? %>
-            <label class="float-left">网址：</label>
-            <p class="<%= mlp -%>"><%= link_to m.website_name, m.website_url -%></p>
+            <div class="flex">
+              <label class="flex-none">网址：</label>
+              <p><%= link_to m.website_name, m.website_url -%></p>
+            </div>
           <% end %>
         </div>
       </div>

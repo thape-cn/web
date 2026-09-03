@@ -24,4 +24,18 @@ class BizMapTest < ApplicationSystemTestCase
     assert_equal upper_padding_top, lower_padding_top
     assert_equal upper_justification, lower_justification
   end
+
+  test "phone numbers in a map contact card share the same left edge" do
+    page.current_window.resize_to(1400, 1000)
+
+    MapContact.stub(:find, MapContact.new) do
+      visit biz_map_path
+    end
+
+    find("div", text: "上海天华", exact_text: true).click
+    phone_numbers = all(".map-contact-tels p", visible: true)
+
+    assert_equal 2, phone_numbers.size
+    assert_in_delta phone_numbers.first.rect.x, phone_numbers[1].rect.x, 0.1
+  end
 end
