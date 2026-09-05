@@ -1,5 +1,6 @@
 ---
 cn:
+  culture_slide: "企业文化图片 %{number}"
   views:
     pagination:
       first: "第一页"

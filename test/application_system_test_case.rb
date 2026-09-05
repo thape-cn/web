@@ -17,4 +17,17 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   ENV["HEADLESS"] ? driven_by(:headless_chrome) : driven_by(:chrome)
+
+  teardown do
+    if @viewport_emulated
+      page.driver.browser.execute_cdp("Emulation.clearDeviceMetricsOverride")
+    end
+  end
+
+  # Chrome limits window width on desktop; emulate the viewport for phone sizes.
+  def resize_viewport(width, height)
+    page.driver.browser.execute_cdp("Emulation.setDeviceMetricsOverride",
+      width: width, height: height, deviceScaleFactor: 1, mobile: false)
+    @viewport_emulated = true
+  end
 end

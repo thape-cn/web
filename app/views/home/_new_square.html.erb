@@ -1,15 +1,8 @@
-<div x-data="{ show_text: <%= browser.device.mobile? ? 'true' : 'false' -%> }" x-on:mouseenter="show_text = true" x-on:mouseleave="show_text = false">
+<div class="hover-card news-card <%= browser.device.mobile? ? 'hover-card-visible' : '' %>">
   <div class="relative overflow-hidden border border-thape-dark-gray w-full">
   <%= link_to news_path(id: info.id) do %>
-    <img src="<%= news_image_url -%>" class="w-full h-full max-w-full" x-bind:class="{ 'filter-blur': show_text }" />
-    <div class="absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none"
-      x-transition:enter="transition ease-linear duration-200"
-      x-transition:enter-start="opacity-0 transform -translate-x-1/2"
-      x-transition:enter-end="opacity-100 transform translate-x-0"
-      x-transition:leave="transition ease-in duration-200"
-      x-transition:leave-start="opacity-100 transform translate-x-0"
-      x-transition:leave-end="opacity-0 transform -translate-x-1/2"
-      x-show="show_text">
+    <img src="<%= news_image_url -%>" class="w-full h-full max-w-full hover-card-image" />
+    <div class="hover-card-panel absolute bg-thape-white-t95 top-0 left-0 h-full flex flex-col justify-between w-2/3 pointer-events-none">
       <div class="my-6 mx-6">
         <p class="<%= fdsz('text-2xl sm:text-3xl') -%> text-justify font-bold"><%= Date::ABBR_MONTHNAMES[info.created_at.month] -%></p>
         <p class="<%= fdsz('text-3xl sm:text-5xl') -%> text-justify tracking-widest font-bold leading-9"><%= info.created_at.day -%></p>

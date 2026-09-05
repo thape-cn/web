@@ -1,16 +1,10 @@
-<div class="relative overflow-hidden" x-data="{ show_g: false }" x-on:mouseenter="show_g = true" x-on:mouseleave="show_g = false">
+<div class="relative overflow-hidden hover-card about-card" tabindex="0">
   <%= image_pack_tag g_image -%>
-  <div class="absolute text-white w-full left-0 bottom-0 px-6 py-4 card-title-mask" x-show="!show_g">
+  <div class="absolute text-white w-full left-0 bottom-0 px-6 py-4 card-title-mask hover-card-title">
     <h1 class="text-xl <%= fdsz("sm:text-2xl", "sm:text-4xl") -%> text-left pb-1 leading-none font-medium"><%= h1 -%></h1>
     <h2 class="text-sm <%= fdsz("sm:text-lg", "sm:text-2xl") -%> text-left leading-snug"><%= h2 -%></h2>
   </div>
-  <div class="absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left" x-show="show_g"
-    x-transition:enter="transition ease-linear duration-200"
-    x-transition:enter-start="opacity-0 transform -translate-x-1/2"
-    x-transition:enter-end="opacity-100 transform translate-x-0"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100 transform translate-x-0"
-    x-transition:leave-end="opacity-0 transform -translate-x-1/2">
+  <div class="hover-card-panel absolute inset-0 bg-black6c-t70 text-white flex content-center justify-left">
     <div class="flex items-center px-2 sm:pl-10 sm:pr-36 w-full sm:w-auto">
       <div>
         <h1 class="<%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> text-left pb-1 leading-none font-semibold"><%= h1 -%></h1>

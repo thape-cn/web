@@ -3,7 +3,7 @@
 
 <%= render partial: 'shared/thape_nav' -%>
 
-<div class="relative" x-data="{ show_project_message: false }" x-on:keydown.window.escape="show_project_message = false">
+<div class="relative" data-controller="modal" data-action="keydown@window->modal#keydown">
 
   <picture>
     <source srcset="<%= asset_pack_path('static/images/contact.webp') -%>" type="image/webp">
@@ -34,7 +34,7 @@
         <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%>">项目合作</h1>
         <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> xxl:pt-1 hidden sm:block">PROJECT</h2>
         <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1">
-          <button type="button" class="inline-flex items-center justify-center py-1 px-4 bg-black6c border border-thape-copyright-gray <%= fdsz("text-sm") -%> rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" x-on:click="show_project_message = true"><%= t("project_message_form.popup_button") %></button>
+          <button type="button" class="inline-flex items-center justify-center py-1 px-4 bg-black6c border border-thape-copyright-gray <%= fdsz("text-sm") -%> rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" data-action="modal#open" aria-haspopup="dialog" aria-controls="project-message-dialog"><%= t("project_message_form.popup_button") %></button>
         </p>
         <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1">&nbsp;</p>
       </div>
@@ -44,16 +44,16 @@
   <%= render partial: 'biz_maps/project_message_dialog' %>
 </div>
 
-<div x-data="{ show_city: '', show_company: '' }">
+<div data-controller="biz-map">
   <div class="px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
     <div class="w-full my-8 xxl:my-20 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36 flex flex-wrap xl:flex-no-wrap">
       <div class="w-full xl:w-3/5 flex-none hidden xl:block <%= fdsz("text-sm sm:text-sm", "text-sm sm:text-base") -%>">
         <div class="relative" style="padding-top: 78%; left: -1rem;">
-          <%= image_pack_tag 'images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "x-on:click": "show_city = '';show_company=''" -%>
+          <%= image_pack_tag 'images/china_map.jpg', class: 'absolute top-0 left-0 w-full h-full', "data-action": "click->biz-map#reset" -%>
           <%# 地图点 %>
           <% @map_cities.each do |city| %>
             <div class="absolute" style="left: <%= city[:left] %>; top: <%= city[:top] %>;"
-              x-bind:class="{ 'map-star-b': show_city == '<%= city[:area] %>', 'map-dot-b': show_city != '<%= city[:area] %>' }"><%= city[:name] %></div>
+              data-biz-map-target="marker" data-city="<%= city[:area] %>" data-active-class="map-star-b" data-inactive-class="map-dot-b"><%= city[:name] %></div>
           <% end %>
           <%# 地图上的公司联系信息 %>
           <% @company_map_addresses.each do |company_map_address| %>
@@ -74,8 +74,9 @@
             <% @upper_map_companies.each do |upper_map_company| %>
               <div class="h-32 xxxl:h-36 text-white cursor-pointer flex items-center justify-center"
                 style="writing-mode: vertical-rl; letter-spacing: 5px; text-orientation: upright;"
-                x-bind:class="{ 'bg-thape-bg-gray': show_company == '<%= upper_map_company[:company] %>', 'bg-thape-company-gray': show_company != '<%= upper_map_company[:company] %>' }"
-                x-on:click="show_city = '<%= upper_map_company[:city] %>'; show_company = '<%= upper_map_company[:company] %>'"><%= upper_map_company[:name] %></div>
+                data-biz-map-target="company" data-city="<%= upper_map_company[:city] %>" data-company="<%= upper_map_company[:company] %>"
+                data-active-class="bg-thape-bg-gray" data-inactive-class="bg-thape-company-gray"
+                role="button" tabindex="0" aria-pressed="false" data-action="click->biz-map#selectCompany keydown->biz-map#selectCompany"><%= upper_map_company[:name] %></div>
             <% end %>
           </div>
         </div>
@@ -85,8 +86,9 @@
             <% @under_map_companies.each do |under_map_company| %>
               <div class="h-48 sm:h-52 text-black border border-2 border-gray-600 cursor-pointer flex items-center justify-center"
                 style="writing-mode: vertical-rl; letter-spacing: 5px; text-orientation: upright;"
-                x-bind:class="{ 'bg-gray-100': show_company == '<%= under_map_company[:company] %>', 'bg-gray-50': show_company != '<%= under_map_company[:company] %>' }"
-                x-on:click="show_city = '<%= under_map_company[:city] %>';show_company = '<%= under_map_company[:company] %>'"><%= under_map_company[:name] %></div>
+                data-biz-map-target="company" data-city="<%= under_map_company[:city] %>" data-company="<%= under_map_company[:company] %>"
+                data-active-class="bg-gray-100" data-inactive-class="bg-gray-50"
+                role="button" tabindex="0" aria-pressed="false" data-action="click->biz-map#selectCompany keydown->biz-map#selectCompany"><%= under_map_company[:name] %></div>
             <% end %>
           </div>
         </div>
@@ -101,7 +103,7 @@
   </div>
   <div class="w-full mx-auto px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-thape-dark-gray" id="thape-address">
     <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
-      <header class="px-0 pt-2 pb-1" x-on:click="show_city = ''">
+      <header class="px-0 pt-2 pb-1" data-action="click->biz-map#reset">
         <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c">
           <a href="<%= biz_map_path(locale: 'cn', anchor: 'thape-address') -%>" class="hover:text-black6c-t70 focus:text-black6c-t70">全国机构</a>
         </h1>

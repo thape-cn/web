@@ -1,10 +1,29 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "marker", "categoryOrigin", "categoryFixed", "wxDownload" ]
+  static targets = [ "marker", "categoryOrigin", "categoryFixed", "wxDownload", "category", "categoryPanel" ];
+  static values = { category: String };
 
   connect() {
     this.resize();
+  }
+
+  selectCategory(event) {
+    this.categoryValue = event.currentTarget.dataset.category;
+  }
+
+  categoryValueChanged() {
+    this.categoryTargets.forEach(button => {
+      const active = button.dataset.category === this.categoryValue;
+      button.classList.toggle('text-white', active);
+      button.classList.toggle('bg-black6c', active);
+      button.classList.toggle('text-thape-copyright-gray', !active);
+      button.classList.toggle('bg-thape-dark-gray', !active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    this.categoryPanelTargets.forEach(panel => {
+      panel.hidden = panel.dataset.category !== this.categoryValue;
+    });
   }
 
   resize() {
@@ -20,6 +39,8 @@ export default class extends Controller {
           this.categoryFixedTarget.style.display = 'none';
         }
         this.categoryFixedTarget.style.width = `${originPz.width}px`;
+      } else {
+        this.categoryFixedTarget.style.display = 'none';
       }
     }
   }

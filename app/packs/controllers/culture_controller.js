@@ -1,15 +1,48 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['sliders', 'dots'];
+  static targets = ['sliders', 'dots', 'slide', 'dot'];
   static values = {
     imgWidth: Number,
     imgHeight: Number,
   };
 
   connect() {
+    this.currentSlide = 0;
+    this.render();
+    this.scheduleNext(5000);
     this.setSlidersSize();
     window.addEventListener('resize', this.setSlidersSize);
+  }
+
+  select(event) {
+    this.currentSlide = Number(event.currentTarget.dataset.slide);
+    this.render();
+    this.scheduleNext(6000);
+  }
+
+  scheduleNext(delay) {
+    clearTimeout(this.autoplayTimer);
+    if (this.slideTargets.length < 2) return;
+    this.autoplayTimer = setTimeout(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.slideTargets.length;
+      this.render();
+      this.scheduleNext(6000);
+    }, delay);
+  }
+
+  render() {
+    this.slideTargets.forEach((slide, index) => {
+      const active = index === this.currentSlide;
+      slide.classList.toggle('culture-slide-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    this.dotTargets.forEach((dot, index) => {
+      const active = index === this.currentSlide;
+      dot.classList.toggle('bg-gray-500', active);
+      dot.classList.toggle('bg-gray-200', !active);
+      dot.setAttribute('aria-pressed', String(active));
+    });
   }
 
   setSlidersSize = () => {
@@ -32,6 +65,7 @@ export default class extends Controller {
   }
 
   disconnect() {
+    clearTimeout(this.autoplayTimer);
     window.removeEventListener('resize', this.setSlidersSize);
   }
 }

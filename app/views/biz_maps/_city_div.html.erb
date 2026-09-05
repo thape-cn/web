@@ -1,6 +1,6 @@
 <% ms ||= [] %>
 
-<div style="display: none;" x-show="show_city == '<%= c -%>'">
+<div hidden data-biz-map-target="cityPanel" data-city="<%= c %>">
   <header class="pt-2 pb-1">
     <h1 class="inline-block <%= fdsz("text-xl sm:text-2xl", "text-xl sm:text-4xl") -%> font-bold text-black6c">
       <span class="hover:text-black6c-t70"><%= c -%></span>

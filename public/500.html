@@ -11,12 +11,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/css/application-0474acb0.css" media="all" />
-    <script type="module" src="/alpine/2-8-2.js"></script>
-    <script nomodule src="/alpine/2-8-2-ie11.js" defer></script>
     <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/runtime-c799411b69be0210a674.js" defer="defer"></script>
     <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/218-06a8503077bbe58acc89.js" defer="defer"></script>
     <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/894-901c94a5be1d314c0b37.js" defer="defer"></script>
     <script src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/js/application-a2f1fb33a0ccbaf07b18.js" defer="defer"></script>
+    <style>
+      .social-qr-image { display: none; }
+      .social-qr:hover .social-qr-image { display: block; }
+      .social-qr:focus-within .social-qr-image { display: block; }
+    </style>
   </head>
 
   <body>
@@ -509,9 +512,11 @@
       <p class="md:hidden text-center">© 2022 上海天华建筑设计有限公司，保留所有权利 <a href="https://beian.miit.gov.cn/" class="hover:underline">沪ICP备08027138号-1</a> <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402005733" class="hover:underline">公安部备案号 31010402005733</a></p>
     </div>
 
-    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4" x-data="{ show_wechat_qr: false }">
-      <img class="absolute w-24 bottom-0 right-32 z-50" x-show="show_wechat_qr" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-qr-6c3ae42ab489a3e83d1a29698589787b.jpg" />
-      <a x-on:mouseenter="show_wechat_qr = true" x-on:mouseleave="show_wechat_qr = false"><img class="h-4 md:h-6 mx-2 md:mr-2 md:ml-0" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-dacd263a0fa51224b9a4339bb9150e1b.svg" /></a>
+    <div class="flex order-first flex-none w-full pb-2 relative text-thape-icon-gray justify-center items-center md:order-last md:pb-0 md:w-auto md:pl-4">
+      <div class="social-qr">
+        <img class="social-qr-image absolute w-24 bottom-0 right-32 z-50" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-qr-6c3ae42ab489a3e83d1a29698589787b.jpg" />
+        <button type="button" aria-label="微信二维码"><img class="h-4 md:h-6 mx-2 md:mr-2 md:ml-0" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/wechat-dacd263a0fa51224b9a4339bb9150e1b.svg" /></button>
+      </div>
       <a href="http://weibo.com/thape" target="_blank" rel="noreferrer"><img class="h-4 md:h-6 mx-2" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/weibo-5d343d5d82c29e6f2555278c618f7691.svg" /></a>
       <a href="https://www.zhihu.com/org/tian-hua-jian-zhu/activities" target="_blank" rel="noreferrer"><img class="h-4 md:h-6 mx-2 md:ml-2 md:mr-0" src="https://thape-assets.oss-cn-shanghai.aliyuncs.com/packs/media/images/zhihu-a2fb4ff34078a4b621785ed2b3b62f11.svg" /></a>
     </div>

@@ -8,197 +8,25 @@
     header_path: culture_path, header_class: 'border-gray-200 border-solid border-b', show_header_right: true } %>
 </div>
 
-<script>
-function alpineSlideShow(slides) {
-    return {
-        state: {
-            moving: false,
-            currentSlide: 1,
-            looping: false,
-            order: [],
-            nextSlideDirection: ''
-        },
-        autoplayTimer: null,
-        attributes: {
-            direction: 'right-left',
-            duration: 1000,
-            timer: 5000,
-        },
-        slides: [],
-        setup() {
-            this.slides = slides;
-
-            // Cache the original order so that we can reorder on transition (to skip inbetween slides)
-            this.state.order = this.slides;
-
-            const newSlideOrder = this.slides.filter(slide_id => this.current != slide_id)
-            newSlideOrder.unshift(this.current)
-            this.slides = newSlideOrder
-
-            // Start the autoslide
-            this.attributes.timer && this.autoPlay()
-        },
-        get current() {
-            return this.state.currentSlide;
-        },
-        get previousSlide() {
-            return (this.state.currentSlide - 1) > 0 ? this.state.currentSlide - 1 : this.slides.length
-        },
-        get nextSlide() {
-            return this.state.currentSlide < (this.slides.length - 1) ? this.state.currentSlide + 1 : 1
-        },
-        updateCurrent(nextSlide) {
-            if (nextSlide == this.state.currentSlide) return
-            if (this.state.moving) return
-            this.state.moving = true
-
-            const next = this.slides.find(slide_id => slide_id == this.state.order[nextSlide - 1])
-
-            // Reorder the slides for a smoother transition
-            const newSlideOrder = this.slides.filter(slide_id => {
-                return !([this.current, this.state.order[nextSlide - 1]].indexOf(slide_id) > -1);
-            })
-
-            const activeSlides = [this.current, next]
-            this.state.nextSlideDirection = nextSlide > this.state.currentSlide ? 'right-to-left' : 'left-to-right'
-
-            newSlideOrder.unshift(...(this.state.nextSlideDirection == 'right-to-left' ? activeSlides : activeSlides.reverse()))
-            this.slides = newSlideOrder
-            this.state.currentSlide = nextSlide
-            setTimeout(() => {
-                this.state.moving = false
-                // TODO: possibly a better check to determine whether autoplay should resume
-                this.attributes.timer && !this.autoplayTimer && this.autoPlay()
-            }, this.attributes.duration)
-        },
-        transitions(state) {
-            const rightToLeft = this.state.nextSlideDirection === 'right-to-left'
-            switch (state) {
-                case 'enter':
-                    return `animate fade-in`
-                case 'enter-start':
-                    return ''
-                case 'enter-end':
-                    return ''
-                case 'leave':
-                    return `absolute top-0 animate fade-out`
-                case 'leave-start':
-                    return ''
-                case 'leave-end':
-                    return ''
-            }
-        },
-        autoPlay() {
-            this.loop = () => {
-                const next = (this.state.currentSlide === this.slides.length) ? 1 : this.state.currentSlide + 1
-                this.updateCurrent(this.state.looping ? next : this.currentSlide)
-                this.state.nextSlideDirection = 'right-to-left';
-                this.autoplayTimer = setTimeout(() => {
-                    requestAnimationFrame(this.loop)
-                }, this.attributes.timer + this.attributes.duration)
-
-            }
-            this.autoplayTimer = setTimeout(() => {
-                this.state.looping = true
-                requestAnimationFrame(this.loop)
-            }, this.attributes.timer)
-        },
-        stopAutoplay() {
-            clearTimeout(this.autoplayTimer)
-            this.autoplayTimer = null
-        }
-    }
-}
-</script>
-
 <div class="flex flex-col items-center justify-center px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-2 md:py-6 lg:py-8 xl:py-10 xxl:py-12 xxxl:py-16"
-  x-data="alpineSlideShow([1,2,3,4,5])"
-  x-init="setup()"
   data-controller="culture"
   data-culture-img-width-value='1080'
   data-culture-img-height-value='720'>
   <div class="relative max-w-full overflow-hidden" data-culture-target="sliders">
-    <img class="w-full h-full" src="<%= asset_pack_path('static/images/culture_1.png') -%>"
-      :x-transition:enter="transitions('enter')"
-      :x-transition:enter-start="transitions('enter-start')"
-      :x-transition:enter-end="transitions('enter-end')"
-      :x-transition:leave="transitions('leave')"
-      :x-transition:leave-start="transitions('leave-start')"
-      :x-transition:leave-end="transitions('leave-end')"
-      x-show="state.currentSlide === 1" />
-
-    <img class="w-full h-full" src="<%= asset_pack_path('static/images/culture_2.png') -%>"
-      :x-transition:enter="transitions('enter')"
-      :x-transition:enter-start="transitions('enter-start')"
-      :x-transition:enter-end="transitions('enter-end')"
-      :x-transition:leave="transitions('leave')"
-      :x-transition:leave-start="transitions('leave-start')"
-      :x-transition:leave-end="transitions('leave-end')"
-      x-show="state.currentSlide === 2" />
-
-    <img class="w-full h-full" src="<%= asset_pack_path('static/images/culture_3.png') -%>"
-      :x-transition:enter="transitions('enter')"
-      :x-transition:enter-start="transitions('enter-start')"
-      :x-transition:enter-end="transitions('enter-end')"
-      :x-transition:leave="transitions('leave')"
-      :x-transition:leave-start="transitions('leave-start')"
-      :x-transition:leave-end="transitions('leave-end')"
-      x-show="state.currentSlide === 3" />
-
-    <img class="w-full h-full" src="<%= asset_pack_path('static/images/culture_4.png') -%>"
-      :x-transition:enter="transitions('enter')"
-      :x-transition:enter-start="transitions('enter-start')"
-      :x-transition:enter-end="transitions('enter-end')"
-      :x-transition:leave="transitions('leave')"
-      :x-transition:leave-start="transitions('leave-start')"
-      :x-transition:leave-end="transitions('leave-end')"
-      x-show="state.currentSlide === 4" />
-
-    <img class="w-full h-full" src="<%= asset_pack_path('static/images/culture_5.png') -%>"
-      :x-transition:enter="transitions('enter')"
-      :x-transition:enter-start="transitions('enter-start')"
-      :x-transition:enter-end="transitions('enter-end')"
-      :x-transition:leave="transitions('leave')"
-      :x-transition:leave-start="transitions('leave-start')"
-      :x-transition:leave-end="transitions('leave-end')"
-      x-show="state.currentSlide === 5" />
+    <% (1..5).each do |slide| %>
+      <img class="absolute inset-0 w-full h-full culture-slide <%= slide == 1 ? 'culture-slide-active' : '' %>"
+        src="<%= asset_pack_path("static/images/culture_#{slide}.png") %>"
+        data-culture-target="slide" aria-hidden="<%= slide != 1 %>" alt="<%= t('culture_slide', number: slide) %>" />
+    <% end %>
   </div>
   <div class="flex items-center justify-center" data-culture-target="dots">
-      <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
-        :class="{
-          'bg-gray-500' : state.currentSlide === 1
-        }"
-        @click="stopAutoplay();updateCurrent(1)">
+    <% (1..5).each do |slide| %>
+      <button type="button"
+        class="mx-2 text-white inline-flex items-center justify-center <%= slide == 1 ? 'bg-gray-500' : 'bg-gray-200' %> hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
+        data-culture-target="dot" data-slide="<%= slide - 1 %>" data-action="culture#select"
+        aria-label="<%= t('culture_slide', number: slide) %>" aria-pressed="<%= slide == 1 %>">
       </button>
-      <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
-        :class="{
-          'bg-gray-500' : state.currentSlide === 2
-        }"
-        @click="stopAutoplay();updateCurrent(2)">
-      </button>
-      <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
-        :class="{
-          'bg-gray-500' : state.currentSlide === 3
-        }"
-        @click="stopAutoplay();updateCurrent(3)">
-      </button>
-      <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
-        :class="{
-          'bg-gray-500' : state.currentSlide === 4
-        }"
-        @click="stopAutoplay();updateCurrent(4)">
-      </button>
-      <button
-        class="mx-2 text-white inline-flex items-center justify-center bg-gray-200 hover:bg-gray-500 w-2 h-2 p-0 my-2 rounded-full"
-        :class="{
-          'bg-gray-500' : state.currentSlide === 5
-        }"
-        @click="stopAutoplay();updateCurrent(5)">
-      </button>
+    <% end %>
   </div>
 </div>
 

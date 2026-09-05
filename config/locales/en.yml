@@ -1,5 +1,6 @@
 ---
 en:
+  culture_slide: "Corporate culture slide %{number}"
   views:
     pagination:
       first: "First"

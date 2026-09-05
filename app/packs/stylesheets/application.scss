@@ -24,7 +24,7 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-[x-cloak] {
+[hidden] {
   display: none !important;
 }
 
@@ -293,4 +293,68 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+// CSS owns purely presentational hover/focus effects.
+.hover-card-panel {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 200ms ease-in, transform 200ms ease-in, visibility 200ms;
+}
+
+@mixin reveal-hover-card {
+  .hover-card-panel {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .hover-card-title {
+    visibility: hidden;
+  }
+
+  .hover-card-image {
+    filter: blur(2px);
+  }
+}
+
+.hover-card:hover,
+.hover-card:focus,
+.hover-card-visible {
+  @include reveal-hover-card;
+}
+
+.hover-card:focus-within {
+  @include reveal-hover-card;
+}
+
+.social-qr-image {
+  display: none;
+}
+
+.social-qr:hover .social-qr-image {
+  display: block;
+}
+
+.social-qr:focus-within .social-qr-image {
+  display: block;
+}
+
+.culture-slide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s;
+}
+
+.culture-slide-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-card-panel,
+  .culture-slide {
+    transition: none;
+  }
 }
