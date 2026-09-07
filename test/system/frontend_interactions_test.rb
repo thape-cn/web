@@ -74,7 +74,8 @@ class FrontendInteractionsTest < ApplicationSystemTestCase
     origin.find("[data-category='standard_specification']").click
     assert_text "Test standard_specification"
     assert_no_text "Test monographs"
-    assert_selector "[data-publications-target='category'][data-category='standard_specification'][aria-pressed='true']", count: 2, visible: :all
+    assert_selector "[data-publications-target='category'][data-category='standard_specification'][aria-pressed='true'].bg-thape-bg-gray", count: 2, visible: :all
+    assert_equal "none", page.evaluate_script("getComputedStyle(document.activeElement).outlineStyle")
 
     resize_viewport(390, 844)
     page.scroll_to(find("footer"))
@@ -82,7 +83,7 @@ class FrontendInteractionsTest < ApplicationSystemTestCase
     fixed.find("[data-category='paper_patent']").click
     assert_text "Test paper_patent"
     assert_no_text "Test standard_specification"
-    assert_selector "[data-publications-target='category'][data-category='paper_patent'][aria-pressed='true']", count: 2, visible: :all
+    assert_selector "[data-publications-target='category'][data-category='paper_patent'][aria-pressed='true'].bg-thape-bg-gray", count: 2, visible: :all
 
     resize_viewport(1400, 1000)
     assert_no_selector "[data-publications-target='categoryFixed']"

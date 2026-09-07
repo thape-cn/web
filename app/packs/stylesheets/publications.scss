@@ -1,4 +1,18 @@
 .publications {
+  [data-publications-target="category"] {
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 2px rgba(101, 101, 101, 1);
+    }
+
+    &[aria-pressed="true"]:focus-visible {
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+    }
+  }
+
   .list {
     .item {
       display: flex;

@@ -16,7 +16,7 @@ export default class extends Controller {
     this.categoryTargets.forEach(button => {
       const active = button.dataset.category === this.categoryValue;
       button.classList.toggle('text-white', active);
-      button.classList.toggle('bg-black6c', active);
+      button.classList.toggle('bg-thape-bg-gray', active);
       button.classList.toggle('text-thape-copyright-gray', !active);
       button.classList.toggle('bg-thape-dark-gray', !active);
       button.setAttribute('aria-pressed', String(active));
