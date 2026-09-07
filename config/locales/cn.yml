@@ -123,6 +123,7 @@ cn:
     contact:
       text: "联系我们"
   ui:
+    reset: "重置"
     keyword_search: "关键词搜索"
     page_keyword_search: "当前页搜索"
     people: "人物"

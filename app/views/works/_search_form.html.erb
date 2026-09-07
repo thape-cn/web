@@ -1,4 +1,7 @@
 <form action="<%= @self_path -%>" method="GET" class="flex flex-wrap sm:flex-no-wrap justify-between sm:justify-start">
+  <% if @project_type.present? && @city.present? %>
+    <input type="hidden" name="city" value="<%= @city.url_name %>" />
+  <% end %>
   <div class="my-0 sm:my-1 mx-0 relative rounded-md shadow-sm block w-1/2 <%= fdsz("#{I18n.locale == :en ? 'sm:w-56' : 'sm:w-44'}", "#{I18n.locale == :en ? 'sm:w-64' : 'sm:w-48'}") -%> flex-none sm:flex-initial" data-controller="dropdown" data-action="click@document->dropdown#dismiss keydown@window->dropdown#keydown">
     <button type="button" class="w-full inline-flex justify-between <%= search_form_project_type_width(@project_type["#{I18n.locale}_name"]) -%> rounded-md border border-gray-300 px-4 py-2 bg-white <%= fdsz("text-sm", "text-base") -%> text-left leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150 truncate" data-dropdown-target="trigger" data-action="dropdown#toggle" aria-expanded="false">
       <%= @project_type["#{I18n.locale}_name"] || t('menu.works.project_type') -%>
@@ -10,7 +13,7 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1 <%= fdsz("text-sm", "text-base") -%>">
           <% ProjectType.order(id: :asc).all.each do |project_type| %>
-            <a href="<%= project_type_path(project_type) -%>" class="block px-4 py-2 <%= fdsz("text-sm", "text-base") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
+            <a href="<%= project_type_path(project_type, city: @city&.url_name) -%>" class="block px-4 py-2 <%= fdsz("text-sm", "text-base") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= project_type["#{I18n.locale}_name"] %></a>
           <% end %>
         </div>
       </div>
@@ -27,7 +30,7 @@
       <div class="rounded-md bg-white shadow-xs">
         <div class="py-1 <%= fdsz("text-sm", "text-base") -%>">
           <% City.with_published_works.where.not(china_area_name: [nil, '上海']).select(:id, :name, :url_name).order(:id).each do |city| %>
-            <a href="<%= work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz("text-sm", "text-base") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
+            <a href="<%= @project_type.present? ? project_type_path(@project_type, city: city.url_name) : work_path(id: city.url_name) %>" class="block px-4 py-2 <%= fdsz("text-sm", "text-base") -%> leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"><%= I18n.locale == :en ? city.url_name.upcase : city.name %></a>
           <% end %>
         </div>
       </div>
@@ -40,5 +43,8 @@
         <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
       </svg>
     </div>
+  </div>
+  <div class="mt-1 mb-0 sm:my-1 mx-0 sm:ml-2 block w-full sm:w-auto flex-none sm:flex-initial">
+    <%= link_to t("ui.reset"), works_path, class: "w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white #{fdsz("text-sm", "text-base")} leading-5 font-medium text-black6c-t70 hover:text-gray-500 focus:outline-none focus:border-gray-300 focus:shadow-outline-gray active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150" %>
   </div>
 </form>

@@ -69,36 +69,36 @@ module ApplicationHelper
     end
   end
 
-  def project_type_path(project_type)
+  def project_type_path(project_type, **options)
     case project_type.cn_name
     when "居住"
-      residential_works_path
+      residential_works_path(**options)
     when "展示区/示范区"
-      demonstration_zone_works_path
+      demonstration_zone_works_path(**options)
     when "商业办公", "商务办公/产业办公"
-      office_works_path
+      office_works_path(**options)
     when "超高层"
-      supertall_works_path
+      supertall_works_path(**options)
     when "商业空间"
-      commercial_works_path
+      commercial_works_path(**options)
     when "综合体/TOD"
-      mixed_used_tod_works_path
+      mixed_used_tod_works_path(**options)
     when "文化空间"
-      cultural_works_path
+      cultural_works_path(**options)
     when "医疗康养"
-      medical_care_works_path
+      medical_care_works_path(**options)
     when "旅居/酒店"
-      hospitality_works_path
+      hospitality_works_path(**options)
     when "教育"
-      education_works_path
+      education_works_path(**options)
     when "城市设计/更新"
-      urban_design_works_path
+      urban_design_works_path(**options)
     when "城市规划"
-      urban_planning_works_path
+      urban_planning_works_path(**options)
     when "景观"
-      landscape_works_path
+      landscape_works_path(**options)
     when "室内"
-      interior_works_path
+      interior_works_path(**options)
     end
   end
 

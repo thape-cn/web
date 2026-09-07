@@ -232,14 +232,16 @@ class WorksController < ApplicationController
   end
 
   def render_project_type
-    @works = if params[:q].present?
+    @city = City.find_by(url_name: params[:city]) if params[:city].present?
+    works = if params[:q].present?
       q = Work.sanitize_sql_like(params[:q])
       works_query_scope(q)
     else
       Work.all.order(position: :asc)
     end.includes(:work_project_types)
       .where(work_project_types: {project_type_id: @project_type.id})
-      .page(params[:page]).per(params[:per_page])
+    works = works.where(city_id: @city.id) if @city.present?
+    @works = works.page(params[:page]).per(params[:per_page])
     render :works_detail
   end
 end

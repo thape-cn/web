@@ -72,6 +72,7 @@ en:
     contact-shanghai-address-1: "26F, 1800 West Zhongshan Rd, Shanghai 200235"
     contact-shanghai-address-2: "12F, Kehui Tower, 1188 North Qinzhou Rd, Shanghai 200233"
   ui:
+    reset: "RESET"
     keyword_search: "Keyword search"
     page_keyword_search: "Keyword search"
     people: "LEADERSHIP"
