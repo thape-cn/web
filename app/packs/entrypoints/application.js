@@ -4,9 +4,6 @@
 // that code so it'll be compiled.
 
 import "core-js/stable";
-import "regenerator-runtime/runtime";
-import "@stimulus/polyfills";
-import 'waypoints/lib/noframework.waypoints';
 
 import Rails from "@rails/ujs"
 global.Rails = Rails

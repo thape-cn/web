@@ -98,7 +98,7 @@ The project uses Rails Minitest with:
 - **Stimulus**: Name controllers with `_controller.js` suffix for auto-registration
 - **Imports**: Resolve relative to `app/packs`
 - **Tailwind CSS**: Due to Tailwind 1.9 PurgeCSS limitation, **touch the CSS file after adding new classes** to ensure they're included in the build
-- **IE support**: Special controllers (`home_ie11_controller.js`, `scroll_ie11_controller.js`)
+- **Browser support**: Modern browsers use the `home` and `scroll` controllers
 
 ### I18n
 - **Default locale**: Chinese (cn)
@@ -159,7 +159,7 @@ Capistrano-based deployment with:
 
 1. **Tailwind CSS Limitation**: After adding new Tailwind utility classes, touch the relevant stylesheet file so PurgeCSS includes the new classes in production builds
 2. **Multi-Database**: Be aware of which database you're querying (primary vs tianhua2019/tianhua2020 SQLite databases)
-3. **Browser Support**: Application includes IE11 support via special controllers and polyfills
+3. **Browser Support**: Application targets modern browsers; IE11 is not supported
 4. **Credentials**: Production credentials managed via encrypted file and `master.key` - never commit secrets
 5. **File Uploads**: Images and files stored in Aliyun OSS in production, local storage in development
 6. **SEO**: Use `full_title` helper and set `@seo` instance variable for meta tags in controllers

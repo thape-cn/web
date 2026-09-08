@@ -39,22 +39,6 @@ module ApplicationHelper
     end
   end
 
-  def home_controller
-    if browser.ie?
-      "home-ie11"
-    else
-      "home"
-    end
-  end
-
-  def scroll_controller
-    if browser.ie?
-      "scroll-ie11"
-    else
-      "scroll"
-    end
-  end
-
   def search_form_project_type_width(project_type_name)
     return "w-56" if I18n.locale == :en
     case project_type_name

@@ -109,7 +109,7 @@ Capistrano-based deployment with:
 - **Stimulus**: Name controllers with `_controller.js` suffix for auto-registration
 - **Imports**: Resolve relative to `app/packs`
 - **Tailwind CSS**: Due to Tailwind 1.9 PurgeCSS limitation, **touch the CSS file after adding new classes** to ensure they're included in the build
-- **IE support**: Special controllers (`home_ie11_controller.js`, `scroll_ie11_controller.js`)
+- **Browser support**: Modern browsers use the `home` and `scroll` controllers
 
 ### I18n
 - **Default locale**: Chinese (cn)
@@ -153,7 +153,7 @@ Capistrano-based deployment with:
 ## Development Notes
 
 1. **Tailwind CSS Limitation**: After adding new Tailwind utility classes, touch the relevant stylesheet file so PurgeCSS includes the new classes
-2. **Browser Support**: Includes IE11 support via special controllers
+2. **Browser Support**: Targets modern browsers; IE11 is not supported
 3. **Credentials**: Production credentials managed via encrypted file and `master.key`
 4. **File Uploads**: Images and files stored in Aliyun OSS in production
 5. **SEO**: Use `full_title` helper and `@seo` instance variable for meta tags

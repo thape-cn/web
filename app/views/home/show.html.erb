@@ -98,17 +98,15 @@
   </div>
 </div>
 
-<div data-controller="<%= home_controller -%>"
-     data-action="resize@window-><%= home_controller -%>#layout"
+<div data-controller="home"
+     data-action="resize@window->home#layout"
      data-home-offset-value="0.75"
      data-home-amplify-rate-value="2.3">
 
-<div class="relative" style="margin-top: 100vh; z-index: 1;" <%= raw(
-home_controller == 'home-ie11' ? 'style="opacity: 0;"' : '') -%> id="thape-home-waypoint">
+<div class="relative" style="margin-top: 100vh; z-index: 1;">
 
 <%# 最新项目 %>
-<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" <%= raw(
-home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-projects">
+<div class="w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" style="opacity: 0.001;" id="thape-new-projects">
   <header>
     <div class="flex w-full pt-4 pb-2 sm:pt-10 sm:pb-4 justify-between items-center">
       <div class="flex items-end">
@@ -124,11 +122,7 @@ home_controller == 'home' ? 'style="opacity: 0.001;"' : '') -%> id="thape-new-pr
       </a>
     </div>
   </header>
-  <% if browser.ie? %>
-    <%= render partial: 'new_projects_ie11' %>
-  <% else %>
-    <%= render partial: 'new_projects' %>
-  <% end %>
+  <%= render partial: 'new_projects' %>
 </div>
 
 <div class="relative w-full mx-auto px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 bg-white scroller-step" id="thape-home-news">

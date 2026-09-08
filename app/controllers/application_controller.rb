@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_ts
   before_action :prepare_seo_variable
-  before_action :set_ie_warning
   before_action :set_not_mobile_wechat
 
   private
@@ -39,12 +38,6 @@ class ApplicationController < ActionController::Base
 
   def prepare_seo_variable
     @seo = Seo.find_by(seo_name: "首页")
-  end
-
-  def set_ie_warning
-    if browser.ie?
-      flash.now[:alert] = "本站点推荐在Chrome, Edge, Firefox等非IE浏览器下浏览，Chrome浏览器可以在<a href='https://www.google.cn/intl/zh-CN/chrome/'>https://www.google.cn/intl/zh-CN/chrome/</a>下载。".html_safe
-    end
   end
 
   def set_not_mobile_wechat

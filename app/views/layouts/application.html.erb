@@ -8,7 +8,6 @@
     <meta name="abstract" content="<%= @seo.abstract -%>" />
     <meta name="keywords" content="<%= @seo.keywords -%>" />
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= canonical_tag -%>
     <meta name="applicable-device" content="pc,mobile">
@@ -19,11 +18,6 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <%= javascript_pack_tag 'application' %>
-    <% if browser.ie? %>
-      <style>
-        #thape-footer-logo { height: 22px; }
-      </style>
-    <% end %>
   </head>
 
   <body>
