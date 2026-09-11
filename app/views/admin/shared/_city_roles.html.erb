@@ -1,0 +1,15 @@
+<fieldset class="border-t pt-6">
+  <legend class="font-semibold">城市职位</legend>
+  <p class="text-sm text-gray-500 mb-4">新增所属城市后，保存并重新打开此页即可填写该城市的职位。</p>
+  <%= form.fields_for :city_people do |role| %>
+    <div class="border rounded p-4 mb-4">
+      <p class="font-medium mb-3"><%= role.object.city.name %></p>
+      <%= role.label :city_title, '中文职位' %>
+      <%= role.text_field :city_title, class: 'admin-input mb-3' %>
+      <%= role.label :city_en_title, 'English title' %>
+      <%= role.text_field :city_en_title, class: 'admin-input mb-3' %>
+      <label class="mr-4"><%= role.check_box :is_management %> 管理团队</label>
+      <label><%= role.check_box :is_professional %> 专业团队</label>
+    </div>
+  <% end %>
+</fieldset>

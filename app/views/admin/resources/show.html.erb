@@ -1,0 +1,16 @@
+<div class="flex items-center justify-between mb-6">
+  <h1 class="text-2xl font-semibold"><%= @resource.label %> · <%= @record.id %></h1>
+  <div class="flex space-x-4">
+    <%= link_to '返回', admin_resource_path(@resource), class: 'text-blue-700' %>
+    <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, @record), class: 'admin-button' %><% end %>
+  </div>
+</div>
+<dl class="bg-white rounded-lg shadow p-6 grid md:grid-cols-2 gap-6">
+  <% fields = @resource.messages? ? @record.attribute_names - ['updated_at'] : @resource.fields.keys %>
+  <% fields.each do |field| %>
+    <div class="border-t pt-4 min-w-0">
+      <dt class="text-sm font-medium text-gray-500 mb-2"><%= admin_field_label(@resource, field) %></dt>
+      <dd class="whitespace-pre-wrap break-words"><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(@record.public_send(field)) %><% else %><%= admin_display(@record, field) %><% end %></dd>
+    </div>
+  <% end %>
+</dl>

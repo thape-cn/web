@@ -1,0 +1,1491 @@
+{
+  "home": {
+    "label": "旧版首页",
+    "model": "Admin::Home",
+    "param": "home",
+    "singleton": true,
+    "actions": [
+      "show",
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "title_1": {
+        "type": "text_field",
+        "label": "轮播 1 · Title"
+      },
+      "subtitle_1": {
+        "type": "text_field",
+        "label": "轮播 1 · Subtitle"
+      },
+      "banner_1": {
+        "type": "file_field",
+        "label": "轮播 1 · PC banner"
+      },
+      "banner_phone_1": {
+        "type": "file_field",
+        "label": "轮播 1 · Phone banner"
+      },
+      "banner_alt_1": {
+        "type": "text_field",
+        "label": "轮播 1 · 图片Alt描述"
+      },
+      "title_2": {
+        "type": "text_field",
+        "label": "轮播 2 · Title"
+      },
+      "subtitle_2": {
+        "type": "text_field",
+        "label": "轮播 2 · Subtitle"
+      },
+      "banner_2": {
+        "type": "file_field",
+        "label": "轮播 2 · PC banner"
+      },
+      "banner_phone_2": {
+        "type": "file_field",
+        "label": "轮播 2 · Phone banner"
+      },
+      "banner_alt_2": {
+        "type": "text_field",
+        "label": "轮播 2 · 图片Alt描述"
+      },
+      "title_3": {
+        "type": "text_field",
+        "label": "轮播 3 · Title"
+      },
+      "subtitle_3": {
+        "type": "text_field",
+        "label": "轮播 3 · Subtitle"
+      },
+      "banner_3": {
+        "type": "file_field",
+        "label": "轮播 3 · PC banner"
+      },
+      "banner_phone_3": {
+        "type": "file_field",
+        "label": "轮播 3 · Phone banner"
+      },
+      "banner_alt_3": {
+        "type": "text_field",
+        "label": "轮播 3 · 图片Alt描述"
+      },
+      "title_4": {
+        "type": "text_field",
+        "label": "轮播 4 · Title"
+      },
+      "subtitle_4": {
+        "type": "text_field",
+        "label": "轮播 4 · Subtitle"
+      },
+      "banner_4": {
+        "type": "file_field",
+        "label": "轮播 4 · PC banner"
+      },
+      "banner_phone_4": {
+        "type": "file_field",
+        "label": "轮播 4 · Phone banner"
+      },
+      "banner_alt_4": {
+        "type": "text_field",
+        "label": "轮播 4 · 图片Alt描述"
+      },
+      "title_5": {
+        "type": "text_field",
+        "label": "轮播 5 · Title"
+      },
+      "subtitle_5": {
+        "type": "text_field",
+        "label": "轮播 5 · Subtitle"
+      },
+      "banner_5": {
+        "type": "file_field",
+        "label": "轮播 5 · PC banner"
+      },
+      "banner_phone_5": {
+        "type": "file_field",
+        "label": "轮播 5 · Phone banner"
+      },
+      "banner_alt_5": {
+        "type": "text_field",
+        "label": "轮播 5 · 图片Alt描述"
+      },
+      "project_title_1": {
+        "type": "text_field",
+        "label": "项目 1 · Title"
+      },
+      "project_subtitle_1": {
+        "type": "text_field",
+        "label": "项目 1 · Subtitle"
+      },
+      "project_img_1": {
+        "type": "file_field",
+        "label": "项目 1 · PC 图片"
+      },
+      "project_phone_img_1": {
+        "type": "file_field",
+        "label": "项目 1 · Phone 图片"
+      },
+      "project_alt_1": {
+        "type": "text_field",
+        "label": "项目 1 · 图片Alt描述"
+      },
+      "project_link_1": {
+        "type": "text_field",
+        "label": "项目 1 · 项目ID"
+      },
+      "project_title_2": {
+        "type": "text_field",
+        "label": "项目 2 · Title"
+      },
+      "project_subtitle_2": {
+        "type": "text_field",
+        "label": "项目 2 · Subtitle"
+      },
+      "project_img_2": {
+        "type": "file_field",
+        "label": "项目 2 · PC 图片"
+      },
+      "project_phone_img_2": {
+        "type": "file_field",
+        "label": "项目 2 · Phone 图片"
+      },
+      "project_link_2": {
+        "type": "text_field",
+        "label": "项目 2 · 项目ID"
+      },
+      "project_title_3": {
+        "type": "text_field",
+        "label": "项目 3 · Title"
+      },
+      "project_subtitle_3": {
+        "type": "text_field",
+        "label": "项目 3 · Subtitle"
+      },
+      "project_img_3": {
+        "type": "file_field",
+        "label": "项目 3 · PC 图片"
+      },
+      "project_phone_img_3": {
+        "type": "file_field",
+        "label": "项目 3 · Phone 图片"
+      },
+      "project_alt_3": {
+        "type": "text_field",
+        "label": "项目 3 · 图片Alt描述"
+      },
+      "project_link_3": {
+        "type": "text_field",
+        "label": "项目 3 · 项目ID"
+      },
+      "info_title_1": {
+        "type": "text_field",
+        "label": "新闻 1 · Title"
+      },
+      "info_subtitle_1": {
+        "type": "text_field",
+        "label": "新闻 1 · Subtitle"
+      },
+      "info_img_1": {
+        "type": "file_field",
+        "label": "新闻 1 · 图片"
+      },
+      "info_alt_1": {
+        "type": "text_field",
+        "label": "新闻 1 · 图片Alt描述"
+      },
+      "info_link_1": {
+        "type": "text_field",
+        "label": "新闻 1 · 新闻ID"
+      },
+      "info_title_2": {
+        "type": "text_field",
+        "label": "新闻 2 · Title"
+      },
+      "info_subtitle_2": {
+        "type": "text_field",
+        "label": "新闻 2 · Subtitle"
+      },
+      "info_img_2": {
+        "type": "file_field",
+        "label": "新闻 2 · 图片"
+      },
+      "info_alt_2": {
+        "type": "text_field",
+        "label": "新闻 2 · 图片Alt描述"
+      },
+      "info_link_2": {
+        "type": "text_field",
+        "label": "新闻 2 · 新闻ID"
+      },
+      "info_title_3": {
+        "type": "text_field",
+        "label": "新闻 3 · Title"
+      },
+      "info_subtitle_3": {
+        "type": "text_field",
+        "label": "新闻 3 · Subtitle"
+      },
+      "info_img_3": {
+        "type": "file_field",
+        "label": "新闻 3 · 图片"
+      },
+      "info_alt_3": {
+        "type": "text_field",
+        "label": "新闻 3 · 图片Alt描述"
+      },
+      "info_link_3": {
+        "type": "text_field",
+        "label": "新闻 3 · 新闻ID"
+      },
+      "info_high_title": {
+        "type": "text_field",
+        "label": "重点新闻 · 标题"
+      },
+      "info_high_introduction": {
+        "type": "text_field",
+        "label": "重点新闻 · 引言"
+      },
+      "info_high_img": {
+        "type": "file_field",
+        "label": "重点新闻 · 图片"
+      },
+      "info_high_phone_img": {
+        "type": "file_field",
+        "label": "重点新闻 · 手机图片"
+      },
+      "info_high_link": {
+        "type": "text_field",
+        "label": "重点新闻 · 新闻ID"
+      },
+      "project_alt_2": {
+        "type": "text_field",
+        "label": "项目 2 · 项目 2 图片描述"
+      }
+    }
+  },
+  "about": {
+    "label": "旧版关于天华",
+    "model": "Admin::About",
+    "param": "about",
+    "singleton": true,
+    "actions": [
+      "show",
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "about_title": {
+        "type": "text_field",
+        "label": "标题"
+      },
+      "about_content": {
+        "type": "text_area",
+        "label": "内容"
+      },
+      "about_img": {
+        "type": "file_field",
+        "label": "背景图"
+      },
+      "about_img_alt": {
+        "type": "text_field",
+        "label": "图片Alt描述"
+      }
+    }
+  },
+  "people": {
+    "label": "管理与专业团队",
+    "model": "Admin::Person",
+    "param": "person",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "category": {
+        "type": "select",
+        "label": "管理/专业"
+      },
+      "leaving_date": {
+        "type": "date_field",
+        "label": "退休日期"
+      },
+      "avatar": {
+        "type": "file_field",
+        "label": "列表照片上传"
+      },
+      "photo": {
+        "type": "file_field",
+        "label": "内页照片上传"
+      },
+      "name": {
+        "type": "text_field",
+        "label": "姓名"
+      },
+      "url_name": {
+        "type": "text_field",
+        "label": "允许在URL中使用的拼音名字"
+      },
+      "title": {
+        "type": "text_area",
+        "label": "职位"
+      },
+      "introduce": {
+        "type": "text_area",
+        "label": "个人介绍"
+      },
+      "city_ids": {
+        "type": "multiple",
+        "label": "所属区域"
+      }
+    }
+  },
+  "cases": {
+    "label": "经典项目",
+    "model": "Admin::Case",
+    "param": "case",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "title": {
+        "type": "text_field",
+        "label": "项目名称"
+      },
+      "professional": {
+        "type": "multiple",
+        "label": "专业分类"
+      },
+      "market": {
+        "type": "multiple",
+        "label": "相关市场"
+      },
+      "seo_title": {
+        "type": "text_field",
+        "label": "SEO 标题（空则使用默认）"
+      },
+      "seo_keywords": {
+        "type": "text_field",
+        "label": "SEO 关键字（空则使用默认）"
+      },
+      "seo_description": {
+        "type": "text_field",
+        "label": "SEO 描述（空则使用默认）"
+      },
+      "snapshot": {
+        "type": "file_field",
+        "label": "案例列表照片上传"
+      },
+      "other": {
+        "type": "text_area",
+        "label": "经典案例详细介绍"
+      }
+    }
+  },
+  "infos": {
+    "label": "新闻中心",
+    "model": "Admin::Info",
+    "param": "info",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "category": {
+        "type": "select",
+        "label": "新闻分类"
+      },
+      "hide_in_design_staff_news": {
+        "type": "check_box",
+        "label": "Hide In Design Staff News"
+      },
+      "hide_in_index_news": {
+        "type": "check_box",
+        "label": "Hide In Index News"
+      },
+      "title": {
+        "type": "text_field",
+        "label": "标题"
+      },
+      "sub_title": {
+        "type": "text_field",
+        "label": "Sub Title"
+      },
+      "introduction": {
+        "type": "text_area",
+        "label": "引言"
+      },
+      "seo_title": {
+        "type": "text_field",
+        "label": "SEO 标题（空则使用默认）"
+      },
+      "seo_keywords": {
+        "type": "text_field",
+        "label": "SEO 关键字（空则使用默认）"
+      },
+      "seo_description": {
+        "type": "text_field",
+        "label": "SEO 描述（空则使用默认）"
+      },
+      "snapshot": {
+        "type": "file_field",
+        "label": "列表图片上传"
+      },
+      "snapshot_alt": {
+        "type": "text_field",
+        "label": "列表图片描述"
+      },
+      "banner": {
+        "type": "file_field",
+        "label": "正文头图上传"
+      },
+      "banner_alt": {
+        "type": "text_field",
+        "label": "正文大图描述"
+      },
+      "pdf_file": {
+        "type": "file_field",
+        "label": "PDF文件"
+      },
+      "content": {
+        "type": "text_area",
+        "label": "内容"
+      },
+      "created_at": {
+        "type": "datetime_local_field",
+        "label": "创建时间"
+      }
+    }
+  },
+  "seos": {
+    "label": "SEO",
+    "model": "Seo",
+    "param": "seo",
+    "singleton": false,
+    "actions": [
+      "index",
+      "update"
+    ],
+    "fields": {
+      "home_title": {
+        "type": "text_field",
+        "label": "Title"
+      },
+      "description": {
+        "type": "text_area",
+        "label": "Description"
+      },
+      "abstract": {
+        "type": "text_area",
+        "label": "Abstract"
+      },
+      "keywords": {
+        "type": "text_area",
+        "label": "keywords"
+      },
+      "about_title": {
+        "type": "text_field",
+        "label": "了解天华"
+      },
+      "management_title": {
+        "type": "text_field",
+        "label": "管理团队"
+      },
+      "designing_title": {
+        "type": "text_field",
+        "label": "专业团队"
+      },
+      "contact_title": {
+        "type": "text_field",
+        "label": "联系我们"
+      }
+    }
+  },
+  "map_contacts": {
+    "label": "子公司地址",
+    "model": "MapContact",
+    "param": "map_contact",
+    "singleton": false,
+    "actions": [
+      "index",
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "name": {
+        "type": "text_field",
+        "label": "短名"
+      },
+      "long_name": {
+        "type": "text_field",
+        "label": "全名"
+      },
+      "alt_name": {
+        "type": "text_field",
+        "label": "第二个全名"
+      },
+      "address": {
+        "type": "text_field",
+        "label": "地址"
+      },
+      "tel": {
+        "type": "text_field",
+        "label": "电话"
+      },
+      "fax": {
+        "type": "text_field",
+        "label": "传真"
+      },
+      "marketing_phone": {
+        "type": "text_field",
+        "label": "市场营销电话"
+      },
+      "media_phone": {
+        "type": "text_field",
+        "label": "媒体电话"
+      },
+      "website_name": {
+        "type": "text_field",
+        "label": "网址名称"
+      },
+      "website_url": {
+        "type": "text_field",
+        "label": "网址URL"
+      }
+    }
+  },
+  "users": {
+    "label": "网站管理员",
+    "model": "Admin::User",
+    "param": "user",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "destroy"
+    ],
+    "fields": {
+      "name": {
+        "type": "text_field",
+        "label": "管理员名字"
+      },
+      "email": {
+        "type": "email_field",
+        "label": "登录邮箱"
+      },
+      "password": {
+        "type": "password_field",
+        "label": "设置密码"
+      },
+      "password_confirmation": {
+        "type": "password_field",
+        "label": "重复密码"
+      }
+    }
+  },
+  "works": {
+    "label": "官网作品",
+    "model": "Admin::Work",
+    "param": "work",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "project_name": {
+        "type": "text_field",
+        "label": "项目名称"
+      },
+      "coordinate_lat": {
+        "type": "text_field",
+        "label": "纬度(Latitude)"
+      },
+      "coordinate_lng": {
+        "type": "text_field",
+        "label": "经度(Longitude)"
+      },
+      "design_completion": {
+        "type": "date_field",
+        "label": "设计完成时间"
+      },
+      "design_completion_lines": {
+        "type": "text_area",
+        "label": "设计完成时间（文本直接显示，空白则使用设计完成时间）"
+      },
+      "snapshot_jpg": {
+        "type": "file_field",
+        "label": "作品封面页照片上传（JPG）"
+      },
+      "snapshot_webp": {
+        "type": "file_field",
+        "label": "作品封面页照片上传（WEBP）"
+      },
+      "client": {
+        "type": "text_area",
+        "label": "客户名称"
+      },
+      "construction_completion": {
+        "type": "date_field",
+        "label": "竣工时间"
+      },
+      "construction_completion_lines": {
+        "type": "text_area",
+        "label": "竣工时间（文本直接显示，空白则使用竣工时间）"
+      },
+      "services": {
+        "type": "text_area",
+        "label": "服务范围"
+      },
+      "city_id": {
+        "type": "select",
+        "label": "所在城市"
+      },
+      "team": {
+        "type": "text_area",
+        "label": "设计团队"
+      },
+      "site_area": {
+        "type": "text_field",
+        "label": "用地面积（单位：平方）"
+      },
+      "cooperation": {
+        "type": "text_area",
+        "label": "合作单位"
+      },
+      "planning_area": {
+        "type": "text_field",
+        "label": "规划面积（单位：平方千米）"
+      },
+      "awards": {
+        "type": "text_area",
+        "label": "获奖"
+      },
+      "architecture_area": {
+        "type": "text_field",
+        "label": "建筑面积（单位：平方）"
+      },
+      "architecture_area_lines": {
+        "type": "text_area",
+        "label": "建筑面积（文本直接显示，空白则使用建筑面积）"
+      },
+      "published": {
+        "type": "check_box",
+        "label": "是否发布到官网显示"
+      },
+      "project_type_ids": {
+        "type": "multiple",
+        "label": "大类别"
+      },
+      "residential_type_ids": {
+        "type": "multiple",
+        "label": "住宅类别"
+      }
+    }
+  },
+  "tail_homes": {
+    "label": "官网首页",
+    "model": "TailHome",
+    "param": "tail_home",
+    "singleton": true,
+    "actions": [
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "new_project_photo_1": {
+        "type": "file_field",
+        "label": "项目 1 · 最新项目 1"
+      },
+      "new_project_1_id": {
+        "type": "text_field",
+        "label": "项目 1 · 最新项目 1 的作品 ID"
+      },
+      "new_project_photo_2l": {
+        "type": "file_field",
+        "label": "项目 2 · 最新项目 2l"
+      },
+      "new_project_2_id": {
+        "type": "text_field",
+        "label": "项目 2 · 最新项目 2 的作品 ID"
+      },
+      "new_project_photo_3w": {
+        "type": "file_field",
+        "label": "项目 3 · 最新项目 3w"
+      },
+      "new_project_3_id": {
+        "type": "text_field",
+        "label": "项目 3 · 最新项目 3 的作品 ID"
+      },
+      "new_project_photo_4": {
+        "type": "file_field",
+        "label": "项目 4 · 最新项目 4"
+      },
+      "new_project_4_id": {
+        "type": "text_field",
+        "label": "项目 4 · 最新项目 4 的作品 ID"
+      },
+      "new_project_photo_5": {
+        "type": "file_field",
+        "label": "项目 5 · 最新项目 5"
+      },
+      "new_project_5_id": {
+        "type": "text_field",
+        "label": "项目 5 · 最新项目 5 的作品 ID"
+      },
+      "new_project_photo_6": {
+        "type": "file_field",
+        "label": "项目 6 · 最新项目 6"
+      },
+      "new_project_6_id": {
+        "type": "text_field",
+        "label": "项目 6 · 最新项目 6 的作品 ID"
+      },
+      "info_1_photo": {
+        "type": "file_field",
+        "label": "新闻 1 · 最新新闻 1 图片"
+      },
+      "info_1_id": {
+        "type": "text_field",
+        "label": "新闻 1 · 最新新闻 1 ID"
+      },
+      "info_2_photo": {
+        "type": "file_field",
+        "label": "新闻 2 · 最新新闻 2 图片"
+      },
+      "info_2_id": {
+        "type": "text_field",
+        "label": "新闻 2 · 最新新闻 2 ID"
+      },
+      "info_3_photo": {
+        "type": "file_field",
+        "label": "新闻 3 · 最新新闻 3 图片"
+      },
+      "info_3_id": {
+        "type": "text_field",
+        "label": "新闻 3 · 最新新闻 3 ID"
+      },
+      "hero_news_photo": {
+        "type": "file_field",
+        "label": "重点新闻 · 头条新闻图片"
+      },
+      "hero_news_photo_mobile": {
+        "type": "file_field",
+        "label": "重点新闻 · 头条新闻图片 手机端"
+      },
+      "hero_news_id": {
+        "type": "text_field",
+        "label": "重点新闻 · 新闻ID"
+      },
+      "hero_news_title_cap": {
+        "type": "text_field",
+        "label": "重点新闻 · 新闻标题的下划线字数"
+      },
+      "background_1_title": {
+        "type": "text_field",
+        "label": "轮播 1 · 背景 1 标题"
+      },
+      "background_1_subtitle": {
+        "type": "text_field",
+        "label": "轮播 1 · 背景 1 子标题"
+      },
+      "background_1_link": {
+        "type": "text_field",
+        "label": "轮播 1 · 背景 1 链接"
+      },
+      "background_1": {
+        "type": "file_field",
+        "label": "轮播 1 · 背景 1"
+      },
+      "background_1_webp": {
+        "type": "file_field",
+        "label": "轮播 1 · 背景 1 WEBP"
+      },
+      "background_1_mobile": {
+        "type": "file_field",
+        "label": "轮播 1 · 背景 1 手机端"
+      },
+      "background_1_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 1 · 背景 1 手机端 WEBP"
+      },
+      "background_2_title": {
+        "type": "text_field",
+        "label": "轮播 2 · 背景 2 标题"
+      },
+      "background_2_subtitle": {
+        "type": "text_field",
+        "label": "轮播 2 · 背景 2 子标题"
+      },
+      "background_2_link": {
+        "type": "text_field",
+        "label": "轮播 2 · 背景 2 链接"
+      },
+      "background_2": {
+        "type": "file_field",
+        "label": "轮播 2 · 背景 2"
+      },
+      "background_2_webp": {
+        "type": "file_field",
+        "label": "轮播 2 · 背景 2 WEBP"
+      },
+      "background_2_mobile": {
+        "type": "file_field",
+        "label": "轮播 2 · 背景 2 手机端"
+      },
+      "background_2_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 2 · 背景 2 手机端 WEBP"
+      },
+      "background_3_title": {
+        "type": "text_field",
+        "label": "轮播 3 · 背景 3 标题"
+      },
+      "background_3_subtitle": {
+        "type": "text_field",
+        "label": "轮播 3 · 背景 3 子标题"
+      },
+      "background_3_link": {
+        "type": "text_field",
+        "label": "轮播 3 · 背景 3 链接"
+      },
+      "background_3": {
+        "type": "file_field",
+        "label": "轮播 3 · 背景 3"
+      },
+      "background_3_webp": {
+        "type": "file_field",
+        "label": "轮播 3 · 背景 3 WEBP"
+      },
+      "background_3_mobile": {
+        "type": "file_field",
+        "label": "轮播 3 · 背景 3 手机端"
+      },
+      "background_3_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 3 · 背景 3 手机端 WEBP"
+      },
+      "background_4_title": {
+        "type": "text_field",
+        "label": "轮播 4 · 背景 4 标题"
+      },
+      "background_4_subtitle": {
+        "type": "text_field",
+        "label": "轮播 4 · 背景 4 子标题"
+      },
+      "background_4_link": {
+        "type": "text_field",
+        "label": "轮播 4 · 背景 4 链接"
+      },
+      "background_4": {
+        "type": "file_field",
+        "label": "轮播 4 · 背景 4"
+      },
+      "background_4_webp": {
+        "type": "file_field",
+        "label": "轮播 4 · 背景 4 WEBP"
+      },
+      "background_4_mobile": {
+        "type": "file_field",
+        "label": "轮播 4 · 背景 4 手机端"
+      },
+      "background_4_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 4 · 背景 4 手机端 WEBP"
+      },
+      "background_5_title": {
+        "type": "text_field",
+        "label": "轮播 5 · 背景 5 标题"
+      },
+      "background_5_subtitle": {
+        "type": "text_field",
+        "label": "轮播 5 · 背景 5 子标题"
+      },
+      "background_5_link": {
+        "type": "text_field",
+        "label": "轮播 5 · 背景 5 链接"
+      },
+      "background_5": {
+        "type": "file_field",
+        "label": "轮播 5 · 背景 5"
+      },
+      "background_5_webp": {
+        "type": "file_field",
+        "label": "轮播 5 · 背景 5 WEBP"
+      },
+      "background_5_mobile": {
+        "type": "file_field",
+        "label": "轮播 5 · 背景 5 手机端"
+      },
+      "background_5_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 5 · 背景 5 手机端 WEBP"
+      },
+      "background_6_title": {
+        "type": "text_field",
+        "label": "轮播 6 · 背景 6 标题"
+      },
+      "background_6_subtitle": {
+        "type": "text_field",
+        "label": "轮播 6 · 背景 6 子标题"
+      },
+      "background_6_link": {
+        "type": "text_field",
+        "label": "轮播 6 · 背景 6 链接"
+      },
+      "background_6": {
+        "type": "file_field",
+        "label": "轮播 6 · 背景 6"
+      },
+      "background_6_webp": {
+        "type": "file_field",
+        "label": "轮播 6 · 背景 6 WEBP"
+      },
+      "background_6_mobile": {
+        "type": "file_field",
+        "label": "轮播 6 · 背景 6 手机端"
+      },
+      "background_6_mobile_webp": {
+        "type": "file_field",
+        "label": "轮播 6 · 背景 6 手机端 WEBP"
+      }
+    }
+  },
+  "about_pages": {
+    "label": "关于天华页",
+    "model": "AboutPage",
+    "param": "about_page",
+    "singleton": true,
+    "actions": [
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "thape_intro": {
+        "type": "text_area",
+        "label": "Thape Intro"
+      },
+      "about_h1": {
+        "type": "file_field",
+        "label": "轮播图 1"
+      },
+      "about_h1_mobile": {
+        "type": "file_field",
+        "label": "轮播图 1 手机端"
+      },
+      "about_h2": {
+        "type": "file_field",
+        "label": "轮播图 2"
+      },
+      "about_h2_mobile": {
+        "type": "file_field",
+        "label": "轮播图 2 手机端"
+      },
+      "about_h3": {
+        "type": "file_field",
+        "label": "轮播图 3"
+      },
+      "about_h3_mobile": {
+        "type": "file_field",
+        "label": "轮播图 3 手机端"
+      },
+      "about_h4": {
+        "type": "file_field",
+        "label": "轮播图 4"
+      },
+      "about_h4_mobile": {
+        "type": "file_field",
+        "label": "轮播图 4 手机端"
+      },
+      "about_h5": {
+        "type": "file_field",
+        "label": "轮播图 5"
+      },
+      "about_h5_mobile": {
+        "type": "file_field",
+        "label": "轮播图 5 手机端"
+      },
+      "about_h6": {
+        "type": "file_field",
+        "label": "轮播图 6"
+      },
+      "about_h6_mobile": {
+        "type": "file_field",
+        "label": "轮播图 6 手机端"
+      },
+      "about_h7": {
+        "type": "file_field",
+        "label": "轮播图 7"
+      },
+      "about_h7_mobile": {
+        "type": "file_field",
+        "label": "轮播图 7 手机端"
+      }
+    }
+  },
+  "work_type_pages": {
+    "label": "作品分类页",
+    "model": "WorkTypePage",
+    "param": "work_type_page",
+    "singleton": true,
+    "actions": [
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "resdential_jpg": {
+        "type": "file_field",
+        "label": "居住图片 JPG 格式"
+      },
+      "resdential_webp": {
+        "type": "file_field",
+        "label": "居住图片 WebP 格式"
+      },
+      "demonstration_zone_jpg": {
+        "type": "file_field",
+        "label": "示范区 JPG 格式"
+      },
+      "demonstration_zone_webp": {
+        "type": "file_field",
+        "label": "示范区 WebP 格式"
+      },
+      "mixed_used_tod_jpg": {
+        "type": "file_field",
+        "label": "综合体/TOD JPG 格式"
+      },
+      "mixed_used_tod_webp": {
+        "type": "file_field",
+        "label": "综合体/TOD WebP 格式"
+      },
+      "commercial_jpg": {
+        "type": "file_field",
+        "label": "商业空间图片 JPG 格式"
+      },
+      "commercial_webp": {
+        "type": "file_field",
+        "label": "商业空间图片 WebP 格式"
+      },
+      "supertall_jpg": {
+        "type": "file_field",
+        "label": "超高层图片 JPG 格式"
+      },
+      "supertall_webp": {
+        "type": "file_field",
+        "label": "超高层图片 WebP 格式"
+      },
+      "cultural_wide_jpg": {
+        "type": "file_field",
+        "label": "文化Wide图片 JPG 格式"
+      },
+      "cultural_wide_webp": {
+        "type": "file_field",
+        "label": "文化Wide图片 WebP 格式"
+      },
+      "cultural_jpg": {
+        "type": "file_field",
+        "label": "文化图片 JPG 格式"
+      },
+      "cultural_webp": {
+        "type": "file_field",
+        "label": "文化图片 WebP 格式"
+      },
+      "education_jpg": {
+        "type": "file_field",
+        "label": "教育图片 JPG 格式"
+      },
+      "education_webp": {
+        "type": "file_field",
+        "label": "教育图片 WebP 格式"
+      },
+      "office_jpg": {
+        "type": "file_field",
+        "label": "商务办公图片 JPG 格式"
+      },
+      "office_webp": {
+        "type": "file_field",
+        "label": "商务办公图片 WebP 格式"
+      },
+      "urban_design_jpg": {
+        "type": "file_field",
+        "label": "城市设计/更新图片 JPG 格式"
+      },
+      "urban_design_webp": {
+        "type": "file_field",
+        "label": "城市设计/更新图片 WebP 格式"
+      },
+      "medical_care_jpg": {
+        "type": "file_field",
+        "label": "医疗康养图片 JPG 格式"
+      },
+      "medical_care_webp": {
+        "type": "file_field",
+        "label": "医疗康养图片 WebP 格式"
+      },
+      "hospitality_jpg": {
+        "type": "file_field",
+        "label": "旅居/酒店图片 JPG 格式"
+      },
+      "hospitality_webp": {
+        "type": "file_field",
+        "label": "旅居/酒店图片 WebP 格式"
+      },
+      "urban_planning_jpg": {
+        "type": "file_field",
+        "label": "规划图片 JPG 格式"
+      },
+      "urban_planning_webp": {
+        "type": "file_field",
+        "label": "规划图片 WebP 格式"
+      },
+      "landscape_jpg": {
+        "type": "file_field",
+        "label": "景观图片 JPG 格式"
+      },
+      "landscape_webp": {
+        "type": "file_field",
+        "label": "景观图片 WebP 格式"
+      },
+      "interior_jpg": {
+        "type": "file_field",
+        "label": "室内图片 JPG 格式"
+      },
+      "interior_webp": {
+        "type": "file_field",
+        "label": "室内图片 WebP 格式"
+      }
+    }
+  },
+  "service_files": {
+    "label": "专业服务",
+    "model": "Admin::ServiceFile",
+    "param": "service_file",
+    "singleton": true,
+    "actions": [
+      "show",
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "building_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "interior_intro_file": {
+        "type": "file_field",
+        "label": "室内设计专业服务介绍文件"
+      },
+      "interior_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "planning_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "landscape_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "vetting_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "consluting_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "vrtech_intro": {
+        "type": "text_area",
+        "label": "介绍"
+      },
+      "sustainable_intro": {
+        "type": "text_area",
+        "label": "可持续发展介绍"
+      },
+      "tianhua_2020_bill_music": {
+        "type": "file_field",
+        "label": "天华2020年度账单音乐"
+      }
+    }
+  },
+  "cities": {
+    "label": "城市",
+    "model": "City",
+    "param": "city",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "edit",
+      "update"
+    ],
+    "fields": {
+      "name": {
+        "type": "text_field",
+        "label": "城市名称"
+      },
+      "china_area_name": {
+        "type": "text_field",
+        "label": "区域名称"
+      },
+      "url_name": {
+        "type": "text_field",
+        "label": "URL name"
+      },
+      "company_name": {
+        "type": "text_field",
+        "label": "城市公司名称"
+      },
+      "company_name_english": {
+        "type": "text_field",
+        "label": "城市公司英语名称"
+      }
+    }
+  },
+  "pictures": {
+    "label": "图床",
+    "model": "Picture",
+    "param": "picture",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "image": {
+        "type": "file_field",
+        "label": "图片"
+      },
+      "info_id": {
+        "type": "text_field",
+        "label": "新闻ID"
+      }
+    }
+  },
+  "message": {
+    "label": "客户留言",
+    "model": "GuestMessage",
+    "param": "guest_message",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "destroy"
+    ],
+    "fields": {}
+  },
+  "project_messages": {
+    "label": "项目合作留言",
+    "model": "ProjectMessage",
+    "param": "project_message",
+    "singleton": false,
+    "actions": [
+      "index",
+      "show",
+      "destroy"
+    ],
+    "fields": {}
+  },
+  "portfolios": {
+    "label": "作品集",
+    "model": "Portfolio",
+    "param": "portfolio",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "title": {
+        "type": "text_field",
+        "label": "标题"
+      },
+      "sub_title": {
+        "type": "text_field",
+        "label": "子标题"
+      },
+      "pdf_file": {
+        "type": "file_field",
+        "label": "PDF 文件"
+      },
+      "cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG PC封面文件"
+      },
+      "cover_webp": {
+        "type": "file_field",
+        "label": "WEBP PC封面文件"
+      },
+      "mobile_cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG Mobile封面文件"
+      },
+      "mobile_cover_webp": {
+        "type": "file_field",
+        "label": "WEBP Mobile封面文件"
+      },
+      "page_cover": {
+        "type": "file_field",
+        "label": "PNG 页内封面文件"
+      },
+      "pixel_height": {
+        "type": "number_field",
+        "label": "像素高，不高于900"
+      },
+      "pixel_width": {
+        "type": "number_field",
+        "label": "像素宽，不宽于700"
+      }
+    }
+  },
+  "publications": {
+    "label": "出版物",
+    "model": "Publication",
+    "param": "publication",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "title": {
+        "type": "text_field",
+        "label": "标题"
+      },
+      "sub_title": {
+        "type": "text_field",
+        "label": "子标题"
+      },
+      "category_status": {
+        "type": "select",
+        "label": "分类"
+      },
+      "pdf_file": {
+        "type": "file_field",
+        "label": "PDF 文件"
+      },
+      "cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG PC封面文件"
+      },
+      "cover_webp": {
+        "type": "file_field",
+        "label": "WEBP PC封面文件"
+      },
+      "mobile_cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG Mobile封面文件"
+      },
+      "mobile_cover_webp": {
+        "type": "file_field",
+        "label": "WEBP Mobile封面文件"
+      },
+      "page_cover": {
+        "type": "file_field",
+        "label": "PNG 页内封面文件"
+      },
+      "pixel_height": {
+        "type": "number_field",
+        "label": "像素高，不高于900"
+      },
+      "pixel_width": {
+        "type": "number_field",
+        "label": "像素宽，不宽于700"
+      }
+    }
+  },
+  "insights": {
+    "label": "天华内刊",
+    "model": "Insight",
+    "param": "insight",
+    "singleton": false,
+    "actions": [
+      "index",
+      "new",
+      "create",
+      "edit",
+      "update",
+      "destroy"
+    ],
+    "fields": {
+      "title": {
+        "type": "text_field",
+        "label": "标题"
+      },
+      "sub_title": {
+        "type": "text_field",
+        "label": "子标题"
+      },
+      "pdf_file": {
+        "type": "file_field",
+        "label": "PDF 文件"
+      },
+      "cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG PC封面文件"
+      },
+      "cover_webp": {
+        "type": "file_field",
+        "label": "WEBP PC封面文件"
+      },
+      "mobile_cover_jpg": {
+        "type": "file_field",
+        "label": "JPG/PNG Mobile封面文件"
+      },
+      "mobile_cover_webp": {
+        "type": "file_field",
+        "label": "WEBP Mobile封面文件"
+      },
+      "page_cover": {
+        "type": "file_field",
+        "label": "PNG 页内封面文件"
+      },
+      "pixel_height": {
+        "type": "number_field",
+        "label": "像素高，不高于900"
+      },
+      "pixel_width": {
+        "type": "number_field",
+        "label": "像素宽，不宽于700"
+      }
+    }
+  }
+}

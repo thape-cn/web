@@ -1,0 +1,23 @@
+<fieldset class="mt-6 border-t pt-6">
+  <legend class="font-semibold">项目图片</legend>
+  <% association = @resource.key == 'works' ? :work_pictures : :case_pictures %>
+  <% fields = @resource.key == 'works' ? [:album_jpg, :album_webp] : [:album] %>
+  <% pictures = @record.public_send(association) %>
+  <% (3 - pictures.count(&:new_record?)).times { pictures.build } %>
+  <%= form.fields_for association do |picture_form| %>
+    <div class="border rounded p-4 mb-4 grid md:grid-cols-2 gap-4">
+      <% fields.each do |field| %>
+        <div>
+          <%= picture_form.label field, field.to_s.humanize, class: 'block text-sm font-medium' %>
+          <%= admin_upload_preview(picture_form.object.public_send(field)) %>
+          <%= picture_form.file_field field, class: 'block w-full text-sm mt-2' %>
+          <%= picture_form.hidden_field "#{field}_cache" %>
+        </div>
+      <% end %>
+      <% if picture_form.object.persisted? %>
+        <label class="text-sm"><%= picture_form.check_box :_destroy %> 删除此图片</label>
+      <% end %>
+    </div>
+  <% end %>
+  <p class="text-sm text-gray-500">保存后可继续添加图片。JPG 与 WebP 放在同一行。</p>
+</fieldset>

@@ -1,0 +1,21 @@
+<div class="mb-6 flex items-center justify-between">
+  <h1 class="text-2xl font-semibold"><%= @resource.label %> · <%= @record.new_record? && !@resource.singleton? ? '新建' : '编辑' %></h1>
+  <%= link_to '返回', admin_resource_path(@resource), class: 'text-blue-700' %>
+</div>
+<div class="bg-white p-6 rounded-lg shadow">
+  <%= render 'admin/shared/errors', record: @record %>
+  <% action = @record.new_record? && !@resource.singleton? ? :create : :update %>
+  <%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true do |form| %>
+    <div class="grid md:grid-cols-2 gap-x-6">
+      <% @resource.fields.each do |field, options| %>
+        <%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %>
+      <% end %>
+    </div>
+    <% if %w[works cases].include?(@resource.key) %>
+      <%= render 'admin/shared/gallery', form: form %>
+    <% elsif @resource.key == 'people' && @record.persisted? %>
+      <%= render 'admin/shared/city_roles', form: form %>
+    <% end %>
+    <div class="mt-6 pt-4 border-t"><%= form.submit '保存', class: 'admin-button' %></div>
+  <% end %>
+</div>

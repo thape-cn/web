@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  draw :admin
+
   get "/cn/biz-map", to: redirect { |params, req| "/biz-map" }
   get "/cn/management", to: redirect { |params, req| "/leadership" }
   get "/cn/designing", to: redirect { |params, req| "/leadership" }

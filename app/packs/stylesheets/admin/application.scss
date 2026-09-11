@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.admin .admin-input {
+  @apply block w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm;
+}
+
+.admin .admin-input:focus {
+  @apply outline-none border-blue-500 shadow-outline;
+}
+
+.admin .admin-button {
+  @apply inline-block rounded bg-blue-700 px-4 py-2 text-sm font-medium text-white cursor-pointer;
+}
+
+.admin .admin-button:hover {
+  @apply bg-blue-800;
+}
+
+.admin .admin-preview {
+  @apply block my-2 rounded;
+  max-height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.admin input[type="file"] { max-width: 100%; }
+.admin textarea { resize: vertical; }
+.admin select[multiple] { min-height: 8rem; }

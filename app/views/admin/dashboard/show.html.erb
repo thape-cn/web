@@ -1,0 +1,7 @@
+<h1 class="text-2xl font-semibold mb-2">网站管理</h1>
+<p class="text-gray-600 mb-6">选择要维护的内容。当前内容语言：<%= admin_locale == 'cn' ? '中文' : 'English' %>。</p>
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  <% Admin::Resource.all.each do |resource| %>
+    <%= link_to resource.label, admin_resource_path(resource), class: 'block bg-white p-6 rounded-lg shadow text-blue-700 font-semibold hover:bg-blue-100' %>
+  <% end %>
+</div>

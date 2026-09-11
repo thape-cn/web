@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="<%= admin_locale == 'cn' ? 'zh-CN' : 'en' %>">
+  <head>
+    <title>天华 · 网站管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'admin', media: 'all' %>
+    <%= javascript_pack_tag 'admin', defer: true %>
+  </head>
+  <body class="admin bg-gray-100 text-gray-900 min-h-screen">
+    <header class="bg-gray-900 text-white px-6 py-4 flex flex-wrap items-center justify-between">
+      <%= link_to '天华 · 网站管理', admin_root_path, class: 'text-lg font-semibold' %>
+      <% if current_admin %>
+        <div class="flex items-center space-x-4 text-sm">
+          <span><%= current_admin.name %></span>
+          <%= link_to(admin_locale == 'cn' ? 'English content' : '中文内容', url_for(request.path_parameters.merge(locale: admin_locale == 'cn' ? 'en' : 'cn'))) %>
+          <%= button_to '退出登录', admin_logout_path, method: :delete, class: 'text-white underline' %>
+        </div>
+      <% end %>
+    </header>
+    <div class="md:flex">
+      <% if current_admin %>
+        <nav aria-label="管理菜单" class="bg-white border-r border-gray-200 p-4 md:w-64 flex-shrink-0 flex md:block overflow-x-auto">
+          <% Admin::Resource.all.each do |resource| %>
+            <%= link_to resource.label, admin_resource_path(resource), class: "block flex-shrink-0 whitespace-no-wrap rounded px-3 py-2 text-sm #{controller_name == resource.key ? 'bg-blue-100 text-blue-800 font-semibold' : 'text-gray-700 hover:bg-gray-100'}" %>
+          <% end %>
+        </nav>
+      <% end %>
+      <main id="main" class="p-4 md:p-8 flex-1 min-w-0">
+        <% flash.each do |type, message| %>
+          <div role="alert" class="mb-4 rounded border p-4 <%= type == 'alert' ? 'border-red-200 bg-red-100 text-red-800' : 'border-green-200 bg-green-100 text-green-800' %>"><%= message %></div>
+        <% end %>
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

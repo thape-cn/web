@@ -1,0 +1,66 @@
+<div class="flex flex-wrap items-center justify-between mb-6">
+  <h1 class="text-2xl font-semibold"><%= @resource.label %></h1>
+  <div class="flex items-center space-x-4">
+    <% if @resource.messages? %><%= link_to '导出全部 CSV', admin_resource_path(@resource, :index, nil, format: :csv), class: 'text-blue-700' %><% end %>
+    <% if @resource.allows?(:new) %><%= link_to '新建', admin_resource_path(@resource, :new), class: 'admin-button' %><% end %>
+  </div>
+</div>
+<%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'flex flex-wrap items-end mb-6 gap-3' do |form| %>
+  <%= hidden_field_tag :locale, admin_locale %>
+  <% if %w[works people infos].include?(@resource.key) %>
+    <div><%= form.label :q, '搜索名称 / 标题', class: 'block text-sm mb-1' %><%= form.search_field :q, value: params[:q], class: 'admin-input' %></div>
+  <% end %>
+  <% if @resource.key == 'publications' %>
+    <div><%= form.label :category_status, '分类', class: 'block text-sm mb-1' %><%= form.select :category_status, options_for_select(admin_options(@resource, 'category_status'), params[:category_status]), { include_blank: '全部' }, class: 'admin-input' %></div>
+  <% end %>
+  <div><%= form.label :per_page, '每页条数', class: 'block text-sm mb-1' %><%= form.select :per_page, options_for_select([25, 50, 100], params[:per_page].presence || 25), {}, class: 'admin-input' %></div>
+  <%= form.submit '筛选', class: 'admin-button' %>
+<% end %>
+<% if @resource.key == 'seos' %>
+  <% @records.each do |record| %>
+    <section class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="text-lg font-semibold mb-4"><%= record.seo_name %></h2>
+      <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
+        <div class="grid md:grid-cols-2 gap-x-6">
+          <% @resource.fields.each do |field, options| %>
+            <%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %>
+          <% end %>
+        </div>
+        <%= form.submit '保存', class: 'admin-button' %>
+      <% end %>
+    </section>
+  <% end %>
+<% else %>
+  <div class="bg-white rounded-lg shadow overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead class="bg-gray-50 text-gray-600"><tr>
+        <% @resource.columns.each do |field| %><th scope="col" class="px-4 py-3 text-left font-medium"><%= admin_field_label(@resource, field) %></th><% end %>
+        <th scope="col" class="px-4 py-3 text-left">操作</th>
+      </tr></thead>
+      <tbody>
+        <% @records.each do |record| %>
+          <tr class="border-t border-gray-200">
+            <% @resource.columns.each do |field| %>
+              <td class="px-4 py-4"><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(record.public_send(field)) %><% else %><%= truncate(admin_display(record, field), length: 100) %><% end %></td>
+            <% end %>
+            <td class="px-4 py-4 whitespace-no-wrap">
+              <div class="flex items-center space-x-3">
+                <% if @resource.allows?(:show) %><%= link_to '查看', admin_resource_path(@resource, :show, record), class: 'text-blue-700' %><% end %>
+                <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, record), class: 'text-blue-700' %><% end %>
+                <% if @resource.allows?(:destroy) %><%= button_to '删除', admin_resource_path(@resource, :destroy, record), method: :delete, data: { confirm: '确认删除？此操作不能撤销。' }, class: 'text-red-700' %><% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+<% if @records.empty? %><p class="p-6 bg-white rounded text-gray-500">暂无记录</p><% end %>
+<div class="flex items-center justify-between mt-6 text-sm">
+  <span>共 <%= @records.total_count %> 条 · 第 <%= @records.current_page %> / <%= [@records.total_pages, 1].max %> 页</span>
+  <div class="flex space-x-4">
+    <% if @records.prev_page %><%= link_to '上一页', url_for(request.query_parameters.merge(page: @records.prev_page)), class: 'text-blue-700' %><% end %>
+    <% if @records.next_page %><%= link_to '下一页', url_for(request.query_parameters.merge(page: @records.next_page)), class: 'text-blue-700' %><% end %>
+  </div>
+</div>
