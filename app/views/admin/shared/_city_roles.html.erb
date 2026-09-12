@@ -1,15 +1,15 @@
-<fieldset class="border-t pt-6">
-  <legend class="font-semibold">城市职位</legend>
-  <p class="text-sm text-gray-500 mb-4">新增所属城市后，保存并重新打开此页即可填写该城市的职位。</p>
-  <%= form.fields_for :city_people do |role| %>
-    <div class="border rounded p-4 mb-4">
-      <p class="font-medium mb-3"><%= role.object.city.name %></p>
-      <%= role.label :city_title, '中文职位' %>
-      <%= role.text_field :city_title, class: 'admin-input mb-3' %>
-      <%= role.label :city_en_title, 'English title' %>
-      <%= role.text_field :city_en_title, class: 'admin-input mb-3' %>
-      <label class="mr-4"><%= role.check_box :is_management %> 管理团队</label>
-      <label><%= role.check_box :is_professional %> 专业团队</label>
-    </div>
-  <% end %>
-</fieldset>
+<section class="admin-panel admin-form-section mt-6" aria-labelledby="city-roles-heading">
+  <div class="admin-section-heading"><div><h2 id="city-roles-heading" class="font-semibold">城市职位</h2><p class="text-sm text-gray-500 mt-2">新增所属城市后，保存并重新打开此页即可填写该城市的职位。</p></div></div>
+  <div class="space-y-4">
+    <%= form.fields_for :city_people do |role| %>
+      <fieldset class="admin-gallery-item">
+        <legend class="text-sm font-semibold px-2"><%= role.object.city.name %></legend>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div><%= role.label :city_title, '中文职位', class: 'admin-label' %><%= role.text_field :city_title, class: 'admin-input' %></div>
+          <div><%= role.label :city_en_title, 'English title', class: 'admin-label' %><%= role.text_field :city_en_title, class: 'admin-input' %></div>
+          <div class="flex flex-wrap gap-5 md:col-span-2"><label class="admin-checkbox-label"><%= role.check_box :is_management, class: 'admin-checkbox' %> 管理团队</label><label class="admin-checkbox-label"><%= role.check_box :is_professional, class: 'admin-checkbox' %> 专业团队</label></div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</section>

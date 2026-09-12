@@ -1,66 +1,90 @@
-<div class="flex flex-wrap items-center justify-between mb-6">
-  <h1 class="text-2xl font-semibold"><%= @resource.label %></h1>
-  <div class="flex items-center space-x-4">
-    <% if @resource.messages? %><%= link_to '导出全部 CSV', admin_resource_path(@resource, :index, nil, format: :csv), class: 'text-blue-700' %><% end %>
-    <% if @resource.allows?(:new) %><%= link_to '新建', admin_resource_path(@resource, :new), class: 'admin-button' %><% end %>
+<% content_for :page_title, @resource.label %>
+<% search_field = { 'works' => 'project_name', 'people' => 'name', 'infos' => 'title' }[@resource.key] %>
+<% search_query = params[:q].presence || params[search_field].presence if search_field %>
+<% filtered = search_query.present? || params[:category_status].present? %>
+<div class="admin-page-heading">
+  <div><h1 class="admin-page-title"><%= @resource.label %></h1><p class="admin-page-description"><%= admin_resource_description(@resource) %></p></div>
+  <div class="admin-actions">
+    <% if @resource.messages? %><%= link_to admin_resource_path(@resource, :index, nil, format: :csv), class: 'admin-button-secondary' do %><%= admin_icon('download') %>导出全部 CSV<% end %><% end %>
+    <% if @resource.allows?(:new) %><%= link_to admin_resource_path(@resource, :new), class: 'admin-button' do %><%= admin_icon('plus') %>新建<% end %><% end %>
   </div>
 </div>
-<%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'flex flex-wrap items-end mb-6 gap-3' do |form| %>
-  <%= hidden_field_tag :locale, admin_locale %>
-  <% if %w[works people infos].include?(@resource.key) %>
-    <div><%= form.label :q, '搜索名称 / 标题', class: 'block text-sm mb-1' %><%= form.search_field :q, value: params[:q], class: 'admin-input' %></div>
+<div class="admin-panel overflow-hidden">
+  <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'admin-filter-bar' do |form| %>
+    <%= hidden_field_tag :locale, admin_locale %>
+    <% if search_field %>
+      <div class="admin-search-field">
+        <%= form.label :q, '搜索名称 / 标题', class: 'sr-only' %>
+        <div class="relative"><span class="admin-search-icon"><%= admin_icon('search') %></span><%= form.search_field :q, value: search_query, placeholder: '搜索名称 / 标题…', class: 'admin-input admin-search-input' %></div>
+      </div>
+    <% end %>
+    <% if @resource.key == 'publications' %>
+      <div class="flex items-center"><%= form.label :category_status, '分类', class: 'text-sm text-gray-500 mr-3' %><%= form.select :category_status, options_for_select(admin_options(@resource, 'category_status'), params[:category_status]), { include_blank: '全部分类' }, class: 'admin-input' %></div>
+    <% end %>
+    <div class="flex items-center"><%= form.label :per_page, '每页条数', class: 'text-sm text-gray-500 mr-3 whitespace-no-wrap' %><%= form.select :per_page, options_for_select([25, 50, 100], params[:per_page].presence || 25), {}, class: 'admin-input' %></div>
+    <%= form.submit '筛选', class: 'admin-button-secondary' %>
+    <% if filtered %><%= link_to '清除筛选', admin_resource_path(@resource), class: 'admin-link text-sm' %><% end %>
   <% end %>
-  <% if @resource.key == 'publications' %>
-    <div><%= form.label :category_status, '分类', class: 'block text-sm mb-1' %><%= form.select :category_status, options_for_select(admin_options(@resource, 'category_status'), params[:category_status]), { include_blank: '全部' }, class: 'admin-input' %></div>
-  <% end %>
-  <div><%= form.label :per_page, '每页条数', class: 'block text-sm mb-1' %><%= form.select :per_page, options_for_select([25, 50, 100], params[:per_page].presence || 25), {}, class: 'admin-input' %></div>
-  <%= form.submit '筛选', class: 'admin-button' %>
-<% end %>
-<% if @resource.key == 'seos' %>
-  <% @records.each do |record| %>
-    <section class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="text-lg font-semibold mb-4"><%= record.seo_name %></h2>
-      <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
-        <div class="grid md:grid-cols-2 gap-x-6">
-          <% @resource.fields.each do |field, options| %>
-            <%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %>
-          <% end %>
-        </div>
-        <%= form.submit '保存', class: 'admin-button' %>
-      <% end %>
-    </section>
-  <% end %>
-<% else %>
-  <div class="bg-white rounded-lg shadow overflow-x-auto">
-    <table class="min-w-full text-sm">
-      <thead class="bg-gray-50 text-gray-600"><tr>
-        <% @resource.columns.each do |field| %><th scope="col" class="px-4 py-3 text-left font-medium"><%= admin_field_label(@resource, field) %></th><% end %>
-        <th scope="col" class="px-4 py-3 text-left">操作</th>
-      </tr></thead>
-      <tbody>
-        <% @records.each do |record| %>
-          <tr class="border-t border-gray-200">
-            <% @resource.columns.each do |field| %>
-              <td class="px-4 py-4"><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(record.public_send(field)) %><% else %><%= truncate(admin_display(record, field), length: 100) %><% end %></td>
-            <% end %>
-            <td class="px-4 py-4 whitespace-no-wrap">
-              <div class="flex items-center space-x-3">
-                <% if @resource.allows?(:show) %><%= link_to '查看', admin_resource_path(@resource, :show, record), class: 'text-blue-700' %><% end %>
-                <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, record), class: 'text-blue-700' %><% end %>
-                <% if @resource.allows?(:destroy) %><%= button_to '删除', admin_resource_path(@resource, :destroy, record), method: :delete, data: { confirm: '确认删除？此操作不能撤销。' }, class: 'text-red-700' %><% end %>
-              </div>
-            </td>
-          </tr>
+  <% if @records.empty? %>
+    <div class="admin-empty-state">
+      <span class="admin-feature-icon mx-auto mb-4"><%= admin_icon(filtered ? 'search' : 'folder') %></span>
+      <h2 class="font-semibold"><%= filtered ? '没有找到匹配的记录' : '暂无记录' %></h2>
+      <p class="text-sm text-gray-500 mt-2 mb-6"><%= filtered ? '试试其他关键词或清除筛选条件。' : '此模块的内容会显示在这里。' %></p>
+      <% if filtered %><%= link_to '清除筛选', admin_resource_path(@resource), class: 'admin-button-secondary' %><% elsif @resource.allows?(:new) %><%= link_to '新建第一条记录', admin_resource_path(@resource, :new), class: 'admin-button' %><% end %>
+    </div>
+  <% elsif @resource.key == 'seos' %>
+    <% @records.each do |record| %>
+      <section class="admin-seo-section">
+        <div class="admin-section-heading"><span class="admin-feature-icon"><%= admin_icon('search') %></span><div><h2 class="font-semibold"><%= record.seo_name %></h2><p class="text-sm text-gray-500 mt-1">页面搜索信息 · <%= admin_locale_label %></p></div></div>
+        <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
+          <div class="admin-fields">
+            <% @resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
+          </div>
+          <div class="flex justify-end mt-6"><%= form.submit '保存', class: 'admin-button' %></div>
         <% end %>
-      </tbody>
-    </table>
-  </div>
-<% end %>
-<% if @records.empty? %><p class="p-6 bg-white rounded text-gray-500">暂无记录</p><% end %>
-<div class="flex items-center justify-between mt-6 text-sm">
-  <span>共 <%= @records.total_count %> 条 · 第 <%= @records.current_page %> / <%= [@records.total_pages, 1].max %> 页</span>
-  <div class="flex space-x-4">
-    <% if @records.prev_page %><%= link_to '上一页', url_for(request.query_parameters.merge(page: @records.prev_page)), class: 'text-blue-700' %><% end %>
-    <% if @records.next_page %><%= link_to '下一页', url_for(request.query_parameters.merge(page: @records.next_page)), class: 'text-blue-700' %><% end %>
+      </section>
+    <% end %>
+  <% else %>
+    <div class="admin-table-scroll" role="region" aria-label="<%= @resource.label %>列表，可横向滚动" tabindex="0">
+      <table class="admin-table">
+        <caption class="sr-only"><%= @resource.label %>列表</caption>
+        <thead><tr>
+          <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
+          <th scope="col" class="admin-table-actions">操作</th>
+        </tr></thead>
+        <tbody>
+          <% @records.each do |record| %>
+            <tr>
+              <% @resource.columns.each_with_index do |field, index| %>
+                <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %>">
+                  <% if @resource.fields.dig(field, 'type') == 'file_field' %>
+                    <%= admin_upload_preview(record.public_send(field)) || '—' %>
+                  <% elsif @resource.fields.dig(field, 'type') == 'check_box' %>
+                    <%= admin_status(record, field) %>
+                  <% else %>
+                    <%= truncate(admin_display(record, field), length: 100) %>
+                    <% if @resource.key == 'users' && field == 'name' && record.id == current_admin.id %><span class="admin-badge admin-badge-neutral ml-2">当前账号</span><% end %>
+                  <% end %>
+                </td>
+              <% end %>
+              <td class="admin-table-actions">
+                <div class="admin-row-actions">
+                  <% if @resource.allows?(:show) %><%= link_to '查看', admin_resource_path(@resource, :show, record), class: 'admin-link', aria: { label: "查看记录 #{record.id}" } %><% end %>
+                  <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, record), class: 'admin-link', aria: { label: "编辑记录 #{record.id}" } %><% end %>
+                  <% if @resource.allows?(:destroy) && !(@resource.key == 'users' && record.id == current_admin.id) %><%= button_to '删除', admin_resource_path(@resource, :destroy, record), method: :delete, data: { confirm: '确认删除？此操作不能撤销。' }, class: 'admin-danger-link', aria: { label: "删除记录 #{record.id}" } %><% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <div class="admin-pagination" aria-label="分页">
+    <p class="text-sm text-gray-500">共 <span class="font-medium text-gray-900"><%= @records.total_count %></span> 条 <span class="text-gray-300 mx-2">|</span> 第 <%= @records.current_page %> / <%= [@records.total_pages, 1].max %> 页</p>
+    <div class="admin-actions">
+      <% if @records.prev_page %><%= link_to '上一页', url_for(request.query_parameters.merge(page: @records.prev_page)), class: 'admin-button-secondary' %><% else %><span class="admin-button-secondary admin-disabled" aria-disabled="true">上一页</span><% end %>
+      <% if @records.next_page %><%= link_to '下一页', url_for(request.query_parameters.merge(page: @records.next_page)), class: 'admin-button-secondary' %><% else %><span class="admin-button-secondary admin-disabled" aria-disabled="true">下一页</span><% end %>
+    </div>
   </div>
 </div>

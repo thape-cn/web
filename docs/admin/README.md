@@ -12,6 +12,10 @@ The two message sections support viewing, deletion and UTF-8 CSV export of all r
 
 Implementation is contained in admin controllers, models, helpers, views, configuration and assets. Shared wiring consists only of `draw :admin` in `config/routes.rb` and the BCrypt dependency in `Gemfile`/`Gemfile.lock`. Customer controllers, models, views, stylesheets, scripts and database schema are unchanged.
 
+The admin UI uses a grouped sidebar, dashboard shortcuts, responsive tables, publication badges, and consistent form, upload, and detail panels. On smaller screens, the menu opens as a keyboard-accessible dialog; wide tables scroll within their own panel. The content-language selector stays visible in the header. The UI labels remain Chinese when editing English content.
+
+Visual patterns were adapted from the licensed Tailwind Plus `application-ui-v4/html` reference: `application-shells/sidebar/06-with-off-white-background.html`, `lists/tables/01-simple.html`, `forms/form-layouts/04-two-column-with-cards.html`, `forms/sign-in-forms/05-simple-card.html`, and `data-display/description-lists/03-left-aligned-in-card.html`. They use this app's existing Tailwind CSS 1.9 utilities and admin-only components in `app/packs/stylesheets/admin/application.scss`; no Tailwind upgrade or external component runtime is required. Touch that stylesheet when adding template utilities so production PurgeCSS runs again.
+
 For a new database with no administrators, an operator can create the first account through `Admin::User` in the Rails console, supplying their own email and password. There is no default account or public registration endpoint.
 
 Validation commands:

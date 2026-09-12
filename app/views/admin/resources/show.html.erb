@@ -1,16 +1,17 @@
-<div class="flex items-center justify-between mb-6">
-  <h1 class="text-2xl font-semibold"><%= @resource.label %> · <%= @record.id %></h1>
-  <div class="flex space-x-4">
-    <%= link_to '返回', admin_resource_path(@resource), class: 'text-blue-700' %>
-    <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, @record), class: 'admin-button' %><% end %>
-  </div>
+<% content_for :page_title, "#{@resource.label} · #{@record.id}" %>
+<div class="admin-page-heading">
+  <div><%= link_to '← 返回列表', admin_back_path(@resource), class: 'admin-link inline-block text-sm mb-4' %><h1 class="admin-page-title"><%= @resource.label %> · <%= @record.id %></h1><p class="admin-page-description"><%= admin_resource_description(@resource) %></p></div>
+  <% if @resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(@resource, :edit, @record), class: 'admin-button' %><% end %>
 </div>
-<dl class="bg-white rounded-lg shadow p-6 grid md:grid-cols-2 gap-6">
-  <% fields = @resource.messages? ? @record.attribute_names - ['updated_at'] : @resource.fields.keys %>
-  <% fields.each do |field| %>
-    <div class="border-t pt-4 min-w-0">
-      <dt class="text-sm font-medium text-gray-500 mb-2"><%= admin_field_label(@resource, field) %></dt>
-      <dd class="whitespace-pre-wrap break-words"><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(@record.public_send(field)) %><% else %><%= admin_display(@record, field) %><% end %></dd>
-    </div>
-  <% end %>
-</dl>
+<section class="admin-panel overflow-hidden">
+  <div class="px-6 py-5 border-b border-gray-200"><h2 class="font-semibold">详细信息</h2><p class="text-sm text-gray-500 mt-1">记录 #<%= @record.id %> · <%= admin_locale_label %></p></div>
+  <dl class="admin-description-list">
+    <% fields = @resource.messages? ? @record.attribute_names - ['updated_at'] : @resource.fields.keys %>
+    <% fields.each do |field| %>
+      <div class="admin-description-row">
+        <dt><%= admin_field_label(@resource, field) %></dt>
+        <dd><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(@record.public_send(field)) || '—' %><% elsif @resource.fields.dig(field, 'type') == 'check_box' %><%= admin_status(@record, field) %><% else %><%= admin_display(@record, field) %><% end %></dd>
+      </div>
+    <% end %>
+  </dl>
+</section>

@@ -1,0 +1,6 @@
+<% flash.each do |type, message| %>
+  <div role="alert" class="admin-alert <%= type == 'alert' ? 'admin-alert-error' : 'admin-alert-success' %>">
+    <%= admin_icon(type == 'alert' ? 'alert' : 'check') %>
+    <p><%= message %></p>
+  </div>
+<% end %>

@@ -1,23 +1,20 @@
-<fieldset class="mt-6 border-t pt-6">
-  <legend class="font-semibold">项目图片</legend>
+<section class="admin-panel admin-form-section mt-6" aria-labelledby="gallery-heading">
+  <div class="admin-section-heading"><div><h2 id="gallery-heading" class="font-semibold">项目图片</h2><p class="text-sm text-gray-500 mt-2">保存后可继续添加图片。<%= 'JPG 与 WebP 放在同一行。' if @resource.key == 'works' %></p></div><%= admin_icon('image', class: 'w-6 h-6 text-gray-400') %></div>
   <% association = @resource.key == 'works' ? :work_pictures : :case_pictures %>
   <% fields = @resource.key == 'works' ? [:album_jpg, :album_webp] : [:album] %>
   <% pictures = @record.public_send(association) %>
   <% (3 - pictures.count(&:new_record?)).times { pictures.build } %>
-  <%= form.fields_for association do |picture_form| %>
-    <div class="border rounded p-4 mb-4 grid md:grid-cols-2 gap-4">
-      <% fields.each do |field| %>
-        <div>
-          <%= picture_form.label field, field.to_s.humanize, class: 'block text-sm font-medium' %>
-          <%= admin_upload_preview(picture_form.object.public_send(field)) %>
-          <%= picture_form.file_field field, class: 'block w-full text-sm mt-2' %>
-          <%= picture_form.hidden_field "#{field}_cache" %>
+  <div class="space-y-4">
+    <%= form.fields_for association do |picture_form| %>
+      <fieldset class="admin-gallery-item">
+        <legend class="text-xs font-semibold text-gray-500 px-2"><%= picture_form.object.persisted? ? "图片 ##{picture_form.object.id}" : '添加图片' %></legend>
+        <div class="grid md:grid-cols-2 gap-5">
+          <% fields.each do |field| %>
+            <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片', album: '项目图片' }.fetch(field), class: 'admin-label' %><%= admin_upload_preview(picture_form.object.public_send(field)) %><%= picture_form.file_field field, class: 'admin-file-input' %><%= picture_form.hidden_field "#{field}_cache" %></div>
+          <% end %>
+          <% if picture_form.object.persisted? %><label class="admin-checkbox-label"><%= picture_form.check_box :_destroy, class: 'admin-checkbox' %> 删除此图片</label><% end %>
         </div>
-      <% end %>
-      <% if picture_form.object.persisted? %>
-        <label class="text-sm"><%= picture_form.check_box :_destroy %> 删除此图片</label>
-      <% end %>
-    </div>
-  <% end %>
-  <p class="text-sm text-gray-500">保存后可继续添加图片。JPG 与 WebP 放在同一行。</p>
-</fieldset>
+      </fieldset>
+    <% end %>
+  </div>
+</section>

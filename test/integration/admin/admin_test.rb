@@ -86,7 +86,9 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     sign_in
     get admin_root_path
     assert_response :success
-    assert_select "nav a", count: Admin::Resource.all.size
+    assert_select ".admin-sidebar nav a", count: Admin::Resource.all.size + 1
+    assert_select "dialog nav a", count: Admin::Resource.all.size + 1
+    assert_select '.admin-sidebar nav a[aria-current="page"]', text: "工作台"
     assert_select 'script[src*="admin"]'
     assert_select 'script[src*="application"]', count: 0
     delete admin_logout_path
@@ -249,7 +251,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select 'script[src*="application"]', minimum: 1
     assert_select 'script[src*="admin"]', count: 0
     get admin_root_path
-    assert_select 'html[lang="en"]'
+    assert_select 'html[lang="zh-CN"]'
+    assert_select '.admin-locale a[aria-current="true"]', text: "EN"
     get "/"
     assert_response :success
     assert_equal "cn", cookies["locale"]

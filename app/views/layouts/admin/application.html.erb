@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="<%= admin_locale == 'cn' ? 'zh-CN' : 'en' %>">
+<html lang="zh-CN">
   <head>
-    <title>天华 · 网站管理</title>
+    <title><%= content_for?(:page_title) ? "#{yield(:page_title)} · " : '' %>天华 · 网站管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <%= csrf_meta_tags %>
@@ -9,31 +9,50 @@
     <%= stylesheet_pack_tag 'admin', media: 'all' %>
     <%= javascript_pack_tag 'admin', defer: true %>
   </head>
-  <body class="admin bg-gray-100 text-gray-900 min-h-screen">
-    <header class="bg-gray-900 text-white px-6 py-4 flex flex-wrap items-center justify-between">
-      <%= link_to '天华 · 网站管理', admin_root_path, class: 'text-lg font-semibold' %>
-      <% if current_admin %>
-        <div class="flex items-center space-x-4 text-sm">
-          <span><%= current_admin.name %></span>
-          <%= link_to(admin_locale == 'cn' ? 'English content' : '中文内容', url_for(request.path_parameters.merge(locale: admin_locale == 'cn' ? 'en' : 'cn'))) %>
-          <%= button_to '退出登录', admin_logout_path, method: :delete, class: 'text-white underline' %>
+  <body class="admin min-h-screen bg-gray-50 text-gray-900 antialiased">
+    <a href="#main" class="admin-skip-link">跳转到主要内容</a>
+    <% if current_admin %>
+      <aside class="admin-sidebar hidden lg:flex">
+        <%= render 'admin/shared/navigation' %>
+      </aside>
+      <dialog id="admin-navigation" class="admin-mobile-menu" aria-label="管理菜单">
+        <div class="flex justify-end px-4 pt-3">
+          <button type="button" class="admin-icon-button" data-admin-menu-close aria-label="关闭管理菜单"><%= admin_icon('close') %><span class="sr-only">关闭管理菜单</span></button>
         </div>
-      <% end %>
-    </header>
-    <div class="md:flex">
-      <% if current_admin %>
-        <nav aria-label="管理菜单" class="bg-white border-r border-gray-200 p-4 md:w-64 flex-shrink-0 flex md:block overflow-x-auto">
-          <% Admin::Resource.all.each do |resource| %>
-            <%= link_to resource.label, admin_resource_path(resource), class: "block flex-shrink-0 whitespace-no-wrap rounded px-3 py-2 text-sm #{controller_name == resource.key ? 'bg-blue-100 text-blue-800 font-semibold' : 'text-gray-700 hover:bg-gray-100'}" %>
-          <% end %>
-        </nav>
-      <% end %>
-      <main id="main" class="p-4 md:p-8 flex-1 min-w-0">
-        <% flash.each do |type, message| %>
-          <div role="alert" class="mb-4 rounded border p-4 <%= type == 'alert' ? 'border-red-200 bg-red-100 text-red-800' : 'border-green-200 bg-green-100 text-green-800' %>"><%= message %></div>
-        <% end %>
-        <%= yield %>
+        <%= render 'admin/shared/navigation' %>
+      </dialog>
+      <div class="admin-workspace">
+        <header class="admin-topbar">
+          <div class="flex items-center min-w-0">
+            <button type="button" class="admin-icon-button mr-3 lg:hidden" data-admin-menu-open aria-controls="admin-navigation" aria-expanded="false" aria-label="打开管理菜单"><%= admin_icon('menu') %><span class="sr-only">打开管理菜单</span></button>
+            <%= link_to '工作台', admin_root_path, class: 'admin-link text-sm whitespace-no-wrap' %>
+            <% if @resource %>
+              <span class="text-gray-300 mx-3" aria-hidden="true">/</span>
+              <span class="text-sm text-gray-500 truncate"><%= @resource.label %></span>
+            <% end %>
+          </div>
+          <div class="flex items-center flex-shrink-0 ml-3">
+            <div class="admin-locale" aria-label="内容语言">
+              <span class="hidden sm:inline text-xs text-gray-500 mr-2">内容语言</span>
+              <% [['cn', '中文'], ['en', 'EN']].each do |locale, label| %>
+                <%= link_to label, url_for(request.path_parameters.merge(locale: locale)), class: "admin-locale-option #{admin_locale == locale ? 'admin-locale-active' : ''}", aria: { current: admin_locale == locale ? 'true' : nil, label: locale == 'cn' ? '切换中文内容' : 'Switch to English content' } %>
+              <% end %>
+            </div>
+            <%= link_to '/', target: '_blank', rel: 'noopener', class: 'admin-link hidden sm:inline-flex items-center ml-6 text-sm' do %>访问官网 <%= admin_icon('external', class: 'w-4 h-4 ml-2') %><% end %>
+          </div>
+        </header>
+        <main id="main" class="admin-main" tabindex="-1">
+          <%= render 'admin/shared/flash' %>
+          <%= yield %>
+        </main>
+      </div>
+    <% else %>
+      <main id="main" class="admin-login-main" tabindex="-1">
+        <div class="w-full max-w-md mx-auto">
+          <%= render 'admin/shared/flash' %>
+          <%= yield %>
+        </div>
       </main>
-    </div>
+    <% end %>
   </body>
 </html>

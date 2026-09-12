@@ -1,25 +1,27 @@
-<div class="mb-5 <%= options['type'] == 'text_area' ? 'md:col-span-2' : '' %>">
-  <%= form.label field, admin_field_label(resource, field), class: 'block text-sm font-medium mb-2' %>
-  <% case options['type'] %>
-  <% when 'file_field' %>
-    <%= admin_upload_preview(form.object.public_send(field)) %>
-    <%= form.file_field field, class: 'block w-full text-sm mt-2' %>
-    <%= form.hidden_field "#{field}_cache" %>
-    <% if form.object.public_send(field).present? %>
-      <label class="block text-sm mt-2"><%= form.check_box "remove_#{field}" %> 移除现有文件</label>
-    <% end %>
-  <% when 'select', 'multiple' %>
-    <% selected = form.object.public_send(field) %>
-    <% selected = selected.to_s.scan(/\d+/).map(&:to_i) if resource.key == 'cases' %>
-    <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: options['type'] == 'select' }, { multiple: options['type'] == 'multiple', class: 'admin-input' } %>
-    <% if options['type'] == 'multiple' %><p class="text-xs text-gray-500 mt-1">按住 Ctrl / Command 可选择多项。</p><% end %>
-  <% when 'text_area' %>
-    <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, class: 'admin-input' %>
-  <% when 'check_box' %>
-    <%= form.check_box field, class: 'h-5 w-5' %>
-  <% when 'password_field' %>
-    <%= form.password_field field, autocomplete: 'new-password', class: 'admin-input' %>
+<div class="min-w-0 <%= options['type'] == 'text_area' ? 'md:col-span-2' : '' %>">
+  <% if options['type'] == 'check_box' %>
+    <div class="admin-checkbox-panel"><%= form.check_box field, class: 'admin-checkbox' %><%= form.label field, admin_field_label(resource, field), class: 'text-sm font-medium' %></div>
   <% else %>
-    <%= form.public_send(options['type'], field, class: 'admin-input') %>
+    <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
+    <% case options['type'] %>
+    <% when 'file_field' %>
+      <div class="admin-upload">
+        <%= admin_upload_preview(form.object.public_send(field)) %>
+        <%= form.file_field field, class: 'admin-file-input' %>
+        <%= form.hidden_field "#{field}_cache" %>
+        <% if form.object.public_send(field).present? %><label class="admin-checkbox-label mt-3"><%= form.check_box "remove_#{field}", class: 'admin-checkbox' %> 移除现有文件</label><% end %>
+      </div>
+    <% when 'select', 'multiple' %>
+      <% selected = form.object.public_send(field) %>
+      <% selected = selected.to_s.scan(/\d+/).map(&:to_i) if resource.key == 'cases' %>
+      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: options['type'] == 'select' }, { multiple: options['type'] == 'multiple', class: 'admin-input' } %>
+      <% if options['type'] == 'multiple' %><p class="text-xs text-gray-500 mt-2">按住 Ctrl / Command 可选择多项。</p><% end %>
+    <% when 'text_area' %>
+      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, class: 'admin-input' %>
+    <% when 'password_field' %>
+      <%= form.password_field field, autocomplete: 'new-password', class: 'admin-input' %>
+    <% else %>
+      <%= form.public_send(options['type'], field, class: 'admin-input') %>
+    <% end %>
   <% end %>
 </div>

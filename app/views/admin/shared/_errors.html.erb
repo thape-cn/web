@@ -1,8 +1,6 @@
 <% if record.errors.any? %>
-  <div role="alert" class="mb-6 p-4 rounded bg-red-100 text-red-800">
-    <p class="font-semibold">保存失败，请检查以下内容：</p>
-    <ul class="list-disc pl-5">
-      <% record.errors.full_messages.each do |message| %><li><%= message %></li><% end %>
-    </ul>
+  <div role="alert" class="admin-alert admin-alert-error">
+    <%= admin_icon('alert') %>
+    <div><p class="font-semibold">保存失败，请检查以下内容：</p><ul class="list-disc pl-5 mt-2 space-y-1"><% record.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul></div>
   </div>
 <% end %>

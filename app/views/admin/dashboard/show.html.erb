@@ -1,7 +1,41 @@
-<h1 class="text-2xl font-semibold mb-2">网站管理</h1>
-<p class="text-gray-600 mb-6">选择要维护的内容。当前内容语言：<%= admin_locale == 'cn' ? '中文' : 'English' %>。</p>
-<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  <% Admin::Resource.all.each do |resource| %>
-    <%= link_to resource.label, admin_resource_path(resource), class: 'block bg-white p-6 rounded-lg shadow text-blue-700 font-semibold hover:bg-blue-100' %>
-  <% end %>
+<% content_for :page_title, '工作台' %>
+<div class="admin-page-heading">
+  <div>
+    <p class="admin-eyebrow">CONTENT MANAGEMENT</p>
+    <h1 class="admin-page-title">网站管理</h1>
+    <p class="admin-page-description">从这里更新天华的作品、动态与品牌内容。</p>
+  </div>
+  <span class="admin-badge admin-badge-neutral">当前内容 · <%= admin_locale_label %></span>
 </div>
+<section aria-labelledby="quick-access-heading" class="mb-10">
+  <div class="flex items-center justify-between mb-4">
+    <h2 id="quick-access-heading" class="text-base font-semibold">常用内容</h2>
+    <span class="text-xs text-gray-500">快速进入内容维护</span>
+  </div>
+  <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <% %w[works infos people publications].each do |key| %>
+      <% resource = Admin::Resource.new(key) %>
+      <%= link_to admin_resource_path(resource), class: 'admin-quick-card group' do %>
+        <div class="flex items-center justify-between mb-6"><span class="admin-feature-icon"><%= admin_resource_icon(resource) %></span><%= admin_icon('arrow', class: 'w-5 h-5 text-gray-400 group-hover:text-indigo-600') %></div>
+        <h3 class="font-semibold text-gray-900"><%= resource.label %></h3>
+        <p class="text-sm text-gray-500 leading-relaxed mt-2"><%= admin_resource_description(resource) %></p>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+<section aria-labelledby="all-modules-heading">
+  <div class="flex items-center justify-between mb-4"><h2 id="all-modules-heading" class="text-base font-semibold">全部管理模块</h2><span class="text-xs text-gray-500"><%= Admin::Resource.all.size %> 个模块</span></div>
+  <div class="admin-panel overflow-hidden">
+    <% admin_navigation_groups.each do |group| %>
+      <div class="admin-module-group">
+        <div><h3 class="text-sm font-semibold"><%= group[:label] %></h3><p class="text-xs text-gray-500 mt-2"><%= group[:resources].size %> 个模块</p></div>
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-2">
+          <% group[:resources].each do |resource| %>
+            <%= link_to admin_resource_path(resource), class: 'admin-module-link' do %><%= admin_resource_icon(resource) %><span><%= resource.label %></span><%= admin_icon('arrow', class: 'w-4 h-4 ml-auto text-gray-400') %><% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+<p class="mt-6 text-xs text-gray-500 leading-relaxed">中文与 English 内容分别维护，可通过右上角切换内容语言。</p>
