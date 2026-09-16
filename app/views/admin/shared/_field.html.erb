@@ -17,7 +17,8 @@
       <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: options['type'] == 'select' }, { multiple: options['type'] == 'multiple', class: 'admin-input' } %>
       <% if options['type'] == 'multiple' %><p class="text-xs text-gray-500 mt-2">按住 Ctrl / Command 可选择多项。</p><% end %>
     <% when 'text_area' %>
-      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, class: 'admin-input' %>
+      <% editor_data = options['rich_text'] ? { admin_rich_text: true, upload_url: upload_admin_pictures_path } : {} %>
+      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, class: 'admin-input', data: editor_data %>
     <% when 'password_field' %>
       <%= form.password_field field, autocomplete: 'new-password', class: 'admin-input' %>
     <% else %>

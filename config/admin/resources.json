@@ -338,6 +338,7 @@
       },
       "introduce": {
         "type": "text_area",
+        "rich_text": true,
         "label": "个人介绍"
       },
       "city_ids": {
@@ -391,6 +392,7 @@
       },
       "other": {
         "type": "text_area",
+        "rich_text": true,
         "label": "经典案例详细介绍"
       }
     }
@@ -468,6 +470,7 @@
       },
       "content": {
         "type": "text_area",
+        "rich_text": true,
         "label": "内容"
       },
       "created_at": {

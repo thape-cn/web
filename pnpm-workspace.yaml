@@ -1,5 +1,11 @@
 packages:
   - .
+overrides:
+  jquery: 3.7.1
+  simditor>dompurify: 3.4.15
+  # Simditor still uses the v2 plugin and uploader factory APIs.
+  simditor>simple-module: 2.0.6
+  simditor>simple-uploader: 2.0.8
 allowBuilds:
   core-js: true
   postinstall-postinstall: true

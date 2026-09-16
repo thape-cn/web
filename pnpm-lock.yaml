@@ -4,6 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  jquery: 3.7.1
+  simditor>dompurify: 3.4.15
+  simditor>simple-module: 2.0.6
+  simditor>simple-uploader: 2.0.8
+
 importers:
 
   .:
@@ -53,6 +59,9 @@ importers:
       css-loader:
         specifier: ^6.11.0
         version: 6.11.0(webpack@5.111.0)
+      jquery:
+        specifier: 3.7.1
+        version: 3.7.1
       micromatch:
         specifier: ~4.0.8
         version: 4.0.8
@@ -92,6 +101,9 @@ importers:
       shakapacker:
         specifier: ^10.3.2
         version: 10.3.2(@babel/core@7.29.7(supports-color@8.1.1))(@babel/plugin-transform-runtime@7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@babel/preset-env@7.29.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(@babel/runtime@7.29.7)(babel-loader@8.4.1(@babel/core@7.29.7(supports-color@8.1.1))(webpack@5.111.0))(compression-webpack-plugin@9.2.0(webpack@5.111.0))(css-loader@6.11.0(webpack@5.111.0))(mini-css-extract-plugin@2.10.2(webpack@5.111.0))(sass-loader@16.0.8(sass@1.77.6)(webpack@5.111.0))(sass@1.77.6)(terser-webpack-plugin@5.6.1(postcss@8.5.28)(webpack@5.111.0))(webpack-assets-manifest@5.2.1(webpack@5.111.0))(webpack-cli@5.1.4)(webpack-dev-server@5.2.6)(webpack@5.111.0)
+      simditor:
+        specifier: 2.3.28
+        version: 2.3.28
       stimulus:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1030,6 +1042,9 @@ packages:
   '@types/sockjs@0.3.36':
     resolution: {integrity: sha512-MK9V6NzAS1+Ud7JV9lJLFqW85VbC9dq3LmwZCuBe4wBDgKC0Kj/jd8Xl+nSviU+Qc3+m7umHHyHg//2KSa0a0Q==}
 
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
@@ -1576,6 +1591,9 @@ packages:
     resolution: {integrity: sha512-l4gcSouhcgIKRvyy99RNVOgxXiicE+2jZoNmaNmZ6JXiGajBOJAesk1OBlJuM5k2c+eudGdLxDqXuPCKIj6kpw==}
     engines: {node: '>=6'}
 
+  dompurify@3.4.15:
+    resolution: {integrity: sha512-EUBjM+B+lkDE41iE82DDSCfkoPGfXx8IxFxPMjNzm/Uk4xDet77rTN9wqlxlVg71kK7XGuUMv6wUxJUwwv+Xyw==}
+
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
@@ -2103,6 +2121,9 @@ packages:
   jest-worker@27.5.1:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
+
+  jquery@3.7.1:
+    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -3130,8 +3151,20 @@ packages:
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
+  simditor@2.3.28:
+    resolution: {integrity: sha512-nO20L2NZ3LsGZtvX291hd0gHiBLC56Oh/SHTwektM1tNBD35wQ0moFHoQ7Yumt9XoRiZL3aCQT2mv4jcVC3clQ==}
+
+  simple-hotkeys@1.0.3:
+    resolution: {integrity: sha512-F1oa1phoHN8OWYqw9z4NhtLiXPLSsqUxdTFhbSUsgY3akcmbOYHYI9V0Lg27qJB5uCpgMSdb/w1vDBdWKObSSw==}
+
+  simple-module@2.0.6:
+    resolution: {integrity: sha512-uyGIeOVlGZxOhADL6anB/GAq/XvmFe0hdgckQWrQ+bUwTuKMI5O1jz9i9/nNSdVzuwHaS/eMXaJiSz0JJgNyKA==}
+
   simple-swizzle@0.2.4:
     resolution: {integrity: sha512-nAu1WFPQSMNr2Zn9PGSZK9AGn4t/y97lEm+MXTtUDwfP0ksAIX4nO+6ruD9Jwut4C49SB1Ws+fbXsm/yScWOHw==}
+
+  simple-uploader@2.0.8:
+    resolution: {integrity: sha512-2tDHjgjqCyPsB9+9lu5m7lE0WnerfSfzNK5x0Cwd1JyuCi6I4Q4/HIcVJ9+2oAvBMLsMQCWBm8xiMXADJtAPBQ==}
 
   slash@2.0.0:
     resolution: {integrity: sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==}
@@ -4706,6 +4739,9 @@ snapshots:
     dependencies:
       '@types/node': 22.20.2
 
+  '@types/trusted-types@2.0.7':
+    optional: true
+
   '@types/ws@8.18.1':
     dependencies:
       '@types/node': 22.20.2
@@ -5294,6 +5330,10 @@ snapshots:
   dns-packet@5.6.1:
     dependencies:
       '@leichtgewicht/ip-codec': 2.0.5
+
+  dompurify@3.4.15:
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
 
   dunder-proto@1.0.1:
     dependencies:
@@ -5892,6 +5932,8 @@ snapshots:
       '@types/node': 22.20.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
+
+  jquery@3.7.1: {}
 
   js-tokens@4.0.0: {}
 
@@ -6853,9 +6895,31 @@ snapshots:
 
   signal-exit@3.0.7: {}
 
+  simditor@2.3.28:
+    dependencies:
+      dompurify: 3.4.15
+      jquery: 3.7.1
+      simple-hotkeys: 1.0.3
+      simple-module: 2.0.6
+      simple-uploader: 2.0.8
+
+  simple-hotkeys@1.0.3:
+    dependencies:
+      jquery: 3.7.1
+      simple-module: 2.0.6
+
+  simple-module@2.0.6:
+    dependencies:
+      jquery: 3.7.1
+
   simple-swizzle@0.2.4:
     dependencies:
       is-arrayish: 0.3.4
+
+  simple-uploader@2.0.8:
+    dependencies:
+      jquery: 3.7.1
+      simple-module: 2.0.6
 
   slash@2.0.0: {}
 

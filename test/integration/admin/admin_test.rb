@@ -105,8 +105,47 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
         get path(resource, action)
         assert_response :success, "#{resource.key}##{action}: #{response.body.first(300)}"
         assert_select "h1", minimum: 1
+        if [:new, :edit].include?(action)
+          assert_select "textarea[data-admin-rich-text]", count: resource.fields.count { |_field, options| options["rich_text"] }
+        end
       end
     end
+  end
+
+  test "rich text image uploads return a picture URL and validation failures" do
+    sign_in
+    assert_difference "Picture.count", 1 do
+      post upload_admin_pictures_path, params: {upload_file: upload("editor.png", "image/png")}
+      assert_response :success
+    end
+    picture = Picture.order(:id).last
+    assert_equal true, response.parsed_body["success"]
+    assert_equal picture.image.url, response.parsed_body["file_path"]
+    assert File.exist?(picture.image.path)
+
+    assert_no_difference "Picture.count" do
+      post upload_admin_pictures_path
+      assert_response :unprocessable_entity
+    end
+    assert_equal false, response.parsed_body["success"]
+    assert response.parsed_body["msg"].present?
+  end
+
+  test "rich text image uploads retain CSRF protection" do
+    sign_in
+    original = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    get new_admin_info_path
+    token = response.parsed_body.at_css('meta[name="csrf-token"]')["content"]
+    assert_no_difference "Picture.count" do
+      post upload_admin_pictures_path, params: {upload_file: upload("rejected.png", "image/png")}
+      assert_response :unprocessable_entity
+    end
+    post upload_admin_pictures_path, params: {authenticity_token: token, upload_file: upload("editor.png", "image/png")}
+    assert_response :success
+    assert_equal true, response.parsed_body["success"]
+  ensure
+    ActionController::Base.allow_forgery_protection = original
   end
 
   test "all creatable resources persist and their edit and show pages render" do

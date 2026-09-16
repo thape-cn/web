@@ -28,7 +28,9 @@ namespace :admin do
     end
   end
   resources :infos
-  resources :pictures, except: [:show]
+  resources :pictures, except: [:show] do
+    post :upload, on: :collection
+  end
   resources :message, only: [:index, :show, :destroy]
   resources :project_messages, only: [:index, :show, :destroy]
   resources :portfolios, except: [:show]

@@ -1,0 +1,30 @@
+// Simditor creates its menus and formatting classes at runtime.
+/*! purgecss start ignore */
+@import "~simditor/styles/simditor";
+
+.admin .simditor {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.admin .simditor:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, .12);
+}
+
+.admin .simditor .simditor-body {
+  padding: 16px;
+  min-height: 160px;
+  font-family: inherit;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.admin .simditor .simditor-body img { max-width: 100%; }
+.admin .simditor .simditor-toolbar { border-radius: 6px 6px 0 0; }
+.admin .simditor .simditor-toolbar > ul { display: flex; flex-wrap: wrap; }
+.admin .simditor .simditor-toolbar > ul > li { flex-shrink: 0; }
+.admin .simditor .simditor-wrapper.toolbar-floating .simditor-toolbar { z-index: 15; }
+.admin .field_with_errors .simditor { border-color: #f87171; }
+/*! purgecss end ignore */
