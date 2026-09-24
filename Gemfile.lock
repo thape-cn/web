@@ -250,7 +250,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0701)
+    mime-types-data (3.2026.0922)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.27.0)
@@ -361,7 +361,7 @@ GEM
       prism (>= 1.6.0)
       rbs (>= 4.0.0)
       tsort
-    regexp_parser (2.12.0)
+    regexp_parser (2.13.0)
     reline (0.5.12)
       io-console (~> 0.5)
     request_store (1.7.0)
