@@ -155,7 +155,7 @@ GEM
     connection_pool (2.5.5)
     crass (1.0.7)
     csv (3.3.6)
-    dalli (5.1.0)
+    dalli (5.1.1)
       logger
     date (3.5.1)
     debug (1.11.1)
@@ -171,7 +171,7 @@ GEM
       marcel (~> 1)
       ruby_llm-schema (~> 0)
       zeitwerk (~> 2)
-    domain_name (0.6.20260907)
+    domain_name (0.6.20260921)
     drb (2.2.3)
     ed25519 (1.4.0)
     enumize (0.2.1)
