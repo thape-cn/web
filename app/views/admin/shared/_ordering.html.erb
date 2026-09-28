@@ -1,0 +1,42 @@
+<% rank = @order_ranks.fetch(record.id) %>
+<% total = @order_ranks.length %>
+<% path = admin_resource_path(@resource, :reorder, record) %>
+<div class="admin-order-controls">
+  <span class="admin-drag-handle" draggable="true" data-admin-drag-handle hidden title="拖动记录 <%= record.id %> 调整顺序" aria-hidden="true"><%= admin_icon('grip') %></span>
+  <strong class="admin-order-rank" title="第 <%= rank %> / <%= total %> 条"><%= rank %></strong>
+  <%= form_with url: path, method: :patch, local: true, class: 'admin-order-arrows' do %>
+    <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+    <% [['up', '上移', rank == 1], ['down', '下移', rank == total]].each do |movement, label, disabled| %>
+      <%= button_tag name: :movement, value: movement, type: :submit, class: 'admin-order-button', disabled: disabled, title: label, aria: { label: "#{label}记录 #{record.id}" } do %><%= admin_icon(movement) %><% end %>
+    <% end %>
+  <% end %>
+  <details class="admin-order-menu">
+    <summary aria-label="移动记录 <%= record.id %>">移动</summary>
+    <div class="admin-order-panel">
+      <p class="admin-order-panel-title">移动记录 #<%= record.id %></p>
+      <%= form_with url: path, method: :patch, local: true, class: 'admin-order-extremes' do %>
+        <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+        <%= button_tag '移到顶部', name: :movement, value: 'top', class: 'admin-button-secondary', disabled: rank == 1 %>
+        <%= button_tag '移到底部', name: :movement, value: 'bottom', class: 'admin-button-secondary', disabled: rank == total %>
+      <% end %>
+      <%= form_with url: path, method: :patch, local: true, class: 'admin-order-destination' do %>
+        <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+        <%= hidden_field_tag :movement, 'position', id: nil %>
+        <%= label_tag "order-position-#{record.id}", "移到第几条（1–#{total}）", class: 'admin-label' %>
+        <div class="admin-order-input-row">
+          <%= number_field_tag :position, rank, id: "order-position-#{record.id}", min: 1, max: total, step: 1, required: true, class: 'admin-input' %>
+          <%= submit_tag '移动', class: 'admin-button', data: { disable_with: '保存中…' } %>
+        </div>
+      <% end %>
+      <%= form_with url: path, method: :patch, local: true, class: 'admin-order-destination' do %>
+        <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+        <%= label_tag "order-target-#{record.id}", '移到指定记录旁（输入记录 ID）', class: 'admin-label' %>
+        <%= number_field_tag :target_id, nil, id: "order-target-#{record.id}", min: 1, step: 1, required: true, placeholder: '记录 ID', class: 'admin-input' %>
+        <div class="admin-order-input-row">
+          <%= select_tag :movement, options_for_select([['该记录之前', 'before'], ['该记录之后', 'after']]), id: "order-side-#{record.id}", class: 'admin-input', aria: { label: '相对位置' } %>
+          <%= submit_tag '移动', class: 'admin-button', data: { disable_with: '保存中…' } %>
+        </div>
+      <% end %>
+    </div>
+  </details>
+</div>

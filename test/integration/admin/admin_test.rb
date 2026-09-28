@@ -315,6 +315,150 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "all seven resources expose ordering controls and persist every move" do
+    sign_in
+    %w[cases infos insights people portfolios publications works].each do |key|
+      resource = Admin::Resource.new(key)
+      record = resource.scope.create!(attributes_for(key))
+      other = resource.scope.create!(attributes_for(key).merge((key == "people") ? {url_name: "other-ordered-person"} : {}))
+      ids = resource.scope.order(position: :asc, id: :asc).pluck(:id)
+      original_attributes = record.reload.attributes.except("position")
+
+      get path(resource, :index)
+      assert_response :success, key
+      assert_select "[data-admin-order-table]", count: 1
+      assert_select ".admin-order-menu", minimum: 1
+      assert_equal ids.first(25), response.parsed_body.css("tr[data-record-id]").map { |row| row["data-record-id"].to_i }
+
+      [
+        ["top", {}, 0],
+        ["down", {}, 1],
+        ["up", {}, 0],
+        ["up", {}, 0],
+        ["bottom", {}, ids.length - 1],
+        ["down", {}, ids.length - 1],
+        ["position", {position: 2}, 1]
+      ].each do |movement, options, destination|
+        ids.delete(record.id)
+        ids.insert(destination, record.id)
+        patch path(resource, :reorder, record), params: {movement: movement, **options}
+        assert_response :see_other, "#{key}: #{movement}"
+        assert_equal "排序已保存", flash[:notice]
+        assert_equal ids, resource.scope.order(:position).pluck(:id), "#{key}: #{movement}"
+        assert_equal (0...ids.length).to_a, resource.scope.order(:position).pluck(:position)
+      end
+      %w[before after].each do |movement|
+        ids.delete(record.id)
+        ids.insert(ids.index(other.id) + ((movement == "after") ? 1 : 0), record.id)
+        patch path(resource, :reorder, record), params: {movement: movement, target_id: other.id}
+        assert_response :see_other
+        assert_equal ids, resource.scope.order(:position).pluck(:id), "#{key}: #{movement}"
+      end
+      assert_equal original_attributes, record.reload.attributes.except("position"), key
+    end
+  end
+
+  test "ordering repairs duplicate gaps and nulls without changing unrelated fields" do
+    sign_in
+    first = Portfolio.create!(title: "First", position: -10)
+    second = Portfolio.create!(title: "Second", position: -10)
+    third = Portfolio.create!(title: "Third", position: 50)
+    last = Portfolio.create!(title: "Last", position: nil)
+    resource = Admin::Resource.new("portfolios")
+    ids = resource.scope.order(position: :asc, id: :asc).pluck(:id)
+    ids.delete(last.id)
+    ids.insert(ids.index(second.id), last.id)
+    patch reorder_admin_portfolio_path(last), params: {movement: "before", target_id: second.id}
+    assert_response :see_other
+    assert_equal ids, Portfolio.order(:position).pluck(:id)
+    assert_operator first.reload.position, :<, last.reload.position
+    assert_operator second.reload.position, :<, third.reload.position
+    assert_equal (0...ids.length).to_a, Portfolio.order(:position).pluck(:position)
+    assert_equal "Last", last.title
+  end
+
+  test "invalid destinations do not change any positions and missing records return not found" do
+    sign_in
+    record = Portfolio.create!(title: "Only", position: nil)
+    original = Portfolio.order(:id).pluck(:id, :position)
+    [
+      {movement: "unknown"},
+      {movement: "position", position: ""},
+      {movement: "position", position: "1.5"},
+      {movement: "position", position: "0"},
+      {movement: "position", position: "-1"},
+      {movement: "position", position: Portfolio.count + 1},
+      {movement: "before", target_id: record.id},
+      {movement: "after", target_id: "99999999"},
+      {movement: "after", target_id: "1 OR 1=1"}
+    ].each do |parameters|
+      patch reorder_admin_portfolio_path(record), params: parameters
+      assert_response :see_other
+      assert flash[:alert].present?
+      assert_equal original, Portfolio.order(:id).pluck(:id, :position)
+    end
+    patch reorder_admin_portfolio_path(99999999), params: {movement: "top"}
+    assert_response :not_found
+    assert_equal original, Portfolio.order(:id).pluck(:id, :position)
+  end
+
+  test "moves cross pages and filters and retain locale and list context" do
+    sign_in
+    first = Admin::Work.unscoped.order(:position, :id).first
+    hidden = Admin::Work.create!(project_name: "Ordering search", city: cities(:city_1), published: false, position: 9999)
+    resource = Admin::Resource.new("works")
+    ids = resource.scope.order(:position, :id).pluck(:id)
+    ids.delete(hidden.id)
+    ids.insert(0, hidden.id)
+    patch reorder_admin_work_path(hidden, locale: :en), params: {movement: "top", q: "Ordering search", page: 2, per_page: 25}
+    assert_response :see_other
+    query = Rack::Utils.parse_query(URI(response.location).query)
+    assert_equal({"locale" => "en", "q" => "Ordering search", "page" => "2", "per_page" => "25"}, query)
+    assert_equal ids, resource.scope.order(:position).pluck(:id)
+    assert_equal 1, first.reload.position
+    assert_not Work.exists?(hidden.id)
+    get admin_works_path(q: "Ordering search", locale: :cn)
+    assert_select ".admin-order-rank", text: "1"
+    assert_select 'form input[name="q"][value="Ordering search"]', minimum: 1
+
+    before = Publication.create!(title: "Before", category_status: :monographs, position: 0)
+    after = Publication.create!(title: "After", category_status: :paper_patent, position: 1)
+    patch reorder_admin_publication_path(after), params: {movement: "before", target_id: before.id, category_status: "paper_patent"}
+    assert_response :see_other
+    assert_includes response.location, "category_status=paper_patent"
+    assert_operator after.reload.position, :<, before.reload.position
+  end
+
+  test "ordering requires a CSRF token" do
+    sign_in
+    record = Portfolio.create!(title: "CSRF", position: 100)
+    original = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    get admin_portfolios_path
+    token = response.parsed_body.at_css('meta[name="csrf-token"]')["content"]
+    patch reorder_admin_portfolio_path(record), params: {movement: "top"}
+    assert_response :unprocessable_entity
+    assert_equal 100, record.reload.position
+    patch reorder_admin_portfolio_path(record), params: {movement: "top", authenticity_token: token}
+    assert_response :see_other
+    assert_equal 0, record.reload.position
+  ensure
+    ActionController::Base.allow_forgery_protection = original
+  end
+
+  test "new admin records append after existing positions for every ordered resource" do
+    sign_in
+    %w[cases infos insights people portfolios publications works].each do |key|
+      resource = Admin::Resource.new(key)
+      existing = resource.scope.create!(attributes_for(key))
+      existing.update_columns(position: 5000)
+      attributes = attributes_for(key).merge((key == "people") ? {url_name: "appended-person"} : {})
+      post path(resource, :create), params: {resource.param_key => attributes.merge(position: 0)}
+      assert_response :see_other, key
+      assert_equal 5001, resource.scope.order(:id).last.position, key
+    end
+  end
+
   test "invalid saves return errors without discarding submitted content" do
     sign_in
     assert_no_difference "Info.count" do

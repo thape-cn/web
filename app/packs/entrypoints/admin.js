@@ -2,6 +2,7 @@ import Rails from "@rails/ujs"
 import "stylesheets/admin/application.scss"
 import "images/logo.svg"
 import "admin/rich_text"
+import "admin/ordering"
 
 Rails.start()
 

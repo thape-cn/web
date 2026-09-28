@@ -5,6 +5,7 @@ require "csv"
 class Admin::ResourcesController < Admin::ApplicationController
   before_action :set_resource
   before_action :set_record, only: [:show, :edit, :update, :destroy]
+  helper_method :admin_order_context
 
   def index
     records = filtered_records
@@ -12,6 +13,10 @@ class Admin::ResourcesController < Admin::ApplicationController
       export_messages(records)
     else
       @records = records.page(params[:page]).per(params[:per_page].present? ? params[:per_page].to_i.clamp(1, 100) : 25)
+      if @resource.ordered?
+        ids = @resource.scope.order(position: :asc, id: :asc).pluck(:id)
+        @order_ranks = ids.each_with_index.to_h.transform_values { |index| index + 1 }
+      end
       render "admin/resources/index"
     end
   end
@@ -36,6 +41,13 @@ class Admin::ResourcesController < Admin::ApplicationController
 
   def update
     save_record
+  end
+
+  def reorder
+    Admin::Reorder.new(@resource).call(id: params[:id], movement: params[:movement], position: params[:position], target_id: params[:target_id])
+    redirect_to reorder_location, notice: "排序已保存", status: :see_other
+  rescue Admin::Reorder::InvalidMove => error
+    redirect_to reorder_location, alert: error.message, status: :see_other
   end
 
   def destroy
@@ -79,7 +91,7 @@ class Admin::ResourcesController < Admin::ApplicationController
     if @resource.key == "publications" && ::Publication.category_statuses.key?(params[:category_status])
       records = records.where(category_status: params[:category_status])
     end
-    order = if @resource.model.column_names.include?("position") && @resource.key != "infos"
+    order = if @resource.model.column_names.include?("position")
       {position: :asc, id: :asc}
     else
       {id: :desc}
@@ -118,7 +130,7 @@ class Admin::ResourcesController < Admin::ApplicationController
         @record.snapshot_alt = @record.title if @record.snapshot_alt.blank?
         @record.banner_alt = @record.title if @record.banner_alt.blank?
       end
-      if @record.new_record? && @resource.ordered? && @record.position.nil?
+      if @record.new_record? && @resource.ordered?
         @record.position = (@resource.scope.maximum(:position) || -1) + 1
       end
       @record.save!
@@ -140,6 +152,15 @@ class Admin::ResourcesController < Admin::ApplicationController
     else
       {controller: "/admin/#{@resource.key}", action: :index}
     end
+  end
+
+  def reorder_location
+    resource_location.merge(admin_order_context.symbolize_keys)
+  end
+
+  def admin_order_context
+    keys = %w[q project_name name title category_status page per_page]
+    @admin_order_context ||= params.slice(*keys).permit(*keys).to_h
   end
 
   def export_messages(records)

@@ -34,6 +34,6 @@ class Info < ApplicationRecord
   private
 
   def set_new_position
-    self.position = Info.count
+    self.position = (Info.maximum(:position) || -1) + 1 unless position_changed?
   end
 end

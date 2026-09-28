@@ -39,7 +39,7 @@ class Admin::Resource
   end
 
   def ordered?
-    %w[works people cases].include?(key)
+    %w[cases infos insights people portfolios publications works].include?(key)
   end
 
   def messages?

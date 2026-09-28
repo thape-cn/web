@@ -9,6 +9,15 @@
     <% if @resource.allows?(:new) %><%= link_to admin_resource_path(@resource, :new), class: 'admin-button' do %><%= admin_icon('plus') %>新建<% end %><% end %>
   </div>
 </div>
+<% if @resource.ordered? %>
+  <dialog id="admin-order-dialog" class="admin-order-dialog" aria-labelledby="admin-order-dialog-title" data-admin-order-dialog>
+    <div class="admin-order-dialog-heading">
+      <h2 id="admin-order-dialog-title">调整展示顺序</h2>
+      <button type="button" class="admin-icon-button" data-admin-order-close aria-label="关闭排序窗口"><%= admin_icon('close') %></button>
+    </div>
+    <div data-admin-order-content></div>
+  </dialog>
+<% end %>
 <div class="admin-panel overflow-hidden">
   <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'admin-filter-bar' do |form| %>
     <%= hidden_field_tag :locale, admin_locale %>
@@ -45,16 +54,30 @@
       </section>
     <% end %>
   <% else %>
+    <% if @resource.ordered? %>
+      <div class="admin-order-guide">
+        <strong>展示顺序</strong>
+        <span>序号从 1 开始。使用箭头或「移动」调整顺序，保存后立即生效。<span data-admin-drag-hint hidden>也可拖动手柄到当前页其他记录的前后。</span></span>
+        <span>排序作用于本模块全部记录（含其他分页、筛选外及未发布记录），所有内容语言共用。</span>
+      </div>
+      <%= form_with url: admin_resource_path(@resource, :reorder, @records.first), method: :patch, local: true, html: { hidden: true }, data: { admin_drag_form: true } do %>
+        <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+        <%= hidden_field_tag :movement, '', id: nil %>
+        <%= hidden_field_tag :target_id, '', id: nil %>
+      <% end %>
+    <% end %>
     <div class="admin-table-scroll" role="region" aria-label="<%= @resource.label %>列表，可横向滚动" tabindex="0">
-      <table class="admin-table">
+      <table class="admin-table" <%= 'data-admin-order-table' if @resource.ordered? %>>
         <caption class="sr-only"><%= @resource.label %>列表</caption>
         <thead><tr>
+          <% if @resource.ordered? %><th scope="col" class="admin-order-column" aria-sort="ascending">展示顺序</th><% end %>
           <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
           <th scope="col" class="admin-table-actions">操作</th>
         </tr></thead>
         <tbody>
           <% @records.each do |record| %>
-            <tr>
+            <tr id="record-<%= record.id %>" <%= tag.attributes(data: { record_id: record.id, reorder_url: admin_resource_path(@resource, :reorder, record) }) if @resource.ordered? %>>
+              <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
               <% @resource.columns.each_with_index do |field, index| %>
                 <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %>">
                   <% if @resource.fields.dig(field, 'type') == 'file_field' %>
