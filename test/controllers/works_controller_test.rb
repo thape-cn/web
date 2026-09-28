@@ -3,6 +3,30 @@
 require "test_helper"
 
 class WorksControllerTest < ActionDispatch::IntegrationTest
+  test "residential category page uses maintainable images" do
+    uploader = Struct.new(:url) do
+      def present?
+        true
+      end
+    end
+    work_type_page = Struct.new(:residential_residence_jpg, :residential_community_jpg, :residential_rental_jpg).new(
+      uploader.new("/uploads/residence.jpg"),
+      uploader.new("/uploads/community.jpg"),
+      uploader.new("/uploads/rental.jpg")
+    )
+
+    Seo.stub(:find_by, Seo.new) do
+      WorkTypePage.stub(:first, work_type_page) do
+        get residential_works_path
+      end
+    end
+
+    assert_response :success
+    assert_select 'img[src="/uploads/residence.jpg"]'
+    assert_select 'img[src="/uploads/community.jpg"]'
+    assert_select 'img[src="/uploads/rental.jpg"]'
+  end
+
   test "project type and city filters are retained and applied together" do
     Seo.stub(:find_by, Seo.new) do
       get demonstration_zone_works_path, params: {city: "suzhou"}

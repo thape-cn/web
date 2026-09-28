@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_06_29_000000) do
+ActiveRecord::Schema[7.2].define(version: 2026_09_28_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -629,6 +629,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_29_000000) do
     t.datetime "updated_at", precision: nil, null: false
     t.text "cultural_wide_jpg"
     t.text "cultural_wide_webp"
+    t.text "residential_residence_jpg"
+    t.text "residential_community_jpg"
+    t.text "residential_rental_jpg"
   end
 
   create_table "works", id: :bigint, default: nil, force: :cascade do |t|

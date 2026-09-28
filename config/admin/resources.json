@@ -1069,6 +1069,18 @@
         "type": "file_field",
         "label": "居住图片 WebP 格式"
       },
+      "residential_residence_jpg": {
+        "type": "file_field",
+        "label": "居住分类－精品住宅图片"
+      },
+      "residential_community_jpg": {
+        "type": "file_field",
+        "label": "居住分类－综合社区图片"
+      },
+      "residential_rental_jpg": {
+        "type": "file_field",
+        "label": "居住分类－租赁住房图片"
+      },
       "demonstration_zone_jpg": {
         "type": "file_field",
         "label": "示范区 JPG 格式"

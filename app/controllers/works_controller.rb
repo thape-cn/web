@@ -178,6 +178,8 @@ class WorksController < ApplicationController
     @self_path = residential_works_path
     if params[:q].present?
       render_project_type
+    else
+      @work_type_page = WorkTypePage.first
     end
   end
 

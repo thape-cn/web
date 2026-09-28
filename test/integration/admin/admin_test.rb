@@ -195,6 +195,31 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_equal "Updated title", seo.reload.home_title
   end
 
+  test "residential category images can be maintained from the work type page" do
+    sign_in
+    resource = Admin::Resource.new("work_type_pages")
+
+    get path(resource, :edit)
+    assert_response :success
+    assert_select 'input[type="file"][name="work_type_page[residential_residence_jpg]"]'
+    assert_select 'input[type="file"][name="work_type_page[residential_community_jpg]"]'
+    assert_select 'input[type="file"][name="work_type_page[residential_rental_jpg]"]'
+
+    patch path(resource, :update), params: {
+      work_type_page: {
+        residential_residence_jpg: upload("residence.jpg", "image/jpeg"),
+        residential_community_jpg: upload("community.jpg", "image/jpeg"),
+        residential_rental_jpg: upload("rental.jpg", "image/jpeg")
+      }
+    }
+
+    assert_response :redirect
+    page = WorkTypePage.first
+    assert page.residential_residence_jpg.present?
+    assert page.residential_community_jpg.present?
+    assert page.residential_rental_jpg.present?
+  end
+
   test "unpublished works are editable only through admin and translations stay separate" do
     sign_in
     post admin_works_path, params: {work: attributes_for("works")}
