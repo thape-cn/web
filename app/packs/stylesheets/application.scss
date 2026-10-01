@@ -329,6 +329,13 @@ p {
   @include reveal-hover-card;
 }
 
+.footer-social {
+  > a, .social-qr, .social-qr > button {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .social-qr-image {
   display: none;
 }

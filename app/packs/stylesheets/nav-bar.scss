@@ -203,11 +203,11 @@
   }
 
   &:hover, &.active {
-    @apply text-thape-copyright-gray nav-background-white;
+    @apply text-thape-bg-gray nav-background-white;
 
     nav {
       &>.nav-point {
-        @apply text-thape-copyright-gray;
+        @apply text-thape-bg-gray;
       }
       nav {
         @apply nav-background-white;
@@ -229,7 +229,7 @@
 
     .header-search-form {
       input, input::placeholder, button {
-        @apply text-thape-copyright-gray;
+        @apply text-thape-bg-gray;
       }
     }
   }
