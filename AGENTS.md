@@ -19,6 +19,8 @@
 - `bin/rails test:system test`: system tests (Capybara + Selenium/ChromeDriver).
 - `bundle exec standardrb --fix`: auto-fix Ruby style issues.
 
+For first-time environment setup, see [Assistant local setup](docs/agent-local-setup.md).
+
 ## Coding Style & Naming Conventions
 - Ruby: 2-space indentation, `standardrb` formatting, `# frozen_string_literal: true` on `.rb` files.
 - Naming: snake_case files and directories; classes are singular.
