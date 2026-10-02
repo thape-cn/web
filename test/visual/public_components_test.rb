@@ -31,6 +31,7 @@ class PublicComponentsTest < Minitest::Test
     public_root = ENV.fetch("VISUAL_PUBLIC_ROOT", Rails.root.join("public").to_s)
     static = Rack::Files.new(public_root)
     pages = %i[cn en].flat_map { |locale| [["/#{locale}", render_sample(locale)], ["/overlays/#{locale}", render_sample(locale, overlays: true)]] }.to_h
+    pages.merge!(experience_pages) if respond_to?(:experience_pages, true)
     app = lambda do |env|
       next [405, {}, []] unless %w[GET HEAD].include?(env["REQUEST_METHOD"])
       html = pages[env["PATH_INFO"]]
@@ -57,6 +58,7 @@ class PublicComponentsTest < Minitest::Test
 
   def teardown
     unless passed?
+      @measurements << {browser_errors: page.driver.browser.logs.get(:browser).map(&:message)}
       page.save_screenshot(@output.join("#{name}-failure.png")) # standard:disable Lint/Debugger
       @measurements << page.evaluate_script(<<~JS)
         ({width: innerWidth, height: innerHeight, scrollY, elements: [...document.querySelectorAll('body, .aside-menu, .aside-menu-container, .mobile-company-panel, .company-panel-content')].map(e => ({class: e.className, rect: e.getBoundingClientRect().toJSON(), scrollHeight: e.scrollHeight, clientHeight: e.clientHeight, position: getComputedStyle(e).position, overflow: getComputedStyle(e).overflow, maxHeight: getComputedStyle(e).maxHeight, display: getComputedStyle(e).display}))})

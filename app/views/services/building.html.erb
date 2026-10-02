@@ -1,0 +1,23 @@
+<% provide(:title, @seo.home_title) %>
+<% provide(:meta_title, @seo.home_title) %>
+<%= render partial: 'shared/thape_nav' %>
+
+<main class="building-service <%= fdsz('', 'building-service-large') %>">
+  <div class="building-service-hero">
+    <%= image_tag asset_pack_path(background_img), alt: '' %>
+  </div>
+  <section class="building-service-content" aria-labelledby="building-service-title">
+    <div class="building-service-heading">
+      <h1 id="building-service-title"><%= chinese_title %></h1>
+      <h2><%= english_title %></h2>
+      <a class="building-project-link" href="<%= link_site_url %>">
+        <span><%= link_site_title %></span><span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="building-service-copy">
+      <% ps.each do |paragraph| %>
+        <p><%= paragraph %></p>
+      <% end %>
+    </div>
+  </section>
+</main>

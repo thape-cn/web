@@ -1,0 +1,31 @@
+<% pictures = work.work_pictures.to_a %>
+<div class="thape-slide work-carousel" data-controller="work-carousel" data-work-carousel-interval-value="5000"
+  data-action="focusin->work-carousel#pauseOnFocus pointerenter->work-carousel#pointerEnter pointerleave->work-carousel#pointerLeave"
+  role="region" aria-roledescription="<%= t('work_carousel.carousel') %>" aria-label="<%= t('work_carousel.label', project: work.project_name) %>">
+  <% if pictures.size > 1 %>
+    <div class="work-carousel-controls">
+      <button type="button" class="work-carousel-rotation" data-work-carousel-target="rotation" data-action="pointerdown->work-carousel#rememberPlayback click->work-carousel#togglePlayback">
+        <span data-work-carousel-target="pauseLabel"><%= t('work_carousel.pause') %></span>
+        <span data-work-carousel-target="playLabel" hidden><%= t('work_carousel.play') %></span>
+      </button>
+      <span class="work-carousel-status" data-work-carousel-target="status" aria-live="off" aria-atomic="true">1 / <%= pictures.size %></span>
+    </div>
+  <% end %>
+  <div class="slide-images" data-work-carousel-target="images" style="padding-top: 50%;">
+    <% pictures.each_with_index do |picture, index| %>
+      <div class="image-item <%= index.zero? ? 'active' : '' %>" data-work-carousel-target="slide"
+        role="group" aria-roledescription="<%= t('work_carousel.slide') %>"
+        aria-label="<%= t('work_carousel.position', number: index + 1, total: pictures.size) %>" aria-hidden="<%= !index.zero? %>">
+        <img class="w-full h-auto" src="<%= picture.album_jpg.url %>" alt="<%= work.project_name %>" data-action="load->work-carousel#resize" />
+      </div>
+    <% end %>
+  </div>
+  <% if pictures.size > 1 %>
+    <button type="button" class="action-area action-left" data-action="work-carousel#previous" aria-label="<%= t('work_carousel.previous') %>">
+      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_left.svg') %>" alt="" />
+    </button>
+    <button type="button" class="action-area action-right" data-action="work-carousel#next" aria-label="<%= t('work_carousel.next') %>">
+      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_right.svg') %>" alt="" />
+    </button>
+  <% end %>
+</div>

@@ -1,5 +1,14 @@
 ---
 en:
+  work_carousel:
+    carousel: "carousel"
+    label: "%{project} project images"
+    slide: "slide"
+    position: "%{number} of %{total}"
+    previous: "Previous image"
+    next: "Next image"
+    pause: "Pause slideshow"
+    play: "Play slideshow"
   culture_slide: "Corporate culture slide %{number}"
   views:
     pagination:
@@ -197,6 +206,7 @@ en:
       content: "Through an office network spanning 19 major cities of China, TIANHUA provides full-process, seamless architectural design that is available nationwide. By integrating resources and collaborating with talent, TIANHUA achieves highly efficient cross-brand, cross-regional collaboration, offering consistent, high-quality professional consulting services to clients all around the country."
   services:
     building:
+      projects_link: "Explore TIANHUA projects"
       background_img: "static/images/building.jpg"
       background_img_webp: ""
       chinese_title: "建筑设计"

@@ -6,14 +6,14 @@ class ServicesController < ApplicationController
   def building
     @seo = Seo.find_by(seo_name: "建筑设计服务")
 
-    render "services", locals: {
+    render "building", locals: {
       background_img: t("services.building.background_img"),
       background_img_webp: t("services.building.background_img_webp"),
       chinese_title: t("services.building.chinese_title"),
       english_title: t("services.building.english_title"),
       ps: @service_file.building_intro.split("\n"),
       link_site_url: works_path,
-      link_site_title: "天华项目"
+      link_site_title: t("services.building.projects_link")
     }
   end
 

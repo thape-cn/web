@@ -1,5 +1,14 @@
 ---
 cn:
+  work_carousel:
+    carousel: "轮播"
+    label: "%{project}项目图片"
+    slide: "图片"
+    position: "第%{number}张，共%{total}张"
+    previous: "上一张图片"
+    next: "下一张图片"
+    pause: "暂停轮播"
+    play: "继续轮播"
   culture_slide: "企业文化图片 %{number}"
   views:
     pagination:
@@ -199,6 +208,7 @@ cn:
       content: "天华通过全国19个主要城市的办公网点，打造全过程、无缝对接的建筑设计全国化网络布局，通过资源整合和人才协作，达成跨品牌、跨地域的高效合作，为各地客户提供统一的、高品质的全专业咨询服务。"
   services:
     building:
+      projects_link: "查看天华项目"
       background_img: "static/images/building.jpg"
       background_img_webp: ""
       chinese_title: "建筑设计"

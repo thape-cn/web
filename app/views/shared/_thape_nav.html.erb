@@ -66,9 +66,10 @@ navCitiesByChinaArea = City.with_published_works
     </a>
   </div>
   <nav class="menu-nav show ml-auto" data-header-target="nav">
-    <div class="nav-item">
-      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>"><%= t('menu.about.text') -%></a>
-      <nav class="intro">
+    <div class="nav-item nav-disclosure" data-controller="nav-disclosure"
+      data-action="focusin->nav-disclosure#open focusout->nav-disclosure#blur mouseenter->nav-disclosure#open mouseleave->nav-disclosure#syncExpanded keydown->nav-disclosure#keydown">
+      <a href="<%= about_path -%>" class="<%= isAbout ? 'active' : '' -%>" id="about-nav-link" aria-controls="about-nav" aria-expanded="false" data-nav-disclosure-target="trigger"><%= t('menu.about.text') -%></a>
+      <nav class="intro" id="about-nav" aria-labelledby="about-nav-link" data-nav-disclosure-target="panel">
         <div class="nav-item">
           <a href="<%= about_path -%>" class="<%= isAboutShow ? 'active' : '' -%>"><%= t('menu.about.about') -%></a>
         </div>

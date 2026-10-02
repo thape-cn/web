@@ -43,3 +43,14 @@ RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
 The suite refuses other database settings. Each test starts its own temporary Chrome profile and removes it on teardown. Before navigation, a browser request interceptor permits only GET/HEAD requests to the local fixture server; the suite asserts zero SQL and no other browser requests. Neither the Rails server on port 3000 nor the Shakapacker development server is used.
 
 Mobile checks use 390×844 and 320×568 CSS pixel viewports, DPR 3, a mobile UA and touch gestures; desktop contact layout uses 1340px. The real contact, navigation, company address and cooperation form partials are rendered with fixed data. The document language comes only from `app/views/layouts/application.html.erb`; checks assert `cn` maps to `zh-CN`, English maps to `en`, mobile labels match the locale, and desktop labels remain bilingual. Coverage also includes internal menu/dialog scrolling, content/link clicks, backdrop/button/Escape dismissal, focus return, repeated opens, stacked locks, inline-style/scroll restoration, resize, controller disconnection, cache lifecycle events and document navigation. No form is submitted and no telephone, email or external link is activated. Simulated lifecycle events exercise cleanup without installing Turbo.
+
+Run the introduction-menu, work-carousel and architecture-page checks together with the existing suite:
+
+```sh
+RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
+  SHAKAPACKER_CONFIG=tmp/visual-quality/shakapacker.yml \
+  VISUAL_PUBLIC_ROOT=tmp/visual-quality/public HEADED=1 \
+  bundle exec ruby test/visual/experience_components_test.rb
+```
+
+These checks render the complete `works/show` and `services/building` templates through the real application layout. Work records and architecture prose are explicitly fixed test data. The work template's `wechat_config_js` helper is stubbed because signing can refresh remote tokens and write a ticket cache before the browser receives the page. No application request callback or database fixture runs. Coverage includes introduction links in Tab order, ArrowDown and Escape, real five-second automatic rotation, pause/resume, persistent focus pause, repeated manual controls, reduced-motion changes, touch, one-image galleries, disconnection, and Chinese/English architecture layouts at 320, 390, 1340 and 1440px with both `ts=sm` and `ts=big` cookie settings. Browser errors are recorded on failure.
