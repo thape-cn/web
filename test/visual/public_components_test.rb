@@ -34,7 +34,11 @@ class PublicComponentsTest < Minitest::Test
     app = lambda do |env|
       next [405, {}, []] unless %w[GET HEAD].include?(env["REQUEST_METHOD"])
       html = pages[env["PATH_INFO"]]
-      html ? [200, {"content-type" => "text/html; charset=utf-8"}, [html]] : static.call(env)
+      headers = {
+        "content-type" => "text/html; charset=utf-8",
+        "content-security-policy" => "default-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; form-action 'none'"
+      }
+      html ? [200, headers, [html]] : static.call(env)
     end
     Capybara.register_driver :public_visual do |rack_app|
       options = Selenium::WebDriver::Chrome::Options.new
@@ -265,6 +269,7 @@ class PublicComponentsTest < Minitest::Test
     controller.request = ActionDispatch::Request.new(Rack::MockRequest.env_for("/works/residential"))
     controller.response = ActionDispatch::Response.new
     controller.action_name = overlays ? "show" : "residential"
+    controller.instance_variable_set(:@seo, OpenStruct.new(home_title: "Public components — fixed samples", description: "Fixed samples", abstract: "Fixed samples", keywords: "Fixed samples"))
     view = controller.view_context
     cities = Object.new
     %i[where select order].each { |method| cities.define_singleton_method(method) { |*| self } }
@@ -279,18 +284,13 @@ class PublicComponentsTest < Minitest::Test
         end.join
         offices = render_offices(view)
         contacts = overlays ? render_contacts(view) : ""
-        <<~HTML
-          <!doctype html><html lang="#{locale}"><head><meta charset="utf-8">
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; form-action 'none'">
-          #{view.stylesheet_pack_tag("application")}
-          #{view.javascript_pack_tag("application", defer: true)}
-          <title>Public components — fixed samples</title></head><body class="font-sans">
+        sample = <<~HTML
           #{nav}<main style="min-height: 600px; padding: 32px 20px;">
           <p style="margin-bottom: 24px;">固定样本 · 真实导航、新闻卡片和页脚模板</p>
           <div class="flex-grid"><div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2">#{cards}</div></div>
-          </main>#{contacts}#{footer}#{offices}</body></html>
+          </main>#{contacts}#{offices}#{footer}
         HTML
+        view.render(inline: "<%= sample %>", locals: {sample: sample.html_safe}, layout: "layouts/application")
       end
     end
   end

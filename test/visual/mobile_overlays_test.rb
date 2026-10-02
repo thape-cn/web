@@ -7,9 +7,20 @@ class PublicComponentsTest
     %i[cn en].each do |locale|
       [320, 390, 1340].each do |width|
         visit_overlays(locale, width)
+        assert_equal((locale == :cn) ? "zh-CN" : "en", page.find("html", visible: :all)[:lang])
         methods = page.find(".contact-methods")
-        assert_equal 4, methods.all((width < 640 && locale == :en) ? "h2" : "h1").size
-        assert_equal 4, methods.all("h2").size if width >= 640
+        assert_equal((width < 640 && locale == :en) ? [] : %w[总机 市场热线 媒体 项目合作], methods.all("h1").map(&:text))
+        assert_equal((width < 640 && locale == :cn) ? [] : %w[SWITCHBOARD SERVICE MEDIA PROJECT], methods.all("h2").map(&:text))
+        assert_equal(locale == :en, methods.evaluate_script("this.matches(':lang(en)')"))
+        assert_equal(locale == :en, page.find(".thape-header").evaluate_script("this.matches(':lang(en)')"))
+        if width >= 640
+          assert_equal "absolute", methods.evaluate_script("getComputedStyle(this).position")
+          rows = methods.all(".contact-method")
+          rows.each_cons(2) do |left, right|
+            assert_operator left.rect.x + left.rect.width, :<=, right.rect.x + 1
+            assert_in_delta left.rect.width, right.rect.width, 1
+          end
+        end
         if locale == :en && width < 640
           methods.all("h2").each { |label| assert_in_delta label.evaluate_script("parseFloat(getComputedStyle(this).lineHeight)"), label.rect.height, 1 }
         end
@@ -20,6 +31,7 @@ class PublicComponentsTest
           end
         end
         assert_operator page.evaluate_script("document.documentElement.scrollWidth - innerWidth"), :<=, 1
+        @measurements << {locale: locale, width: width, language: page.find("html", visible: :all)[:lang], visible_labels: methods.all("h1, h2").map(&:text), overflow: methods.evaluate_script("this.scrollWidth - this.clientWidth")}
         page.execute_script("window.scrollTo(0, document.querySelector('#contact-sample').offsetTop)")
         settle
         page.save_screenshot(@output.join("contact-labels-#{locale}-#{width}.png")) # standard:disable Lint/Debugger
