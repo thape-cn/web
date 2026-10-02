@@ -1,0 +1,5 @@
+<section class="work-empty-state text-black6c" aria-labelledby="work-empty-title">
+  <h2 id="work-empty-title" class="<%= fdsz('text-lg', 'text-2xl') %>"><%= t('works.empty.title') %></h2>
+  <p class="mt-2 <%= fdsz('text-base', 'text-xl') %>"><%= t('works.empty.description') %></p>
+  <%= link_to t('works.empty.clear_filters'), @self_path, class: "#{fdsz('text-base', 'text-xl')} hover:bg-gray-100 focus:bg-gray-100" %>
+</section>

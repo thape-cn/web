@@ -380,6 +380,42 @@ p {
   @include reveal-hover-card;
 }
 
+.biz-map-intro {
+  min-width: 0;
+}
+
+.biz-map-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.25rem;
+
+  > h1 {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.work-empty-state {
+  padding: 4rem 1.5rem;
+  text-align: center;
+
+  p {
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.625rem 1.25rem;
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+  }
+}
+
 .footer-social {
   > a, .social-qr, .social-qr > button {
     display: flex;

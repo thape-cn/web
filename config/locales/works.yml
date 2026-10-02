@@ -1,0 +1,12 @@
+cn:
+  works:
+    empty:
+      title: 暂无匹配项目
+      description: 请调整筛选条件，或清除筛选后查看项目。
+      clear_filters: 清除筛选
+en:
+  works:
+    empty:
+      title: No matching projects
+      description: Try different filters, or clear them to view projects.
+      clear_filters: Clear filters

@@ -38,7 +38,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert_select "input[type=hidden][name=city][value=suzhou]"
     assert_select "a[href=?]", demonstration_zone_works_path(city: "suzhou")
     assert_select "a[href=?]", cultural_works_path(city: "suzhou")
-    assert_select "a[href=?]", works_path, text: "重置"
+    assert_select "a[href=?]", demonstration_zone_works_path, text: "重置"
     assert_select ".flex-grid a", count: 0
   end
 

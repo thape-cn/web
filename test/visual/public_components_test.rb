@@ -32,9 +32,10 @@ class PublicComponentsTest < Minitest::Test
     static = Rack::Files.new(public_root)
     pages = %i[cn en].flat_map { |locale| [["/#{locale}", render_sample(locale)], ["/overlays/#{locale}", render_sample(locale, overlays: true)]] }.to_h
     pages.merge!(experience_pages) if respond_to?(:experience_pages, true)
+    pages.merge!(listing_pages) if respond_to?(:listing_pages, true)
     app = lambda do |env|
       next [405, {}, []] unless %w[GET HEAD].include?(env["REQUEST_METHOD"])
-      html = pages[env["PATH_INFO"]]
+      html = pages["#{env["PATH_INFO"]}?#{env["QUERY_STRING"]}"] || pages[env["PATH_INFO"]]
       headers = {
         "content-type" => "text/html; charset=utf-8",
         "content-security-policy" => "default-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; form-action 'none'"

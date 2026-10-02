@@ -119,7 +119,7 @@ class WorksController < ApplicationController
   def medical_care
     @seo = Seo.find_by(seo_name: "医疗康养")
     @project_type = ProjectType.find_by cn_name: "医疗康养"
-    @self_path = education_works_path
+    @self_path = medical_care_works_path
     render_project_type
   end
 

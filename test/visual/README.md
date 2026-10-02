@@ -1,5 +1,16 @@
 # Public component browser checks
 
+The category-link, empty-result and full contact-page checks can be run with the entire suite:
+
+```sh
+RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
+  SHAKAPACKER_CONFIG=tmp/visual-quality/shakapacker.yml \
+  VISUAL_PUBLIC_ROOT=tmp/visual-quality/public HEADED=1 \
+  bundle exec ruby test/visual/listing_components_test.rb
+```
+
+These checks run all 17 category actions with fixed records, render all four real project-list templates and the complete contact template inside the application layout, and assert zero SQL. Empty results and paginated normal results remain distinct; reset links clear query parameters while retaining the category or city page. Contact headings are measured at 320, 390, 1340 and 1440px in Chinese/English, including actual Tt link clicks from small to large and back. No form is submitted. For only these new checks, append `--name '/test_(category_actions|listing_empty|biz_map_title)/'`.
+
 These Minitest checks render the real application layout, navigation, news card, footer and office address partials with fixed samples. They do not load `test_helper`, fixtures, or application request callbacks. The city navigation query is stubbed, SEO fields are fixed values, and every test asserts that rendering issued zero SQL queries. The browser serves only the sample documents and compiled assets on a temporary local port; a response-header CSP blocks external dependencies, inline analytics and form submission without replacing the production layout.
 
 From the repository root, build production assets into a separate directory without booting production Rails or replacing the running development server's packs:
