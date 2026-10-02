@@ -1,26 +1,31 @@
 import { Controller } from "stimulus";
+import { lockScroll, unlockScroll, isTopScrollLock } from "../helpers/scroll_lock";
 
 export default class extends Controller {
   static targets = ["panel"];
 
   open(event) {
+    if (!this.panelTarget.hidden) return;
     this.opener = event.currentTarget;
     this.panelTarget.hidden = false;
-    this.previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    this.panelTarget.querySelector("input:not([type=hidden]):not(:disabled), button:not(:disabled)").focus();
+    lockScroll(this, () => this.close(false));
+    this.panelTarget.querySelector("input:not([type=hidden]):not(:disabled), button:not(:disabled)").focus({preventScroll: true});
   }
 
-  close() {
-    if (this.panelTarget.hidden) return;
+  close(restoreFocus = true) {
+    const wasTop = isTopScrollLock(this);
     this.panelTarget.hidden = true;
-    document.body.style.overflow = this.previousOverflow;
-    if (this.opener) this.opener.focus();
+    unlockScroll(this);
+    if (restoreFocus && wasTop && this.opener?.isConnected) this.opener.focus({preventScroll: true});
   }
 
   keydown(event) {
-    if (this.panelTarget.hidden) return;
-    if (event.key === "Escape") this.close();
+    if (this.panelTarget.hidden || event.defaultPrevented || !isTopScrollLock(this)) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      this.close();
+      return;
+    }
     if (event.key !== "Tab") return;
 
     const focusable = Array.from(this.panelTarget.querySelectorAll("button, input, textarea, a[href], [tabindex='0']"))
@@ -37,6 +42,6 @@ export default class extends Controller {
   }
 
   disconnect() {
-    if (!this.panelTarget.hidden) document.body.style.overflow = this.previousOverflow;
+    this.close(false);
   }
 }

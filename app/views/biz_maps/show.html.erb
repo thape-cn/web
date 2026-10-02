@@ -10,36 +10,7 @@
     <source srcset="<%= asset_pack_path('static/images/contact.jpg') -%>" type="image/jpeg">
     <img src="<%= asset_pack_path('static/images/contact.jpg') -%>" class="w-full">
   </picture>
-  <div class="sm:absolute sm:bottom-0 sm:inset-x-0 w-full sm:flex sm:items-center bg-white opacity-75 py-6 mt-4 sm:mt-0">
-    <div class="w-full flex justify-center sm:justify-between items-center flex-wrap sm:flex-no-wrap px-4 sm:px-10 md:px-20 lg:px-32 xl:px-40 xxl:px-48 xxxl:px-56">
-      <div class="w-full sm:w-1/4 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1 sm:mb-0">
-        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%>">总机</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> xxl:pt-1 hidden sm:block">SWITCHBOARD</h2>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1"><a href="tel:021-34189900">021-34189900</a></p>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1"><a href="tel:021-64281588">021-64281588</a></p>
-      </div>
-      <div class="w-full sm:w-1/4 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1 sm:mb-0">
-        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%>">市场热线</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> xxl:pt-1 hidden sm:block">SERVICE</h2>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1"><a href="tel:400-8366606">400-8366606</a></p>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1"><a href="tel:021-64281588">021-64281588 转 1</a></p>
-      </div>
-      <div class="w-full sm:w-1/4 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1">
-        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%>">媒体</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> xxl:pt-1 hidden sm:block">MEDIA</h2>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1"><a href="mailto:thapepr@thape.com.cn?subject=来自官网">thapepr@thape.com.cn</a></p>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1">&nbsp;</p>
-      </div>
-      <div class="w-full sm:w-1/4 flex sm:block justify-between items-center px-2 sm:px-0 bg-thape-dark-gray sm:bg-transparent mb-1">
-        <h1 class="text-center <%= fdsz("text-base sm:text-2xl", "text-base sm:text-4xl") -%>">项目合作</h1>
-        <h2 class="text-center <%= fdsz("text-sm sm:text-lg", "text-sm sm:text-2xl") -%> xxl:pt-1 hidden sm:block">PROJECT</h2>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1">
-          <button type="button" class="inline-flex items-center justify-center py-1 px-4 bg-black6c border border-thape-copyright-gray <%= fdsz("text-sm") -%> rounded-full text-black bg-thape-white-t80 shadow-sm active:bg-black6c-t70 hover:bg-black6c hover:text-white focus:text-white transition duration-150 ease-in-out" data-action="modal#open" aria-haspopup="dialog" aria-controls="project-message-dialog"><%= t("project_message_form.popup_button") %></button>
-        </p>
-        <p class="text-center <%= fdsz("text-base sm:text-lg", "text-base sm:text-2xl") -%> pt-1">&nbsp;</p>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'biz_maps/contact_methods' %>
 
   <%= render partial: 'biz_maps/project_message_dialog' %>
 </div>

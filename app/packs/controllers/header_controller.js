@@ -1,4 +1,5 @@
 import { Controller } from "stimulus";
+import { lockScroll, unlockScroll, lockedScrollY, isTopScrollLock } from "../helpers/scroll_lock";
 
 export default class extends Controller {
     static targets = ['nav', 'form', 'formInput', 'formSubmit', 'formUnderline', 'formSwitch', 'asideMenu', 'mobileSearch'];
@@ -21,21 +22,54 @@ export default class extends Controller {
     }
 
     connect() {
+        this.desktop = window.matchMedia('(min-width: 1024px)');
+        this.desktop.addEventListener('change', this.closeOnDesktop);
+        document.addEventListener('keydown', this.closeOnEscape);
         if (!this.isActive) {
             document.addEventListener('scroll', this.setHeaderActive);
         }
     }
 
     disconnect() {
+        this.closeOverlays();
+        this.desktop.removeEventListener('change', this.closeOnDesktop);
+        document.removeEventListener('keydown', this.closeOnEscape);
+        if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
         if (!this.isActive) {
             document.removeEventListener('scroll', this.setHeaderActive);
         }
     }
 
     setHeaderActive = () => {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollTop = lockedScrollY();
         if (scrollTop > 200) this.element.classList.add('active');
         else this.element.classList.remove('active');
+    }
+
+    closeOnDesktop = () => {
+        if (this.desktop.matches) this.closeOverlays();
+    }
+
+    closeOnEscape = event => {
+        if (event.key !== 'Escape' || event.defaultPrevented || !isTopScrollLock(this)) return;
+        event.preventDefault();
+        this.closeOverlays();
+    }
+
+    closeOverlays = () => {
+        if (this.hasAsideMenuTarget) this.asideMenuTarget.classList.remove('show');
+        if (this.hasMobileSearchTarget) this.mobileSearchTarget.classList.remove('show');
+        this.updateScrollLock();
+    }
+
+    updateScrollLock = () => {
+        const menuOpen = this.hasAsideMenuTarget && this.asideMenuTarget.classList.contains('show');
+        const searchOpen = this.hasMobileSearchTarget && this.mobileSearchTarget.classList.contains('show');
+        this.element.classList.toggle('mobile-overlay-open', menuOpen || searchOpen);
+        const button = this.element.querySelector('.aside-menu-button');
+        if (button) button.setAttribute('aria-expanded', String(menuOpen));
+        if (menuOpen || searchOpen) lockScroll(this, this.closeOverlays);
+        else unlockScroll(this);
     }
 
     // 手机端菜单栏切换显隐
@@ -58,6 +92,7 @@ export default class extends Controller {
         if (this.hasAsideMenuTarget) {
             if (this.asideMenuTarget.classList.contains('show')) this.asideMenuTarget.classList.remove('show');
         }
+        this.updateScrollLock();
     }
 
     showForm = event => {
@@ -147,17 +182,21 @@ export default class extends Controller {
         if (this.hasMobileSearchTarget) {
             if (this.mobileSearchTarget.classList.contains('show')) this.mobileSearchTarget.classList.remove('show');
         }
+        this.updateScrollLock();
     }
 
     menuItemClick = event => {
         const e = event || window.event;
         e.stopPropagation();
-        if (e.target.tagName.toLowerCase() === 'a') {
-            const parent = e.target.parentElement;
+        const link = e.target.closest('a');
+        if (link) {
+            const parent = link.parentElement;
             if (parent) {
                 const asideMenuChildren = parent.querySelector('.aside-menu-children');
                 if (asideMenuChildren) {
                     asideMenuChildren.classList.contains('hidden') ? asideMenuChildren.classList.remove('hidden') : asideMenuChildren.classList.add('hidden');
+                } else {
+                    this.closeOverlays();
                 }
             }
         }

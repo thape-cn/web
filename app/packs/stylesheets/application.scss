@@ -169,6 +169,55 @@ p {
   text-align: justify;
 }
 
+@media (max-width: 639px) {
+  .contact-methods .contact-method {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: .5rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+
+    h1, h2 {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+
+    h2, .contact-spacer { display: none; }
+    &:lang(en) h1 { display: none; }
+    &:lang(en) h2 { display: block; }
+
+    p {
+      grid-column: 2;
+      min-width: 0;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+.company-panel-content {
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+
+.company-panel-toolbar {
+  position: sticky;
+  top: -1rem;
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+  z-index: 1;
+}
+
+.company-panel-close {
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+  line-height: 1;
+}
+
 @keyframes animation-to-white {
   0% {
     background-color: initial;

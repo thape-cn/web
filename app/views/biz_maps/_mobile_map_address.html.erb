@@ -1,5 +1,8 @@
-<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center px-4" style="z-index: 9999;" hidden data-biz-map-target="companyPanel" data-company="<%= c %>" data-action="click->biz-map#closeCompany">
-  <div class="w-full max-h-full p-4 bg-white rounded-md shadow-md overflow-auto">
+<div class="mobile-company-panel fixed inset-0 bg-black bg-opacity-50 flex items-center px-4" style="z-index: 9999;" hidden data-biz-map-target="companyPanel" data-company="<%= c %>" data-action="click->biz-map#dismissCompany" role="dialog" aria-modal="true" aria-label="<%= marks.first&.long_name %>">
+  <div class="company-panel-content relative w-full max-h-full p-4 bg-white rounded-md shadow-md overflow-auto">
+    <div class="company-panel-toolbar">
+      <button type="button" class="company-panel-close" data-action="biz-map#closeCompany" aria-label="<%= t('project_message_form.close') %>">&times;</button>
+    </div>
     <% marks.each do |m| %>
       <h1 class="font-medium pb-1 <%= fdsz('text-xl') -%> leading-normal"><%= m.long_name -%></h1>
       <% if m.alt_name.present? %>

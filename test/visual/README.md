@@ -30,3 +30,16 @@ RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
 ```
 
 Chrome is required. Set `HEADED=1` for a visible desktop window and optionally `CHROMEDRIVER` to an installed compatible driver. The default is headless Chrome. Screenshots and measured viewport, contrast, line-wrap, icon-position and office-column evidence are written to `tmp/visual-quality/`. Test screenshots are explicitly labeled as fixed samples, not live content. Coverage includes Chinese/English navigation states, 390–1440px layouts, whole number/word wrapping, long-token fallback, QR hover/keyboard focus, all seven service links in native Tab order, ArrowDown entry, Escape dismissal/focus return (including while hovered), and responsive office gutters. Office overflow checks are scoped to the office section and its cards.
+
+Run the mobile overlay checks and all the checks above together:
+
+```sh
+RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
+  SHAKAPACKER_CONFIG=tmp/visual-quality/shakapacker.yml \
+  VISUAL_PUBLIC_ROOT=tmp/visual-quality/public HEADED=1 \
+  bundle exec ruby test/visual/mobile_overlays_test.rb
+```
+
+The suite refuses other database settings. Each test starts its own temporary Chrome profile and removes it on teardown. Before navigation, a browser request interceptor permits only GET/HEAD requests to the local fixture server; the suite asserts zero SQL and no other browser requests. Neither the Rails server on port 3000 nor the Shakapacker development server is used.
+
+Mobile checks use 390×844 and 320×568 CSS pixel viewports, DPR 3, a mobile UA and touch gestures; desktop contact layout uses 1340px. The real contact, navigation, company address and cooperation form partials are rendered with fixed data. Coverage includes bilingual labels, internal menu/dialog scrolling, content/link clicks, backdrop/button/Escape dismissal, focus return, repeated opens, stacked locks, inline-style/scroll restoration, resize, controller disconnection, cache lifecycle events and document navigation. No form is submitted and no telephone, email or external link is activated. Simulated lifecycle events exercise cleanup without installing Turbo.

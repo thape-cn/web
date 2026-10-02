@@ -2,12 +2,15 @@
 
 # Standalone, fixture-free browser checks. See test/visual/README.md.
 ENV["RAILS_ENV"] ||= "test"
+raise "Use the isolated in-memory database" unless ENV["RAILS_ENV"] == "test" && ENV["DATABASE_URL"] == "sqlite3::memory:"
 require_relative "../../config/environment"
 require "minitest/autorun"
 require "minitest/mock"
 require "capybara/minitest"
 require "selenium-webdriver"
 require "ostruct"
+require "net/http"
+require "tmpdir"
 
 class PublicComponentsTest < Minitest::Test
   include Capybara::Minitest::Assertions
@@ -27,7 +30,7 @@ class PublicComponentsTest < Minitest::Test
     @subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") { |*event| @sql << event.last[:sql] }
     public_root = ENV.fetch("VISUAL_PUBLIC_ROOT", Rails.root.join("public").to_s)
     static = Rack::Files.new(public_root)
-    pages = %i[cn en].to_h { |locale| ["/#{locale}", render_sample(locale)] }
+    pages = %i[cn en].flat_map { |locale| [["/#{locale}", render_sample(locale)], ["/overlays/#{locale}", render_sample(locale, overlays: true)]] }.to_h
     app = lambda do |env|
       next [405, {}, []] unless %w[GET HEAD].include?(env["REQUEST_METHOD"])
       html = pages[env["PATH_INFO"]]
@@ -38,18 +41,30 @@ class PublicComponentsTest < Minitest::Test
       options.add_argument("--headless=new") unless ENV["HEADED"] == "1"
       options.add_argument("--window-size=1440,1100")
       options.add_argument("--disable-background-networking")
+      @profile = Dir.mktmpdir("thape-visual-chrome-")
+      options.add_argument("--user-data-dir=#{@profile}")
       service = ENV["CHROMEDRIVER"] && Selenium::WebDriver::Chrome::Service.new(path: ENV.fetch("CHROMEDRIVER"))
       Capybara::Selenium::Driver.new(rack_app, browser: :chrome, options: options, service: service)
     end
     Capybara.server = :puma, {Silent: true}
     @page = Capybara::Session.new(:public_visual, app)
+    guard_browser_requests
   end
 
   def teardown
+    unless passed?
+      page.save_screenshot(@output.join("#{name}-failure.png")) # standard:disable Lint/Debugger
+      @measurements << page.evaluate_script(<<~JS)
+        ({width: innerWidth, height: innerHeight, scrollY, elements: [...document.querySelectorAll('body, .aside-menu, .aside-menu-container, .mobile-company-panel, .company-panel-content')].map(e => ({class: e.className, rect: e.getBoundingClientRect().toJSON(), scrollHeight: e.scrollHeight, clientHeight: e.clientHeight, position: getComputedStyle(e).position, overflow: getComputedStyle(e).overflow, maxHeight: getComputedStyle(e).maxHeight, display: getComputedStyle(e).display}))})
+      JS
+    end
     assert_empty @sql, "Component rendering must not query a database"
-    File.write(@output.join("#{name}.json"), JSON.pretty_generate({sql_queries: @sql, measurements: @measurements}))
+    assert_empty @requests.reject { |request| request[:allowed] }, "Browser must only request local GET/HEAD resources"
+    File.write(@output.join("#{name}.json"), JSON.pretty_generate({sql_queries: @sql, measurements: @measurements, requests: @requests}))
     ActiveSupport::Notifications.unsubscribe(@subscriber)
     page&.driver&.quit
+    @socket&.close
+    FileUtils.remove_entry(@profile) if @profile && File.directory?(@profile)
   end
 
   attr_reader :page
@@ -245,11 +260,11 @@ class PublicComponentsTest < Minitest::Test
     1.05 / (channels.zip([0.2126, 0.7152, 0.0722]).sum { |channel, weight| channel * weight } + 0.05)
   end
 
-  def render_sample(locale)
-    controller = WorksController.new
+  def render_sample(locale, overlays: false)
+    controller = overlays ? HomeController.new : WorksController.new
     controller.request = ActionDispatch::Request.new(Rack::MockRequest.env_for("/works/residential"))
     controller.response = ActionDispatch::Response.new
-    controller.action_name = "residential"
+    controller.action_name = overlays ? "show" : "residential"
     view = controller.view_context
     cities = Object.new
     %i[where select order].each { |method| cities.define_singleton_method(method) { |*| self } }
@@ -263,6 +278,7 @@ class PublicComponentsTest < Minitest::Test
           view.render(partial: "news/news_square", locals: {info: info, news_class: "relative overflow-hidden hover-scale"})
         end.join
         offices = render_offices(view)
+        contacts = overlays ? render_contacts(view) : ""
         <<~HTML
           <!doctype html><html lang="#{locale}"><head><meta charset="utf-8">
           <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -273,7 +289,7 @@ class PublicComponentsTest < Minitest::Test
           #{nav}<main style="min-height: 600px; padding: 32px 20px;">
           <p style="margin-bottom: 24px;">固定样本 · 真实导航、新闻卡片和页脚模板</p>
           <div class="flex-grid"><div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2">#{cards}</div></div>
-          </main>#{footer}#{offices}</body></html>
+          </main>#{contacts}#{footer}#{offices}</body></html>
         HTML
       end
     end
@@ -286,16 +302,48 @@ class PublicComponentsTest < Minitest::Test
       address: [I18n.t("map.contact-shanghai-address-1"), I18n.t("map.contact-shanghai-address-2")].join("|||"),
       tel: "021-00000000"
     )
-    aico = OpenStruct.new(long_name: "AICO", address: "Fixed sample address", website_name: "long-domain-" * 12, website_url: "https://example.test/")
+    aico = OpenStruct.new(long_name: "AICO", address: "Fixed sample address", website_name: "long-domain-" * 12, website_url: "#company-website")
     city = view.render(partial: "biz_maps/city_mini", locals: {c: "上海", dc: "上海", e: "SHANGHAI"})
     panel = view.render(partial: "biz_maps/city_div", locals: {c: "上海", e: "SHANGHAI", ms: [shanghai, aico]})
+    company = view.render(partial: "biz_maps/mobile_map_address", locals: {c: "sample", marks: [shanghai, aico] * 4})
     <<~HTML
       <section id="office-sample" data-controller="biz-map" class="px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
         <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
           <p>固定样本 · 真实机构模板（含超长网址压力样本）</p>
           #{city}#{panel}
+          <button type="button" data-biz-map-target="company" data-city="上海" data-company="sample" data-active-class="bg-gray-100" data-inactive-class="bg-gray-50" data-action="biz-map#selectCompany">固定样本 · 公司详情 / Company details</button>
+          <div class="block xl:hidden">#{company}</div>
         </div>
       </section>
     HTML
+  end
+
+  def render_contacts(view)
+    <<~HTML
+      <section id="contact-sample" class="relative" data-controller="modal" data-action="keydown@window->modal#keydown">
+        <p>固定样本 · 真实联系方式及合作弹窗 / Fixed samples</p>
+        #{view.image_pack_tag("images/contact.jpg", class: "w-full")}
+        #{view.render(partial: "biz_maps/contact_methods")}
+        #{view.render(partial: "biz_maps/project_message_dialog")}
+      </section>
+    HTML
+  end
+
+  def guard_browser_requests
+    browser = page.driver.browser
+    address = browser.capabilities["goog:chromeOptions"]["debuggerAddress"]
+    target = JSON.parse(Net::HTTP.get(URI("http://#{address}/json/list"))).find { |item| item["type"] == "page" }
+    @socket = Selenium::WebDriver::WebSocketConnection.new(url: target.fetch("webSocketDebuggerUrl"))
+    @requests = []
+    @socket.add_callback("Fetch.requestPaused") do |event|
+      request = event.fetch("request")
+      uri = URI(request.fetch("url"))
+      allowed = %w[GET HEAD].include?(request["method"]) && %w[127.0.0.1 localhost].include?(uri.host)
+      @requests << {method: request["method"], host: uri.host, allowed: allowed}
+      params = {requestId: event["requestId"]}
+      params[:errorReason] = "BlockedByClient" unless allowed
+      @socket.send_cmd(method: allowed ? "Fetch.continueRequest" : "Fetch.failRequest", params: params)
+    end
+    @socket.send_cmd(method: "Fetch.enable", params: {patterns: [{urlPattern: "*", requestStage: "Request"}]})
   end
 end

@@ -292,7 +292,7 @@ navCitiesByChinaArea = City.with_published_works
         <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
       </svg>
     </button>
-    <button type="button" class="aside-menu-button" data-action="click->header#toggleAsideMenu">
+    <button type="button" class="aside-menu-button" data-action="click->header#toggleAsideMenu" aria-expanded="false" aria-controls="mobile-navigation" aria-label="<%= isEnglish ? 'Navigation' : '导航' %>">
       <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -308,7 +308,7 @@ navCitiesByChinaArea = City.with_published_works
     </form>
   </div>
 
-  <div class="aside-menu" data-header-target="asideMenu" data-action="click->header#toggleAsideMenu">
+  <div id="mobile-navigation" class="aside-menu" data-header-target="asideMenu" data-action="click->header#toggleAsideMenu">
     <div class="aside-menu-container" data-action="click->header#menuItemClick">
       <div class="aside-menu-item">
         <a href="javascript:void(0);" rel="nofollow ugc"><%= t('menu.about.text') -%></a>

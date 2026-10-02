@@ -10,6 +10,8 @@
 
 .thape-header-fixed {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
 }
 
@@ -207,7 +209,7 @@
     }
   }
 
-  &:hover, &:focus-within, &.active {
+  &:hover, &:focus-within, &.active, &.mobile-overlay-open {
     @apply text-thape-bg-gray nav-background-white;
 
     nav {
@@ -305,12 +307,14 @@
       outline: none;
     }
   }
-  &.active .aside-menu-button, &:hover .aside-menu-button {
+  &.active .aside-menu-button, &:hover .aside-menu-button, &.mobile-overlay-open .aside-menu-button {
     @apply text-gray-400;
   }
 
   .mobile-search {
     display: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     &.show {
       display: block;
       @screen lg {
@@ -326,6 +330,9 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background-color: transparent;
 
     &.show {
