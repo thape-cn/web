@@ -62,8 +62,13 @@
         }
       }
 
-      &:hover>nav {
+      &:hover>nav,
+      &.nav-disclosure:focus-within:not(.nav-dismissed)>nav {
         display: flex;
+      }
+
+      &.nav-dismissed>nav {
+        display: none;
       }
     }
 
@@ -202,7 +207,7 @@
     }
   }
 
-  &:hover, &.active {
+  &:hover, &:focus-within, &.active {
     @apply text-thape-bg-gray nav-background-white;
 
     nav {

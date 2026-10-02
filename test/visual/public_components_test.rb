@@ -120,6 +120,100 @@ class PublicComponentsTest < Minitest::Test
     end
   end
 
+  def test_service_links_are_reachable_by_keyboard_and_dismiss_with_escape
+    %i[cn en].each do |locale|
+      [1340, 1024].each do |width|
+        visit_sample(locale, width)
+        page.find("main").hover
+        trigger = page.find("#service-nav-link")
+        assert_equal "/building", URI(trigger[:href]).path
+        assert_no_selector "#service-nav"
+        page.find(".menu-nav > .nav-item > a.active").send_keys(:tab)
+        assert_selector "#service-nav-link:focus[aria-expanded='true']"
+        assert_selector "#service-nav"
+        links = page.all("#service-nav a")
+        assert_equal 7, links.size
+        assert_no_selector "#service-nav [role='menuitem']"
+        trigger.send_keys(:tab)
+        links.each_with_index do |link, index|
+          assert link.evaluate_script("this === document.activeElement"), "Tab should reach service link #{index + 1}"
+          link.send_keys(:tab)
+        end
+        assert_selector ".menu-nav > .nav-item > a[href='/news']:focus"
+        assert_selector "#service-nav-link[aria-expanded='false']"
+        assert_no_selector "#service-nav"
+
+        page.find(".menu-nav > .nav-item > a[href='/news']").send_keys([:shift, :tab])
+        assert_selector "#service-nav-link:focus"
+        trigger.send_keys(:arrow_down)
+        assert links.first.evaluate_script("this === document.activeElement")
+        if width == 1340
+          page.save_screenshot(@output.join("service-keyboard-#{locale}.png")) # standard:disable Lint/Debugger
+        end
+        links.first.send_keys([:shift, :tab])
+        assert_selector "#service-nav-link:focus"
+        trigger.send_keys(:arrow_down)
+        links.first.send_keys(:escape)
+        assert_selector "#service-nav-link:focus[aria-expanded='false']"
+        assert_no_selector "#service-nav"
+        trigger.send_keys(:tab)
+        assert_selector ".menu-nav > .nav-item > a[href='/news']:focus"
+
+        trigger.hover
+        assert_selector "#service-nav"
+        assert_selector "#service-nav-link[aria-expanded='true']"
+        trigger.send_keys(:arrow_down)
+        links.first.send_keys(:escape)
+        assert_no_selector "#service-nav"
+        trigger.send_keys(:tab)
+        page.find("main").hover
+        assert_no_selector "#service-nav"
+        assert_selector "#service-nav-link[aria-expanded='false']"
+        trigger.hover
+        assert_selector "#service-nav"
+        page.find("main").hover
+        assert_no_selector "#service-nav"
+        @measurements << {locale: locale, width: width, reachable_service_links: links.size}
+      end
+    end
+  end
+
+  def test_offices_have_a_gutter_and_wrap_inside_each_column
+    %i[cn en].each do |locale|
+      [1340, 1024, 768, 390].each do |width|
+        visit_sample(locale, width)
+        page.find("#office-sample [data-biz-map-target='city']").click
+        cards = page.all("#office-sample .office-addresses > div")
+        assert_equal 2, cards.size
+        left, right = cards.map(&:rect)
+        if width >= 1024
+          assert_in_delta left.y, right.y, 0.5
+          gutter = right.x - (left.x + left.width)
+          assert_in_delta 48, gutter, 0.5
+          assert_in_delta left.width, right.width, 0.5
+          if locale == :en
+            title = cards.first.find("h1", match: :first)
+            assert_operator title.rect.height, :>, title.evaluate_script("parseFloat(getComputedStyle(this).lineHeight)")
+          end
+        else
+          assert_in_delta left.x, right.x, 0.5
+          assert_operator right.y, :>=, left.y + left.height
+          gutter = 0
+        end
+        cards.each do |card|
+          assert_operator card.evaluate_script("this.scrollWidth - this.clientWidth"), :<=, 1
+        end
+        section = page.find("#office-sample")
+        assert_operator section.evaluate_script("this.scrollWidth - this.clientWidth"), :<=, 1
+        @measurements << {locale: locale, width: width, gutter: gutter, card_widths: cards.map { |card| card.rect.width }, overflow: section.evaluate_script("this.scrollWidth - this.clientWidth")}
+        if [1340, 390].include?(width)
+          page.scroll_to(page.find("#office-sample"), align: :center)
+          page.find("#office-sample").native.save_screenshot(@output.join("offices-#{locale}-#{width}.png"))
+        end
+      end
+    end
+  end
+
   private
 
   def visit_sample(locale, width)
@@ -168,6 +262,7 @@ class PublicComponentsTest < Minitest::Test
           info = OpenStruct.new(id: index + 1, title: title, created_at: Time.utc(2026, 1, 1), snapshot: OpenStruct.new(url: view.asset_pack_path("static/images/residential-1.jpg")))
           view.render(partial: "news/news_square", locals: {info: info, news_class: "relative overflow-hidden hover-scale"})
         end.join
+        offices = render_offices(view)
         <<~HTML
           <!doctype html><html lang="#{locale}"><head><meta charset="utf-8">
           <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -178,9 +273,29 @@ class PublicComponentsTest < Minitest::Test
           #{nav}<main style="min-height: 600px; padding: 32px 20px;">
           <p style="margin-bottom: 24px;">固定样本 · 真实导航、新闻卡片和页脚模板</p>
           <div class="flex-grid"><div class="flex-grid-box flex-grid-cols-2-gap-1 sm:flex-grid-cols-2-gap-2 md:flex-grid-cols-3-gap-2 lg:flex-grid-cols-4-gap-2">#{cards}</div></div>
-          </main>#{footer}</body></html>
+          </main>#{footer}#{offices}</body></html>
         HTML
       end
     end
+  end
+
+  def render_offices(view)
+    view.lookup_context.prefixes.unshift("biz_maps")
+    shanghai = OpenStruct.new(
+      long_name: I18n.t("map.contact-shanghai-name"),
+      address: [I18n.t("map.contact-shanghai-address-1"), I18n.t("map.contact-shanghai-address-2")].join("|||"),
+      tel: "021-00000000"
+    )
+    aico = OpenStruct.new(long_name: "AICO", address: "Fixed sample address", website_name: "long-domain-" * 12, website_url: "https://example.test/")
+    city = view.render(partial: "biz_maps/city_mini", locals: {c: "上海", dc: "上海", e: "SHANGHAI"})
+    panel = view.render(partial: "biz_maps/city_div", locals: {c: "上海", e: "SHANGHAI", ms: [shanghai, aico]})
+    <<~HTML
+      <section id="office-sample" data-controller="biz-map" class="px-4 sm:px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16">
+        <div class="px-0 py-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 xxl:px-36">
+          <p>固定样本 · 真实机构模板（含超长网址压力样本）</p>
+          #{city}#{panel}
+        </div>
+      </section>
+    HTML
   end
 end

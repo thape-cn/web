@@ -160,9 +160,10 @@ navCitiesByChinaArea = City.with_published_works
       </nav>
     </div>
     <div class="nav-point">·</div>
-    <div class="nav-item">
-      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>"><%= t('menu.service.text') -%></a>
-      <nav class="service">
+    <div class="nav-item nav-disclosure" data-controller="nav-disclosure"
+      data-action="focusin->nav-disclosure#open focusout->nav-disclosure#blur mouseenter->nav-disclosure#open mouseleave->nav-disclosure#syncExpanded keydown->nav-disclosure#keydown">
+      <a href="<%= building_path -%>" class="<%= isServices ? 'active' : '' -%>" id="service-nav-link" aria-controls="service-nav" aria-expanded="false" data-nav-disclosure-target="trigger"><%= t('menu.service.text') -%></a>
+      <nav class="service" id="service-nav" aria-labelledby="service-nav-link" data-nav-disclosure-target="panel">
         <div class="nav-item">
           <a href="<%= building_path -%>" class="<%= isBuilding ? 'active' : '' -%>"><%= t('menu.service.architecture') -%></a>
         </div>

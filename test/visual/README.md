@@ -1,6 +1,6 @@
 # Public component browser checks
 
-These Minitest checks render the real navigation, news card and footer partials with fixed samples. They do not load `test_helper`, fixtures, or application request callbacks. The city navigation query is stubbed and every test asserts that rendering issued zero SQL queries. The browser serves only the sample documents and compiled assets on a temporary local port; CSP blocks external dependencies and form submission.
+These Minitest checks render the real navigation, news card, footer and office address partials with fixed samples. They do not load `test_helper`, fixtures, or application request callbacks. The city navigation query is stubbed and every test asserts that rendering issued zero SQL queries. The browser serves only the sample documents and compiled assets on a temporary local port; CSP blocks external dependencies and form submission.
 
 From the repository root, build production assets into a separate directory without booting production Rails or replacing the running development server's packs:
 
@@ -29,4 +29,4 @@ RAILS_ENV=test DATABASE_URL='sqlite3::memory:' \
   bundle exec ruby test/visual/public_components_test.rb
 ```
 
-Chrome is required. Set `HEADED=1` for a visible desktop window and optionally `CHROMEDRIVER` to an installed compatible driver. The default is headless Chrome. Screenshots and measured viewport, contrast, line-wrap and icon-position evidence are written to `tmp/visual-quality/`. Test screenshots are explicitly labeled as fixed samples, not live content. Coverage includes Chinese/English navigation states, 390–1440px layouts, whole number/word wrapping, long-token fallback, and QR hover/keyboard focus.
+Chrome is required. Set `HEADED=1` for a visible desktop window and optionally `CHROMEDRIVER` to an installed compatible driver. The default is headless Chrome. Screenshots and measured viewport, contrast, line-wrap, icon-position and office-column evidence are written to `tmp/visual-quality/`. Test screenshots are explicitly labeled as fixed samples, not live content. Coverage includes Chinese/English navigation states, 390–1440px layouts, whole number/word wrapping, long-token fallback, QR hover/keyboard focus, all seven service links in native Tab order, ArrowDown entry, Escape dismissal/focus return (including while hovered), and responsive office gutters. Office overflow checks are scoped to the office section and its cards.

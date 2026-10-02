@@ -9,7 +9,7 @@
       <span class="font-medium hover:text-black6c-t70"><%= e -%></span>
     </h2>
   </header>
-  <div class="flex flex-wrap">
+  <div class="office-addresses grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12">
     <% ms.each do |m| %>
       <%= render partial: 'office_address', locals: { m: m } %>
     <% end %>
