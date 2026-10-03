@@ -777,15 +777,27 @@
       },
       "residential_residence_jpg": {
         "type": "file_field",
-        "label": "居住分类－精品住宅图片"
+        "label": "居住分类－精品住宅图片 JPG 格式"
+      },
+      "residential_residence_webp": {
+        "type": "file_field",
+        "label": "居住分类－精品住宅图片 WebP 格式"
       },
       "residential_community_jpg": {
         "type": "file_field",
-        "label": "居住分类－综合社区图片"
+        "label": "居住分类－综合社区图片 JPG 格式"
+      },
+      "residential_community_webp": {
+        "type": "file_field",
+        "label": "居住分类－综合社区图片 WebP 格式"
       },
       "residential_rental_jpg": {
         "type": "file_field",
-        "label": "居住分类－租赁住房图片"
+        "label": "居住分类－租赁住房图片 JPG 格式"
+      },
+      "residential_rental_webp": {
+        "type": "file_field",
+        "label": "居住分类－租赁住房图片 WebP 格式"
       },
       "demonstration_zone_jpg": {
         "type": "file_field",

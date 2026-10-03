@@ -4,8 +4,11 @@ class WorkTypePage < ApplicationRecord
   mount_uploader :resdential_jpg, PictureUploader
   mount_uploader :resdential_webp, PictureUploader
   mount_uploader :residential_residence_jpg, PictureUploader
+  mount_uploader :residential_residence_webp, PictureUploader
   mount_uploader :residential_community_jpg, PictureUploader
+  mount_uploader :residential_community_webp, PictureUploader
   mount_uploader :residential_rental_jpg, PictureUploader
+  mount_uploader :residential_rental_webp, PictureUploader
   mount_uploader :demonstration_zone_jpg, PictureUploader
   mount_uploader :demonstration_zone_webp, PictureUploader
   mount_uploader :mixed_used_tod_jpg, PictureUploader

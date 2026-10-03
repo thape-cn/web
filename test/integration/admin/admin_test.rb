@@ -221,23 +221,46 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
 
     get path(resource, :edit)
     assert_response :success
-    assert_select 'input[type="file"][name="work_type_page[residential_residence_jpg]"]'
-    assert_select 'input[type="file"][name="work_type_page[residential_community_jpg]"]'
-    assert_select 'input[type="file"][name="work_type_page[residential_rental_jpg]"]'
+    paired_fields = %w[resdential residential_residence residential_community residential_rental demonstration_zone].flat_map do |category|
+      %w[jpg webp].map { |format| "work_type_page[#{category}_#{format}]" }
+    end
+    assert_equal paired_fields, css_select('.admin-fields input[type="file"]').first(10).map { |input| input["name"] }
 
     patch path(resource, :update), params: {
       work_type_page: {
         residential_residence_jpg: upload("residence.jpg", "image/jpeg"),
+        residential_residence_webp: upload("residence.webp", "image/webp"),
         residential_community_jpg: upload("community.jpg", "image/jpeg"),
-        residential_rental_jpg: upload("rental.jpg", "image/jpeg")
+        residential_community_webp: upload("community.webp", "image/webp"),
+        residential_rental_jpg: upload("rental.jpg", "image/jpeg"),
+        residential_rental_webp: upload("rental.webp", "image/webp")
       }
     }
 
     assert_response :redirect
     page = WorkTypePage.first
-    assert page.residential_residence_jpg.present?
-    assert page.residential_community_jpg.present?
-    assert page.residential_rental_jpg.present?
+    %w[residence community rental].each do |category|
+      %w[jpg webp].each do |format|
+        uploader = page.public_send("residential_#{category}_#{format}")
+        assert_equal "#{category}.#{format}", uploader.identifier
+        assert File.exist?(uploader.path)
+      end
+    end
+
+    get path(resource, :edit)
+    %w[residence community rental].each do |category|
+      assert_select "input[type='checkbox'][name='work_type_page[remove_residential_#{category}_webp]']"
+    end
+
+    patch path(resource, :update), params: {
+      work_type_page: %w[residence community rental].to_h { |category| ["remove_residential_#{category}_webp", "1"] }
+    }
+    assert_response :redirect
+    page.reload
+    %w[residence community rental].each do |category|
+      assert_not page.public_send("residential_#{category}_webp").present?
+      assert page.public_send("residential_#{category}_jpg").present?
+    end
   end
 
   test "unpublished works are editable only through admin and translations stay separate" do

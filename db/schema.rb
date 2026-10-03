@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_03_000000) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_03_000001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -543,6 +543,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_03_000000) do
     t.text "residential_residence_jpg"
     t.text "residential_community_jpg"
     t.text "residential_rental_jpg"
+    t.text "residential_residence_webp"
+    t.text "residential_community_webp"
+    t.text "residential_rental_webp"
   end
 
   create_table "works", id: :bigint, default: nil, force: :cascade do |t|
