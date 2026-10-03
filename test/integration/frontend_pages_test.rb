@@ -3,6 +3,20 @@
 require "test_helper"
 
 class FrontendPagesTest < ActionDispatch::IntegrationTest
+  test "the current about page renders in both languages without legacy about tables" do
+    %i[cn en].each do |locale|
+      intro = "Current About introduction (#{locale})"
+      about = I18n.with_locale(locale) { AboutPage.new(thape_intro: intro) }
+      AboutPage.stub(:first, about) { get about_path, params: {locale: locale} }
+      assert_response :success
+      assert_select "p", text: intro, minimum: 1
+
+      get "/about-us", params: {locale: locale}
+      assert_response :moved_permanently
+      assert_equal "/about", URI(response.location).path
+    end
+  end
+
   test "interactive pages render without loading Alpine or leaving directives behind" do
     about = I18n.with_locale(:en) { AboutPage.new(thape_intro: "About test") }
     I18n.with_locale(:en) { Publication.create!(title: "Test publication") }

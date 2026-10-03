@@ -1,8 +1,10 @@
 # Admin maintenance
 
-Open `/admin` (or `/admin/login`) and sign in with an existing old_web administrator email and password. This port reads the existing `users` table and BCrypt password digests. Deploy against the same primary content database previously maintained by old_web; no content import, database migration, or password reset is included.
+Open `/admin` (or `/admin/login`) and sign in with an existing old_web administrator email and password. This port reads the existing `users` table and BCrypt password digests. Deploy against the same primary content database previously maintained by old_web; no content import or password reset is needed.
 
-All 20 legacy sections are available: old homepage/about, people, classic cases, news, SEO, branch contacts, administrators, current works/homepage/about/work category pages, professional services, cities, image hosting, guest messages, project enquiries, portfolios, publications, and internal journals. Existing route names, including the legacy `destory_picture` and `destory_city_people` spellings, are retained.
+There are 18 maintenance sections: people, classic cases, news, SEO, branch contacts, administrators, current works/homepage/about/work category pages, professional services, cities, image hosting, guest messages, project enquiries, portfolios, publications, and internal journals. Existing route names, including the legacy `destory_picture` and `destory_city_people` spellings, are retained.
+
+The unused legacy Home and About editors (`/admin/home/:id/edit` and `/admin/about/:id/edit`) and their `homes`, `abouts` and `about_translations` tables have been removed. Run `bin/rails db:migrate` when deploying this removal; it deletes the legacy content. Rolling back recreates empty tables only. The public homepage uses `TailHome`, maintained at `/admin/tail_home/edit`; the public `/about` page uses `AboutPage` and its translations, maintained at `/admin/about_page/edit`.
 
 Content uses ordinary textareas, including existing HTML. WYSIWYG editing and its upload endpoint are deferred. All position-sorting controls and endpoints are deferred, including works, people, cases, news, and publication ordering. Existing positions are preserved on edits.
 
@@ -10,7 +12,7 @@ The language switch selects Chinese or English content through Globalize. It use
 
 The two message sections support viewing, deletion and UTF-8 CSV export of all records. Exports neutralize spreadsheet formulas in submitted values. Every maintenance endpoint requires an authenticated admin; nested writes are scoped to their parent and saved in a transaction. Administrators cannot delete their own active account.
 
-Implementation is contained in admin controllers, models, helpers, views, configuration and assets. Shared wiring consists only of `draw :admin` in `config/routes.rb` and the BCrypt dependency in `Gemfile`/`Gemfile.lock`. Customer controllers, models, views, stylesheets, scripts and database schema are unchanged.
+Implementation is contained in admin controllers, models, helpers, views, configuration and assets. Shared wiring consists of `draw :admin` in `config/routes.rb` and the BCrypt dependency in `Gemfile`/`Gemfile.lock`. The legacy Home and About removal includes a database migration; public controllers, models, views, stylesheets and scripts are unchanged.
 
 The admin UI uses a grouped sidebar, dashboard shortcuts, responsive tables, publication badges, and consistent form, upload, and detail panels. On smaller screens, the menu opens as a keyboard-accessible dialog; wide tables scroll within their own panel. The content-language selector stays visible in the header. The UI labels remain Chinese when editing English content.
 

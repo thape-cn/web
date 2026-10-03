@@ -5,8 +5,7 @@ module Admin::ApplicationHelper
     {label: "内容管理", keys: %w[works cases infos people]},
     {label: "官网页面", keys: %w[tail_homes about_pages work_type_pages service_files]},
     {label: "出版与资料", keys: %w[publications portfolios insights pictures]},
-    {label: "联系与设置", keys: %w[message project_messages cities map_contacts seos users]},
-    {label: "旧版页面", keys: %w[home about]}
+    {label: "联系与设置", keys: %w[message project_messages cities map_contacts seos users]}
   ].freeze
 
   RESOURCE_PRESENTATION = {
@@ -27,9 +26,7 @@ module Admin::ApplicationHelper
     "cities" => ["pin", "维护城市名称与区域信息"],
     "map_contacts" => ["pin", "更新子公司地址与联系电话"],
     "seos" => ["search", "设置页面标题、关键词与描述"],
-    "users" => ["people", "管理网站后台的管理员账号"],
-    "home" => ["home", "维护旧版首页的轮播与推荐内容"],
-    "about" => ["page", "维护旧版关于天华页面"]
+    "users" => ["people", "管理网站后台的管理员账号"]
   }.freeze
 
   ICON_PATHS = {
@@ -98,7 +95,7 @@ module Admin::ApplicationHelper
   def admin_resource_path(resource, action = nil, record = nil, **options)
     action ||= resource.singleton? ? :edit : :index
     id = record&.id
-    id ||= 1 if resource.singleton? && %w[home about service_files].include?(resource.key)
+    id ||= 1 if resource.singleton? && resource.key == "service_files"
     url_for({controller: "/admin/#{resource.key}", action: action, id: id, only_path: true}.merge(options))
   end
 

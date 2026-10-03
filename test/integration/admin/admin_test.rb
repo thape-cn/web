@@ -37,7 +37,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
 
   def path(resource, action, record = nil, **options)
     id = record&.id
-    id ||= 1 if resource.singleton? && %w[home about service_files].include?(resource.key)
+    id ||= 1 if resource.singleton? && resource.key == "service_files"
     url_for(controller: "admin/#{resource.key}", action: action, id: id, only_path: true, **options)
   end
 
@@ -89,11 +89,27 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select ".admin-sidebar nav a", count: Admin::Resource.all.size + 1
     assert_select "dialog nav a", count: Admin::Resource.all.size + 1
     assert_select '.admin-sidebar nav a[aria-current="page"]', text: "工作台"
+    assert_select 'a[href^="/admin/about/"]', count: 0
+    assert_select 'a[href^="/admin/home/"]', count: 0
+    assert_select '.admin-sidebar nav a[href^="/admin/about_page/edit"]', count: 1
+    assert_select '.admin-sidebar nav a[href^="/admin/tail_home/edit"]', count: 1
     assert_select 'script[src*="admin"]'
     assert_select 'script[src*="application"]', count: 0
     delete admin_logout_path
     get admin_users_path
     assert_equal "/admin/login", URI(response.location).path
+  end
+
+  test "legacy home and about maintenance endpoints are no longer routed" do
+    %w[home about].each do |resource|
+      {"/admin/#{resource}/1" => [:get, :patch, :put], "/admin/#{resource}/1/edit" => [:get]}.each do |endpoint, methods|
+        methods.each do |method|
+          assert_raises(ActionController::RoutingError) do
+            Rails.application.routes.recognize_path(endpoint, method: method)
+          end
+        end
+      end
+    end
   end
 
   test "all indexes new pages and singleton pages render" do
