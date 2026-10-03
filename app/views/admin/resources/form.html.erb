@@ -7,12 +7,13 @@
 <%= render 'admin/shared/errors', record: @record %>
 <% action = @record.new_record? && !@resource.singleton? ? :create : :update %>
 <%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true, class: 'admin-editor' do |form| %>
-  <section class="admin-panel admin-form-section">
-    <div class="admin-section-heading"><div><h2 class="font-semibold">基本信息</h2><p class="text-sm text-gray-500 mt-2">编辑完成后，点击下方保存。</p></div></div>
-    <div class="admin-fields">
-      <% @resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
-    </div>
-  </section>
+  <% admin_form_sections(@resource).each do |section| %>
+    <%= render layout: 'admin/shared/form_section', locals: { heading_id: "#{section[:key]}-heading", title: section[:title], description: section[:description] } do %>
+      <div class="admin-fields">
+        <% section[:fields].each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
+      </div>
+    <% end %>
+  <% end %>
   <% if %w[works cases].include?(@resource.key) %>
     <%= render 'admin/shared/gallery', form: form %>
   <% elsif @resource.key == 'people' && @record.persisted? %>

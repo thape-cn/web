@@ -1,5 +1,5 @@
 <%= link_to admin_root_path, class: 'admin-brand' do %>
-  <span><%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA', class: 'admin-wordmark' %><span class="block text-xs text-gray-500 mt-3">网站内容管理</span></span>
+  <span><%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA', class: 'admin-wordmark' %><span class="block text-xs text-gray-400 mt-3">网站内容管理</span></span>
 <% end %>
 <nav aria-label="管理菜单" class="admin-navigation">
   <%= link_to admin_root_path, class: "admin-nav-link #{controller_name == 'dashboard' ? 'admin-nav-active' : ''}", aria: { current: controller_name == 'dashboard' ? 'page' : nil } do %>
@@ -18,6 +18,6 @@
 </nav>
 <div class="admin-account">
   <span class="admin-avatar" aria-hidden="true"><%= current_admin.name.to_s.first&.upcase %></span>
-  <div class="min-w-0 flex-1 ml-3"><p class="text-sm font-semibold truncate"><%= current_admin.name %></p><p class="text-xs text-gray-500 mt-1">网站管理员</p></div>
+  <div class="min-w-0 flex-1 ml-3"><p class="text-sm font-semibold text-white truncate"><%= current_admin.name %></p><p class="text-xs text-gray-400 mt-1">网站管理员</p></div>
   <%= button_to admin_logout_path, method: :delete, class: 'admin-icon-button', aria: { label: '退出登录' }, title: '退出登录' do %><%= admin_icon('logout') %><span class="sr-only">退出登录</span><% end %>
 </div>

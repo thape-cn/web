@@ -1,5 +1,4 @@
-<section class="admin-panel admin-form-section mt-6" aria-labelledby="gallery-heading">
-  <div class="admin-section-heading"><div><h2 id="gallery-heading" class="font-semibold">项目图片</h2><p class="text-sm text-gray-500 mt-2">保存后可继续添加图片。<%= 'JPG 与 WebP 放在同一行。' if @resource.key == 'works' %></p></div><%= admin_icon('image', class: 'w-6 h-6 text-gray-400') %></div>
+<%= render layout: 'admin/shared/form_section', locals: { heading_id: 'gallery-heading', title: '项目图片', description: "保存后可继续添加图片。#{'JPG 与 WebP 放在同一行。' if @resource.key == 'works'}" } do %>
   <% association = @resource.key == 'works' ? :work_pictures : :case_pictures %>
   <% fields = @resource.key == 'works' ? [:album_jpg, :album_webp] : [:album] %>
   <% pictures = @record.public_send(association) %>
@@ -17,4 +16,4 @@
       </fieldset>
     <% end %>
   </div>
-</section>
+<% end %>

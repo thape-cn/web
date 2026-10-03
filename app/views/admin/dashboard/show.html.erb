@@ -1,7 +1,7 @@
 <% content_for :page_title, '工作台' %>
 <div class="admin-page-heading">
   <div>
-    <p class="admin-eyebrow">CONTENT MANAGEMENT</p>
+    <p class="admin-eyebrow">天华 · 内容管理</p>
     <h1 class="admin-page-title">网站管理</h1>
     <p class="admin-page-description">从这里更新天华的作品、动态与品牌内容。</p>
   </div>
@@ -12,24 +12,27 @@
     <h2 id="quick-access-heading" class="text-base font-semibold">常用内容</h2>
     <span class="text-xs text-gray-500">快速进入内容维护</span>
   </div>
-  <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+  <div class="grid gap-4 md:grid-cols-2">
     <% %w[works infos people publications].each do |key| %>
       <% resource = Admin::Resource.new(key) %>
       <%= link_to admin_resource_path(resource), class: 'admin-quick-card group' do %>
-        <div class="flex items-center justify-between mb-6"><span class="admin-feature-icon"><%= admin_resource_icon(resource) %></span><%= admin_icon('arrow', class: 'w-5 h-5 text-gray-400 group-hover:text-indigo-600') %></div>
-        <h3 class="font-semibold text-gray-900"><%= resource.label %></h3>
-        <p class="text-sm text-gray-500 leading-relaxed mt-2"><%= admin_resource_description(resource) %></p>
+        <span class="admin-feature-icon"><%= admin_resource_icon(resource) %></span>
+        <div class="min-w-0 flex-1">
+          <h3 class="text-sm font-semibold text-gray-900"><%= resource.label %></h3>
+          <p class="text-sm text-gray-500 leading-relaxed mt-1"><%= admin_resource_description(resource) %></p>
+        </div>
+        <%= admin_icon('arrow', class: 'w-5 h-5 text-gray-400 group-hover:text-indigo-600 flex-shrink-0') %>
       <% end %>
     <% end %>
   </div>
 </section>
 <section aria-labelledby="all-modules-heading">
   <div class="flex items-center justify-between mb-4"><h2 id="all-modules-heading" class="text-base font-semibold">全部管理模块</h2><span class="text-xs text-gray-500"><%= Admin::Resource.all.size %> 个模块</span></div>
-  <div class="admin-panel overflow-hidden">
+  <div class="grid gap-6 md:grid-cols-2">
     <% admin_navigation_groups.each do |group| %>
-      <div class="admin-module-group">
-        <div><h3 class="text-sm font-semibold"><%= group[:label] %></h3><p class="text-xs text-gray-500 mt-2"><%= group[:resources].size %> 个模块</p></div>
-        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-2">
+      <div class="admin-panel overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100"><h3 class="text-sm font-semibold"><%= group[:label] %></h3><span class="text-xs text-gray-500"><%= group[:resources].size %> 个模块</span></div>
+        <div class="p-2">
           <% group[:resources].each do |resource| %>
             <%= link_to admin_resource_path(resource), class: 'admin-module-link' do %><%= admin_resource_icon(resource) %><span><%= resource.label %></span><%= admin_icon('arrow', class: 'w-4 h-4 ml-auto text-gray-400') %><% end %>
           <% end %>

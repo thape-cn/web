@@ -12,10 +12,10 @@
   <body class="admin min-h-screen bg-gray-50 text-gray-900 antialiased">
     <a href="#main" class="admin-skip-link">跳转到主要内容</a>
     <% if current_admin %>
-      <aside class="admin-sidebar hidden lg:flex">
+      <aside class="admin-sidebar hidden lg:flex bg-gray-900">
         <%= render 'admin/shared/navigation' %>
       </aside>
-      <dialog id="admin-navigation" class="admin-mobile-menu" aria-label="管理菜单">
+      <dialog id="admin-navigation" class="admin-mobile-menu bg-gray-900" aria-label="管理菜单">
         <div class="flex justify-end px-4 pt-3">
           <button type="button" class="admin-icon-button" data-admin-menu-close aria-label="关闭管理菜单"><%= admin_icon('close') %><span class="sr-only">关闭管理菜单</span></button>
         </div>
@@ -25,11 +25,13 @@
         <header class="admin-topbar">
           <div class="flex items-center min-w-0">
             <button type="button" class="admin-icon-button mr-3 lg:hidden" data-admin-menu-open aria-controls="admin-navigation" aria-expanded="false" aria-label="打开管理菜单"><%= admin_icon('menu') %><span class="sr-only">打开管理菜单</span></button>
-            <%= link_to '工作台', admin_root_path, class: 'admin-link text-sm whitespace-no-wrap' %>
-            <% if @resource %>
-              <span class="text-gray-300 mx-3" aria-hidden="true">/</span>
-              <span class="text-sm text-gray-500 truncate"><%= @resource.label %></span>
-            <% end %>
+            <nav aria-label="当前位置" class="flex items-center min-w-0">
+              <%= link_to admin_root_path, class: 'text-gray-500 hover:text-gray-900 text-sm whitespace-no-wrap flex items-center' do %><%= admin_icon('home', class: 'w-4 h-4 mr-2') %>工作台<% end %>
+              <% if @resource %>
+                <span class="text-gray-300 mx-3" aria-hidden="true">/</span>
+                <span class="text-sm font-medium text-gray-900 truncate" aria-current="page"><%= @resource.label %></span>
+              <% end %>
+            </nav>
           </div>
           <div class="flex items-center flex-shrink-0 ml-3">
             <div class="admin-locale" aria-label="内容语言">

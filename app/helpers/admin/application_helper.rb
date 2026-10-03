@@ -68,6 +68,28 @@ module Admin::ApplicationHelper
     admin_icon(RESOURCE_PRESENTATION.fetch(resource.key).first)
   end
 
+  def admin_form_sections(resource)
+    groups = resource.fields.group_by do |field, options|
+      if field.start_with?("seo_")
+        :seo
+      elsif options["type"] == "file_field"
+        :media
+      elsif options["type"] == "text_area"
+        :content
+      else
+        :basic
+      end
+    end
+    [
+      [:basic, "基本信息", "维护名称、分类与展示设置。"],
+      [:content, "内容详情", "编辑页面文字与详细介绍。"],
+      [:media, "图片与文件", "上传或替换图片与资料，保存后生效。"],
+      [:seo, "搜索引擎信息", "设置页面在搜索结果中的标题与描述。"]
+    ].filter_map do |key, title, description|
+      {key: key, title: title, description: description, fields: groups[key]} if groups[key].present?
+    end
+  end
+
   def admin_icon(name, **options)
     tag.svg(viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 1.5, "stroke-linecap": "round", "stroke-linejoin": "round", aria: {hidden: true}, class: options.fetch(:class, "admin-icon")) do
       tag.path(d: ICON_PATHS.fetch(name))

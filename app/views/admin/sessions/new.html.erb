@@ -4,7 +4,7 @@
   <h1 class="text-2xl font-bold tracking-tight">管理员登录</h1>
   <p class="text-sm text-gray-500 mt-3">登录以管理网站内容</p>
 </div>
-<section class="admin-panel p-6 sm:p-10">
+<section class="admin-panel px-6 py-10 sm:px-10 sm:py-12">
   <%= form_with scope: :session, url: admin_login_path, local: true do |form| %>
     <div class="mb-6">
       <%= form.label :email, '邮箱', class: 'admin-label' %>

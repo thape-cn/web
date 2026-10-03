@@ -18,7 +18,7 @@ class Admin::MaintenanceTest < ApplicationSystemTestCase
     assert_no_button "打开管理菜单"
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/dashboard.png")) # standard:disable Lint/Debugger
 
-    within "nav" do
+    within 'nav[aria-label="管理菜单"]' do
       click_link "城市", exact: true
     end
     first(:link, "编辑").click
@@ -29,11 +29,11 @@ class Admin::MaintenanceTest < ApplicationSystemTestCase
     assert_text "浏览器测试城市"
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/cities.png")) # standard:disable Lint/Debugger
 
-    within("nav") { click_link "官网作品" }
+    within('nav[aria-label="管理菜单"]') { click_link "官网作品" }
     assert_text "发布"
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/works.png")) # standard:disable Lint/Debugger
 
-    within("nav") { click_link "网站管理员" }
+    within('nav[aria-label="管理菜单"]') { click_link "网站管理员" }
     within(find("tr", text: "Removable admin")) do
       accept_confirm { click_button "删除" }
     end
@@ -63,7 +63,7 @@ class Admin::MaintenanceTest < ApplicationSystemTestCase
     fill_in "邮箱", with: "browser@example.test"
     fill_in "密码", with: "browser-test-password"
     click_button "登录"
-    within("nav") { click_link "官网作品" }
+    within('nav[aria-label="管理菜单"]') { click_link "官网作品" }
     assert_selector '.admin-sidebar nav a[aria-current="page"]', text: "官网作品"
     fill_in "搜索名称 / 标题", with: "no-matching-project-for-admin-ui"
     click_button "筛选"

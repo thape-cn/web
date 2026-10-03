@@ -123,6 +123,10 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
         assert_select "h1", minimum: 1
         if [:new, :edit].include?(action)
           assert_select "textarea[data-admin-rich-text]", count: resource.fields.count { |_field, options| options["rich_text"] }
+          resource.fields.each do |field, options|
+            name = "#{resource.param_key}[#{field}]#{"[]" if options["type"] == "multiple"}"
+            assert_select "form.admin-editor [name=?]", name, minimum: 1, message: "#{resource.key}: missing #{field} from editor sections"
+          end
         end
       end
     end

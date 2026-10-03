@@ -1,5 +1,4 @@
-<section class="admin-panel admin-form-section mt-6" aria-labelledby="city-roles-heading">
-  <div class="admin-section-heading"><div><h2 id="city-roles-heading" class="font-semibold">城市职位</h2><p class="text-sm text-gray-500 mt-2">新增所属城市后，保存并重新打开此页即可填写该城市的职位。</p></div></div>
+<%= render layout: 'admin/shared/form_section', locals: { heading_id: 'city-roles-heading', title: '城市职位', description: '新增所属城市后，保存并重新打开此页即可填写该城市的职位。' } do %>
   <div class="space-y-4">
     <%= form.fields_for :city_people do |role| %>
       <fieldset class="admin-gallery-item">
@@ -12,4 +11,4 @@
       </fieldset>
     <% end %>
   </div>
-</section>
+<% end %>

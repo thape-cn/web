@@ -43,14 +43,16 @@
     </div>
   <% elsif @resource.key == 'seos' %>
     <% @records.each do |record| %>
-      <section class="admin-seo-section">
-        <div class="admin-section-heading"><span class="admin-feature-icon"><%= admin_icon('search') %></span><div><h2 class="font-semibold"><%= record.seo_name %></h2><p class="text-sm text-gray-500 mt-1">页面搜索信息 · <%= admin_locale_label %></p></div></div>
-        <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
-          <div class="admin-fields">
-            <% @resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
-          </div>
-          <div class="flex justify-end mt-6"><%= form.submit '保存', class: 'admin-button' %></div>
-        <% end %>
+      <section class="admin-seo-section admin-editor-section" aria-labelledby="seo-<%= record.id %>-heading">
+        <div class="admin-editor-heading"><h2 id="seo-<%= record.id %>-heading" class="text-base font-semibold"><%= record.seo_name %></h2><p class="text-sm text-gray-500 mt-2 leading-relaxed">页面搜索信息 · <%= admin_locale_label %></p></div>
+        <div class="admin-panel admin-form-section min-w-0">
+          <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
+            <div class="admin-fields">
+              <% @resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
+            </div>
+            <div class="flex justify-end mt-6"><%= form.submit '保存', class: 'admin-button' %></div>
+          <% end %>
+        </div>
       </section>
     <% end %>
   <% else %>
@@ -67,14 +69,14 @@
       <% end %>
     <% end %>
     <div class="admin-table-scroll" role="region" aria-label="<%= @resource.label %>列表，可横向滚动" tabindex="0">
-      <table class="admin-table" <%= 'data-admin-order-table' if @resource.ordered? %>>
+      <table class="admin-table min-w-full divide-y divide-gray-200" <%= 'data-admin-order-table' if @resource.ordered? %>>
         <caption class="sr-only"><%= @resource.label %>列表</caption>
         <thead><tr>
           <% if @resource.ordered? %><th scope="col" class="admin-order-column" aria-sort="ascending">展示顺序</th><% end %>
           <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
           <th scope="col" class="admin-table-actions">操作</th>
         </tr></thead>
-        <tbody>
+        <tbody class="bg-white divide-y divide-gray-100">
           <% @records.each do |record| %>
             <tr id="record-<%= record.id %>" <%= tag.attributes(data: { record_id: record.id, reorder_url: admin_resource_path(@resource, :reorder, record) }) if @resource.ordered? %>>
               <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
