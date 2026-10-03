@@ -2,7 +2,12 @@
 
 # Standalone, fixture-free browser checks. See test/visual/README.md.
 ENV["RAILS_ENV"] ||= "test"
-raise "Use the isolated in-memory database" unless ENV["RAILS_ENV"] == "test" && ENV["DATABASE_URL"] == "sqlite3::memory:"
+unless ENV["RAILS_ENV"] == "test" && ENV["DATABASE_URL"] == "sqlite3::memory:"
+  # `bin/rails test[:all]` loads every test/**/*_test.rb; load as a no-op there
+  # so the browser checks only run with their documented standalone invocation.
+  return if defined?(Rails::TestUnit::Runner)
+  raise "Use the isolated in-memory database"
+end
 require_relative "../../config/environment"
 require "minitest/autorun"
 require "minitest/mock"

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "experience_components_test"
+return unless defined?(PublicComponentsTest)
 
 # Globalize otherwise probes the schema while autoloading these classes, even
 # though every record access below is stubbed. Do not open a database connection.

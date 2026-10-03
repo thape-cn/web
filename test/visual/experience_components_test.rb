@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "mobile_overlays_test"
+return unless defined?(PublicComponentsTest)
 
 class PublicComponentsTest
   def test_about_disclosure_preserves_links_and_keyboard_navigation

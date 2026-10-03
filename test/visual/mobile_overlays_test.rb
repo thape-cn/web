@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "public_components_test"
+return unless defined?(PublicComponentsTest)
 
 class PublicComponentsTest
   def test_contact_labels_fit_both_languages_on_mobile_and_desktop
