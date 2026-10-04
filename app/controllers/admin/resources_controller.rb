@@ -120,16 +120,8 @@ class Admin::ResourcesController < Admin::ApplicationController
       permitted << {work_pictures_attributes: [:id, :album_jpg, :album_webp, :album_jpg_cache, :album_webp_cache, :_destroy]}
     when "people"
       permitted << {city_people_attributes: [:id, :city_title, :city_en_title, :is_management, :is_professional, :_destroy]}
-    when "cases"
-      permitted << {case_pictures_attributes: [:id, :album, :album_cache, :_destroy]}
     end
-    attributes = params.require(@resource.param_key).permit(*permitted).to_h
-    if @resource.key == "cases"
-      %w[market professional].each do |field|
-        attributes[field] = attributes[field].reject(&:blank?).map(&:to_i).to_json if attributes[field].is_a?(Array)
-      end
-    end
-    attributes
+    params.require(@resource.param_key).permit(*permitted).to_h
   end
 
   def save_record

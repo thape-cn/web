@@ -18,11 +18,6 @@ namespace :admin do
   resources :map_contacts, only: [:index, :edit, :update]
   resources :users, except: [:show, :edit, :update]
   resources :service_files, only: [:show, :edit, :update]
-  resources :cases, concerns: :orderable do
-    member do
-      delete :destory_picture
-    end
-  end
   resources :works, concerns: :orderable do
     member do
       delete :destory_picture

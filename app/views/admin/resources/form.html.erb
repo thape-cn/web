@@ -14,7 +14,7 @@
           </div>
         <% end %>
       <% end %>
-      <% if %w[works cases].include?(@resource.key) %>
+      <% if @resource.key == "works" %>
         <%= render 'admin/shared/gallery', form: form %>
       <% elsif @resource.key == 'people' && @record.persisted? %>
         <%= render 'admin/shared/city_roles', form: form %>

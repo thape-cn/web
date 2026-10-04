@@ -2,7 +2,7 @@
 
 class Admin::Resource
   DEFINITIONS = JSON.parse(Rails.root.join("config/admin/resources.json").read).freeze
-  SEARCH_FIELDS = {"works" => "project_name", "people" => "name", "cases" => "title", "infos" => "title", "publications" => "title", "portfolios" => "title", "insights" => "title"}.freeze
+  SEARCH_FIELDS = {"works" => "project_name", "people" => "name", "infos" => "title", "publications" => "title", "portfolios" => "title", "insights" => "title"}.freeze
   FILTERS = {
     "works" => {"published" => "发布状态", "city_id" => "城市", "project_type_id" => "项目分类"},
     "people" => {"category" => "团队分类", "city_id" => "城市"},
@@ -46,7 +46,7 @@ class Admin::Resource
   end
 
   def ordered?
-    %w[cases infos insights people portfolios publications works].include?(key)
+    %w[infos insights people portfolios publications works].include?(key)
   end
 
   def messages?

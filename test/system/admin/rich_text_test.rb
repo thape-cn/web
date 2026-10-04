@@ -54,11 +54,9 @@ class Admin::RichTextTest < ApplicationSystemTestCase
   end
 
   test "other rich text forms use Simditor while plain text forms and public pages stay unchanged" do
-    [new_admin_person_path, new_admin_case_path].each do |path|
-      visit path
-      assert_selector ".simditor-body", count: 1
-      assert_no_selector "textarea[data-admin-rich-text]", visible: true
-    end
+    visit new_admin_person_path
+    assert_selector ".simditor-body", count: 1
+    assert_no_selector "textarea[data-admin-rich-text]", visible: true
 
     [new_admin_work_path, edit_admin_service_file_path(1), admin_seos_path].each do |path|
       visit path

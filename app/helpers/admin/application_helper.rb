@@ -2,7 +2,7 @@
 
 module Admin::ApplicationHelper
   NAVIGATION_GROUPS = [
-    {label: "内容管理", keys: %w[works cases infos people]},
+    {label: "内容管理", keys: %w[works infos people]},
     {label: "官网页面", keys: %w[tail_homes about_pages work_type_pages service_files]},
     {label: "出版与资料", keys: %w[publications portfolios insights pictures]},
     {label: "联系与设置", keys: %w[message project_messages cities map_contacts seos users]}
@@ -10,7 +10,6 @@ module Admin::ApplicationHelper
 
   RESOURCE_PRESENTATION = {
     "works" => ["building", "维护官网作品、项目分类与图片"],
-    "cases" => ["building", "管理经典项目与案例图库"],
     "infos" => ["news", "发布公司动态、行业会议与专业奖项"],
     "people" => ["people", "维护团队成员、个人介绍与城市职位"],
     "tail_homes" => ["home", "更新首页项目、新闻与展示图片"],
@@ -143,7 +142,7 @@ module Admin::ApplicationHelper
 
   def admin_editor_sections(resource, record)
     sections = admin_form_sections(resource)
-    if %w[works cases].include?(resource.key)
+    if resource.key == "works"
       sections << {key: :gallery, title: "项目图片", icon: "image"}
     elsif resource.key == "people" && record.persisted?
       sections << {key: "city-roles", title: "城市职位", icon: "pin"}
@@ -194,8 +193,6 @@ module Admin::ApplicationHelper
     when ["works", "city_id"], ["people", "city_ids"] then ::City.order(:id).pluck(:name, :id)
     when ["works", "project_type_ids"] then ::ProjectType.order(:id).pluck(:cn_name, :id)
     when ["works", "residential_type_ids"] then ::ResidentialType.order(:id).pluck(:cn_name, :id)
-    when ["cases", "professional"] then Admin::Case.professional_options
-    when ["cases", "market"] then Admin::Case.market_options
     when ["publications", "category_status"] then [["专著", "monographs"], ["标准规范", "standard_specification"], ["论文专利", "paper_patent"]]
     else []
     end
@@ -206,7 +203,6 @@ module Admin::ApplicationHelper
     resource = @resource
     if resource && %w[select multiple].include?(resource.fields.dig(field, "type"))
       values = Array(value).map(&:to_s)
-      values = value.to_s.scan(/\d+/) if resource.key == "cases"
       labels = admin_options(resource, field).filter_map { |label, id| label if values.include?(id.to_s) }
       return labels.join("、").presence || "—"
     end

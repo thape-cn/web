@@ -1,17 +1,16 @@
-<%= render layout: 'admin/shared/form_section', locals: { heading_id: 'gallery-heading', title: '项目图片', description: "保存后可继续添加图片。#{'JPG 与 WebP 放在同一行。' if @resource.key == 'works'}" } do %>
-  <% association = @resource.key == 'works' ? :work_pictures : :case_pictures %>
-  <% fields = @resource.key == 'works' ? [:album_jpg, :album_webp] : [:album] %>
-  <% pictures = @record.public_send(association) %>
+<%= render layout: 'admin/shared/form_section', locals: { heading_id: 'gallery-heading', title: '项目图片', description: '保存后可继续添加图片。JPG 与 WebP 放在同一行。' } do %>
+  <% fields = [:album_jpg, :album_webp] %>
+  <% pictures = @record.work_pictures %>
   <% (3 - pictures.count(&:new_record?)).times { pictures.build } %>
   <div class="admin-gallery-grid">
-    <%= form.fields_for association do |picture_form| %>
+    <%= form.fields_for :work_pictures do |picture_form| %>
       <% picture_title = picture_form.object.persisted? ? "图片 ##{picture_form.object.id}" : '添加图片' %>
       <%= render layout: 'admin/shared/media_card', locals: {title: picture_title, image_url: fields.filter_map { |field| picture_form.object.public_send(field).url }.first} do %>
         <fieldset class="min-w-0 mt-4">
           <legend class="sr-only"><%= picture_title %></legend>
           <div class="grid md:grid-cols-2 gap-5">
             <% fields.each do |field| %>
-              <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片', album: '项目图片' }.fetch(field), class: 'admin-label' %><%= admin_upload_preview(picture_form.object.public_send(field)) %><%= picture_form.file_field field, class: 'admin-file-input' %><%= picture_form.hidden_field "#{field}_cache" %></div>
+              <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片' }.fetch(field), class: 'admin-label' %><%= admin_upload_preview(picture_form.object.public_send(field)) %><%= picture_form.file_field field, class: 'admin-file-input' %><%= picture_form.hidden_field "#{field}_cache" %></div>
             <% end %>
             <% if picture_form.object.persisted? %><label class="admin-checkbox-label"><%= picture_form.check_box :_destroy, class: 'admin-checkbox' %> 删除此图片</label><% end %>
           </div>

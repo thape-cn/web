@@ -49,7 +49,6 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     when "infos" then {title: "测试新闻", introduction: "引言", content: "<p>正文</p>", category: 1}
     when "pictures" then {image: upload("picture.png", "image/png")}
     when "cities" then {name: "测试城市", url_name: "admin-test-city"}
-    when "cases" then {title: "测试项目", professional: ["1", "2"], market: ["1"]}
     when "publications" then {title: "测试出版物", category_status: "monographs"}
     when "portfolios", "insights" then {title: "测试文档", sub_title: "副标题"}
     else {}
@@ -91,6 +90,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select '.admin-sidebar nav a[aria-current="page"]', text: "工作台"
     assert_select 'a[href^="/admin/about/"]', count: 0
     assert_select 'a[href^="/admin/home/"]', count: 0
+    assert_select 'a[href^="/admin/cases"]', count: 0
     assert_select '.admin-sidebar nav a[href^="/admin/about_page/edit"]', count: 1
     assert_select '.admin-sidebar nav a[href^="/admin/tail_home/edit"]', count: 1
     assert_select 'script[src*="admin"]'
@@ -107,6 +107,23 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
           assert_raises(ActionController::RoutingError) do
             Rails.application.routes.recognize_path(endpoint, method: method)
           end
+        end
+      end
+    end
+  end
+
+  test "legacy case maintenance endpoints are no longer routed" do
+    {
+      "/admin/cases" => [:get, :post],
+      "/admin/cases/new" => [:get],
+      "/admin/cases/1" => [:get, :patch, :put, :delete],
+      "/admin/cases/1/edit" => [:get],
+      "/admin/cases/1/reorder" => [:patch],
+      "/admin/cases/1/destory_picture" => [:delete]
+    }.each do |endpoint, methods|
+      methods.each do |method|
+        assert_raises(ActionController::RoutingError) do
+          Rails.application.routes.recognize_path(endpoint, method: method)
         end
       end
     end
@@ -336,19 +353,6 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_nil other.city_people.first.reload.city_title
   end
 
-  test "classic case galleries retain their legacy paths and delete with the case" do
-    sign_in
-    post admin_cases_path, params: {case: attributes_for("cases").merge(case_pictures_attributes: {"0" => {album: upload("case.png", "image/png")}, "1" => {album_cache: ""}})}
-    assert_response :redirect
-    record = Admin::Case.order(:id).last
-    assert_equal [1, 2], JSON.parse(record.professional)
-    assert_equal 1, record.case_pictures.count
-    picture = record.case_pictures.first
-    assert_includes picture.album.url, "/uploads/case_picture/album/#{picture.id}/"
-    delete admin_case_path(record)
-    assert_not Admin::CasePicture.exists?(picture.id)
-  end
-
   test "admin locale and assets stay separate from customer pages" do
     sign_in
     get admin_root_path(locale: :en)
@@ -376,16 +380,16 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_equal position, info.reload.position
     assert_equal "<p>正文</p>", info.content
     assert_includes info.pdf_file.url, "/uploads/info/pdf_file/#{info.id}/"
-    %w[infos works people cases].each do |resource|
+    %w[infos works people].each do |resource|
       %w[top bottom up down].each do |action|
         assert_raises(ActionController::RoutingError) { Rails.application.routes.recognize_path("/admin/#{resource}/1/#{action}", method: :patch) }
       end
     end
   end
 
-  test "all seven resources expose ordering controls and persist every move" do
+  test "all ordered resources expose ordering controls and persist every move" do
     sign_in
-    %w[cases infos insights people portfolios publications works].each do |key|
+    %w[infos insights people portfolios publications works].each do |key|
       resource = Admin::Resource.new(key)
       record = resource.scope.create!(attributes_for(key))
       other = resource.scope.create!(attributes_for(key).merge((key == "people") ? {url_name: "other-ordered-person"} : {}))
@@ -516,7 +520,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
 
   test "new admin records append after existing positions for every ordered resource" do
     sign_in
-    %w[cases infos insights people portfolios publications works].each do |key|
+    %w[infos insights people portfolios publications works].each do |key|
       resource = Admin::Resource.new(key)
       existing = resource.scope.create!(attributes_for(key))
       existing.update_columns(position: 5000)
@@ -569,7 +573,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     %w[works infos people publications].each do |key|
       assert_select "[data-admin-count='#{key}']", text: Admin::Resource.new(key).scope.count.to_s
     end
-    assert_select "#admin-module-results [data-admin-command-item]", count: 18
+    assert_select "#admin-module-results [data-admin-command-item]", count: Admin::Resource.all.size
     assert_select "#admin-module-results a[href=?]", edit_admin_tail_home_path(locale: :en)
     assert_select "#admin-module-results a[href=?]", edit_admin_service_file_path(1, locale: :en)
   end
@@ -590,9 +594,9 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
         assert_select "tbody tr#record-#{record.id}", count: 1
       end
     end
-    literal = Admin::Case.create!(title: "100% complete")
-    Admin::Case.create!(title: "100 complete")
-    get admin_cases_path(q: "100%")
+    literal = Admin::Info.create!(attributes_for("infos").merge(title: "100% complete"))
+    Admin::Info.create!(attributes_for("infos").merge(title: "100 complete"))
+    get admin_infos_path(q: "100%", locale: I18n.locale)
     assert_select "tbody tr", count: 1
     assert_select "#record-#{literal.id}"
     get admin_works_path(project_name: "组件搜索", locale: :cn)

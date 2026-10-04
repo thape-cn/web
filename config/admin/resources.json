@@ -53,56 +53,6 @@
       }
     }
   },
-  "cases": {
-    "label": "经典项目",
-    "model": "Admin::Case",
-    "param": "case",
-    "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
-    "fields": {
-      "title": {
-        "type": "text_field",
-        "label": "项目名称"
-      },
-      "professional": {
-        "type": "multiple",
-        "label": "专业分类"
-      },
-      "market": {
-        "type": "multiple",
-        "label": "相关市场"
-      },
-      "seo_title": {
-        "type": "text_field",
-        "label": "SEO 标题（空则使用默认）"
-      },
-      "seo_keywords": {
-        "type": "text_field",
-        "label": "SEO 关键字（空则使用默认）"
-      },
-      "seo_description": {
-        "type": "text_field",
-        "label": "SEO 描述（空则使用默认）"
-      },
-      "snapshot": {
-        "type": "file_field",
-        "label": "案例列表照片上传"
-      },
-      "other": {
-        "type": "text_area",
-        "rich_text": true,
-        "label": "经典案例详细介绍"
-      }
-    }
-  },
   "infos": {
     "label": "新闻中心",
     "model": "Admin::Info",

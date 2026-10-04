@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_03_000001) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_04_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,28 +70,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_03_000001) do
     t.bigint "blob_id", null: false
     t.text "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "case_pictures", id: :bigint, default: nil, force: :cascade do |t|
-    t.bigint "case_id"
-    t.text "album"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["case_id"], name: "index_case_pictures_on_case_id"
-  end
-
-  create_table "cases", id: :bigint, default: nil, force: :cascade do |t|
-    t.text "title"
-    t.text "market"
-    t.text "snapshot"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.text "professional"
-    t.text "other"
-    t.bigint "position", default: 0
-    t.text "seo_title"
-    t.text "seo_keywords"
-    t.text "seo_description"
   end
 
   create_table "cities", id: :bigint, default: nil, force: :cascade do |t|
@@ -589,7 +567,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_03_000001) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id", name: "active_storage_attachments_blob_id_fkey"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id", name: "active_storage_variant_records_blob_id_fkey"
-  add_foreign_key "case_pictures", "cases", name: "case_pictures_case_id_fkey"
   add_foreign_key "pictures", "infos", name: "pictures_info_id_fkey"
   add_foreign_key "work_pictures", "works", name: "work_pictures_work_id_fkey"
   add_foreign_key "work_project_types", "project_types", name: "work_project_types_project_type_id_fkey"

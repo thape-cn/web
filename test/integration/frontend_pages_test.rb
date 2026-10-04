@@ -3,6 +3,14 @@
 require "test_helper"
 
 class FrontendPagesTest < ActionDispatch::IntegrationTest
+  test "legacy case URLs still redirect to the current works pages" do
+    {"cn" => "/works", "en" => "/works?locale=en"}.each do |locale, destination|
+      get "/#{locale}/cases"
+      assert_response :moved_permanently
+      assert_redirected_to destination
+    end
+  end
+
   test "the current about page renders in both languages without legacy about tables" do
     %i[cn en].each do |locale|
       intro = "Current About introduction (#{locale})"
