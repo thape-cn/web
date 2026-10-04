@@ -35,8 +35,9 @@ class Admin::MaintenanceTest < ApplicationSystemTestCase
 
     within('nav[aria-label="管理菜单"]') { click_link "网站管理员" }
     within(find("tr", text: "Removable admin")) do
-      accept_confirm { click_button "删除" }
+      click_button "删除"
     end
+    within("#admin-confirmation") { click_button "确认删除" }
     assert_no_text "Removable admin"
     resize_viewport(390, 844)
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/mobile.png")) # standard:disable Lint/Debugger

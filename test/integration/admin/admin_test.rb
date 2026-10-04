@@ -561,4 +561,136 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
       assert_not model.exists?(record.id)
     end
   end
+
+  test "dashboard counts include unpublished content and module destinations include singletons" do
+    sign_in
+    Admin::Work.create!(attributes_for("works"))
+    get admin_root_path(locale: :en)
+    %w[works infos people publications].each do |key|
+      assert_select "[data-admin-count='#{key}']", text: Admin::Resource.new(key).scope.count.to_s
+    end
+    assert_select "#admin-module-results [data-admin-command-item]", count: 18
+    assert_select "#admin-module-results a[href=?]", edit_admin_tail_home_path(locale: :en)
+    assert_select "#admin-module-results a[href=?]", edit_admin_service_file_path(1, locale: :en)
+  end
+
+  test "all ordered content supports literal search and translated fields use the selected language" do
+    sign_in
+    Admin::Resource::SEARCH_FIELDS.each do |key, field|
+      resource = Admin::Resource.new(key)
+      record = I18n.with_locale(:cn) { resource.scope.create!(attributes_for(key).merge(field => "组件搜索 #{key}")) }
+      get path(resource, :index, nil, q: "组件搜索", locale: :cn)
+      assert_response :success, key
+      assert_select "tbody tr#record-#{record.id}", count: 1
+      if resource.model.respond_to?(:translated_attribute_names) && resource.model.translated_attribute_names.include?(field.to_sym)
+        I18n.with_locale(:en) { record.update!(field => "Component search #{key}") }
+        get path(resource, :index, nil, q: "组件搜索", locale: :en)
+        assert_select "tbody tr#record-#{record.id}", count: 0
+        get path(resource, :index, nil, q: "Component search", locale: :en)
+        assert_select "tbody tr#record-#{record.id}", count: 1
+      end
+    end
+    literal = Admin::Case.create!(title: "100% complete")
+    Admin::Case.create!(title: "100 complete")
+    get admin_cases_path(q: "100%")
+    assert_select "tbody tr", count: 1
+    assert_select "#record-#{literal.id}"
+    get admin_works_path(project_name: "组件搜索", locale: :cn)
+    assert_select 'input[name="q"][value="组件搜索"]'
+  end
+
+  test "combined filters do not duplicate associated records and invalid values are ignored" do
+    sign_in
+    work = Admin::Work.create!(attributes_for("works").merge(project_name: "Filter work"))
+    2.times { WorkProjectType.create!(work: work, project_type: project_types(:project_type_1)) }
+    context = {q: "Filter work", published: "false", city_id: cities(:city_1).id, project_type_id: project_types(:project_type_1).id}
+    get admin_works_path(**context)
+    assert_select "tbody tr", count: 1
+    assert_select "#record-#{work.id}"
+    assert_select ".admin-pagination", text: /共 1 条/
+    get admin_works_path(**context.merge(published: "true"))
+    assert_select "tbody tr", count: 0
+    get admin_works_path(q: "Filter work", published: "invalid", city_id: "-1", project_type_id: "invalid")
+    assert_select "tbody tr", count: 1
+    work.update_column(:published, nil)
+    get admin_works_path(**context)
+    assert_select "#record-#{work.id}"
+
+    person = Admin::Person.create!(attributes_for("people"))
+    2.times { CityPerson.create!(person: person, city: cities(:city_1)) }
+    get admin_people_path(q: "测试姓名", category: 1, city_id: cities(:city_1).id)
+    assert_select "tbody tr", count: 1
+    get admin_people_path(q: "测试姓名", category: 2)
+    assert_select "tbody tr", count: 0
+    info = Admin::Info.create!(attributes_for("infos"))
+    get admin_infos_path(q: "测试新闻", category: 1)
+    assert_select "#record-#{info.id}"
+    get admin_infos_path(q: "测试新闻", category: 3)
+    assert_select "tbody tr", count: 0
+  end
+
+  test "pagination language changes clearing and ordering preserve normalized list state" do
+    sign_in
+    works = 8.times.map { |index| Admin::Work.create!(attributes_for("works").merge(project_name: "Pagination work #{index}", position: 100 + index)) }
+    context = {q: "Pagination work", published: "false", city_id: cities(:city_1).id, per_page: 1, page: 4, locale: :cn}
+    get admin_works_path(**context.merge(unsupported: "discard"))
+    assert_select ".admin-pagination", text: /显示 4–4 条，共 8 条/
+    assert_select '.admin-page-current[aria-current="page"]', text: "4"
+    assert_select ".admin-page-number", text: "…", minimum: 1
+    assert_select '.admin-page-number[aria-label="第 1 页"]'
+    assert_select '.admin-page-number[aria-label="第 8 页"]'
+    assert_select ".admin-pagination a" do |links|
+      links.each do |link|
+        query = Rack::Utils.parse_query(URI(link["href"]).query)
+        assert_equal "false", query["published"]
+        assert_equal "1", query["per_page"]
+        assert_nil query["unsupported"]
+      end
+    end
+    assert_select ".admin-locale a", text: "EN" do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal "false", query["published"]
+      assert_nil query["page"]
+    end
+    assert_select "a", text: "清除筛选" do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal({"locale" => "cn", "per_page" => "1"}, query)
+    end
+    assert_select '.admin-filter-bar input[name="page"]', count: 0
+    patch reorder_admin_work_path(works.last, locale: :cn), params: context.except(:locale).merge(movement: "top")
+    assert_equal context.stringify_keys.transform_values(&:to_s), Rack::Utils.parse_query(URI(response.location).query)
+    get admin_works_path(**context.merge(page: 1))
+    assert_select '.admin-page-button[aria-disabled="true"]', text: "上一页"
+    get admin_works_path(**context.merge(page: 8))
+    assert_select '.admin-page-button[aria-disabled="true"]', text: "下一页"
+    get admin_works_path(q: "does-not-exist", per_page: 1)
+    assert_select ".admin-pagination", text: /显示 0–0 条，共 0 条/
+  end
+
+  test "picture browsing and shared field errors retain existing form contracts" do
+    sign_in
+    picture = Picture.create!(image: upload("component.png", "image/png"), info: infos(:info_635))
+    get admin_pictures_path(per_page: 1)
+    assert_select ".admin-media-card", count: 1
+    assert_select ".admin-media-filename", text: "component.png"
+    assert_select ".admin-media-card", text: /新闻 ID：#{infos(:info_635).id}/
+    assert_select "#admin-module-search"
+    get admin_pictures_path(view: "list", per_page: 1)
+    assert_select "tbody tr#record-#{picture.id}"
+    assert_select '.admin-view-switch a[aria-current="true"]', text: "列表"
+    picture.update_column(:image, nil)
+    get admin_pictures_path(view: "invalid", per_page: 1)
+    assert_select ".admin-media-placeholder:not([hidden])", count: 1
+    post admin_infos_path, params: {info: {title: "Retained title", introduction: "", content: ""}}
+    assert_response :unprocessable_entity
+    assert_select '#info_introduction[aria-invalid="true"][aria-describedby="info_introduction_error"]'
+    assert_select '#info_content[aria-invalid="true"]'
+    assert_select "#info_content_error", text: /Content/
+    assert_select 'input[name="info[title]"][value="Retained title"]'
+    assert_select '.admin-section-navigation a[href="#content-heading"]'
+    assert_select 'form.admin-editor textarea[name="info[content]"][data-admin-rich-text]'
+    person = Admin::Person.create!(attributes_for("people"))
+    get edit_admin_person_path(person)
+    assert_select '.admin-section-navigation a[href="#city-roles-heading"]'
+  end
 end

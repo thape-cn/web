@@ -1,0 +1,5 @@
+<div class="admin-row-actions">
+  <% if resource.allows?(:show) %><%= link_to '查看', admin_resource_path(resource, :show, record), class: 'admin-link', aria: {label: "查看记录 #{record.id}"} %><% end %>
+  <% if resource.allows?(:edit) %><%= link_to '编辑', admin_resource_path(resource, :edit, record), class: 'admin-link', aria: {label: "编辑记录 #{record.id}"} %><% end %>
+  <% if resource.allows?(:destroy) && !(resource.key == 'users' && record.id == current_admin.id) %><%= button_to '删除', admin_resource_path(resource, :destroy, record), method: :delete, data: {confirm: admin_delete_confirmation(resource, record)}, class: 'admin-danger-link', aria: {label: "删除记录 #{record.id}"} %><% end %>
+</div>

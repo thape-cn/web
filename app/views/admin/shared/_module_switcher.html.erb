@@ -1,0 +1,17 @@
+<dialog id="admin-module-search" class="admin-dialog admin-command-dialog" aria-labelledby="admin-module-search-title">
+  <div class="admin-dialog-heading"><h2 id="admin-module-search-title">搜索管理模块</h2><button type="button" class="admin-icon-button" data-admin-switcher-close aria-label="关闭模块搜索"><%= admin_icon('close') %><span class="sr-only">关闭模块搜索</span></button></div>
+  <div class="admin-command-input">
+    <label for="admin-module-query" class="sr-only">搜索管理模块</label>
+    <input id="admin-module-query" type="search" class="admin-input" placeholder="输入模块名称或英文名称…" autocomplete="off" aria-controls="admin-module-results" aria-describedby="admin-module-search-help" autofocus>
+  </div>
+  <div id="admin-module-results" class="admin-command-results">
+    <% admin_navigation_groups.each do |group| %>
+      <section data-admin-command-group aria-label="<%= group[:label] %>">
+        <h3 class="admin-command-group-heading"><%= group[:label] %></h3>
+        <ul><% group[:resources].each do |resource| %><li data-admin-command-item data-search="<%= [resource.label, resource.key, admin_resource_description(resource)].join(' ') %>"><%= link_to admin_resource_path(resource), class: 'admin-command-link' do %><%= admin_resource_icon(resource) %><span><strong><%= resource.label %></strong><small><%= admin_resource_description(resource) %></small></span><% end %></li><% end %></ul>
+      </section>
+    <% end %>
+    <p class="admin-command-empty" data-admin-command-empty role="status" hidden>没有找到匹配的模块</p>
+  </div>
+  <p id="admin-module-search-help" class="admin-command-footer">↑ ↓ 选择 · Enter 打开 · Esc 关闭 · Ctrl / ⌘ K 搜索</p>
+</dialog>

@@ -1,24 +1,26 @@
 <% editing_label = @record.new_record? && !@resource.singleton? ? '新建' : '编辑' %>
 <% content_for :page_title, "#{@resource.label} · #{editing_label}" %>
-<div class="admin-page-heading">
-  <div><%= link_to admin_back_path(@resource), class: 'admin-link inline-block text-sm mb-4' do %><span aria-hidden="true">←</span> <%= @resource.singleton? ? '返回工作台' : "返回#{@resource.label}" %><% end %><h1 class="admin-page-title"><%= @resource.label %> · <%= editing_label %></h1><p class="admin-page-description"><%= admin_resource_description(@resource) %></p></div>
-  <span class="admin-badge admin-badge-neutral">当前内容 · <%= admin_locale_label %></span>
-</div>
+<%= render 'admin/shared/heading', title: "#{@resource.label} · #{editing_label}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, editing_label), badge: "当前内容 · #{admin_locale_label}" %>
 <%= render 'admin/shared/errors', record: @record %>
 <% action = @record.new_record? && !@resource.singleton? ? :create : :update %>
 <%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true, class: 'admin-editor' do |form| %>
-  <% admin_form_sections(@resource).each do |section| %>
-    <%= render layout: 'admin/shared/form_section', locals: { heading_id: "#{section[:key]}-heading", title: section[:title], description: section[:description] } do %>
-      <div class="admin-fields">
-        <% section[:fields].each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
-      </div>
-    <% end %>
-  <% end %>
-  <% if %w[works cases].include?(@resource.key) %>
-    <%= render 'admin/shared/gallery', form: form %>
-  <% elsif @resource.key == 'people' && @record.persisted? %>
-    <%= render 'admin/shared/city_roles', form: form %>
-  <% end %>
+  <div class="admin-editor-layout">
+    <%= render 'admin/shared/editor_navigation', sections: admin_editor_sections(@resource, @record) %>
+    <div class="min-w-0">
+      <% admin_form_sections(@resource).each do |section| %>
+        <%= render layout: 'admin/shared/form_section', locals: { heading_id: "#{section[:key]}-heading", title: section[:title], description: section[:description] } do %>
+          <div class="admin-fields">
+            <% section[:fields].each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if %w[works cases].include?(@resource.key) %>
+        <%= render 'admin/shared/gallery', form: form %>
+      <% elsif @resource.key == 'people' && @record.persisted? %>
+        <%= render 'admin/shared/city_roles', form: form %>
+      <% end %>
+    </div>
+  </div>
   <div class="admin-save-bar">
     <span class="text-sm text-gray-500 hidden sm:inline">内容语言：<%= admin_locale_label %></span>
     <div class="admin-actions ml-auto"><%= link_to '取消', admin_back_path(@resource), class: 'admin-button-secondary' %><%= form.submit '保存', class: 'admin-button', data: { disable_with: '保存中…' } %></div>

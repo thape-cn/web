@@ -104,6 +104,68 @@ module Admin::ApplicationHelper
     resource.singleton? ? admin_root_path : admin_resource_path(resource)
   end
 
+  def admin_list_path(**changes)
+    context = admin_list_context.merge(changes.stringify_keys).compact
+    admin_resource_path(@resource, :index, nil, **context.symbolize_keys)
+  end
+
+  def admin_clear_filters_path
+    admin_resource_path(@resource, :index, nil, **admin_list_context.slice("per_page", "view").symbolize_keys)
+  end
+
+  def admin_locale_path(locale)
+    context = (@resource && action_name == "index") ? admin_list_context.except("page") : {}
+    url_for(request.path_parameters.merge(context.symbolize_keys).merge(locale: locale))
+  end
+
+  def admin_breadcrumbs(resource = nil, current = nil)
+    crumbs = [{label: "工作台", path: admin_root_path}]
+    if resource
+      crumbs << {label: resource.label, path: (current && resource.allows?(:index)) ? admin_resource_path(resource) : nil}
+      crumbs << {label: current} if current
+    end
+    crumbs
+  end
+
+  def admin_index_actions(resource)
+    actions = []
+    actions << {label: "导出全部 CSV", path: admin_resource_path(resource, :index, nil, format: :csv), icon: "download", secondary: true} if resource.messages?
+    actions << {label: "新建", path: admin_resource_path(resource, :new), icon: "plus"} if resource.allows?(:new)
+    actions
+  end
+
+  def admin_page_numbers(records)
+    total = records.total_pages
+    current = records.current_page
+    pages = ([1, total] + ((current - 1)..(current + 1)).to_a).select { |page| page.between?(1, total) }.uniq.sort
+    pages.each_with_index.flat_map { |page, index| (index.positive? && page > pages[index - 1] + 1) ? [nil, page] : [page] }
+  end
+
+  def admin_editor_sections(resource, record)
+    sections = admin_form_sections(resource)
+    if %w[works cases].include?(resource.key)
+      sections << {key: :gallery, title: "项目图片", icon: "image"}
+    elsif resource.key == "people" && record.persisted?
+      sections << {key: "city-roles", title: "城市职位", icon: "pin"}
+    end
+    sections
+  end
+
+  def admin_field_attributes(form, field, **attributes)
+    return attributes unless form.object.errors[field].any?
+    attributes.merge(aria: {invalid: true, describedby: "#{form.field_id(field)}_error"})
+  end
+
+  def admin_record_label(resource, record)
+    field = resource.search_field || (%w[users message project_messages].include?(resource.key) ? "name" : nil)
+    name = field ? record.public_send(field).to_s.presence : nil
+    [name, "##{record.id}"].compact.join(" · ")
+  end
+
+  def admin_delete_confirmation(resource, record)
+    "确认删除「#{admin_record_label(resource, record)}」？此操作不能撤销。"
+  end
+
   def admin_status(record, field)
     value = record.public_send(field)
     label = if field == "published"

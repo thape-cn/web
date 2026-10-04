@@ -1,0 +1,12 @@
+<nav class="admin-pagination" aria-label="分页">
+  <% first = records.empty? ? 0 : records.offset_value + 1 %>
+  <% last = records.empty? ? 0 : records.offset_value + records.size %>
+  <p class="text-sm text-gray-500">显示 <strong class="text-gray-900"><%= first %>–<%= last %></strong> 条，共 <strong class="text-gray-900"><%= records.total_count %></strong> 条</p>
+  <div class="admin-page-buttons">
+    <% if records.prev_page %><%= link_to '上一页', admin_list_path(page: records.prev_page), class: 'admin-page-button' %><% else %><span class="admin-page-button admin-disabled" aria-disabled="true">上一页</span><% end %>
+    <% admin_page_numbers(records).each do |number| %>
+      <% if number %><%= link_to number, admin_list_path(page: number), class: "admin-page-button admin-page-number #{number == records.current_page ? 'admin-page-current' : ''}", aria: {current: number == records.current_page ? 'page' : nil, label: "第 #{number} 页"} %><% else %><span class="admin-page-button admin-page-number" aria-hidden="true">…</span><% end %>
+    <% end %>
+    <% if records.next_page %><%= link_to '下一页', admin_list_path(page: records.next_page), class: 'admin-page-button' %><% else %><span class="admin-page-button admin-disabled" aria-disabled="true">下一页</span><% end %>
+  </div>
+</nav>

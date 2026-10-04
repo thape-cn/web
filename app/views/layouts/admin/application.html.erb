@@ -21,6 +21,8 @@
         </div>
         <%= render 'admin/shared/navigation' %>
       </dialog>
+      <%= render 'admin/shared/module_switcher' %>
+      <%= render 'admin/shared/confirmation' %>
       <div class="admin-workspace">
         <header class="admin-topbar">
           <div class="flex items-center min-w-0">
@@ -34,10 +36,11 @@
             </nav>
           </div>
           <div class="flex items-center flex-shrink-0 ml-3">
+            <button type="button" class="admin-icon-button mr-3" aria-label="搜索管理模块" aria-haspopup="dialog" aria-controls="admin-module-search" data-admin-switcher-open hidden><%= admin_icon('search') %><span class="sr-only">搜索管理模块</span><span class="hidden md:inline ml-2 text-sm" aria-hidden="true">搜索模块</span></button>
             <div class="admin-locale" aria-label="内容语言">
               <span class="hidden sm:inline text-xs text-gray-500 mr-2">内容语言</span>
               <% [['cn', '中文'], ['en', 'EN']].each do |locale, label| %>
-                <%= link_to label, url_for(request.path_parameters.merge(locale: locale)), class: "admin-locale-option #{admin_locale == locale ? 'admin-locale-active' : ''}", aria: { current: admin_locale == locale ? 'true' : nil, label: locale == 'cn' ? '切换中文内容' : 'Switch to English content' } %>
+                <%= link_to label, admin_locale_path(locale), class: "admin-locale-option #{admin_locale == locale ? 'admin-locale-active' : ''}", aria: { current: admin_locale == locale ? 'true' : nil, label: locale == 'cn' ? '切换中文内容' : 'Switch to English content' } %>
               <% end %>
             </div>
             <%= link_to '/', target: '_blank', rel: 'noopener', class: 'admin-link hidden sm:inline-flex items-center ml-6 text-sm' do %>访问官网 <%= admin_icon('external', class: 'w-4 h-4 ml-2') %><% end %>

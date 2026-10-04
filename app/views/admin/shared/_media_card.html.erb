@@ -1,0 +1,12 @@
+<div class="admin-media-card">
+  <div class="admin-media-preview" data-admin-media-preview>
+    <div class="admin-media-placeholder" <%= 'hidden' if image_url.present? %> data-admin-media-placeholder><%= admin_icon('image') %><span>暂无图片</span></div>
+    <% if image_url.present? %><%= image_tag image_url, alt: title, loading: 'lazy', data: {admin_media_image: true} %><% end %>
+  </div>
+  <div class="admin-media-body">
+    <h3 class="text-sm font-semibold"><%= title %></h3>
+    <% if local_assigns[:filename].present? %><p class="admin-media-filename"><%= filename %></p><% end %>
+    <% local_assigns.fetch(:metadata, []).each do |line| %><p class="text-xs text-gray-500 mt-2"><%= line %></p><% end %>
+    <%= yield %>
+  </div>
+</div>

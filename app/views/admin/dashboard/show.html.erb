@@ -1,12 +1,15 @@
 <% content_for :page_title, '工作台' %>
-<div class="admin-page-heading">
-  <div>
-    <p class="admin-eyebrow">天华 · 内容管理</p>
-    <h1 class="admin-page-title">网站管理</h1>
-    <p class="admin-page-description">从这里更新天华的作品、动态与品牌内容。</p>
-  </div>
-  <span class="admin-badge admin-badge-neutral">当前内容 · <%= admin_locale_label %></span>
-</div>
+<%= render 'admin/shared/heading', title: '网站管理', description: '从这里更新天华的作品、动态与品牌内容。', eyebrow: '天华 · 内容管理', badge: "当前内容 · #{admin_locale_label}" %>
+<section aria-labelledby="counts-heading" class="mb-10">
+  <h2 id="counts-heading" class="text-base font-semibold mb-2">内容概览</h2>
+  <p class="text-xs text-gray-500 mb-4">全部内容语言的记录总数，包含未发布作品。</p>
+  <dl class="admin-stats">
+    <% @counts.each do |key, count| %>
+      <% resource = Admin::Resource.new(key) %>
+      <div class="admin-stat-card"><%= link_to admin_resource_path(resource) do %><dt><%= admin_resource_icon(resource) %><%= resource.label %></dt><dd data-admin-count="<%= key %>"><%= count %></dd><% end %></div>
+    <% end %>
+  </dl>
+</section>
 <section aria-labelledby="quick-access-heading" class="mb-10">
   <div class="flex items-center justify-between mb-4">
     <h2 id="quick-access-heading" class="text-base font-semibold">常用内容</h2>

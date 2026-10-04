@@ -1,6 +1,3 @@
 <% if record.errors.any? %>
-  <div role="alert" class="admin-alert admin-alert-error">
-    <%= admin_icon('alert') %>
-    <div><p class="font-semibold">保存失败，请检查以下内容：</p><ul class="list-disc pl-5 mt-2 space-y-1"><% record.errors.full_messages.each do |message| %><li><%= message %></li><% end %></ul></div>
-  </div>
+  <%= render 'admin/shared/alert', kind: 'error', title: '保存失败，请检查以下内容：', messages: record.errors.full_messages %>
 <% end %>

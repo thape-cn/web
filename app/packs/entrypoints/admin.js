@@ -3,6 +3,9 @@ import "stylesheets/admin/application.scss"
 import "images/logo.svg"
 import "admin/rich_text"
 import "admin/ordering"
+import "admin/components"
+import "admin/module_switcher"
+import "admin/confirmation"
 
 Rails.start()
 

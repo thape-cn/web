@@ -5,14 +5,14 @@ require "csv"
 class Admin::ResourcesController < Admin::ApplicationController
   before_action :set_resource
   before_action :set_record, only: [:show, :edit, :update, :destroy]
-  helper_method :admin_order_context
+  helper_method :admin_order_context, :admin_list_context
 
   def index
     records = filtered_records
     if @resource.messages? && request.format.csv?
       export_messages(records)
     else
-      @records = records.page(params[:page]).per(params[:per_page].present? ? params[:per_page].to_i.clamp(1, 100) : 25)
+      @records = records.page(admin_list_context["page"]).per(admin_list_context.fetch("per_page", 25))
       if @resource.ordered?
         ids = @resource.scope.order(position: :asc, id: :asc).pluck(:id)
         @order_ranks = ids.each_with_index.to_h.transform_values { |index| index + 1 }
@@ -77,8 +77,8 @@ class Admin::ResourcesController < Admin::ApplicationController
     records = @resource.scope
     records = records.includes(:translations) if @resource.model.respond_to?(:translated_attribute_names)
     records = records.includes(:project_types, :residential_types) if @resource.key == "works"
-    search_field = {"works" => "project_name", "people" => "name", "infos" => "title"}[@resource.key]
-    query = params[:q].presence || params[search_field].presence if search_field
+    search_field = @resource.search_field
+    query = admin_list_context["q"]
     if query.present?
       if @resource.model.respond_to?(:translated_attribute_names) && @resource.model.translated_attribute_names.include?(search_field.to_sym)
         records = records.with_translations(admin_locale)
@@ -88,8 +88,19 @@ class Admin::ResourcesController < Admin::ApplicationController
       end
       records = records.where("#{table}.#{search_field} ILIKE ?", "%#{ActiveRecord::Base.sanitize_sql_like(query)}%")
     end
-    if @resource.key == "publications" && ::Publication.category_statuses.key?(params[:category_status])
-      records = records.where(category_status: params[:category_status])
+    @resource.filters.each_key do |field|
+      value = admin_list_context[field]
+      next unless value
+      records = case [@resource.key, field]
+      when ["people", "city_id"]
+        records.where(id: ::CityPerson.where(city_id: value).select(:person_id))
+      when ["works", "project_type_id"]
+        records.where(id: ::WorkProjectType.where(project_type_id: value).select(:work_id))
+      when ["works", "published"]
+        records.where(published: (value == "true") ? true : [false, nil])
+      else
+        records.where(field => value)
+      end
     end
     order = if @resource.model.column_names.include?("position")
       {position: :asc, id: :asc}
@@ -159,8 +170,11 @@ class Admin::ResourcesController < Admin::ApplicationController
   end
 
   def admin_order_context
-    keys = %w[q project_name name title category_status page per_page]
-    @admin_order_context ||= params.slice(*keys).permit(*keys).to_h
+    admin_list_context
+  end
+
+  def admin_list_context
+    @admin_list_context ||= @resource.list_context(params)
   end
 
   def export_messages(records)

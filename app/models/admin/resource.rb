@@ -2,6 +2,13 @@
 
 class Admin::Resource
   DEFINITIONS = JSON.parse(Rails.root.join("config/admin/resources.json").read).freeze
+  SEARCH_FIELDS = {"works" => "project_name", "people" => "name", "cases" => "title", "infos" => "title", "publications" => "title", "portfolios" => "title", "insights" => "title"}.freeze
+  FILTERS = {
+    "works" => {"published" => "发布状态", "city_id" => "城市", "project_type_id" => "项目分类"},
+    "people" => {"category" => "团队分类", "city_id" => "城市"},
+    "infos" => {"category" => "新闻分类"},
+    "publications" => {"category_status" => "分类"}
+  }.freeze
 
   attr_reader :key, :definition
 
@@ -48,6 +55,46 @@ class Admin::Resource
 
   def scope
     model.unscoped
+  end
+
+  def search_field
+    SEARCH_FIELDS[key]
+  end
+
+  def filters
+    FILTERS.fetch(key, {})
+  end
+
+  def filter_options(field)
+    @filter_options ||= {}
+    @filter_options[field] ||= case field
+    when "published" then [["已发布", "true"], ["未发布", "false"]]
+    when "city_id" then ::City.order(:id).pluck(:name, :id)
+    when "project_type_id" then ::ProjectType.order(:id).pluck(:cn_name, :id)
+    when "category_status" then [["专著", "monographs"], ["标准规范", "standard_specification"], ["论文专利", "paper_patent"]]
+    when "category"
+      (key == "people") ? [["管理团队", 1], ["专业团队", 2]] : [["公司新闻", 1], ["行业会议", 2], ["专业奖项", 3]]
+    else []
+    end
+  end
+
+  # Only recognized, valid list parameters travel between links and reorder forms.
+  def list_context(params)
+    context = {}
+    if search_field
+      query = params[:q].presence || params[search_field].presence
+      context["q"] = query.to_s if query.is_a?(String)
+    end
+    filters.each_key do |field|
+      value = params[field]
+      context[field] = value.to_s if filter_options(field).any? { |_, option| option.to_s == value.to_s }
+    end
+    %w[page per_page].each do |field|
+      value = params[field].to_s
+      context[field] = ((field == "per_page") ? value.to_i.clamp(1, 100) : [value.to_i, 1].max).to_s if value.match?(/\A\d+\z/)
+    end
+    context["view"] = params[:view] if key == "pictures" && %w[grid list].include?(params[:view])
+    context
   end
 
   def columns
