@@ -769,11 +769,13 @@
     "fields": {
       "resdential_jpg": {
         "type": "file_field",
-        "label": "居住图片 JPG 格式"
+        "label": "居住图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "resdential_webp": {
         "type": "file_field",
-        "label": "居住图片 WebP 格式"
+        "label": "居住图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "residential_residence_jpg": {
         "type": "file_field",
@@ -801,115 +803,143 @@
       },
       "demonstration_zone_jpg": {
         "type": "file_field",
-        "label": "示范区 JPG 格式"
+        "label": "示范区 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "demonstration_zone_webp": {
         "type": "file_field",
-        "label": "示范区 WebP 格式"
+        "label": "示范区 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "mixed_used_tod_jpg": {
         "type": "file_field",
-        "label": "综合体/TOD JPG 格式"
+        "label": "综合体/TOD JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "mixed_used_tod_webp": {
         "type": "file_field",
-        "label": "综合体/TOD WebP 格式"
+        "label": "综合体/TOD WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "commercial_jpg": {
         "type": "file_field",
-        "label": "商业空间图片 JPG 格式"
+        "label": "商业空间图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "commercial_webp": {
         "type": "file_field",
-        "label": "商业空间图片 WebP 格式"
+        "label": "商业空间图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "supertall_jpg": {
         "type": "file_field",
-        "label": "超高层图片 JPG 格式"
+        "label": "超高层图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 2:1（竖图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "supertall_webp": {
         "type": "file_field",
-        "label": "超高层图片 WebP 格式"
+        "label": "超高层图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 2:1（竖图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "cultural_wide_jpg": {
         "type": "file_field",
-        "label": "文化Wide图片 JPG 格式"
+        "label": "文化Wide图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。用于手机和平板布局；桌面布局使用文化方图。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "cultural_wide_webp": {
         "type": "file_field",
-        "label": "文化Wide图片 WebP 格式"
+        "label": "文化Wide图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。用于手机和平板布局；桌面布局使用文化方图。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "cultural_jpg": {
         "type": "file_field",
-        "label": "文化图片 JPG 格式"
+        "label": "文化图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。用于桌面布局；手机和平板布局使用文化 Wide 横图。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "cultural_webp": {
         "type": "file_field",
-        "label": "文化图片 WebP 格式"
+        "label": "文化图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。用于桌面布局；手机和平板布局使用文化 Wide 横图。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "education_jpg": {
         "type": "file_field",
-        "label": "教育图片 JPG 格式"
+        "label": "教育图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "education_webp": {
         "type": "file_field",
-        "label": "教育图片 WebP 格式"
+        "label": "教育图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "office_jpg": {
         "type": "file_field",
-        "label": "商务办公图片 JPG 格式"
+        "label": "商务办公图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "office_webp": {
         "type": "file_field",
-        "label": "商务办公图片 WebP 格式"
+        "label": "商务办公图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "urban_design_jpg": {
         "type": "file_field",
-        "label": "城市设计/更新图片 JPG 格式"
+        "label": "城市设计/更新图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 2:1（竖图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "urban_design_webp": {
         "type": "file_field",
-        "label": "城市设计/更新图片 WebP 格式"
+        "label": "城市设计/更新图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 2:1（竖图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "medical_care_jpg": {
         "type": "file_field",
-        "label": "医疗康养图片 JPG 格式"
+        "label": "医疗康养图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "medical_care_webp": {
         "type": "file_field",
-        "label": "医疗康养图片 WebP 格式"
+        "label": "医疗康养图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "hospitality_jpg": {
         "type": "file_field",
-        "label": "旅居/酒店图片 JPG 格式"
+        "label": "旅居/酒店图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "hospitality_webp": {
         "type": "file_field",
-        "label": "旅居/酒店图片 WebP 格式"
+        "label": "旅居/酒店图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:2（横图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "urban_planning_jpg": {
         "type": "file_field",
-        "label": "规划图片 JPG 格式"
+        "label": "规划图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "urban_planning_webp": {
         "type": "file_field",
-        "label": "规划图片 WebP 格式"
+        "label": "规划图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "landscape_jpg": {
         "type": "file_field",
-        "label": "景观图片 JPG 格式"
+        "label": "景观图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "landscape_webp": {
         "type": "file_field",
-        "label": "景观图片 WebP 格式"
+        "label": "景观图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "interior_jpg": {
         "type": "file_field",
-        "label": "室内图片 JPG 格式"
+        "label": "室内图片 JPG 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       },
       "interior_webp": {
         "type": "file_field",
-        "label": "室内图片 WebP 格式"
+        "label": "室内图片 WebP 格式",
+        "hint": "建议图片比例（高:宽）为 1:1（方图）。不同屏幕下图片会居中裁切，请将主体置于中央，并为底部标题留出空间。"
       }
     }
   },

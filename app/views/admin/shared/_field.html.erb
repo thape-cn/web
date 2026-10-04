@@ -25,5 +25,6 @@
       <%= form.public_send(options['type'], field, **admin_field_attributes(form, field, class: 'admin-input')) %>
     <% end %>
   <% end %>
+  <% if options["hint"].present? %><p class="text-xs text-gray-500 mt-2"><%= options["hint"] %></p><% end %>
   <% if form.object.errors[field].any? %><p id="<%= form.field_id(field) %>_error" class="admin-field-error"><%= form.object.errors.full_messages_for(field).join('；') %></p><% end %>
 </div>
