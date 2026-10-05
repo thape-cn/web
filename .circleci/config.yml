@@ -69,6 +69,10 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
+      - run:
+          name: Build test assets
+          command: RAILS_ENV=test bin/shakapacker
+
       # run tests!
       - run:
           name: run tests
