@@ -71,7 +71,7 @@ jobs:
 
       - run:
           name: Build test assets
-          command: RAILS_ENV=test NODE_ENV=test node node_modules/webpack/bin/webpack.js --config config/webpack/webpack.config.js
+          command: RAILS_ENV=test NODE_ENV=development node node_modules/webpack/bin/webpack.js --config config/webpack/webpack.config.js
 
       # run tests!
       - run:
@@ -84,6 +84,9 @@ jobs:
 
       - store_artifacts:
           path: coverage
+
+      - store_artifacts:
+          path: tmp/screenshots
 
 workflows:
   build:
