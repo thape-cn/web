@@ -1,20 +1,16 @@
 <div class="min-w-0 <%= options['type'] == 'text_area' ? 'md:col-span-2' : '' %>">
   <% if options['type'] == 'check_box' %>
-    <div class="admin-checkbox-panel"><%= form.check_box field, **admin_field_attributes(form, field, class: 'admin-checkbox') %><%= form.label field, admin_field_label(resource, field), class: 'text-sm font-medium' %></div>
+    <%= render 'admin/shared/switch', form: form, resource: resource, field: field, options: options %>
+  <% elsif options['type'] == 'multiple' %>
+    <%= render 'admin/shared/checkbox_group', form: form, resource: resource, field: field %>
   <% else %>
     <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
     <% case options['type'] %>
     <% when 'file_field' %>
-      <div class="admin-upload">
-        <%= admin_upload_preview(form.object.public_send(field)) %>
-        <%= form.file_field field, **admin_field_attributes(form, field, class: 'admin-file-input') %>
-        <%= form.hidden_field "#{field}_cache" %>
-        <% if form.object.public_send(field).present? %><label class="admin-checkbox-label mt-3"><%= form.check_box "remove_#{field}", class: 'admin-checkbox' %> 移除现有文件</label><% end %>
-      </div>
-    <% when 'select', 'multiple' %>
+      <%= render 'admin/shared/upload', form: form, field: field %>
+    <% when 'select' %>
       <% selected = form.object.public_send(field) %>
-      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: options['type'] == 'select' }, admin_field_attributes(form, field, multiple: options['type'] == 'multiple', class: 'admin-input') %>
-      <% if options['type'] == 'multiple' %><p class="text-xs text-gray-500 mt-2">按住 Ctrl / Command 可选择多项。</p><% end %>
+      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: true }, admin_field_attributes(form, field, class: 'admin-input') %>
     <% when 'text_area' %>
       <% editor_data = options['rich_text'] ? { admin_rich_text: true, upload_url: upload_admin_pictures_path } : {} %>
       <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, **admin_field_attributes(form, field, class: 'admin-input', data: editor_data) %>
@@ -24,6 +20,6 @@
       <%= form.public_send(options['type'], field, **admin_field_attributes(form, field, class: 'admin-input')) %>
     <% end %>
   <% end %>
-  <% if options["hint"].present? %><p class="text-xs text-gray-500 mt-2"><%= options["hint"] %></p><% end %>
+  <% if options["hint"].present? && options['type'] != 'check_box' %><p class="text-xs text-gray-500 mt-2"><%= options["hint"] %></p><% end %>
   <% if form.object.errors[field].any? %><p id="<%= form.field_id(field) %>_error" class="admin-field-error"><%= form.object.errors.full_messages_for(field).join('；') %></p><% end %>
 </div>

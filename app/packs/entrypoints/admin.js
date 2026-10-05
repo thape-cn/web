@@ -4,6 +4,7 @@ import "images/logo.svg"
 import "admin/rich_text"
 import "admin/ordering"
 import "admin/components"
+import "admin/uploads"
 import "admin/module_switcher"
 import "admin/confirmation"
 

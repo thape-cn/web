@@ -112,6 +112,18 @@ module Admin::ApplicationHelper
     admin_resource_path(@resource, :index, nil, **admin_list_context.slice("per_page", "view").symbolize_keys)
   end
 
+  def admin_active_filters
+    admin_list_context.slice("q", *@resource.filters.keys).map do |field, value|
+      label = if field == "q"
+        "搜索：#{value}"
+      else
+        option = @resource.filter_options(field).find { |_, id| id.to_s == value }
+        "#{@resource.filters.fetch(field)}：#{option.first}"
+      end
+      {label: label, path: admin_list_path(**{field => nil, "page" => nil})}
+    end
+  end
+
   def admin_locale_path(locale)
     context = (@resource && action_name == "index") ? admin_list_context.except("page") : {}
     url_for(request.path_parameters.merge(context.symbolize_keys).merge(locale: locale))
@@ -152,7 +164,8 @@ module Admin::ApplicationHelper
 
   def admin_field_attributes(form, field, **attributes)
     return attributes unless form.object.errors[field].any?
-    attributes.merge(aria: {invalid: true, describedby: "#{form.field_id(field)}_error"})
+    aria = attributes.fetch(:aria, {})
+    attributes.merge(aria: aria.merge(invalid: true, describedby: [aria[:describedby], "#{form.field_id(field)}_error"].compact.join(" ")))
   end
 
   def admin_record_label(resource, record)

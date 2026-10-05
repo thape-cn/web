@@ -1,0 +1,20 @@
+<% upload = form.object.public_send(field) %>
+<div class="admin-upload" data-admin-upload>
+  <div class="admin-upload-current" data-admin-upload-current>
+    <% if upload.present? %>
+      <%= admin_upload_preview(upload) %>
+    <% else %>
+      <%= admin_icon('image', class: 'w-8 h-8 text-gray-400 mx-auto mb-3') %>
+      <p class="text-xs text-gray-500">选择要上传的文件，保存后生效。</p>
+    <% end %>
+  </div>
+  <div class="admin-upload-pending" data-admin-upload-pending hidden>
+    <img class="admin-preview" data-admin-upload-preview alt="所选图片预览" hidden>
+    <p class="admin-upload-filename" data-admin-upload-filename></p>
+    <button type="button" class="admin-link text-xs mt-2" data-admin-upload-reset>取消选择</button>
+  </div>
+  <p class="sr-only" role="status" data-admin-upload-status></p>
+  <%= form.file_field field, **admin_field_attributes(form, field, class: 'admin-file-input', data: {admin_upload_input: true}) %>
+  <%= form.hidden_field "#{field}_cache" %>
+  <% if local_assigns.fetch(:removable, true) && upload.present? %><label class="admin-checkbox-label mt-3"><%= form.check_box "remove_#{field}", class: 'admin-checkbox' %> 移除现有文件</label><% end %>
+</div>

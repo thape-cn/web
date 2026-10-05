@@ -74,11 +74,13 @@
       },
       "hide_in_design_staff_news": {
         "type": "check_box",
-        "label": "Hide In Design Staff News"
+        "label": "在团队页面隐藏新闻",
+        "hint": "开启后，不在团队页面的新闻推荐中显示。保存后生效。"
       },
       "hide_in_index_news": {
         "type": "check_box",
-        "label": "Hide In Index News"
+        "label": "在新闻列表隐藏",
+        "hint": "开启后，不在新闻列表与搜索推荐中显示。保存后生效。"
       },
       "title": {
         "type": "text_field",
@@ -355,7 +357,8 @@
       },
       "published": {
         "type": "check_box",
-        "label": "是否发布到官网显示"
+        "label": "是否发布到官网显示",
+        "hint": "开启后，作品可在官网展示；关闭后仍可在后台编辑。保存后生效。"
       },
       "project_type_ids": {
         "type": "multiple",

@@ -1,0 +1,6 @@
+<nav class="admin-filter-tabs" aria-label="<%= resource.filters.fetch(field) %>">
+  <% ([['全部', nil]] + resource.filter_options(field)).each do |label, value| %>
+    <% current = admin_list_context[field].to_s == value.to_s %>
+    <%= link_to label, admin_list_path(**{field => value, 'page' => nil}), class: current ? 'admin-filter-tab-current' : nil, aria: {current: current ? 'page' : nil} %>
+  <% end %>
+</nav>

@@ -12,27 +12,35 @@
   </dialog>
 <% end %>
 <div class="admin-panel overflow-hidden">
+  <% if @resource.tab_filter %><%= render 'admin/shared/filter_tabs', resource: @resource, field: @resource.tab_filter %><% end %>
   <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'admin-filter-bar' do |form| %>
     <%= hidden_field_tag :locale, admin_locale %>
+    <% if @resource.tab_filter && admin_list_context[@resource.tab_filter] %><%= hidden_field_tag @resource.tab_filter, admin_list_context[@resource.tab_filter] %><% end %>
     <% if search_field %>
       <div class="admin-search-field">
         <%= form.label :q, '搜索名称 / 标题', class: 'sr-only' %>
         <div class="relative"><span class="admin-search-icon"><%= admin_icon('search') %></span><%= form.search_field :q, value: admin_list_context["q"], placeholder: '搜索名称 / 标题…', class: 'admin-input admin-search-input' %></div>
       </div>
     <% end %>
-    <% @resource.filters.each do |field, label| %>
+    <% @resource.filters.except(@resource.tab_filter).each do |field, label| %>
       <div class="admin-filter-select"><%= form.label field, label, class: 'text-sm text-gray-500' %><%= form.select field, options_for_select(@resource.filter_options(field), admin_list_context[field]), { include_blank: "全部#{label}" }, class: 'admin-input' %></div>
     <% end %>
     <% if @resource.key == 'pictures' %><%= hidden_field_tag :view, admin_list_context.fetch('view', 'grid') %><% end %>
     <% page_size = admin_list_context.fetch('per_page', '25').to_i %>
     <div class="admin-filter-select"><%= form.label :per_page, '每页条数', class: 'text-sm text-gray-500 whitespace-no-wrap' %><%= form.select :per_page, options_for_select(([25, 50, 100] + [page_size]).uniq.sort, page_size), {}, class: 'admin-input' %></div>
     <%= form.submit '筛选', class: 'admin-button-secondary' %>
-    <% if filtered %><%= link_to '清除筛选', admin_clear_filters_path, class: 'admin-link text-sm' %><% end %>
   <% end %>
+  <%= render 'admin/shared/active_filters', filters: admin_active_filters %>
   <% if @resource.key == 'pictures' %>
-    <nav class="admin-view-switch" aria-label="图片浏览方式">
-      <% [['grid', '网格'], ['list', '列表']].each do |view, label| %><%= link_to label, admin_list_path(view: view), class: 'admin-button-secondary', aria: {current: admin_list_context.fetch('view', 'grid') == view ? 'true' : nil} %><% end %>
-    </nav>
+    <div class="admin-view-toolbar">
+      <span class="text-sm text-gray-500">共 <%= @records.total_count %> 张图片</span>
+      <nav class="admin-view-switch admin-button-group" aria-label="图片浏览方式">
+        <% [['grid', '网格', 'grid'], ['list', '列表', 'menu']].each do |view, label, icon| %>
+          <% current = admin_list_context.fetch('view', 'grid') == view %>
+          <%= link_to admin_list_path(view: view), class: ['admin-button-secondary', ('admin-view-current' if current)], aria: {current: current ? 'true' : nil} do %><%= admin_icon(icon) %><%= label %><% end %>
+        <% end %>
+      </nav>
+    </div>
   <% end %>
   <% if @records.empty? %>
     <% empty_action = filtered ? {label: '清除筛选', path: admin_clear_filters_path, secondary: true} : (@resource.allows?(:new) ? {label: '新建第一条记录', path: admin_resource_path(@resource, :new)} : nil) %>

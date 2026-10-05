@@ -65,6 +65,10 @@ class Admin::Resource
     FILTERS.fetch(key, {})
   end
 
+  def tab_filter
+    filters.keys.find { |field| %w[published category category_status].include?(field) }
+  end
+
   def filter_options(field)
     @filter_options ||= {}
     @filter_options[field] ||= case field

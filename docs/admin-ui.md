@@ -1,6 +1,6 @@
 # Admin UI templates
 
-All 18 admin modules use the shared Rails views in `app/views/admin` and the
+All admin modules use the shared Rails views in `app/views/admin` and the
 dedicated `admin` Shakapacker entrypoint. The layout and components are adapted
 from `/Users/guochunzhong/git/application-ui-v4/html`:
 
@@ -22,6 +22,12 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Inline field errors | `forms/input-groups/03-input-with-validation-error.html` |
 | Deletion confirmation | `overlays/modal-dialogs/05-simple-with-gray-footer.html` |
 | Empty lists and searches | `feedback/empty-states/01-simple.html` |
+| Status and category filters | `navigation/tabs/01-tabs-with-underline.html` |
+| Removable active filters | `elements/badges/07-with-border-remove-button.html` |
+| Picture grid/list buttons | `elements/button-groups/01-basic.html` |
+| Publication and visibility switches | `forms/toggles/04-with-left-label-and-description.html` |
+| Project categories and team cities | `forms/checkboxes/03-list-with-checkbox-on-right.html` |
+| File upload areas and local previews | `forms/form-layouts/01-stacked.html` (cover photo field) |
 
 The application uses Tailwind 1.9. Template utilities from v4 are translated to
 supported utilities and reusable `@apply` components in
@@ -37,7 +43,7 @@ for editor inputs or record actions. Resource-specific search/filter definitions
 live in `Admin::Resource`, rather than in these shared components.
 
 Dashboard counts are unscoped record totals across all content languages,
-including unpublished works. Search uses `q` for all seven ordered modules and
+including unpublished works. Search uses `q` for all ordered modules and
 honors the selected language for translated fields. Existing `project_name`,
 `name` and `title` search aliases remain accepted. Works support `published`
 (`true`/`false`), `city_id` and `project_type_id`; people support `category` and
@@ -47,6 +53,26 @@ filters use subqueries to avoid duplicate records and inflated totals. Filter
 submission and language changes reset the page. Clearing filters retains locale,
 page size and picture view. Ordering remains global across pages and languages.
 
+Works, news, people and publications expose their status or category filter as
+ordinary navigation tabs. Tab changes and individual filter removal reset the
+page while retaining the other filters, locale and page size. A hidden field
+carries the selected tab through search submissions. Active filter chips show
+the current search and filter labels, including when the result is empty. Selected
+tabs and view buttons use explicit state classes so PurgeCSS retains their styles.
+
+Boolean fields use labeled native checkboxes styled as switches, with descriptions
+of their save-time effect. Association fields use checkbox lists with legends;
+Rails' hidden empty-array input allows every selection to be cleared. These
+controls, filter tabs and view buttons work without JavaScript. Forced-color mode
+uses the native checkbox appearance for switches.
+
+Upload fields share a component across regular editors and nested galleries.
+Choosing a file shows its filename and a local preview for JPG, PNG, GIF and WebP;
+other files show their filename. Cancelling a selection restores the current
+file preview without clearing the upload cache or removal checkbox. No file is
+uploaded until the form is saved. The native file input remains available without
+JavaScript, and existing file guidance and server validation still apply.
+
 The picture library accepts `view=grid|list` and defaults to grid. Missing or
 failed images show a placeholder. Gallery cards retain the existing nested
 attributes, cached uploads, paired JPG/WebP fields and save-time deletion.
@@ -54,7 +80,7 @@ Editor section links are anchors; they do not hide fields or split the form.
 Inline errors also label the visible rich-text editor when a textarea is enhanced.
 
 The header module search and Ctrl/Cmd+K open a native dialog containing the same
-18 destinations as the sidebar. Search covers Chinese labels, resource keys and
+destinations as the sidebar. Search covers Chinese labels, resource keys and
 descriptions locally. Arrow keys select links, Enter opens one, and Escape closes
 the dialog and restores focus. Flash messages are manually dismissible, without
 an automatic timeout. Deletion dialogs focus Cancel first and replay the original

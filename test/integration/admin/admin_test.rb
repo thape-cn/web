@@ -697,4 +697,52 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     get edit_admin_person_path(person)
     assert_select '.admin-section-navigation a[href="#city-roles-heading"]'
   end
+
+  test "filter tabs and removable chips preserve other filters and reset pagination" do
+    sign_in
+    context = {q: "Filter <work>", published: "false", city_id: cities(:city_1).id, per_page: 50, page: 4, locale: :en}
+    get admin_works_path(**context)
+    assert_select '.admin-filter-tabs a[aria-current="page"]', text: "未发布"
+    assert_select '.admin-filter-bar input[name="published"][value="false"]'
+    assert_select ".admin-active-filters li", count: 3
+    assert_select '.admin-active-filters a[aria-label="移除搜索：Filter <work>"]' do |links|
+      get links.first["href"]
+    end
+    assert_equal context.except(:q, :page).stringify_keys.transform_values(&:to_s), request.query_parameters
+    assert_select ".admin-filter-tabs a", text: "已发布" do |links|
+      get links.first["href"]
+    end
+    assert_equal "true", request.query_parameters["published"]
+    assert_equal "en", request.query_parameters["locale"]
+    assert_equal "50", request.query_parameters["per_page"]
+    assert_equal cities(:city_1).id.to_s, request.query_parameters["city_id"]
+    assert_select ".admin-filter-tabs a", text: "全部" do |links|
+      get links.first["href"]
+    end
+    assert_nil request.query_parameters["published"]
+
+    {"people" => ["category", "2", "专业团队"], "infos" => ["category", "3", "专业奖项"], "publications" => ["category_status", "paper_patent", "论文专利"]}.each do |key, (field, value, label)|
+      get path(Admin::Resource.new(key), :index, nil, **{field => value})
+      assert_select '.admin-filter-tabs a[aria-current="page"]', text: label
+      assert_select ".admin-filter-bar input[name='#{field}'][value='#{value}']"
+    end
+  end
+
+  test "checkbox groups submit selections and clearing all associations" do
+    sign_in
+    work = Admin::Work.create!(attributes_for("works").merge(project_type_ids: [project_types(:project_type_1).id]))
+    get edit_admin_work_path(work)
+    assert_select 'input[type="hidden"][name="work[project_type_ids][]"][value=""]'
+    assert_select 'input[type="checkbox"][name="work[project_type_ids][]"][checked]', count: 1
+    assert_select 'input[type="hidden"][name="work[published]"][value="0"]'
+    assert_select '#work_published[role="switch"][aria-describedby="work_published_hint"]'
+    patch admin_work_path(work), params: {work: {project_type_ids: ["", "1", "3"], published: "1"}}
+    assert_response :see_other
+    assert_equal [1, 3], work.reload.project_type_ids.sort
+    assert work.published?
+    patch admin_work_path(work), params: {work: {project_type_ids: [""], published: "0"}}
+    assert_response :see_other
+    assert_empty work.reload.project_type_ids
+    assert_not work.published?
+  end
 end

@@ -10,7 +10,7 @@
           <legend class="sr-only"><%= picture_title %></legend>
           <div class="grid md:grid-cols-2 gap-5">
             <% fields.each do |field| %>
-              <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片' }.fetch(field), class: 'admin-label' %><%= admin_upload_preview(picture_form.object.public_send(field)) %><%= picture_form.file_field field, class: 'admin-file-input' %><%= picture_form.hidden_field "#{field}_cache" %></div>
+              <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片' }.fetch(field), class: 'admin-label' %><%= render 'admin/shared/upload', form: picture_form, field: field, removable: false %></div>
             <% end %>
             <% if picture_form.object.persisted? %><label class="admin-checkbox-label"><%= picture_form.check_box :_destroy, class: 'admin-checkbox' %> 删除此图片</label><% end %>
           </div>

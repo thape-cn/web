@@ -198,8 +198,14 @@
 .admin .admin-section-navigation a { @apply flex items-center text-sm font-medium text-gray-600 rounded-md px-3 py-2; gap: 8px; }
 .admin .admin-section-navigation a:hover, .admin .admin-section-navigation a:focus { @apply text-indigo-700 bg-indigo-50; }
 .admin .admin-editor-heading h2 { scroll-margin-top: 88px; }
-.admin .admin-view-switch { @apply flex justify-end px-5 py-4 border-b border-gray-100; gap: 8px; }
-.admin .admin-view-switch [aria-current="true"] { @apply bg-indigo-50 text-indigo-700 border-indigo-300; }
+.admin .admin-view-toolbar { @apply flex flex-wrap items-center justify-between px-5 py-4 border-b border-gray-100; gap: 12px; }
+.admin .admin-button-group { @apply inline-flex rounded-md shadow-sm; }
+.admin .admin-button-group .admin-button-secondary { @apply rounded-none shadow-none; }
+.admin .admin-button-group .admin-button-secondary + .admin-button-secondary { margin-left: -1px; }
+.admin .admin-button-group .admin-button-secondary:first-child { @apply rounded-l-md; }
+.admin .admin-button-group .admin-button-secondary:last-child { @apply rounded-r-md; }
+.admin .admin-button-group .admin-button-secondary:focus-visible { position: relative; z-index: 1; }
+.admin .admin-view-switch .admin-view-current { @apply bg-indigo-50 text-indigo-700 border-indigo-300; }
 .admin .admin-media-grid { @apply p-5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .admin .admin-gallery-grid { display: grid; gap: 20px; }
 .admin .admin-gallery-grid .admin-media-preview { aspect-ratio: auto; height: 160px; }
@@ -230,6 +236,45 @@
 .admin .admin-command-link:hover, .admin .admin-command-active { @apply bg-indigo-50 text-indigo-700; }
 .admin .admin-command-empty { @apply px-5 py-10 text-center text-sm text-gray-500; }
 .admin .admin-command-footer { @apply px-5 py-3 border-t border-gray-100 text-xs text-gray-500; }
+
+// Filter tabs, removable badges, switches and checkbox lists from Tailwind Plus.
+.admin .admin-filter-tabs { @apply flex px-5 border-b border-gray-200; gap: 24px; overflow-x: auto; }
+.admin .admin-filter-tabs a { @apply inline-flex items-center py-4 text-sm font-medium text-gray-500 border-b-2 border-transparent; white-space: nowrap; }
+.admin .admin-filter-tabs a:hover { @apply text-gray-700 border-gray-300; }
+.admin .admin-filter-tabs a.admin-filter-tab-current { @apply text-indigo-600 border-indigo-600; }
+.admin .admin-filter-tabs a:focus-visible { outline-offset: -3px; }
+.admin .admin-active-filters { @apply flex flex-wrap items-center px-4 py-3 border-b border-gray-200 bg-gray-50; gap: 8px 12px; }
+.admin .admin-active-filters ul { @apply flex flex-wrap; gap: 8px; min-width: 0; }
+.admin .admin-active-filters li { min-width: 0; max-width: 100%; }
+.admin .admin-filter-chip { @apply inline-flex items-center rounded-md bg-white border border-gray-200 px-2 py-1 text-xs font-medium text-gray-600; gap: 8px; min-height: 32px; max-width: 100%; }
+.admin .admin-filter-chip span { overflow-wrap: anywhere; min-width: 0; }
+.admin .admin-filter-chip:hover { @apply border-indigo-300 text-indigo-700 bg-indigo-50; }
+.admin .admin-switch-panel { @apply flex items-center justify-between border border-gray-200 rounded-lg p-4; gap: 16px; }
+.admin .admin-switch-panel .admin-label { @apply mb-1; }
+.admin .admin-switch-control { position: relative; flex-shrink: 0; width: 44px; height: 24px; }
+.admin .admin-switch-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 1; margin: 0; }
+.admin .admin-switch-track { @apply block bg-gray-200 rounded-full; width: 44px; height: 24px; padding: 2px; box-shadow: inset 0 0 0 1px rgba(17, 24, 39, .05); }
+.admin .admin-switch-track::after { content: ''; display: block; width: 20px; height: 20px; border-radius: 50%; background: white; box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
+.admin .admin-switch-input:checked + .admin-switch-track { @apply bg-indigo-600; }
+.admin .admin-switch-input:checked + .admin-switch-track::after { transform: translateX(20px); }
+.admin .admin-switch-input:focus-visible + .admin-switch-track { outline: 2px solid #6366f1; outline-offset: 3px; }
+.admin .admin-checkbox-group { min-width: 0; }
+.admin .admin-checkbox-options { @apply border border-gray-200 rounded-lg overflow-hidden; }
+.admin .admin-checkbox-option { @apply flex items-center justify-between px-4 py-3 text-sm text-gray-700 cursor-pointer; gap: 16px; }
+.admin .admin-checkbox-option + .admin-checkbox-option { @apply border-t border-gray-200; }
+.admin .admin-checkbox-option span { min-width: 0; overflow-wrap: anywhere; }
+.admin .admin-checkbox-option:hover { @apply bg-gray-50; }
+.admin .admin-checkbox-option:has(:checked) { @apply bg-indigo-50 text-indigo-700; }
+.admin .admin-checkbox-option:focus-within { outline: 2px solid #6366f1; outline-offset: -2px; }
+.admin .admin-upload-current, .admin .admin-upload-pending { @apply text-center; }
+.admin .admin-upload .admin-preview { margin-left: auto; margin-right: auto; }
+.admin .admin-upload-filename { @apply text-sm font-medium text-gray-700; overflow-wrap: anywhere; }
+.admin .admin-upload:focus-within { @apply border-indigo-400; }
+
+@media (forced-colors: active) {
+  .admin .admin-switch-input { opacity: 1; appearance: auto; }
+  .admin .admin-switch-track { visibility: hidden; }
+}
 
 @screen sm {
   .admin .admin-topbar { @apply px-8; }

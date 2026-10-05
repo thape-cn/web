@@ -1,0 +1,11 @@
+<% if filters.any? %>
+  <div class="admin-active-filters" aria-label="已选筛选条件">
+    <span class="text-xs text-gray-500">已选筛选</span>
+    <ul>
+      <% filters.each do |filter| %>
+        <li><%= link_to filter[:path], class: 'admin-filter-chip', aria: {label: "移除#{filter[:label]}"} do %><span><%= filter[:label] %></span><%= admin_icon('close', class: 'w-4 h-4 flex-shrink-0') %><% end %></li>
+      <% end %>
+    </ul>
+    <%= link_to '清除筛选', admin_clear_filters_path, class: 'admin-link text-xs' %>
+  </div>
+<% end %>
