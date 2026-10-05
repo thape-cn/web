@@ -1,7 +1,7 @@
 <div class="admin-switch-panel">
   <div class="min-w-0">
     <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
-    <p id="<%= form.field_id(field) %>_hint" class="text-xs text-gray-500 leading-relaxed"><%= options['hint'].presence || '保存后生效。' %></p>
+    <p id="<%= form.field_id(field) %>_hint" class="text-sm text-gray-500 leading-relaxed"><%= options['hint'].presence || '保存后生效。' %></p>
   </div>
   <div class="admin-switch-control">
     <%= form.check_box field, **admin_field_attributes(form, field, class: 'admin-switch-input', role: 'switch', aria: {describedby: "#{form.field_id(field)}_hint"}) %>

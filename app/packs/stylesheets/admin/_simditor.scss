@@ -26,5 +26,9 @@
 .admin .simditor .simditor-toolbar > ul { display: flex; flex-wrap: wrap; }
 .admin .simditor .simditor-toolbar > ul > li { flex-shrink: 0; }
 .admin .simditor .simditor-wrapper.toolbar-floating .simditor-toolbar { z-index: 15; }
-.admin .field_with_errors .simditor { border-color: #f87171; }
+.admin .field_with_errors .simditor { border-color: #f8b4b4; }
+.admin .field_with_errors .simditor:focus-within {
+  border-color: #e02424;
+  box-shadow: 0 0 0 1px #e02424;
+}
 /*! purgecss end ignore */

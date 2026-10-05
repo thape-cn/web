@@ -4,7 +4,7 @@
     <% if image_url.present? %><%= image_tag image_url, alt: title, loading: 'lazy', data: {admin_media_image: true} %><% end %>
   </div>
   <div class="admin-media-body">
-    <h3 class="text-sm font-semibold"><%= title %></h3>
+    <h3 class="admin-media-title" title="<%= title %>"><%= title %></h3>
     <% if local_assigns[:filename].present? %><p class="admin-media-filename"><%= filename %></p><% end %>
     <% local_assigns.fetch(:metadata, []).each do |line| %><p class="text-xs text-gray-500 mt-2"><%= line %></p><% end %>
     <%= yield %>

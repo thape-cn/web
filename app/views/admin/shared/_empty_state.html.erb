@@ -1,6 +1,6 @@
 <div class="admin-empty-state">
-  <span class="admin-feature-icon mx-auto mb-4"><%= admin_icon(icon) %></span>
-  <h2 class="font-semibold"><%= title %></h2>
-  <p class="text-sm text-gray-500 mt-2 mb-6"><%= description %></p>
+  <%= admin_icon(icon, class: 'w-12 h-12 text-gray-400 mx-auto') %>
+  <h2 class="text-sm font-semibold mt-2"><%= title %></h2>
+  <p class="text-sm text-gray-500 mt-1 mb-6"><%= description %></p>
   <% if local_assigns[:action] %><%= link_to action[:label], action[:path], class: action[:secondary] ? 'admin-button-secondary' : 'admin-button' %><% end %>
 </div>

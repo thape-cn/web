@@ -1,8 +1,10 @@
 <dialog id="admin-module-search" class="admin-dialog admin-command-dialog" aria-labelledby="admin-module-search-title">
-  <div class="admin-dialog-heading"><h2 id="admin-module-search-title">搜索管理模块</h2><button type="button" class="admin-icon-button" data-admin-switcher-close aria-label="关闭模块搜索"><%= admin_icon('close') %><span class="sr-only">关闭模块搜索</span></button></div>
+  <h2 id="admin-module-search-title" class="sr-only">搜索管理模块</h2>
   <div class="admin-command-input">
+    <%= admin_icon('search') %>
     <label for="admin-module-query" class="sr-only">搜索管理模块</label>
-    <input id="admin-module-query" type="search" class="admin-input" placeholder="输入模块名称或英文名称…" autocomplete="off" aria-controls="admin-module-results" aria-describedby="admin-module-search-help" autofocus>
+    <input id="admin-module-query" type="search" placeholder="输入模块名称或英文名称…" autocomplete="off" aria-controls="admin-module-results" aria-describedby="admin-module-search-help" autofocus>
+    <button type="button" class="admin-icon-button" data-admin-switcher-close aria-label="关闭模块搜索"><%= admin_icon('close') %><span class="sr-only">关闭模块搜索</span></button>
   </div>
   <div id="admin-module-results" class="admin-command-results">
     <% admin_navigation_groups.each do |group| %>

@@ -53,14 +53,14 @@
 .admin .admin-page-heading { @apply flex flex-wrap items-start justify-between; gap: 16px 24px; }
 .admin .admin-page-heading > .min-w-0 { flex: 1 1 240px; }
 .admin .admin-page-heading > .admin-actions { @apply flex-shrink-0; }
-.admin .admin-page-title { @apply text-2xl font-semibold tracking-tight; line-height: 1.35; }
+.admin .admin-page-title { @apply text-2xl font-bold tracking-tight; line-height: 1.35; }
 .admin .admin-page-description { @apply text-sm text-gray-500 mt-2 leading-relaxed; }
 .admin .admin-eyebrow { @apply text-xs font-semibold text-gray-500 mb-3; letter-spacing: .08em; }
 .admin .admin-actions { @apply flex flex-wrap items-center; gap: 12px; }
 .admin .admin-panel { @apply bg-white border border-gray-200 rounded-lg shadow-sm; }
-.admin .admin-quick-card { @apply flex items-center bg-white border border-gray-200 rounded-lg p-5 shadow-sm; gap: 20px; }
-.admin .admin-quick-card:hover { @apply border-indigo-300 bg-gray-50; }
-.admin .admin-feature-icon { @apply flex items-center justify-center flex-shrink-0 rounded-lg bg-indigo-50 text-indigo-600; width: 48px; height: 48px; }
+.admin .admin-quick-card { @apply flex items-center bg-white border border-gray-300 rounded-lg px-6 py-5 shadow-sm; gap: 12px; }
+.admin .admin-quick-card:hover { @apply border-gray-400; }
+.admin .admin-feature-icon { @apply flex items-center justify-center flex-shrink-0 rounded-full bg-indigo-50 text-indigo-600; width: 40px; height: 40px; }
 .admin .admin-feature-icon svg { @apply w-6 h-6; }
 .admin .admin-module-link { @apply flex items-center rounded-md p-3 text-sm font-medium text-gray-700; gap: 12px; }
 .admin .admin-module-link > svg:first-child { @apply text-gray-400; }
@@ -68,14 +68,14 @@
 .admin .admin-link { @apply font-medium text-indigo-600; }
 .admin .admin-link:hover { @apply text-indigo-800; }
 .admin .admin-button, .admin .admin-button-secondary {
-  @apply inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-semibold cursor-pointer shadow-sm;
+  @apply inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm font-semibold cursor-pointer shadow-sm;
   min-height: 40px;
   gap: 8px;
   white-space: nowrap;
 }
 .admin .admin-button { @apply bg-indigo-600 border-transparent text-white; }
 .admin .admin-button:hover { @apply bg-indigo-500; }
-.admin .admin-button-secondary { @apply border-gray-300 bg-white text-gray-700; }
+.admin .admin-button-secondary { @apply border-gray-300 bg-white text-gray-900; }
 .admin .admin-button-secondary:hover { @apply bg-gray-50; }
 .admin .admin-button:disabled { @apply opacity-50 cursor-wait; }
 .admin .admin-disabled, .admin .admin-disabled:hover { @apply bg-gray-50 text-gray-400 border-gray-200 cursor-default shadow-none; }
@@ -85,10 +85,10 @@
 .admin .admin-search-input { padding-left: 2.5rem; }
 .admin .admin-table-scroll { @apply overflow-x-auto; }
 .admin .admin-table { @apply w-full text-sm text-left; min-width: 680px; }
-.admin .admin-table th { @apply bg-gray-50 text-gray-900 font-semibold px-3 py-4 border-b border-gray-200; white-space: nowrap; }
+.admin .admin-table th { @apply bg-gray-50 text-gray-900 font-semibold px-3 border-b border-gray-300; padding-top: 14px; padding-bottom: 14px; white-space: nowrap; }
 .admin .admin-table td { @apply px-3 py-4 text-gray-500 border-b border-gray-200; max-width: 360px; overflow-wrap: anywhere; }
-.admin .admin-table th:first-child, .admin .admin-table td:first-child { @apply pl-6; }
-.admin .admin-table th:last-child, .admin .admin-table td:last-child { @apply pr-6; }
+.admin .admin-table th:first-child, .admin .admin-table td:first-child { @apply pl-4; }
+.admin .admin-table th:last-child, .admin .admin-table td:last-child { @apply pr-4; }
 .admin .admin-table tbody tr:last-child td { @apply border-b-0; }
 .admin .admin-table tbody tr:hover { @apply bg-gray-50; }
 .admin .admin-table .admin-record-id { @apply text-gray-400; font-variant-numeric: tabular-nums; width: 72px; white-space: nowrap; }
@@ -134,16 +134,16 @@
 .admin .admin-danger-link { @apply text-red-600 font-medium cursor-pointer; }
 .admin .admin-danger-link:hover { @apply text-red-800; }
 .admin .admin-badge { @apply inline-flex items-center rounded-md px-2 py-1 text-xs font-medium; white-space: nowrap; box-shadow: inset 0 0 0 1px rgba(107, 114, 128, .12); }
-.admin .admin-badge-positive { @apply text-green-700 bg-green-50; }
+.admin .admin-badge-positive { @apply text-green-700 bg-green-50; box-shadow: inset 0 0 0 1px rgba(5, 150, 105, .2); }
 .admin .admin-badge-neutral { @apply text-gray-600 bg-gray-50; }
-.admin .admin-pagination { @apply flex flex-wrap items-center justify-between px-5 py-4 border-t border-gray-200; gap: 16px; }
+.admin .admin-pagination { @apply flex flex-wrap items-center justify-between px-4 py-3 border-t border-gray-200; gap: 16px; }
 .admin .admin-empty-state { @apply text-center px-5 py-12; }
 .admin .admin-label { @apply block text-sm font-medium text-gray-900 mb-2; }
-.admin .admin-input { @apply block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm; min-height: 40px; }
+.admin .admin-input { @apply block w-full rounded-md border border-gray-300 bg-white px-3 text-gray-900; padding-top: 6px; padding-bottom: 6px; font-size: 16px; line-height: 24px; min-height: 38px; }
 .admin .admin-input::placeholder { @apply text-gray-400; }
 .admin .admin-input:focus { @apply outline-none border-indigo-600; box-shadow: 0 0 0 1px #4f46e5; }
 .admin .admin-input.admin-search-input { padding-left: 2.5rem; }
-.admin .admin-fields { @apply grid gap-6; row-gap: 32px; }
+.admin .admin-fields { @apply grid gap-6; max-width: 42rem; row-gap: 32px; }
 .admin .admin-form-section { @apply px-4 py-6; border-radius: 12px; }
 .admin .admin-editor-section { @apply grid pb-10 mb-10 border-b border-gray-200; gap: 32px; }
 .admin .admin-editor-section:last-child { @apply mb-0 border-b-0; }
@@ -154,22 +154,26 @@
 .admin .admin-checkbox-panel { @apply flex items-center py-3; gap: 12px; min-height: 40px; }
 .admin .admin-checkbox { @apply w-4 h-4 flex-shrink-0; accent-color: #4f46e5; }
 .admin .admin-checkbox-label { @apply flex items-center text-sm text-gray-600; gap: 8px; }
-.admin .admin-upload { @apply border border-dashed border-gray-300 rounded-lg p-5; }
+.admin .admin-upload { @apply border border-dashed border-gray-300 rounded-lg px-6 py-10; }
 .admin .admin-file-input { @apply block w-full text-sm text-gray-500; min-width: 0; max-width: 100%; }
 .admin .admin-file-input::file-selector-button { @apply bg-white border border-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-700 mr-3 cursor-pointer; }
 .admin .admin-preview { @apply block mb-3 rounded-md border border-gray-200; max-height: 160px; max-width: 100%; object-fit: contain; }
 .admin .admin-upload .admin-file-input, .admin .admin-gallery-item .admin-file-input { @apply mt-3; }
 .admin .admin-table .admin-preview { max-height: 64px; max-width: 100px; }
 .admin .admin-gallery-item { @apply border border-gray-200 rounded-md p-4; min-width: 0; }
-.admin .admin-description-row { @apply px-6 py-6; }
+.admin .admin-description-heading, .admin .admin-description-row { @apply px-4 py-6; }
 .admin .admin-description-row:last-child { @apply border-b-0; }
 .admin .admin-description-row dt { @apply text-sm font-medium text-gray-900; }
-.admin .admin-description-row dd { @apply mt-2 text-sm text-gray-700 whitespace-pre-wrap leading-relaxed; min-width: 0; overflow-wrap: anywhere; }
-.admin .admin-alert { @apply flex items-start rounded-lg border p-4 mb-6 text-sm; gap: 12px; }
-.admin .admin-alert-error { @apply border-red-200 bg-red-50 text-red-800; }
-.admin .admin-alert-success { @apply border-green-200 bg-green-50 text-green-800; }
+.admin .admin-description-row dd { @apply mt-1 text-sm text-gray-700 whitespace-pre-wrap leading-relaxed; min-width: 0; overflow-wrap: anywhere; }
+.admin .admin-alert { @apply flex items-start rounded-md p-4 mb-6 text-sm; gap: 12px; }
+.admin .admin-alert-error { @apply bg-red-50 text-red-800; }
+.admin .admin-alert-success { @apply bg-green-50 text-green-800 font-medium; }
+.admin .admin-alert-error > svg { @apply text-red-400; }
+.admin .admin-alert-success > svg { @apply text-green-400; }
 .admin .field_with_errors { display: contents; }
-.admin .field_with_errors .admin-input { @apply border-red-400; }
+.admin .field_with_errors .admin-input, .admin .admin-input[aria-invalid="true"] { @apply border-red-300 text-red-900; }
+.admin .admin-input[aria-invalid="true"]::placeholder { @apply text-red-300; }
+.admin .admin-input[aria-invalid="true"]:focus { @apply border-red-600; box-shadow: 0 0 0 1px #e02424; }
 .admin textarea { resize: vertical; }
 .admin select[multiple] { min-height: 9rem; }
 .admin .admin-login-main { @apply min-h-screen flex items-center px-4 py-12; }
@@ -210,7 +214,11 @@
 .admin a.admin-page-current, .admin a.admin-page-current:hover { @apply relative z-10 bg-indigo-600 border-indigo-600 text-white; }
 .admin .admin-field-error { @apply text-sm text-red-600 mt-2; }
 .admin [aria-invalid="true"] { border-color: #f87171; }
-.admin .admin-alert-dismiss { @apply ml-auto; color: inherit; margin-top: -8px; margin-right: -8px; }
+.admin .admin-alert-dismiss { @apply ml-auto; color: inherit; margin-top: -6px; margin-right: -6px; min-width: 32px; min-height: 32px; }
+.admin .admin-alert-success .admin-alert-dismiss { @apply text-green-500; }
+.admin .admin-alert-success .admin-alert-dismiss:hover { @apply bg-green-100; }
+.admin .admin-alert-error .admin-alert-dismiss { @apply text-red-500; }
+.admin .admin-alert-error .admin-alert-dismiss:hover { @apply bg-red-100; }
 .admin .admin-editor-layout { display: grid; gap: 24px; }
 .admin .admin-section-navigation { @apply bg-white border border-gray-200 rounded-lg p-4 mb-4; align-self: start; }
 .admin .admin-section-navigation ul { @apply flex flex-wrap; gap: 8px; }
@@ -225,34 +233,46 @@
 .admin .admin-button-group .admin-button-secondary:last-child { @apply rounded-r-md; }
 .admin .admin-button-group .admin-button-secondary:focus-visible { position: relative; z-index: 1; }
 .admin .admin-view-switch .admin-view-current { @apply bg-indigo-50 text-indigo-700 border-indigo-300; }
-.admin .admin-media-grid { @apply p-5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.admin .admin-media-grid { @apply p-4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 16px; }
 .admin .admin-gallery-grid { display: grid; gap: 20px; }
-.admin .admin-gallery-grid .admin-media-preview { aspect-ratio: auto; height: 160px; }
-.admin .admin-media-card { @apply border border-gray-200 rounded-lg overflow-hidden bg-white; min-width: 0; }
-.admin .admin-media-preview { @apply bg-gray-100; position: relative; aspect-ratio: 10 / 7; }
-.admin .admin-media-preview img { @apply block w-full h-full; object-fit: contain; }
+.admin .admin-media-card { min-width: 0; }
+.admin .admin-media-preview { @apply bg-gray-100 rounded-lg overflow-hidden; position: relative; aspect-ratio: 10 / 7; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .05); }
+.admin .admin-media-preview img { @apply block w-full h-full; object-fit: cover; }
 .admin .admin-media-placeholder { @apply flex flex-col items-center justify-center h-full text-gray-400 text-xs; gap: 12px; }
 .admin .admin-media-placeholder svg { @apply w-8 h-8; }
-.admin .admin-media-body { @apply p-4; }
-.admin .admin-media-filename { @apply text-xs text-gray-500 mt-2; overflow-wrap: anywhere; }
-.admin .admin-media-card .admin-row-actions { @apply justify-start mt-4; }
+.admin .admin-media-body { @apply mt-2; }
+.admin .admin-media-title { @apply truncate text-sm font-medium text-gray-900; }
+.admin .admin-media-filename { @apply text-sm text-gray-500; overflow-wrap: anywhere; }
+.admin .admin-media-card .admin-row-actions { @apply justify-start mt-2; }
+.admin .admin-gallery-grid .admin-media-card { @apply border border-gray-200 rounded-lg overflow-hidden bg-white; }
+.admin .admin-gallery-grid .admin-media-preview { @apply rounded-none; aspect-ratio: auto; height: 160px; }
+.admin .admin-gallery-grid .admin-media-preview img { object-fit: contain; }
+.admin .admin-gallery-grid .admin-media-body { @apply mt-0 p-4; }
 .admin .admin-dialog { @apply bg-white rounded-lg border-0 p-0 shadow-xl; width: 480px; max-width: calc(100vw - 32px); max-height: calc(100vh - 32px); overflow-y: auto; }
 .admin .admin-dialog::backdrop { background: rgba(17, 24, 39, .5); }
 .admin .admin-dialog-heading { @apply flex items-center justify-between px-5 py-3 border-b border-gray-100 font-semibold; gap: 12px; }
-.admin .admin-dialog-footer { @apply flex justify-end px-5 py-4 bg-gray-50; gap: 12px; }
-.admin .admin-confirmation-body { @apply flex items-start p-6; gap: 16px; overflow-wrap: anywhere; }
+.admin .admin-dialog-footer { @apply flex justify-end px-6 py-3 bg-gray-50; gap: 12px; }
+.admin .admin-confirmation-dialog { width: 512px; }
+.admin .admin-confirmation-body { @apply flex items-start px-6 pt-6 pb-4; gap: 16px; overflow-wrap: anywhere; }
 .admin .admin-confirmation-icon { @apply flex items-center justify-center flex-shrink-0 rounded-full bg-red-100 text-red-600 w-10 h-10; }
-.admin .admin-button-danger { @apply inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 text-white px-4 py-2 text-sm font-semibold cursor-pointer; min-height: 40px; }
-.admin .admin-button-danger:hover { @apply bg-red-700; }
+.admin .admin-button-danger { @apply inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 text-white px-3 py-2 text-sm font-semibold cursor-pointer shadow-sm; min-height: 40px; }
+.admin .admin-button-danger:hover { @apply bg-red-500; }
 .admin .admin-button-danger:disabled { @apply opacity-50 cursor-wait; }
-.admin .admin-command-dialog { width: 600px; }
-.admin .admin-command-input { @apply p-4; }
-.admin .admin-command-results { max-height: 55vh; overflow-y: auto; }
-.admin .admin-command-group-heading { @apply text-xs font-semibold text-gray-500 bg-gray-50 px-5 py-2; }
-.admin .admin-command-link { @apply flex items-center px-5 py-3 text-sm text-gray-900; gap: 12px; }
+.admin .admin-command-dialog { @apply rounded-xl; width: 576px; }
+.admin .admin-command-dialog::backdrop { background: rgba(107, 114, 128, .25); }
+.admin .admin-command-input { @apply flex items-center border-b border-gray-100; }
+.admin .admin-command-input > svg { @apply ml-4 text-gray-400; }
+.admin .admin-command-input input { @apply flex-1 min-w-0 border-0 bg-white px-3 text-gray-900; height: 48px; font-size: 16px; }
+.admin .admin-command-input input:focus { outline: none; }
+.admin .admin-command-input .admin-icon-button { @apply mr-2; }
+.admin .admin-command-results { max-height: min(320px, 55vh); overflow-y: auto; padding-bottom: 8px; scroll-padding: 40px 0 8px; }
+.admin .admin-command-group-heading { @apply text-xs font-semibold text-gray-900 bg-gray-100 px-4; padding-top: 10px; padding-bottom: 10px; }
+.admin .admin-command-link { @apply flex items-center px-4 py-2 text-sm text-gray-900; gap: 12px; }
 .admin .admin-command-link > svg { @apply text-gray-400; }
 .admin .admin-command-link small { @apply block text-xs text-gray-500 mt-1; }
-.admin .admin-command-link:hover, .admin .admin-command-active { @apply bg-indigo-50 text-indigo-700; }
+.admin .admin-command-link:hover, .admin .admin-command-link.admin-command-active { @apply bg-indigo-600 text-white; }
+.admin .admin-command-link:hover > svg, .admin .admin-command-link.admin-command-active > svg { @apply text-white; }
+.admin .admin-command-link:hover small, .admin .admin-command-link.admin-command-active small { @apply text-indigo-100; }
 .admin .admin-command-empty { @apply px-5 py-10 text-center text-sm text-gray-500; }
 .admin .admin-command-footer { @apply px-5 py-3 border-t border-gray-100 text-xs text-gray-500; }
 
@@ -268,22 +288,23 @@
 .admin .admin-filter-chip { @apply inline-flex items-center rounded-md bg-white border border-gray-200 px-2 py-1 text-xs font-medium text-gray-600; gap: 8px; min-height: 32px; max-width: 100%; }
 .admin .admin-filter-chip span { overflow-wrap: anywhere; min-width: 0; }
 .admin .admin-filter-chip:hover { @apply border-indigo-300 text-indigo-700 bg-indigo-50; }
-.admin .admin-switch-panel { @apply flex items-center justify-between border border-gray-200 rounded-lg p-4; gap: 16px; }
+.admin .admin-switch-panel { @apply flex items-center justify-between; gap: 16px; }
 .admin .admin-switch-panel .admin-label { @apply mb-1; }
 .admin .admin-switch-control { position: relative; flex-shrink: 0; width: 44px; height: 24px; }
 .admin .admin-switch-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 1; margin: 0; }
 .admin .admin-switch-track { @apply block bg-gray-200 rounded-full; width: 44px; height: 24px; padding: 2px; box-shadow: inset 0 0 0 1px rgba(17, 24, 39, .05); }
 .admin .admin-switch-track::after { content: ''; display: block; width: 20px; height: 20px; border-radius: 50%; background: white; box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
+.admin .admin-switch-track { transition: background-color 200ms; }
+.admin .admin-switch-track::after { transition: transform 200ms; }
 .admin .admin-switch-input:checked + .admin-switch-track { @apply bg-indigo-600; }
 .admin .admin-switch-input:checked + .admin-switch-track::after { transform: translateX(20px); }
 .admin .admin-switch-input:focus-visible + .admin-switch-track { outline: 2px solid #6366f1; outline-offset: 3px; }
 .admin .admin-checkbox-group { min-width: 0; }
-.admin .admin-checkbox-options { @apply border border-gray-200 rounded-lg overflow-hidden; }
-.admin .admin-checkbox-option { @apply flex items-center justify-between px-4 py-3 text-sm text-gray-700 cursor-pointer; gap: 16px; }
+.admin .admin-checkbox-options { @apply border-t border-b border-gray-200; }
+.admin .admin-checkbox-option { @apply flex items-center justify-between pb-4 text-sm font-medium text-gray-900 cursor-pointer; padding-top: 14px; gap: 12px; }
 .admin .admin-checkbox-option + .admin-checkbox-option { @apply border-t border-gray-200; }
 .admin .admin-checkbox-option span { min-width: 0; overflow-wrap: anywhere; }
 .admin .admin-checkbox-option:hover { @apply bg-gray-50; }
-.admin .admin-checkbox-option:has(:checked) { @apply bg-indigo-50 text-indigo-700; }
 .admin .admin-checkbox-option:focus-within { outline: 2px solid #6366f1; outline-offset: -2px; }
 .admin .admin-upload-current, .admin .admin-upload-pending { @apply text-center; }
 .admin .admin-upload .admin-preview { margin-left: auto; margin-right: auto; }
@@ -299,28 +320,34 @@
   .admin .admin-topbar { @apply px-8; }
   .admin .admin-module-search-button { @apply flex-1 px-2; max-width: 28rem; }
   .admin .admin-main { @apply p-8; }
+  .admin .admin-page-title { @apply text-3xl; }
+  .admin .admin-input, .admin .admin-command-input input { @apply text-sm; }
+  .admin .admin-pagination, .admin .admin-media-grid { @apply px-6; }
+  .admin .admin-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; }
+  .admin .admin-table th:first-child, .admin .admin-table td:first-child { @apply pl-6; }
+  .admin .admin-table th:last-child, .admin .admin-table td:last-child { @apply pr-6; }
   .admin .admin-stat-card a { @apply p-6; }
   .admin .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .admin .admin-form-section, .admin .admin-seo-section { @apply p-8; }
-  .admin .admin-description-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; }
+  .admin .admin-description-heading, .admin .admin-description-row { @apply px-6; }
+  .admin .admin-description-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; }
   .admin .admin-description-row dd { @apply mt-0; }
 }
 @screen md {
   .admin .admin-module-search-button kbd { @apply block; }
   .admin .admin-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .admin .admin-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .admin .admin-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .admin .admin-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @screen lg {
   .admin [data-admin-menu-open] { @apply hidden; }
   .admin .admin-workspace { margin-left: 18rem; }
   .admin .admin-main { @apply px-8 py-10; }
   .admin .admin-topbar { @apply px-8; }
-  .admin .admin-page-title { @apply text-2xl; }
+  .admin .admin-media-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @screen xl {
-  .admin .admin-media-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .admin .admin-editor-section { grid-template-columns: minmax(0, 220px) minmax(0, 1fr); }
+  .admin .admin-media-grid { column-gap: 32px; }
+  .admin .admin-editor-section { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
 }
 // Keep the section descriptions beside their cards when adding a third column.
 @media (min-width: 1600px) {
@@ -329,6 +356,11 @@
   .admin .admin-section-navigation ul { @apply flex-col; }
 }
 @media (max-width: 639px) {
+  .admin .admin-confirmation-dialog { margin: auto auto 16px; }
+  .admin .admin-confirmation-body { @apply flex-col items-center px-4 pt-5 pb-4 text-center; gap: 12px; }
+  .admin .admin-confirmation-icon { @apply w-12 h-12; }
+  .admin .admin-confirmation-dialog .admin-dialog-footer { @apply flex-col-reverse px-4; }
+  .admin .admin-confirmation-dialog .admin-dialog-footer button { @apply w-full; }
   .admin .admin-module-search-button { @apply justify-center; }
   .admin .admin-module-search-button span { @apply sr-only; }
   .admin .admin-breadcrumbs { @apply hidden; }
@@ -347,4 +379,5 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .admin a, .admin button, .admin input, .admin select, .admin textarea { transition: none; }
+  .admin .admin-switch-track, .admin .admin-switch-track::after { transition: none; }
 }

@@ -91,14 +91,41 @@ elements, CDN scripts or additional JavaScript dependencies are loaded.
 Editor fields are grouped by `admin_form_sections` into basic information, text,
 media and SEO. Every configured field is retained, including translation scopes,
 upload caches, nested gallery inputs and rich text editor data attributes.
-Section descriptions sit alongside form cards from 1280px and above them on
-smaller screens. Chapter links wrap above the form until 1600px, when they move
-into a sticky navigation column without pushing descriptions above their cards.
+Section descriptions use one third of the editor row and form cards use two
+thirds from 1280px; descriptions sit above the cards on smaller screens. Fields
+have a 42rem maximum width, 24px column gaps and 32px row gaps. Chapter links wrap
+above the form until 1600px, when they move into a sticky navigation column
+without pushing descriptions above their cards.
 The shared heading places breadcrumbs above the title/action row, with a parent
 back link on phones. Header search shows its keyboard shortcut on desktop.
 Tables use compact interior cells and padded edges, and scroll within their cards
 on phones. Pagination uses arrow buttons on desktop and labeled buttons on phones;
 dashboard totals stack on phones and use two or four columns on larger screens.
+
+The HTML references define the light-theme component appearance. The Rails
+adaptations retain their spacing, typography, borders and responsive composition:
+quick links use 40px circular icons and bordered horizontal cards; image-library
+thumbnails use a 10:7 crop with details below the image; description lists use
+16px mobile and 24px desktop edge padding. Nested gallery editors retain bordered
+cards and uncropped previews so paired uploads remain visible. Form switches sit
+beside their labels without an extra card, and checkbox lists use top, bottom and
+row dividers. Upload areas use the cover-photo field's dashed border and padding,
+with a native file input and local preview instead of an unsupported drop action.
+
+The module palette has a single search row, gray group headings and an indigo
+selected row. Its close button and descriptions remain available. Deletion
+confirmation uses a 512px centered panel on desktop and a bottom-aligned panel
+with a centered icon and stacked, full-width actions on phones. Cancel retains
+initial focus. Validation errors keep red borders and focus styling, including
+the rich-text editor. Flash messages use tinted backgrounds and matching dismiss
+buttons; publication badges use a status-colored inset border.
+
+Admin-specific differences remain deliberate: the header opens a module picker
+instead of a global content search; language switching and record actions retain
+their existing Rails routes; four dashboard totals use two/four-column layouts;
+filter tabs remain scrollable links on phones; and a single sticky save bar submits
+all editor sections and nested records together. Dark-mode template variants and
+Tailwind Plus custom-element scripts are not loaded by this application.
 
 After adding utilities, touch the admin stylesheet. With the dev server running,
 let its watcher rebuild the assets and manifest together. Otherwise rebuild with

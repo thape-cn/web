@@ -83,14 +83,14 @@
       <% end %>
     <% end %>
     <div class="admin-table-scroll" role="region" aria-label="<%= @resource.label %>列表，可横向滚动" tabindex="0">
-      <table class="admin-table min-w-full divide-y divide-gray-200" <%= 'data-admin-order-table' if @resource.ordered? %>>
+      <table class="admin-table min-w-full" <%= 'data-admin-order-table' if @resource.ordered? %>>
         <caption class="sr-only"><%= @resource.label %>列表</caption>
         <thead><tr>
           <% if @resource.ordered? %><th scope="col" class="admin-order-column" aria-sort="ascending">展示顺序</th><% end %>
           <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
           <th scope="col" class="admin-table-actions">操作</th>
         </tr></thead>
-        <tbody class="bg-white divide-y divide-gray-100">
+        <tbody class="bg-white">
           <% @records.each do |record| %>
             <tr id="record-<%= record.id %>" <%= tag.attributes(data: { record_id: record.id, reorder_url: admin_resource_path(@resource, :reorder, record) }) if @resource.ordered? %>>
               <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
