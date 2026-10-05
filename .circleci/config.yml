@@ -71,7 +71,7 @@ jobs:
 
       - run:
           name: Build test assets
-          command: RAILS_ENV=test bin/shakapacker
+          command: RAILS_ENV=test NODE_ENV=test node node_modules/webpack/bin/webpack.js --config config/webpack/webpack.config.js
 
       # run tests!
       - run:
