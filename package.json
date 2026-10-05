@@ -61,7 +61,10 @@
     "merge-descriptors": "~1.0.3",
     "mime-db": "~1.54.0",
     "postcss": "^8.5.14",
-    "semver": "^7.7.4"
+    "semver": "^7.7.4",
+    "simditor/dompurify": "3.4.15",
+    "simditor/simple-module": "2.0.6",
+    "simditor/simple-uploader": "2.0.8"
   },
   "babel": {
     "presets": [

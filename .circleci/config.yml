@@ -48,7 +48,7 @@ jobs:
       # Only necessary if app uses webpacker or yarn in some other way
       - restore_cache:
           keys:
-            - thape-web-yarn-{{ checksum "yarn.lock" }}
+            - thape-web-yarn-v2-{{ checksum "package.json" }}
 
       - run:
           name: Yarn Install
@@ -56,7 +56,7 @@ jobs:
 
       # Store yarn / webpacker cache
       - save_cache:
-          key: thape-web-yarn-{{ checksum "yarn.lock" }}
+          key: thape-web-yarn-v2-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
 
