@@ -1,5 +1,5 @@
 ---
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -80,3 +80,8 @@ jobs:
 
       - store_artifacts:
           path: coverage
+
+workflows:
+  build:
+    jobs:
+      - build
