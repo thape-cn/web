@@ -1,20 +1,26 @@
-<div class="admin-page-heading">
-  <div class="min-w-0">
-    <% if local_assigns[:breadcrumbs].present? %>
-      <nav aria-label="页面路径" class="admin-breadcrumbs"><ol>
-        <% breadcrumbs.each do |crumb| %>
-          <li><% if crumb[:path] %><%= link_to crumb[:label], crumb[:path], class: 'admin-link' %><% else %><span aria-current="page"><%= crumb[:label] %></span><% end %></li>
-        <% end %>
-      </ol></nav>
+<div class="admin-heading">
+  <% if local_assigns[:breadcrumbs].present? %>
+    <% parent = breadcrumbs.reverse.find { |crumb| crumb[:path] } %>
+    <% if parent %>
+      <nav aria-label="返回" class="admin-back-link"><%= link_to parent[:path] do %><%= admin_icon('chevron-left') %><span>返回<%= parent[:label] %></span><% end %></nav>
     <% end %>
-    <% if local_assigns[:eyebrow] %><p class="admin-eyebrow"><%= eyebrow %></p><% end %>
-    <h1 class="admin-page-title"><%= title %></h1>
-    <% if local_assigns[:description] %><p class="admin-page-description"><%= description %></p><% end %>
-  </div>
-  <div class="admin-actions">
-    <% if local_assigns[:badge] %><span class="admin-badge admin-badge-neutral"><%= badge %></span><% end %>
-    <% local_assigns.fetch(:actions, []).each do |action| %>
-      <%= link_to action[:path], class: action[:secondary] ? 'admin-button-secondary' : 'admin-button' do %><%= admin_icon(action[:icon]) if action[:icon] %><%= action[:label] %><% end %>
-    <% end %>
+    <nav aria-label="页面路径" class="admin-breadcrumbs"><ol>
+      <% breadcrumbs.each do |crumb| %>
+        <li><% if crumb[:path] %><%= link_to crumb[:label], crumb[:path] %><% else %><span aria-current="page"><%= crumb[:label] %></span><% end %></li>
+      <% end %>
+    </ol></nav>
+  <% end %>
+  <div class="admin-page-heading">
+    <div class="min-w-0">
+      <% if local_assigns[:eyebrow] %><p class="admin-eyebrow"><%= eyebrow %></p><% end %>
+      <h1 class="admin-page-title"><%= title %></h1>
+      <% if local_assigns[:description] %><p class="admin-page-description"><%= description %></p><% end %>
+    </div>
+    <div class="admin-actions">
+      <% if local_assigns[:badge] %><span class="admin-badge admin-badge-neutral"><%= badge %></span><% end %>
+      <% local_assigns.fetch(:actions, []).each do |action| %>
+        <%= link_to action[:path], class: action[:secondary] ? 'admin-button-secondary' : 'admin-button' do %><%= admin_icon(action[:icon]) if action[:icon] %><%= action[:label] %><% end %>
+      <% end %>
+    </div>
   </div>
 </div>

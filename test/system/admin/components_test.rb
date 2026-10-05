@@ -75,6 +75,21 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     screenshot("editor-gallery-mobile")
     page.execute_script("window.scrollTo(0, 0)")
     screenshot("editor-mobile")
+    [1280, 1440, 1600].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Editor cards and fields should fit at #{width}px"
+        (() => {
+          const section = document.querySelector('.admin-editor-section')
+          const heading = section.querySelector('.admin-editor-heading').getBoundingClientRect()
+          const card = section.querySelector('.admin-form-section').getBoundingClientRect()
+          const input = section.querySelector('.admin-input').getBoundingClientRect()
+          return heading.right < card.left && Math.abs(heading.top - card.top) < 2 &&
+            input.width >= 200 && input.right <= card.right &&
+            document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+    end
+    screenshot("editor-wide-desktop")
     resize_viewport(1440, 1000)
     screenshot("editor-desktop")
 

@@ -91,8 +91,14 @@ elements, CDN scripts or additional JavaScript dependencies are loaded.
 Editor fields are grouped by `admin_form_sections` into basic information, text,
 media and SEO. Every configured field is retained, including translation scopes,
 upload caches, nested gallery inputs and rich text editor data attributes.
-The section descriptions sit alongside form cards on wide desktops and above
-them on smaller screens. Tables scroll within their cards on phones.
+Section descriptions sit alongside form cards from 1280px and above them on
+smaller screens. Chapter links wrap above the form until 1600px, when they move
+into a sticky navigation column without pushing descriptions above their cards.
+The shared heading places breadcrumbs above the title/action row, with a parent
+back link on phones. Header search shows its keyboard shortcut on desktop.
+Tables use compact interior cells and padded edges, and scroll within their cards
+on phones. Pagination uses arrow buttons on desktop and labeled buttons on phones;
+dashboard totals stack on phones and use two or four columns on larger screens.
 
 After adding utilities, touch the admin stylesheet. With the dev server running,
 let its watcher rebuild the assets and manifest together. Otherwise rebuild with

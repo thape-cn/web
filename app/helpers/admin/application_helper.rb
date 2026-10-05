@@ -42,6 +42,8 @@ module Admin::ApplicationHelper
     "pin" => "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0",
     "search" => "M16 10a6 6 0 1 0-12 0 6 6 0 0 0 12 0 m-2 4 6 6",
     "arrow" => "M5 12h14 m-6-6 6 6-6 6",
+    "chevron-left" => "m15 18-6-6 6-6",
+    "chevron-right" => "m9 6 6 6-6 6",
     "up" => "M12 20V4 m-6 6 6-6 6 6",
     "down" => "M12 4v16 m-6-6 6 6 6-6",
     "grip" => "M9 5h.01 M15 5h.01 M9 12h.01 M15 12h.01 M9 19h.01 M15 19h.01",

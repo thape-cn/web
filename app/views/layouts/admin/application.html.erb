@@ -25,18 +25,13 @@
       <%= render 'admin/shared/confirmation' %>
       <div class="admin-workspace">
         <header class="admin-topbar">
-          <div class="flex items-center min-w-0">
+          <div class="admin-topbar-search">
             <button type="button" class="admin-icon-button mr-3 lg:hidden" data-admin-menu-open aria-controls="admin-navigation" aria-expanded="false" aria-label="打开管理菜单"><%= admin_icon('menu') %><span class="sr-only">打开管理菜单</span></button>
-            <nav aria-label="当前位置" class="flex items-center min-w-0">
-              <%= link_to admin_root_path, class: 'text-gray-500 hover:text-gray-900 text-sm whitespace-no-wrap flex items-center' do %><%= admin_icon('home', class: 'w-4 h-4 mr-2') %>工作台<% end %>
-              <% if @resource %>
-                <span class="text-gray-300 mx-3" aria-hidden="true">/</span>
-                <span class="text-sm font-medium text-gray-900 truncate" aria-current="page"><%= @resource.label %></span>
-              <% end %>
-            </nav>
+            <button type="button" class="admin-module-search-button" aria-label="搜索管理模块" aria-haspopup="dialog" aria-controls="admin-module-search" aria-keyshortcuts="Control+k Meta+k" data-admin-switcher-open hidden>
+              <%= admin_icon('search') %><span>搜索管理模块</span><kbd aria-hidden="true">Ctrl / ⌘ K</kbd>
+            </button>
           </div>
           <div class="flex items-center flex-shrink-0 ml-3">
-            <button type="button" class="admin-icon-button mr-3" aria-label="搜索管理模块" aria-haspopup="dialog" aria-controls="admin-module-search" data-admin-switcher-open hidden><%= admin_icon('search') %><span class="sr-only">搜索管理模块</span><span class="hidden md:inline ml-2 text-sm" aria-hidden="true">搜索模块</span></button>
             <div class="admin-locale" aria-label="内容语言">
               <span class="hidden sm:inline text-xs text-gray-500 mr-2">内容语言</span>
               <% [['cn', '中文'], ['en', 'EN']].each do |locale, label| %>
