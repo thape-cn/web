@@ -20,6 +20,7 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Editor section links | `navigation/vertical-navigation/04-with-icons.html` |
 | Dismissible flash messages and error summaries | `feedback/alerts/06-with-dismiss-button.html`, `feedback/alerts/02-with-list.html` |
 | Inline field errors | `forms/input-groups/03-input-with-validation-error.html` |
+| Native selects in editors, filters and ordering | `forms/select-menus/01-simple-native.html` |
 | Deletion confirmation | `overlays/modal-dialogs/05-simple-with-gray-footer.html` |
 | Empty lists and searches | `feedback/empty-states/01-simple.html` |
 | Status and category filters | `navigation/tabs/01-tabs-with-underline.html` |
@@ -119,6 +120,18 @@ with a centered icon and stacked, full-width actions on phones. Cancel retains
 initial focus. Validation errors keep red borders and focus styling, including
 the rich-text editor. Flash messages use tinted backgrounds and matching dismiss
 buttons; publication badges use a status-colored inset border.
+
+The sidebar uses a 64px brand row, 24px navigation icons, 8px link padding and
+28px gaps between groups. Its active and hover rows use the template's translucent
+white background. The mobile drawer leaves at least 64px of backdrop visible and retains
+an inside close button. Login uses a 480px card with 48px desktop padding; on
+phones the card spans the viewport with 24px side padding and square corners.
+Selects share the template chevron and reserve space for it in editors, list
+filters and ordering dialogs. Checkboxes share rounded borders and explicit
+checked, indeterminate and disabled styles. Both remain native form controls and
+restore native appearance in forced-color mode. Invalid single-line inputs show
+the template's error icon alongside their existing accessible error messages;
+textareas and rich-text editors retain their full content width.
 
 Admin-specific differences remain deliberate: the header opens a module picker
 instead of a global content search; language switching and record actions retain

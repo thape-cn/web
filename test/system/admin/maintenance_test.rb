@@ -57,6 +57,7 @@ class Admin::MaintenanceTest < ApplicationSystemTestCase
     click_button "打开管理菜单"
     click_button "退出登录"
     assert_selector "h1", text: "管理员登录"
+    page.save_screenshot(Rails.root.join("tmp/screenshots/admin/login-mobile.png")) # standard:disable Lint/Debugger
   end
 
   test "filters language selection and the project editor remain usable" do

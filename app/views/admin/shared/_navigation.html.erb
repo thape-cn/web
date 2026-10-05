@@ -1,5 +1,5 @@
 <%= link_to admin_root_path, class: 'admin-brand' do %>
-  <span><%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA', class: 'admin-wordmark' %><span class="block text-xs text-gray-400 mt-3">网站内容管理</span></span>
+  <%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA · 网站内容管理', class: 'admin-wordmark' %>
 <% end %>
 <nav aria-label="管理菜单" class="admin-navigation">
   <%= link_to admin_root_path, class: "admin-nav-link #{controller_name == 'dashboard' ? 'admin-nav-active' : ''}", aria: { current: controller_name == 'dashboard' ? 'page' : nil } do %>

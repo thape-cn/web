@@ -1,20 +1,20 @@
 <% content_for :page_title, '管理员登录' %>
-<div class="text-center mb-8">
-  <%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA', class: 'admin-wordmark mx-auto mb-8' %>
-  <h1 class="text-2xl font-bold tracking-tight">管理员登录</h1>
+<div class="admin-login-heading">
+  <%= image_tag asset_pack_path('static/images/logo.svg'), alt: '天华 TIANHUA', class: 'admin-wordmark mx-auto' %>
+  <h1>管理员登录</h1>
   <p class="text-sm text-gray-500 mt-3">登录以管理网站内容</p>
 </div>
-<section class="admin-panel px-6 py-10 sm:px-10 sm:py-12">
-  <%= form_with scope: :session, url: admin_login_path, local: true do |form| %>
-    <div class="mb-6">
+<section class="admin-login-card">
+  <%= form_with scope: :session, url: admin_login_path, local: true, class: 'space-y-6' do |form| %>
+    <div>
       <%= form.label :email, '邮箱', class: 'admin-label' %>
       <%= form.email_field :email, required: true, autocomplete: 'username', autofocus: true, value: params.dig(:session, :email), placeholder: '管理员邮箱', class: 'admin-input' %>
     </div>
-    <div class="mb-8">
+    <div>
       <%= form.label :password, '密码', class: 'admin-label' %>
       <%= form.password_field :password, required: true, autocomplete: 'current-password', class: 'admin-input' %>
     </div>
     <%= form.submit '登录', class: 'admin-button w-full' %>
   <% end %>
 </section>
-<div class="mt-8 text-center"><%= link_to '/', class: 'admin-link text-sm' do %>返回天华官网 <span aria-hidden="true">↗</span><% end %></div>
+<div class="mt-10 text-center"><%= link_to '/', class: 'admin-link text-sm' do %>返回天华官网 <span aria-hidden="true">↗</span><% end %></div>
