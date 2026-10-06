@@ -14,7 +14,7 @@
     <button type="button" class="admin-link text-xs mt-2" data-admin-upload-reset>取消选择</button>
   </div>
   <p class="sr-only" role="status" data-admin-upload-status></p>
-  <%= form.file_field field, **admin_field_attributes(form, field, class: 'admin-file-input', data: {admin_upload_input: true}) %>
+  <%= form.file_field field, **admin_field_attributes(form, field, hint: local_assigns[:hint], class: 'admin-file-input', data: {admin_upload_input: true}) %>
   <%= form.hidden_field "#{field}_cache" %>
   <% if local_assigns.fetch(:removable, true) && upload.present? %><label class="admin-checkbox-label mt-3"><%= form.check_box "remove_#{field}", class: 'admin-checkbox' %> 移除现有文件</label><% end %>
 </div>

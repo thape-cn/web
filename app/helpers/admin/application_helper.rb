@@ -44,6 +44,7 @@ module Admin::ApplicationHelper
     "arrow" => "M5 12h14 m-6-6 6 6-6 6",
     "chevron-left" => "m15 18-6-6 6-6",
     "chevron-right" => "m9 6 6 6-6 6",
+    "chevron-down" => "m6 9 6 6 6-6",
     "up" => "M12 20V4 m-6 6 6-6 6 6",
     "down" => "M12 4v16 m-6-6 6 6 6-6",
     "grip" => "M9 5h.01 M15 5h.01 M9 12h.01 M15 12h.01 M9 19h.01 M15 19h.01",
@@ -164,10 +165,16 @@ module Admin::ApplicationHelper
     sections
   end
 
-  def admin_field_attributes(form, field, **attributes)
-    return attributes unless form.object.errors[field].any?
+  def admin_field_attributes(form, field, hint: nil, **attributes)
     aria = attributes.fetch(:aria, {})
-    attributes.merge(aria: aria.merge(invalid: true, describedby: [aria[:describedby], "#{form.field_id(field)}_error"].compact.join(" ")))
+    descriptions = [aria[:describedby]]
+    descriptions << "#{form.field_id(field)}_hint" if hint.present?
+    if form.object.errors[field].any?
+      aria = aria.merge(invalid: true)
+      descriptions << "#{form.field_id(field)}_error"
+    end
+    aria = aria.merge(describedby: descriptions.compact.join(" ")) if descriptions.compact.any?
+    aria.empty? ? attributes : attributes.merge(aria: aria)
   end
 
   def admin_record_label(resource, record)

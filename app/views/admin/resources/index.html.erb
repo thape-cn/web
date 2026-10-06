@@ -3,10 +3,10 @@
 <% filtered = admin_list_context.slice('q', *@resource.filters.keys).any? %>
 <%= render 'admin/shared/heading', title: @resource.label, description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource), actions: admin_index_actions(@resource) %>
 <% if @resource.ordered? %>
-  <dialog id="admin-order-dialog" class="admin-order-dialog" aria-labelledby="admin-order-dialog-title" data-admin-order-dialog>
+  <dialog id="admin-order-dialog" class="admin-dialog admin-order-dialog" aria-labelledby="admin-order-dialog-title" data-admin-order-dialog>
     <div class="admin-order-dialog-heading">
       <h2 id="admin-order-dialog-title">调整展示顺序</h2>
-      <button type="button" class="admin-icon-button" data-admin-order-close aria-label="关闭排序窗口"><%= admin_icon('close') %></button>
+      <button type="button" class="admin-icon-button" data-admin-order-close aria-label="关闭排序窗口" autofocus><%= admin_icon('close') %></button>
     </div>
     <div data-admin-order-content></div>
   </dialog>

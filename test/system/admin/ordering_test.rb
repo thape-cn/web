@@ -74,6 +74,27 @@ class Admin::OrderingTest < ApplicationSystemTestCase
     assert_order [@third, @second, @first]
   end
 
+  test "inline move forms remain usable when dialogs are unavailable" do
+    page.execute_script("document.querySelector('[data-admin-order-dialog]').showModal = null")
+    find("#record-#{@third.id} summary").click
+    assert_no_selector "dialog[open]"
+    within("#record-#{@third.id} details[open]") do
+      click_button "移到顶部"
+    end
+    assert_order [@third, @first, @second]
+
+    # After navigation the enhanced dialog works again, including repeated opens.
+    open_move(@second)
+    assert_selector "[data-admin-order-close]:focus"
+    find("[data-admin-order-close]").click
+    assert_selector "#record-#{@second.id} summary:focus"
+    open_move(@first)
+    assert_selector "[data-admin-order-content]", text: "移动记录 ##{@first.id}"
+    find("[data-admin-order-close]").click
+    assert_selector "#record-#{@first.id} .admin-order-panel", visible: :all
+    assert_selector "[data-admin-order-content] .admin-order-panel", count: 0, visible: :all
+  end
+
   private
 
   def open_move(record)

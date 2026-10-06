@@ -22,6 +22,8 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Inline field errors | `forms/input-groups/03-input-with-validation-error.html` |
 | Native selects in editors, filters and ordering | `forms/select-menus/01-simple-native.html` |
 | Deletion confirmation | `overlays/modal-dialogs/05-simple-with-gray-footer.html` |
+| Ordering dialog and arrow controls | `overlays/modal-dialogs/04-simple-with-dismiss-button.html`, `elements/button-groups/01-basic.html` |
+| Field help text | `forms/input-groups/02-input-with-label-and-help-text.html` |
 | Empty lists and searches | `feedback/empty-states/01-simple.html` |
 | Status and category filters | `navigation/tabs/01-tabs-with-underline.html` |
 | Removable active filters | `elements/badges/07-with-border-remove-button.html` |
@@ -81,6 +83,9 @@ Editor section links are anchors; they do not hide fields or split the form.
 They use unboxed navigation rows with 24px icons, 8px padding and a gray hover
 background, matching the vertical-navigation template.
 Inline errors also label the visible rich-text editor when a textarea is enhanced.
+Field hints use the template's 14px help text and are linked to their inputs with
+`aria-describedby`; validation messages are appended without replacing the hint.
+Rich-text enhancement carries both hints and errors to the visible editor.
 
 The header module search and Ctrl/Cmd+K open a native dialog containing the same
 destinations as the sidebar. Search covers Chinese labels, resource keys and
@@ -144,6 +149,16 @@ textareas and rich-text editors retain their full content width. Inputs use
 and pagination use the same inset-border approach without adding layout width.
 Rich-text focus styling follows the same indigo and red states. Forced-color
 mode restores visible system borders where inset shadows would disappear.
+
+Ordering uses the modal template's 512px borderless panel, gray backdrop and 24px
+desktop padding, with a bottom-aligned panel and 16px side padding on phones.
+The close button receives focus first, and Escape or closing restores focus to
+the originating move control. Arrow buttons use inset borders and shared edges;
+the move control uses an SVG chevron. Without native dialog support, the same
+ordering forms remain available inside the row's details element. The dialog
+retains separate immediate actions for each ordering method. Dashboard totals
+keep labels and values directly inside each description-list group, with a
+stretched label link so the whole card remains clickable and keyboard accessible.
 
 Admin-specific differences remain deliberate: the header opens a module picker
 instead of a global content search; language switching and record actions retain

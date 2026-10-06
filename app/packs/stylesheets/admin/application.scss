@@ -100,32 +100,36 @@
 .admin .admin-order-guide { @apply flex flex-col px-5 py-4 text-xs text-gray-500 border-b border-gray-200; gap: 6px; line-height: 1.6; }
 .admin .admin-order-guide strong { @apply text-sm text-gray-700; }
 .admin .admin-table .admin-order-column { width: 1%; white-space: nowrap; }
-.admin .admin-order-controls { display: grid; grid-template-columns: 20px 28px 62px auto; align-items: center; gap: 8px; }
+.admin .admin-order-controls { display: grid; grid-template-columns: 20px 28px auto auto; align-items: center; gap: 8px; }
 .admin .admin-order-rank { @apply text-gray-700 text-sm; min-width: 24px; font-variant-numeric: tabular-nums; }
 .admin .admin-drag-handle { @apply text-gray-400; cursor: grab; padding: 6px 0; }
 .admin .admin-drag-handle:active { cursor: grabbing; }
-.admin .admin-order-arrows { @apply inline-flex border border-gray-200 rounded-md bg-white; }
-.admin .admin-order-button { @apply inline-flex items-center justify-center text-gray-500; width: 30px; height: 32px; }
-.admin .admin-order-button + .admin-order-button { @apply border-l border-gray-200; }
-.admin .admin-order-button:hover:enabled { @apply bg-indigo-50 text-indigo-700; }
-.admin .admin-order-button:disabled, .admin .admin-order-extremes button:disabled { @apply text-gray-300 cursor-default bg-gray-50; }
+.admin .admin-order-arrows { @apply inline-flex rounded-md shadow-sm; }
+.admin .admin-order-button { @apply relative inline-flex items-center justify-center bg-white text-gray-500; width: 32px; height: 36px; box-shadow: inset 0 0 0 1px theme('colors.gray.300'); }
+.admin .admin-order-button + .admin-order-button { margin-left: -1px; }
+.admin .admin-order-button:first-of-type { @apply rounded-l-md; }
+.admin .admin-order-button:last-of-type { @apply rounded-r-md; }
+.admin .admin-order-button:focus-visible { z-index: 1; }
+.admin .admin-order-button:hover:enabled { @apply bg-gray-50 text-gray-900; }
+.admin .admin-order-button:disabled, .admin .admin-order-extremes button:disabled { @apply text-gray-400 cursor-default bg-gray-50; }
 .admin .admin-order-button .admin-icon { width: 16px; height: 16px; }
 .admin .admin-order-menu { display: contents; }
-.admin .admin-order-menu summary { @apply text-indigo-600 font-medium cursor-pointer rounded-md; padding: 6px; list-style: none; }
+.admin .admin-order-menu summary { list-style: none; }
 .admin .admin-order-menu summary::-webkit-details-marker { display: none; }
-.admin .admin-order-menu summary::after { content: "⌄"; margin-left: 4px; }
+.admin .admin-order-menu summary .admin-icon { @apply text-gray-400; width: 16px; height: 16px; }
 .admin .admin-order-menu summary:focus-visible { outline: 2px solid #6366f1; outline-offset: 3px; }
-.admin .admin-order-menu[open] summary { @apply bg-indigo-50; }
+.admin .admin-order-menu[open] summary, .admin .admin-order-menu summary[aria-expanded="true"] { @apply bg-gray-50; }
 .admin .admin-order-panel { @apply rounded-lg border border-gray-200 bg-white p-4; grid-column: 1 / -1; width: 268px; white-space: normal; }
-.admin .admin-order-panel-title { @apply text-xs text-gray-500 mb-3; }
-.admin .admin-order-dialog { @apply bg-white border border-gray-200 rounded-lg p-0 shadow-xl; width: 340px; max-width: calc(100vw - 32px); max-height: calc(100vh - 32px); overflow-y: auto; }
-.admin .admin-order-dialog::backdrop { background: rgba(17, 24, 39, .45); }
-.admin .admin-order-dialog-heading { @apply flex items-center justify-between border-b border-gray-100 px-5 py-3 font-semibold; gap: 12px; }
-.admin .admin-order-dialog .admin-order-panel { @apply border-0 p-5; width: auto; }
+.admin .admin-order-panel-title { @apply text-sm text-gray-500 mb-4; }
+.admin .admin-order-dialog-heading { @apply flex items-center justify-between px-4 pt-5 pb-4 font-semibold; gap: 16px; }
+.admin .admin-order-dialog-heading h2 { @apply text-base; line-height: 24px; }
+.admin .admin-order-dialog-heading .admin-icon-button { margin: -8px; }
+.admin .admin-order-dialog-heading .admin-icon-button:focus { outline: 2px solid theme('colors.indigo.600'); outline-offset: 2px; }
+.admin .admin-order-dialog-heading .admin-icon { @apply w-6 h-6; }
+.admin .admin-order-dialog .admin-order-panel { @apply border-0 px-4 pt-0 pb-4; width: auto; }
 .admin .admin-order-extremes { @apply flex; gap: 8px; }
 .admin .admin-order-extremes button { @apply flex-1 px-3; }
 .admin .admin-order-destination { @apply border-t border-gray-100 mt-4 pt-4; }
-.admin .admin-order-destination .admin-label { @apply text-xs; }
 .admin .admin-order-input-row { @apply flex mt-2; gap: 8px; }
 .admin .admin-order-input-row .admin-input { min-width: 0; }
 .admin .admin-table tr.admin-dragging { opacity: .4; }
@@ -176,6 +180,8 @@
 .admin .admin-table .admin-preview { max-height: 64px; max-width: 100px; }
 .admin .admin-gallery-item { @apply border border-gray-200 rounded-md p-4; min-width: 0; }
 .admin .admin-description-heading, .admin .admin-description-row { @apply px-4 py-6; }
+.admin .admin-description-heading h2 { line-height: 28px; }
+.admin .admin-description-heading p { line-height: 24px; }
 .admin .admin-description-row:last-child { @apply border-b-0; }
 .admin .admin-description-row dt { @apply text-sm font-medium text-gray-900; }
 .admin .admin-description-row dd { @apply mt-1 text-sm text-gray-700 whitespace-pre-wrap; line-height: 24px; min-width: 0; overflow-wrap: anywhere; }
@@ -218,9 +224,11 @@
 .admin .admin-back-link a { @apply inline-flex items-center; gap: 4px; }
 .admin .admin-back-link a:hover { @apply text-gray-900; }
 .admin .admin-stats { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
-.admin .admin-stat-card { @apply bg-white rounded-lg shadow-sm; }
-.admin .admin-stat-card a { @apply block px-4 py-5 rounded-lg; }
-.admin .admin-stat-card a:hover { @apply bg-gray-50; }
+.admin .admin-stat-card { @apply relative bg-white rounded-lg px-4 py-5 shadow-sm; }
+.admin .admin-stat-card:hover { @apply bg-gray-50; }
+.admin .admin-stat-link::after { content: ''; position: absolute; inset: 0; border-radius: 8px; }
+.admin .admin-stat-link:focus-visible { outline: none; }
+.admin .admin-stat-card:focus-within { outline: 2px solid #6366f1; outline-offset: 3px; }
 .admin .admin-stat-card dt { @apply flex items-center text-sm font-medium text-gray-500; gap: 8px; }
 .admin .admin-stat-card dd { @apply text-3xl font-semibold tracking-tight text-gray-900 mt-1; }
 .admin .admin-filter-select { @apply flex items-center; gap: 12px; min-width: 0; }
@@ -237,6 +245,7 @@
 .admin a.admin-page-button:hover { @apply bg-gray-50; }
 .admin a.admin-page-current, .admin a.admin-page-current:hover { @apply relative z-10 bg-indigo-600 text-white; box-shadow: none; }
 .admin .admin-field-error { @apply text-sm text-red-600 mt-2; }
+.admin .admin-field-hint { @apply text-sm text-gray-500 mt-2; }
 .admin [aria-invalid="true"] { border-color: #f87171; }
 .admin .admin-alert-dismiss { @apply ml-auto; color: inherit; margin-top: -6px; margin-right: -6px; min-width: 32px; min-height: 32px; }
 .admin .admin-alert-success .admin-alert-dismiss { @apply text-green-500; }
@@ -282,8 +291,8 @@
 .admin .admin-dialog::backdrop { background: rgba(17, 24, 39, .5); }
 .admin .admin-dialog-heading { @apply flex items-center justify-between px-5 py-3 border-b border-gray-100 font-semibold; gap: 12px; }
 .admin .admin-dialog-footer { @apply flex justify-end px-6 py-3 bg-gray-50; gap: 12px; }
-.admin .admin-confirmation-dialog { width: 512px; }
-.admin .admin-confirmation-dialog::backdrop { background: rgba(107, 114, 128, .75); }
+.admin .admin-confirmation-dialog, .admin .admin-order-dialog { width: 512px; }
+.admin .admin-confirmation-dialog::backdrop, .admin .admin-order-dialog::backdrop { background: rgba(107, 114, 128, .75); }
 .admin .admin-confirmation-body { @apply flex items-start px-6 pt-6 pb-4; gap: 16px; overflow-wrap: anywhere; }
 .admin .admin-confirmation-icon { @apply flex items-center justify-center flex-shrink-0 rounded-full bg-red-100 text-red-600 w-10 h-10; }
 .admin .admin-confirmation-icon svg { @apply w-6 h-6; }
@@ -349,7 +358,7 @@
 .admin .admin-upload:focus-within { @apply border-indigo-400; }
 
 @media (forced-colors: active) {
-  .admin .admin-input, .admin .admin-button-secondary, .admin .admin-page-button { border: 1px solid ButtonText; box-shadow: none; }
+  .admin .admin-input, .admin .admin-button-secondary, .admin .admin-page-button, .admin .admin-order-button { border: 1px solid ButtonText; box-shadow: none; }
   .admin .admin-input:focus { outline: 2px solid Highlight; outline-offset: -2px; }
   .admin .admin-input[aria-invalid="true"]:focus { outline: 2px solid Highlight; }
   .admin .admin-checkbox, .admin .admin-checkbox:checked, .admin .admin-checkbox:indeterminate,
@@ -375,12 +384,14 @@
   .admin .admin-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; }
   .admin .admin-table th:first-child, .admin .admin-table td:first-child { @apply pl-6; }
   .admin .admin-table th:last-child, .admin .admin-table td:last-child { @apply pr-6; }
-  .admin .admin-stat-card a { @apply p-6; }
+  .admin .admin-stat-card { @apply p-6; }
   .admin .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .admin .admin-form-section, .admin .admin-seo-section { @apply p-8; }
   .admin .admin-description-heading, .admin .admin-description-row { @apply px-6; }
   .admin .admin-description-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 16px; }
   .admin .admin-description-row dd { @apply mt-0; }
+  .admin .admin-order-dialog-heading { @apply px-6 pt-6; }
+  .admin .admin-order-dialog .admin-order-panel { @apply px-6 pb-6; }
   .admin .admin-command-dialog { margin: 24px auto; max-height: calc(100vh - 48px); }
 }
 @screen md {
@@ -408,7 +419,7 @@
   .admin .admin-section-navigation ul { @apply flex-col; }
 }
 @media (max-width: 639px) {
-  .admin .admin-confirmation-dialog { margin: auto auto 16px; }
+  .admin .admin-confirmation-dialog, .admin .admin-order-dialog { margin: auto auto 16px; }
   .admin .admin-confirmation-body { @apply flex-col items-center px-4 pt-5 pb-4 text-center; gap: 12px; }
   .admin .admin-confirmation-icon { @apply w-12 h-12; }
   .admin .admin-confirmation-dialog .admin-dialog-footer { @apply flex-col-reverse px-4; }

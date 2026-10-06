@@ -11,7 +11,7 @@
     <% end %>
   <% end %>
   <details class="admin-order-menu">
-    <summary aria-label="移动记录 <%= record.id %>">移动</summary>
+    <summary class="admin-button-secondary" aria-label="移动记录 <%= record.id %>">移动<%= admin_icon('chevron-down') %></summary>
     <div class="admin-order-panel">
       <p class="admin-order-panel-title">移动记录 #<%= record.id %></p>
       <%= form_with url: path, method: :patch, local: true, class: 'admin-order-extremes' do %>

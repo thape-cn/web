@@ -6,7 +6,10 @@
   <dl class="admin-stats">
     <% @counts.each do |key, count| %>
       <% resource = Admin::Resource.new(key) %>
-      <div class="admin-stat-card"><%= link_to admin_resource_path(resource) do %><dt><%= admin_resource_icon(resource) %><%= resource.label %></dt><dd data-admin-count="<%= key %>"><%= count %></dd><% end %></div>
+      <div class="admin-stat-card">
+        <dt><%= admin_resource_icon(resource) %><%= link_to resource.label, admin_resource_path(resource), class: 'admin-stat-link' %></dt>
+        <dd data-admin-count="<%= key %>"><%= count %></dd>
+      </div>
     <% end %>
   </dl>
 </section>

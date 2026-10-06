@@ -238,6 +238,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
 
     get path(resource, :edit)
     assert_response :success
+    assert_select '#work_type_page_resdential_jpg[aria-describedby="work_type_page_resdential_jpg_hint"]'
+    assert_select "#work_type_page_resdential_jpg_hint", text: /1:2（横图）/
     paired_fields = %w[resdential residential_residence residential_community residential_rental demonstration_zone].flat_map do |category|
       %w[jpg webp].map { |format| "work_type_page[#{category}_#{format}]" }
     end

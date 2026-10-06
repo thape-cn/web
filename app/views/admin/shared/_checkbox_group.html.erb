@@ -1,7 +1,7 @@
 <% choices = admin_options(resource, field) %>
 <fieldset class="admin-checkbox-group" aria-describedby="<%= form.field_id(field) %>_hint">
   <legend class="admin-label"><%= admin_field_label(resource, field) %></legend>
-  <p id="<%= form.field_id(field) %>_hint" class="text-xs text-gray-500 mb-3">可选择多项，取消勾选即可移除。</p>
+  <p id="<%= form.field_id(field) %>_hint" class="text-sm text-gray-500 mb-3"><%= local_assigns[:hint].presence || '可选择多项，取消勾选即可移除。' %></p>
   <div class="admin-checkbox-options">
     <%= form.collection_check_boxes field, choices, :last, :first do |choice| %>
       <%= choice.label class: 'admin-checkbox-option' do %>

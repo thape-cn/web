@@ -70,7 +70,10 @@ if (table && form) {
     summary.setAttribute("aria-haspopup", "dialog")
     summary.setAttribute("aria-controls", dialog.id)
     summary.addEventListener("click", event => {
+      // Keep the inline details/forms available when native dialogs are unavailable.
+      if (typeof dialog.showModal !== "function") return
       event.preventDefault()
+      if (dialog.open) return
       activeMenu = summary.parentElement
       content.appendChild(activeMenu.querySelector(".admin-order-panel"))
       summary.setAttribute("aria-expanded", "true")
@@ -79,6 +82,7 @@ if (table && form) {
   })
   dialog.querySelector("[data-admin-order-close]").addEventListener("click", () => dialog.close())
   dialog.addEventListener("close", () => {
+    if (!activeMenu) return
     activeMenu.appendChild(content.firstElementChild)
     activeMenu.querySelector("summary").setAttribute("aria-expanded", "false")
     activeMenu.querySelector("summary").focus()

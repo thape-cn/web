@@ -2,24 +2,25 @@
   <% if options['type'] == 'check_box' %>
     <%= render 'admin/shared/switch', form: form, resource: resource, field: field, options: options %>
   <% elsif options['type'] == 'multiple' %>
-    <%= render 'admin/shared/checkbox_group', form: form, resource: resource, field: field %>
+    <%= render 'admin/shared/checkbox_group', form: form, resource: resource, field: field, hint: options['hint'] %>
   <% else %>
     <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
+    <% field_attributes = admin_field_attributes(form, field, class: 'admin-input', hint: options['hint']) %>
     <% case options['type'] %>
     <% when 'file_field' %>
-      <%= render 'admin/shared/upload', form: form, field: field %>
+      <%= render 'admin/shared/upload', form: form, field: field, hint: options['hint'] %>
     <% when 'select' %>
       <% selected = form.object.public_send(field) %>
-      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: true }, admin_field_attributes(form, field, class: 'admin-input') %>
+      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: true }, field_attributes %>
     <% when 'text_area' %>
       <% editor_data = options['rich_text'] ? { admin_rich_text: true, upload_url: upload_admin_pictures_path } : {} %>
-      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, **admin_field_attributes(form, field, class: 'admin-input', data: editor_data) %>
+      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, **field_attributes, data: editor_data %>
     <% when 'password_field' %>
-      <%= form.password_field field, **admin_field_attributes(form, field, autocomplete: 'new-password', class: 'admin-input') %>
+      <%= form.password_field field, **field_attributes, autocomplete: 'new-password' %>
     <% else %>
-      <%= form.public_send(options['type'], field, **admin_field_attributes(form, field, class: 'admin-input')) %>
+      <%= form.public_send(options['type'], field, **field_attributes) %>
     <% end %>
   <% end %>
-  <% if options["hint"].present? && options['type'] != 'check_box' %><p class="text-xs text-gray-500 mt-2"><%= options["hint"] %></p><% end %>
+  <% if options['hint'].present? && !%w[check_box multiple].include?(options['type']) %><p id="<%= form.field_id(field) %>_hint" class="admin-field-hint"><%= options['hint'] %></p><% end %>
   <% if form.object.errors[field].any? %><p id="<%= form.field_id(field) %>_error" class="admin-field-error"><%= form.object.errors.full_messages_for(field).join('；') %></p><% end %>
 </div>

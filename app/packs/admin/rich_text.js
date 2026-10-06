@@ -20,8 +20,11 @@ document.querySelectorAll("textarea[data-admin-rich-text]").forEach(textarea => 
   })
 
   editor.body.attr({ role: "textbox", "aria-multiline": "true", tabindex: "0" })
+  if (textarea.getAttribute("aria-describedby")) {
+    editor.body.attr("aria-describedby", textarea.getAttribute("aria-describedby"))
+  }
   if (textarea.getAttribute("aria-invalid")) {
-    editor.body.attr({ "aria-invalid": "true", "aria-describedby": textarea.getAttribute("aria-describedby") })
+    editor.body.attr("aria-invalid", "true")
   }
   const label = textarea.labels[0]
   if (label) {
