@@ -5,8 +5,8 @@
       <nav aria-label="返回" class="admin-back-link"><%= link_to parent[:path] do %><%= admin_icon('chevron-left') %><span>返回<%= parent[:label] %></span><% end %></nav>
     <% end %>
     <nav aria-label="页面路径" class="admin-breadcrumbs"><ol>
-      <% breadcrumbs.each do |crumb| %>
-        <li><% if crumb[:path] %><%= link_to crumb[:label], crumb[:path] %><% else %><span aria-current="page"><%= crumb[:label] %></span><% end %></li>
+      <% breadcrumbs.each_with_index do |crumb, index| %>
+        <li><%= admin_icon('chevron-right', class: 'w-5 h-5 text-gray-400 mr-4 flex-shrink-0') if index.positive? %><% if crumb[:path] %><%= link_to crumb[:label], crumb[:path] %><% else %><span aria-current="page"><%= crumb[:label] %></span><% end %></li>
       <% end %>
     </ol></nav>
   <% end %>

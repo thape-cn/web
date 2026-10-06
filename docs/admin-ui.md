@@ -78,6 +78,8 @@ The picture library accepts `view=grid|list` and defaults to grid. Missing or
 failed images show a placeholder. Gallery cards retain the existing nested
 attributes, cached uploads, paired JPG/WebP fields and save-time deletion.
 Editor section links are anchors; they do not hide fields or split the form.
+They use unboxed navigation rows with 24px icons, 8px padding and a gray hover
+background, matching the vertical-navigation template.
 Inline errors also label the visible rich-text editor when a textarea is enhanced.
 
 The header module search and Ctrl/Cmd+K open a native dialog containing the same
@@ -97,8 +99,10 @@ thirds from 1280px; descriptions sit above the cards on smaller screens. Fields
 have a 42rem maximum width, 24px column gaps and 32px row gaps. Chapter links wrap
 above the form until 1600px, when they move into a sticky navigation column
 without pushing descriptions above their cards.
-The shared heading places breadcrumbs above the title/action row, with a parent
-back link on phones. Header search shows its keyboard shortcut on desktop.
+The shared heading places breadcrumbs with 20px chevrons above the title/action
+row, centers actions beside the title from 768px, and uses a parent back link on
+phones. Header search shows its keyboard shortcut on desktop. The shell uses
+40px vertical content padding and 16px/24px/32px responsive side padding.
 Tables use compact interior cells and padded edges, and scroll within their cards
 on phones. Pagination uses arrow buttons on desktop and labeled buttons on phones;
 dashboard totals stack on phones and use two or four columns on larger screens.
@@ -119,7 +123,11 @@ confirmation uses a 512px centered panel on desktop and a bottom-aligned panel
 with a centered icon and stacked, full-width actions on phones. Cancel retains
 initial focus. Validation errors keep red borders and focus styling, including
 the rich-text editor. Flash messages use tinted backgrounds and matching dismiss
-buttons; publication badges use a status-colored inset border.
+buttons; publication badges use a status-colored inset border. Active filter
+badges use a compact gray inset border with a separate removal link and expanded
+hit area. The module palette sits 16px/24px/80px below the viewport top, with
+8px gaps between groups. Deletion dialogs use the template's gray backdrop
+and a 24px warning icon.
 
 The sidebar uses a 64px brand row, 24px navigation icons, 8px link padding and
 28px gaps between groups. Its active and hover rows use the template's translucent
@@ -131,7 +139,11 @@ filters and ordering dialogs. Checkboxes share rounded borders and explicit
 checked, indeterminate and disabled styles. Both remain native form controls and
 restore native appearance in forced-color mode. Invalid single-line inputs show
 the template's error icon alongside their existing accessible error messages;
-textareas and rich-text editors retain their full content width.
+textareas and rich-text editors retain their full content width. Inputs use
+36px minimum height, a 1px inset border and a 2px inset focus border; secondary buttons
+and pagination use the same inset-border approach without adding layout width.
+Rich-text focus styling follows the same indigo and red states. Forced-color
+mode restores visible system borders where inset shadows would disappear.
 
 Admin-specific differences remain deliberate: the header opens a module picker
 instead of a global content search; language switching and record actions retain

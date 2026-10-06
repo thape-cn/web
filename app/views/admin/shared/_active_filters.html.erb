@@ -3,7 +3,7 @@
     <span class="text-xs text-gray-500">已选筛选</span>
     <ul>
       <% filters.each do |filter| %>
-        <li><%= link_to filter[:path], class: 'admin-filter-chip', aria: {label: "移除#{filter[:label]}"} do %><span><%= filter[:label] %></span><%= admin_icon('close', class: 'w-4 h-4 flex-shrink-0') %><% end %></li>
+        <li><span class="admin-filter-chip"><span><%= filter[:label] %></span><%= link_to filter[:path], class: 'admin-filter-remove', aria: {label: "移除#{filter[:label]}"} do %><span class="sr-only">移除<%= filter[:label] %></span><%= admin_icon('close') %><% end %></span></li>
       <% end %>
     </ul>
     <%= link_to '清除筛选', admin_clear_filters_path, class: 'admin-link text-xs' %>
