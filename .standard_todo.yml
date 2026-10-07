@@ -6,8 +6,6 @@ ignore:
   - Lint/RescueException
 - app/controllers/biz_maps_controller.rb:
   - Naming/VariableName
-- app/controllers/leadership_controller.rb:
-  - Naming/VariableName
 - config/environments/production.rb:
   - Style/GlobalStdStream
 - config/environments/staging.rb:

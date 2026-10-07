@@ -75,13 +75,13 @@ class LeadershipController < ApplicationController
         end
 
         # AICO上海
-        @AICO_SH_people = people.where(city_people: {city_id: 74})
+        @aico_sh_people = people.where(city_people: {city_id: 74})
 
         # AICO深圳
-        @AICO_SZ_people = people.where(city_people: {city_id: 75})
+        @aico_sz_people = people.where(city_people: {city_id: 75})
 
         # AICO香港
-        @AICO_XG_people = people.where(city_people: {city_id: 76})
+        @aico_xg_people = people.where(city_people: {city_id: 76})
 
         render "aico"
       else
