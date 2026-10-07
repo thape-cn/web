@@ -46,7 +46,7 @@ set :rbenv_ruby, "3.4.11"
 
 set :puma_init_active_record, true
 set :puma_phased_restart, true
-set :pnpm_flags, '--silent'
+set :pnpm_flags, "--silent"
 
 # https://stackoverflow.com/a/48627238/262826
 Rake::Task["deploy:assets:backup_manifest"].clear_actions

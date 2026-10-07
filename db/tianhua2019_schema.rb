@@ -57,5 +57,4 @@ ActiveRecord::Schema[7.1].define(version: 0) do
     t.integer "folk_alumni_sign"
     t.string "upgrade_org"
   end
-
 end

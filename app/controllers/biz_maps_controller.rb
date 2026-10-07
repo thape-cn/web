@@ -113,7 +113,7 @@ class BizMapsController < ApplicationController
       {name: "厦门天华", city: "厦门", company: "厦门天华"},
       {name: "青岛天华", city: "青岛", company: "青岛天华"},
       {name: "南京天华", city: "南京", company: "南京天华"},
-      {name: "杭州天华", city: "杭州", company: "杭州天华"},
+      {name: "杭州天华", city: "杭州", company: "杭州天华"}
     ]
 
     # 地图旁边下半部分的公司列表
@@ -127,7 +127,7 @@ class BizMapsController < ApplicationController
       {name: "上海天华嘉易", city: "上海", company: "上海嘉易"},
       {name: "上海天华医养", city: "上海", company: "上海医养"},
       {name: "上海天华低碳", city: "上海", company: "上海低碳"},
-      {name: "上海天华智建", city: "上海", company: "上海智建"},
+      {name: "上海天华智建", city: "上海", company: "上海智建"}
     ]
 
     # 机构的城市列表

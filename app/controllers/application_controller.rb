@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_from_accept_language_header
     @http_locale ||= request.env["HTTP_ACCEPT_LANGUAGE"].scan(/^[a-z]{2}/).first
-  rescue Exception => e
+  rescue Exception
     "cn"
   end
 
