@@ -54,6 +54,10 @@ jobs:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
 
+      - run:
+          name: Check code formatting
+          command: yarn lint
+
       # Store yarn / webpacker cache
       - save_cache:
           key: thape-web-yarn-v2-{{ checksum "package.json" }}

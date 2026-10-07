@@ -4,33 +4,33 @@ All admin modules use the shared Rails views in `app/views/admin` and the
 dedicated `admin` Shakapacker entrypoint. The layout and components are adapted
 from `/Users/guochunzhong/git/application-ui-v4/html`:
 
-| Admin view | Tailwind Plus template |
-| --- | --- |
-| Desktop sidebar, mobile drawer, header | `application-shells/sidebar/04-dark-sidebar-with-header.html` |
-| Dashboard links and module cards | `lists/grid-lists/04-horizontal-link-cards.html` |
-| Resource lists | `lists/tables/03-simple-in-card.html` |
-| Editors, SEO, project galleries, city roles | `forms/form-layouts/04-two-column-with-cards.html` |
-| Record details and messages | `data-display/description-lists/03-left-aligned-in-card.html` |
-| Login | `forms/sign-in-forms/05-simple-card.html` |
-| Shared page headings and breadcrumbs | `headings/page-headings/03-with-actions-and-breadcrumbs.html` |
-| Dashboard totals | `data-display/stats/03-simple-in-cards.html` |
-| Searchable module switcher | `navigation/command-palettes/08-with-groups.html` |
-| Numbered list pagination | `navigation/pagination/01-card-footer-with-page-buttons.html` |
-| Picture library and nested gallery cards | `lists/grid-lists/06-images-with-details.html` |
-| Editor section links | `navigation/vertical-navigation/04-with-icons.html` |
-| Dismissible flash messages and error summaries | `feedback/alerts/06-with-dismiss-button.html`, `feedback/alerts/02-with-list.html` |
-| Inline field errors | `forms/input-groups/03-input-with-validation-error.html` |
-| Native selects in editors, filters and ordering | `forms/select-menus/01-simple-native.html` |
-| Deletion confirmation | `overlays/modal-dialogs/05-simple-with-gray-footer.html` |
-| Ordering dialog and arrow controls | `overlays/modal-dialogs/04-simple-with-dismiss-button.html`, `elements/button-groups/01-basic.html` |
-| Field help text | `forms/input-groups/02-input-with-label-and-help-text.html` |
-| Empty lists and searches | `feedback/empty-states/01-simple.html` |
-| Status and category filters | `navigation/tabs/01-tabs-with-underline.html` |
-| Removable active filters | `elements/badges/07-with-border-remove-button.html` |
-| Picture grid/list buttons | `elements/button-groups/01-basic.html` |
-| Publication and visibility switches | `forms/toggles/04-with-left-label-and-description.html` |
-| Project categories and team cities | `forms/checkboxes/03-list-with-checkbox-on-right.html` |
-| File upload areas and local previews | `forms/form-layouts/01-stacked.html` (cover photo field) |
+| Admin view                                      | Tailwind Plus template                                                                              |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Desktop sidebar, mobile drawer, header          | `application-shells/sidebar/04-dark-sidebar-with-header.html`                                       |
+| Dashboard links and module cards                | `lists/grid-lists/04-horizontal-link-cards.html`                                                    |
+| Resource lists                                  | `lists/tables/03-simple-in-card.html`                                                               |
+| Editors, SEO, project galleries, city roles     | `forms/form-layouts/04-two-column-with-cards.html`                                                  |
+| Record details and messages                     | `data-display/description-lists/03-left-aligned-in-card.html`                                       |
+| Login                                           | `forms/sign-in-forms/05-simple-card.html`                                                           |
+| Shared page headings and breadcrumbs            | `headings/page-headings/03-with-actions-and-breadcrumbs.html`                                       |
+| Dashboard totals                                | `data-display/stats/03-simple-in-cards.html`                                                        |
+| Searchable module switcher                      | `navigation/command-palettes/08-with-groups.html`                                                   |
+| Numbered list pagination                        | `navigation/pagination/01-card-footer-with-page-buttons.html`                                       |
+| Picture library and nested gallery cards        | `lists/grid-lists/06-images-with-details.html`                                                      |
+| Editor section links                            | `navigation/vertical-navigation/04-with-icons.html`                                                 |
+| Dismissible flash messages and error summaries  | `feedback/alerts/06-with-dismiss-button.html`, `feedback/alerts/02-with-list.html`                  |
+| Inline field errors                             | `forms/input-groups/03-input-with-validation-error.html`                                            |
+| Native selects in editors, filters and ordering | `forms/select-menus/01-simple-native.html`                                                          |
+| Deletion confirmation                           | `overlays/modal-dialogs/05-simple-with-gray-footer.html`                                            |
+| Ordering dialog and arrow controls              | `overlays/modal-dialogs/04-simple-with-dismiss-button.html`, `elements/button-groups/01-basic.html` |
+| Field help text                                 | `forms/input-groups/02-input-with-label-and-help-text.html`                                         |
+| Empty lists and searches                        | `feedback/empty-states/01-simple.html`                                                              |
+| Status and category filters                     | `navigation/tabs/01-tabs-with-underline.html`                                                       |
+| Removable active filters                        | `elements/badges/07-with-border-remove-button.html`                                                 |
+| Picture grid/list buttons                       | `elements/button-groups/01-basic.html`                                                              |
+| Publication and visibility switches             | `forms/toggles/04-with-left-label-and-description.html`                                             |
+| Project categories and team cities              | `forms/checkboxes/03-list-with-checkbox-on-right.html`                                              |
+| File upload areas and local previews            | `forms/form-layouts/01-stacked.html` (cover photo field)                                            |
 
 The application uses Tailwind 1.9. Template utilities from v4 are translated to
 supported utilities and reusable `@apply` components in

@@ -1,54 +1,53 @@
 @use "sass:math";
 
 $gaps: (
-    1:.25rem,
-    2:.5rem,
-    3:.75rem
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
 );
 
-@mixin flex-grid-cols-gap ($col, $gapList) {
-    @each $gapKey, $gapValue in $gapList {
-        .flex-grid-cols-#{$col}-gap-#{$gapKey} {
-            width: calc(100% + #{$gapValue});
-            margin-left: -#{math.div($gapValue, 2)};
+@mixin flex-grid-cols-gap($col, $gapList) {
+  @each $gapKey, $gapValue in $gapList {
+    .flex-grid-cols-#{$col}-gap-#{$gapKey} {
+      width: calc(100% + #{$gapValue});
+      margin-left: -#{math.div($gapValue, 2)};
 
-            >* {
-                width: calc(100% / #{$col} - #{$gapValue});
-                margin: 0 #{math.div($gapValue, 2)};
-                &:nth-child(n) {
-                    margin-top: 0;
-                }
-                &:nth-child(n + #{$col+1}) {
-                    margin-top: $gapValue;
-                }
-            }
+      > * {
+        width: calc(100% / #{$col} - #{$gapValue});
+        margin: 0 #{math.div($gapValue, 2)};
+        &:nth-child(n) {
+          margin-top: 0;
         }
+        &:nth-child(n + #{$col + 1}) {
+          margin-top: $gapValue;
+        }
+      }
     }
+  }
 }
 
 @layer utilities {
-    @responsive {
-        .flex-grid {
-            display: block;
-            overflow: hidden;
-        }
-
-        .flex-grid-box {
-            position: relative;
-            display: flex;
-            width: 100%;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: center;
-
-            >* {
-                flex: none;
-            }
-
-        }
-
-        @for $i from 1 through 15 {
-            @include flex-grid-cols-gap($i, $gaps);
-        }
+  @responsive {
+    .flex-grid {
+      display: block;
+      overflow: hidden;
     }
+
+    .flex-grid-box {
+      position: relative;
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+
+      > * {
+        flex: none;
+      }
+    }
+
+    @for $i from 1 through 15 {
+      @include flex-grid-cols-gap($i, $gaps);
+    }
+  }
 }

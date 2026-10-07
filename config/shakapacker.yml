@@ -34,7 +34,7 @@ default: &default
   cache_manifest: false
 
   # Select the JavaScript transpiler, available options are 'babel', 'swc' or 'esbuild'
-  javascript_transpiler: 'babel'
+  javascript_transpiler: "babel"
 
   # Set to true to enable check for matching versions of shakapacker gem and NPM package - will raise an error if there is a mismatch or wildcard versioning is used
   ensure_consistent_versioning: true
@@ -54,7 +54,7 @@ development:
 
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
-    server: 'http'
+    server: "http"
     host: localhost
     port: 3035
     # Hot Module Replacement updates modules while the application is running without a full reload
@@ -83,10 +83,10 @@ development:
     allowed_hosts: "all"
     pretty: true
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     static:
       watch:
-        ignored: '**/node_modules/**'
+        ignored: "**/node_modules/**"
 
 test:
   <<: *default

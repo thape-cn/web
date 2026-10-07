@@ -16,10 +16,12 @@ if (table && form) {
     source = null
   }
 
-  table.querySelectorAll("[data-admin-drag-handle]").forEach(handle => { handle.hidden = false })
+  table.querySelectorAll("[data-admin-drag-handle]").forEach((handle) => {
+    handle.hidden = false
+  })
   document.querySelector("[data-admin-drag-hint]").hidden = false
 
-  table.addEventListener("dragstart", event => {
+  table.addEventListener("dragstart", (event) => {
     const handle = event.target.closest("[data-admin-drag-handle]")
     if (!handle || saving) {
       event.preventDefault()
@@ -32,7 +34,7 @@ if (table && form) {
     event.dataTransfer.setDragImage(source, 30, 20)
   })
 
-  table.addEventListener("dragover", event => {
+  table.addEventListener("dragover", (event) => {
     if (!source || saving) return
     clearTarget()
     const row = event.target.closest("[data-record-id]")
@@ -45,11 +47,11 @@ if (table && form) {
     row.classList.add(`admin-drop-${movement}`)
   })
 
-  table.addEventListener("dragleave", event => {
+  table.addEventListener("dragleave", (event) => {
     if (!table.contains(event.relatedTarget)) clearTarget()
   })
   table.addEventListener("dragend", reset)
-  table.addEventListener("drop", event => {
+  table.addEventListener("drop", (event) => {
     const row = event.target.closest("[data-record-id]")
     if (!source || !row || row === source || saving) return
     event.preventDefault()
@@ -66,10 +68,10 @@ if (table && form) {
   const dialog = document.querySelector("[data-admin-order-dialog]")
   const content = dialog.querySelector("[data-admin-order-content]")
   let activeMenu = null
-  table.querySelectorAll(".admin-order-menu summary").forEach(summary => {
+  table.querySelectorAll(".admin-order-menu summary").forEach((summary) => {
     summary.setAttribute("aria-haspopup", "dialog")
     summary.setAttribute("aria-controls", dialog.id)
-    summary.addEventListener("click", event => {
+    summary.addEventListener("click", (event) => {
       // Keep the inline details/forms available when native dialogs are unavailable.
       if (typeof dialog.showModal !== "function") return
       event.preventDefault()

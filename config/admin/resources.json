@@ -4,15 +4,7 @@
     "model": "Admin::Person",
     "param": "person",
     "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "show", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "category": {
         "type": "select",
@@ -58,15 +50,7 @@
     "model": "Admin::Info",
     "param": "info",
     "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "show", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "category": {
         "type": "select",
@@ -142,10 +126,7 @@
     "model": "Seo",
     "param": "seo",
     "singleton": false,
-    "actions": [
-      "index",
-      "update"
-    ],
+    "actions": ["index", "update"],
     "fields": {
       "home_title": {
         "type": "text_field",
@@ -186,11 +167,7 @@
     "model": "MapContact",
     "param": "map_contact",
     "singleton": false,
-    "actions": [
-      "index",
-      "edit",
-      "update"
-    ],
+    "actions": ["index", "edit", "update"],
     "fields": {
       "name": {
         "type": "text_field",
@@ -239,12 +216,7 @@
     "model": "Admin::User",
     "param": "user",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "destroy"
-    ],
+    "actions": ["index", "new", "create", "destroy"],
     "fields": {
       "name": {
         "type": "text_field",
@@ -269,15 +241,7 @@
     "model": "Admin::Work",
     "param": "work",
     "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "show", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "project_name": {
         "type": "text_field",
@@ -375,10 +339,7 @@
     "model": "TailHome",
     "param": "tail_home",
     "singleton": true,
-    "actions": [
-      "edit",
-      "update"
-    ],
+    "actions": ["edit", "update"],
     "fields": {
       "new_project_photo_1": {
         "type": "file_field",
@@ -643,10 +604,7 @@
     "model": "AboutPage",
     "param": "about_page",
     "singleton": true,
-    "actions": [
-      "edit",
-      "update"
-    ],
+    "actions": ["edit", "update"],
     "fields": {
       "thape_intro": {
         "type": "text_area",
@@ -715,10 +673,7 @@
     "model": "WorkTypePage",
     "param": "work_type_page",
     "singleton": true,
-    "actions": [
-      "edit",
-      "update"
-    ],
+    "actions": ["edit", "update"],
     "fields": {
       "resdential_jpg": {
         "type": "file_field",
@@ -901,11 +856,7 @@
     "model": "Admin::ServiceFile",
     "param": "service_file",
     "singleton": true,
-    "actions": [
-      "show",
-      "edit",
-      "update"
-    ],
+    "actions": ["show", "edit", "update"],
     "fields": {
       "building_intro": {
         "type": "text_area",
@@ -954,13 +905,7 @@
     "model": "City",
     "param": "city",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "edit",
-      "update"
-    ],
+    "actions": ["index", "new", "create", "edit", "update"],
     "fields": {
       "name": {
         "type": "text_field",
@@ -989,14 +934,7 @@
     "model": "Picture",
     "param": "picture",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "image": {
         "type": "file_field",
@@ -1013,11 +951,7 @@
     "model": "GuestMessage",
     "param": "guest_message",
     "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "destroy"
-    ],
+    "actions": ["index", "show", "destroy"],
     "fields": {}
   },
   "project_messages": {
@@ -1025,11 +959,7 @@
     "model": "ProjectMessage",
     "param": "project_message",
     "singleton": false,
-    "actions": [
-      "index",
-      "show",
-      "destroy"
-    ],
+    "actions": ["index", "show", "destroy"],
     "fields": {}
   },
   "portfolios": {
@@ -1037,14 +967,7 @@
     "model": "Portfolio",
     "param": "portfolio",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "title": {
         "type": "text_field",
@@ -1093,14 +1016,7 @@
     "model": "Publication",
     "param": "publication",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "title": {
         "type": "text_field",
@@ -1153,14 +1069,7 @@
     "model": "Insight",
     "param": "insight",
     "singleton": false,
-    "actions": [
-      "index",
-      "new",
-      "create",
-      "edit",
-      "update",
-      "destroy"
-    ],
+    "actions": ["index", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "title": {
         "type": "text_field",

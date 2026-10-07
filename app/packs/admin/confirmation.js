@@ -26,7 +26,7 @@ if (dialog && typeof dialog.showModal === "function") {
     pending = null
     if (opener?.isConnected) opener.focus()
   })
-  document.addEventListener("confirm", event => {
+  document.addEventListener("confirm", (event) => {
     const element = event.target
     if (typeof dialog.showModal !== "function") return
     if (!element.matches(".admin-danger-link[data-confirm]")) return

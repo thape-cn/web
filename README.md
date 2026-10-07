@@ -90,6 +90,19 @@ Confirm the test configuration points to a disposable local test database before
 
 # Develop notes
 
+## Code formatting
+
+After installing the bundle and pnpm dependencies, run from the repository root:
+
+```bash
+pnpm format # Prettier --write, then bundle exec standardrb --fix
+pnpm check  # Read-only Prettier and StandardRB checks (also available as pnpm lint)
+```
+
+Prettier 3.6.2 uses the configuration copied from `plm-client`: two-space indentation, double quotes, no semicolons, trailing commas, and a 120-column width. It formats supported JavaScript, stylesheets, JSON, YAML, Markdown, and plain HTML files. Ruby uses the existing `standard` gem. ERB templates are outside these formatters' scope.
+
+`.prettierignore` excludes dependency lockfiles, vendored/generated assets, uploads, and local tool state; Prettier also respects `.gitignore`. `.standard_todo.yml` records existing Ruby violations that StandardRB cannot fix automatically. Remove its entries as those issues are resolved. GitLab CI and CircleCI run the read-only checks.
+
 ## Add a new Tailwind CSS
 
 Due to Tailwind CSS 1.9 limit, must touch CSS after adding a new class(the class-name never used.)

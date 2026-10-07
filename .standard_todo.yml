@@ -1,0 +1,20 @@
+# Auto generated files with errors to ignore.
+# Remove from this list as you refactor files.
+---
+ignore:
+- app/controllers/application_controller.rb:
+  - Lint/RescueException
+- app/controllers/biz_maps_controller.rb:
+  - Naming/VariableName
+- app/controllers/leadership_controller.rb:
+  - Naming/VariableName
+- config/environments/production.rb:
+  - Style/GlobalStdStream
+- config/environments/staging.rb:
+  - Style/GlobalStdStream
+- lib/tasks/import_people.rake:
+  - Naming/VariableName
+  - Lint/Debugger
+- lib/tasks/import_works.rake:
+  - Naming/VariableName
+  - Lint/ConstantDefinitionInBlock

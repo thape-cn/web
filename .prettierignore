@@ -1,0 +1,28 @@
+# Dependency lockfiles and generated StandardRB baseline.
+pnpm-lock.yaml
+.standard_todo.yml
+
+# Dependencies, generated assets, runtime data, and uploads.
+node_modules/
+vendor/
+log/
+tmp/
+storage/
+public/assets/
+public/packs/
+public/packs-test/
+public/uploads/
+public/tianwen_sync/
+public/pdfjs/
+public/*.hyperesources/
+public/baidu_verify*.html
+
+# Local editor and assistant state.
+.bundle/
+.claude/
+.cursor/
+.idea/
+.opencode/
+.ruby-lsp/
+*.code-workspace
+*.sublime-project

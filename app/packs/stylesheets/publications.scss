@@ -48,22 +48,22 @@
 
           $base_y: -3deg;
           $base_add_y: -20deg;
-        
+
           $front_y: $base_y + -12deg;
           $hover_front_y: $base_y + -119deg + $base_add_y;
-        
+
           $page1_y: $base_y + -10deg;
           $hover_page1_y: $base_y + -114deg + $base_add_y;
-        
+
           $page2_y: $base_y + -8deg;
           $hover_page2_y: $base_y + -104deg + $base_add_y;
-        
+
           $page3_y: $base_y + -6deg;
           $hover_page3_y: $base_y + -92deg + $base_add_y;
-        
+
           $page4_y: $base_y + -4deg;
           $hover_page4_y: $base_y + -9deg;
-        
+
           $page5_y: $base_y + -2deg;
           $hover_page5_y: $base_y + -4deg;
 
@@ -88,7 +88,7 @@
               transform-style: preserve-3d;
               z-index: 100;
 
-              >:first-child {
+              > :first-child {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -103,7 +103,7 @@
                 }
               }
 
-              >:last-child {
+              > :last-child {
                 position: absolute;
                 top: 4px;
                 bottom: 4px;
@@ -114,7 +114,7 @@
                 transform: rotateY(1deg);
 
                 &::before {
-                  content: '';
+                  content: "";
                   position: absolute;
                   bottom: -4px;
                   left: 10px;
@@ -128,11 +128,11 @@
             }
 
             @screen lg {
-            &:hover {
-              .book-front {
-                transform: rotateY($hover_front_y);
+              &:hover {
+                .book-front {
+                  transform: rotateY($hover_front_y);
+                }
               }
-            }
             }
 
             .book-page {
@@ -146,7 +146,9 @@
               transition-property: transform;
               transform-origin: left center;
               background: linear-gradient(to right, #e1ddd8 0%, #fffbf6 100%);
-              box-shadow: inset 0px -1px 2px rgba(50, 50, 50, 0.1), inset -1px 0px 1px rgba(150, 150, 150, 0.2);
+              box-shadow:
+                inset 0px -1px 2px rgba(50, 50, 50, 0.1),
+                inset -1px 0px 1px rgba(150, 150, 150, 0.2);
               border-radius: 0px 5px 5px 0px;
 
               &.book-page-1 {
@@ -182,30 +184,30 @@
             }
 
             @screen lg {
-            &:hover {
-              .book-page {
-                &.book-page-1 {
-                  transform: rotateY($hover_page1_y);
-                  transition-duration: 0.6s;
-                }
-                &.book-page-2 {
-                  transform: rotateY($hover_page2_y);
-                  transition-duration: 0.7s;
-                }
-                &.book-page-3 {
-                  transform: rotateY($hover_page3_y);
-                  transition-duration: 0.8s;
-                }
-                &.book-page-4 {
-                  transform: rotateY($hover_page4_y);
-                  transition-duration: 0.9s;
-                }
-                &.book-page-5 {
-                  transform: rotateY($hover_page5_y);
-                  transition-duration: 0.75s;
+              &:hover {
+                .book-page {
+                  &.book-page-1 {
+                    transform: rotateY($hover_page1_y);
+                    transition-duration: 0.6s;
+                  }
+                  &.book-page-2 {
+                    transform: rotateY($hover_page2_y);
+                    transition-duration: 0.7s;
+                  }
+                  &.book-page-3 {
+                    transform: rotateY($hover_page3_y);
+                    transition-duration: 0.8s;
+                  }
+                  &.book-page-4 {
+                    transform: rotateY($hover_page4_y);
+                    transition-duration: 0.9s;
+                  }
+                  &.book-page-5 {
+                    transform: rotateY($hover_page5_y);
+                    transition-duration: 0.75s;
+                  }
                 }
               }
-            }
             }
 
             .book-back {
@@ -219,7 +221,7 @@
               transform-style: preserve-3d;
               z-index: 1;
 
-              >:first-child {
+              > :first-child {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -227,14 +229,14 @@
                 height: 100%;
                 transform-origin: left center;
                 transform: rotateY(0deg);
-        
+
                 img {
                   width: 100%;
                   height: 100%;
                 }
               }
 
-              >:last-child {
+              > :last-child {
                 position: absolute;
                 top: 4px;
                 bottom: 4px;
@@ -245,7 +247,7 @@
                 transform: rotateY(-1deg);
 
                 &::before {
-                  content: '';
+                  content: "";
                   position: absolute;
                   bottom: -4px;
                   left: 10px;
@@ -263,14 +265,14 @@
             position: relative;
 
             &::before {
-              content: '';
+              content: "";
               display: block;
               width: 18.4%;
               height: 4.3%;
               position: absolute;
               left: -8.7%;
               bottom: 0.7%;
-              background: url('../images/book-shadow-left.png') no-repeat center / cover;
+              background: url("../images/book-shadow-left.png") no-repeat center / cover;
               z-index: 10;
             }
 
@@ -280,7 +282,7 @@
             }
 
             &::after {
-              content: '';
+              content: "";
               display: block;
               display: block;
               width: 25.3%;
@@ -288,7 +290,7 @@
               position: absolute;
               right: -11.7%;
               bottom: -1.3%;
-              background: url('../images/book-shadow-right.png') no-repeat center / cover;
+              background: url("../images/book-shadow-right.png") no-repeat center / cover;
               z-index: 10;
             }
           }

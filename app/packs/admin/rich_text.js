@@ -2,12 +2,30 @@ import $ from "jquery"
 import Simditor from "simditor"
 
 // Imported only by the admin pack; the public site does not load jQuery.
-document.querySelectorAll("textarea[data-admin-rich-text]").forEach(textarea => {
+document.querySelectorAll("textarea[data-admin-rich-text]").forEach((textarea) => {
   const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content
   const csrfParam = document.querySelector('meta[name="csrf-param"]')?.content
   const editor = new Simditor({
     textarea: $(textarea),
-    toolbar: ["bold", "italic", "fontScale", "color", "|", "ol", "ul", "|", "image", "link", "|", "indent", "outdent", "alignment", "|", "hr", "table"],
+    toolbar: [
+      "bold",
+      "italic",
+      "fontScale",
+      "color",
+      "|",
+      "ol",
+      "ul",
+      "|",
+      "image",
+      "link",
+      "|",
+      "indent",
+      "outdent",
+      "alignment",
+      "|",
+      "hr",
+      "table",
+    ],
     toolbarFloat: true,
     toolbarFloatOffset: 72,
     tabIndent: false,
@@ -15,8 +33,8 @@ document.querySelectorAll("textarea[data-admin-rich-text]").forEach(textarea => 
     upload: {
       url: textarea.dataset.uploadUrl,
       fileKey: "upload_file",
-      params: csrfToken && csrfParam ? { [csrfParam]: csrfToken } : {}
-    }
+      params: csrfToken && csrfParam ? { [csrfParam]: csrfToken } : {},
+    },
   })
 
   editor.body.attr({ role: "textbox", "aria-multiline": "true", tabindex: "0" })

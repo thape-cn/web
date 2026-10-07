@@ -126,6 +126,9 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
     devDependencies:
+      prettier:
+        specifier: 3.6.2
+        version: 3.6.2
       style-loader:
         specifier: ^4.0.0
         version: 4.0.0(webpack@5.111.1)
@@ -2767,6 +2770,11 @@ packages:
 
   postinstall-postinstall@2.1.0:
     resolution: {integrity: sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==}
+
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   pretty-hrtime@1.0.3:
     resolution: {integrity: sha512-66hKPCr+72mlfiSjlEB1+45IjXSqvVAIy6mocupoww4tBFE9R9IhwwUGoI4G++Tc9Aq+2rxOt0RFU6gPcrte0A==}
@@ -6527,6 +6535,8 @@ snapshots:
       source-map-js: 1.2.2
 
   postinstall-postinstall@2.1.0: {}
+
+  prettier@3.6.2: {}
 
   pretty-hrtime@1.0.3: {}
 

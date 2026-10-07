@@ -1,7 +1,11 @@
 .work-carousel {
-  .image-item.animate { animation-duration: .5s; }
+  .image-item.animate {
+    animation-duration: 0.5s;
+  }
 
-  button:focus:not(:focus-visible) { outline: none; }
+  button:focus:not(:focus-visible) {
+    outline: none;
+  }
 
   .action-area {
     min-width: 44px;
@@ -25,8 +29,8 @@
     align-items: center;
     border-radius: 4px;
     color: white;
-    background: rgba(16, 24, 32, .82);
-    font-size: .875rem;
+    background: rgba(16, 24, 32, 0.82);
+    font-size: 0.875rem;
     line-height: 1.5;
   }
 
@@ -35,13 +39,18 @@
     padding: 8px 12px;
     border-radius: 4px 0 0 4px;
 
-    &:hover { background: rgba(255, 255, 255, .15); }
-    &:focus-visible { outline: 3px solid white; outline-offset: 2px; }
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    &:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 2px;
+    }
   }
 
   .work-carousel-status {
     padding: 0 12px;
-    border-left: 1px solid rgba(255, 255, 255, .45);
+    border-left: 1px solid rgba(255, 255, 255, 0.45);
     font-variant-numeric: tabular-nums;
   }
 }

@@ -1,4 +1,4 @@
-document.querySelectorAll("[data-admin-alert-dismiss]").forEach(button => {
+document.querySelectorAll("[data-admin-alert-dismiss]").forEach((button) => {
   button.hidden = false
   button.addEventListener("click", () => {
     button.closest("[data-admin-alert]").remove()
@@ -6,7 +6,7 @@ document.querySelectorAll("[data-admin-alert-dismiss]").forEach(button => {
   })
 })
 
-document.querySelectorAll("[data-admin-media-image]").forEach(img => {
+document.querySelectorAll("[data-admin-media-image]").forEach((img) => {
   const showPlaceholder = () => {
     img.hidden = true
     img.parentElement.querySelector("[data-admin-media-placeholder]").hidden = false

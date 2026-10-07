@@ -1,4 +1,4 @@
-document.querySelectorAll("[data-admin-upload]").forEach(upload => {
+document.querySelectorAll("[data-admin-upload]").forEach((upload) => {
   const input = upload.querySelector("[data-admin-upload-input]")
   const current = upload.querySelector("[data-admin-upload-current]")
   const pending = upload.querySelector("[data-admin-upload-pending]")
@@ -30,14 +30,16 @@ document.querySelectorAll("[data-admin-upload]").forEach(upload => {
     }
   })
 
-  preview.addEventListener("error", () => { preview.hidden = true })
+  preview.addEventListener("error", () => {
+    preview.hidden = true
+  })
   upload.querySelector("[data-admin-upload-reset]").addEventListener("click", () => {
     input.value = ""
     input.dispatchEvent(new Event("change"))
     input.focus()
   })
   window.addEventListener("pagehide", releasePreview)
-  window.addEventListener("pageshow", event => {
+  window.addEventListener("pageshow", (event) => {
     if (event.persisted) input.dispatchEvent(new Event("change"))
   })
 })

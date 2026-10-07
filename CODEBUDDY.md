@@ -7,6 +7,7 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 ## High-Level Architecture
 
 ### Core Structure
+
 - **Rails MVC**: Standard structure in `app/` with controllers, models, and views
 - **Webpacker bundling**: `app/packs/` contains Stimulus controllers, stylesheets, and entry points
 - **Dual locales**: Chinese (cn, default) and English (en) with `/cn/` and `/en/` redirect paths
@@ -16,12 +17,14 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 - **File uploads**: CarrierWave with Aliyun storage (`app/uploaders/`)
 
 ### Frontend Architecture (app/packs/)
+
 - **Entrypoints**: `app/packs/entrypoints/application.js` and `tianhua_2020.js`
 - **Stimulus controllers**: Auto-registered from `app/packs/controllers/*_controller.js` via index.js
 - **Styles**: SCSS in `app/packs/stylesheets/` or imported by entrypoints
 - **Images**: `app/packs/images/`
 
 ### Database Strategy
+
 - **Production**: PostgreSQL
 - **Development**: Multi-database setup (PostgreSQL primary + SQLite databases for tianhua2019/tianhua2020)
 - **Locale**: I18n YAMLs in `config/locales/cn.yml` and `en.yml`
@@ -29,12 +32,14 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 ## Common Development Commands
 
 ### Initial Setup
+
 ```bash
 bin/setup  # Install gems, pnpm packages, prepare DB, clear logs
 bundle install && pnpm install && bin/rails db:prepare
 ```
 
 ### Development Server
+
 ```bash
 bin/rails s  # Rails server (use separate terminal)
 bin/shakapacker-dev-server  # Asset compilation with hot reload
@@ -43,6 +48,7 @@ RAILS_ENV=production bin/shakapacker
 ```
 
 ### Database Management
+
 ```bash
 bin/rails db:prepare  # Prepare database after migrations
 # Import production data (from README.md):
@@ -54,6 +60,7 @@ gunzip < thape_web_prod.sql.gz | psql -d thape_web_dev
 ```
 
 ### Testing
+
 ```bash
 bin/rails test  # Run full test suite
 bin/rails test test/models/user_test.rb  # Run specific test file
@@ -61,11 +68,13 @@ bin/rails test:system test  # Run system tests (Capybara + Selenium)
 ```
 
 ### Code Quality
+
 ```bash
 bundle exec standardrb --fix  # Auto-fix Ruby style issues before committing
 ```
 
 ### Deployment
+
 ```bash
 cap production deploy  # Deploy to production via Capistrano
 cap staging deploy     # Deploy to staging
@@ -74,6 +83,7 @@ cap staging deploy     # Deploy to staging
 ## Testing Strategy
 
 The project uses Rails Minitest with:
+
 - **Unit/Integration tests**: `test/models/`, `test/controllers/`
 - **System tests**: `test/system/` using Capybara + Selenium (ChromeDriver required)
 - **Fixtures**: `test/fixtures/`
@@ -84,6 +94,7 @@ The project uses Rails Minitest with:
 ## Key Conventions
 
 ### Ruby/Rails
+
 - **Frozen string literal**: `# frozen_string_literal: true` at top of all `.rb` files
 - **Styling**: `standard` formatter (2-space indent, single quotes, no trailing semicolons)
 - **Controller patterns**:
@@ -94,6 +105,7 @@ The project uses Rails Minitest with:
 - **Security**: `csrf_meta_tags` in layouts; permit only necessary params
 
 ### JavaScript/CSS
+
 - **Entrypoints**: Create new files under `app/packs/entrypoints` for page-specific bundles
 - **Stimulus**: Name controllers with `_controller.js` suffix for auto-registration
 - **Imports**: Resolve relative to `app/packs`
@@ -101,6 +113,7 @@ The project uses Rails Minitest with:
 - **Browser support**: Modern browsers use the `home` and `scroll` controllers
 
 ### I18n
+
 - **Default locale**: Chinese (cn)
 - **Available locales**: en, cn
 - **Translation files**: `config/locales/cn.yml`, `config/locales/en.yml`
@@ -109,17 +122,20 @@ The project uses Rails Minitest with:
 ## Special Configuration Details
 
 ### Multi-Database Setup
+
 - Primary PostgreSQL database for main application data
 - SQLite databases for tianhua2019 and tianhua2020 with separate migration paths
 - Use `db:prepare` to handle all databases
 
 ### External Dependencies
+
 - **WeChat gem**: `wechat` from internal Git server (configured via `bundle config local.wechat`)
 - **LLM gem**: `dify_llm` (configured via `bundle config local.dify_llm`)
 - **Aliyun**: File storage via `carrierwave-aliyun`
 - **JavaScript**: pnpm package manager with frozen lockfile
 
 ### Asset Pipeline
+
 - Shakapacker 8.2 with Webpack 5
 - Stimulus 2.0 for JavaScript interactivity
 - Tailwind CSS 1.9.6 with PurgeCSS optimization
@@ -128,12 +144,14 @@ The project uses Rails Minitest with:
 ## Development Workflow
 
 ### Before Committing
+
 1. Run `bundle exec standardrb --fix` to fix Ruby style issues
 2. Ensure tests pass: `bin/rails test`
 3. If adding Tailwind classes, touch the relevant stylesheet file
 4. Check that assets compile without errors
 
 ### Adding New Features
+
 1. Create routes in `config/routes.rb`
 2. Add controller in appropriate namespace (`app/controllers/`)
 3. Create views in `app/views/`
@@ -141,6 +159,7 @@ The project uses Rails Minitest with:
 5. Add tests in appropriate `test/` subdirectory
 
 ### Frontend Development
+
 1. For new page-specific JavaScript, create entrypoint in `app/packs/entrypoints/`
 2. For reusable interactions, create Stimulus controllers in `app/packs/controllers/`
 3. Use Tailwind utility classes; remember to touch CSS files after adding new classes
@@ -148,6 +167,7 @@ The project uses Rails Minitest with:
 ## Deployment Architecture
 
 Capistrano-based deployment with:
+
 - **Ruby version**: 3.4.8 (set in `config/deploy.rb`)
 - **Web server**: Puma with phased restarts
 - **JavaScript**: pnpm with `--silent` flag

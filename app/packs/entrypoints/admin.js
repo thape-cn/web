@@ -12,7 +12,7 @@ Rails.start()
 
 const navigation = document.getElementById("admin-navigation")
 const menuButton = document.querySelector("[data-admin-menu-open]")
-const revealCurrentPage = container => {
+const revealCurrentPage = (container) => {
   const current = container.querySelector('[aria-current="page"]')
   if (current) current.scrollIntoView({ block: "nearest" })
 }
@@ -28,10 +28,16 @@ if (navigation && menuButton) {
   })
 
   navigation.querySelector("[data-admin-menu-close]").addEventListener("click", () => navigation.close())
-  navigation.addEventListener("click", event => {
+  navigation.addEventListener("click", (event) => {
     if (event.target === navigation) {
       const bounds = navigation.getBoundingClientRect()
-      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) navigation.close()
+      if (
+        event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom
+      )
+        navigation.close()
     }
   })
   navigation.addEventListener("close", () => {
@@ -41,7 +47,7 @@ if (navigation && menuButton) {
   })
 
   // Close the modal when the persistent desktop navigation becomes available.
-  window.matchMedia("(min-width: 1024px)").addEventListener("change", event => {
+  window.matchMedia("(min-width: 1024px)").addEventListener("change", (event) => {
     if (event.matches && navigation.open) navigation.close()
   })
 }

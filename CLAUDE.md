@@ -9,6 +9,7 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 ## High-Level Architecture
 
 ### Core Structure
+
 - **Rails MVC**: Standard structure in `app/` with controllers, models, and views
 - **Webpacker bundling**: `app/packs/` contains Stimulus controllers, stylesheets, and entry points
 - **Dual locales**: Chinese (cn, default) and English (en) with `/cn/` and `/en/` redirect paths
@@ -18,12 +19,14 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 - **File uploads**: CarrierWave with Aliyun storage (`app/uploaders/`)
 
 ### Frontend Architecture (app/packs/)
+
 - **Entrypoints**: `app/packs/entrypoints/application.js` and `tianhua_2020.js`
 - **Stimulus controllers**: Auto-registered from `app/packs/controllers/*_controller.js` via index.js
 - **Styles**: SCSS in `app/packs/stylesheets/` or imported by entrypoints
 - **Images**: `app/packs/images/`
 
 ### Database Strategy
+
 - **Production**: PostgreSQL
 - **Development**: Can use either PostgreSQL or SQLite
 - **Locale**: I18n YAMLs in `config/locales/cn.yml` and `en.yml`
@@ -31,6 +34,7 @@ This is a Rails 7.2.2 application (Ruby 3.0+) with Shakapacker (Webpacker), Stim
 ## Common Development Commands
 
 ### Initial Setup
+
 ```bash
 bundle install
 pnpm install
@@ -40,6 +44,7 @@ bin/rails s  # Run server
 ```
 
 ### Database Management
+
 ```bash
 bin/rails db:prepare  # Prepare database after migrations
 # Import production data (from README.md):
@@ -50,6 +55,7 @@ gunzip < thape_web_prod.sql.gz | psql -d thape_web_dev
 ```
 
 ### Testing
+
 ```bash
 bin/rails test  # Run full test suite
 bin/rails test test/models/user_test.rb  # Run specific test
@@ -57,17 +63,20 @@ bin/rails test:system test  # Run system tests (Capybara + Selenium)
 ```
 
 ### Code Quality
+
 ```bash
 bundle exec standardrb --fix  # Auto-fix Ruby style issues
 ```
 
 ### Asset Compilation
+
 ```bash
 RAILS_ENV=production bin/shakapacker  # Production-like build
 bin/shakapacker-dev-server  # Development server with hot reload
 ```
 
 ### Deployment (Capistrano)
+
 ```bash
 cap production deploy  # Deploy to production
 ```
@@ -75,6 +84,7 @@ cap production deploy  # Deploy to production
 ## Testing Strategy
 
 The project uses Rails Minitest with:
+
 - **Unit/Integration tests**: `test/models/`, `test/controllers/`
 - **System tests**: `test/system/` using Capybara + Selenium
 - **Fixtures**: `test/fixtures/`
@@ -85,6 +95,7 @@ The project uses Rails Minitest with:
 ## Deployment
 
 Capistrano-based deployment with:
+
 - **Ruby version**: 3.4.8 (set in `config/deploy.rb`)
 - **Web server**: Puma
 - **JavaScript**: pnpm with `--silent` flag
@@ -95,6 +106,7 @@ Capistrano-based deployment with:
 ## Key Conventions
 
 ### Ruby/Rails
+
 - **Frozen string literal**: `# frozen_string_literal: true` at top of all `.rb` files
 - **Styling**: `standard` formatter (2-space indent, single quotes, no trailing semicolons)
 - **Controller patterns**:
@@ -105,6 +117,7 @@ Capistrano-based deployment with:
 - **Security**: `csrf_meta_tags` in layouts; permit only necessary params
 
 ### JavaScript/CSS
+
 - **Entrypoints**: Create new files under `app/packs/entrypoints` for page-specific bundles
 - **Stimulus**: Name controllers with `_controller.js` suffix for auto-registration
 - **Imports**: Resolve relative to `app/packs`
@@ -112,6 +125,7 @@ Capistrano-based deployment with:
 - **Browser support**: Modern browsers use the `home` and `scroll` controllers
 
 ### I18n
+
 - **Default locale**: Chinese (cn)
 - **Available locales**: en, cn
 - **Translation files**: `config/locales/cn.yml`, `config/locales/en.yml`
@@ -139,6 +153,7 @@ Capistrano-based deployment with:
 ## CI/CD
 
 ### CircleCI
+
 - Ruby 3.4.3 with browsers image
 - PostgreSQL service container
 - Bundle and pnpm caches
@@ -146,6 +161,7 @@ Capistrano-based deployment with:
 - Stores test results and coverage
 
 ### GitLab CI
+
 - Similar setup with stages: test, deploy
 - Installs pnpm via corepack or npm
 - Uses vendor/bundle for Ruby gems
