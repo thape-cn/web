@@ -6,6 +6,3 @@ ignore:
   - Lint/RescueException
 - app/controllers/biz_maps_controller.rb:
   - Naming/VariableName
-- lib/tasks/import_works.rake:
-  - Naming/VariableName
-  - Lint/ConstantDefinitionInBlock
