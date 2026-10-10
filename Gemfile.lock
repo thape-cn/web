@@ -415,10 +415,13 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (7.1.1)
       builder (~> 3.0)
+    sqlite3 (2.9.6)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (2.9.6-aarch64-linux-gnu)
     sqlite3 (2.9.6-arm-linux-gnu)
     sqlite3 (2.9.6-arm64-darwin)
     sqlite3 (2.9.6-x86-linux-gnu)
+    sqlite3 (2.9.6-x86-linux-musl)
     sqlite3 (2.9.6-x86_64-darwin)
     sqlite3 (2.9.6-x86_64-linux-gnu)
     sshkit (1.25.1)
@@ -470,10 +473,11 @@ GEM
 PLATFORMS
   aarch64-linux
   arm-linux
-  arm64-darwin-23
-  arm64-darwin-24
-  arm64-darwin-25
+  arm64-darwin
+  ruby
   x86-linux
+  x86-linux-gnu
+  x86-linux-musl
   x86_64-darwin
   x86_64-linux
 
