@@ -112,7 +112,7 @@ class LeadershipController < ApplicationController
         render "area_leadership", locals: {c: city_area.company_name, city_url_name: city_area.url_name, e_title: e_title, city: city_area}
       end
     else
-      @person = Person.where(leaving_date: nil).find_by(id: params[:id]) \
+      @person = Person.where(leaving_date: nil).find_by(id: params[:id])
         || Person.where(leaving_date: nil).find_by!(url_name: params[:id])
       @infos = Info.order(position: :asc).where(hide_in_design_staff_news: false).limit(4)
       @infos = @infos.where("title LIKE ?", "%#{@person.name}%").or(@infos.where("content LIKE ?", "%#{@person.name}%"))
