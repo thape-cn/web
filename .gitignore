@@ -40,3 +40,4 @@ config/credentials.yml.enc
 workspace.xml
 dataSources.local.xml
 .idea/dataSources
+.DS_Store
