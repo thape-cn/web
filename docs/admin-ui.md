@@ -42,6 +42,9 @@ red and green colors and shadow sizes from the [v4 theme](https://github.com/tai
 PostCSS selects this configuration only for the admin entrypoint; the public
 stylesheet continues to use its existing theme. Focus outlines, status borders
 and translucent backdrops use these same tokens.
+Admin text sizes also use the v4 line heights: 16px for 12px text, 20px for 14px
+text and 36px for dashboard values. Component-specific heading and field line
+heights remain explicit.
 
 Shared partials take explicit locals: headings accept titles, breadcrumbs and
 action links; alerts accept a kind, message/list and dismissal state; pagination
@@ -139,6 +142,13 @@ cards and uncropped previews so paired uploads remain visible. Form switches sit
 beside their labels without an extra card, and checkbox lists use top, bottom and
 row dividers. Upload areas use the cover-photo field's dashed border and padding,
 with a native file input and local preview instead of an unsupported drop action.
+Resource table cards and detail cards have square corners on phones and 8px
+corners from 640px. Detail values span two columns of the reference's three-column
+grid. Uploaded files use its bordered attachment rows with a paperclip icon,
+truncated filename and a translated, accessible link that opens the file in a new
+window; image files retain a preview above the row. Missing files show a dash.
+Editor section headings align with card fields on phones. Switch labels and
+descriptions use the reference's adjacent 24px/20px text lines.
 
 The module palette has a single search row, gray group headings and an indigo
 selected row. Its close button and descriptions remain available. Deletion

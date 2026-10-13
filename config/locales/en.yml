@@ -1,6 +1,9 @@
 ---
 en:
   admin:
+    attachments:
+      open: "View file"
+      open_label: "View file %{filename} (new window)"
     module_search:
       no_results: "No matching modules"
       try_again: "Try another name or keyword."

@@ -51,6 +51,7 @@ module Admin::ApplicationHelper
     "external" => "M14 3h7v7 M21 3 10 14 M10 3H3v18h18v-7",
     "plus" => "M12 5v14 M5 12h14",
     "download" => "M12 3v12 m-5-5 5 5 5-5 M4 16v5h16v-5",
+    "attachment" => "m21 11-8 8a6 6 0 0 1-8-8l9-9a4 4 0 0 1 6 6l-9 9a2 2 0 0 1-3-3l8-8",
     "menu" => "M4 6h16 M4 12h16 M4 18h16",
     "close" => "m6 6 12 12 M6 18 18 6",
     "check" => "m5 12 4 4L19 6",
@@ -247,10 +248,14 @@ module Admin::ApplicationHelper
   def admin_upload_preview(upload)
     return unless upload.present? && upload.url.present?
     link = link_to(upload.identifier, upload.url, target: "_blank", rel: "noopener", class: "admin-link break-all text-xs")
-    if upload.identifier.to_s.match?(/\.(jpe?g|png|gif|webp)\z/i)
+    if admin_upload_image?(upload)
       safe_join([image_tag(upload.url, alt: upload.identifier, class: "admin-preview"), link])
     else
       link
     end
+  end
+
+  def admin_upload_image?(upload)
+    upload.identifier.to_s.match?(/\.(jpe?g|png|gif|webp)\z/i)
   end
 end

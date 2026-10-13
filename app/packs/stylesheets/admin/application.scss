@@ -193,6 +193,13 @@
   @apply bg-white rounded-lg shadow-sm;
   outline: 1px solid rgba(0, 0, 0, 0.05);
 }
+.admin .admin-list-panel,
+.admin .admin-detail-panel {
+  border-radius: 0;
+}
+.admin .admin-detail-panel {
+  outline: none;
+}
 .admin .admin-quick-card {
   @apply flex items-center bg-white border border-gray-300 rounded-lg px-6 py-5 shadow-xs;
   gap: 12px;
@@ -543,7 +550,7 @@
   @apply mb-0 border-b-0;
 }
 .admin .admin-editor-heading {
-  @apply min-w-0;
+  @apply min-w-0 px-4;
 }
 .admin .admin-seo-list > .admin-filter-bar,
 .admin .admin-seo-list > .admin-pagination,
@@ -656,6 +663,35 @@
   line-height: 24px;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+.admin .admin-attachments {
+  @apply rounded-md border border-gray-200;
+  white-space: normal;
+}
+.admin .admin-description-row .admin-description-file {
+  white-space: normal;
+}
+.admin .admin-attachments li {
+  @apply flex items-center justify-between py-4 pl-4 pr-5 text-sm;
+  gap: 16px;
+  line-height: 24px;
+}
+.admin .admin-attachment-name {
+  @apply flex items-center min-w-0;
+  flex: 1 1 0%;
+  gap: 16px;
+}
+.admin .admin-attachment-name svg {
+  @apply text-gray-400;
+}
+.admin .admin-attachment-name span {
+  @apply truncate font-medium text-gray-900;
+}
+.admin .admin-attachments .admin-link {
+  @apply flex-shrink-0;
+}
+.admin .admin-attachments .admin-link:hover {
+  @apply text-indigo-500;
 }
 .admin .admin-alert {
   @apply flex items-start rounded-md p-4 mb-6 text-sm;
@@ -1223,7 +1259,7 @@
   gap: 16px;
 }
 .admin .admin-switch-panel .admin-label {
-  @apply mb-1;
+  @apply mb-0;
 }
 .admin .admin-switch-control {
   position: relative;
@@ -1352,6 +1388,13 @@
 }
 
 @screen sm {
+  .admin .admin-list-panel,
+  .admin .admin-detail-panel {
+    @apply rounded-lg;
+  }
+  .admin .admin-editor-heading {
+    @apply px-0;
+  }
   .admin .admin-topbar {
     @apply px-6;
   }
@@ -1435,11 +1478,11 @@
   }
   .admin .admin-description-row {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
   }
   .admin .admin-description-row dd {
-    @apply mt-0;
+    @apply mt-0 col-span-2;
   }
   .admin .admin-order-dialog-heading {
     @apply px-6 pt-6;

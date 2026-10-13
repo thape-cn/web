@@ -1,14 +1,14 @@
 <% content_for :page_title, "#{@resource.label} · #{@record.id}" %>
 <% actions = @resource.allows?(:edit) ? [{label: '编辑', path: admin_resource_path(@resource, :edit, @record)}] : [] %>
 <%= render 'admin/shared/heading', title: "#{@resource.label} · #{@record.id}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, "记录 ##{@record.id}"), actions: actions %>
-<section class="admin-panel overflow-hidden">
+<section class="admin-panel admin-detail-panel overflow-hidden">
   <div class="admin-description-heading border-b border-gray-100"><h2 class="text-base font-semibold">详细信息</h2><p class="text-sm text-gray-500 mt-1">记录 #<%= @record.id %> · <%= admin_locale_label %></p></div>
   <dl class="admin-description-list divide-y divide-gray-100">
     <% fields = @resource.messages? ? @record.attribute_names - ['updated_at'] : @resource.fields.keys %>
     <% fields.each do |field| %>
       <div class="admin-description-row">
         <dt><%= admin_field_label(@resource, field) %></dt>
-        <dd><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= admin_upload_preview(@record.public_send(field)) || '—' %><% elsif @resource.fields.dig(field, 'type') == 'check_box' %><%= admin_status(@record, field) %><% else %><%= admin_display(@record, field) %><% end %></dd>
+        <dd class="<%= 'admin-description-file' if @resource.fields.dig(field, 'type') == 'file_field' %>"><% if @resource.fields.dig(field, 'type') == 'file_field' %><%= render 'admin/shared/attachment', upload: @record.public_send(field) %><% elsif @resource.fields.dig(field, 'type') == 'check_box' %><%= admin_status(@record, field) %><% else %><%= admin_display(@record, field) %><% end %></dd>
       </div>
     <% end %>
   </dl>

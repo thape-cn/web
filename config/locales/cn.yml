@@ -1,6 +1,9 @@
 ---
 cn:
   admin:
+    attachments:
+      open: "查看文件"
+      open_label: "查看文件 %{filename}（新窗口）"
     module_search:
       no_results: "没有找到匹配的模块"
       try_again: "请尝试其他名称或关键词。"

@@ -1,0 +1,14 @@
+<% if upload.present? && upload.url.present? %>
+  <% if admin_upload_image?(upload) %><%= image_tag upload.url, alt: upload.identifier, class: 'admin-preview' %><% end %>
+  <ul class="admin-attachments" role="list">
+    <li>
+      <div class="admin-attachment-name">
+        <%= admin_icon('attachment') %>
+        <span title="<%= upload.identifier %>"><%= upload.identifier %></span>
+      </div>
+      <%= link_to upload.url, target: '_blank', rel: 'noopener', class: 'admin-link', aria: {label: t('admin.attachments.open_label', filename: upload.identifier)} do %><%= t('admin.attachments.open') %><% end %>
+    </li>
+  </ul>
+<% else %>
+  —
+<% end %>

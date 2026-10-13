@@ -11,7 +11,7 @@
     <div data-admin-order-content></div>
   </dialog>
 <% end %>
-<div class="<%= @resource.key == 'seos' ? 'admin-seo-list' : 'admin-panel overflow-hidden' %>">
+<div class="<%= @resource.key == 'seos' ? 'admin-seo-list' : 'admin-panel admin-list-panel overflow-hidden' %>">
   <% if @resource.tab_filter %><%= render 'admin/shared/filter_tabs', resource: @resource, field: @resource.tab_filter %><% end %>
   <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'admin-filter-bar' do |form| %>
     <%= hidden_field_tag :locale, admin_locale %>

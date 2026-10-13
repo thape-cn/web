@@ -80,6 +80,13 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_selector 'input[type="file"][name*="work_pictures_attributes"]', count: 6
     screenshot("editor-gallery-mobile")
     page.execute_script("window.scrollTo(0, 0)")
+    assert page.evaluate_script(<<~JS)
+      (() => {
+        const section = document.querySelector('.admin-editor-section')
+        return Math.abs(section.querySelector('h2').getBoundingClientRect().left -
+          section.querySelector('.admin-label').getBoundingClientRect().left) < 2
+      })()
+    JS
     screenshot("editor-mobile")
     [1280, 1440, 1600].each do |width|
       resize_viewport(width, 1000)
@@ -130,6 +137,9 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
   end
 
   test "admin theme and dialog backdrops match the reference states" do
+    assert_equal "20px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-stat-card dt')).lineHeight")
+    assert_equal "36px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-stat-card dd')).lineHeight")
+    assert_equal "16px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-eyebrow')).lineHeight")
     assert_equal "oklch(0.21 0.034 264.665)", page.evaluate_script("getComputedStyle(document.querySelector('.admin-sidebar')).backgroundColor")
     visit admin_users_path
     assert_equal "oklch(0.511 0.262 276.966)", page.evaluate_script("getComputedStyle(document.querySelector('.admin-button')).backgroundColor")
@@ -162,6 +172,49 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       const dialog = document.querySelector(arguments[0])
       dialog.dispatchEvent(new MouseEvent('click', {bubbles: true, clientX: 0, clientY: 0}))
     JS
+  end
+
+  test "detail attachments and card edges match the responsive reference" do
+    uploader = Admin::Info.uploaders[:pdf_file]
+    original_root = uploader.root
+    uploader.root = @upload_root
+    file = Tempfile.new(["attachment", ".pdf"])
+    file.write("%PDF-1.4\n%%EOF")
+    file.flush
+    info = Admin::Info.find(infos(:info_635).id)
+    filename = "#{"long-report-name-" * 12}report.pdf"
+    info.pdf_file = Rack::Test::UploadedFile.new(file.path, "application/pdf", original_filename: filename)
+    info.save!(validate: false)
+    visit admin_info_path(info, locale: :cn)
+    assert_selector ".admin-attachment-name", text: filename
+    assert_equal "查看文件 #{filename}（新窗口）", find(".admin-attachments a")["aria-label"]
+    [390, 640, 1280].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Detail attachments should fit at #{width}px"
+        (() => {
+          const panel = document.querySelector('.admin-detail-panel')
+          const row = document.querySelector('.admin-attachments').closest('.admin-description-row')
+          const label = row.querySelector('dt').getBoundingClientRect()
+          const value = row.querySelector('dd').getBoundingClientRect()
+          const filename = row.querySelector('.admin-attachment-name span')
+          const link = row.querySelector('.admin-attachments a').getBoundingClientRect()
+          return getComputedStyle(panel).borderTopLeftRadius === (innerWidth < 640 ? '0px' : '8px') &&
+            link.right <= value.right && filename.scrollWidth > filename.clientWidth &&
+            (innerWidth < 640 ? value.top >= label.bottom : Math.abs(value.top - label.top) < 2) &&
+            document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+      page.execute_script("document.querySelector('.admin-attachments').scrollIntoView({block: 'center'})")
+      screenshot("detail-attachment-#{width}")
+    end
+    visit admin_infos_path
+    [390, 640].each do |width|
+      resize_viewport(width, 1000)
+      assert_equal((width < 640) ? "0px" : "8px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-list-panel')).borderTopLeftRadius"))
+    end
+  ensure
+    uploader.root = original_root
+    file&.close!
   end
 
   test "SEO cards fit phones and tablets and labels focus their own record" do
@@ -294,6 +347,8 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     screenshot("form-controls-desktop")
     resize_viewport(390, 844)
     page.execute_script("document.querySelector('.admin-switch-panel').scrollIntoView(); window.scrollBy(0, -100)")
+    assert_equal "0px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-switch-panel .admin-label')).marginBottom")
+    assert_equal "20px", page.evaluate_script("getComputedStyle(document.querySelector('.admin-switch-panel p')).lineHeight")
     screenshot("form-controls-mobile")
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
     click_button "保存"

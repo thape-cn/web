@@ -733,6 +733,24 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select ".admin-gallery-grid .admin-media-link", count: 0
   end
 
+  test "detail attachments show images and file links with localized accessible names" do
+    sign_in
+    info = Admin::Info.create!(attributes_for("infos").merge(pdf_file: upload("report.pdf", "application/pdf"), snapshot: upload("cover.jpg", "image/jpeg")))
+    get admin_info_path(info, locale: :cn)
+    assert_response :success
+    assert_select '.admin-description-file .admin-preview[alt="cover.jpg"]', count: 1
+    assert_select ".admin-attachments", count: 2
+    assert_select ".admin-attachment-name span", text: "report.pdf"
+    assert_select '.admin-attachments a[href=?][target="_blank"][rel="noopener"][aria-label=?]', info.pdf_file.url, "查看文件 report.pdf（新窗口）", text: "查看文件"
+    assert_select '.admin-description-file img[alt="report.pdf"]', count: 0
+    get admin_info_path(info, locale: :en)
+    assert_select '.admin-attachments a[aria-label="View file report.pdf (new window)"]', text: "View file"
+    info.update_columns(pdf_file: nil, snapshot: nil)
+    get admin_info_path(info)
+    assert_select ".admin-attachments", count: 0
+    assert_select ".admin-description-file", text: "—", minimum: 1
+  end
+
   test "filter tabs and removable chips preserve other filters and reset pagination" do
     sign_in
     context = {q: "Filter <work>", published: "false", city_id: cities(:city_1).id, per_page: 50, page: 4, locale: :en}
