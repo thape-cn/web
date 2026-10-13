@@ -101,9 +101,15 @@ media and SEO. Every configured field is retained, including translation scopes,
 upload caches, nested gallery inputs and rich text editor data attributes.
 Section descriptions use one third of the editor row and form cards use two
 thirds from 1280px; descriptions sit above the cards on smaller screens. Fields
-have a 42rem maximum width, 24px column gaps and 32px row gaps. Chapter links wrap
+have a 42rem maximum width, 24px column gaps and 32px row gaps. Short fields use
+two columns from 640px, while textareas span both columns. Form cards have square
+corners on phones and 12px corners from 640px. Chapter links wrap
 above the form until 1600px, when they move into a sticky navigation column
 without pushing descriptions above their cards.
+SEO list editors use these same section cards, with descriptions outside each
+card and a bordered save footer inside. Each record has its own form and field-ID
+namespace, so labels focus that record's fields and saving submits only that
+record. The filter and pagination bars sit separately from the editor cards.
 The shared heading places breadcrumbs with 20px chevrons above the title/action
 row, centers actions beside the title from 768px, and uses a parent back link on
 phones. Header search shows its keyboard shortcut on desktop. The shell uses

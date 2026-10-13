@@ -120,6 +120,46 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
   end
 
+  test "SEO cards fit phones and tablets and labels focus their own record" do
+    other = Seo.create!(id: 99106, seo_name: "其他页面", home_title: "Original other title")
+    resize_viewport(640, 900)
+    assert page.evaluate_script(<<~JS)
+      (() => {
+        const cards = document.querySelectorAll('.admin-quick-card')
+        return cards[0].getBoundingClientRect().top === cards[1].getBoundingClientRect().top
+      })()
+    JS
+    visit admin_seos_path
+    [390, 640, 768, 1280, 1600].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "SEO fields should fit their card at #{width}px"
+        (() => {
+          const section = document.querySelector('.admin-seo-editor .admin-editor-section')
+          const card = section.querySelector('.admin-form-section')
+          const title = card.querySelector('input[name="seo[home_title]"]').getBoundingClientRect()
+          const description = card.querySelector('textarea').getBoundingClientRect()
+          const bounds = card.getBoundingClientRect()
+          return document.documentElement.scrollWidth <= innerWidth &&
+            title.left >= bounds.left && description.right <= bounds.right &&
+            (innerWidth < 640 ? Math.abs(title.width - description.width) < 2 : description.width > title.width * 1.8)
+        })()
+      JS
+      screenshot("seo-editor-#{width}") if [390, 640, 1280].include?(width)
+    end
+    within(find("#seo-#{seos(:seo_one).id}-heading").find(:xpath, "ancestor::form")) do
+      fill_in "Title", with: "Unsaved first title"
+    end
+    within(find("#seo-#{other.id}-heading").find(:xpath, "ancestor::form")) do
+      find('label[for="seo_99106_seo_home_title"]').click
+      assert_selector "#seo_99106_seo_home_title:focus"
+      fill_in "Title", with: "Updated other title"
+      click_button "保存"
+    end
+    assert_text "保存成功"
+    assert_equal "Updated other title", other.reload.home_title
+    assert_not_equal "Unsaved first title", seos(:seo_one).reload.home_title
+  end
+
   test "confirmation cancellation escape focus and single submission retain native fallback" do
     visit admin_users_path
     assert_selector "h1", text: "网站管理员"

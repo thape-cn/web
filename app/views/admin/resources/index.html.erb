@@ -11,7 +11,7 @@
     <div data-admin-order-content></div>
   </dialog>
 <% end %>
-<div class="admin-panel overflow-hidden">
+<div class="<%= @resource.key == 'seos' ? 'admin-seo-list' : 'admin-panel overflow-hidden' %>">
   <% if @resource.tab_filter %><%= render 'admin/shared/filter_tabs', resource: @resource, field: @resource.tab_filter %><% end %>
   <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: 'admin-filter-bar' do |form| %>
     <%= hidden_field_tag :locale, admin_locale %>
@@ -56,19 +56,7 @@
       <% end %>
     </ul>
   <% elsif @resource.key == 'seos' %>
-    <% @records.each do |record| %>
-      <section class="admin-seo-section admin-editor-section" aria-labelledby="seo-<%= record.id %>-heading">
-        <div class="admin-editor-heading"><h2 id="seo-<%= record.id %>-heading" class="text-base font-semibold"><%= record.seo_name %></h2><p class="text-sm text-gray-500 mt-2 leading-relaxed">页面搜索信息 · <%= admin_locale_label %></p></div>
-        <div class="admin-panel admin-form-section min-w-0">
-          <%= form_with model: record, scope: :seo, url: admin_resource_path(@resource, :update, record), method: :patch, local: true do |form| %>
-            <div class="admin-fields">
-              <% @resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %><% end %>
-            </div>
-            <div class="flex justify-end mt-6"><%= form.submit '保存', class: 'admin-button' %></div>
-          <% end %>
-        </div>
-      </section>
-    <% end %>
+    <%= render 'admin/shared/seo_editors', resource: @resource, records: @records %>
   <% else %>
     <% if @resource.ordered? %>
       <div class="admin-order-guide">

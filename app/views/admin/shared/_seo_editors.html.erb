@@ -1,0 +1,12 @@
+<div class="admin-seo-editors">
+  <% records.each do |record| %>
+    <%= form_with model: record, scope: :seo, namespace: "seo_#{record.id}", url: admin_resource_path(resource, :update, record), method: :patch, local: true, class: 'admin-seo-editor' do |form| %>
+      <%= render layout: 'admin/shared/form_section', locals: { heading_id: "seo-#{record.id}-heading", title: record.seo_name, description: "页面搜索信息 · #{admin_locale_label}" } do %>
+        <div class="admin-fields">
+          <% resource.fields.each do |field, options| %><%= render 'admin/shared/field', form: form, resource: resource, field: field, options: options %><% end %>
+        </div>
+        <div class="admin-form-footer"><%= form.submit '保存', class: 'admin-button', data: { disable_with: '保存中…' } %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

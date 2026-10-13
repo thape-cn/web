@@ -1,4 +1,4 @@
-<div class="min-w-0 <%= options['type'] == 'text_area' ? 'md:col-span-2' : '' %>">
+<div class="min-w-0 <%= options['type'] == 'text_area' ? 'sm:col-span-2' : '' %>">
   <% if options['type'] == 'check_box' %>
     <%= render 'admin/shared/switch', form: form, resource: resource, field: field, options: options %>
   <% elsif options['type'] == 'multiple' %>

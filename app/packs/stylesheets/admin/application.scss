@@ -532,7 +532,7 @@
 }
 .admin .admin-form-section {
   @apply px-4 py-6;
-  border-radius: 12px;
+  border-radius: 0;
 }
 .admin .admin-editor-section {
   @apply grid pb-10 mb-10 border-b border-gray-200;
@@ -544,11 +544,29 @@
 .admin .admin-editor-heading {
   @apply min-w-0;
 }
-.admin .admin-seo-section {
-  @apply p-5 mb-0;
+.admin .admin-seo-list > .admin-filter-bar,
+.admin .admin-seo-list > .admin-pagination,
+.admin .admin-seo-list > .admin-empty-state {
+  @apply bg-white rounded-lg shadow-sm border-0;
+  outline: 1px solid rgba(0, 0, 0, 0.05);
 }
-.admin .admin-seo-section:last-of-type {
-  @apply border-b-0;
+.admin .admin-seo-editors {
+  @apply mt-10;
+  display: grid;
+  gap: 40px;
+}
+.admin .admin-seo-editor .admin-editor-section {
+  @apply mb-0 pb-0;
+}
+.admin .admin-seo-list > .admin-pagination,
+.admin .admin-seo-list > .admin-empty-state {
+  @apply mt-10;
+}
+.admin .admin-form-footer {
+  @apply flex items-center justify-end border-t border-gray-200 px-4 py-4 mt-6;
+  margin-right: -16px;
+  margin-bottom: -24px;
+  margin-left: -16px;
 }
 .admin .admin-save-bar {
   @apply sticky bottom-0 z-10 flex items-center bg-white border border-gray-200 rounded-lg px-6 py-4 shadow-sm;
@@ -1363,9 +1381,18 @@
   .admin .admin-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .admin .admin-form-section,
-  .admin .admin-seo-section {
+  .admin .admin-form-section {
     @apply p-8;
+    border-radius: 12px;
+  }
+  .admin .admin-form-footer {
+    @apply px-8;
+    margin-right: -32px;
+    margin-bottom: -32px;
+    margin-left: -32px;
+  }
+  .admin .admin-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .admin .admin-description-heading,
   .admin .admin-description-row {
@@ -1403,9 +1430,6 @@
   }
   .admin .admin-stats {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .admin .admin-fields {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @screen lg {

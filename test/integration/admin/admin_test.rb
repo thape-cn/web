@@ -232,6 +232,34 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_equal "Updated title", seo.reload.home_title
   end
 
+  test "SEO editors share section cards and keep labels local to each record" do
+    sign_in
+    other = Seo.create!(id: 99106, seo_name: "其他页面", home_title: "Original other title")
+    get admin_seos_path
+    assert_response :success
+    assert_select ".admin-seo-list > .admin-panel", count: 0
+    assert_select ".admin-seo-editor", count: Seo.count
+    ids = css_select(".admin-seo-editor [id]").map { |element| element["id"] }
+    assert_equal ids.uniq, ids, "SEO editor IDs must be unique across records"
+    Seo.all.each do |record|
+      assert_select "form[action=?]", admin_seo_path(record) do
+        assert_select ".admin-editor-section[aria-labelledby=?]", "seo-#{record.id}-heading"
+        assert_select ".admin-form-section .admin-fields", count: 1
+        assert_select ".admin-form-footer input[type=submit]", count: 1
+        Admin::Resource.new("seos").fields.each_key do |field|
+          input_id = "seo_#{record.id}_seo_#{field}"
+          assert_select "label[for=?]", input_id, count: 1
+          assert_select "[id=?][name=?]", input_id, "seo[#{field}]", count: 1
+        end
+      end
+    end
+    original_title = seos(:seo_one).home_title
+    patch admin_seo_path(other), params: {seo: {home_title: "Updated other title"}}
+    assert_response :redirect
+    assert_equal "Updated other title", other.reload.home_title
+    assert_equal original_title, seos(:seo_one).reload.home_title
+  end
+
   test "residential category images can be maintained from the work type page" do
     sign_in
     resource = Admin::Resource.new("work_type_pages")
