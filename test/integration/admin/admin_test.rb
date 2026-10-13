@@ -707,11 +707,13 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     get admin_pictures_path(per_page: 1)
     assert_select ".admin-media-card", count: 1
     assert_select ".admin-media-filename", text: "component.png"
+    assert_select ".admin-media-preview a.admin-media-link[href=?]", edit_admin_picture_path(picture)
     assert_select ".admin-media-card", text: /新闻 ID：#{infos(:info_635).id}/
     assert_select "#admin-module-search"
     get admin_pictures_path(view: "list", per_page: 1)
     assert_select "tbody tr#record-#{picture.id}"
     assert_select '.admin-view-switch a[aria-current="true"]', text: "列表"
+    assert_select ".admin-media-link", count: 0
     picture.update_column(:image, nil)
     get admin_pictures_path(view: "invalid", per_page: 1)
     assert_select ".admin-media-placeholder:not([hidden])", count: 1
@@ -726,6 +728,9 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     person = Admin::Person.create!(attributes_for("people"))
     get edit_admin_person_path(person)
     assert_select '.admin-section-navigation a[href="#city-roles-heading"]'
+    get new_admin_work_path
+    assert_select ".admin-gallery-grid .admin-media-preview", count: 3
+    assert_select ".admin-gallery-grid .admin-media-link", count: 0
   end
 
   test "filter tabs and removable chips preserve other filters and reset pagination" do

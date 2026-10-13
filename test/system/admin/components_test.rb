@@ -33,8 +33,14 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     screenshot("dashboard-desktop")
     page.send_keys([:control, "k"])
     assert_selector "#admin-module-query:focus"
+    page.send_keys(:tab)
+    page.send_keys(:tab)
+    assert_selector ".admin-command-link.admin-command-active:focus"
     fill_in "搜索管理模块", with: "no-module-matches"
     assert_text "没有找到匹配的模块"
+    assert_text "请尝试其他名称或关键词。"
+    assert_no_selector ".admin-command-link.admin-command-active"
+    screenshot("module-empty-desktop")
     fill_in "搜索管理模块", with: "tail_homes"
     assert_selector "#admin-module-results a", count: 1
     page.send_keys(:arrow_down)
@@ -115,9 +121,47 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     click_link "列表", exact: true
     assert_selector "tbody tr#record-99103"
     click_link "网格", exact: true
+    find("#record-99103 .admin-media-link").click
+    assert_selector "h1", text: "图床 · 编辑"
+    visit admin_pictures_path(per_page: 1)
     resize_viewport(390, 844)
     screenshot("media-grid-mobile")
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+  end
+
+  test "admin theme and dialog backdrops match the reference states" do
+    assert_equal "oklch(0.21 0.034 264.665)", page.evaluate_script("getComputedStyle(document.querySelector('.admin-sidebar')).backgroundColor")
+    visit admin_users_path
+    assert_equal "oklch(0.511 0.262 276.966)", page.evaluate_script("getComputedStyle(document.querySelector('.admin-button')).backgroundColor")
+    within("#record-99102") { click_button "删除" }
+    # Clicks on panel whitespace must leave the dialog open.
+    page.execute_script(<<~JS)
+      const panel = document.querySelector('#admin-confirmation')
+      const bounds = panel.getBoundingClientRect()
+      panel.dispatchEvent(new MouseEvent('click', {bubbles: true, clientX: bounds.left + 1, clientY: bounds.top + 1}))
+    JS
+    assert_selector "#admin-confirmation[open]"
+    click_dialog_backdrop("#admin-confirmation")
+    assert_no_selector "dialog[open]"
+    assert_selector "#record-99102 .admin-danger-link:focus"
+    assert Admin::User.exists?(99102)
+    click_button "搜索管理模块"
+    click_dialog_backdrop("#admin-module-search")
+    assert_no_selector "dialog[open]"
+    assert_selector "[data-admin-switcher-open]:focus"
+    visit admin_works_path
+    first(".admin-order-menu summary").click
+    assert_selector "#admin-order-dialog[open]"
+    click_dialog_backdrop("#admin-order-dialog")
+    assert_no_selector "dialog[open]"
+    assert_selector ".admin-order-menu summary:focus"
+  end
+
+  def click_dialog_backdrop(selector)
+    page.execute_script(<<~JS, selector)
+      const dialog = document.querySelector(arguments[0])
+      dialog.dispatchEvent(new MouseEvent('click', {bubbles: true, clientX: 0, clientY: 0}))
+    JS
   end
 
   test "SEO cards fit phones and tablets and labels focus their own record" do

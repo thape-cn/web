@@ -58,6 +58,11 @@ module Admin::ApplicationHelper
     "logout" => "M9 4H3v16h6 M9 12h12 m-5-5 5 5-5 5"
   }.freeze
 
+  FEEDBACK_ICON_PATHS = {
+    "check-circle" => "M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z",
+    "error-circle" => "M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 0 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 0 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"
+  }.freeze
+
   def admin_navigation_groups
     NAVIGATION_GROUPS.map { |group| group.merge(resources: group[:keys].map { |key| Admin::Resource.new(key) }) }
   end
@@ -93,6 +98,11 @@ module Admin::ApplicationHelper
   end
 
   def admin_icon(name, **options)
+    if FEEDBACK_ICON_PATHS.key?(name)
+      return tag.svg(viewBox: "0 0 20 20", fill: "currentColor", aria: {hidden: true}, class: options.fetch(:class, "admin-icon")) do
+        tag.path(d: FEEDBACK_ICON_PATHS.fetch(name), "fill-rule": "evenodd", "clip-rule": "evenodd")
+      end
+    end
     tag.svg(viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 1.5, "stroke-linecap": "round", "stroke-linejoin": "round", aria: {hidden: true}, class: options.fetch(:class, "admin-icon")) do
       tag.path(d: ICON_PATHS.fetch(name))
     end

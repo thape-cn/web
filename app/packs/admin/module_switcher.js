@@ -32,11 +32,15 @@ if (dialog && button && typeof dialog.showModal === "function") {
     input.focus()
   }
   button.addEventListener("click", open)
+  items.forEach((item) => {
+    const link = item.querySelector("a")
+    link.addEventListener("focus", () => select(link))
+  })
+  input.addEventListener("focus", () => select(null))
   dialog.querySelector("[data-admin-switcher-close]").addEventListener("click", () => dialog.close())
   input.addEventListener("input", filter)
   dialog.addEventListener("keydown", (event) => {
-    // Search inputs consume Escape to clear their value in Chrome. Close the
-    // palette explicitly so dismissal works regardless of the focused control.
+    // Dismiss from any control; the close handler restores focus to the opener.
     if (event.key === "Escape") {
       event.preventDefault()
       dialog.close()

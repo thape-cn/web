@@ -37,6 +37,11 @@ supported utilities and reusable `@apply` components in
 `app/packs/stylesheets/admin/application.scss`. Newer inset rings use inset
 shadows, and column gaps use CSS. No CDN scripts or template runtime are needed.
 The existing native dialogs and Rails UJS handle navigation, ordering and forms.
+The admin stylesheet uses its own Tailwind configuration with the gray, indigo,
+red and green colors and shadow sizes from the [v4 theme](https://github.com/tailwindlabs/tailwindcss/blob/v4.1.13/packages/tailwindcss/theme.css).
+PostCSS selects this configuration only for the admin entrypoint; the public
+stylesheet continues to use its existing theme. Focus outlines, status borders
+and translucent backdrops use these same tokens.
 
 Shared partials take explicit locals: headings accept titles, breadcrumbs and
 action links; alerts accept a kind, message/list and dismissal state; pagination
@@ -76,7 +81,9 @@ file preview without clearing the upload cache or removal checkbox. No file is
 uploaded until the form is saved. The native file input remains available without
 JavaScript, and existing file guidance and server validation still apply.
 
-The picture library accepts `view=grid|list` and defaults to grid. Missing or
+The picture library accepts `view=grid|list` and defaults to grid. Thumbnails link
+to the picture editor, dim on hover and show a focus outline when reached by
+keyboard. Nested gallery previews remain separate from their form controls. Missing or
 failed images show a placeholder. Gallery cards retain the existing nested
 attributes, cached uploads, paired JPG/WebP fields and save-time deletion.
 Editor section links are anchors; they do not hide fields or split the form.
@@ -95,6 +102,11 @@ an automatic timeout. Deletion dialogs focus Cancel first and replay the origina
 Rails UJS action once after confirmation. If dialog enhancement is unavailable,
 the original `data-confirm` native prompt remains active. No Tailwind Plus custom
 elements, CDN scripts or additional JavaScript dependencies are loaded.
+Tab navigation highlights the focused module link as well as arrow-key navigation.
+An empty module search uses the reference's padded icon and message layout.
+Clicking outside module, deletion and ordering panels closes the dialog and
+restores focus to its opener; clicking within a panel keeps it open. Alerts use
+the reference's filled circular icons, medium-weight headings and red list text.
 
 Editor fields are grouped by `admin_form_sections` into basic information, text,
 media and SEO. Every configured field is retained, including translation scopes,

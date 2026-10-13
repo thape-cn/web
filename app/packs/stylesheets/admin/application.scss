@@ -29,8 +29,8 @@
 .admin select:focus-visible,
 .admin textarea:focus-visible,
 .admin [tabindex="0"]:focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 3px;
+  outline: 2px solid theme("colors.indigo.600");
+  outline-offset: 2px;
 }
 .admin .admin-skip-link {
   @apply fixed top-0 left-0 z-50 bg-white rounded-md p-3 text-indigo-700 shadow-md;
@@ -194,7 +194,7 @@
   outline: 1px solid rgba(0, 0, 0, 0.05);
 }
 .admin .admin-quick-card {
-  @apply flex items-center bg-white border border-gray-300 rounded-lg px-6 py-5 shadow-sm;
+  @apply flex items-center bg-white border border-gray-300 rounded-lg px-6 py-5 shadow-xs;
   gap: 12px;
 }
 .admin .admin-quick-card:hover {
@@ -226,7 +226,7 @@
 }
 .admin .admin-button,
 .admin .admin-button-secondary {
-  @apply inline-flex items-center justify-center rounded-md border-0 px-3 py-2 text-sm font-semibold cursor-pointer shadow-sm;
+  @apply inline-flex items-center justify-center rounded-md border-0 px-3 py-2 text-sm font-semibold cursor-pointer shadow-xs;
   min-height: 36px;
   gap: 8px;
   white-space: nowrap;
@@ -354,7 +354,8 @@
   cursor: grabbing;
 }
 .admin .admin-order-arrows {
-  @apply inline-flex rounded-md shadow-sm;
+  @apply inline-flex rounded-md shadow-xs;
+  isolation: isolate;
 }
 .admin .admin-order-button {
   @apply relative inline-flex items-center justify-center bg-white text-gray-500;
@@ -400,8 +401,8 @@
   height: 16px;
 }
 .admin .admin-order-menu summary:focus-visible {
-  outline: 2px solid #6366f1;
-  outline-offset: 3px;
+  outline: 2px solid theme("colors.indigo.600");
+  outline-offset: 2px;
 }
 .admin .admin-order-menu[open] summary,
 .admin .admin-order-menu summary[aria-expanded="true"] {
@@ -459,10 +460,10 @@
   opacity: 0.4;
 }
 .admin .admin-table tr.admin-drop-before td {
-  box-shadow: inset 0 3px 0 #6366f1;
+  box-shadow: inset 0 3px 0 theme("colors.indigo.600");
 }
 .admin .admin-table tr.admin-drop-after td {
-  box-shadow: inset 0 -3px 0 #6366f1;
+  box-shadow: inset 0 -3px 0 theme("colors.indigo.600");
 }
 .admin .admin-table[aria-busy="true"] {
   opacity: 0.6;
@@ -477,11 +478,11 @@
 .admin .admin-badge {
   @apply inline-flex items-center rounded-md px-2 py-1 text-xs font-medium;
   white-space: nowrap;
-  box-shadow: inset 0 0 0 1px rgba(107, 114, 128, 0.12);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, theme("colors.gray.500") 10%, transparent);
 }
 .admin .admin-badge-positive {
   @apply text-green-700 bg-green-50;
-  box-shadow: inset 0 0 0 1px rgba(5, 150, 105, 0.2);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, theme("colors.green.600") 20%, transparent);
 }
 .admin .admin-badge-neutral {
   @apply text-gray-600 bg-gray-50;
@@ -517,7 +518,7 @@
 .admin select.admin-input:not([multiple]) {
   appearance: none;
   padding-right: 32px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236b7280'%3E%3Cpath d='M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 0 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='oklch(55.1%25%200.027%20264.364)'%3E%3Cpath d='M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 0 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 20px;
@@ -531,7 +532,7 @@
   row-gap: 32px;
 }
 .admin .admin-form-section {
-  @apply px-4 py-6;
+  @apply px-4 py-6 shadow-xs;
   border-radius: 0;
 }
 .admin .admin-editor-section {
@@ -547,7 +548,7 @@
 .admin .admin-seo-list > .admin-filter-bar,
 .admin .admin-seo-list > .admin-pagination,
 .admin .admin-seo-list > .admin-empty-state {
-  @apply bg-white rounded-lg shadow-sm border-0;
+  @apply bg-white rounded-lg shadow-xs border-0;
   outline: 1px solid rgba(0, 0, 0, 0.05);
 }
 .admin .admin-seo-editors {
@@ -584,7 +585,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 14px;
-  accent-color: #4f46e5;
+  accent-color: theme("colors.indigo.600");
 }
 .admin .admin-checkbox:checked,
 .admin .admin-checkbox:indeterminate {
@@ -606,7 +607,7 @@
 }
 .admin .admin-upload {
   @apply border border-dashed rounded-lg px-6 py-10;
-  border-color: rgba(17, 24, 39, 0.25);
+  border-color: color-mix(in srgb, theme("colors.gray.900") 25%, transparent);
 }
 .admin .admin-file-input {
   @apply block w-full text-sm text-gray-500;
@@ -669,6 +670,9 @@
 .admin .admin-alert-error > svg {
   @apply text-red-400;
 }
+.admin .admin-alert-error ul {
+  @apply text-red-700;
+}
 .admin .admin-alert-success > svg {
   @apply text-green-400;
 }
@@ -689,7 +693,7 @@
 }
 .admin input.admin-input[aria-invalid="true"] {
   padding-right: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ef4444'%3E%3Cpath d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='oklch(63.7%25%200.237%2025.331)'%3E%3Cpath d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 20px;
@@ -733,7 +737,7 @@
   @apply flex flex-col;
 }
 .admin .admin-mobile-menu::backdrop {
-  background: rgba(17, 24, 39, 0.8);
+  background: color-mix(in srgb, theme("colors.gray.900") 80%, transparent);
 }
 .admin.admin-menu-open {
   overflow: hidden;
@@ -787,8 +791,8 @@
   outline: none;
 }
 .admin .admin-stat-card:focus-within {
-  outline: 2px solid #6366f1;
-  outline-offset: 3px;
+  outline: 2px solid theme("colors.indigo.600");
+  outline-offset: 2px;
 }
 .admin .admin-stat-card dt {
   @apply flex items-center text-sm font-medium text-gray-500;
@@ -810,7 +814,8 @@
   max-width: 240px;
 }
 .admin .admin-page-buttons {
-  @apply inline-flex rounded-md shadow-sm;
+  @apply inline-flex rounded-md shadow-xs;
+  isolation: isolate;
 }
 .admin .admin-page-button {
   @apply relative inline-flex items-center justify-center bg-white px-4 py-2 text-sm font-semibold text-gray-900;
@@ -851,7 +856,7 @@
   @apply text-sm text-gray-500 mt-2;
 }
 .admin [aria-invalid="true"] {
-  border-color: #f87171;
+  border-color: theme("colors.red.300");
 }
 .admin .admin-alert-dismiss {
   @apply ml-auto;
@@ -924,7 +929,8 @@
   gap: 12px;
 }
 .admin .admin-button-group {
-  @apply inline-flex rounded-md shadow-sm;
+  @apply inline-flex rounded-md shadow-xs;
+  isolation: isolate;
 }
 .admin .admin-button-group .admin-button-secondary {
   @apply rounded-none;
@@ -971,6 +977,21 @@
   @apply block w-full h-full;
   object-fit: cover;
 }
+.admin .admin-media-link {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.admin .admin-media-preview:has(.admin-media-link):hover img {
+  opacity: 0.75;
+}
+.admin .admin-media-preview:has(.admin-media-link):focus-within {
+  outline: 2px solid theme("colors.indigo.600");
+  outline-offset: 2px;
+}
+.admin .admin-media-link:focus-visible {
+  outline: none;
+}
 .admin .admin-media-placeholder {
   @apply flex flex-col items-center justify-center h-full text-gray-400 text-xs;
   gap: 12px;
@@ -1013,7 +1034,7 @@
   overflow-y: auto;
 }
 .admin .admin-dialog::backdrop {
-  background: rgba(17, 24, 39, 0.5);
+  background: color-mix(in srgb, theme("colors.gray.900") 50%, transparent);
 }
 .admin .admin-dialog-heading {
   @apply flex items-center justify-between px-5 py-3 border-b border-gray-100 font-semibold;
@@ -1029,7 +1050,7 @@
 }
 .admin .admin-confirmation-dialog::backdrop,
 .admin .admin-order-dialog::backdrop {
-  background: rgba(107, 114, 128, 0.75);
+  background: color-mix(in srgb, theme("colors.gray.500") 75%, transparent);
 }
 .admin .admin-confirmation-body {
   @apply flex items-start px-6 pt-6 pb-4;
@@ -1043,7 +1064,7 @@
   @apply w-6 h-6;
 }
 .admin .admin-button-danger {
-  @apply inline-flex items-center justify-center rounded-md border-0 bg-red-600 text-white px-3 py-2 text-sm font-semibold cursor-pointer shadow-sm;
+  @apply inline-flex items-center justify-center rounded-md border-0 bg-red-600 text-white px-3 py-2 text-sm font-semibold cursor-pointer shadow-xs;
   min-height: 36px;
 }
 .admin .admin-button-danger:hover {
@@ -1059,7 +1080,7 @@
   outline: 1px solid rgba(0, 0, 0, 0.05);
 }
 .admin .admin-command-dialog::backdrop {
-  background: rgba(107, 114, 128, 0.25);
+  background: color-mix(in srgb, theme("colors.gray.500") 25%, transparent);
 }
 .admin .admin-command-input {
   @apply flex items-center border-b border-gray-100;
@@ -1074,6 +1095,9 @@
 }
 .admin .admin-command-input input:focus {
   outline: none;
+}
+.admin .admin-command-input input::placeholder {
+  @apply text-gray-400;
 }
 .admin .admin-command-input .admin-icon-button {
   @apply mr-2;
@@ -1094,7 +1118,7 @@
   margin-top: 8px;
 }
 .admin .admin-command-link {
-  @apply flex items-center px-4 py-2 text-sm text-gray-900;
+  @apply flex items-center px-4 py-2 text-sm text-gray-800;
   gap: 12px;
 }
 .admin .admin-command-link > svg {
@@ -1119,7 +1143,12 @@
   @apply text-indigo-100;
 }
 .admin .admin-command-empty {
-  @apply px-5 py-10 text-center text-sm text-gray-500;
+  @apply px-6 text-center text-sm;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.admin .admin-command-empty > svg {
+  @apply mx-auto w-6 h-6 text-gray-400;
 }
 .admin .admin-command-footer {
   @apply px-5 py-3 border-t border-gray-100 text-xs text-gray-500;
@@ -1162,7 +1191,7 @@
   @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600;
   gap: 2px;
   max-width: 100%;
-  box-shadow: inset 0 0 0 1px rgba(107, 114, 128, 0.1);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, theme("colors.gray.500") 10%, transparent);
 }
 .admin .admin-filter-chip span {
   overflow-wrap: anywhere;
@@ -1174,7 +1203,7 @@
   height: 14px;
   margin-right: -4px;
   border-radius: 2px;
-  color: rgba(75, 85, 99, 0.5);
+  color: color-mix(in srgb, theme("colors.gray.600") 50%, transparent);
 }
 .admin .admin-filter-remove::before {
   content: "";
@@ -1186,8 +1215,8 @@
   height: 14px;
 }
 .admin .admin-filter-remove:hover {
-  color: rgba(75, 85, 99, 0.75);
-  background-color: rgba(107, 114, 128, 0.2);
+  color: color-mix(in srgb, theme("colors.gray.600") 75%, transparent);
+  background-color: color-mix(in srgb, theme("colors.gray.500") 20%, transparent);
 }
 .admin .admin-switch-panel {
   @apply flex items-center justify-between;
@@ -1217,7 +1246,7 @@
   width: 44px;
   height: 24px;
   padding: 2px;
-  box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.05);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, theme("colors.gray.900") 5%, transparent);
 }
 .admin .admin-switch-track::after {
   content: "";
@@ -1226,7 +1255,9 @@
   height: 20px;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, theme("colors.gray.900") 5%, transparent),
+    0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .admin .admin-switch-track {
   transition: background-color 200ms;
@@ -1241,8 +1272,8 @@
   transform: translateX(20px);
 }
 .admin .admin-switch-input:focus-visible + .admin-switch-track {
-  outline: 2px solid #6366f1;
-  outline-offset: 3px;
+  outline: 2px solid theme("colors.indigo.600");
+  outline-offset: 2px;
 }
 .admin .admin-checkbox-group {
   min-width: 0;
@@ -1267,7 +1298,7 @@
   @apply bg-gray-50;
 }
 .admin .admin-checkbox-option:focus-within {
-  outline: 2px solid #6366f1;
+  outline: 2px solid theme("colors.indigo.600");
   outline-offset: -2px;
 }
 .admin .admin-upload-current,
@@ -1366,6 +1397,10 @@
   .admin .admin-media-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 24px;
+  }
+  .admin .admin-command-empty {
+    padding-left: 56px;
+    padding-right: 56px;
   }
   .admin .admin-table th:first-child,
   .admin .admin-table td:first-child {

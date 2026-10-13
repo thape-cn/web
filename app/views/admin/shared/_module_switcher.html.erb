@@ -3,7 +3,7 @@
   <div class="admin-command-input">
     <%= admin_icon('search') %>
     <label for="admin-module-query" class="sr-only">搜索管理模块</label>
-    <input id="admin-module-query" type="search" placeholder="输入模块名称或英文名称…" autocomplete="off" aria-controls="admin-module-results" aria-describedby="admin-module-search-help" autofocus>
+    <input id="admin-module-query" type="text" inputmode="search" placeholder="输入模块名称或英文名称…" autocomplete="off" aria-controls="admin-module-results" aria-describedby="admin-module-search-help" autofocus>
     <button type="button" class="admin-icon-button" data-admin-switcher-close aria-label="关闭模块搜索"><%= admin_icon('close') %><span class="sr-only">关闭模块搜索</span></button>
   </div>
   <div id="admin-module-results" class="admin-command-results">
@@ -13,7 +13,11 @@
         <ul><% group[:resources].each do |resource| %><li data-admin-command-item data-search="<%= [resource.label, resource.key, admin_resource_description(resource)].join(' ') %>"><%= link_to admin_resource_path(resource), class: 'admin-command-link' do %><%= admin_resource_icon(resource) %><span><strong><%= resource.label %></strong><small><%= admin_resource_description(resource) %></small></span><% end %></li><% end %></ul>
       </section>
     <% end %>
-    <p class="admin-command-empty" data-admin-command-empty role="status" hidden>没有找到匹配的模块</p>
+    <div class="admin-command-empty" data-admin-command-empty role="status" hidden>
+      <%= admin_icon('search') %>
+      <p class="mt-4 font-semibold text-gray-900"><%= t('admin.module_search.no_results') %></p>
+      <p class="mt-2 text-gray-500"><%= t('admin.module_search.try_again') %></p>
+    </div>
   </div>
   <p id="admin-module-search-help" class="admin-command-footer">↑ ↓ 选择 · Enter 打开 · Esc 关闭 · Ctrl / ⌘ K 搜索</p>
 </dialog>

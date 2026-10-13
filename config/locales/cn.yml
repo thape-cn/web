@@ -1,5 +1,9 @@
 ---
 cn:
+  admin:
+    module_search:
+      no_results: "没有找到匹配的模块"
+      try_again: "请尝试其他名称或关键词。"
   work_carousel:
     carousel: "轮播"
     label: "%{project}项目图片"

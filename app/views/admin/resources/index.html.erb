@@ -49,7 +49,7 @@
     <ul class="admin-media-grid" aria-label="图片库">
       <% @records.each do |record| %>
         <li id="record-<%= record.id %>">
-          <%= render layout: 'admin/shared/media_card', locals: {title: "图片 ##{record.id}", image_url: record.image.url, filename: record.image.identifier, metadata: ["新闻 ID：#{record.info_id || '—'}"]} do %>
+          <%= render layout: 'admin/shared/media_card', locals: {title: "图片 ##{record.id}", image_url: record.image.url, preview_path: admin_resource_path(@resource, :edit, record), filename: record.image.identifier, metadata: ["新闻 ID：#{record.info_id || '—'}"]} do %>
             <%= render 'admin/shared/record_actions', resource: @resource, record: record %>
           <% end %>
         </li>

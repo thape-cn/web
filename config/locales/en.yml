@@ -1,5 +1,9 @@
 ---
 en:
+  admin:
+    module_search:
+      no_results: "No matching modules"
+      try_again: "Try another name or keyword."
   work_carousel:
     carousel: "carousel"
     label: "%{project} project images"
