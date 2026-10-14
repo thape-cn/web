@@ -171,7 +171,7 @@ GEM
       marcel (~> 1)
       ruby_llm-schema (~> 0)
       zeitwerk (~> 2)
-    domain_name (0.6.20260921)
+    domain_name (0.7.20261007)
     drb (2.2.3)
     ed25519 (1.4.0)
     enumize (0.2.1)
@@ -198,11 +198,11 @@ GEM
       activerecord (>= 7.0, < 8.2)
       activesupport (>= 7.0, < 8.2)
       request_store (~> 1.0)
-    http-2 (1.2.3)
+    http-2 (1.3.0)
     http-accept (1.7.0)
     http-cookie (1.1.6)
       domain_name (~> 0.5)
-    httpx (1.8.4)
+    httpx (1.9.0)
       http-2 (>= 1.2.0)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
@@ -415,15 +415,15 @@ GEM
       semantic_range (>= 2.3.0)
     sitemap_generator (7.1.1)
       builder (~> 3.0)
-    sqlite3 (2.9.6)
+    sqlite3 (2.10.0)
       mini_portile2 (~> 2.8.0)
-    sqlite3 (2.9.6-aarch64-linux-gnu)
-    sqlite3 (2.9.6-arm-linux-gnu)
-    sqlite3 (2.9.6-arm64-darwin)
-    sqlite3 (2.9.6-x86-linux-gnu)
-    sqlite3 (2.9.6-x86-linux-musl)
-    sqlite3 (2.9.6-x86_64-darwin)
-    sqlite3 (2.9.6-x86_64-linux-gnu)
+    sqlite3 (2.10.0-aarch64-linux-gnu)
+    sqlite3 (2.10.0-arm-linux-gnu)
+    sqlite3 (2.10.0-arm64-darwin)
+    sqlite3 (2.10.0-x86-linux-gnu)
+    sqlite3 (2.10.0-x86-linux-musl)
+    sqlite3 (2.10.0-x86_64-darwin)
+    sqlite3 (2.10.0-x86_64-linux-gnu)
     sshkit (1.25.1)
       base64
       logger
@@ -539,4 +539,4 @@ RUBY VERSION
   ruby 3.2.2p53
 
 BUNDLED WITH
-  4.0.22
+  4.0.23
