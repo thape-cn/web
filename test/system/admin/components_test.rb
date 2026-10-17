@@ -28,6 +28,66 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     page.save_screenshot(directory.join("#{name}.png")) # standard:disable Lint/Debugger
   end
 
+  test "dashboard cards keep reference text rows at narrow desktop and tablet widths" do
+    [320, 640, 768, 1024, 1280].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Dashboard card labels should fit at #{width}px"
+        (() => {
+          const labels = document.querySelectorAll('.admin-stat-link, .admin-quick-description')
+          return Array.from(labels).every(label => {
+            const bounds = label.getBoundingClientRect()
+            const parent = label.parentElement.getBoundingClientRect()
+            return bounds.height === 20 && bounds.right <= parent.right &&
+              label.title === label.textContent.trim()
+          }) && document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+      if width < 1024
+        assert_equal "24px", page.evaluate_script("getComputedStyle(document.querySelector('[data-admin-menu-open] svg')).width")
+      end
+      screenshot("dashboard-card-text-#{width}") if [640, 1024].include?(width)
+    end
+    resize_viewport(390, 844)
+    click_button "打开管理菜单"
+    assert_selector "#admin-navigation[open]"
+    assert_equal "24px", page.evaluate_script("getComputedStyle(document.querySelector('[data-admin-menu-close] svg')).width")
+    click_button "关闭管理菜单"
+    assert_selector "[data-admin-menu-open]:focus"
+    find(".admin-stat-card", text: "官网作品").click
+    assert_current_path admin_works_path(locale: :cn)
+  end
+
+  test "picture filenames stay available while long names keep card actions aligned" do
+    filename = "#{"long-picture-name-" * 12}图片.png"
+    {99107 => filename, 99108 => filename, 99109 => "short.png"}.each do |id, name|
+      picture = Picture.new(id: id)
+      picture.save!(validate: false)
+      picture.update_column(:image, name)
+    end
+    visit admin_pictures_path(per_page: 3)
+    [99107, 99108].each do |id|
+      assert_selector "#record-#{id} .admin-media-title[title]", text: filename
+      assert_equal "#{filename} · 图片 ##{id}", find("#record-#{id} .admin-media-link")["aria-label"]
+    end
+    [320, 390, 1024, 1280].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Long picture names should keep card rows aligned at #{width}px"
+        (() => {
+          const cards = Array.from(document.querySelectorAll('.admin-media-card'))
+          const actions = cards.map(card => card.querySelector('.admin-row-actions').getBoundingClientRect())
+          const longName = document.querySelector('#record-99108 .admin-media-title')
+          return cards.every(card => card.querySelector('.admin-media-title').getBoundingClientRect().height === 20) &&
+            longName.scrollWidth > longName.clientWidth && Math.abs(actions[0].top - actions[1].top) < 2 &&
+            document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+      screenshot("media-filenames-#{width}") if [390, 1280].include?(width)
+    end
+    find("#record-99108 .admin-media-link").click
+    assert_selector "h1", text: "图床 · 编辑"
+    assert_current_path edit_admin_picture_path(99108, locale: :cn)
+  end
+
   test "module search supports keyboard selection dismissal and singleton navigation" do
     assert_selector '[data-admin-count="works"]'
     screenshot("dashboard-desktop")

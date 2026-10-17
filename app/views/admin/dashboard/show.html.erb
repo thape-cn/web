@@ -7,7 +7,7 @@
     <% @counts.each do |key, count| %>
       <% resource = Admin::Resource.new(key) %>
       <div class="admin-stat-card">
-        <dt><%= admin_resource_icon(resource) %><%= link_to resource.label, admin_resource_path(resource), class: 'admin-stat-link' %></dt>
+        <dt><%= admin_resource_icon(resource) %><%= link_to resource.label, admin_resource_path(resource), class: 'admin-stat-link', title: resource.label %></dt>
         <dd data-admin-count="<%= key %>"><%= count %></dd>
       </div>
     <% end %>
@@ -18,14 +18,14 @@
     <h2 id="quick-access-heading" class="text-base font-semibold">常用内容</h2>
     <span class="text-xs text-gray-500">快速进入内容维护</span>
   </div>
-  <div class="grid gap-4 sm:grid-cols-2">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
     <% %w[works infos people publications].each do |key| %>
       <% resource = Admin::Resource.new(key) %>
       <%= link_to admin_resource_path(resource), class: 'admin-quick-card group' do %>
         <span class="admin-feature-icon"><%= admin_resource_icon(resource) %></span>
         <div class="min-w-0 flex-1">
           <h3 class="text-sm font-medium text-gray-900"><%= resource.label %></h3>
-          <p class="text-sm text-gray-500 leading-relaxed mt-1"><%= admin_resource_description(resource) %></p>
+          <p class="admin-quick-description" title="<%= admin_resource_description(resource) %>"><%= admin_resource_description(resource) %></p>
         </div>
         <%= admin_icon('arrow', class: 'w-5 h-5 text-gray-400 group-hover:text-indigo-600 flex-shrink-0') %>
       <% end %>

@@ -49,7 +49,7 @@ heights remain explicit.
 Shared partials take explicit locals: headings accept titles, breadcrumbs and
 action links; alerts accept a kind, message/list and dismissal state; pagination
 accepts the paginated relation; empty states accept text, icon and an optional
-action; media cards accept an image URL, title, filename and metadata with a block
+action; media cards accept an image URL, title, optional subtitle and metadata with a block
 for editor inputs or record actions. Resource-specific search/filter definitions
 live in `Admin::Resource`, rather than in these shared components.
 
@@ -149,6 +149,12 @@ truncated filename and a translated, accessible link that opens the file in a ne
 window; image files retain a preview above the row. Missing files show a dash.
 Editor section headings align with card fields on phones. Switch labels and
 descriptions use the reference's adjacent 24px/20px text lines.
+Dashboard statistic labels and quick-link descriptions use single truncated lines,
+with the full text retained in accessible content and hover titles. Picture cards
+show the filename as the primary truncated title, with the record ID below it;
+full filenames remain in hover titles and preview-link names. This keeps actions
+aligned even for long filenames and distinguishes images with the same filename.
+Mobile menu and drawer-close icons use the shell template's 24px size.
 
 The module palette has a single search row, gray group headings and an indigo
 selected row. Its close button and descriptions remain available. Deletion

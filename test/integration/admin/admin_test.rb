@@ -706,8 +706,9 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     picture = Picture.create!(image: upload("component.png", "image/png"), info: infos(:info_635))
     get admin_pictures_path(per_page: 1)
     assert_select ".admin-media-card", count: 1
-    assert_select ".admin-media-filename", text: "component.png"
-    assert_select ".admin-media-preview a.admin-media-link[href=?]", edit_admin_picture_path(picture)
+    assert_select '.admin-media-title[title="component.png"]', text: "component.png"
+    assert_select ".admin-media-subtitle", text: "图片 ##{picture.id}"
+    assert_select ".admin-media-preview a.admin-media-link[href=?][aria-label=?]", edit_admin_picture_path(picture), "component.png · 图片 ##{picture.id}"
     assert_select ".admin-media-card", text: /新闻 ID：#{infos(:info_635).id}/
     assert_select "#admin-module-search"
     get admin_pictures_path(view: "list", per_page: 1)
@@ -717,6 +718,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     picture.update_column(:image, nil)
     get admin_pictures_path(view: "invalid", per_page: 1)
     assert_select ".admin-media-placeholder:not([hidden])", count: 1
+    assert_select ".admin-media-title", text: "图片 ##{picture.id}"
+    assert_select ".admin-media-subtitle", count: 0
     post admin_infos_path, params: {info: {title: "Retained title", introduction: "", content: ""}}
     assert_response :unprocessable_entity
     assert_select '#info_introduction[aria-invalid="true"][aria-describedby="info_introduction_error"]'

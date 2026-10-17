@@ -108,6 +108,10 @@
 .admin .admin-icon-button:hover {
   @apply bg-gray-100 text-gray-900;
 }
+.admin [data-admin-menu-open] svg,
+.admin [data-admin-menu-close] svg {
+  @apply w-6 h-6;
+}
 .admin .admin-sidebar .admin-icon-button,
 .admin .admin-mobile-menu .admin-icon-button {
   @apply text-gray-400;
@@ -206,6 +210,9 @@
 }
 .admin .admin-quick-card:hover {
   @apply border-gray-400;
+}
+.admin .admin-quick-description {
+  @apply truncate text-sm text-gray-500;
 }
 .admin .admin-feature-icon {
   @apply flex items-center justify-center flex-shrink-0 rounded-full bg-indigo-50 text-indigo-600;
@@ -823,6 +830,10 @@
   inset: 0;
   border-radius: 8px;
 }
+.admin .admin-stat-link {
+  @apply truncate;
+  min-width: 0;
+}
 .admin .admin-stat-link:focus-visible {
   outline: none;
 }
@@ -1041,9 +1052,8 @@
 .admin .admin-media-title {
   @apply truncate text-sm font-medium text-gray-900;
 }
-.admin .admin-media-filename {
+.admin .admin-media-subtitle {
   @apply text-sm font-medium text-gray-500;
-  overflow-wrap: anywhere;
 }
 .admin .admin-media-card .admin-row-actions {
   @apply justify-start mt-2;
