@@ -5,6 +5,7 @@ namespace :admin do
     patch :reorder, on: :member
   end
   root "dashboard#show", as: "root"
+  resources :record_options, only: [:index]
   resource :tail_home, only: [:edit, :update]
   resource :about_page, only: [:edit, :update]
   resource :work_type_page, only: [:edit, :update]
@@ -24,11 +25,15 @@ namespace :admin do
     end
   end
   resources :infos, concerns: :orderable
-  resources :pictures, except: [:show] do
+  resources :pictures do
     post :upload, on: :collection
   end
-  resources :message, only: [:index, :show, :destroy]
-  resources :project_messages, only: [:index, :show, :destroy]
+  resources :message, only: [:index, :show, :destroy] do
+    delete :bulk_destroy, on: :collection
+  end
+  resources :project_messages, only: [:index, :show, :destroy] do
+    delete :bulk_destroy, on: :collection
+  end
   resources :portfolios, except: [:show], concerns: :orderable
   resources :publications, except: [:show], concerns: :orderable
   resources :insights, except: [:show], concerns: :orderable

@@ -61,6 +61,13 @@ class Admin::ResourcesController < Admin::ApplicationController
     end
   end
 
+  def bulk_destroy
+    count = Admin::BulkDestroyMessages.new(@resource, admin_list_context).call(params[:ids])
+    redirect_to reorder_location, notice: t("admin.messages.deleted", count: count), status: :see_other
+  rescue Admin::BulkDestroyMessages::InvalidSelection, ActiveRecord::RecordNotDestroyed
+    redirect_to reorder_location, alert: t("admin.messages.invalid_selection"), status: :see_other
+  end
+
   private
 
   def set_resource

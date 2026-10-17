@@ -1,0 +1,6 @@
+<dialog id="admin-picture-drawer" class="admin-picture-drawer" aria-labelledby="admin-picture-drawer-title" data-admin-picture-drawer data-loading="<%= t('admin.picture_details.loading') %>" data-failed="<%= t('admin.picture_details.failed') %>" data-fallback="<%= t('admin.picture_details.full_page') %>">
+  <div class="admin-picture-drawer-panel">
+    <div class="admin-picture-drawer-heading"><h2 id="admin-picture-drawer-title" class="font-semibold"><%= t('admin.picture_details.title') %></h2><button type="button" class="admin-icon-button" data-admin-picture-close aria-label="<%= t('admin.actions.close') %>" autofocus><%= admin_icon('close') %></button></div>
+    <div data-admin-picture-content aria-live="polite"></div>
+  </div>
+</dialog>

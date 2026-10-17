@@ -1,0 +1,1 @@
+<%= check_box_tag 'ids[]', record.id, false, id: "message-select-#{record.id}", form: 'admin-message-bulk', class: 'admin-checkbox', aria: {label: t('admin.messages.select_record', id: record.id)}, data: {admin_message_select: true} %>

@@ -1,0 +1,6 @@
+<div class="admin-row-actions">
+  <%= link_to t('admin.actions.details'), admin_resource_path(@resource, :show, record), class: 'admin-link', aria: {label: t('admin.actions.view_record', id: record.id)} %>
+  <%= render layout: 'admin/shared/action_menu', locals: {label: "#{t('admin.actions.more')} · ##{record.id}"} do %>
+    <%= button_to t('admin.actions.delete'), admin_resource_path(@resource, :destroy, record), method: :delete, data: {confirm: admin_delete_confirmation(@resource, record)}, class: 'admin-danger-link', aria: {label: t('admin.actions.delete_record', id: record.id)} %>
+  <% end %>
+</div>

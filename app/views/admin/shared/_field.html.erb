@@ -6,19 +6,23 @@
   <% else %>
     <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
     <% field_attributes = admin_field_attributes(form, field, class: 'admin-input', hint: options['hint']) %>
-    <% case options['type'] %>
-    <% when 'file_field' %>
-      <%= render 'admin/shared/upload', form: form, field: field, hint: options['hint'] %>
-    <% when 'select' %>
-      <% selected = form.object.public_send(field) %>
-      <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: true }, field_attributes %>
-    <% when 'text_area' %>
-      <% editor_data = options['rich_text'] ? { admin_rich_text: true, upload_url: upload_admin_pictures_path } : {} %>
-      <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, **field_attributes, data: editor_data %>
-    <% when 'password_field' %>
-      <%= form.password_field field, **field_attributes, autocomplete: 'new-password' %>
+    <% if options['record_picker'] %>
+      <%= render 'admin/shared/record_picker', form: form, resource: resource, field: field, options: options, field_attributes: field_attributes %>
     <% else %>
-      <%= form.public_send(options['type'], field, **field_attributes) %>
+      <% case options['type'] %>
+      <% when 'file_field' %>
+        <%= render 'admin/shared/upload', form: form, field: field, hint: options['hint'] %>
+      <% when 'select' %>
+        <% selected = form.object.public_send(field) %>
+        <%= form.select field, options_for_select(admin_options(resource, field), selected), { include_blank: true }, field_attributes %>
+      <% when 'text_area' %>
+        <% editor_data = options['rich_text'] ? { admin_rich_text: true, upload_url: upload_admin_pictures_path } : {} %>
+        <%= form.text_area field, rows: field == 'content' || field == 'introduce' ? 14 : 5, **field_attributes, data: editor_data %>
+      <% when 'password_field' %>
+        <%= form.password_field field, **field_attributes, autocomplete: 'new-password' %>
+      <% else %>
+        <%= form.public_send(options['type'], field, **field_attributes) %>
+      <% end %>
     <% end %>
   <% end %>
   <% if options['hint'].present? && !%w[check_box multiple].include?(options['type']) %><p id="<%= form.field_id(field) %>_hint" class="admin-field-hint"><%= options['hint'] %></p><% end %>

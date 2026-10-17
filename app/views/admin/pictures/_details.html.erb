@@ -1,0 +1,24 @@
+<div class="admin-picture-details" data-admin-picture-details>
+  <div class="admin-picture-preview" data-admin-media-preview>
+    <div class="admin-media-placeholder" <%= 'hidden' if picture.image.url.present? %> data-admin-media-placeholder><%= admin_icon('image') %><span><%= t('admin.picture_details.no_image') %></span></div>
+    <% if picture.image.url.present? %><%= image_tag picture.image.url, alt: picture.image.identifier, data: {admin_media_image: true} %><% end %>
+  </div>
+  <div class="flex items-start justify-between mt-4" style="gap: 16px">
+    <h2 class="text-base font-semibold break-all"><%= picture.image.identifier.presence || "##{picture.id}" %></h2>
+    <%= render layout: 'admin/shared/action_menu', locals: {label: t('admin.actions.more')} do %>
+      <% if picture.image.url.present? %><%= link_to t('admin.actions.open_original'), picture.image.url, target: '_blank', rel: 'noopener' %><% end %>
+      <%= link_to t('admin.actions.edit'), edit_admin_picture_path(picture) %>
+      <%= button_to t('admin.actions.delete'), admin_picture_path(picture), method: :delete, class: 'admin-danger-link', data: {confirm: admin_delete_confirmation(@resource, picture)} %>
+    <% end %>
+  </div>
+  <dl class="admin-picture-metadata">
+    <% admin_picture_metadata(picture).each do |key, value| %>
+      <div><dt><%= t("admin.picture_details.#{key}") %></dt><dd><%= value || '—' %></dd></div>
+    <% end %>
+  </dl>
+  <section class="mt-6" aria-label="<%= t('admin.picture_usage.title') %>">
+    <h3 class="font-semibold text-sm mb-2"><%= t('admin.picture_usage.title') %></h3>
+    <p class="text-sm text-gray-500 mb-4"><%= t('admin.picture_usage.description') %></p>
+    <%= render 'admin/shared/picture_usage', picture: picture %>
+  </section>
+</div>

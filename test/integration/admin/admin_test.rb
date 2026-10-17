@@ -992,4 +992,151 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_empty work.reload.project_type_ids
     assert_not work.published?
   end
+
+  test "record options allowlist literal searches localized titles and exact IDs" do
+    sign_in
+    work = Admin::Work.create!(attributes_for("works").merge(project_name: "Picker 100%", published: false))
+    I18n.with_locale(:en) { work.update!(project_name: "English picker") }
+    get admin_record_options_path(resource: "works", q: "100%", locale: :cn)
+    assert_response :success
+    assert_equal [{"id" => work.id, "label" => "Picker 100%", "published" => false}], response.parsed_body["options"]
+    get admin_record_options_path(resource: "works", q: "100_", locale: :cn)
+    assert_empty response.parsed_body["options"]
+    get admin_record_options_path(resource: "works", q: "English picker", locale: :en)
+    assert_equal [work.id], response.parsed_body["options"].pluck("id")
+    get admin_record_options_path(resource: "works", q: "##{work.id}", locale: :en)
+    assert_equal "English picker", response.parsed_body["options"].first["label"]
+    assert_not Work.exists?(work.id)
+    21.times { Admin::Work.create!(attributes_for("works").merge(project_name: "Duplicate picker")) }
+    get admin_record_options_path(resource: "works", q: "Duplicate picker", locale: :cn)
+    assert_equal 20, response.parsed_body["options"].size
+    assert_equal 20, response.parsed_body["options"].pluck("id").uniq.size
+    news = Admin::Info.create!(attributes_for("infos"))
+    get admin_record_options_path(resource: "infos", q: news.id)
+    assert_equal news.title, response.parsed_body["options"].first["label"]
+    assert_nil response.parsed_body["options"].first["published"]
+    get admin_record_options_path(resource: "users", q: "Admin")
+    assert_response :bad_request
+    get admin_record_options_path(resource: "works", q: {invalid: "query"})
+    assert_response :bad_request
+  end
+
+  test "record picker fields retain canonical IDs and unresolved selections" do
+    sign_in
+    work = Admin::Work.create!(attributes_for("works"))
+    home = TailHome.first || TailHome.create!
+    home.update!(new_project_1_id: work.id, new_project_2_id: 999999999)
+    get edit_admin_tail_home_path
+    assert_response :success
+    assert_select "[data-admin-record-picker]", count: 10
+    assert_select "input[name='tail_home[new_project_1_id]'][value='#{work.id}'][data-admin-picker-id]"
+    assert_select "input[name='tail_home[new_project_2_id]'][value='999999999']"
+    assert_select "[data-admin-picker-search][value*='999999999']"
+    assert_select "[data-admin-picker-controls][hidden]", count: 10
+    patch admin_tail_home_path, params: {tail_home: {new_project_1_id: "", new_project_2_id: work.id}}
+    assert_response :see_other
+    assert_nil home.reload.new_project_1_id
+    assert_equal work.id, home.new_project_2_id
+    get new_admin_picture_path
+    assert_select "input[name='picture[info_id]'][data-admin-picker-id]"
+  end
+
+  test "picture details render a full page and a shared drawer fragment with usage" do
+    sign_in
+    picture = Picture.create!(image: upload("inspector.png", "image/png"))
+    news = Admin::Info.create!(attributes_for("infos").merge(content: "<img src='#{picture.image.url}'>"))
+    get admin_picture_path(picture)
+    assert_response :success
+    assert_select "html"
+    assert_select "[data-admin-picture-details]"
+    assert_select ".admin-picture-metadata", text: /inspector.png/
+    assert_select ".admin-picture-usage-links a[href*='/admin/infos/#{news.id}/edit']"
+    assert_select ".admin-action-menu form input[name='_method'][value='delete']"
+    get admin_picture_path(picture), xhr: true
+    assert_response :success
+    assert_not_includes response.body, "<!DOCTYPE"
+    assert_select "[data-admin-picture-details]", count: 1
+    get admin_pictures_path(view: :list)
+    assert_select "a[data-admin-picture-open][href*='/admin/pictures/#{picture.id}']"
+    get admin_pictures_path
+    assert_select "a[data-admin-picture-open][href*='/admin/pictures/#{picture.id}']"
+  end
+
+  test "message inbox escapes previews preserves table view and keeps exports independent" do
+    sign_in
+    [GuestMessage, ProjectMessage].each_with_index do |model, index|
+      id = 99200 + index
+      model.insert_all!([{id: id, name: "Inbox sender", company: "Company", message: "<script>bad()</script>", spam_score: nil, created_at: Time.current, updated_at: Time.current}])
+      resource = Admin::Resource.new((model == GuestMessage) ? "message" : "project_messages")
+      get path(resource, :index, nil, locale: :cn)
+      assert_select ".admin-message-inbox #record-#{id}" do
+        assert_select "script", count: 0
+        assert_select ".admin-message-preview", text: "<script>bad()</script>"
+        assert_select ".admin-badge", text: "尚未评分"
+        assert_select "input[name='ids[]'][form='admin-message-bulk'][value='#{id}']"
+      end
+      get path(resource, :index, nil, view: :table, per_page: 1, locale: :en)
+      assert_select ".admin-message-inbox", count: 0
+      assert_select "table #record-#{id}"
+      assert_select "input[name='view'][value='table']"
+      assert_select ".admin-locale a[href*='view=table'][href*='per_page=1']"
+      get path(resource, :index, nil, format: :csv, view: :inbox, per_page: 1)
+      assert_includes response.body, "Inbox sender"
+      assert_includes response.body, "<script>bad()</script>"
+    end
+  end
+
+  test "bulk message deletion is module and page scoped and rejects invalid selections" do
+    sign_in
+    [GuestMessage, ProjectMessage].each_with_index do |model, index|
+      base_id = 99300 + index * 10
+      rows = 3.times.map { |i| {id: base_id + i, name: "Batch #{i}", created_at: Time.current, updated_at: Time.current} }
+      model.insert_all!(rows)
+      resource = Admin::Resource.new((model == GuestMessage) ? "message" : "project_messages")
+      endpoint = path(resource, :bulk_destroy)
+      selections = [[base_id.to_s], [(base_id + 2).to_s, "999999999"], [], "invalid", [(base_id + 2).to_s] * 101, [(base_id + 2).to_s] * 2]
+      selections.each do |ids|
+        assert_no_difference "#{model.name}.count" do
+          delete endpoint, params: {ids: ids, page: 1, per_page: 2}
+          assert_response :see_other
+        end
+      end
+      assert_difference "#{model.name}.count", -2 do
+        delete path(resource, :bulk_destroy, nil, locale: :en), params: {ids: [(base_id + 1).to_s, (base_id + 2).to_s], page: 1, per_page: 2, view: :table}
+      end
+      assert model.exists?(base_id)
+      assert_includes response.location, "view=table"
+      assert_includes response.location, "locale=en"
+      assert_includes response.location, "per_page=2"
+    end
+    assert_no_difference "Admin::User.count" do
+      delete "/admin/users/bulk_destroy"
+      assert_response :not_found
+    end
+  end
+
+  test "bulk deletion rolls back earlier deletes when a later record cannot be destroyed" do
+    sign_in
+    ids = [99401, 99402]
+    ProjectMessage.insert_all!(ids.map { |id| {id: id, name: "Atomic", created_at: Time.current, updated_at: Time.current} })
+    callback = -> { throw(:abort) if id == ids.first }
+    ProjectMessage.set_callback(:destroy, :before, callback)
+    assert_no_difference "ProjectMessage.count" do
+      delete bulk_destroy_admin_project_messages_path, params: {ids: ids.map(&:to_s)}
+      assert_response :see_other
+    end
+    assert_equal ids, ProjectMessage.where(id: ids).order(:id).pluck(:id)
+  ensure
+    ProjectMessage.skip_callback(:destroy, :before, callback) if callback
+  end
+
+  test "bulk deletion retains CSRF protection" do
+    sign_in
+    previous = ActionController::Base.allow_forgery_protection
+    ActionController::Base.allow_forgery_protection = true
+    delete bulk_destroy_admin_project_messages_path, params: {ids: ["1"]}
+    assert_response :unprocessable_entity
+  ensure
+    ActionController::Base.allow_forgery_protection = previous
+  end
 end

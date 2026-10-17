@@ -1,0 +1,16 @@
+<div class="admin-view-toolbar">
+  <span class="text-sm text-gray-500"><%= t('admin.messages.total', count: @records.total_count) %></span>
+  <nav class="admin-view-switch admin-button-group" aria-label="<%= t('admin.messages.views') %>">
+    <% %w[inbox table].each do |view| %>
+      <% current = admin_list_context.fetch('view', 'inbox') == view %>
+      <%= link_to t("admin.messages.#{view}"), admin_list_path(view: view), class: ['admin-button-secondary', ('admin-view-current' if current)], aria: {current: current ? 'true' : nil} %>
+    <% end %>
+  </nav>
+</div>
+<% if @records.any? %>
+  <%= form_with url: admin_resource_path(@resource, :bulk_destroy), method: :delete, local: true, id: 'admin-message-bulk', class: 'admin-message-selection', data: {admin_message_bulk: true, selected: t('admin.messages.selected', count: '__COUNT__'), confirm_template: t('admin.messages.confirm_count', count: '__COUNT__')} do %>
+    <% admin_list_context.merge('locale' => admin_locale).each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>
+    <div class="min-w-0"><p class="font-semibold text-sm" data-admin-message-count hidden><%= t('admin.messages.selected', count: 0) %></p><p class="text-sm text-gray-500 mt-1"><%= t('admin.messages.selection_hint') %></p><label class="admin-checkbox-label mt-3" data-admin-select-page-label hidden><input type="checkbox" class="admin-checkbox" data-admin-select-page><%= t('admin.messages.select_page') %></label><noscript><label class="admin-checkbox-label mt-3"><input type="checkbox" class="admin-checkbox" required><%= t('admin.messages.confirm') %></label></noscript></div>
+    <button type="submit" class="admin-button-danger admin-danger-link" data-admin-bulk-delete data-confirm="<%= t('admin.messages.confirm') %>"><%= t('admin.messages.delete_selected') %></button>
+  <% end %>
+<% end %>

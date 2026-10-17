@@ -347,7 +347,8 @@
       },
       "new_project_1_id": {
         "type": "text_field",
-        "label": "项目 1 · 最新项目 1 的作品 ID"
+        "label": "项目 1 · 最新项目 1 的作品 ID",
+        "record_picker": "works"
       },
       "new_project_photo_2l": {
         "type": "file_field",
@@ -355,7 +356,8 @@
       },
       "new_project_2_id": {
         "type": "text_field",
-        "label": "项目 2 · 最新项目 2 的作品 ID"
+        "label": "项目 2 · 最新项目 2 的作品 ID",
+        "record_picker": "works"
       },
       "new_project_photo_3w": {
         "type": "file_field",
@@ -363,7 +365,8 @@
       },
       "new_project_3_id": {
         "type": "text_field",
-        "label": "项目 3 · 最新项目 3 的作品 ID"
+        "label": "项目 3 · 最新项目 3 的作品 ID",
+        "record_picker": "works"
       },
       "new_project_photo_4": {
         "type": "file_field",
@@ -371,7 +374,8 @@
       },
       "new_project_4_id": {
         "type": "text_field",
-        "label": "项目 4 · 最新项目 4 的作品 ID"
+        "label": "项目 4 · 最新项目 4 的作品 ID",
+        "record_picker": "works"
       },
       "new_project_photo_5": {
         "type": "file_field",
@@ -379,7 +383,8 @@
       },
       "new_project_5_id": {
         "type": "text_field",
-        "label": "项目 5 · 最新项目 5 的作品 ID"
+        "label": "项目 5 · 最新项目 5 的作品 ID",
+        "record_picker": "works"
       },
       "new_project_photo_6": {
         "type": "file_field",
@@ -387,7 +392,8 @@
       },
       "new_project_6_id": {
         "type": "text_field",
-        "label": "项目 6 · 最新项目 6 的作品 ID"
+        "label": "项目 6 · 最新项目 6 的作品 ID",
+        "record_picker": "works"
       },
       "info_1_photo": {
         "type": "file_field",
@@ -395,7 +401,8 @@
       },
       "info_1_id": {
         "type": "text_field",
-        "label": "新闻 1 · 最新新闻 1 ID"
+        "label": "新闻 1 · 最新新闻 1 ID",
+        "record_picker": "infos"
       },
       "info_2_photo": {
         "type": "file_field",
@@ -403,7 +410,8 @@
       },
       "info_2_id": {
         "type": "text_field",
-        "label": "新闻 2 · 最新新闻 2 ID"
+        "label": "新闻 2 · 最新新闻 2 ID",
+        "record_picker": "infos"
       },
       "info_3_photo": {
         "type": "file_field",
@@ -411,7 +419,8 @@
       },
       "info_3_id": {
         "type": "text_field",
-        "label": "新闻 3 · 最新新闻 3 ID"
+        "label": "新闻 3 · 最新新闻 3 ID",
+        "record_picker": "infos"
       },
       "hero_news_photo": {
         "type": "file_field",
@@ -423,7 +432,8 @@
       },
       "hero_news_id": {
         "type": "text_field",
-        "label": "重点新闻 · 新闻ID"
+        "label": "重点新闻 · 新闻ID",
+        "record_picker": "infos"
       },
       "hero_news_title_cap": {
         "type": "text_field",
@@ -934,7 +944,7 @@
     "model": "Picture",
     "param": "picture",
     "singleton": false,
-    "actions": ["index", "new", "create", "edit", "update", "destroy"],
+    "actions": ["index", "show", "new", "create", "edit", "update", "destroy"],
     "fields": {
       "image": {
         "type": "file_field",
@@ -942,7 +952,8 @@
       },
       "info_id": {
         "type": "text_field",
-        "label": "新闻ID"
+        "label": "新闻ID",
+        "record_picker": "infos"
       }
     }
   },

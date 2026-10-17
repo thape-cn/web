@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 class Admin::PicturesController < Admin::ResourcesController
+  def show
+    @picture_usages = Admin::PictureUsage.new.call([@record])
+    response.headers["Cache-Control"] = "no-store"
+    if request.xhr?
+      render partial: "admin/pictures/details", locals: {picture: @record}
+    else
+      render "admin/pictures/show"
+    end
+  end
+
   def upload
     picture = Picture.new(image: params[:upload_file])
     if picture.save

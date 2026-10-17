@@ -34,6 +34,20 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | File upload areas and local previews            | `forms/form-layouts/01-stacked.html` (cover photo field)                                            |
 | Buttons and native upload buttons               | `elements/buttons/01-primary-buttons.html`, `elements/buttons/02-secondary-buttons.html`            |
 
+Additional workflows use these references:
+
+| Admin view                                     | Tailwind Plus template                                                |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| Homepage project/news and picture news pickers | `forms/comboboxes/05-with-secondary-text.html`                        |
+| Picture inspection drawer                      | `overlays/drawers/09-file-details-example.html`                       |
+| Picture and message action menus               | `elements/dropdowns/04-with-minimal-menu-icon.html`                   |
+| Message inbox previews                         | `lists/stacked-lists/14-narrow-with-truncated-content.html`           |
+| Message inbox container                        | `layout/list-containers/02-card-with-dividers.html`                   |
+| Message sender initials                        | `elements/avatars/08-circular-avatars-with-placeholder-initials.html` |
+| Selected-message cleanup panel                 | `forms/action-panels/03-with-button-on-right.html`                    |
+
+See [the complete component inventory](admin-components.md) for all 49 families.
+
 The application uses Tailwind 1.9. Template utilities from v4 are translated to
 supported utilities and reusable `@apply` components in
 `app/packs/stylesheets/admin/application.scss`. Newer inset rings use inset
@@ -254,3 +268,50 @@ dashboard, filtered list, editor, media grid, module search and deletion dialogs
 under `tmp/screenshots/admin/components`. Build production assets with a separate
 Shakapacker output/cache directory, then check both normal and interactive states
 in that CSS so PurgeCSS does not remove dialog, focus, selection or error styles.
+
+## Record pickers, picture inspection and messages
+
+The homepage's six project IDs, three news IDs and hero-news ID, and the picture
+editor's optional legacy news ID use searchable record pickers. Their existing
+parameter names and stored IDs are unchanged. `GET /admin/record_options`
+requires an admin session, allowlists `resource=works|infos`, accepts `q` and the
+content locale, and returns at most 20 `{id, label, published}` options. Numeric
+queries (with optional `#`) match an exact ID; other queries match literal title
+substrings. Project titles use the chosen content language, and unpublished
+projects remain available with their status visible. News has no publication
+status, represented by `null`.
+
+Selected records load with the form, including unresolved IDs, which remain
+visible and are retained until changed. The enhanced input supports arrows,
+Enter, Escape and clearing; unfinished search text blocks form submission until
+selected or cleared. Empty results and failed requests appear below the field.
+The original ID input remains usable without JavaScript. No new record validation
+or public publication behavior is introduced.
+
+Picture grid and list rows have a Details link to `GET /admin/pictures/:id`.
+Ordinary navigation renders a full page; same-origin XHR requests render its
+shared details fragment in a native right-side dialog. The inspector shows the
+existing file, filename, ID, extension, timestamps and saved-content references,
+including localized owner-editor links and separate legacy news associations.
+Its action menu opens the original file, edits the picture or uses the existing
+deletion confirmation. Failed image loads use a placeholder; failed detail
+requests provide a full-page link. Escape, Close and backdrop dismissal restore
+focus. Menus support arrows, Home/End and Escape without closing their parent
+dialog. No file metadata is fetched from external services.
+
+Both message modules default to `view=inbox`, with `view=table` available.
+The view survives filtering, pagination and content-language changes. Inbox rows
+show sender initials, company, timestamp, an escaped two-line message preview,
+existing spam score (or Not scored), details and deletion. Full details and
+Export all CSV retain their existing behavior. Selection never changes exports.
+
+Individual message checkboxes work without JavaScript, with a required native
+confirmation checkbox before deletion. Enhancement adds Select
+this page, selected counts and a count-specific confirmation. Collection
+`DELETE /admin/message/bulk_destroy` and
+`DELETE /admin/project_messages/bulk_destroy` require authentication and CSRF,
+accept `ids[]` and normalized list context, and validate 1–100 unique positive
+IDs against the selected module and current page. Invalid or stale selections
+delete nothing. Locked records are destroyed in one transaction; a failed
+callback rolls back earlier deletions. Selection clears on navigation. There are
+no new database tables, read states, automatic spam actions or dependencies.

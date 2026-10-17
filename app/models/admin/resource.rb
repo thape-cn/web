@@ -107,6 +107,7 @@ class Admin::Resource
       context[field] = ((field == "per_page") ? value.to_i.clamp(1, 100) : [value.to_i, 1].max).to_s if value.match?(/\A\d+\z/)
     end
     context["view"] = params[:view] if key == "pictures" && %w[grid list].include?(params[:view])
+    context["view"] = params[:view] if messages? && %w[inbox table].include?(params[:view])
     context
   end
 

@@ -549,4 +549,186 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
   ensure
     file&.close!
   end
+
+  test "record pickers preserve selections support keyboard clear and block unfinished searches" do
+    work = Admin::Work.create!(id: 99501, city_id: cities(:city_1).id, published: false)
+    Admin::Work.translation_class.insert_all!([{id: 99501, work_id: work.id, locale: "cn", project_name: "Picker browser work", created_at: Time.current, updated_at: Time.current}])
+    home = TailHome.first || TailHome.create!(id: 99501)
+    home.update!(new_project_1_id: work.id, new_project_2_id: 999999999)
+    visit edit_admin_tail_home_path
+    picker = find("[data-admin-record-picker]", match: :first)
+    within(picker) do
+      assert_selector '[data-admin-picker-search][value*="Picker browser work"]'
+      assert_selector '[data-admin-picker-id][value="99501"]', visible: :hidden
+      assert_text "未发布"
+      find("[data-admin-picker-search]").set("Unfinished query")
+      assert page.evaluate_script("document.querySelector('[data-admin-picker-search]').validity.customError")
+      find("[data-admin-picker-search]").set("#99501")
+      assert_selector '[role="option"]', text: "Picker browser work"
+      find("[data-admin-picker-search]").send_keys(:arrow_down, :enter)
+      assert_selector '[data-admin-picker-search][value*="Picker browser work"]'
+      find("[data-admin-picker-clear]").click
+      assert_equal "", find("[data-admin-picker-id]", visible: :hidden).value
+      find("[data-admin-picker-search]").set("#99501")
+      assert_selector '[role="option"]'
+      find("[data-admin-picker-search]").send_keys(:arrow_down, :enter)
+    end
+    assert_selector '[data-admin-picker-search][value*="999999999"]'
+    [1400, 390].each do |width|
+      resize_viewport(width, 1000)
+      within(picker) do
+        find("[data-admin-picker-search]").click
+        assert_selector '[role="option"]'
+        screenshot("record-picker-#{width}")
+        find("[data-admin-picker-search]").send_keys(:escape)
+        assert_no_selector '[role="listbox"]'
+      end
+      assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    end
+    click_button "保存"
+    assert_selector ".admin-alert-success", text: "保存成功"
+    assert_equal work.id, home.reload.new_project_1_id
+    assert_equal 999999999, home.new_project_2_id
+  end
+
+  test "picture inspector loads details supports menus cancellation and full page fallback" do
+    picture = Picture.new(id: 99511)
+    picture.save!(validate: false)
+    picture.update_column(:image, "missing-inspector.png")
+    picture.reload
+    news = Admin::Info.create!(id: 99511, title: "Inspector owner", introduction: "Intro", content: "<img src='#{picture.image.url}'>")
+    visit admin_pictures_path
+    [1400, 390].each do |width|
+      resize_viewport(width, 1000)
+      within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
+      assert_selector "#admin-picture-drawer[open] [data-admin-picture-details]"
+      within("#admin-picture-drawer") do
+        assert_text "missing-inspector.png"
+        assert_selector ".admin-picture-usage-links a[href*='/admin/infos/#{news.id}/edit']"
+        assert_selector "[data-admin-media-placeholder]", text: "暂无图片"
+        find("summary").click
+        assert_selector "details[open]"
+        screenshot("picture-inspector-menu-#{width}")
+        page.send_keys(:escape)
+        assert_no_selector "details[open]"
+        assert_selector "summary:focus"
+        assert page.evaluate_script("document.getElementById('admin-picture-drawer').open")
+        find("summary").click
+        click_button "删除"
+      end
+      assert_selector "#admin-confirmation[open]"
+      screenshot("picture-inspector-confirm-#{width}")
+      within("#admin-confirmation") { click_button "取消" }
+      assert Picture.exists?(picture.id)
+      assert_selector "#admin-picture-drawer[open]"
+      page.send_keys(:escape)
+      assert_no_selector "#admin-picture-drawer details[open]"
+      page.send_keys(:escape)
+      assert_no_selector "#admin-picture-drawer[open]"
+      assert_selector "#record-#{picture.id} [data-admin-picture-open]:focus"
+      assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    end
+    visit admin_picture_path(picture)
+    assert_selector "[data-admin-picture-details]"
+    assert_no_selector "#admin-picture-drawer"
+    visit admin_pictures_path
+    within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
+    within("#admin-picture-drawer") do
+      assert_selector "[data-admin-picture-details]"
+      find("summary").click
+      click_button "删除"
+    end
+    within("#admin-confirmation") { click_button "确认删除" }
+    assert_selector ".admin-alert-success", text: "删除成功"
+    assert_not Picture.exists?(picture.id)
+  end
+
+  test "message inbox and table selection confirm only current page and clear after navigation" do
+    ProjectMessage.insert_all!(3.times.map { |i| {id: 99520 + i, name: "Message sender #{i}", company: "Company", message: "<script>unsafe()</script>" * 20, spam_score: i.zero? ? nil : 8, created_at: Time.current, updated_at: Time.current} })
+    [1400, 390].each do |width|
+      resize_viewport(width, 1000)
+      visit admin_project_messages_path(per_page: 2)
+      assert_selector ".admin-message-inbox > li", count: 2
+      assert_no_selector ".admin-message-preview script"
+      assert_button "删除所选留言", disabled: true
+      find('[data-admin-message-select][value="99522"]').check
+      assert_text "已选择 1 条留言"
+      assert page.evaluate_script("document.querySelector('[data-admin-select-page]').indeterminate")
+      screenshot("message-inbox-#{width}")
+      check "选择本页"
+      assert_text "已选择 2 条留言"
+      click_button "删除所选留言"
+      assert_selector "#admin-confirmation", text: "确认删除所选的 2 条留言"
+      screenshot("message-bulk-confirm-#{width}")
+      within("#admin-confirmation") { click_button "取消" }
+      assert_equal 3, ProjectMessage.where(id: 99520..99522).count
+      click_link "表格", exact: true
+      assert_selector ".admin-table tbody tr", count: 2
+      assert_button "删除所选留言", disabled: true
+      check "选择本页"
+      screenshot("message-table-#{width}")
+      click_link "收件箱", exact: true
+      assert_button "删除所选留言", disabled: true
+      assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    end
+    check "选择本页"
+    click_button "删除所选留言"
+    within("#admin-confirmation") { click_button "确认删除" }
+    assert_selector ".admin-alert-success", text: "已删除 2 条留言"
+    assert_equal [99520], ProjectMessage.where(id: 99520..99522).pluck(:id)
+  end
+
+  test "picker and drawer request failures provide recoverable states" do
+    visit edit_admin_tail_home_path
+    page.execute_script("window.fetch = () => Promise.reject(new Error('Offline test'))")
+    picker = find("[data-admin-record-picker]", match: :first)
+    within(picker) do
+      find("[data-admin-picker-search]").set("unavailable")
+      assert_text "查找失败，请重试。"
+      find("[data-admin-picker-clear]").click
+    end
+    picture = Picture.new(id: 99531)
+    picture.save!(validate: false)
+    picture.update_column(:image, "failure.png")
+    visit admin_pictures_path
+    page.execute_script("window.fetch = () => Promise.reject(new Error('Offline test'))")
+    within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
+    within("#admin-picture-drawer") do
+      assert_text "无法加载图片详情。"
+      click_link "打开详情页"
+    end
+    assert_current_path admin_picture_path(picture, locale: :cn)
+    assert_selector "[data-admin-picture-details]"
+  end
+
+  test "record inputs picture links and individual message selection work without JavaScript" do
+    page.driver.browser.execute_cdp("Emulation.setScriptExecutionDisabled", value: true)
+    home = TailHome.first || TailHome.create!(id: 99560)
+    visit edit_admin_tail_home_path
+    assert_selector "[data-admin-picker-id]", count: 10
+    assert_no_selector "[data-admin-picker-controls]"
+    find('input[name="tail_home[new_project_1_id]"]').set("999999999")
+    click_button "保存"
+    assert_selector ".admin-alert-success", text: "保存成功"
+    assert_equal 999999999, home.reload.new_project_1_id
+
+    picture = Picture.new(id: 99560)
+    picture.save!(validate: false)
+    picture.update_column(:image, "native-fallback.png")
+    visit admin_pictures_path
+    within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
+    assert_selector "[data-admin-picture-details]"
+    assert_no_selector "#admin-picture-drawer"
+
+    ProjectMessage.insert_all!([{id: 99560, name: "Native selection", message: "No script", created_at: Time.current, updated_at: Time.current}])
+    visit admin_project_messages_path
+    assert_no_selector "[data-admin-message-count]"
+    find('[data-admin-message-select][value="99560"]').check
+    find("noscript input[required]").check
+    click_button "删除所选留言"
+    assert_selector ".admin-alert-success", text: "已删除 1 条留言"
+    assert_not ProjectMessage.exists?(99560)
+  ensure
+    page.driver.browser.execute_cdp("Emulation.setScriptExecutionDisabled", value: false)
+  end
 end

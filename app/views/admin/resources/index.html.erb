@@ -2,6 +2,7 @@
 <% search_field = @resource.search_field %>
 <% filtered = admin_list_context.slice('q', *@resource.filters.keys).any? %>
 <%= render 'admin/shared/heading', title: @resource.label, description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource), actions: admin_index_actions(@resource) %>
+<% if @resource.key == 'pictures' %><%= render 'admin/pictures/drawer' %><% end %>
 <% if @resource.ordered? %>
   <dialog id="admin-order-dialog" class="admin-dialog admin-order-dialog" aria-labelledby="admin-order-dialog-title" data-admin-order-dialog>
     <div class="admin-order-dialog-heading">
@@ -11,7 +12,7 @@
     <div data-admin-order-content></div>
   </dialog>
 <% end %>
-<div class="<%= @resource.key == 'seos' ? 'admin-seo-list' : 'admin-panel admin-list-panel overflow-hidden' %>">
+<div class="<%= @resource.key == 'seos' ? 'admin-seo-list' : 'admin-panel admin-list-panel overflow-hidden' %> <%= 'admin-message-panel' if @resource.messages? %>">
   <% if @resource.tab_filter %><%= render 'admin/shared/filter_tabs', resource: @resource, field: @resource.tab_filter %><% end %>
   <%= form_with url: admin_resource_path(@resource), method: :get, local: true, class: ['admin-filter-bar', ('admin-picture-filters' if @resource.key == 'pictures')] do |form| %>
     <%= hidden_field_tag :locale, admin_locale %>
@@ -26,11 +27,13 @@
       <div class="admin-filter-select"><%= form.label field, label, class: 'text-sm text-gray-500' %><%= form.select field, options_for_select(@resource.filter_options(field), admin_list_context[field]), { include_blank: @resource.key == 'pictures' ? t('admin.picture_filters.all') : "全部#{label}" }, class: 'admin-input' %></div>
     <% end %>
     <% if @resource.key == 'pictures' %><%= hidden_field_tag :view, admin_list_context.fetch('view', 'grid') %><% end %>
+    <% if @resource.messages? %><%= hidden_field_tag :view, admin_list_context.fetch('view', 'inbox') %><% end %>
     <% page_size = admin_list_context.fetch('per_page', '25').to_i %>
     <div class="admin-filter-select"><%= form.label :per_page, '每页条数', class: 'text-sm text-gray-500 whitespace-no-wrap' %><%= form.select :per_page, options_for_select(([25, 50, 100] + [page_size]).uniq.sort, page_size), {}, class: 'admin-input' %></div>
     <%= form.submit '筛选', class: 'admin-button-secondary' %>
   <% end %>
   <%= render 'admin/shared/active_filters', filters: admin_active_filters %>
+  <% if @resource.messages? %><%= render 'admin/shared/message_toolbar' %><% end %>
   <% if @resource.key == 'pictures' %>
     <div class="admin-view-toolbar">
       <span class="text-sm text-gray-500">共 <%= @records.total_count %> 张图片</span>
@@ -45,6 +48,8 @@
   <% if @records.empty? %>
     <% empty_action = filtered ? {label: '清除筛选', path: admin_clear_filters_path, secondary: true} : (@resource.allows?(:new) ? {label: '新建第一条记录', path: admin_resource_path(@resource, :new)} : nil) %>
     <%= render 'admin/shared/empty_state', icon: filtered ? 'search' : 'folder', title: filtered ? '没有找到匹配的记录' : '暂无记录', description: filtered ? '试试其他关键词或清除筛选条件。' : '此模块的内容会显示在这里。', action: empty_action %>
+  <% elsif @resource.messages? && admin_list_context.fetch('view', 'inbox') == 'inbox' %>
+    <%= render 'admin/shared/message_inbox' %>
   <% elsif @resource.key == 'pictures' && admin_list_context.fetch('view', 'grid') == 'grid' %>
     <ul class="admin-media-grid" aria-label="图片库">
       <% @records.each do |record| %>
@@ -82,6 +87,7 @@
       <table class="admin-table min-w-full" <%= 'data-admin-order-table' if @resource.ordered? %>>
         <caption class="sr-only"><%= @resource.label %>列表</caption>
         <thead><tr>
+          <% if @resource.messages? %><th scope="col"><span class="sr-only"><%= t('admin.messages.select_page') %></span></th><% end %>
           <% if @resource.ordered? %><th scope="col" class="admin-order-column" aria-sort="ascending">展示顺序</th><% end %>
           <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
           <th scope="col" class="admin-table-actions">操作</th>
@@ -89,11 +95,14 @@
         <tbody class="bg-white">
           <% @records.each do |record| %>
             <tr id="record-<%= record.id %>" <%= tag.attributes(data: { record_id: record.id, reorder_url: admin_resource_path(@resource, :reorder, record) }) if @resource.ordered? %>>
+              <% if @resource.messages? %><td><%= render 'admin/shared/message_selection', record: record %></td><% end %>
               <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
               <% @resource.columns.each_with_index do |field, index| %>
                 <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %>">
                   <% if @resource.key == 'pictures' && field == 'usage' %>
                     <%= render 'admin/shared/picture_usage', picture: record %>
+                  <% elsif @resource.messages? && field == 'spam_score' %>
+                    <%= record.spam_score.nil? ? t('admin.messages.not_scored') : t('admin.messages.score', score: record.spam_score) %>
                   <% elsif @resource.fields.dig(field, 'type') == 'file_field' %>
                     <%= admin_upload_preview(record.public_send(field)) || '—' %>
                   <% elsif @resource.fields.dig(field, 'type') == 'check_box' %>
@@ -105,7 +114,7 @@
                 </td>
               <% end %>
               <td class="admin-table-actions">
-                <%= render 'admin/shared/record_actions', resource: @resource, record: record %>
+                <% if @resource.messages? %><%= render 'admin/shared/message_actions', record: record %><% else %><%= render 'admin/shared/record_actions', resource: @resource, record: record %><% end %>
               </td>
             </tr>
           <% end %>

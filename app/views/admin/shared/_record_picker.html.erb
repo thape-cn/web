@@ -1,0 +1,12 @@
+<% selection = admin_record_picker_selection(options.fetch('record_picker'), form.object.public_send(field)) %>
+<div class="admin-record-picker" data-admin-record-picker data-url="<%= admin_record_options_path(resource: options.fetch('record_picker')) %>" data-loading="<%= t('admin.record_picker.loading') %>" data-empty="<%= t('admin.record_picker.empty') %>" data-failed="<%= t('admin.record_picker.failed') %>" data-pending="<%= t('admin.record_picker.pending') %>" data-published="<%= t('admin.record_picker.published') %>" data-unpublished="<%= t('admin.record_picker.unpublished') %>">
+  <%= form.text_field field, **field_attributes, data: {admin_picker_id: true} %>
+  <div data-admin-picker-controls hidden>
+    <div class="admin-picker-input">
+      <%= search_field_tag nil, selection[:label], id: "#{form.field_id(field)}_search", class: 'admin-input', placeholder: t('admin.record_picker.placeholder'), autocomplete: 'off', role: 'combobox', aria: {autocomplete: 'list', expanded: false, controls: "#{form.field_id(field)}_options"}, data: {admin_picker_search: true} %>
+      <button type="button" class="admin-icon-button" data-admin-picker-clear aria-label="<%= t('admin.record_picker.clear') %>"><%= admin_icon('close') %></button>
+    </div>
+    <ul id="<%= form.field_id(field) %>_options" class="admin-picker-options" role="listbox" aria-label="<%= admin_field_label(resource, field) %>" hidden></ul>
+    <p class="admin-field-hint" role="status" data-admin-picker-status><%= selection[:status] %></p>
+  </div>
+</div>

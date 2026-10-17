@@ -1,0 +1,14 @@
+<ul class="admin-message-inbox" aria-label="<%= @resource.label %>">
+  <% @records.each do |record| %>
+    <li id="record-<%= record.id %>">
+      <%= render 'admin/shared/message_selection', record: record %>
+      <span class="admin-message-avatar" aria-hidden="true"><%= record.name.to_s.strip.first.presence || '?' %></span>
+      <div class="admin-message-body">
+        <div class="admin-message-heading"><h2><%= record.name.presence || t('admin.messages.unnamed') %></h2><time datetime="<%= record.created_at&.iso8601 %>"><%= record.created_at&.strftime('%Y-%m-%d %H:%M') %></time></div>
+        <% if record.company.present? %><p class="text-xs text-gray-500 mt-1 break-all"><%= record.company %></p><% end %>
+        <p class="admin-message-preview"><%= record.message %></p>
+        <div class="admin-message-footer"><span class="admin-badge admin-badge-neutral"><%= record.spam_score.nil? ? t('admin.messages.not_scored') : t('admin.messages.score', score: record.spam_score) %></span><%= render 'admin/shared/message_actions', record: record %></div>
+      </div>
+    </li>
+  <% end %>
+</ul>

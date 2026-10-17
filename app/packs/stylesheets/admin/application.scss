@@ -1696,3 +1696,234 @@
     transition: none;
   }
 }
+
+// Record pickers, file inspection and message inbox references (see docs/admin-ui.md).
+.admin .admin-record-picker {
+  position: relative;
+}
+.admin .admin-picker-input {
+  position: relative;
+}
+.admin .admin-picker-input input {
+  padding-right: 48px;
+}
+.admin .admin-picker-input input::-webkit-search-cancel-button {
+  display: none;
+}
+.admin .admin-picker-input button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  min-height: 36px;
+}
+.admin .admin-picker-options {
+  @apply absolute bg-white rounded-md shadow-lg py-1 text-sm;
+  z-index: 25;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 4px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.admin .admin-picker-options li {
+  @apply px-3 py-2 text-gray-900 cursor-pointer;
+  overflow-wrap: anywhere;
+}
+.admin .admin-picker-secondary {
+  @apply text-gray-500;
+  margin-left: 8px;
+}
+.admin .admin-picker-options li:hover,
+.admin .admin-picker-options li[aria-selected="true"] {
+  @apply bg-indigo-600 text-white;
+}
+.admin .admin-picker-options li:hover .admin-picker-secondary,
+.admin .admin-picker-options li[aria-selected="true"] .admin-picker-secondary {
+  @apply text-white;
+}
+.admin .admin-action-menu {
+  @apply relative flex-shrink-0;
+}
+.admin .admin-action-menu summary {
+  list-style: none;
+}
+.admin .admin-action-menu summary::-webkit-details-marker {
+  display: none;
+}
+.admin .admin-action-menu summary svg {
+  stroke-width: 4px;
+}
+.admin .admin-action-menu-items {
+  @apply absolute bg-white rounded-md shadow-lg py-1 text-sm;
+  z-index: 45;
+  right: 0;
+  width: 192px;
+  min-width: 192px;
+  max-width: calc(100vw - 16px);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.admin .admin-action-menu-items a,
+.admin .admin-action-menu-items button {
+  @apply block w-full text-left px-4 py-2 text-gray-700;
+  min-height: 36px;
+}
+.admin .admin-action-menu-items .admin-danger-link {
+  @apply text-red-700;
+}
+.admin .admin-action-menu-items a:hover,
+.admin .admin-action-menu-items button:hover {
+  @apply bg-gray-100;
+}
+.admin .admin-action-menu-items a:focus-visible,
+.admin .admin-action-menu-items button:focus-visible {
+  outline-offset: -2px;
+}
+.admin .admin-picture-drawer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+.admin .admin-picture-drawer::backdrop {
+  background: color-mix(in srgb, theme("colors.gray.500") 75%, transparent);
+}
+.admin .admin-picture-drawer-panel {
+  @apply bg-white shadow-xl p-6;
+  width: 448px;
+  max-width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  margin-left: auto;
+}
+.admin .admin-picture-drawer-heading {
+  @apply flex items-center justify-between mb-6;
+  gap: 16px;
+}
+.admin .admin-picture-page {
+  @apply p-6;
+  max-width: 768px;
+}
+.admin .admin-picture-preview {
+  @apply rounded-lg bg-gray-100 overflow-hidden;
+  min-height: 160px;
+}
+.admin .admin-picture-preview img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+.admin .admin-picture-preview img[hidden] {
+  display: none;
+}
+.admin .admin-picture-preview .admin-media-placeholder {
+  min-height: 160px;
+}
+.admin .admin-picture-metadata {
+  @apply border-t border-b border-gray-200 mt-6;
+}
+.admin .admin-picture-metadata > div {
+  @apply flex justify-between py-3 text-sm border-b border-gray-200;
+  gap: 16px;
+}
+.admin .admin-picture-metadata > div:last-child {
+  border-bottom: 0;
+}
+.admin .admin-picture-metadata dt {
+  @apply text-gray-500;
+  flex-shrink: 0;
+}
+.admin .admin-picture-metadata dd {
+  @apply text-gray-900 text-right;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.admin .admin-message-panel {
+  overflow: visible;
+}
+.admin .admin-message-selection {
+  @apply flex flex-wrap items-center justify-between px-4 py-5 border-t border-b border-gray-200;
+  gap: 16px 24px;
+}
+.admin .admin-message-selection > div {
+  flex: 1 1 240px;
+}
+.admin .admin-message-inbox > li {
+  @apply flex px-4 py-5 border-b border-gray-100;
+  gap: 16px;
+}
+.admin .admin-message-inbox > li > input {
+  @apply flex-shrink-0 mt-3;
+}
+.admin .admin-message-avatar {
+  @apply flex flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 text-sm font-medium;
+  width: 40px;
+  height: 40px;
+}
+.admin .admin-message-body {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+.admin .admin-message-heading {
+  @apply flex flex-wrap items-baseline justify-between;
+  gap: 4px 16px;
+}
+.admin .admin-message-heading h2 {
+  @apply text-sm font-semibold text-gray-900;
+  overflow-wrap: anywhere;
+}
+.admin .admin-message-heading time {
+  @apply text-xs text-gray-500;
+}
+.admin .admin-message-preview {
+  @apply text-sm text-gray-600 mt-2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.admin .admin-message-footer {
+  @apply flex flex-wrap items-center justify-between mt-3;
+  gap: 8px 16px;
+}
+@media (min-width: 640px) {
+  .admin .admin-message-selection,
+  .admin .admin-message-inbox > li {
+    @apply px-6;
+  }
+}
+@media (max-width: 639px) {
+  .admin .admin-picture-drawer-panel {
+    width: 100%;
+  }
+  .admin .admin-message-inbox > li {
+    gap: 12px;
+  }
+  .admin .admin-message-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (forced-colors: active) {
+  .admin .admin-picker-options,
+  .admin .admin-action-menu-items,
+  .admin .admin-message-avatar {
+    border: 1px solid CanvasText;
+  }
+  .admin .admin-picker-options li[aria-selected="true"] {
+    outline: 2px solid Highlight;
+  }
+}

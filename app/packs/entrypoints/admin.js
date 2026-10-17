@@ -7,6 +7,10 @@ import "admin/components"
 import "admin/uploads"
 import "admin/module_switcher"
 import "admin/confirmation"
+import "admin/record_picker"
+import "admin/action_menu"
+import "admin/picture_drawer"
+import "admin/messages"
 
 Rails.start()
 

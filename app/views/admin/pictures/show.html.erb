@@ -1,0 +1,3 @@
+<% content_for :page_title, t('admin.picture_details.title') %>
+<%= render 'admin/shared/heading', title: t('admin.picture_details.title'), breadcrumbs: admin_breadcrumbs(@resource, "##{@record.id}") %>
+<section class="admin-panel admin-picture-page"><%= render 'admin/pictures/details', picture: @record %></section>
