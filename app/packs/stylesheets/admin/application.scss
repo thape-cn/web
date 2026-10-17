@@ -222,15 +222,16 @@
 .admin .admin-feature-icon svg {
   @apply w-6 h-6;
 }
-.admin .admin-module-link {
-  @apply flex items-center rounded-md p-3 text-sm font-medium text-gray-700;
-  gap: 12px;
+.admin .admin-module-heading {
+  @apply flex flex-wrap items-center justify-between px-4 py-5 border-b border-gray-200;
+  gap: 8px 16px;
 }
-.admin .admin-module-link > svg:first-child {
-  @apply text-gray-400;
+.admin .admin-module-navigation {
+  @apply px-4 py-5;
 }
-.admin .admin-module-link:hover {
-  @apply bg-gray-50 text-indigo-700;
+.admin .admin-module-navigation ul {
+  margin-right: -8px;
+  margin-left: -8px;
 }
 .admin .admin-link {
   @apply font-medium text-indigo-600;
@@ -655,7 +656,14 @@
   max-width: 100%;
 }
 .admin .admin-file-input::file-selector-button {
-  @apply bg-white border border-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-700 mr-3 cursor-pointer;
+  @apply bg-white border-0 rounded-md px-3 py-2 text-sm font-semibold text-gray-900 mr-3 cursor-pointer;
+  line-height: 20px;
+  box-shadow:
+    inset 0 0 0 1px theme("colors.gray.300"),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.admin .admin-file-input::file-selector-button:hover {
+  @apply bg-gray-50;
 }
 .admin .admin-preview {
   @apply block mb-3 rounded-md border border-gray-200;
@@ -974,18 +982,24 @@
   @apply flex flex-wrap;
   gap: 4px;
 }
+.admin .admin-module-link,
 .admin .admin-section-navigation a {
   @apply flex items-center text-sm font-semibold text-gray-700 rounded-md p-2;
   gap: 12px;
   line-height: 24px;
 }
+.admin .admin-module-link svg,
 .admin .admin-section-navigation a svg {
   @apply w-6 h-6 text-gray-400;
 }
+.admin .admin-module-link:hover,
+.admin .admin-module-link:focus-visible,
 .admin .admin-section-navigation a:hover,
 .admin .admin-section-navigation a:focus-visible {
   @apply text-indigo-600 bg-gray-50;
 }
+.admin .admin-module-link:hover svg,
+.admin .admin-module-link:focus-visible svg,
 .admin .admin-section-navigation a:hover svg,
 .admin .admin-section-navigation a:focus-visible svg {
   @apply text-indigo-600;
@@ -1408,6 +1422,10 @@
     border: 1px solid ButtonText;
     box-shadow: none;
   }
+  .admin .admin-file-input::file-selector-button {
+    border: 1px solid ButtonText;
+    box-shadow: none;
+  }
   .admin .admin-input:focus {
     outline: 2px solid Highlight;
     outline-offset: -2px;
@@ -1441,6 +1459,12 @@
   }
   .admin .admin-editor-heading {
     @apply px-0;
+  }
+  .admin .admin-module-heading {
+    @apply px-6;
+  }
+  .admin .admin-module-navigation {
+    @apply p-6;
   }
   .admin .admin-topbar {
     @apply px-6;

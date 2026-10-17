@@ -35,15 +35,15 @@
 <section aria-labelledby="all-modules-heading">
   <div class="flex items-center justify-between mb-4"><h2 id="all-modules-heading" class="text-base font-semibold">全部管理模块</h2><span class="text-xs text-gray-500"><%= Admin::Resource.all.size %> 个模块</span></div>
   <div class="grid gap-6 md:grid-cols-2">
-    <% admin_navigation_groups.each do |group| %>
-      <div class="admin-panel overflow-hidden">
-        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100"><h3 class="text-sm font-semibold"><%= group[:label] %></h3><span class="text-xs text-gray-500"><%= group[:resources].size %> 个模块</span></div>
-        <div class="p-2">
+    <% admin_navigation_groups.each_with_index do |group, index| %>
+      <section class="admin-panel overflow-hidden" aria-labelledby="module-group-<%= index %>">
+        <div class="admin-module-heading"><h3 id="module-group-<%= index %>" class="text-base font-semibold"><%= group[:label] %></h3><span class="text-xs text-gray-500"><%= group[:resources].size %> 个模块</span></div>
+        <nav class="admin-module-navigation" aria-labelledby="module-group-<%= index %>"><ul role="list" class="space-y-1">
           <% group[:resources].each do |resource| %>
-            <%= link_to admin_resource_path(resource), class: 'admin-module-link' do %><%= admin_resource_icon(resource) %><span><%= resource.label %></span><%= admin_icon('arrow', class: 'w-4 h-4 ml-auto text-gray-400') %><% end %>
+            <li><%= link_to admin_resource_path(resource), class: 'admin-module-link' do %><%= admin_resource_icon(resource) %><span><%= resource.label %></span><% end %></li>
           <% end %>
-        </div>
-      </div>
+        </ul></nav>
+      </section>
     <% end %>
   </div>
 </section>

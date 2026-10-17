@@ -28,6 +28,40 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     page.save_screenshot(directory.join("#{name}.png")) # standard:disable Lint/Debugger
   end
 
+  test "dashboard module groups share the reference navigation and keyboard behavior" do
+    assert_selector ".admin-module-navigation li a", count: Admin::Resource.all.size
+    Admin::ApplicationHelper::NAVIGATION_GROUPS.each_with_index do |group, index|
+      assert_selector "nav[aria-labelledby='module-group-#{index}'] li", count: group[:keys].size
+      assert_selector "#module-group-#{index}", text: group[:label]
+    end
+    [320, 640, 1024].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Module groups should align with their card headings at #{width}px"
+        (() => {
+          return Array.from(document.querySelectorAll('.admin-module-navigation')).every(nav => {
+            const heading = nav.previousElementSibling.querySelector('h3').getBoundingClientRect()
+            return Array.from(nav.querySelectorAll('a')).every(link => {
+              const bounds = link.getBoundingClientRect()
+              const icon = link.querySelector('svg').getBoundingClientRect()
+              return bounds.height === 40 && icon.width === 24 && icon.height === 24 &&
+                Math.abs(icon.left - heading.left) < 2 && bounds.right <= nav.getBoundingClientRect().right
+            })
+          }) && document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+      page.execute_script("document.querySelector('.admin-module-heading').scrollIntoView({block: 'center'})")
+      screenshot("module-groups-#{width}")
+    end
+    page.execute_script("document.querySelector('.admin-module-link').focus()")
+    page.send_keys(:tab)
+    page.send_keys([:shift, :tab])
+    assert_selector ".admin-module-link:focus-visible"
+    assert_equal page.evaluate_script("getComputedStyle(document.querySelector('.admin-module-link')).color"),
+      page.evaluate_script("getComputedStyle(document.querySelector('.admin-module-link svg')).color")
+    page.send_keys(:enter)
+    assert_current_path admin_works_path(locale: :cn)
+  end
+
   test "dashboard cards keep reference text rows at narrow desktop and tablet widths" do
     [320, 640, 768, 1024, 1280].each do |width|
       resize_viewport(width, 1000)
@@ -473,6 +507,18 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     file.flush
     picture = Picture.create!(id: 99105, image: Rack::Test::UploadedFile.new(file.path, "image/png"))
     visit edit_admin_picture_path(picture)
+    [390, 1280].each do |width|
+      resize_viewport(width, 1000)
+      assert page.evaluate_script(<<~JS), "Native upload buttons should match secondary actions at #{width}px"
+        (() => {
+          const upload = getComputedStyle(document.querySelector('.admin-file-input'), '::file-selector-button')
+          const action = getComputedStyle(document.querySelector('.admin-save-bar .admin-button-secondary'))
+          return ['fontSize', 'fontWeight', 'lineHeight', 'borderTopWidth', 'borderRadius', 'boxShadow', 'color']
+            .every(property => upload[property] === action[property]) &&
+            document.documentElement.scrollWidth <= innerWidth
+        })()
+      JS
+    end
     within("[data-admin-upload]") do
       assert_selector "[data-admin-upload-current] a", text: File.basename(file.path)
       attach_file "图片", file.path

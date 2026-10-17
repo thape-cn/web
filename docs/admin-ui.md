@@ -7,7 +7,8 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Admin view                                      | Tailwind Plus template                                                                              |
 | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Desktop sidebar, mobile drawer, header          | `application-shells/sidebar/04-dark-sidebar-with-header.html`                                       |
-| Dashboard links and module cards                | `lists/grid-lists/04-horizontal-link-cards.html`                                                    |
+| Dashboard quick links                           | `lists/grid-lists/04-horizontal-link-cards.html`                                                    |
+| Dashboard module groups                         | `layout/cards/03-card-with-header.html`, `navigation/vertical-navigation/04-with-icons.html`        |
 | Resource lists                                  | `lists/tables/03-simple-in-card.html`                                                               |
 | Editors, SEO, project galleries, city roles     | `forms/form-layouts/04-two-column-with-cards.html`                                                  |
 | Record details and messages                     | `data-display/description-lists/03-left-aligned-in-card.html`                                       |
@@ -31,6 +32,7 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Publication and visibility switches             | `forms/toggles/04-with-left-label-and-description.html`                                             |
 | Project categories and team cities              | `forms/checkboxes/03-list-with-checkbox-on-right.html`                                              |
 | File upload areas and local previews            | `forms/form-layouts/01-stacked.html` (cover photo field)                                            |
+| Buttons and native upload buttons               | `elements/buttons/01-primary-buttons.html`, `elements/buttons/02-secondary-buttons.html`            |
 
 The application uses Tailwind 1.9. Template utilities from v4 are translated to
 supported utilities and reusable `@apply` components in
@@ -162,6 +164,11 @@ show the filename as the primary truncated title, with the record ID below it;
 full filenames remain in hover titles and preview-link names. This keeps actions
 aligned even for long filenames and distinguishes images with the same filename.
 Mobile menu and drawer-close icons use the shell template's 24px size.
+Dashboard module groups use the card template's 16px/24px responsive header and
+body gutters. Their labeled navigation lists share the editor section links'
+24px icons, 8px row padding, semibold text and indigo hover and keyboard-focus
+states. Native upload buttons use the secondary button's 36px height, inset
+border and hover background, with a visible system border in forced-color mode.
 
 Picture usage links in the grid, list and picture editor come from
 `picture_references`. Each reference belongs to a picture and a polymorphic
