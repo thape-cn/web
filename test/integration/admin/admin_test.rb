@@ -429,6 +429,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
       get path(resource, :index)
       assert_response :success, key
       assert_select "[data-admin-order-table]", count: 1
+      assert_select "[data-admin-drag-hint][hidden]", text: /拖拽调整展示顺序/
+      assert_select "[data-admin-drag-handle][draggable='true'][hidden][title]", count: [ids.length, 25].min
       assert_select ".admin-order-menu", minimum: 1
       assert_equal ids.first(25), response.parsed_body.css("tr[data-record-id]").map { |row| row["data-record-id"].to_i }
 

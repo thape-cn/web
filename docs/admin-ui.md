@@ -212,6 +212,10 @@ mode restores visible system borders where inset shadows would disappear.
 
 Ordering uses the modal template's 512px borderless panel, gray backdrop and 24px
 desktop padding, with a bottom-aligned panel and 16px side padding on phones.
+Every ordered list shows a bordered, icon-only grip and an indigo instruction
+panel when sorting JavaScript is available. Handles have a translated hover
+tooltip, grab/grabbing cursors and an indigo hover state; the drop line marks the insertion point. Arrow and
+Move controls remain available for keyboard use and moves across pages.
 The close button receives focus first, and Escape or closing restores focus to
 the originating move control. Arrow buttons use inset borders and shared edges;
 the move control uses an SVG chevron. Without native dialog support, the same

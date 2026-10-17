@@ -2,7 +2,7 @@
 <% total = @order_ranks.length %>
 <% path = admin_resource_path(@resource, :reorder, record) %>
 <div class="admin-order-controls">
-  <span class="admin-drag-handle" draggable="true" data-admin-drag-handle hidden title="拖动记录 <%= record.id %> 调整顺序" aria-hidden="true"><%= admin_icon('grip') %></span>
+  <span class="admin-drag-handle" draggable="true" data-admin-drag-handle hidden title="<%= t('admin.ordering.drag_record', id: record.id) %>" aria-hidden="true"><%= admin_icon('grip') %></span>
   <strong class="admin-order-rank" title="第 <%= rank %> / <%= total %> 条"><%= rank %></strong>
   <%= form_with url: path, method: :patch, local: true, class: 'admin-order-arrows' do %>
     <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>

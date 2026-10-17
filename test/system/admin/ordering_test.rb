@@ -61,6 +61,10 @@ class Admin::OrderingTest < ApplicationSystemTestCase
   end
 
   test "dragging saves the drop location and the dialog fits on mobile" do
+    assert_selector "[data-admin-drag-hint]", text: "拖拽调整展示顺序"
+    assert_selector "[data-admin-drag-handle]", count: 3
+    assert_equal "", find("#record-#{@first.id} [data-admin-drag-handle]").text
+    assert_equal "grab", find("#record-#{@first.id} [data-admin-drag-handle]").style("cursor")["cursor"]
     find("#record-#{@first.id} [data-admin-drag-handle]").drag_to(find("#record-#{@third.id} .admin-record-name"))
     assert_order [@second, @third, @first]
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/ordering-desktop.png")) # standard:disable Lint/Debugger
@@ -72,6 +76,14 @@ class Admin::OrderingTest < ApplicationSystemTestCase
     page.save_screenshot(Rails.root.join("tmp/screenshots/admin/ordering-mobile.png")) # standard:disable Lint/Debugger
     click_button "移到顶部"
     assert_order [@third, @second, @first]
+  end
+
+  test "drag instructions and handles use the selected language" do
+    visit admin_portfolios_path(locale: :en)
+    assert_selector "[data-admin-drag-hint]", text: "Drag to reorder"
+    assert_selector "[data-admin-drag-handle]", count: 3
+    assert_equal "", find("#record-#{@first.id} [data-admin-drag-handle]").text
+    assert_selector "#record-#{@first.id} [data-admin-drag-handle][title='Hold and drag record #{@first.id} to reorder']"
   end
 
   test "inline move forms remain usable when dialogs are unavailable" do

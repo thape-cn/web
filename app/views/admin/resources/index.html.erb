@@ -62,9 +62,15 @@
   <% else %>
     <% if @resource.ordered? %>
       <div class="admin-order-guide">
-        <strong>展示顺序</strong>
-        <span>序号从 1 开始。使用箭头或「移动」调整顺序，保存后立即生效。<span data-admin-drag-hint hidden>也可拖动手柄到当前页其他记录的前后。</span></span>
-        <span>排序作用于本模块全部记录（含其他分页、筛选外及未发布记录），所有内容语言共用。</span>
+        <div class="admin-order-drag-guide" data-admin-drag-hint hidden>
+          <span class="admin-order-grip-preview" aria-hidden="true"><%= admin_icon('grip') %></span>
+          <div>
+            <strong><%= t('admin.ordering.drag_title') %></strong>
+            <p><%= t('admin.ordering.drag_hint') %></p>
+          </div>
+        </div>
+        <span><%= t('admin.ordering.alternatives') %></span>
+        <span><%= t('admin.ordering.scope') %></span>
       </div>
       <%= form_with url: admin_resource_path(@resource, :reorder, @records.first), method: :patch, local: true, html: { hidden: true }, data: { admin_drag_form: true } do %>
         <% admin_order_context.each do |key, value| %><%= hidden_field_tag key, value, id: nil %><% end %>

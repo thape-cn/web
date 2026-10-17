@@ -1,6 +1,12 @@
 ---
 en:
   admin:
+    ordering:
+      drag_record: "Hold and drag record %{id} to reorder"
+      drag_title: "Drag to reorder"
+      drag_hint: "Hold the dotted grip on the left of a row, move it up or down on this page, and release to save."
+      alternatives: "You can also use the arrows or Move (including across pages). Positions start at 1; changes save immediately."
+      scope: "Ordering applies to all records in this module, including other pages, filtered-out and unpublished records, across all content languages."
     picture_filters:
       search: "Search filename or picture ID"
       all: "All"

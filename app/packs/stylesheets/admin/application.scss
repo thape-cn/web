@@ -341,12 +341,22 @@
   min-height: 32px;
 }
 .admin .admin-order-guide {
-  @apply flex flex-col px-5 py-4 text-xs text-gray-500 border-b border-gray-200;
+  @apply flex flex-col px-5 py-4 text-xs text-gray-500 bg-indigo-50 border-b border-indigo-100;
   gap: 6px;
   line-height: 1.6;
 }
 .admin .admin-order-guide strong {
-  @apply text-sm text-gray-700;
+  @apply text-sm text-indigo-800;
+}
+.admin .admin-order-drag-guide:not([hidden]) {
+  @apply flex items-center text-sm text-indigo-700;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.admin .admin-order-grip-preview {
+  @apply flex items-center justify-center rounded-md bg-white text-indigo-600 border border-indigo-200;
+  flex: 0 0 36px;
+  height: 36px;
 }
 .admin .admin-table .admin-order-column {
   width: 1%;
@@ -354,7 +364,7 @@
 }
 .admin .admin-order-controls {
   display: grid;
-  grid-template-columns: 20px 28px auto auto;
+  grid-template-columns: auto 28px auto auto;
   align-items: center;
   gap: 8px;
 }
@@ -363,12 +373,24 @@
   min-width: 24px;
   font-variant-numeric: tabular-nums;
 }
-.admin .admin-drag-handle {
-  @apply text-gray-400;
+.admin .admin-drag-handle:not([hidden]) {
+  @apply inline-flex items-center justify-center rounded-md border border-gray-300 bg-gray-50 text-gray-600;
+  width: 32px;
+  height: 36px;
   cursor: grab;
-  padding: 6px 0;
+  user-select: none;
+}
+.admin .admin-order-grip-preview .admin-icon,
+.admin .admin-drag-handle .admin-icon {
+  width: 18px;
+  height: 20px;
+  stroke-width: 2.5;
+}
+.admin .admin-drag-handle:hover {
+  @apply border-indigo-400 bg-indigo-50 text-indigo-700;
 }
 .admin .admin-drag-handle:active {
+  @apply border-indigo-500 bg-indigo-100 text-indigo-800;
   cursor: grabbing;
 }
 .admin .admin-order-arrows {

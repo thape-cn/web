@@ -1,6 +1,12 @@
 ---
 cn:
   admin:
+    ordering:
+      drag_record: "按住并拖动记录 %{id} 调整顺序"
+      drag_title: "拖拽调整展示顺序"
+      drag_hint: "按住每行左侧的六点手柄，在当前页上下拖至目标位置，松开即可保存。"
+      alternatives: "也可使用箭头或「移动」调整顺序（支持跨页移动）。序号从 1 开始，修改立即保存。"
+      scope: "排序作用于本模块全部记录（含其他分页、筛选外及未发布记录），所有内容语言共用。"
     picture_filters:
       search: "搜索文件名或图片 ID"
       all: "全部"
