@@ -50,7 +50,8 @@
       <% @records.each do |record| %>
         <% filename = record.image.identifier.presence %>
         <li id="record-<%= record.id %>">
-          <%= render layout: 'admin/shared/media_card', locals: {title: filename || "图片 ##{record.id}", subtitle: filename ? "图片 ##{record.id}" : nil, image_url: record.image.url, preview_path: admin_resource_path(@resource, :edit, record), metadata: ["新闻 ID：#{record.info_id || '—'}"]} do %>
+          <%= render layout: 'admin/shared/media_card', locals: {title: filename || "图片 ##{record.id}", subtitle: filename ? "图片 ##{record.id}" : nil, image_url: record.image.url, preview_path: admin_resource_path(@resource, :edit, record)} do %>
+            <%= render 'admin/shared/picture_usage', picture: record %>
             <%= render 'admin/shared/record_actions', resource: @resource, record: record %>
           <% end %>
         </li>
@@ -85,7 +86,9 @@
               <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
               <% @resource.columns.each_with_index do |field, index| %>
                 <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %>">
-                  <% if @resource.fields.dig(field, 'type') == 'file_field' %>
+                  <% if @resource.key == 'pictures' && field == 'usage' %>
+                    <%= render 'admin/shared/picture_usage', picture: record %>
+                  <% elsif @resource.fields.dig(field, 'type') == 'file_field' %>
                     <%= admin_upload_preview(record.public_send(field)) || '—' %>
                   <% elsif @resource.fields.dig(field, 'type') == 'check_box' %>
                     <%= admin_status(record, field) %>

@@ -172,6 +172,8 @@ module Admin::ApplicationHelper
       sections << {key: :gallery, title: "项目图片", icon: "image"}
     elsif resource.key == "people" && record.persisted?
       sections << {key: "city-roles", title: "城市职位", icon: "pin"}
+    elsif resource.key == "pictures" && record.persisted?
+      sections << {key: "usage", title: t("admin.picture_usage.title"), icon: "image"}
     end
     sections
   end
@@ -216,7 +218,24 @@ module Admin::ApplicationHelper
   end
 
   def admin_field_label(resource, field)
+    return t("admin.picture_usage.title") if resource.key == "pictures" && field == "usage"
+    return t("admin.picture_usage.legacy_news") if resource.key == "pictures" && field == "info_id"
     resource.fields.dig(field, "label") || {"id" => "ID", "created_at" => "留言时间", "spam_score" => "广告评分", "company" => "公司", "name" => "姓名", "message" => "留言", "phone" => "联系电话", "contact_details" => "联系方式", "project_type" => "项目类型", "service_type" => "服务类型", "project_area" => "项目面积", "seo_name" => "页面"}[field] || field.humanize
+  end
+
+  def admin_picture_usage_label(usage)
+    I18n.with_locale(usage.locale || admin_locale) do
+      "#{usage.resource.label} · #{admin_record_label(usage.resource, usage.record)}"
+    end
+  end
+
+  def admin_picture_usage_path(usage)
+    locale = usage.locale || admin_locale
+    if usage.resource.allows?(:edit)
+      admin_resource_path(usage.resource, :edit, usage.record, locale: locale, anchor: usage.field ? "content-heading" : nil)
+    else
+      admin_resource_path(usage.resource, :index, nil, locale: locale, anchor: "seo-#{usage.record.id}-heading")
+    end
   end
 
   def admin_options(resource, field)

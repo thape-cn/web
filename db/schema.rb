@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_04_000000) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_17_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -217,6 +217,17 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_04_000000) do
     t.text "introduce"
     t.index ["locale"], name: "index_person_translations_on_locale"
     t.index ["person_id"], name: "index_person_translations_on_person_id"
+  end
+
+  create_table "picture_references", force: :cascade do |t|
+    t.bigint "picture_id", null: false
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
+    t.string "field", null: false
+    t.string "locale", default: "", null: false
+    t.index ["owner_type", "owner_id"], name: "index_picture_references_on_owner"
+    t.index ["picture_id", "owner_type", "owner_id", "field", "locale"], name: "index_picture_references_on_usage", unique: true
+    t.index ["picture_id"], name: "index_picture_references_on_picture_id"
   end
 
   create_table "pictures", id: :bigint, default: nil, force: :cascade do |t|
@@ -567,6 +578,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_04_000000) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id", name: "active_storage_attachments_blob_id_fkey"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id", name: "active_storage_variant_records_blob_id_fkey"
+  add_foreign_key "picture_references", "pictures", on_delete: :cascade
   add_foreign_key "pictures", "infos", name: "pictures_info_id_fkey"
   add_foreign_key "work_pictures", "works", name: "work_pictures_work_id_fkey"
   add_foreign_key "work_project_types", "project_types", name: "work_project_types_project_type_id_fkey"

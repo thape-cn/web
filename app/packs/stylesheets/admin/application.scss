@@ -1055,6 +1055,17 @@
 .admin .admin-media-subtitle {
   @apply text-sm font-medium text-gray-500;
 }
+
+.admin .admin-picture-usage {
+  @apply mt-2;
+}
+.admin .admin-picture-usage-links li {
+  @apply mt-2 min-w-0;
+}
+.admin .admin-picture-usage-links a {
+  @apply block text-sm truncate;
+  max-width: 28rem;
+}
 .admin .admin-media-card .admin-row-actions {
   @apply justify-start mt-2;
 }

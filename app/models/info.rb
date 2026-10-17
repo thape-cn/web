@@ -6,6 +6,7 @@ class Info < ApplicationRecord
   mount_uploader :snapshot, SnapshotUploader
 
   has_many :pictures
+  include ReferencesPictures
 
   validates :title, presence: true
   validates :introduction, presence: true

@@ -156,6 +156,25 @@ full filenames remain in hover titles and preview-link names. This keeps actions
 aligned even for long filenames and distinguishes images with the same filename.
 Mobile menu and drawer-close icons use the shell template's 24px size.
 
+Picture usage links in the grid, list and picture editor come from
+`picture_references`. Each reference belongs to a picture and a polymorphic
+content owner, and records the field and language. A picture may be shared by
+several records. Saving news, team profiles, works, about pages, service text or
+SEO text refreshes their references transactionally; removing an image or deleting
+its owner removes the corresponding references. Replacing a library file also
+refreshes its existing owners. Matching uses the picture ID and current filename,
+including URL-encoded filenames, rather than the filename alone.
+
+The creation migration backfills existing saved content in all languages. Editor
+uploads start unattached because the content record may not yet exist; saving the
+content creates the relationships. Uploads that are never saved remain unattached.
+The older optional `pictures.info_id` only represents a manually assigned news
+association and is shown separately when no embedded reference exists for that
+news item. It cannot represent shared pictures or non-news content. Usage links
+open the owning editor in the appropriate language; a missing reference means
+none was found in saved database content, rather than proof that a file is unused
+outside the application.
+
 The module palette has a single search row, gray group headings and an indigo
 selected row. Its close button and descriptions remain available. Deletion
 confirmation uses a 512px centered panel on desktop and a bottom-aligned panel

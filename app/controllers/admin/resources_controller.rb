@@ -13,6 +13,7 @@ class Admin::ResourcesController < Admin::ApplicationController
       export_messages(records)
     else
       @records = records.page(admin_list_context["page"]).per(admin_list_context.fetch("per_page", 25))
+      @picture_usages = Admin::PictureUsage.new.call(@records) if @resource.key == "pictures"
       if @resource.ordered?
         ids = @resource.scope.order(position: :asc, id: :asc).pluck(:id)
         @order_ranks = ids.each_with_index.to_h.transform_values { |index| index + 1 }
@@ -31,6 +32,7 @@ class Admin::ResourcesController < Admin::ApplicationController
   end
 
   def edit
+    @picture_usages = Admin::PictureUsage.new.call([@record]) if @resource.key == "pictures"
     render "admin/resources/form"
   end
 
@@ -140,6 +142,7 @@ class Admin::ResourcesController < Admin::ApplicationController
     end
     redirect_to resource_location, notice: "保存成功", status: :see_other
   rescue ActiveRecord::RecordInvalid
+    @picture_usages = Admin::PictureUsage.new.call([@record]) if @resource.key == "pictures" && @record.persisted?
     render "admin/resources/form", status: :unprocessable_entity
   end
 

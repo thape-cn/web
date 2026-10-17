@@ -18,6 +18,10 @@
         <%= render 'admin/shared/gallery', form: form %>
       <% elsif @resource.key == 'people' && @record.persisted? %>
         <%= render 'admin/shared/city_roles', form: form %>
+      <% elsif @resource.key == 'pictures' && @record.persisted? %>
+        <%= render layout: 'admin/shared/form_section', locals: { heading_id: 'usage-heading', title: t('admin.picture_usage.title'), description: t('admin.picture_usage.description') } do %>
+          <%= render 'admin/shared/picture_usage', picture: @record %>
+        <% end %>
       <% end %>
     </div>
   </div>

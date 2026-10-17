@@ -1,6 +1,16 @@
 ---
 en:
   admin:
+    picture_usage:
+      title: "Usage"
+      description: "References are traced from saved content in every language. Associated news is listed separately and may not use the image in its content."
+      found: "References: %{count}"
+      none: "No saved content references found"
+      associated_news: "Associated news (news ID)"
+      legacy_news: "Legacy news ID (optional)"
+      languages:
+        cn: "Chinese"
+        en: "English"
     attachments:
       open: "View file"
       open_label: "View file %{filename} (new window)"

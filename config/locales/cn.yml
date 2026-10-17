@@ -1,6 +1,16 @@
 ---
 cn:
   admin:
+    picture_usage:
+      title: "使用位置"
+      description: "根据已保存的各语言内容追溯图片引用。关联新闻单独标记，不代表正文正在使用。"
+      found: "引用位置：%{count}"
+      none: "未找到已保存的内容引用"
+      associated_news: "关联新闻（新闻 ID）"
+      legacy_news: "旧新闻关联 ID（可选）"
+      languages:
+        cn: "中文"
+        en: "English"
     attachments:
       open: "查看文件"
       open_label: "查看文件 %{filename}（新窗口）"

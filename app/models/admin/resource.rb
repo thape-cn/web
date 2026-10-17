@@ -108,7 +108,7 @@ class Admin::Resource
     return %w[id project_name project_type_ids residential_type_ids published] if key == "works"
     return %w[id name url_name category leaving_date] if key == "people"
     return %w[id title category hide_in_index_news created_at] if key == "infos"
-    return %w[id image info_id] if key == "pictures"
+    return %w[id image usage] if key == "pictures"
     return %w[id title sub_title pdf_file cover_jpg] if %w[publications portfolios insights].include?(key)
     (["id"] + fields.keys.reject { |field| %w[password_field file_field text_area multiple].include?(fields[field]["type"]) }.first(5)).uniq
   end

@@ -5,6 +5,8 @@ class Person < ApplicationRecord
   has_many :cities, through: :city_people
 
   translates :name, :title, :introduce
+  include ReferencesPictures
+
   validates_uniqueness_of :url_name
 
   mount_uploader :avatar, AvatarUploader

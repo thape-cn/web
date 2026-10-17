@@ -1,0 +1,16 @@
+<div class="admin-picture-usage">
+  <% usages = @picture_usages&.fetch(picture.id, []) || [] %>
+  <% references = usages.reject(&:association) %>
+  <p class="text-xs text-gray-500"><%= references.any? ? t('admin.picture_usage.found', count: references.size) : t('admin.picture_usage.none') %></p>
+  <% if usages.any? %>
+    <ul class="admin-picture-usage-links">
+      <% usages.each do |usage| %>
+        <% label = admin_picture_usage_label(usage) %>
+        <li>
+          <%= link_to label, admin_picture_usage_path(usage), class: 'admin-link', title: label %>
+          <p class="text-xs text-gray-500"><%= usage.association ? t('admin.picture_usage.associated_news') : admin_field_label(usage.resource, usage.field) %><% if usage.locale %> · <%= t("admin.picture_usage.languages.#{usage.locale}", default: usage.locale) %><% end %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

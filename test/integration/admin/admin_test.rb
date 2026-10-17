@@ -709,7 +709,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select '.admin-media-title[title="component.png"]', text: "component.png"
     assert_select ".admin-media-subtitle", text: "图片 ##{picture.id}"
     assert_select ".admin-media-preview a.admin-media-link[href=?][aria-label=?]", edit_admin_picture_path(picture), "component.png · 图片 ##{picture.id}"
-    assert_select ".admin-media-card", text: /新闻 ID：#{infos(:info_635).id}/
+    assert_select ".admin-picture-usage a[href=?]", edit_admin_info_path(infos(:info_635))
+    assert_select ".admin-picture-usage", text: /关联新闻（新闻 ID）/
     assert_select "#admin-module-search"
     get admin_pictures_path(view: "list", per_page: 1)
     assert_select "tbody tr#record-#{picture.id}"
@@ -734,6 +735,99 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     get new_admin_work_path
     assert_select ".admin-gallery-grid .admin-media-preview", count: 3
     assert_select ".admin-gallery-grid .admin-media-link", count: 0
+  end
+
+  test "editor uploads acquire shared database relationships when their content is saved" do
+    sign_in
+    post upload_admin_pictures_path, params: {upload_file: upload("shared.png", "image/png")}
+    assert_response :success
+    picture = Picture.order(:id).last
+    url = response.parsed_body.fetch("file_path")
+    assert_empty picture.picture_references
+
+    post admin_infos_path, params: {info: attributes_for("infos").merge(content: "<p><img src='#{url}?width=200'></p><img src='#{url}'>")}
+    assert_response :see_other
+    news = Admin::Info.order(:id).last
+    reference = picture.picture_references.reload.sole
+    assert_equal news.id, reference.owner.id
+    assert_equal "Info", reference.owner_type
+    assert_equal ["content", ""], [reference.field, reference.locale]
+    assert_equal [picture.id], news.embedded_pictures.pluck(:id)
+    assert_equal [news.id], picture.referenced_infos.pluck(:id)
+
+    second = Admin::Info.create!(attributes_for("infos").merge(title: "Shared news", content: "<img src='#{url}'>"))
+    assert_equal [news.id, second.id].sort, picture.referenced_infos.pluck(:id).sort
+    patch admin_info_path(news), params: {info: {title: "", content: "<p>Removed</p>"}}
+    assert_response :unprocessable_entity
+    assert_equal 2, picture.picture_references.reload.count
+    patch admin_info_path(news), params: {info: {title: "Updated news", content: "<p>Removed</p>"}}
+    assert_response :see_other
+    assert_equal [second.id], picture.referenced_infos.pluck(:id)
+    second.destroy!
+    assert_empty picture.picture_references.reload
+    assert Picture.exists?(picture.id)
+  end
+
+  test "picture relationships include translated pages and unpublished works with localized usage links" do
+    sign_in
+    picture = Picture.create!(image: upload("profile.png", "image/png"))
+    content = "<img src='https://old.example.test#{picture.image.url}'>"
+    person = I18n.with_locale(:cn) { Admin::Person.create!(attributes_for("people").merge(introduce: content)) }
+    I18n.with_locale(:en) { person.update!(name: "English profile", introduce: content) }
+    work = I18n.with_locale(:en) { Admin::Work.create!(attributes_for("works").merge(services: content)) }
+    about = I18n.with_locale(:en) { AboutPage.create!(thape_intro: content) }
+    I18n.with_locale(:en) { ServiceFile.create!(building_intro: content) }
+    seo = seos(:seo_one)
+    seo.update!(description: content)
+    assert_equal [["Person", "cn"], ["Person", "en"], ["Work", "en"], ["AboutPage", "en"], ["ServiceFile", "en"], ["Seo", ""]].sort,
+      picture.picture_references.pluck(:owner_type, :locale).sort
+    assert_equal work.id, picture.picture_references.find_by!(owner_type: "Work").owner.id
+
+    get admin_pictures_path(locale: :cn)
+    assert_response :success
+    assert_select "#record-#{picture.id} .admin-picture-usage a", count: 6
+    assert_select "#record-#{picture.id} a[href=?]", "#{edit_admin_person_path(person, locale: :en)}#content-heading", text: /English profile/
+    assert_select "#record-#{picture.id} a[href=?]", "#{edit_admin_work_path(work, locale: :en)}#content-heading"
+    assert_select "#record-#{picture.id} a[href=?]", "#{path(Admin::Resource.new("about_pages"), :edit, about, locale: :en)}#content-heading"
+    assert_select "#record-#{picture.id} a[href=?]", "#{path(Admin::Resource.new("seos"), :index, nil, locale: :cn)}#seo-#{seo.id}-heading"
+    get admin_pictures_path(view: "list", locale: :en)
+    assert_select "th", text: "Usage"
+    assert_select "#record-#{picture.id} .admin-picture-usage a", count: 6
+    get edit_admin_picture_path(picture, locale: :en)
+    assert_select "#usage-heading", text: "Usage"
+    assert_select ".admin-picture-usage a", count: 6
+
+    I18n.with_locale(:en) { person.update!(introduce: "<p>Removed in English</p>") }
+    assert_equal ["cn"], picture.picture_references.where(owner_type: "Person").pluck(:locale)
+    picture.update!(image: upload("replacement.png", "image/png"))
+    assert_empty picture.picture_references.reload
+  end
+
+  test "picture references match the full image path and encoded filename without confusing other pictures" do
+    picture = Picture.create!(image: upload("图片.png", "image/png"))
+    other = Picture.create!(image: upload("图片.png", "image/png"))
+    encoded_url = picture.image.url.sub(picture.image.identifier, ERB::Util.url_encode(picture.image.identifier))
+    info = Admin::Info.create!(attributes_for("infos").merge(content: "<img src='#{encoded_url}?width=100&amp;height=100'>"))
+    assert_equal [picture.id], info.embedded_pictures.pluck(:id)
+    assert_empty other.picture_references
+    info.update!(content: "<img src='/uploads/picture/image/#{picture.id}/old.png'><p>#{other.image.identifier}</p>")
+    assert_empty info.picture_references.reload
+    assert_empty other.picture_references.reload
+  end
+
+  test "the migration backfills existing untranslated and translated references idempotently" do
+    require Rails.root.join("db/migrate/20261017000000_create_picture_references")
+    picture = Picture.create!(image: upload("backfill.png", "image/png"))
+    info = Admin::Info.create!(attributes_for("infos"))
+    content = "<img src='#{picture.image.url}'><img src='#{picture.image.url}'>"
+    info.update_columns(content: content)
+    person = Admin::Person.create!(attributes_for("people"))
+    I18n.with_locale(:en) { person.update!(introduce: content) }
+    picture.picture_references.delete_all
+    migration = CreatePictureReferences.new
+    2.times { migration.send(:backfill_references) }
+    assert_equal [["Info", "content", ""], ["Person", "introduce", "en"]].sort,
+      picture.picture_references.reload.pluck(:owner_type, :field, :locale).sort
   end
 
   test "detail attachments show images and file links with localized accessible names" do
