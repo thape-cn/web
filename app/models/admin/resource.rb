@@ -2,7 +2,7 @@
 
 class Admin::Resource
   DEFINITIONS = JSON.parse(Rails.root.join("config/admin/resources.json").read).freeze
-  SEARCH_FIELDS = {"works" => "project_name", "people" => "name", "infos" => "title", "publications" => "title", "portfolios" => "title", "insights" => "title"}.freeze
+  SEARCH_FIELDS = {"works" => "project_name", "people" => "name", "infos" => "title", "publications" => "title", "portfolios" => "title", "insights" => "title", "pictures" => "image"}.freeze
   FILTERS = {
     "works" => {"published" => "发布状态", "city_id" => "城市", "project_type_id" => "项目分类"},
     "people" => {"category" => "团队分类", "city_id" => "城市"},
@@ -61,7 +61,13 @@ class Admin::Resource
     SEARCH_FIELDS[key]
   end
 
+  def search_label
+    (key == "pictures") ? I18n.t("admin.picture_filters.search") : "搜索名称 / 标题"
+  end
+
   def filters
+    return %w[file_type reference_status owner_type].to_h { |field| [field, I18n.t("admin.picture_filters.#{field}")] } if key == "pictures"
+
     FILTERS.fetch(key, {})
   end
 
@@ -78,6 +84,9 @@ class Admin::Resource
     when "category_status" then [["专著", "monographs"], ["标准规范", "standard_specification"], ["论文专利", "paper_patent"]]
     when "category"
       (key == "people") ? [["管理团队", 1], ["专业团队", 2]] : [["公司新闻", 1], ["行业会议", 2], ["专业奖项", 3]]
+    when "file_type" then %w[jpg png gif webp svg avif].map { |format| [(format == "jpg") ? "JPG / JPEG" : format.upcase, format] }
+    when "reference_status" then %w[referenced unreferenced].map { |status| [I18n.t("admin.picture_filters.#{status}"), status] }
+    when "owner_type" then PictureReference::CONTENT_FIELDS.keys.map { |type| [I18n.t("admin.picture_filters.modules.#{type}"), type] }
     else []
     end
   end

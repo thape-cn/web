@@ -84,8 +84,15 @@ file preview without clearing the upload cache or removal checkbox. No file is
 uploaded until the form is saved. The native file input remains available without
 JavaScript, and existing file guidance and server validation still apply.
 
-The picture library accepts `view=grid|list` and defaults to grid. Thumbnails link
-to the picture editor, dim on hover and show a focus outline when reached by
+The picture library accepts `view=grid|list` and defaults to grid. Desktop grids
+use five columns and default to 25 images per page (five rows); smaller screens
+use two or three columns. Search matches literal filenames or an exact picture ID
+(with an optional `#`). Filters support file type, saved-content reference status
+and reference module across all content languages. JPG includes JPEG, and file
+types are case-insensitive. Reference filters use `picture_references`; the legacy
+news association does not count as a saved-content reference. Filters combine
+without duplicating images and persist through pagination and view changes.
+Thumbnails link to the picture editor, dim on hover and show a focus outline when reached by
 keyboard. Nested gallery previews remain separate from their form controls. Missing or
 failed images show a placeholder. Gallery cards retain the existing nested
 attributes, cached uploads, paired JPG/WebP fields and save-time deletion.

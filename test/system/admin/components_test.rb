@@ -88,6 +88,48 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_current_path edit_admin_picture_path(99108, locale: :cn)
   end
 
+  test "picture library shows five by five on desktop and filters remain usable on phones" do
+    26.times do |index|
+      picture = Picture.new(id: 99200 + index)
+      picture.save!(validate: false)
+      picture.update_column(:image, "grid-library-#{index}.PNG")
+    end
+    visit admin_pictures_path
+    resize_viewport(1274, 948)
+    assert_selector ".admin-media-grid > li", count: 25
+    assert page.evaluate_script(<<~JS), "The default desktop page should contain five rows of five pictures"
+      (() => {
+        const cards = Array.from(document.querySelectorAll('.admin-media-grid > li'))
+        const rows = new Map()
+        cards.forEach(card => {
+          const top = card.getBoundingClientRect().top
+          rows.set(top, (rows.get(top) || 0) + 1)
+        })
+        return rows.size === 5 && Array.from(rows.values()).every(count => count === 5)
+      })()
+    JS
+    screenshot("picture-filters-desktop")
+    [320, 390, 768, 1024, 1274].each do |width|
+      resize_viewport(width, 948)
+      assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth"), "Picture library should fit at #{width}px"
+    end
+    resize_viewport(390, 844)
+    fill_in "搜索文件名或图片 ID", with: "grid-library-"
+    select "PNG", from: "文件类型"
+    select "无内容引用", from: "内容引用"
+    click_button "筛选"
+    assert_selector ".admin-media-grid > li", count: 25
+    assert_selector ".admin-active-filters li", count: 3
+    screenshot("picture-filters-mobile")
+    click_link "列表", exact: true
+    assert_selector "tbody tr", count: 25
+    assert_selector 'input[name="q"][value="grid-library-"]'
+    assert_selector 'select[name="file_type"] option[selected]', text: "PNG"
+    click_link "清除筛选", exact: true
+    assert_no_selector ".admin-active-filters li"
+    assert_selector '.admin-view-switch a[aria-current="true"]', text: "列表"
+  end
+
   test "module search supports keyboard selection dismissal and singleton navigation" do
     assert_selector '[data-admin-count="works"]'
     screenshot("dashboard-desktop")

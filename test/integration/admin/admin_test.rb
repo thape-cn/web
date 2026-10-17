@@ -612,6 +612,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     sign_in
     Admin::Resource::SEARCH_FIELDS.each do |key, field|
       resource = Admin::Resource.new(key)
+      next unless resource.ordered?
+
       record = I18n.with_locale(:cn) { resource.scope.create!(attributes_for(key).merge(field => "组件搜索 #{key}")) }
       get path(resource, :index, nil, q: "组件搜索", locale: :cn)
       assert_response :success, key
@@ -708,6 +710,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select ".admin-media-card", count: 1
     assert_select '.admin-media-title[title="component.png"]', text: "component.png"
     assert_select ".admin-media-subtitle", text: "图片 ##{picture.id}"
+    assert_select "#record-#{picture.id} [data-confirm=?]", "确认删除「component.png · ##{picture.id}」？此操作不能撤销。"
     assert_select ".admin-media-preview a.admin-media-link[href=?][aria-label=?]", edit_admin_picture_path(picture), "component.png · 图片 ##{picture.id}"
     assert_select ".admin-picture-usage a[href=?]", edit_admin_info_path(infos(:info_635))
     assert_select ".admin-picture-usage", text: /关联新闻（新闻 ID）/
@@ -735,6 +738,98 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     get new_admin_work_path
     assert_select ".admin-gallery-grid .admin-media-preview", count: 3
     assert_select ".admin-gallery-grid .admin-media-link", count: 0
+  end
+
+  test "picture search matches literal filenames and exact IDs and combines with file types" do
+    sign_in
+    pictures = %w[library_100%.PNG library_100_more.png library-cover.JPEG library-cover.JPG library-cover.jpg.backup].map do |filename|
+      picture = Picture.new
+      picture.save!(validate: false)
+      picture.update_column(:image, filename)
+      picture
+    end
+    get admin_pictures_path(q: "library_100%")
+    assert_response :success
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select "#record-#{pictures.first.id}"
+    get admin_pictures_path(q: "LIBRARY_100_")
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select "#record-#{pictures.second.id}"
+    get admin_pictures_path(q: pictures.first.id.to_s)
+    assert_select "#record-#{pictures.first.id}"
+    get admin_pictures_path(q: " ##{pictures.first.id} ")
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select "#record-#{pictures.first.id}"
+    get admin_pictures_path(q: "library-cover", file_type: "jpg")
+    assert_select ".admin-media-grid > li", count: 2
+    pictures[2..3].each { |picture| assert_select "#record-#{picture.id}" }
+    get admin_pictures_path(q: "library", file_type: "png", locale: :en, view: "list")
+    assert_select "tbody tr", count: 2
+    assert_select 'label[for="q"]', text: "Search filename or picture ID"
+    assert_select 'label[for="file_type"]', text: "File type"
+  end
+
+  test "picture reference filters combine across languages without duplicating shared pictures" do
+    sign_in
+    referenced = Picture.create!(image: upload("filter-referenced.png", "image/png"))
+    unattached = Picture.create!(image: upload("filter-unattached.png", "image/png"), info: infos(:info_635))
+    Admin::Info.create!(attributes_for("infos").merge(content: "<img src='#{referenced.image.url}'>"))
+    person = I18n.with_locale(:cn) { Admin::Person.create!(attributes_for("people").merge(title: "<img src='#{referenced.image.url}'>")) }
+    I18n.with_locale(:en) { person.update!(name: "English profile", title: "<img src='#{referenced.image.url}'>") }
+    assert_equal 3, referenced.picture_references.count
+
+    get admin_pictures_path(q: "filter-", file_type: "png", reference_status: "referenced", owner_type: "Info")
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select "#record-#{referenced.id}"
+    assert_select ".admin-view-toolbar", text: /共 1 张图片/
+    get admin_pictures_path(q: "filter-", owner_type: "Person", locale: :en, view: "list")
+    assert_select "tbody tr", count: 1
+    assert_select "#record-#{referenced.id}"
+    get admin_pictures_path(q: "filter-", reference_status: "unreferenced")
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select "#record-#{unattached.id}"
+    get admin_pictures_path(q: "filter-", reference_status: "unreferenced", owner_type: "Info")
+    assert_select ".admin-media-grid > li", count: 0
+    assert_select ".admin-empty-state", text: /没有找到匹配的记录/
+    get admin_pictures_path(q: "filter-", file_type: "invalid", reference_status: "invalid", owner_type: "User")
+    assert_select ".admin-media-grid > li", count: 2
+    assert_select ".admin-active-filters li", count: 1
+  end
+
+  test "picture filters persist through pagination views and language changes and can be removed" do
+    sign_in
+    news = infos(:info_635)
+    3.times do |index|
+      picture = Picture.create!(image: upload("pagination-picture-#{index}.png", "image/png"))
+      PictureReference.create!(picture: picture, owner: news, field: "content", locale: "en")
+    end
+    context = {q: "pagination-picture", file_type: "png", reference_status: "referenced", owner_type: "Info", per_page: "1", view: "grid", locale: "cn"}
+    get admin_pictures_path(**context.merge(page: 2, unsupported: "discard"))
+    assert_select ".admin-media-grid > li", count: 1
+    assert_select ".admin-active-filters li", count: 4
+    assert_select '.admin-filter-bar input[name="page"]', count: 0
+    assert_select ".admin-pagination a" do |links|
+      links.each do |link|
+        query = Rack::Utils.parse_query(URI(link["href"]).query)
+        assert_equal context.stringify_keys, query.except("page")
+      end
+    end
+    assert_select ".admin-view-switch a", text: "列表" do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal context.stringify_keys.merge("page" => "2", "view" => "list"), query
+    end
+    assert_select ".admin-locale a", text: "EN" do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal context.stringify_keys.merge("locale" => "en"), query
+    end
+    assert_select '.admin-active-filters a[aria-label="移除文件类型：PNG"]' do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal context.stringify_keys.except("file_type"), query
+    end
+    assert_select "a", text: "清除筛选" do |links|
+      query = Rack::Utils.parse_query(URI(links.first["href"]).query)
+      assert_equal({"locale" => "cn", "per_page" => "1", "view" => "grid"}, query)
+    end
   end
 
   test "editor uploads acquire shared database relationships when their content is saved" do

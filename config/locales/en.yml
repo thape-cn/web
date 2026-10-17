@@ -1,6 +1,21 @@
 ---
 en:
   admin:
+    picture_filters:
+      search: "Search filename or picture ID"
+      all: "All"
+      file_type: "File type"
+      reference_status: "Content references"
+      owner_type: "Reference module"
+      referenced: "Has content references"
+      unreferenced: "No content references"
+      modules:
+        Info: "News"
+        Person: "Management & professional teams"
+        Work: "Projects"
+        AboutPage: "About TIANHUA"
+        ServiceFile: "Services"
+        Seo: "SEO"
     picture_usage:
       title: "Usage"
       description: "References are traced from saved content in every language. Associated news is listed separately and may not use the image in its content."

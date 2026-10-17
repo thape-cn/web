@@ -1,6 +1,21 @@
 ---
 cn:
   admin:
+    picture_filters:
+      search: "搜索文件名或图片 ID"
+      all: "全部"
+      file_type: "文件类型"
+      reference_status: "内容引用"
+      owner_type: "引用模块"
+      referenced: "有内容引用"
+      unreferenced: "无内容引用"
+      modules:
+        Info: "新闻中心"
+        Person: "管理与专业团队"
+        Work: "官网作品"
+        AboutPage: "关于天华页"
+        ServiceFile: "专业服务"
+        Seo: "搜索引擎信息"
     picture_usage:
       title: "使用位置"
       description: "根据已保存的各语言内容追溯图片引用。关联新闻单独标记，不代表正文正在使用。"

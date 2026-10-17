@@ -79,30 +79,12 @@ class Admin::ResourcesController < Admin::ApplicationController
     records = @resource.scope
     records = records.includes(:translations) if @resource.model.respond_to?(:translated_attribute_names)
     records = records.includes(:project_types, :residential_types) if @resource.key == "works"
-    search_field = @resource.search_field
     query = admin_list_context["q"]
-    if query.present?
-      if @resource.model.respond_to?(:translated_attribute_names) && @resource.model.translated_attribute_names.include?(search_field.to_sym)
-        records = records.with_translations(admin_locale)
-        table = @resource.model.translation_class.table_name
-      else
-        table = @resource.model.table_name
-      end
-      records = records.where("#{table}.#{search_field} ILIKE ?", "%#{ActiveRecord::Base.sanitize_sql_like(query)}%")
-    end
+    records = search_records(records, query) if query.present?
     @resource.filters.each_key do |field|
       value = admin_list_context[field]
       next unless value
-      records = case [@resource.key, field]
-      when ["people", "city_id"]
-        records.where(id: ::CityPerson.where(city_id: value).select(:person_id))
-      when ["works", "project_type_id"]
-        records.where(id: ::WorkProjectType.where(project_type_id: value).select(:work_id))
-      when ["works", "published"]
-        records.where(published: (value == "true") ? true : [false, nil])
-      else
-        records.where(field => value)
-      end
+      records = apply_filter(records, field, value)
     end
     order = if @resource.model.column_names.include?("position")
       {position: :asc, id: :asc}
@@ -110,6 +92,30 @@ class Admin::ResourcesController < Admin::ApplicationController
       {id: :desc}
     end
     records.order(order)
+  end
+
+  def search_records(records, query)
+    search_field = @resource.search_field
+    if @resource.model.respond_to?(:translated_attribute_names) && @resource.model.translated_attribute_names.include?(search_field.to_sym)
+      records = records.with_translations(admin_locale)
+      table = @resource.model.translation_class.table_name
+    else
+      table = @resource.model.table_name
+    end
+    records.where("#{table}.#{search_field} ILIKE ?", "%#{ActiveRecord::Base.sanitize_sql_like(query)}%")
+  end
+
+  def apply_filter(records, field, value)
+    case [@resource.key, field]
+    when ["people", "city_id"]
+      records.where(id: ::CityPerson.where(city_id: value).select(:person_id))
+    when ["works", "project_type_id"]
+      records.where(id: ::WorkProjectType.where(project_type_id: value).select(:work_id))
+    when ["works", "published"]
+      records.where(published: (value == "true") ? true : [false, nil])
+    else
+      records.where(field => value)
+    end
   end
 
   def record_params

@@ -192,7 +192,11 @@ module Admin::ApplicationHelper
 
   def admin_record_label(resource, record)
     field = resource.search_field || (%w[users message project_messages].include?(resource.key) ? "name" : nil)
-    name = field ? record.public_send(field).to_s.presence : nil
+    name = if resource.key == "pictures"
+      record.image.identifier.presence
+    elsif field
+      record.public_send(field).to_s.presence
+    end
     [name, "##{record.id}"].compact.join(" · ")
   end
 
