@@ -8,6 +8,10 @@ export default class extends Controller {
     this.resize()
   }
 
+  disconnect() {
+    cancelAnimationFrame(this.resizeFrame)
+  }
+
   selectCategory(event) {
     this.categoryValue = event.currentTarget.dataset.category
   }
@@ -27,6 +31,11 @@ export default class extends Controller {
   }
 
   resize() {
+    cancelAnimationFrame(this.resizeFrame)
+    this.resizeFrame = requestAnimationFrame(() => this.updateCategoryFixed())
+  }
+
+  updateCategoryFixed() {
     if (this.hasCategoryOriginTarget && this.hasCategoryFixedTarget) {
       const screenWidth = document.body.clientWidth
       if (screenWidth < 768) {
