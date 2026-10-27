@@ -3,24 +3,32 @@
 class ApplicationController < ActionController::Base
   wechat_api
 
-  before_action :set_locale
+  around_action :with_request_locale
   before_action :set_ts
   before_action :prepare_seo_variable
   before_action :set_not_mobile_wechat
 
   private
 
-  def set_locale
+  # Keep the selected locale scoped to this request. Assigning I18n.locale
+  # directly would leave it set for whatever runs next on the same thread,
+  # which means the following request or background job could render or store
+  # translations in the previous visitor's language.
+  def with_request_locale(&block)
+    I18n.with_locale(request_locale, &block)
+  end
+
+  def request_locale
     if params[:locale] && I18n.available_locales.include?(params[:locale].to_sym)
       cookies["locale"] = {value: params[:locale], expires: 1.year.from_now}
-      I18n.locale = params[:locale].to_sym
+      params[:locale].to_sym
     elsif cookies["locale"] && I18n.available_locales.include?(cookies["locale"].to_sym)
-      I18n.locale = cookies["locale"].to_sym
-    elsif !extract_locale_from_accept_language_header.blank? && I18n.available_locales.include?(extract_locale_from_accept_language_header.to_sym)
-      I18n.locale = extract_locale_from_accept_language_header
-      cookies["locale"] = {value: params[:locale], expires: 1.year.from_now}
+      cookies["locale"].to_sym
+    elsif (header_locale = extract_locale_from_accept_language_header).present? && I18n.available_locales.include?(header_locale.to_sym)
+      cookies["locale"] = {value: header_locale, expires: 1.year.from_now}
+      header_locale.to_sym
     else
-      I18n.locale = :cn
+      :cn
     end
   end
 

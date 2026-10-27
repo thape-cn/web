@@ -60,6 +60,13 @@ class FrontendPagesTest < ActionDispatch::IntegrationTest
     assert_select ".news-card.hover-card-visible .hover-card-panel", count: 3
   end
 
+  test "request locale does not leak beyond the request" do
+    get root_path, params: {locale: :en}
+    assert_response :success
+    assert_equal "en", cookies["locale"]
+    assert_equal :cn, I18n.locale
+  end
+
   test "static error pages have CSS QR controls without Alpine" do
     %w[404 500].each do |status|
       get "/#{status}.html"
