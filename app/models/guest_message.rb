@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 class GuestMessage < ApplicationRecord
-  after_create :auto_fill_spam_score
+  after_create :auto_fill_spam_score, if: :auto_fill_spam_score?
 
   def auto_fill_spam_score
     spam_score = JSON.parse(ai_spam_score)["result"]
     update_column(:spam_score, spam_score)
+  end
+
+  def auto_fill_spam_score?
+    # A missing API key should not prevent guest messages from being stored.
+    spam_score.nil? && RubyLLM.config.deepseek_api_key.present?
   end
 
   def ai_spam_score
