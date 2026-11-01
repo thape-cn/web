@@ -47,7 +47,7 @@
     "webpack": "^5.112.2",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-merge": "^5.10.0",
-    "webpack-sources": "^3.6.0"
+    "webpack-sources": "^3.7.0"
   },
   "version": "0.1.0",
   "devDependencies": {
