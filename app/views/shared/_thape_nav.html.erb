@@ -206,16 +206,16 @@ navCitiesByChinaArea = City.with_published_works
       <a href="<%= biz_map_path -%>" class="<%= isContact ? 'active' : '' -%>"><%= t('menu.contact.text') -%></a>
     </div>
     <div class="nav-item" data-header-target="formSwitch">
-      <a href="javascript:void(0)" data-action="click->header#showForm">
-        <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+      <a href="javascript:void(0)" data-action="click->header#showForm" aria-label="<%= t('ui.keyword_search') %>">
+        <svg class="fill-current h-6 w-6" aria-hidden="true" focusable="false" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
           <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
         </svg>
       </a>
     </div>
     <div class="nav-item">
       <% if I18n.locale == :cn %>
-        <%= link_to '?locale=en', rel: 'nofollow' do %>
-          <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <%= link_to '?locale=en', rel: 'nofollow', aria: { label: t('ui.switch_to_english') } do %>
+          <svg class="fill-current h-6 w-18" aria-hidden="true" focusable="false" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
             <g transform="matrix(1,0,0,1,-791,-523)">
               <g id="cn">
                 <g transform="matrix(1,0,0,1,795.87,543.475)">
@@ -235,8 +235,8 @@ navCitiesByChinaArea = City.with_published_works
           </svg>
         <% end %>
       <% else %>
-        <%= link_to '?locale=cn' do %>
-          <svg class="fill-current h-6 w-18" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <%= link_to '?locale=cn', aria: { label: t('ui.switch_to_chinese') } do %>
+          <svg class="fill-current h-6 w-18" aria-hidden="true" focusable="false" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
             <g transform="matrix(1,0,0,1,-791,-564)">
               <g>
                 <g transform="matrix(1,0,0,1,795.87,584.606)">
@@ -259,16 +259,16 @@ navCitiesByChinaArea = City.with_published_works
     </div>
     <div class="nav-item">
       <% if cookies['ts'] == 'big' %>
-        <%= link_to '?ts=sm' do %>
-          <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+        <%= link_to '?ts=sm', aria: { label: t('ui.decrease_text_size') } do %>
+          <svg class="fonticon h-6" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
             <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
             <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('.5','1') -%>; fill-rule: evenodd;"/>
             <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('1','.5') -%>; fill-rule: evenodd;"/>
           </svg>
         <% end %>
       <% else %>
-        <%= link_to '?ts=big' do %>
-          <svg class="fonticon h-6" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+        <%= link_to '?ts=big', aria: { label: t('ui.increase_text_size') } do %>
+          <svg class="fonticon h-6" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
             <rect class="fonticon-rect" x="0.5" y="0.5" width="35" height="20" rx="4" ry="4" style="fill: none; stroke: currentColor; stroke-width: 1px;"/>
             <path class="fonticon-big" d="M2329,513v-2h9v2h-9Zm5.5,9h-2v-9h2v9Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('.5','1') -%>; fill-rule: evenodd;"/>
             <path class="fonticon-small" d="M2341.5,516v6h-2v-6H2337v-2h7v2h-2.5Z" transform="translate(-2318.5 -505.5)" style="fill: currentColor; fill-opacity: <%= fdsz('1','.5') -%>; fill-rule: evenodd;"/>

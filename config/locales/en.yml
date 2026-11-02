@@ -207,6 +207,10 @@ en:
   ui:
     reset: "RESET"
     keyword_search: "Keyword search"
+    switch_to_english: "Switch to English"
+    switch_to_chinese: "Switch to Chinese (中文)"
+    increase_text_size: "Increase text size"
+    decrease_text_size: "Decrease text size"
     page_keyword_search: "Keyword search"
     people: "LEADERSHIP"
     search_works: "PROJECTS"

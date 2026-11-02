@@ -258,6 +258,10 @@ cn:
   ui:
     reset: "重置"
     keyword_search: "关键词搜索"
+    switch_to_english: "切换到英文（English）"
+    switch_to_chinese: "切换到中文"
+    increase_text_size: "放大字号"
+    decrease_text_size: "缩小字号"
     page_keyword_search: "当前页搜索"
     people: "人物"
     search_works: "作品"
