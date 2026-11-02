@@ -57,7 +57,9 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
       %w[previous next].each do |control|
         assert_select '.home-carousel button[type="button"][aria-label=?]', I18n.t("work_carousel.#{control}", locale: locale)
       end
-      assert_select '[data-home-carousel-target="pauseLabel"]', text: I18n.t("work_carousel.pause", locale: locale)
+      assert_select 'button[data-home-carousel-target="rotation"][hidden]' do
+        assert_select '[data-home-carousel-target="playLabel"]', text: I18n.t("work_carousel.play", locale: locale)
+      end
       assert_select '.home-carousel .image-item[aria-hidden="true"][inert]', count: 5
       assert_select '.home-carousel .image-item[aria-hidden="false"]:not([inert])', count: 1
       assert_select '.home-carousel a[href="/works/1"][aria-label=?]', I18n.t("home_carousel.open_link", title: "Featured project", locale: locale)

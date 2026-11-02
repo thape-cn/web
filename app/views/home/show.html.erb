@@ -10,8 +10,8 @@
   >
     <% if @wallpapers.size > 1 %>
       <div class="work-carousel-controls">
-        <button type="button" class="work-carousel-rotation" data-home-carousel-target="rotation" data-action="pointerdown->home-carousel#rememberPlayback click->home-carousel#togglePlayback">
-          <span data-home-carousel-target="pauseLabel"><%= t('work_carousel.pause') %></span>
+        <button type="button" class="work-carousel-rotation" data-home-carousel-target="rotation" data-action="home-carousel#resume" hidden>
+          <span data-home-carousel-target="pauseLabel" hidden><%= t('work_carousel.pause') %></span>
           <span data-home-carousel-target="playLabel" hidden><%= t('work_carousel.play') %></span>
         </button>
         <span class="work-carousel-status" data-home-carousel-target="status" aria-live="off" aria-atomic="true">1 / <%= @wallpapers.size %></span>

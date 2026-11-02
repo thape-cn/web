@@ -101,18 +101,17 @@ class HomepageTest < ApplicationSystemTestCase
     tail_home_wallpapers(:wallpaper_1).update!(title: "First project", link: "/works/1")
     tail_home_wallpapers(:wallpaper_2).update!(title: "Second project", link: "/works/2")
     visit root_path(locale: :en)
-    rotation = find(".home-carousel .work-carousel-rotation")
-    rotation.send_keys(:tab)
-    assert_selector '.home-carousel-link[href="/works/1"]:focus'
-    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
-    assert_not carousel_running?
-    find(".home-carousel-link:focus").send_keys(:tab)
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    find('.home-carousel-link[href="/works/1"]').send_keys(:tab)
     assert_selector ".home-carousel .action-left:focus"
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_not carousel_running?
     previous = find(".home-carousel .action-left")
     assert_equal "1", previous.evaluate_script("getComputedStyle(this).opacity")
     assert_operator previous.evaluate_script("parseFloat(getComputedStyle(this).outlineWidth)"), :>, 0
     previous.send_keys(:enter)
     assert_selector ".home-carousel .image-item:nth-child(6).active:not(.animate)"
+    assert_selector ".home-carousel .work-carousel-rotation", text: "Play slideshow"
     previous.send_keys(:tab)
     assert_selector ".home-carousel .action-right:focus"
     following = find(".home-carousel .action-right")
@@ -125,17 +124,27 @@ class HomepageTest < ApplicationSystemTestCase
     previous.send_keys([:shift, :tab])
     assert_selector '.home-carousel-link[href="/works/2"]:focus'
     assert_selector '[data-home-carousel-target="status"][aria-live="polite"]', text: "2 / 6"
+    find(".home-carousel-link:focus").send_keys([:shift, :tab])
+    assert_selector ".home-carousel .work-carousel-rotation:focus"
+    find(".home-carousel .work-carousel-rotation").send_keys(:enter)
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_selector ".home-carousel .action-right:focus"
+    assert carousel_running?
     page.save_screenshot(Rails.root.join("tmp/home-carousel-desktop.png")) # standard:disable Lint/Debugger
   end
 
-  test "homepage pause survives pointer exit and scrolling until explicitly resumed" do
+  test "homepage reveals play only after arrow clicks and resumes immediately when play is clicked" do
     visit root_path(locale: :en)
     find(".thape-header .logo").hover
     assert carousel_running?
-    click_button "Pause slideshow"
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_carousel_controls_at_corner
+    find('.home-carousel button[aria-label="Next image"]', visible: :all).hover.click
+    assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)"
     find(".thape-header .logo").hover
     assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
     assert_not carousel_running?
+    assert_carousel_controls_at_corner
 
     page.scroll_to(find("#thape-new-projects"))
     assert_selector "header.active"
@@ -145,37 +154,51 @@ class HomepageTest < ApplicationSystemTestCase
     assert_not page.evaluate_script("#{carousel_controller}.suspended")
     assert_not carousel_running?
     click_button "Play slideshow"
-    find(".thape-header .logo").hover
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_carousel_controls_at_corner
     assert carousel_running?
-    assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)", wait: 8
+    assert_selector ".home-carousel .image-item:nth-child(3).active:not(.animate)", wait: 8
+    find('.home-carousel button[aria-label="Previous image"]', visible: :all).hover.click
+    assert_selector ".home-carousel .work-carousel-rotation", text: "Play slideshow"
+    assert_not carousel_running?
   end
 
   test "homepage respects reduced motion and exposes named mobile controls" do
     page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "reduce"}])
     resize_viewport(390, 844)
     visit root_path(locale: :en)
-    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_no_selector ".home-carousel .work-carousel-rotation"
     assert_not carousel_running?
     assert_selector 'button[data-action="click->header#showMobileSearch"][aria-label="Keyword search"]'
     find('button[aria-label="Next image"]').click
     assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)"
     assert_no_selector ".home-carousel .animate"
+    assert_selector ".home-carousel .work-carousel-rotation", text: "Play slideshow"
+    assert_carousel_controls_at_corner
     assert_operator find(".home-carousel .action-right").rect.width, :>=, 44
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
     page.save_screenshot(Rails.root.join("tmp/home-carousel-mobile.png")) # standard:disable Lint/Debugger
     page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "no-preference"}])
     assert_not carousel_running?
     click_button "Play slideshow"
-    find(".thape-header .logo").hover
+    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_carousel_controls_at_corner
     assert carousel_running?
     page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "reduce"}])
-    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_selector '[data-home-carousel-target="status"][aria-live="polite"]'
+    assert_no_selector ".home-carousel .work-carousel-rotation"
     assert_not carousel_running?
   ensure
     page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [])
   end
 
   private
+
+  def assert_carousel_controls_at_corner
+    rect = find(".home-carousel .work-carousel-controls").evaluate_script("this.getBoundingClientRect().toJSON()")
+    assert_in_delta page.evaluate_script("document.documentElement.clientWidth"), rect["right"], 1
+    assert_in_delta page.evaluate_script("innerHeight"), rect["bottom"], 1
+  end
 
   def carousel_controller
     "window.web_app.getControllerForElementAndIdentifier(document.querySelector('.home-carousel'), 'home-carousel')"
