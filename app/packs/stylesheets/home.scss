@@ -1,3 +1,16 @@
+.home-carousel {
+  .home-carousel-caption {
+    padding-bottom: 80px;
+    pointer-events: none;
+  }
+
+  .home-carousel-link:focus-visible {
+    outline: 3px solid white;
+    outline-offset: -6px;
+    box-shadow: inset 0 0 0 8px #101820;
+  }
+}
+
 .home-project-item {
   position: relative;
   overflow: hidden;

@@ -228,6 +228,11 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_selector "[data-wallpaper-list] .admin-editor-section", count: 10
     assert_button "添加轮播", disabled: true
     assert_selector ".admin-section-navigation a", count: 10
+    (7..10).each do |number|
+      within ".admin-editor-section[aria-labelledby='wallpaper-#{number}-heading']" do
+        attach_file "桌面端背景图", file.path, exact: true
+      end
+    end
     within '.admin-editor-section[aria-labelledby="wallpaper-10-heading"]' do
       fill_in "标题", with: "Tenth slide", exact: true
       click_button "上移"

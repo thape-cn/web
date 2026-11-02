@@ -2,41 +2,49 @@
 
 <div class="fixed w-full h-full z-0">
   <div
-    class="thape-slide"
-    data-controller="carousel2"
-    data-carousel2-auto-play-value="true"
-    data-carousel2-item-data-type-value="slide-item"
-    data-carousel2-active-class-value="active"
-    data-carousel2-animation-class-base-value="animate"
-    data-carousel2-animation-class-left-in-value="fade-in"
-    data-carousel2-animation-class-left-out-value="fade-out"
-    data-carousel2-animation-class-right-in-value="fade-in"
-    data-carousel2-animation-class-right-out-value="fade-out"
-    data-carousel2-animation-duration-value="500"
-    data-carousel2-interval-time-value="5000"
+    class="thape-slide work-carousel home-carousel"
+    data-controller="home-carousel"
+    data-home-carousel-interval-value="5000"
+    data-action="focusin->home-carousel#pauseOnFocus pointerenter->home-carousel#pointerEnter pointerleave->home-carousel#pointerLeave"
+    role="region" aria-roledescription="<%= t('work_carousel.carousel') %>" aria-label="<%= t('home_carousel.label') %>"
   >
-    <div class="slide-images" data-action="animationstart->carousel2#itemAnimationStart animationend->carousel2#itemAnimationEnd">
+    <% if @wallpapers.size > 1 %>
+      <div class="work-carousel-controls">
+        <button type="button" class="work-carousel-rotation" data-home-carousel-target="rotation" data-action="pointerdown->home-carousel#rememberPlayback click->home-carousel#togglePlayback">
+          <span data-home-carousel-target="pauseLabel"><%= t('work_carousel.pause') %></span>
+          <span data-home-carousel-target="playLabel" hidden><%= t('work_carousel.play') %></span>
+        </button>
+        <span class="work-carousel-status" data-home-carousel-target="status" aria-live="off" aria-atomic="true">1 / <%= @wallpapers.size %></span>
+      </div>
+    <% end %>
+    <div class="slide-images">
       <% @wallpapers.each_with_index do |wallpaper, index| %>
-        <div data-type="slide-item" data-wall-paper-need-black-header="<%= wallpaper.wall_paper_need_black_header? %>" class="image-item <%= 'active' if index.zero? %>">
-          <a href="<%= wallpaper.link %>" class="block w-full h-full" target="_blank" rel="noopener">
+        <div data-type="slide-item" data-home-carousel-target="slide" data-wall-paper-need-black-header="<%= wallpaper.wall_paper_need_black_header? %>" class="image-item <%= 'active' if index.zero? %>"
+          role="group" aria-roledescription="<%= t('work_carousel.slide') %>" aria-label="<%= t('work_carousel.position', number: index + 1, total: @wallpapers.size) %>"
+          aria-hidden="<%= !index.zero? %>" <%= 'inert' unless index.zero? %>>
+          <% image_title = wallpaper.title.presence || wallpaper.subtitle.presence || t('home_carousel.untitled', number: index + 1) %>
+          <% image = capture do %>
             <picture>
               <% if wallpaper.mobile_image.identifier.present? %><source srcset="<%= wallpaper.mobile_image.url %>" media="(max-width: 768px)" /><% end %>
-              <img src="<%= wallpaper.image.url %>" alt="" />
+              <img src="<%= wallpaper.image.url %>" alt="<%= wallpaper.link.present? ? '' : image_title %>" />
             </picture>
-          </a>
-          <div class="absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
+          <% end %>
+          <%= link_to_if wallpaper.link.present?, image, wallpaper.link, class: 'home-carousel-link block w-full h-full', target: '_blank', rel: 'noopener', aria: { label: t('home_carousel.open_link', title: image_title) } %>
+          <div class="home-carousel-caption absolute text-white bottom-0 left-0 right-0 break-all px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16 py-3 md:py-10">
             <p class="<%= fdsz("text-base sm:text-lg lg:text-2xl", "text-base sm:text-2xl lg:text-3xl") -%> text-left pb-1 font-medium leading-none sm:leading-tight"><%= wallpaper.title %></p>
             <p class="<%= fdsz("text-xs sm:text-base lg:text-lg", "text-xs sm:text-xl lg:text-2xl") -%> text-left leading-none md:leading-snug tracking-tight sm:tracking-normal" style="word-break: keep-all;"><%= wallpaper.subtitle %></p>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="action-area action-left" data-action="click->carousel2#toLast mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
-      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_left.svg') -%>" alt="上一张" />
-    </div>
-    <div class="action-area action-right" data-action="click->carousel2#toNext mouseenter->carousel2#stopAutoPlay mouseleave->carousel2#startAutoPlay">
-      <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_right.svg') -%>" alt="下一张" />
-    </div>
+    <% if @wallpapers.size > 1 %>
+      <button type="button" class="action-area action-left" data-action="home-carousel#previous" aria-label="<%= t('work_carousel.previous') %>">
+        <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_left.svg') %>" alt="" />
+      </button>
+      <button type="button" class="action-area action-right" data-action="home-carousel#next" aria-label="<%= t('work_carousel.next') %>">
+        <img class="w-4 lg:w-8" src="<%= asset_pack_path('static/images/arrow_right.svg') %>" alt="" />
+      </button>
+    <% end %>
   </div>
 </div>
 

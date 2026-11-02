@@ -11,13 +11,16 @@ class TailHomeTest < ActiveSupport::TestCase
   test "a homepage requires three through ten slides including pending changes" do
     [0, 2, 3, 6, 10, 11].each do |count|
       home = TailHome.new
-      count.times { |index| home.wallpapers.build(position: index + 1) }
+      count.times do |index|
+        wallpaper = home.wallpapers.build(position: index + 1)
+        wallpaper[:image] = "desktop.jpg"
+      end
       assert_equal (3..10).cover?(count), home.valid?, "#{count} slides"
     end
     home = tail_homes(:tail_home_one)
     home.wallpapers.to_a.last(4).each(&:mark_for_destruction)
     assert_not home.valid?
-    home.wallpapers.build(position: 7)
+    home.wallpapers.build(position: 7)[:image] = "desktop.jpg"
     assert home.valid?
     assert_equal [1, 2, 3], home.wallpapers.reject(&:marked_for_destruction?).map(&:position)
   end

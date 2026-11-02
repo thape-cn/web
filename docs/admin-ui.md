@@ -307,6 +307,10 @@ module search, with links between the carousel and other homepage settings.
 The editor manages 3–10 ordered `TailHomeWallpaper` records through `TailHome`'s
 nested `wallpapers` association. Each section contains its title, subtitle, link,
 desktop image/WebP and mobile image/WebP, upload cache and removal controls.
+Every saved slide requires a desktop image; mobile and WebP alternatives alone
+do not satisfy validation. Removing the desktop image is rejected unless the
+entire slide is deleted. Failed saves retain field errors and cached uploads.
+Mobile layouts fall back to the desktop image when no mobile image is supplied.
 Each slide also has a translated dark-header switch (`wall_paper_need_black_header`,
 default `false`). When enabled, the homepage logo, navigation and header controls
 use `black6c` (`#101820`) while that slide is displayed, including the initial

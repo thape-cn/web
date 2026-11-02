@@ -14,7 +14,8 @@ cn:
       description: "维护首页 3–10 组轮播，自由添加、删除和调整顺序。"
       home_settings: "首页其他设置"
       slide: "轮播 %{number}"
-      slide_description: "编辑本组轮播的标题、副标题、链接及桌面端、手机端背景图，保存后生效。"
+      slide_description: "桌面端背景图必填；手机图未上传时使用桌面图。编辑标题、副标题、链接及图片，保存后生效。"
+      image_required: "请上传桌面端背景图；手机图或 WEBP 不能替代。"
       count: "当前 %{count} 组轮播（3–10 组）"
       count_error: "首页轮播必须保留 %{min}–%{max} 组。"
       add: "添加轮播"
@@ -119,6 +120,10 @@ cn:
     module_search:
       no_results: "没有找到匹配的模块"
       try_again: "请尝试其他名称或关键词。"
+  home_carousel:
+    label: "首页轮播图片"
+    untitled: "首页图片 %{number}"
+    open_link: "查看%{title}（新窗口）"
   work_carousel:
     carousel: "轮播"
     label: "%{project}项目图片"

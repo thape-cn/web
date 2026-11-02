@@ -268,15 +268,69 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert File.exist?(wallpaper.image.path)
   end
 
+  test "carousel requires desktop images and retains mobile uploads when validation fails" do
+    sign_in
+    home = TailHome.first
+    first = home.wallpapers.first
+
+    %i[cn en].each do |locale|
+      patch admin_tail_home_wallpaper_path(locale: locale), params: {tail_home: {wallpapers_attributes: {
+        "0" => {title: "Incomplete slide", position: 7},
+        "1" => {id: first.id, title: "Must not persist"}
+      }}}
+      assert_response :unprocessable_entity
+      assert_equal 6, home.wallpapers.reload.size
+      assert_not_equal "Must not persist", first.reload.title
+      assert_select ".admin-field-error", text: /#{Regexp.escape(I18n.t("admin.home_wallpaper.image_required", locale: locale))}/
+      assert_select 'input[type=file][name$="[image]"][aria-invalid="true"]', count: 1
+    end
+
+    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {
+      "0" => {title: "Mobile only", position: 7, mobile_image: upload("mobile.png", "image/png")}
+    }}}
+    assert_response :unprocessable_entity
+    assert_equal 6, home.wallpapers.reload.size
+    cache = css_select('input[name="tail_home[wallpapers_attributes][6][mobile_image_cache]"]').first["value"]
+    assert cache.present?
+
+    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {
+      "0" => {title: "Complete slide", position: 7, mobile_image_cache: cache, image: upload("desktop.png", "image/png")}
+    }}}
+    assert_response :see_other
+    assert_equal 7, home.wallpapers.reload.size
+    assert_equal "desktop.png", home.wallpapers.last.image.identifier
+    assert_equal "mobile.png", home.wallpapers.last.mobile_image.identifier
+    assert File.exist?(home.wallpapers.last.mobile_image.path)
+  end
+
+  test "carousel cannot remove the desktop image from a retained slide" do
+    sign_in
+    wallpaper = TailHome.first.wallpapers.first
+    wallpaper.update!(image: upload("existing.png", "image/png"))
+    stored_path = wallpaper.image.path
+    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {
+      "0" => {id: wallpaper.id, remove_image: "1"}
+    }}}
+    assert_response :unprocessable_entity
+    assert_equal "existing.png", wallpaper.reload.image.identifier
+    assert File.exist?(stored_path)
+
+    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {
+      "0" => {id: wallpaper.id, remove_image: "1", _destroy: "1"}
+    }}}
+    assert_response :see_other
+    assert_not TailHomeWallpaper.exists?(wallpaper.id)
+  end
+
   test "carousel accepts three through ten slides and rejects additions above ten atomically" do
     sign_in
     home = TailHome.first
-    additions = 4.times.to_h { |index| [index.to_s, {title: "New #{index}", position: index + 7}] }
+    additions = 4.times.to_h { |index| [index.to_s, {title: "New #{index}", position: index + 7, image: upload("desktop.png", "image/png")}] }
     patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: additions}}
     assert_response :see_other
     assert_equal 10, home.wallpapers.reload.size
     first = home.wallpapers.first
-    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {"0" => {title: "Eleventh", position: 11}, "1" => {id: first.id, title: "Must not persist"}}}}
+    patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {"0" => {title: "Eleventh", position: 11, image: upload("desktop.png", "image/png")}, "1" => {id: first.id, title: "Must not persist"}}}}
     assert_response :unprocessable_entity
     assert_equal 10, home.wallpapers.reload.size
     assert_not_equal "Must not persist", first.reload.title

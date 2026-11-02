@@ -17,7 +17,7 @@ export default class extends Controller {
       const { direction, index } = response
       if (direction == "down") {
         if (index === 0) {
-          const carousel_controller = web_app.controllers.find((c) => c.identifier == "carousel2")
+          const carousel_controller = web_app.controllers.find((c) => c.identifier == "home-carousel")
           if (carousel_controller) {
             carousel_controller.stopAutoPlay()
           }
@@ -32,7 +32,7 @@ export default class extends Controller {
       const { direction, index } = response
       if (direction == "up") {
         if (index === 0) {
-          const carousel_controller = web_app.controllers.find((c) => c.identifier == "carousel2")
+          const carousel_controller = web_app.controllers.find((c) => c.identifier == "home-carousel")
           if (carousel_controller) {
             carousel_controller.startAutoPlay()
           }

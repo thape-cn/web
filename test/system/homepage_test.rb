@@ -18,7 +18,7 @@ class HomepageTest < ApplicationSystemTestCase
 
     # Exercise the real five-second autoplay before pausing for manual controls.
     assert_selector ".image-item:nth-child(2).active:not(.animate)", wait: 8
-    page.execute_script("document.querySelector('[data-controller=carousel2]').dataset.carousel2AutoPlayValue = 'false'")
+    page.execute_script("#{carousel_controller}.stopAutoPlay()")
     assert_no_selector "header.wallpaper-black-header"
     assert_selector "header.thape-header", style: {color: "rgba(255, 255, 255, 0.8)"}
 
@@ -36,7 +36,7 @@ class HomepageTest < ApplicationSystemTestCase
     tail_home_wallpapers(:wallpaper_1).update!(wall_paper_need_black_header: true)
     resize_viewport(390, 844)
     visit root_path
-    page.execute_script("document.querySelector('[data-controller=carousel2]').dataset.carousel2AutoPlayValue = 'false'")
+    page.execute_script("#{carousel_controller}.stopAutoPlay()")
     assert_selector ".aside-menu-button", style: {color: BLACK_HEADER_COLOR}
     assert_selector '.thape-header button[data-action="click->header#showMobileSearch"] svg', style: {fill: BLACK_HEADER_COLOR}
     find(".aside-menu-button").click
@@ -67,8 +67,8 @@ class HomepageTest < ApplicationSystemTestCase
     end
 
     assert_selector ".thape-slide .image-item", count: 6, visible: :all
-    assert_selector ".thape-slide img[alt='上一张']", visible: :all
-    assert_selector ".thape-slide img[alt='下一张']", visible: :all
+    assert_selector ".thape-slide button.action-left[aria-label]", visible: :all
+    assert_selector ".thape-slide button.action-right[aria-label]", visible: :all
 
     within "#thape-new-projects" do
       assert_text "NEW PROJECTS"
@@ -95,5 +95,93 @@ class HomepageTest < ApplicationSystemTestCase
       assert_link "CONTACT US", href: biz_map_path
       assert_text "© 2022 Tianhua Group，All Rights Reserved."
     end
+  end
+
+  test "homepage controls support Tab Enter Space and keep inactive links out of focus" do
+    tail_home_wallpapers(:wallpaper_1).update!(title: "First project", link: "/works/1")
+    tail_home_wallpapers(:wallpaper_2).update!(title: "Second project", link: "/works/2")
+    visit root_path(locale: :en)
+    rotation = find(".home-carousel .work-carousel-rotation")
+    rotation.send_keys(:tab)
+    assert_selector '.home-carousel-link[href="/works/1"]:focus'
+    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_not carousel_running?
+    find(".home-carousel-link:focus").send_keys(:tab)
+    assert_selector ".home-carousel .action-left:focus"
+    previous = find(".home-carousel .action-left")
+    assert_equal "1", previous.evaluate_script("getComputedStyle(this).opacity")
+    assert_operator previous.evaluate_script("parseFloat(getComputedStyle(this).outlineWidth)"), :>, 0
+    previous.send_keys(:enter)
+    assert_selector ".home-carousel .image-item:nth-child(6).active:not(.animate)"
+    previous.send_keys(:tab)
+    assert_selector ".home-carousel .action-right:focus"
+    following = find(".home-carousel .action-right")
+    following.send_keys(:space)
+    assert_selector ".home-carousel .image-item:nth-child(1).active:not(.animate)"
+    following.send_keys(:enter)
+    assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)"
+    assert_selector '.home-carousel .image-item[inert][aria-hidden="true"]', count: 5, visible: :all
+    following.send_keys([:shift, :tab])
+    previous.send_keys([:shift, :tab])
+    assert_selector '.home-carousel-link[href="/works/2"]:focus'
+    assert_selector '[data-home-carousel-target="status"][aria-live="polite"]', text: "2 / 6"
+    page.save_screenshot(Rails.root.join("tmp/home-carousel-desktop.png")) # standard:disable Lint/Debugger
+  end
+
+  test "homepage pause survives pointer exit and scrolling until explicitly resumed" do
+    visit root_path(locale: :en)
+    find(".thape-header .logo").hover
+    assert carousel_running?
+    click_button "Pause slideshow"
+    find(".thape-header .logo").hover
+    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_not carousel_running?
+
+    page.scroll_to(find("#thape-new-projects"))
+    assert_selector "header.active"
+    assert page.evaluate_script("#{carousel_controller}.suspended")
+    page.execute_script("window.scrollTo(0, 0)")
+    assert_no_selector "header.active"
+    assert_not page.evaluate_script("#{carousel_controller}.suspended")
+    assert_not carousel_running?
+    click_button "Play slideshow"
+    find(".thape-header .logo").hover
+    assert carousel_running?
+    assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)", wait: 8
+  end
+
+  test "homepage respects reduced motion and exposes named mobile controls" do
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "reduce"}])
+    resize_viewport(390, 844)
+    visit root_path(locale: :en)
+    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_not carousel_running?
+    assert_selector 'button[data-action="click->header#showMobileSearch"][aria-label="Keyword search"]'
+    find('button[aria-label="Next image"]').click
+    assert_selector ".home-carousel .image-item:nth-child(2).active:not(.animate)"
+    assert_no_selector ".home-carousel .animate"
+    assert_operator find(".home-carousel .action-right").rect.width, :>=, 44
+    assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    page.save_screenshot(Rails.root.join("tmp/home-carousel-mobile.png")) # standard:disable Lint/Debugger
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "no-preference"}])
+    assert_not carousel_running?
+    click_button "Play slideshow"
+    find(".thape-header .logo").hover
+    assert carousel_running?
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "prefers-reduced-motion", value: "reduce"}])
+    assert_selector '[data-home-carousel-target="playLabel"]:not([hidden])', text: "Play slideshow"
+    assert_not carousel_running?
+  ensure
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [])
+  end
+
+  private
+
+  def carousel_controller
+    "window.web_app.getControllerForElementAndIdentifier(document.querySelector('.home-carousel'), 'home-carousel')"
+  end
+
+  def carousel_running?
+    page.evaluate_script("!!#{carousel_controller}.timer")
   end
 end

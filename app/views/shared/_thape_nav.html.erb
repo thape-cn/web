@@ -57,7 +57,7 @@ navCitiesByChinaArea = City.with_published_works
   style="transform: translateZ(100px)"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
-  data-action="carousel2:change@window->header#updateWallpaperTheme"
+  data-action="home-carousel:change@window->header#updateWallpaperTheme"
   data-header-is-active-value="<%= headerIsActive -%>"
   data-header-amt-time-value="500"
 >
@@ -280,8 +280,8 @@ navCitiesByChinaArea = City.with_published_works
   <div class="header-search-form absolute top-0 right-2 md:right-6 lg:right-8 xl:right-10 xxl:right-12 xxxl:right-16" data-header-target="form" data-action="mousedown->header#preventDefaultEvent">
     <form class="w-full" action="<%= search_path -%>" method="GET" autocomplete="off">
       <input type="text" autofocus name="q" placeholder="<%= t('ui.keyword_search') -%>" value="<%= params[:q] -%>" data-header-target="formInput" data-action="blur->header#hideForm" />
-      <button type="submit" data-header-target="formSubmit">
-        <svg class="h-6 w-6" fill="currentColor">
+      <button type="submit" data-header-target="formSubmit" aria-label="<%= t('ui.keyword_search') %>">
+        <svg class="h-6 w-6" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z" clip-rule="evenodd" />
         </svg>
       </button>
@@ -289,8 +289,8 @@ navCitiesByChinaArea = City.with_published_works
     <div class="underline" data-header-target="formUnderline"></div>
   </div>
   <div class="flex lg:hidden relative">
-    <button type="button" class="mr-2" data-action="click->header#showMobileSearch">
-      <svg class="fill-current h-6 w-6" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <button type="button" class="mr-2" data-action="click->header#showMobileSearch" aria-label="<%= t('ui.keyword_search') %>">
+      <svg class="fill-current h-6 w-6" aria-hidden="true" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
         <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
       </svg>
     </button>

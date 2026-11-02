@@ -14,7 +14,8 @@ en:
       description: "Manage 3–10 homepage slides. Add, remove and reorder them as needed."
       home_settings: "Other homepage settings"
       slide: "Slide %{number}"
-      slide_description: "Edit this slide's title, subtitle, link and desktop/mobile backgrounds. Changes take effect when saved."
+      slide_description: "A desktop background is required and is also used on mobile when no mobile image is uploaded. Edit the title, subtitle, link and images, then save to apply."
+      image_required: "Upload a desktop background; mobile or WEBP images cannot replace it."
       count: "%{count} slides (3–10 allowed)"
       count_error: "The homepage must contain %{min}–%{max} slides."
       add: "Add slide"
@@ -119,6 +120,10 @@ en:
     module_search:
       no_results: "No matching modules"
       try_again: "Try another name or keyword."
+  home_carousel:
+    label: "Homepage slideshow"
+    untitled: "Homepage image %{number}"
+    open_link: "View %{title} (opens in a new window)"
   work_carousel:
     carousel: "carousel"
     label: "%{project} project images"
