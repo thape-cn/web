@@ -3,6 +3,11 @@
 require "test_helper"
 
 class TailHomeTest < ActiveSupport::TestCase
+  test "wallpapers default to a light header" do
+    assert_equal false, TailHomeWallpaper.new.wall_paper_need_black_header
+    assert_equal false, tail_home_wallpapers(:wallpaper_1).wall_paper_need_black_header
+  end
+
   test "a homepage requires three through ten slides including pending changes" do
     [0, 2, 3, 6, 10, 11].each do |count|
       home = TailHome.new

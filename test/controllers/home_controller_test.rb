@@ -43,4 +43,20 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select '.slide-images [data-type="slide-item"].active', count: 1
     assert_select '.slide-images picture source[srcset=""]', count: 0
   end
+
+  test "homepage renders each header preference and applies the first slide before JavaScript" do
+    tail_home_wallpapers(:wallpaper_2).update!(wall_paper_need_black_header: true)
+    get root_url
+    assert_select "header.thape-header.wallpaper-black-header", count: 0
+    assert_select '.slide-images [data-wall-paper-need-black-header="false"]', count: 5
+    assert_select '.slide-images [data-wall-paper-need-black-header="true"]', count: 1
+
+    tail_home_wallpapers(:wallpaper_1).update!(wall_paper_need_black_header: true)
+    %i[cn en].each do |locale|
+      get root_url, params: {locale: locale}
+      assert_response :success
+      assert_select "header.thape-header.wallpaper-black-header", count: 1
+      assert_select '.slide-images .active[data-wall-paper-need-black-header="true"]', count: 1
+    end
+  end
 end

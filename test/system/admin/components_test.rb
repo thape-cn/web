@@ -185,6 +185,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       fill_in "标题", with: "Updated carousel title", exact: true
       fill_in "副标题", with: "Updated carousel subtitle"
       fill_in "链接", with: "/works/123"
+      find("label", text: "使用深色页头").click
       assert_selector "input[type=file]", count: 4
     end
     screenshot("homepage-carousel-desktop")
@@ -192,6 +193,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_text "保存成功"
     assert_equal "/admin/tail_home/edit_wallpaper", URI(page.current_url).path
     assert_equal "Updated carousel title", home.wallpapers.first.reload.title
+    assert home.wallpapers.first.wall_paper_need_black_header?
     assert_equal original_project, home.new_project_1_id
 
     resize_viewport(390, 844)

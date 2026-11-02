@@ -23,7 +23,9 @@ en:
       move_down: "Move down"
       manage_hint: "Additions, removals and ordering take effect when saved. Removing a slide also removes its images."
       javascript_hint: "Enable JavaScript to add, remove and reorder slides."
+      black_header_hint: "For light backgrounds. After saving, the logo, navigation and header controls use dark text while this slide is displayed."
       fields:
+        wall_paper_need_black_header: "Use dark header"
         title: "Title"
         subtitle: "Subtitle"
         link: "Link"

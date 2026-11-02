@@ -39,6 +39,20 @@ export default class extends Controller {
     this.autoPlay ? this.startAutoPlay() : this.stopAutoPlay()
   }
 
+  connect() {
+    const { itemDataType, activeClass } = this.config
+    this.announceSlide(this.element.querySelector(`[data-type=${itemDataType}].${activeClass}`))
+    if (this.autoPlay) this.startAutoPlay()
+  }
+
+  disconnect() {
+    this.stopAutoPlay()
+  }
+
+  announceSlide(slide) {
+    this.element.dispatchEvent(new CustomEvent("carousel2:change", { bubbles: true, detail: { slide } }))
+  }
+
   // 动画开始
   itemAnimationStart = (e) => {
     this.inAnimation = true
@@ -77,11 +91,13 @@ export default class extends Controller {
       const currentIndex = Array.from(items).findIndex((element) => element.classList.contains(activeClass))
       if (currentIndex < 0) {
         items[0].classList.add(activeClass)
+        this.announceSlide(items[0])
         return
       }
       items[currentIndex].classList.add(animationClass.base, animationClass.rightOut)
       const lastIndex = currentIndex <= 0 ? items.length - 1 : currentIndex - 1
       items[lastIndex].classList.add(activeClass, animationClass.base, animationClass.leftIn)
+      this.announceSlide(items[lastIndex])
       if (!this.supportAnimationEvent) this.simulateAnimation()
     }
   }
@@ -97,11 +113,13 @@ export default class extends Controller {
       })
       if (currentIndex < 0) {
         items[0].classList.add(activeClass)
+        this.announceSlide(items[0])
         return
       }
       items[currentIndex].classList.add(animationClass.base, animationClass.leftOut)
       const nextIndex = currentIndex >= items.length - 1 ? 0 : currentIndex + 1
       items[nextIndex].classList.add(activeClass, animationClass.base, animationClass.rightIn)
+      this.announceSlide(items[nextIndex])
       if (!this.supportAnimationEvent) this.simulateAnimation()
     }
   }

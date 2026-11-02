@@ -186,6 +186,29 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select 'label[for="tail_home_wallpapers_attributes_0_mobile_image"]', text: "Mobile background"
   end
 
+  test "carousel dark header switch is localized and can be enabled and cleared per slide" do
+    sign_in
+    wallpaper = TailHome.first.wallpapers.first
+    field_id = "tail_home_wallpapers_attributes_0_wall_paper_need_black_header"
+    {cn: "使用深色页头", en: "Use dark header"}.each do |locale, label|
+      get admin_edit_tail_home_wallpaper_path(locale: locale)
+      assert_select "label[for=?]", field_id, text: label
+      assert_select "input[type=checkbox][role=switch][id=?]:not([checked])", field_id
+      assert_select "input[type=hidden][name=?][value='0']", "tail_home[wallpapers_attributes][0][wall_paper_need_black_header]"
+    end
+
+    [true, false].each do |enabled|
+      patch admin_tail_home_wallpaper_path, params: {tail_home: {wallpapers_attributes: {
+        "0" => {id: wallpaper.id, wall_paper_need_black_header: enabled ? "1" : "0"}
+      }}}
+      assert_response :see_other
+      assert_equal enabled, wallpaper.reload.wall_paper_need_black_header
+      assert_not TailHome.first.wallpapers.where.not(id: wallpaper.id).exists?(wall_paper_need_black_header: true)
+      follow_redirect!
+      assert_select "##{field_id}#{enabled ? "[checked]" : ":not([checked])"}", count: 1
+    end
+  end
+
   test "homepage and carousel saves only change their own settings and retain upload removal" do
     sign_in
     home = TailHome.first

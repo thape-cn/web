@@ -23,7 +23,9 @@ cn:
       move_down: "下移"
       manage_hint: "添加、删除及排序在点击保存后生效。删除轮播会同时删除该组图片。"
       javascript_hint: "启用 JavaScript 后可添加、删除和排序轮播。"
+      black_header_hint: "适用于浅色背景图。保存后，显示此轮播图时，页头标志、导航和按钮使用深黑色。"
       fields:
+        wall_paper_need_black_header: "使用深色页头"
         title: "标题"
         subtitle: "副标题"
         link: "链接"

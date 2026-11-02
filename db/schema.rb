@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_11_02_000000) do
+ActiveRecord::Schema[7.2].define(version: 2026_11_02_010000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -376,6 +376,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_11_02_000000) do
     t.string "tablet_image_webp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "wall_paper_need_black_header", default: false, null: false
     t.index ["tail_home_id", "legacy_slot"], name: "index_tail_home_wallpapers_on_tail_home_id_and_legacy_slot", unique: true
     t.index ["tail_home_id", "position"], name: "index_tail_home_wallpapers_on_tail_home_id_and_position"
     t.index ["tail_home_id"], name: "index_tail_home_wallpapers_on_tail_home_id"

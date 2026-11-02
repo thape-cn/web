@@ -53,10 +53,11 @@ navCitiesByChinaArea = City.with_published_works
   .group_by(&:china_area_name);
 %>
 <header
-  class="thape-header thape-header-fixed flex-none text-base <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
+  class="thape-header thape-header-fixed flex-none text-base <%= headerIsActive ? 'active' : '' -%> <%= isBigFont ? 'big-font' : '' -%> <%= 'wallpaper-black-header' if local_assigns[:need_black_header] %> px-2 md:px-6 lg:px-8 xl:px-10 xxl:px-12 xxxl:px-16"
   style="transform: translateZ(100px)"
   lang="<%= isEnglish ? 'en' : '' -%>"
   data-controller="header"
+  data-action="carousel2:change@window->header#updateWallpaperTheme"
   data-header-is-active-value="<%= headerIsActive -%>"
   data-header-amt-time-value="500"
 >

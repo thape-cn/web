@@ -307,6 +307,11 @@ module search, with links between the carousel and other homepage settings.
 The editor manages 3–10 ordered `TailHomeWallpaper` records through `TailHome`'s
 nested `wallpapers` association. Each section contains its title, subtitle, link,
 desktop image/WebP and mobile image/WebP, upload cache and removal controls.
+Each slide also has a translated dark-header switch (`wall_paper_need_black_header`,
+default `false`). When enabled, the homepage logo, navigation and header controls
+use `black6c` (`#101820`) while that slide is displayed, including the initial
+render and automatic/manual transitions. The header background keeps its existing
+hover, focus and scroll behavior.
 Add, remove and move buttons update the form; one save applies the collection
 transactionally. Both browser controls and server validation enforce the limits.
 The parent row is locked during saves to serialize concurrent collection edits.

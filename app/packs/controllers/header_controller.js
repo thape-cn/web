@@ -55,6 +55,11 @@ export default class extends Controller {
     else this.element.classList.remove("active")
   }
 
+  updateWallpaperTheme({ detail: { slide } }) {
+    if (slide?.dataset.wallPaperNeedBlackHeader === undefined) return
+    this.element.classList.toggle("wallpaper-black-header", slide.dataset.wallPaperNeedBlackHeader === "true")
+  }
+
   closeOnDesktop = () => {
     if (this.desktop.matches) this.closeOverlays()
   }

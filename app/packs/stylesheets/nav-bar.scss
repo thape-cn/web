@@ -330,6 +330,29 @@
     @apply text-gray-400;
   }
 
+  &.wallpaper-black-header {
+    @apply text-black6c;
+
+    .logo a,
+    .logo a:hover,
+    .logo a:focus,
+    nav > .nav-point,
+    .nav-item > a,
+    .nav-item > span,
+    .aside-menu-button,
+    .header-search-form input,
+    .header-search-form input::placeholder,
+    .header-search-form button,
+    .mobile-search input,
+    .mobile-search input::placeholder {
+      @apply text-black6c;
+    }
+
+    .header-search-form .underline {
+      @apply bg-black6c;
+    }
+  }
+
   .mobile-search {
     display: none;
     overflow-y: auto;

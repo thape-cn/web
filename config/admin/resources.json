@@ -451,6 +451,11 @@
     "actions": ["edit", "update"],
     "fields": {},
     "wallpaper_fields": {
+      "wall_paper_need_black_header": {
+        "type": "check_box",
+        "full_width": true,
+        "hint_key": "admin.home_wallpaper.black_header_hint"
+      },
       "title": {
         "type": "text_field"
       },

@@ -12,7 +12,7 @@ class Admin::TailHomeWallpapersController < Admin::ResourcesController
 
   def record_params
     images = %i[image image_webp mobile_image mobile_image_webp]
-    fields = [:id, :title, :subtitle, :link, :position, :_destroy] + images.flat_map { |field| [field, "#{field}_cache", "remove_#{field}"] }
+    fields = [:id, :title, :subtitle, :link, :position, :wall_paper_need_black_header, :_destroy] + images.flat_map { |field| [field, "#{field}_cache", "remove_#{field}"] }
     params.require(:tail_home).permit(wallpapers_attributes: fields).to_h
   end
 
