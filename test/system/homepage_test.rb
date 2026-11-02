@@ -104,7 +104,7 @@ class HomepageTest < ApplicationSystemTestCase
     assert_no_selector ".home-carousel .work-carousel-rotation"
     find('.home-carousel-link[href="/works/1"]').send_keys(:tab)
     assert_selector ".home-carousel .action-left:focus"
-    assert_no_selector ".home-carousel .work-carousel-rotation"
+    assert_selector ".home-carousel .work-carousel-rotation", text: "Play slideshow"
     assert_not carousel_running?
     previous = find(".home-carousel .action-left")
     assert_equal "1", previous.evaluate_script("getComputedStyle(this).opacity")
@@ -128,12 +128,37 @@ class HomepageTest < ApplicationSystemTestCase
     assert_selector ".home-carousel .work-carousel-rotation:focus"
     find(".home-carousel .work-carousel-rotation").send_keys(:enter)
     assert_no_selector ".home-carousel .work-carousel-rotation"
-    assert_selector ".home-carousel .action-right:focus"
+    assert_selector ".home-carousel .action-left:focus"
     assert carousel_running?
     page.save_screenshot(Rails.root.join("tmp/home-carousel-desktop.png")) # standard:disable Lint/Debugger
   end
 
-  test "homepage reveals play only after arrow clicks and resumes immediately when play is clicked" do
+  test "homepage can resume after Tab pauses it without changing slides" do
+    tail_home_wallpapers(:wallpaper_1).update!(title: "First project", link: "/works/1")
+
+    %i[cn en].each do |locale|
+      visit root_path(locale: locale)
+      find(".thape-header .logo").hover
+      assert carousel_running?
+      assert_no_selector ".home-carousel .work-carousel-rotation"
+      find('.home-carousel-link[href="/works/1"]').send_keys(:tab)
+      assert_selector ".home-carousel .action-left:focus"
+      assert_selector ".home-carousel .work-carousel-rotation", text: I18n.t("work_carousel.play", locale: locale)
+      assert_not carousel_running?
+      assert_selector ".home-carousel .image-item:nth-child(1).active:not(.animate)"
+
+      find(".home-carousel .action-left").send_keys([:shift, :tab])
+      find(".home-carousel-link:focus").send_keys([:shift, :tab])
+      assert_selector ".home-carousel .work-carousel-rotation:focus"
+      find(".home-carousel .work-carousel-rotation").send_keys(:space)
+      assert_no_selector ".home-carousel .work-carousel-rotation"
+      assert_selector ".home-carousel .action-left:focus"
+      assert carousel_running?
+      assert_selector ".home-carousel .image-item:nth-child(1).active:not(.animate)"
+    end
+  end
+
+  test "homepage reveals play after arrow clicks and resumes immediately when play is clicked" do
     visit root_path(locale: :en)
     find(".thape-header .logo").hover
     assert carousel_running?

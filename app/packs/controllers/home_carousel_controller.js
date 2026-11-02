@@ -3,6 +3,7 @@ import WorkCarouselController from "./work_carousel_controller"
 export default class extends WorkCarouselController {
   connect() {
     this.manuallyPaused = false
+    this.resumeTarget = null
     super.connect()
   }
 
@@ -14,12 +15,20 @@ export default class extends WorkCarouselController {
 
   manualMove(direction) {
     this.manuallyPaused = true
-    this.lastArrow = this.element.querySelector(direction < 0 ? ".action-left" : ".action-right")
+    this.resumeTarget = this.element.querySelector(direction < 0 ? ".action-left" : ".action-right")
     super.manualMove(direction)
   }
 
+  pauseOnFocus(event) {
+    this.manuallyPaused = true
+    // Return focus to an arrow that stays available while slides rotate.
+    this.resumeTarget =
+      event.target.closest(".action-area") || this.resumeTarget || this.element.querySelector(".action-left")
+    super.pauseOnFocus()
+  }
+
   resume() {
-    if (this.rotationTarget.contains(document.activeElement)) this.lastArrow?.focus({ preventScroll: true })
+    if (this.rotationTarget.contains(document.activeElement)) this.resumeTarget?.focus({ preventScroll: true })
     this.manuallyPaused = false
     this.paused = false
     // Explicit resume takes effect even while the pointer remains over the carousel.
