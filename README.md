@@ -44,9 +44,13 @@ RAILS_ENV=development bin/rails db:prepare
 For a developer dump, first verify its source/version and confirm the destination is an empty, local development database. Do not load a schema on top of restored data or blindly run `db:reset`. Examples below use placeholder filenames and the database configured above:
 
 ```bash
+psql -d postgres
+DROP DATABASE thape_web_dev;
+CREATE DATABASE thape_web_dev WITH ENCODING='UTF8';
+
 # Gzip-compressed plain SQL. Stop on errors; ignore local psql startup settings.
 set -o pipefail
-gzip -dc /path/to/development.sql.gz | psql -X -v ON_ERROR_STOP=1 -d thape_web_dev
+gzip -dc thape_web_prod.sql.gz | psql -X -v ON_ERROR_STOP=1 -d thape_web_dev
 
 # Alternatively, a PostgreSQL custom-format archive:
 pg_restore --exit-on-error --no-owner --no-privileges \
