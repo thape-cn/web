@@ -1,6 +1,14 @@
 ---
 cn:
   admin:
+    fields:
+      not_selected: "未选择"
+      category_required: "请选择分类。"
+    modules:
+      count: "%{count} 个模块"
+    details:
+      title: "详细信息"
+      record: "记录 #%{id} · %{language}"
     home_wallpaper:
       title: "官方首页轮播图"
       description: "维护首页 3–10 组轮播，自由添加、删除和调整顺序。"

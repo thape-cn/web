@@ -45,6 +45,11 @@ Additional workflows use these references:
 | Message inbox container                        | `layout/list-containers/02-card-with-dividers.html`                   |
 | Message sender initials                        | `elements/avatars/08-circular-avatars-with-placeholder-initials.html` |
 | Selected-message cleanup panel                 | `forms/action-panels/03-with-button-on-right.html`                    |
+| People, news and publication category radios   | `forms/radio-groups/02-simple-inline-list.html`                       |
+| Mobile resource table metadata                 | `lists/tables/07-with-stacked-columns-on-mobile.html`                 |
+| Dashboard module-card headings                 | `headings/card-headings/01-simple.html`                               |
+| Resource and message detail headings           | `headings/card-headings/05-with-description.html`                     |
+| Carousel count, guidance and Add slide heading | `headings/section-headings/04-with-action.html`                       |
 
 See [the complete component inventory](admin-components.md) for all 49 families.
 
@@ -68,6 +73,24 @@ accepts the paginated relation; empty states accept text, icon and an optional
 action; media cards accept an image URL, title, optional subtitle and metadata with a block
 for editor inputs or record actions. Resource-specific search/filter definitions
 live in `Admin::Resource`, rather than in these shared components.
+
+Card headings accept a heading ID, title, optional description, optional action
+block and a heading level (h2 by default, h3 for dashboard module groups).
+Section headings use h2 and the same title/description/action contract. The
+carousel's live count remains inside its section heading; Add slide retains its
+existing data attribute and behavior. Editor section descriptions remain outside
+their form cards.
+
+People/news categories and publication categories opt into native radio groups
+with `presentation: radio`, retaining `type: select` for display and parameter
+handling. The shared radio partial uses a fieldset/legend, unique label targets,
+linked hints/errors and a translated blank choice. Options stack on phones and
+wrap inline from 640px. Native keyboard selection and save behavior work without
+JavaScript; forced-color mode restores the browser's native radio appearance.
+People and news categories can be cleared. Publications retain their existing
+database requirement for a category: `Admin::Publication` reports an inline
+validation error for the blank choice instead of reaching the NOT NULL constraint.
+Its uploaders retain the public model's storage paths.
 
 Dashboard counts are unscoped record totals across all content languages,
 including unpublished works. Search uses `q` for all ordered modules and
@@ -152,8 +175,14 @@ The shared heading places breadcrumbs with 20px chevrons above the title/action
 row, centers actions beside the title from 768px, and uses a parent back link on
 phones. Header search shows its keyboard shortcut on desktop. The shell uses
 40px vertical content padding and 16px/24px/32px responsive side padding.
-Tables use compact interior cells and padded edges, and scroll within their cards
-on phones. Pagination uses arrow buttons on desktop and labeled buttons on phones;
+Tables use compact interior cells and padded edges. Below 640px, works, people,
+news, publications, portfolios, journals, administrators, cities and branch
+contacts stack all secondary values under the primary name/title as labeled
+metadata. Shared value rendering preserves statuses, previews and file links.
+Only the visible layout participates in keyboard navigation; ordering and action
+controls are rendered once and arranged compactly on phones. From 640px the
+existing columns return. Picture and message tables retain scrolling within
+their cards. Pagination uses arrow buttons on desktop and labeled buttons on phones;
 dashboard totals stack on phones and use two or four columns on larger screens.
 
 The HTML references define the light-theme component appearance. The Rails

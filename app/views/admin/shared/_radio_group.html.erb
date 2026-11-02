@@ -1,0 +1,12 @@
+<%= tag.fieldset **admin_field_attributes(form, field, class: 'admin-radio-group', hint: options['hint']) do %>
+  <legend class="admin-label"><%= admin_field_label(resource, field) %></legend>
+  <div class="admin-radio-options">
+    <% ([[t('admin.fields.not_selected'), '']] + admin_options(resource, field)).each do |label, value| %>
+      <% input_id = form.field_id(field, value.to_s.presence || 'blank') %>
+      <div class="admin-radio-option">
+        <%= form.radio_button field, value, **admin_field_attributes(form, field, class: 'admin-radio', hint: options['hint'], id: input_id, checked: form.object.public_send(field).to_s == value.to_s) %>
+        <%= label_tag input_id, label %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

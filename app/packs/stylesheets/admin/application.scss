@@ -222,9 +222,19 @@
 .admin .admin-feature-icon svg {
   @apply w-6 h-6;
 }
-.admin .admin-module-heading {
+.admin .admin-card-heading {
   @apply flex flex-wrap items-center justify-between px-4 py-5 border-b border-gray-200;
   gap: 8px 16px;
+}
+.admin .admin-heading-actions {
+  @apply flex items-center flex-shrink-0;
+  gap: 12px;
+}
+.admin .admin-section-heading {
+  @apply pb-5 mb-6 border-b border-gray-200;
+}
+.admin .admin-section-heading .admin-heading-actions {
+  @apply mt-3;
 }
 .admin .admin-module-navigation {
   @apply px-4 py-5;
@@ -686,7 +696,6 @@
   @apply border border-gray-200 rounded-md p-4;
   min-width: 0;
 }
-.admin .admin-description-heading,
 .admin .admin-description-row {
   @apply px-4 py-6;
 }
@@ -740,6 +749,7 @@
 .admin .admin-alert {
   @apply flex items-start rounded-md p-4 mb-6 text-sm;
   gap: 12px;
+  overflow-wrap: anywhere;
 }
 .admin .admin-alert-error {
   @apply bg-red-50 text-red-800;
@@ -935,6 +945,7 @@
 }
 .admin .admin-field-error {
   @apply text-sm text-red-600 mt-2;
+  overflow-wrap: anywhere;
 }
 .admin .admin-field-hint {
   @apply text-sm text-gray-500 mt-2;
@@ -1417,6 +1428,111 @@
   @apply border-indigo-400;
 }
 
+// Short category choices use native radio inputs with the reference's layout.
+.admin .admin-radio-options {
+  @apply flex flex-col mt-4;
+  gap: 24px;
+}
+.admin .admin-radio-option {
+  @apply flex items-center;
+  gap: 12px;
+}
+.admin .admin-radio-option label {
+  @apply text-sm font-medium text-gray-900;
+  line-height: 24px;
+}
+.admin .admin-radio {
+  @apply w-4 h-4 flex-shrink-0 rounded-full border border-gray-300 bg-white;
+  appearance: none;
+}
+.admin .admin-radio:checked {
+  @apply border-indigo-600 bg-indigo-600;
+  background-image: radial-gradient(circle, white 0, white 2px, transparent 2.5px);
+}
+.admin .admin-radio:disabled {
+  @apply border-gray-300 bg-gray-100;
+}
+.admin .admin-radio:checked:disabled {
+  background-image: radial-gradient(
+    circle,
+    theme("colors.gray.400") 0,
+    theme("colors.gray.400") 2px,
+    transparent 2.5px
+  );
+}
+.admin .admin-radio[aria-invalid="true"] {
+  @apply border-red-500;
+}
+.admin .admin-radio[aria-invalid="true"]:focus-visible {
+  outline-color: theme("colors.red.600");
+}
+
+.admin .admin-table-metadata {
+  display: none;
+}
+@media (max-width: 639px) {
+  .admin .admin-table-stacked {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .admin .admin-table-stacked .admin-table-secondary {
+    display: none;
+  }
+  .admin .admin-table-stacked th,
+  .admin .admin-table-stacked td {
+    @apply px-2 align-top;
+    white-space: normal;
+  }
+  .admin .admin-table-stacked .admin-table-primary {
+    @apply pl-4;
+    min-width: 0;
+  }
+  .admin .admin-table-stacked .admin-order-column {
+    @apply pl-4;
+    width: 92px;
+  }
+  .admin .admin-table-stacked .admin-order-column + .admin-table-secondary + .admin-table-primary {
+    @apply pl-2;
+  }
+  .admin .admin-table-stacked .admin-table-actions {
+    @apply pr-4;
+    width: 68px;
+  }
+  .admin .admin-table-stacked .admin-order-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 4px;
+  }
+  .admin .admin-table-stacked .admin-order-arrows,
+  .admin .admin-table-stacked .admin-order-menu summary {
+    grid-column: 1 / -1;
+  }
+  .admin .admin-table-stacked .admin-order-menu summary {
+    @apply px-1;
+    gap: 4px;
+  }
+  .admin .admin-table-stacked .admin-row-actions {
+    @apply flex-col items-end;
+    gap: 4px;
+  }
+  .admin .admin-table-metadata {
+    @apply block mt-3 font-normal;
+  }
+  .admin .admin-table-metadata > div + div {
+    @apply mt-3;
+  }
+  .admin .admin-table-metadata dt {
+    @apply text-xs text-gray-500;
+  }
+  .admin .admin-table-metadata dd {
+    @apply mt-1 text-sm text-gray-700;
+    overflow-wrap: anywhere;
+  }
+  .admin .admin-table-metadata .admin-preview {
+    max-width: 100%;
+  }
+}
+
 @media (forced-colors: active) {
   .admin .admin-input,
   .admin .admin-button-secondary,
@@ -1439,6 +1555,8 @@
   .admin .admin-checkbox,
   .admin .admin-checkbox:checked,
   .admin .admin-checkbox:indeterminate,
+  .admin .admin-radio,
+  .admin .admin-radio:checked,
   .admin select.admin-input:not([multiple]) {
     appearance: auto;
     background-image: none;
@@ -1463,8 +1581,19 @@
   .admin .admin-editor-heading {
     @apply px-0;
   }
-  .admin .admin-module-heading {
+  .admin .admin-card-heading {
     @apply px-6;
+  }
+  .admin .admin-section-heading {
+    @apply flex items-center justify-between;
+    gap: 16px;
+  }
+  .admin .admin-section-heading .admin-heading-actions {
+    @apply mt-0;
+  }
+  .admin .admin-radio-options {
+    @apply flex-row flex-wrap;
+    gap: 16px 40px;
   }
   .admin .admin-module-navigation {
     @apply p-6;
@@ -1546,7 +1675,6 @@
   .admin .admin-fields {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .admin .admin-description-heading,
   .admin .admin-description-row {
     @apply px-6;
   }

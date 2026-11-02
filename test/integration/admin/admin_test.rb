@@ -450,7 +450,7 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     work = Admin::Work.unscoped.order(:id).last
     assert_not Work.exists?(work.id)
     get admin_works_path(q: "Test work")
-    assert_select "td", text: "Test work"
+    assert_select "td .admin-table-primary-value", text: "Test work"
     patch admin_work_path(work, locale: :en), params: {work: {project_name: "English name", published: true}}
     assert_response :redirect
     assert Work.exists?(work.id)
@@ -837,6 +837,77 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select '.admin-page-button[aria-disabled="true"]', text: "下一页"
     get admin_works_path(q: "does-not-exist", per_page: 1)
     assert_select ".admin-pagination", text: /显示 0–0 条，共 0 条/
+  end
+
+  test "category radios retain scalar values blank choices and failed submissions" do
+    sign_in
+    {"people" => ["category", "2", 3], "infos" => ["category", "3", 4], "publications" => ["category_status", "paper_patent", 4]}.each do |key, (field, value, count)|
+      resource = Admin::Resource.new(key)
+      record = resource.scope.create!(attributes_for(key))
+      get path(resource, :edit, record, locale: :cn)
+      assert_response :success
+      assert_select "fieldset.admin-radio-group legend", text: resource.fields.fetch(field).fetch("label")
+      assert_select "input[type='radio'][name='#{resource.param_key}[#{field}]']", count: count
+      assert_select "input[type='radio'][value='#{record.public_send(field)}'][checked]", count: 1
+      assert_select "select[name='#{resource.param_key}[#{field}]']", count: 0
+      inputs = css_select("fieldset.admin-radio-group input")
+      assert_equal inputs.size, inputs.map { |input| input["id"] }.uniq.size
+      inputs.each { |input| assert_select "label[for=?]", input["id"], count: 1 }
+
+      patch path(resource, :update, record), params: {resource.param_key => {field => value}}
+      assert_response :redirect
+      assert_equal value, record.reload.public_send(field).to_s
+      patch path(resource, :update, record), params: {resource.param_key => {field => ""}}
+      if key == "publications"
+        assert_response :unprocessable_entity
+        assert_equal value, record.reload.public_send(field)
+        assert_select "#publication_category_status_blank[checked][aria-invalid='true'][aria-describedby='publication_category_status_error']"
+        assert_select "fieldset[aria-describedby='publication_category_status_error']"
+        assert_select "#publication_category_status_error", text: /请选择分类/
+      else
+        assert_response :redirect
+        assert_nil record.reload.public_send(field)
+      end
+      get path(resource, :edit, record, locale: :en)
+      selected = (key == "publications") ? value : ""
+      assert_select "input[type='radio'][value='#{selected}'][checked]", count: 1
+      assert_select "label", text: "Not selected"
+    end
+
+    post admin_infos_path(locale: :cn), params: {info: {title: "Retained category", category: "3"}}
+    assert_response :unprocessable_entity
+    assert_select "#info_category_3[checked]"
+    assert_select "#info_introduction_error"
+    get new_admin_work_path
+    assert_select "select[name='work[city_id]']"
+    assert_select "input[type='checkbox'][name='work[project_type_ids][]']"
+  end
+
+  test "mobile table metadata retains every column and a single set of row controls" do
+    sign_in
+    %w[works people infos publications portfolios insights users cities map_contacts].each do |key|
+      resource = Admin::Resource.new(key)
+      attributes = (key == "map_contacts") ? {name: "Test branch"} : attributes_for(key)
+      record = resource.scope.create!(attributes)
+      if key == "publications"
+        record.update!(pdf_file: upload("mobile-report.pdf", "application/pdf"))
+        assert_equal "/uploads/publication/pdf_file/#{record.id}/mobile-report.pdf", record.pdf_file.url
+      end
+      get path(resource, :index, nil, per_page: 100)
+      assert_response :success
+      assert_select ".admin-table-stacked #record-#{record.id}" do
+        assert_select "td.admin-table-primary", count: 1
+        assert_select ".admin-table-metadata > div", count: resource.columns.size - 1
+        assert_select "td.admin-table-secondary", count: resource.columns.size - 1
+        assert_select ".admin-row-actions", count: 1
+        assert_select ".admin-order-controls", count: resource.ordered? ? 1 : 0
+        assert_select ".admin-table-metadata a[href=?]", record.pdf_file.url, text: "mobile-report.pdf" if key == "publications"
+      end
+    end
+    get admin_pictures_path(view: "list")
+    assert_select ".admin-table-stacked", count: 0
+    get admin_project_messages_path(view: "table")
+    assert_select ".admin-table-stacked", count: 0
   end
 
   test "picture browsing and shared field errors retain existing form contracts" do

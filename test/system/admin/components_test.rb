@@ -7,9 +7,11 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
   setup do
     @original_upload_root = PictureUploader.root
     @original_wallpaper_upload_root = TailHomeWallpaperUploader.root
+    @original_pdf_upload_root = PdfFileUploader.root
     @upload_root = Dir.mktmpdir("admin-components-uploads")
     PictureUploader.root = @upload_root
     TailHomeWallpaperUploader.root = @upload_root
+    PdfFileUploader.root = @upload_root
     Admin::User.create!(id: 99101, name: "Components admin", email: "components@example.test", password: "components-test-password")
     Admin::User.create!(id: 99102, name: "Dialog target", email: "dialog@example.test", password: "components-test-password")
     visit admin_login_path
@@ -22,6 +24,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
   teardown do
     PictureUploader.root = @original_upload_root
     TailHomeWallpaperUploader.root = @original_wallpaper_upload_root
+    PdfFileUploader.root = @original_pdf_upload_root
     FileUtils.remove_entry(@upload_root) if @upload_root && File.exist?(@upload_root)
   end
 
@@ -234,6 +237,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_text "保存成功"
     assert_equal 10, TailHome.first.wallpapers.count
     assert_equal "Tenth slide", TailHome.first.wallpapers.to_a[8].title
+    find("[data-admin-alert-dismiss]").click
 
     resize_viewport(390, 844)
     7.times { first("[data-wallpaper-remove]").click }
@@ -243,9 +247,10 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
     screenshot("homepage-carousel-three-mobile")
     click_button "保存"
-    assert_text "保存成功"
+    assert_selector ".admin-alert-success", text: "保存成功"
     assert_equal 3, TailHome.first.wallpapers.count
     assert_equal [1, 2, 3], TailHome.first.wallpapers.pluck(:position)
+    find("[data-admin-alert-dismiss]").click
 
     # Repeated add/remove cycles must not reuse nested field indexes.
     click_button "添加轮播"
@@ -803,6 +808,108 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     end
     assert_current_path admin_picture_path(picture, locale: :cn)
     assert_selector "[data-admin-picture-details]"
+  end
+
+  test "category radios support keyboard selection validation and saving without JavaScript" do
+    person = Admin::Person.create!(id: 99570, url_name: "radio-team", category: 1)
+    Admin::Person.translation_class.insert_all!([{id: 99570, person_id: person.id, locale: "cn", name: "Radio team", created_at: Time.current, updated_at: Time.current}])
+    visit edit_admin_person_path(person)
+    find("#person_category_1").click
+    page.send_keys(:arrow_right)
+    assert_checked_field "专业团队"
+    click_button "保存"
+    assert_selector ".admin-alert-success"
+    assert_equal 2, person.reload.category
+
+    visit new_admin_info_path
+    choose "专业奖项"
+    fill_in "标题", with: "Retained radio"
+    click_button "保存"
+    assert_selector "#info_introduction_error"
+    assert_checked_field "专业奖项"
+    [390, 768, 1440].each do |width|
+      resize_viewport(width, 1000)
+      assert_equal (width < 640) ? "column" : "row", find(".admin-radio-options").style("flex-direction")["flex-direction"]
+      assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+      page.execute_script("document.querySelector('.admin-radio-group').scrollIntoView({block: 'center'})")
+      screenshot("category-radios-#{width}")
+    end
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "forced-colors", value: "active"}])
+    assert_equal "auto", find("#info_category_3").style("appearance")["appearance"]
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [])
+
+    publication = Publication.create!(id: 99570, title: "Radio publication", category_status: "monographs")
+    page.driver.browser.execute_cdp("Emulation.setScriptExecutionDisabled", value: true)
+    visit edit_admin_publication_path(publication)
+    choose "论文专利"
+    click_button "保存"
+    assert_selector ".admin-alert-success"
+    assert_equal "paper_patent", publication.reload.category_status
+    visit edit_admin_publication_path(publication, locale: :en)
+    choose "Not selected"
+    click_button "保存"
+    assert_selector "#publication_category_status_error", text: "Select a category."
+    assert_checked_field "Not selected"
+    assert_selector "#publication_category_status_blank[aria-invalid='true'][aria-describedby='publication_category_status_error']"
+    assert_equal "paper_patent", publication.reload.category_status
+    screenshot("category-radio-validation")
+
+    visit edit_admin_person_path(person, locale: :cn)
+    choose "未选择"
+    click_button "保存"
+    assert_selector ".admin-alert-success"
+    assert_nil person.reload.category
+  ensure
+    page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [])
+    page.driver.browser.execute_cdp("Emulation.setScriptExecutionDisabled", value: false)
+  end
+
+  test "resource tables stack metadata on phones and retain desktop columns and actions" do
+    file = Tempfile.new(["mobile-report", ".pdf"])
+    file.write("%PDF-1.4\n%%EOF")
+    file.flush
+    portfolio = Portfolio.create!(id: 99571, title: "中英混合 Long mobile title " * 5, sub_title: "Secondary metadata", pdf_file: Rack::Test::UploadedFile.new(file.path, "application/pdf", original_filename: "mobile-report.pdf"))
+    work = Admin::Work.create!(id: 99571, city_id: cities(:city_1).id, published: false)
+    Admin::Work.translation_class.insert_all!([{id: 99571, work_id: work.id, locale: "cn", project_name: "未发布作品 Mobile work", created_at: Time.current, updated_at: Time.current}])
+    [admin_portfolios_path, admin_works_path].each do |path|
+      visit path
+      [390, 768, 1440].each do |width|
+        resize_viewport(width, 1000)
+        if width < 640
+          assert_selector ".admin-table-metadata"
+          assert_no_selector ".admin-table-secondary"
+          assert page.evaluate_script(<<~JS), "Stacked table and controls should fit on phones"
+            (() => {
+              const table = document.querySelector('.admin-table-stacked')
+              const scroll = table.parentElement
+              return scroll.scrollWidth <= scroll.clientWidth &&
+                Array.from(table.querySelectorAll('td.admin-table-actions, .admin-order-controls')).every(element => {
+                  const bounds = element.getBoundingClientRect()
+                  return bounds.left >= 0 && bounds.right <= innerWidth
+                }) && document.documentElement.scrollWidth <= innerWidth
+            })()
+          JS
+        else
+          assert_selector ".admin-table-secondary"
+          assert_no_selector ".admin-table-metadata"
+        end
+        screenshot("stacked-#{path.split("/").last}-#{width}")
+      end
+    end
+    resize_viewport(390, 844)
+    within("#record-#{work.id}") do
+      assert_selector ".admin-table-metadata .admin-badge", text: "未发布"
+      assert_selector ".admin-order-controls", count: 1
+      assert_selector ".admin-row-actions", count: 1
+    end
+    visit admin_portfolios_path
+    within("#record-#{portfolio.id}") do
+      assert_link "mobile-report.pdf", href: portfolio.pdf_file.url
+      click_link "编辑", exact: true
+    end
+    assert_current_path edit_admin_portfolio_path(portfolio, locale: :cn)
+  ensure
+    file&.close!
   end
 
   test "record inputs picture links and individual message selection work without JavaScript" do

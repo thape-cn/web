@@ -8,6 +8,7 @@
     "fields": {
       "category": {
         "type": "select",
+        "presentation": "radio",
         "label": "管理/专业"
       },
       "leaving_date": {
@@ -54,6 +55,7 @@
     "fields": {
       "category": {
         "type": "select",
+        "presentation": "radio",
         "label": "新闻分类"
       },
       "hide_in_design_staff_news": {
@@ -888,7 +890,7 @@
   },
   "publications": {
     "label": "出版物",
-    "model": "Publication",
+    "model": "Admin::Publication",
     "param": "publication",
     "singleton": false,
     "actions": ["index", "new", "create", "edit", "update", "destroy"],
@@ -903,6 +905,7 @@
       },
       "category_status": {
         "type": "select",
+        "presentation": "radio",
         "label": "分类"
       },
       "pdf_file": {

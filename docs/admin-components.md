@@ -2,9 +2,9 @@
 
 The local `application-ui-v4/html` library contains 49 families and 364 HTML
 templates. The initial source audit found 23 explicitly mapped families (29
-variants). After the record-picker, picture-inspector and message-workflow additions,
-30 families have explicit source mappings (36 variants); 9 more have embedded or
-custom patterns, and 10 remain unused.
+variants). With record pickers, picture inspection, message workflows, category
+radios, mobile tables and shared headings, 33 families have explicit source
+mappings (41 variants); 7 more have embedded or custom patterns, and 9 remain unused.
 
 **Adapted** identifies a documented library reference. **Pattern** means related
 markup exists within another adaptation or custom component, without a separate
@@ -35,14 +35,14 @@ and interactions live under the admin pack.
 | `forms/comboboxes`                |        4 | Adapted — Homepage and picture news record pickers          |
 | `forms/form-layouts`              |        4 | Adapted — Editors, SEO, galleries and upload areas          |
 | `forms/input-groups`              |       21 | Adapted — Labels, hints and inline errors                   |
-| `forms/radio-groups`              |       12 | Unused                                                      |
+| `forms/radio-groups`              |       12 | Adapted — People, news and publication category editors     |
 | `forms/select-menus`              |        7 | Adapted — Editors, filters, ordering and page size          |
 | `forms/sign-in-forms`             |        4 | Adapted — Administrator login                               |
 | `forms/textareas`                 |        5 | Pattern — Native and rich-text editor fields                |
 | `forms/toggles`                   |        5 | Adapted — Publication and visibility fields                 |
-| `headings/card-headings`          |        6 | Pattern — Headings supplied by card/detail templates        |
+| `headings/card-headings`          |        6 | Adapted — Dashboard module cards and record detail headers  |
 | `headings/page-headings`          |        9 | Adapted — Page titles, actions and breadcrumbs              |
-| `headings/section-headings`       |       10 | Pattern — Dashboard and editor section titles               |
+| `headings/section-headings`       |       10 | Adapted — Carousel count, guidance and Add slide control    |
 | `layout/cards`                    |       10 | Adapted — Dashboard groups and shared panels                |
 | `layout/containers`               |        5 | Pattern — Responsive shell content width and gutters        |
 | `layout/dividers`                 |        8 | Pattern — Borders within existing lists, cards and forms    |
@@ -51,7 +51,7 @@ and interactions live under the admin pack.
 | `lists/feeds`                     |        3 | Unused                                                      |
 | `lists/grid-lists`                |        7 | Adapted — Dashboard shortcuts, picture grids and galleries  |
 | `lists/stacked-lists`             |       15 | Adapted — Message inbox previews                            |
-| `lists/tables`                    |       19 | Adapted — Resource lists and message table view             |
+| `lists/tables`                    |       19 | Adapted — Resource lists, mobile metadata and message table |
 | `navigation/breadcrumbs`          |        4 | Pattern — Embedded in the page-heading reference            |
 | `navigation/command-palettes`     |        8 | Adapted — Module switcher                                   |
 | `navigation/navbars`              |       11 | Pattern — Embedded in the sidebar-shell reference           |
@@ -66,3 +66,22 @@ and interactions live under the admin pack.
 | `page-examples/detail-screens`    |        2 | Unused                                                      |
 | `page-examples/home-screens`      |        2 | Unused                                                      |
 | `page-examples/settings-screens`  |        2 | Unused                                                      |
+
+## Category radios, mobile tables and headings
+
+| Template                                              | Render location and behavior                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `forms/radio-groups/02-simple-inline-list.html`       | `app/views/admin/shared/_radio_group.html.erb`, dispatched by `_field.html.erb` for people/news `category` and publication `category_status`. The field configuration retains `type: select` and opts into `presentation: radio`; blank choices and stored values are preserved.                                       |
+| `lists/tables/07-with-stacked-columns-on-mobile.html` | `app/views/admin/resources/index.html.erb` and `app/views/admin/shared/_table_value.html.erb`. Works, people, news, publications, portfolios, journals, administrators, cities and branch contacts stack secondary fields below the primary name/title below 640px. Ordering and row actions have one set of controls. |
+| `headings/card-headings/01-simple.html`               | `app/views/admin/shared/_card_heading.html.erb`, used by the dashboard module groups with an h3 and module count.                                                                                                                                                                                                      |
+| `headings/card-headings/05-with-description.html`     | The same card-heading partial, used by resource and message details with an h2 and record/language description.                                                                                                                                                                                                        |
+| `headings/section-headings/04-with-action.html`       | `app/views/admin/shared/_section_heading.html.erb`, used by the homepage carousel editor for its live count, save-time guidance and Add slide button.                                                                                                                                                                  |
+
+All other unused families remain unused; this adoption introduces no new workflows,
+routes, database changes or runtime dependencies. A family marked Adapted uses only
+the specific variants documented in [Admin UI templates](admin-ui.md), not every
+variant in that family.
+
+The blank publication category remains selectable but cannot be saved, matching
+the existing database constraint. The admin model now returns an inline error;
+people and news categories can still be cleared.

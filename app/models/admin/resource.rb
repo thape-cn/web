@@ -124,4 +124,12 @@ class Admin::Resource
     return %w[id title sub_title pdf_file cover_jpg] if %w[publications portfolios insights].include?(key)
     (["id"] + fields.keys.reject { |field| %w[password_field file_field text_area multiple].include?(fields[field]["type"]) }.first(5)).uniq
   end
+
+  def mobile_primary_column
+    case key
+    when "works" then "project_name"
+    when "infos", "publications", "portfolios", "insights" then "title"
+    when "people", "users", "cities", "map_contacts" then "name"
+    end
+  end
 end

@@ -1,9 +1,7 @@
 <div data-wallpaper-editor data-min="<%= TailHome::MIN_WALLPAPERS %>" data-max="<%= TailHome::MAX_WALLPAPERS %>" data-slide-label="<%= t('admin.home_wallpaper.slide', number: '__NUMBER__') %>" data-count-label="<%= t('admin.home_wallpaper.count', count: '__COUNT__') %>">
-  <div class="admin-actions mb-6">
-    <p class="text-sm text-gray-600" role="status" data-wallpaper-count><%= t('admin.home_wallpaper.count', count: @record.wallpapers.reject(&:marked_for_destruction?).size) %></p>
+  <%= render layout: 'admin/shared/section_heading', locals: { heading_id: 'wallpaper-management-heading', title: tag.span(t('admin.home_wallpaper.count', count: @record.wallpapers.reject(&:marked_for_destruction?).size), role: 'status', data: {wallpaper_count: true}), description: t('admin.home_wallpaper.manage_hint'), actions: true } do %>
     <button type="button" class="admin-button-secondary" data-wallpaper-add hidden><%= admin_icon('plus') %><%= t('admin.home_wallpaper.add') %></button>
-  </div>
-  <p class="admin-field-hint mb-6"><%= t('admin.home_wallpaper.manage_hint') %></p>
+  <% end %>
   <noscript><p class="admin-field-hint"><%= t('admin.home_wallpaper.javascript_hint') %></p></noscript>
   <div data-wallpaper-list>
     <%= form.fields_for :wallpapers, @record.wallpapers.sort_by { |wallpaper| wallpaper.position.to_i } do |wallpaper_form| %>

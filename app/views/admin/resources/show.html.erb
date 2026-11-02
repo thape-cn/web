@@ -1,8 +1,8 @@
 <% content_for :page_title, "#{@resource.label} · #{@record.id}" %>
 <% actions = @resource.allows?(:edit) ? [{label: '编辑', path: admin_resource_path(@resource, :edit, @record)}] : [] %>
 <%= render 'admin/shared/heading', title: "#{@resource.label} · #{@record.id}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, "记录 ##{@record.id}"), actions: actions %>
-<section class="admin-panel admin-detail-panel overflow-hidden">
-  <div class="admin-description-heading border-b border-gray-100"><h2 class="text-base font-semibold">详细信息</h2><p class="text-sm text-gray-500 mt-1">记录 #<%= @record.id %> · <%= admin_locale_label %></p></div>
+<section class="admin-panel admin-detail-panel overflow-hidden" aria-labelledby="record-details-heading">
+  <%= render 'admin/shared/card_heading', heading_id: 'record-details-heading', title: t('admin.details.title'), description: t('admin.details.record', id: @record.id, language: admin_locale_label), class_name: 'admin-description-heading' %>
   <dl class="admin-description-list divide-y divide-gray-100">
     <% fields = @resource.messages? ? @record.attribute_names - ['updated_at'] : @resource.fields.keys %>
     <% fields.each do |field| %>

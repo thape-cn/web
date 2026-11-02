@@ -1,6 +1,7 @@
 <% content_for :page_title, @resource.label %>
 <% search_field = @resource.search_field %>
 <% filtered = admin_list_context.slice('q', *@resource.filters.keys).any? %>
+<% mobile_primary = @resource.mobile_primary_column %>
 <%= render 'admin/shared/heading', title: @resource.label, description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource), actions: admin_index_actions(@resource) %>
 <% if @resource.key == 'pictures' %><%= render 'admin/pictures/drawer' %><% end %>
 <% if @resource.ordered? %>
@@ -84,12 +85,12 @@
       <% end %>
     <% end %>
     <div class="admin-table-scroll" role="region" aria-label="<%= @resource.label %>列表，可横向滚动" tabindex="0">
-      <table class="admin-table min-w-full" <%= 'data-admin-order-table' if @resource.ordered? %>>
+      <table class="admin-table min-w-full <%= 'admin-table-stacked' if mobile_primary %>" <%= 'data-admin-order-table' if @resource.ordered? %>>
         <caption class="sr-only"><%= @resource.label %>列表</caption>
         <thead><tr>
           <% if @resource.messages? %><th scope="col"><span class="sr-only"><%= t('admin.messages.select_page') %></span></th><% end %>
           <% if @resource.ordered? %><th scope="col" class="admin-order-column" aria-sort="ascending">展示顺序</th><% end %>
-          <% @resource.columns.each do |field| %><th scope="col"><%= admin_field_label(@resource, field) %></th><% end %>
+          <% @resource.columns.each do |field| %><th scope="col" class="<%= field == mobile_primary ? 'admin-table-primary' : ('admin-table-secondary' if mobile_primary) %>"><%= admin_field_label(@resource, field) %></th><% end %>
           <th scope="col" class="admin-table-actions">操作</th>
         </tr></thead>
         <tbody class="bg-white">
@@ -98,18 +99,19 @@
               <% if @resource.messages? %><td><%= render 'admin/shared/message_selection', record: record %></td><% end %>
               <% if @resource.ordered? %><td class="admin-order-column"><%= render 'admin/shared/ordering', record: record %></td><% end %>
               <% @resource.columns.each_with_index do |field, index| %>
-                <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %>">
-                  <% if @resource.key == 'pictures' && field == 'usage' %>
-                    <%= render 'admin/shared/picture_usage', picture: record %>
-                  <% elsif @resource.messages? && field == 'spam_score' %>
-                    <%= record.spam_score.nil? ? t('admin.messages.not_scored') : t('admin.messages.score', score: record.spam_score) %>
-                  <% elsif @resource.fields.dig(field, 'type') == 'file_field' %>
-                    <%= admin_upload_preview(record.public_send(field)) || '—' %>
-                  <% elsif @resource.fields.dig(field, 'type') == 'check_box' %>
-                    <%= admin_status(record, field) %>
+                <td class="<%= field == 'id' ? 'admin-record-id' : (index == 1 ? 'admin-record-name' : '') %> <%= field == mobile_primary ? 'admin-table-primary' : ('admin-table-secondary' if mobile_primary) %>">
+                  <% if field == mobile_primary %>
+                    <span class="admin-table-primary-value"><%= render 'admin/shared/table_value', resource: @resource, record: record, field: field %></span>
+                    <dl class="admin-table-metadata">
+                      <% (@resource.columns - [mobile_primary]).each do |detail_field| %>
+                        <div>
+                          <dt><%= admin_field_label(@resource, detail_field) %></dt>
+                          <dd><%= render 'admin/shared/table_value', resource: @resource, record: record, field: detail_field %></dd>
+                        </div>
+                      <% end %>
+                    </dl>
                   <% else %>
-                    <%= truncate(admin_display(record, field), length: 100) %>
-                    <% if @resource.key == 'users' && field == 'name' && record.id == current_admin.id %><span class="admin-badge admin-badge-neutral ml-2">当前账号</span><% end %>
+                    <%= render 'admin/shared/table_value', resource: @resource, record: record, field: field %>
                   <% end %>
                 </td>
               <% end %>

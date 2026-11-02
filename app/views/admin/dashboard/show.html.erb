@@ -37,7 +37,9 @@
   <div class="grid gap-6 md:grid-cols-2">
     <% admin_navigation_groups.each_with_index do |group, index| %>
       <section class="admin-panel overflow-hidden" aria-labelledby="module-group-<%= index %>">
-        <div class="admin-module-heading"><h3 id="module-group-<%= index %>" class="text-base font-semibold"><%= group[:label] %></h3><span class="text-xs text-gray-500"><%= group[:resources].size %> 个模块</span></div>
+        <%= render layout: 'admin/shared/card_heading', locals: { heading_id: "module-group-#{index}", title: group[:label], level: :h3, class_name: 'admin-module-heading', actions: true } do %>
+          <span class="text-xs text-gray-500"><%= t('admin.modules.count', count: group[:resources].size) %></span>
+        <% end %>
         <nav class="admin-module-navigation" aria-labelledby="module-group-<%= index %>"><ul role="list" class="space-y-1">
           <% group[:resources].each do |resource| %>
             <li><%= link_to admin_resource_path(resource), class: 'admin-module-link' do %><%= admin_resource_icon(resource) %><span><%= resource.label %></span><% end %></li>

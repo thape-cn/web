@@ -1,0 +1,12 @@
+<% if resource.key == 'pictures' && field == 'usage' %>
+  <%= render 'admin/shared/picture_usage', picture: record %>
+<% elsif resource.messages? && field == 'spam_score' %>
+  <%= record.spam_score.nil? ? t('admin.messages.not_scored') : t('admin.messages.score', score: record.spam_score) %>
+<% elsif resource.fields.dig(field, 'type') == 'file_field' %>
+  <%= admin_upload_preview(record.public_send(field)) || '—' %>
+<% elsif resource.fields.dig(field, 'type') == 'check_box' %>
+  <%= admin_status(record, field) %>
+<% else %>
+  <%= truncate(admin_display(record, field), length: 100) %>
+  <% if resource.key == 'users' && field == 'name' && record.id == current_admin.id %><span class="admin-badge admin-badge-neutral ml-2">当前账号</span><% end %>
+<% end %>

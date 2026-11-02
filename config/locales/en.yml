@@ -1,6 +1,14 @@
 ---
 en:
   admin:
+    fields:
+      not_selected: "Not selected"
+      category_required: "Select a category."
+    modules:
+      count: "%{count} modules"
+    details:
+      title: "Details"
+      record: "Record #%{id} · %{language}"
     home_wallpaper:
       title: "Official homepage carousel"
       description: "Manage 3–10 homepage slides. Add, remove and reorder them as needed."

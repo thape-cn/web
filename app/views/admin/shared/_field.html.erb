@@ -3,6 +3,8 @@
     <%= render 'admin/shared/switch', form: form, resource: resource, field: field, options: options %>
   <% elsif options['type'] == 'multiple' %>
     <%= render 'admin/shared/checkbox_group', form: form, resource: resource, field: field, hint: options['hint'] %>
+  <% elsif options['type'] == 'select' && options['presentation'] == 'radio' %>
+    <%= render 'admin/shared/radio_group', form: form, resource: resource, field: field, options: options %>
   <% else %>
     <%= form.label field, admin_field_label(resource, field), class: 'admin-label' %>
     <% field_attributes = admin_field_attributes(form, field, class: 'admin-input', hint: options['hint']) %>

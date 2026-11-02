@@ -1,0 +1,7 @@
+<div class="admin-section-heading">
+  <div class="min-w-0">
+    <h2 id="<%= heading_id %>" class="text-base font-semibold text-gray-900"><%= title %></h2>
+    <% if local_assigns[:description].present? %><p class="text-sm text-gray-500 mt-1"><%= description %></p><% end %>
+  </div>
+  <% if local_assigns[:actions] %><div class="admin-heading-actions"><%= yield %></div><% end %>
+</div>
