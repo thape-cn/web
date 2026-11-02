@@ -3,7 +3,7 @@
 module Admin::ApplicationHelper
   NAVIGATION_GROUPS = [
     {label: "内容管理", keys: %w[works infos people]},
-    {label: "官网页面", keys: %w[tail_homes about_pages work_type_pages service_files]},
+    {label: "官网页面", keys: %w[tail_homes tail_home_wallpapers about_pages work_type_pages service_files]},
     {label: "出版与资料", keys: %w[publications portfolios insights pictures]},
     {label: "联系与设置", keys: %w[message project_messages cities map_contacts seos users]}
   ].freeze
@@ -13,6 +13,7 @@ module Admin::ApplicationHelper
     "infos" => ["news", "发布公司动态、行业会议与专业奖项"],
     "people" => ["people", "维护团队成员、个人介绍与城市职位"],
     "tail_homes" => ["home", "更新首页项目、新闻与展示图片"],
+    "tail_home_wallpapers" => ["image"],
     "about_pages" => ["page", "维护公司介绍与品牌内容"],
     "work_type_pages" => ["grid", "维护作品分类页面与展示内容"],
     "service_files" => ["folder", "更新专业服务介绍与相关资料"],
@@ -70,6 +71,8 @@ module Admin::ApplicationHelper
   end
 
   def admin_resource_description(resource)
+    return t("admin.home_wallpaper.description") if resource.key == "tail_home_wallpapers"
+
     RESOURCE_PRESENTATION.fetch(resource.key).last
   end
 
@@ -78,6 +81,18 @@ module Admin::ApplicationHelper
   end
 
   def admin_form_sections(resource)
+    if resource.key == "tail_home_wallpapers"
+      return (1..6).map do |number|
+        {
+          key: "wallpaper-#{number}",
+          title: t("admin.home_wallpaper.slide", number: number),
+          description: t("admin.home_wallpaper.slide_description"),
+          icon: "image",
+          fields: resource.fields.select { |field, _options| field.match?(/\Abackground_#{number}(?:_|\z)/) }
+        }
+      end
+    end
+
     groups = resource.fields.group_by do |field, options|
       if field.start_with?("seo_")
         :seo
@@ -115,7 +130,20 @@ module Admin::ApplicationHelper
   end
 
   def admin_back_path(resource)
+    return edit_admin_tail_home_path if resource.key == "tail_home_wallpapers"
+
     resource.singleton? ? admin_root_path : admin_resource_path(resource)
+  end
+
+  def admin_editor_actions(resource)
+    case resource.key
+    when "tail_homes"
+      [{label: t("admin.home_wallpaper.title"), path: admin_edit_tail_home_wallpaper_path, icon: "image", secondary: true}]
+    when "tail_home_wallpapers"
+      [{label: t("admin.home_wallpaper.home_settings"), path: edit_admin_tail_home_path, icon: "home", secondary: true}]
+    else
+      []
+    end
   end
 
   def admin_list_path(**changes)
@@ -249,6 +277,11 @@ module Admin::ApplicationHelper
   end
 
   def admin_field_label(resource, field)
+    if resource.key == "tail_home_wallpapers"
+      kind = field.sub(/\Abackground_\d+_?/, "").presence || "image"
+      return t("admin.home_wallpaper.fields.#{kind}")
+    end
+
     return t("admin.picture_usage.title") if resource.key == "pictures" && field == "usage"
     return t("admin.picture_usage.legacy_news") if resource.key == "pictures" && field == "info_id"
     resource.fields.dig(field, "label") || {"id" => "ID", "created_at" => "留言时间", "spam_score" => "广告评分", "company" => "公司", "name" => "姓名", "message" => "留言", "phone" => "联系电话", "contact_details" => "联系方式", "project_type" => "项目类型", "service_type" => "服务类型", "project_area" => "项目面积", "seo_name" => "页面"}[field] || field.humanize

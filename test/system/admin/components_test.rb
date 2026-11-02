@@ -164,6 +164,52 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_selector '.admin-view-switch a[aria-current="true"]', text: "列表"
   end
 
+  test "homepage carousel editor groups settings and saves on desktop and mobile" do
+    home = TailHome.first
+    original_project = home.new_project_1_id
+    visit edit_admin_tail_home_path(locale: :cn)
+    assert_no_selector 'input[name*="background_"]'
+    within ".admin-heading" do
+      click_link "官方首页轮播图"
+    end
+    assert_selector "h1", text: "官方首页轮播图"
+    assert_selector ".admin-sidebar .admin-nav-active", text: "官方首页轮播图"
+    assert_selector ".admin-editor-section", count: 6
+    within '.admin-editor-section[aria-labelledby="wallpaper-1-heading"]' do
+      fill_in "标题", with: "Updated carousel title", exact: true
+      fill_in "副标题", with: "Updated carousel subtitle"
+      fill_in "链接", with: "/works/123"
+      assert_selector "input[type=file]", count: 4
+    end
+    screenshot("homepage-carousel-desktop")
+    click_button "保存"
+    assert_text "保存成功"
+    assert_equal "/admin/tail_home/edit_wallpaper", URI(page.current_url).path
+    assert_equal "Updated carousel title", home.reload.background_1_title
+    assert_equal original_project, home.new_project_1_id
+
+    resize_viewport(390, 844)
+    assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    screenshot("homepage-carousel-mobile")
+    within ".admin-section-navigation" do
+      click_link "轮播 6"
+    end
+    assert_selector "#wallpaper-6-heading", text: "轮播 6"
+    within '.admin-editor-section[aria-labelledby="wallpaper-6-heading"]' do
+      fill_in "标题", with: "Mobile slide six", exact: true
+    end
+    click_button "保存"
+    assert_text "保存成功"
+    assert_equal "Mobile slide six", home.reload.background_6_title
+    click_link "EN", exact: true
+    assert_selector "h1", text: "Official homepage carousel"
+    within ".admin-heading" do
+      click_link "Other homepage settings"
+    end
+    assert_selector 'input[name="tail_home[new_project_1_id]"]', visible: :all
+    assert_no_selector 'input[name*="background_"]'
+  end
+
   test "module search supports keyboard selection dismissal and singleton navigation" do
     assert_selector '[data-admin-count="works"]'
     screenshot("dashboard-desktop")

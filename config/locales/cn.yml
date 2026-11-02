@@ -1,6 +1,20 @@
 ---
 cn:
   admin:
+    home_wallpaper:
+      title: "官方首页轮播图"
+      description: "集中维护首页 6 组轮播的文字、链接和背景图。"
+      home_settings: "首页其他设置"
+      slide: "轮播 %{number}"
+      slide_description: "编辑本组轮播的标题、副标题、链接及桌面端、手机端背景图，保存后生效。"
+      fields:
+        title: "标题"
+        subtitle: "副标题"
+        link: "链接"
+        image: "桌面端背景图"
+        webp: "桌面端背景图 WEBP"
+        mobile: "手机端背景图"
+        mobile_webp: "手机端背景图 WEBP"
     actions:
       close: "关闭"
       details: "详情"

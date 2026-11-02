@@ -26,6 +26,8 @@ class Admin::Resource
   end
 
   def label
+    return I18n.t("admin.home_wallpaper.title") if key == "tail_home_wallpapers"
+
     definition.fetch("label")
   end
 

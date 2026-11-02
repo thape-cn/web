@@ -438,7 +438,16 @@
       "hero_news_title_cap": {
         "type": "text_field",
         "label": "重点新闻 · 新闻标题的下划线字数"
-      },
+      }
+    }
+  },
+  "tail_home_wallpapers": {
+    "label": "官方首页轮播图",
+    "model": "TailHome",
+    "param": "tail_home",
+    "singleton": true,
+    "actions": ["edit", "update"],
+    "fields": {
       "background_1_title": {
         "type": "text_field",
         "label": "轮播 1 · 背景 1 标题"
@@ -449,6 +458,7 @@
       },
       "background_1_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 1 · 背景 1 链接"
       },
       "background_1": {
@@ -477,6 +487,7 @@
       },
       "background_2_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 2 · 背景 2 链接"
       },
       "background_2": {
@@ -505,6 +516,7 @@
       },
       "background_3_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 3 · 背景 3 链接"
       },
       "background_3": {
@@ -533,6 +545,7 @@
       },
       "background_4_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 4 · 背景 4 链接"
       },
       "background_4": {
@@ -561,6 +574,7 @@
       },
       "background_5_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 5 · 背景 5 链接"
       },
       "background_5": {
@@ -589,6 +603,7 @@
       },
       "background_6_link": {
         "type": "text_field",
+        "full_width": true,
         "label": "轮播 6 · 背景 6 链接"
       },
       "background_6": {

@@ -1,6 +1,20 @@
 ---
 en:
   admin:
+    home_wallpaper:
+      title: "Official homepage carousel"
+      description: "Manage the text, links and background images for all 6 homepage slides."
+      home_settings: "Other homepage settings"
+      slide: "Slide %{number}"
+      slide_description: "Edit this slide's title, subtitle, link and desktop/mobile backgrounds. Changes take effect when saved."
+      fields:
+        title: "Title"
+        subtitle: "Subtitle"
+        link: "Link"
+        image: "Desktop background"
+        webp: "Desktop background WEBP"
+        mobile: "Mobile background"
+        mobile_webp: "Mobile background WEBP"
     actions:
       close: "Close"
       details: "Details"

@@ -22,11 +22,14 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     @user = Admin::User.create!(name: "Admin", email: "admin@example.test", password: "admin-test-password")
     @upload_root = Dir.mktmpdir("admin-uploads")
     @original_upload_root = CarrierWave::Uploader::Base.root
+    @original_picture_upload_root = PictureUploader.root
     CarrierWave::Uploader::Base.root = @upload_root
+    PictureUploader.root = @upload_root
   end
 
   teardown do
     CarrierWave::Uploader::Base.root = @original_upload_root
+    PictureUploader.root = @original_picture_upload_root
     FileUtils.remove_entry(@upload_root) if @upload_root && File.exist?(@upload_root)
   end
 
@@ -92,7 +95,8 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
     assert_select 'a[href^="/admin/home/"]', count: 0
     assert_select 'a[href^="/admin/cases"]', count: 0
     assert_select '.admin-sidebar nav a[href^="/admin/about_page/edit"]', count: 1
-    assert_select '.admin-sidebar nav a[href^="/admin/tail_home/edit"]', count: 1
+    assert_select ".admin-sidebar nav a[href=?]", edit_admin_tail_home_path(locale: :cn), count: 1
+    assert_select ".admin-sidebar nav a[href=?]", admin_edit_tail_home_wallpaper_path(locale: :cn), count: 1
     assert_select 'script[src*="admin"]'
     assert_select 'script[src*="application"]', count: 0
     delete admin_logout_path
@@ -147,6 +151,108 @@ class Admin::AdminTest < ActionDispatch::IntegrationTest
         end
       end
     end
+  end
+
+  test "homepage carousel has a separate editor with complete slide groups and navigation" do
+    sign_in
+    home = TailHome.first
+    home.update!(background_1: upload("existing.png", "image/png"), background_1_title: "Existing slide")
+    get edit_admin_tail_home_path(locale: :cn)
+    assert_select 'form.admin-editor input[name*="background_"]', count: 0
+    assert_select ".admin-heading a[href=?]", admin_edit_tail_home_wallpaper_path(locale: :cn)
+    assert_select 'input[name="tail_home[new_project_1_id]"]'
+
+    get admin_edit_tail_home_wallpaper_path(locale: :cn)
+    assert_response :success
+    assert_select "h1", text: "官方首页轮播图 · 编辑"
+    assert_select '.admin-sidebar a[aria-current="page"]', count: 1, text: "官方首页轮播图"
+    assert_select "#admin-module-results a[href=?]", admin_edit_tail_home_wallpaper_path(locale: :cn)
+    assert_select 'a[aria-label="Switch to English content"][href=?]', admin_edit_tail_home_wallpaper_path(locale: :en)
+    assert_select 'form.admin-editor input[name*="new_project_"]', count: 0
+    assert_select 'form.admin-editor input[name*="hero_news_"]', count: 0
+    assert_select 'form.admin-editor input[name*="info_"]', count: 0
+    assert_select ".admin-editor-section", count: 6
+    (1..6).each do |number|
+      assert_select ".admin-section-navigation a[href='#wallpaper-#{number}-heading']", text: "轮播 #{number}"
+      assert_select ".admin-editor-section[aria-labelledby='wallpaper-#{number}-heading']" do
+        %w[title subtitle link].each do |kind|
+          field = "background_#{number}_#{kind}"
+          assert_select "input[name=?]", "tail_home[#{field}]" do |inputs|
+            assert_equal home.public_send(field).to_s, inputs.first["value"].to_s
+          end
+        end
+        ["", "_webp", "_mobile", "_mobile_webp"].each do |suffix|
+          field = "background_#{number}#{suffix}"
+          assert_select "input[type=file][name=?]", "tail_home[#{field}]"
+          assert_select "input[type=hidden][name=?]", "tail_home[#{field}_cache]"
+          assert_select "input[type=checkbox][name=?]", "tail_home[remove_#{field}]", count: home.public_send(field).present? ? 1 : 0
+        end
+      end
+    end
+
+    get admin_edit_tail_home_wallpaper_path(locale: :en)
+    assert_select "h1", text: "Official homepage carousel · 编辑"
+    assert_select "#wallpaper-6-heading", text: "Slide 6"
+    assert_select 'label[for="tail_home_background_1_mobile"]', text: "Mobile background"
+  end
+
+  test "homepage and carousel saves only change their own settings" do
+    sign_in
+    home = TailHome.first
+    other_settings = home.attributes.reject { |field, _| field.start_with?("background_") || field == "updated_at" }
+    attributes = (1..6).each_with_object({}) do |number, values|
+      values["background_#{number}_title"] = "Slide #{number}"
+      values["background_#{number}_subtitle"] = "Subtitle #{number}"
+      values["background_#{number}_link"] = "/works/#{number}"
+    end
+    uploads = ["background_1", "background_1_webp", "background_1_mobile", "background_1_mobile_webp"]
+    uploads.each { |field| attributes[field] = upload("#{field}.png", "image/png") }
+    patch admin_tail_home_wallpaper_path(locale: :en), params: {tail_home: attributes.merge(new_project_1_id: 999999999, hero_news_title_cap: 999, remove_hero_news_photo: "1")}
+    assert_response :see_other
+    follow_redirect!
+    assert_select "h1", text: "Official homepage carousel · 编辑"
+    home.reload
+    assert_equal other_settings, home.attributes.slice(*other_settings.keys)
+    attributes.except(*uploads).each { |field, value| assert_equal value, home.public_send(field), field }
+    uploads.each { |field| assert File.exist?(home.public_send(field).path), field }
+
+    backgrounds = home.attributes.select { |field, _| field.start_with?("background_") }
+    patch admin_tail_home_path(locale: :cn), params: {tail_home: {hero_news_title_cap: 22, background_1_title: "Ignored", remove_background_1: "1"}}
+    assert_response :see_other
+    assert_equal 22, home.reload.hero_news_title_cap
+    assert_equal backgrounds, home.attributes.slice(*backgrounds.keys)
+
+    patch admin_tail_home_wallpaper_path(locale: :cn), params: {tail_home: {remove_background_1_mobile_webp: "1"}}
+    assert_response :see_other
+    assert_nil home.reload.background_1_mobile_webp.identifier
+    assert home.background_1_mobile.present?
+    assert_equal 22, home.hero_news_title_cap
+  end
+
+  test "carousel validation failures retain slide fields and cached uploads for retry" do
+    sign_in
+    home = TailHome.first
+    invalid_save = lambda do
+      home.errors.add(:background_1_title, "must be present")
+      raise ActiveRecord::RecordInvalid.new(home)
+    end
+    TailHome.stub(:unscoped, [home]) do
+      home.stub(:save!, invalid_save) do
+        patch admin_tail_home_wallpaper_path(locale: :cn), params: {tail_home: {background_1_title: "", background_1: upload("retry.png", "image/png")}}
+      end
+    end
+    assert_response :unprocessable_entity
+    assert_select "h1", text: "官方首页轮播图 · 编辑"
+    assert_select ".admin-editor-section", count: 6
+    assert_select 'input[name="tail_home[background_1_title]"][aria-invalid="true"]'
+    cache = css_select('input[name="tail_home[background_1_cache]"]').first["value"]
+    assert cache.present?
+
+    patch admin_tail_home_wallpaper_path(locale: :cn), params: {tail_home: {background_1_title: "Retry title", background_1_cache: cache}}
+    assert_response :see_other
+    assert_equal "Retry title", home.reload.background_1_title
+    assert_equal "retry.png", home.background_1.identifier
+    assert File.exist?(home.background_1.path)
   end
 
   test "rich text image uploads return a picture URL and validation failures" do

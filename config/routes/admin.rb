@@ -7,6 +7,8 @@ namespace :admin do
   root "dashboard#show", as: "root"
   resources :record_options, only: [:index]
   resource :tail_home, only: [:edit, :update]
+  get "tail_home/edit_wallpaper", to: "tail_home_wallpapers#edit", as: :edit_tail_home_wallpaper
+  patch "tail_home/wallpaper", to: "tail_home_wallpapers#update", as: :tail_home_wallpaper
   resource :about_page, only: [:edit, :update]
   resource :work_type_page, only: [:edit, :update]
   resources :people, concerns: :orderable do

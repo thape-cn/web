@@ -271,6 +271,16 @@ in that CSS so PurgeCSS does not remove dialog, focus, selection or error styles
 
 ## Record pickers, picture inspection and messages
 
+Homepage carousel settings have a dedicated editor at
+`GET /admin/tail_home/edit_wallpaper`, saved through
+`PATCH /admin/tail_home/wallpaper`. It appears in the sidebar, dashboard and
+module search, with links between the carousel and other homepage settings.
+Each of the six slide sections contains its title, subtitle, link, desktop
+image/WebP and mobile image/WebP, plus the existing upload cache and removal
+controls. Section links jump directly to a slide; one save bar submits all six.
+Both editors use the existing `TailHome` record, with separate field allowlists
+so neither editor overwrites the other's settings. No data migration is needed.
+
 The homepage's six project IDs, three news IDs and hero-news ID, and the picture
 editor's optional legacy news ID use searchable record pickers. Their existing
 parameter names and stored IDs are unchanged. `GET /admin/record_options`

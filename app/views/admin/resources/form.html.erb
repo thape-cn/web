@@ -1,6 +1,6 @@
 <% editing_label = @record.new_record? && !@resource.singleton? ? '新建' : '编辑' %>
 <% content_for :page_title, "#{@resource.label} · #{editing_label}" %>
-<%= render 'admin/shared/heading', title: "#{@resource.label} · #{editing_label}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, editing_label), badge: "当前内容 · #{admin_locale_label}" %>
+<%= render 'admin/shared/heading', title: "#{@resource.label} · #{editing_label}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, editing_label), badge: "当前内容 · #{admin_locale_label}", actions: admin_editor_actions(@resource) %>
 <%= render 'admin/shared/errors', record: @record %>
 <% action = @record.new_record? && !@resource.singleton? ? :create : :update %>
 <%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true, class: 'admin-editor' do |form| %>
