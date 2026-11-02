@@ -447,180 +447,29 @@
     "param": "tail_home",
     "singleton": true,
     "actions": ["edit", "update"],
-    "fields": {
-      "background_1_title": {
+    "fields": {},
+    "wallpaper_fields": {
+      "title": {
+        "type": "text_field"
+      },
+      "subtitle": {
+        "type": "text_field"
+      },
+      "link": {
         "type": "text_field",
-        "label": "轮播 1 · 背景 1 标题"
+        "full_width": true
       },
-      "background_1_subtitle": {
-        "type": "text_field",
-        "label": "轮播 1 · 背景 1 子标题"
+      "image": {
+        "type": "file_field"
       },
-      "background_1_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 1 · 背景 1 链接"
+      "image_webp": {
+        "type": "file_field"
       },
-      "background_1": {
-        "type": "file_field",
-        "label": "轮播 1 · 背景 1"
+      "mobile_image": {
+        "type": "file_field"
       },
-      "background_1_webp": {
-        "type": "file_field",
-        "label": "轮播 1 · 背景 1 WEBP"
-      },
-      "background_1_mobile": {
-        "type": "file_field",
-        "label": "轮播 1 · 背景 1 手机端"
-      },
-      "background_1_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 1 · 背景 1 手机端 WEBP"
-      },
-      "background_2_title": {
-        "type": "text_field",
-        "label": "轮播 2 · 背景 2 标题"
-      },
-      "background_2_subtitle": {
-        "type": "text_field",
-        "label": "轮播 2 · 背景 2 子标题"
-      },
-      "background_2_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 2 · 背景 2 链接"
-      },
-      "background_2": {
-        "type": "file_field",
-        "label": "轮播 2 · 背景 2"
-      },
-      "background_2_webp": {
-        "type": "file_field",
-        "label": "轮播 2 · 背景 2 WEBP"
-      },
-      "background_2_mobile": {
-        "type": "file_field",
-        "label": "轮播 2 · 背景 2 手机端"
-      },
-      "background_2_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 2 · 背景 2 手机端 WEBP"
-      },
-      "background_3_title": {
-        "type": "text_field",
-        "label": "轮播 3 · 背景 3 标题"
-      },
-      "background_3_subtitle": {
-        "type": "text_field",
-        "label": "轮播 3 · 背景 3 子标题"
-      },
-      "background_3_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 3 · 背景 3 链接"
-      },
-      "background_3": {
-        "type": "file_field",
-        "label": "轮播 3 · 背景 3"
-      },
-      "background_3_webp": {
-        "type": "file_field",
-        "label": "轮播 3 · 背景 3 WEBP"
-      },
-      "background_3_mobile": {
-        "type": "file_field",
-        "label": "轮播 3 · 背景 3 手机端"
-      },
-      "background_3_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 3 · 背景 3 手机端 WEBP"
-      },
-      "background_4_title": {
-        "type": "text_field",
-        "label": "轮播 4 · 背景 4 标题"
-      },
-      "background_4_subtitle": {
-        "type": "text_field",
-        "label": "轮播 4 · 背景 4 子标题"
-      },
-      "background_4_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 4 · 背景 4 链接"
-      },
-      "background_4": {
-        "type": "file_field",
-        "label": "轮播 4 · 背景 4"
-      },
-      "background_4_webp": {
-        "type": "file_field",
-        "label": "轮播 4 · 背景 4 WEBP"
-      },
-      "background_4_mobile": {
-        "type": "file_field",
-        "label": "轮播 4 · 背景 4 手机端"
-      },
-      "background_4_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 4 · 背景 4 手机端 WEBP"
-      },
-      "background_5_title": {
-        "type": "text_field",
-        "label": "轮播 5 · 背景 5 标题"
-      },
-      "background_5_subtitle": {
-        "type": "text_field",
-        "label": "轮播 5 · 背景 5 子标题"
-      },
-      "background_5_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 5 · 背景 5 链接"
-      },
-      "background_5": {
-        "type": "file_field",
-        "label": "轮播 5 · 背景 5"
-      },
-      "background_5_webp": {
-        "type": "file_field",
-        "label": "轮播 5 · 背景 5 WEBP"
-      },
-      "background_5_mobile": {
-        "type": "file_field",
-        "label": "轮播 5 · 背景 5 手机端"
-      },
-      "background_5_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 5 · 背景 5 手机端 WEBP"
-      },
-      "background_6_title": {
-        "type": "text_field",
-        "label": "轮播 6 · 背景 6 标题"
-      },
-      "background_6_subtitle": {
-        "type": "text_field",
-        "label": "轮播 6 · 背景 6 子标题"
-      },
-      "background_6_link": {
-        "type": "text_field",
-        "full_width": true,
-        "label": "轮播 6 · 背景 6 链接"
-      },
-      "background_6": {
-        "type": "file_field",
-        "label": "轮播 6 · 背景 6"
-      },
-      "background_6_webp": {
-        "type": "file_field",
-        "label": "轮播 6 · 背景 6 WEBP"
-      },
-      "background_6_mobile": {
-        "type": "file_field",
-        "label": "轮播 6 · 背景 6 手机端"
-      },
-      "background_6_mobile_webp": {
-        "type": "file_field",
-        "label": "轮播 6 · 背景 6 手机端 WEBP"
+      "mobile_image_webp": {
+        "type": "file_field"
       }
     }
   },

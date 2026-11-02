@@ -3,10 +3,13 @@
 <%= render 'admin/shared/heading', title: "#{@resource.label} · #{editing_label}", description: admin_resource_description(@resource), breadcrumbs: admin_breadcrumbs(@resource, editing_label), badge: "当前内容 · #{admin_locale_label}", actions: admin_editor_actions(@resource) %>
 <%= render 'admin/shared/errors', record: @record %>
 <% action = @record.new_record? && !@resource.singleton? ? :create : :update %>
-<%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true, class: 'admin-editor' do |form| %>
+<%= form_with model: @record, scope: @resource.param_key, url: admin_resource_path(@resource, action, @record), method: action == :create ? :post : :patch, local: true, class: 'admin-editor', data: { admin_wallpapers: @resource.key == 'tail_home_wallpapers' ? true : nil } do |form| %>
   <div class="admin-editor-layout">
     <%= render 'admin/shared/editor_navigation', sections: admin_editor_sections(@resource, @record) %>
     <div class="min-w-0">
+      <% if @resource.key == 'tail_home_wallpapers' %>
+        <%= render 'admin/tail_home_wallpapers/editor', form: form %>
+      <% end %>
       <% admin_form_sections(@resource).each do |section| %>
         <%= render layout: 'admin/shared/form_section', locals: { heading_id: "#{section[:key]}-heading", title: section[:title], description: section[:description] } do %>
           <div class="admin-fields">

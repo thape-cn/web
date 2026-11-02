@@ -6,8 +6,10 @@ require "tempfile"
 class Admin::ComponentsTest < ApplicationSystemTestCase
   setup do
     @original_upload_root = PictureUploader.root
+    @original_wallpaper_upload_root = TailHomeWallpaperUploader.root
     @upload_root = Dir.mktmpdir("admin-components-uploads")
     PictureUploader.root = @upload_root
+    TailHomeWallpaperUploader.root = @upload_root
     Admin::User.create!(id: 99101, name: "Components admin", email: "components@example.test", password: "components-test-password")
     Admin::User.create!(id: 99102, name: "Dialog target", email: "dialog@example.test", password: "components-test-password")
     visit admin_login_path
@@ -19,6 +21,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
 
   teardown do
     PictureUploader.root = @original_upload_root
+    TailHomeWallpaperUploader.root = @original_wallpaper_upload_root
     FileUtils.remove_entry(@upload_root) if @upload_root && File.exist?(@upload_root)
   end
 
@@ -185,7 +188,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     click_button "保存"
     assert_text "保存成功"
     assert_equal "/admin/tail_home/edit_wallpaper", URI(page.current_url).path
-    assert_equal "Updated carousel title", home.reload.background_1_title
+    assert_equal "Updated carousel title", home.wallpapers.first.reload.title
     assert_equal original_project, home.new_project_1_id
 
     resize_viewport(390, 844)
@@ -200,7 +203,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     end
     click_button "保存"
     assert_text "保存成功"
-    assert_equal "Mobile slide six", home.reload.background_6_title
+    assert_equal "Mobile slide six", home.wallpapers.last.reload.title
     click_link "EN", exact: true
     assert_selector "h1", text: "Official homepage carousel"
     within ".admin-heading" do
@@ -208,6 +211,61 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     end
     assert_selector 'input[name="tail_home[new_project_1_id]"]', visible: :all
     assert_no_selector 'input[name*="background_"]'
+  end
+
+  test "carousel controls add remove reorder and enforce limits before saving" do
+    file = Tempfile.new(["wallpaper", ".png"])
+    file.binmode
+    file.write(Base64.decode64("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aXioAAAAASUVORK5CYII="))
+    file.flush
+    visit admin_edit_tail_home_wallpaper_path(locale: :cn)
+    4.times { click_button "添加轮播" }
+    assert_selector "[data-wallpaper-list] .admin-editor-section", count: 10
+    assert_button "添加轮播", disabled: true
+    assert_selector ".admin-section-navigation a", count: 10
+    within '.admin-editor-section[aria-labelledby="wallpaper-10-heading"]' do
+      fill_in "标题", with: "Tenth slide", exact: true
+      click_button "上移"
+    end
+    within '.admin-editor-section[aria-labelledby="wallpaper-9-heading"]' do
+      assert_field "标题", with: "Tenth slide", exact: true
+    end
+    click_button "保存"
+    assert_text "保存成功"
+    assert_equal 10, TailHome.first.wallpapers.count
+    assert_equal "Tenth slide", TailHome.first.wallpapers.to_a[8].title
+
+    resize_viewport(390, 844)
+    7.times { first("[data-wallpaper-remove]").click }
+    assert_selector "[data-wallpaper-list] .admin-editor-section", count: 3
+    assert_selector "[data-wallpaper-remove]:disabled", count: 3
+    assert_selector ".admin-section-navigation a", count: 3
+    assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
+    screenshot("homepage-carousel-three-mobile")
+    click_button "保存"
+    assert_text "保存成功"
+    assert_equal 3, TailHome.first.wallpapers.count
+    assert_equal [1, 2, 3], TailHome.first.wallpapers.pluck(:position)
+
+    # Repeated add/remove cycles must not reuse nested field indexes.
+    click_button "添加轮播"
+    within '.admin-editor-section[aria-labelledby="wallpaper-4-heading"]' do
+      click_button "删除此轮播"
+    end
+    click_button "添加轮播"
+    within '.admin-editor-section[aria-labelledby="wallpaper-4-heading"]' do
+      fill_in "标题", with: "Replacement slide", exact: true
+      attach_file "桌面端背景图", file.path, exact: true
+      assert_selector '[data-admin-upload-preview][src^="blob:"]'
+    end
+    click_button "保存"
+    assert_text "保存成功"
+    assert_equal 4, TailHome.first.wallpapers.count
+    assert_equal "Replacement slide", TailHome.first.wallpapers.last.title
+    assert_nil TailHome.first.wallpapers.last.legacy_slot
+    assert File.exist?(TailHome.first.wallpapers.last.image.path)
+  ensure
+    file&.close!
   end
 
   test "module search supports keyboard selection dismissal and singleton navigation" do

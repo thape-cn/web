@@ -1,0 +1,67 @@
+---
+wallpaper_1:
+  id: 1
+  tail_home_id: 1
+  position: 1
+  legacy_slot: 1
+  image: "lunbo-1.jpg"
+  image_webp: "01_background.webp"
+  mobile_image: "01_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:
+wallpaper_2:
+  id: 2
+  tail_home_id: 1
+  position: 2
+  legacy_slot: 2
+  image: "02_background.jpg"
+  image_webp: "02_background.webp"
+  mobile_image: "02_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:
+wallpaper_3:
+  id: 3
+  tail_home_id: 1
+  position: 3
+  legacy_slot: 3
+  image: "03_background.jpg"
+  image_webp: "03_background.webp"
+  mobile_image: "03_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:
+wallpaper_4:
+  id: 4
+  tail_home_id: 1
+  position: 4
+  legacy_slot: 4
+  image: "lunbo-4.jpg"
+  image_webp: "04_background.webp"
+  mobile_image: "04_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:
+wallpaper_5:
+  id: 5
+  tail_home_id: 1
+  position: 5
+  legacy_slot: 5
+  image: "05_background.jpg"
+  image_webp: "05_background.webp"
+  mobile_image: "05_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:
+wallpaper_6:
+  id: 6
+  tail_home_id: 1
+  position: 6
+  legacy_slot: 6
+  image: "06_background.jpg"
+  image_webp: "06_background.webp"
+  mobile_image: "06_background_mobile.jpg"
+  mobile_image_webp:
+  tablet_image:
+  tablet_image_webp:

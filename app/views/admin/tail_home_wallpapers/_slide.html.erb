@@ -1,0 +1,17 @@
+<div data-wallpaper-slide <%= 'hidden' if form.object.marked_for_destruction? %>>
+  <%= form.hidden_field :id if form.object.persisted? %>
+  <%= form.hidden_field :position, data: { wallpaper_position: true } %>
+  <%= form.hidden_field :_destroy, value: form.object.marked_for_destruction? ? '1' : '0', data: { wallpaper_destroy: true } %>
+  <%= render layout: 'admin/shared/form_section', locals: { heading_id: "wallpaper-#{number}-heading", title: t('admin.home_wallpaper.slide', number: number), description: t('admin.home_wallpaper.slide_description') } do %>
+    <div class="admin-actions mb-6" data-wallpaper-actions hidden>
+      <button type="button" class="admin-button-secondary" data-wallpaper-up><%= t('admin.home_wallpaper.move_up') %></button>
+      <button type="button" class="admin-button-secondary" data-wallpaper-down><%= t('admin.home_wallpaper.move_down') %></button>
+      <button type="button" class="admin-button-danger" data-wallpaper-remove><%= t('admin.home_wallpaper.remove') %></button>
+    </div>
+    <div class="admin-fields">
+      <% @resource.definition.fetch('wallpaper_fields').each do |field, options| %>
+        <%= render 'admin/shared/field', form: form, resource: @resource, field: field, options: options %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_17_000000) do
+ActiveRecord::Schema[7.2].define(version: 2026_11_02_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -361,6 +361,28 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_17_000000) do
     t.string "tianhua_2020_bill_music"
   end
 
+  create_table "tail_home_wallpapers", force: :cascade do |t|
+    t.bigint "tail_home_id", null: false
+    t.integer "position", null: false
+    t.integer "legacy_slot"
+    t.string "title"
+    t.string "subtitle"
+    t.string "link"
+    t.string "image"
+    t.string "image_webp"
+    t.string "mobile_image"
+    t.string "mobile_image_webp"
+    t.string "tablet_image"
+    t.string "tablet_image_webp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tail_home_id", "legacy_slot"], name: "index_tail_home_wallpapers_on_tail_home_id_and_legacy_slot", unique: true
+    t.index ["tail_home_id", "position"], name: "index_tail_home_wallpapers_on_tail_home_id_and_position"
+    t.index ["tail_home_id"], name: "index_tail_home_wallpapers_on_tail_home_id"
+    t.check_constraint "\"position\" >= 1 AND \"position\" <= 10", name: "tail_home_wallpaper_position"
+    t.check_constraint "legacy_slot >= 1 AND legacy_slot <= 6", name: "tail_home_wallpaper_legacy_slot"
+  end
+
   create_table "tail_homes", id: :bigint, default: nil, force: :cascade do |t|
     t.string "new_project_photo_1"
     t.string "new_project_photo_2l"
@@ -385,61 +407,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_17_000000) do
     t.string "info_1_photo"
     t.string "info_2_photo"
     t.string "info_3_photo"
-    t.string "background_1"
-    t.string "background_2"
-    t.string "background_3"
-    t.string "background_4"
-    t.string "background_5"
-    t.string "background_6"
-    t.string "background_1_mobile"
-    t.string "background_2_mobile"
-    t.string "background_3_mobile"
-    t.string "background_4_mobile"
-    t.string "background_5_mobile"
-    t.string "background_6_mobile"
-    t.string "background_1_pad"
-    t.string "background_2_pad"
-    t.string "background_3_pad"
-    t.string "background_4_pad"
-    t.string "background_5_pad"
-    t.string "background_6_pad"
-    t.string "background_1_webp"
-    t.string "background_2_webp"
-    t.string "background_3_webp"
-    t.string "background_4_webp"
-    t.string "background_5_webp"
-    t.string "background_6_webp"
-    t.string "background_1_mobile_webp"
-    t.string "background_2_mobile_webp"
-    t.string "background_3_mobile_webp"
-    t.string "background_4_mobile_webp"
-    t.string "background_5_mobile_webp"
-    t.string "background_6_mobile_webp"
-    t.string "background_1_pad_webp"
-    t.string "background_2_pad_webp"
-    t.string "background_3_pad_webp"
-    t.string "background_4_pad_webp"
-    t.string "background_5_pad_webp"
-    t.string "background_6_pad_webp"
     t.string "hero_news_photo_mobile"
-    t.string "background_1_title"
-    t.string "background_1_subtitle"
-    t.string "background_1_link"
-    t.string "background_2_title"
-    t.string "background_2_subtitle"
-    t.string "background_2_link"
-    t.string "background_3_title"
-    t.string "background_3_subtitle"
-    t.string "background_3_link"
-    t.string "background_4_title"
-    t.string "background_4_subtitle"
-    t.string "background_4_link"
-    t.string "background_5_title"
-    t.string "background_5_subtitle"
-    t.string "background_5_link"
-    t.string "background_6_title"
-    t.string "background_6_subtitle"
-    t.string "background_6_link"
   end
 
   create_table "users", id: :bigint, default: nil, force: :cascade do |t|
@@ -580,6 +548,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_17_000000) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id", name: "active_storage_variant_records_blob_id_fkey"
   add_foreign_key "picture_references", "pictures", on_delete: :cascade
   add_foreign_key "pictures", "infos", name: "pictures_info_id_fkey"
+  add_foreign_key "tail_home_wallpapers", "tail_homes"
   add_foreign_key "work_pictures", "works", name: "work_pictures_work_id_fkey"
   add_foreign_key "work_project_types", "project_types", name: "work_project_types_project_type_id_fkey"
   add_foreign_key "work_project_types", "works", name: "work_project_types_work_id_fkey"

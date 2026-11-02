@@ -264,6 +264,9 @@
 .admin .admin-button:disabled {
   @apply opacity-50 cursor-wait;
 }
+.admin [data-admin-wallpapers] .admin-button-secondary:disabled {
+  @apply opacity-50 cursor-default;
+}
 .admin .admin-disabled,
 .admin .admin-disabled:hover {
   @apply bg-gray-50 text-gray-400 border-gray-200 cursor-default shadow-none;

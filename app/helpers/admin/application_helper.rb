@@ -81,18 +81,6 @@ module Admin::ApplicationHelper
   end
 
   def admin_form_sections(resource)
-    if resource.key == "tail_home_wallpapers"
-      return (1..6).map do |number|
-        {
-          key: "wallpaper-#{number}",
-          title: t("admin.home_wallpaper.slide", number: number),
-          description: t("admin.home_wallpaper.slide_description"),
-          icon: "image",
-          fields: resource.fields.select { |field, _options| field.match?(/\Abackground_#{number}(?:_|\z)/) }
-        }
-      end
-    end
-
     groups = resource.fields.group_by do |field, options|
       if field.start_with?("seo_")
         :seo
@@ -196,6 +184,12 @@ module Admin::ApplicationHelper
   end
 
   def admin_editor_sections(resource, record)
+    if resource.key == "tail_home_wallpapers"
+      return record.wallpapers.reject(&:marked_for_destruction?).each_with_index.map do |wallpaper, index|
+        {key: "wallpaper-#{index + 1}", title: t("admin.home_wallpaper.slide", number: index + 1), icon: "image"}
+      end
+    end
+
     sections = admin_form_sections(resource)
     if resource.key == "works"
       sections << {key: :gallery, title: "项目图片", icon: "image"}
@@ -278,8 +272,7 @@ module Admin::ApplicationHelper
 
   def admin_field_label(resource, field)
     if resource.key == "tail_home_wallpapers"
-      kind = field.sub(/\Abackground_\d+_?/, "").presence || "image"
-      return t("admin.home_wallpaper.fields.#{kind}")
+      return t("admin.home_wallpaper.fields.#{field}")
     end
 
     return t("admin.picture_usage.title") if resource.key == "pictures" && field == "usage"

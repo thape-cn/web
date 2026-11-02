@@ -275,11 +275,24 @@ Homepage carousel settings have a dedicated editor at
 `GET /admin/tail_home/edit_wallpaper`, saved through
 `PATCH /admin/tail_home/wallpaper`. It appears in the sidebar, dashboard and
 module search, with links between the carousel and other homepage settings.
-Each of the six slide sections contains its title, subtitle, link, desktop
-image/WebP and mobile image/WebP, plus the existing upload cache and removal
-controls. Section links jump directly to a slide; one save bar submits all six.
-Both editors use the existing `TailHome` record, with separate field allowlists
-so neither editor overwrites the other's settings. No data migration is needed.
+The editor manages 3–10 ordered `TailHomeWallpaper` records through `TailHome`'s
+nested `wallpapers` association. Each section contains its title, subtitle, link,
+desktop image/WebP and mobile image/WebP, upload cache and removal controls.
+Add, remove and move buttons update the form; one save applies the collection
+transactionally. Both browser controls and server validation enforce the limits.
+The parent row is locked during saves to serialize concurrent collection edits.
+Section links and positions follow the current order. Other homepage settings
+retain a separate allowlist. Content remains shared across languages as before.
+
+`20261102000000_create_tail_home_wallpapers` copies all six existing slots for
+every homepage, including tablet image identifiers, before removing the old
+columns. The uploader retains each migrated slot's original storage directory
+using an immutable `legacy_slot`; ordering never changes image URLs. New slides
+use their own record directories. The migration does not read, copy or delete
+uploaded files or contact object storage. It is intentionally irreversible because
+a variable collection cannot be converted back to six slots without data loss.
+Deploy the migration and application together; old application processes must be
+restarted after migration because their fixed-slot columns no longer exist.
 
 The homepage's six project IDs, three news IDs and hero-news ID, and the picture
 editor's optional legacy news ID use searchable record pickers. Their existing

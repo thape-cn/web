@@ -13,38 +13,13 @@ class TailHome < ApplicationRecord
   has_one :news_2, class_name: "Info", foreign_key: :id, primary_key: :info_2_id
   has_one :news_3, class_name: "Info", foreign_key: :id, primary_key: :info_3_id
 
-  mount_uploader :background_1, PictureUploader
-  mount_uploader :background_1_webp, PictureUploader
-  mount_uploader :background_2, PictureUploader
-  mount_uploader :background_2_webp, PictureUploader
-  mount_uploader :background_3, PictureUploader
-  mount_uploader :background_3_webp, PictureUploader
-  mount_uploader :background_4, PictureUploader
-  mount_uploader :background_4_webp, PictureUploader
-  mount_uploader :background_5, PictureUploader
-  mount_uploader :background_5_webp, PictureUploader
-  mount_uploader :background_6, PictureUploader
-  mount_uploader :background_6_webp, PictureUploader
+  MIN_WALLPAPERS = 3
+  MAX_WALLPAPERS = 10
 
-  mount_uploader :background_1_mobile, PictureUploader
-  mount_uploader :background_1_mobile_webp, PictureUploader
-  mount_uploader :background_2_mobile, PictureUploader
-  mount_uploader :background_2_mobile_webp, PictureUploader
-  mount_uploader :background_3_mobile, PictureUploader
-  mount_uploader :background_3_mobile_webp, PictureUploader
-  mount_uploader :background_4_mobile, PictureUploader
-  mount_uploader :background_4_mobile_webp, PictureUploader
-  mount_uploader :background_5_mobile, PictureUploader
-  mount_uploader :background_5_mobile_webp, PictureUploader
-  mount_uploader :background_6_mobile, PictureUploader
-  mount_uploader :background_6_mobile_webp, PictureUploader
-
-  mount_uploader :background_1_pad, PictureUploader
-  mount_uploader :background_2_pad, PictureUploader
-  mount_uploader :background_3_pad, PictureUploader
-  mount_uploader :background_4_pad, PictureUploader
-  mount_uploader :background_5_pad, PictureUploader
-  mount_uploader :background_6_pad, PictureUploader
+  has_many :wallpapers, -> { order(:position, :id) }, class_name: "TailHomeWallpaper", inverse_of: :tail_home, dependent: :destroy
+  accepts_nested_attributes_for :wallpapers, allow_destroy: true
+  before_validation :normalize_wallpaper_positions
+  validate :wallpaper_count_within_limits
 
   mount_uploader :new_project_photo_1, PictureUploader
   mount_uploader :new_project_photo_2l, PictureUploader
@@ -59,4 +34,19 @@ class TailHome < ApplicationRecord
 
   mount_uploader :hero_news_photo, PictureUploader
   mount_uploader :hero_news_photo_mobile, PictureUploader
+
+  private
+
+  def normalize_wallpaper_positions
+    wallpapers.reject(&:marked_for_destruction?).sort_by { |wallpaper| wallpaper.position.to_i }.each_with_index do |wallpaper, index|
+      wallpaper.position = index + 1
+    end
+  end
+
+  def wallpaper_count_within_limits
+    count = wallpapers.count { |wallpaper| !wallpaper.marked_for_destruction? }
+    return if (MIN_WALLPAPERS..MAX_WALLPAPERS).cover?(count)
+
+    errors.add(:base, I18n.t("admin.home_wallpaper.count_error", min: MIN_WALLPAPERS, max: MAX_WALLPAPERS))
+  end
 end
