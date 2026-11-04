@@ -38,7 +38,7 @@
     "sass": "1.77.6",
     "sass-loader": "^16.0.8",
     "scrollama": "^2.2.3",
-    "semver": "^7.8.5",
+    "semver": "^7.8.6",
     "shakapacker": "^10.3.2",
     "simditor": "2.3.28",
     "stimulus": "^2.0.0",
