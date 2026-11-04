@@ -925,7 +925,9 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     visit edit_admin_tail_home_path
     assert_selector "[data-admin-picker-id]", count: 10
     assert_no_selector "[data-admin-picker-controls]"
-    find('input[name="tail_home[new_project_1_id]"]').set("999999999")
+    # Clear with keystrokes while JavaScript is disabled.
+    find('input[name="tail_home[new_project_1_id]"]').set("999999999", clear: :backspace)
+    assert_field "tail_home[new_project_1_id]", with: "999999999"
     click_button "保存"
     assert_selector ".admin-alert-success", text: "保存成功"
     assert_equal 999999999, home.reload.new_project_1_id

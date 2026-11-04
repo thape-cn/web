@@ -17,8 +17,12 @@ class HomepageTest < ApplicationSystemTestCase
     assert_selector ".menu-nav .fonticon-rect", style: {stroke: BLACK_HEADER_COLOR}
 
     # Exercise the real five-second autoplay before pausing for manual controls.
+    # Earlier tests can leave the pointer over the carousel, which pauses it.
+    find(".thape-header .logo").hover
+    assert carousel_running?
     assert_selector ".image-item:nth-child(2).active:not(.animate)", wait: 8
     page.execute_script("#{carousel_controller}.stopAutoPlay()")
+    find(".thape-slide").hover
     assert_no_selector "header.wallpaper-black-header"
     assert_selector "header.thape-header", style: {color: "rgba(255, 255, 255, 0.8)"}
 

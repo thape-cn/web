@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "support/chrome_stale_element_retry"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # removes noisy logs when launching tests
