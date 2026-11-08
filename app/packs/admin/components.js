@@ -6,6 +6,13 @@ document.querySelectorAll("[data-admin-alert-dismiss]").forEach((button) => {
   })
 })
 
+document.querySelectorAll("[data-admin-filter-navigation]").forEach((navigation) => {
+  const select = navigation.querySelector("[data-admin-filter-select]")
+  select.addEventListener("change", () => window.location.assign(select.value))
+  navigation.querySelector("[data-admin-filter-mobile]").hidden = false
+  navigation.classList.add("admin-filter-enhanced")
+})
+
 // Native dialogs keep their existing close/focus handlers when the backdrop is used.
 document.querySelectorAll(".admin-dialog").forEach((dialog) => {
   dialog.addEventListener("click", (event) => {

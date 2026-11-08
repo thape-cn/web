@@ -34,16 +34,7 @@ if (navigation && menuButton) {
 
   navigation.querySelector("[data-admin-menu-close]").addEventListener("click", () => navigation.close())
   navigation.addEventListener("click", (event) => {
-    if (event.target === navigation) {
-      const bounds = navigation.getBoundingClientRect()
-      if (
-        event.clientX < bounds.left ||
-        event.clientX > bounds.right ||
-        event.clientY < bounds.top ||
-        event.clientY > bounds.bottom
-      )
-        navigation.close()
-    }
+    if (event.target === navigation) navigation.close()
   })
   navigation.addEventListener("close", () => {
     menuButton.setAttribute("aria-expanded", "false")

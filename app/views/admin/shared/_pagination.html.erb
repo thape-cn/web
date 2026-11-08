@@ -1,7 +1,7 @@
 <nav class="admin-pagination" aria-label="分页">
   <% first = records.empty? ? 0 : records.offset_value + 1 %>
   <% last = records.empty? ? 0 : records.offset_value + records.size %>
-  <p class="text-sm text-gray-500">显示 <strong class="text-gray-900"><%= first %>–<%= last %></strong> 条，共 <strong class="text-gray-900"><%= records.total_count %></strong> 条</p>
+  <p class="admin-pagination-summary">显示 <span class="font-medium"><%= first %>–<%= last %></span> 条，共 <span class="font-medium"><%= records.total_count %></span> 条</p>
   <div class="admin-page-buttons">
     <% if records.prev_page %><%= link_to admin_list_path(page: records.prev_page), class: 'admin-page-button admin-page-direction', aria: {label: '上一页'} do %><%= admin_icon('chevron-left') %><span>上一页</span><% end %><% else %><span class="admin-page-button admin-page-direction admin-disabled" aria-disabled="true"><%= admin_icon('chevron-left') %><span>上一页</span></span><% end %>
     <% admin_page_numbers(records).each do |number| %>

@@ -8,7 +8,7 @@
       <%= render layout: 'admin/shared/media_card', locals: {title: picture_title, image_url: fields.filter_map { |field| picture_form.object.public_send(field).url }.first} do %>
         <fieldset class="min-w-0 mt-4">
           <legend class="sr-only"><%= picture_title %></legend>
-          <div class="grid md:grid-cols-2 gap-5">
+          <div class="admin-fields">
             <% fields.each do |field| %>
               <div class="min-w-0"><%= picture_form.label field, { album_jpg: 'JPG 图片', album_webp: 'WebP 图片' }.fetch(field), class: 'admin-label' %><%= render 'admin/shared/upload', form: picture_form, field: field, removable: false %></div>
             <% end %>

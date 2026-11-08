@@ -42,6 +42,7 @@
 .admin .admin-sidebar {
   @apply fixed inset-y-0 left-0 z-30 flex-col bg-gray-900;
   width: 18rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 .admin .admin-brand {
   @apply flex items-center flex-shrink-0 px-6;
@@ -121,7 +122,7 @@
   @apply bg-gray-800 text-white;
 }
 .admin .admin-topbar {
-  @apply sticky top-0 z-20 flex items-center justify-between px-4 bg-white border-b border-gray-200;
+  @apply sticky top-0 z-20 flex items-center justify-between px-4 bg-white border-b border-gray-200 shadow-xs;
   min-height: 64px;
 }
 .admin .admin-topbar-search {
@@ -168,17 +169,19 @@
   @apply mb-8;
 }
 .admin .admin-page-heading {
-  @apply flex flex-wrap items-start justify-between;
-  gap: 16px 24px;
+  @apply block;
 }
 .admin .admin-page-heading > .min-w-0 {
   flex: 1 1 240px;
 }
 .admin .admin-page-heading > .admin-actions {
-  @apply flex-shrink-0;
+  @apply flex-shrink-0 mt-4;
+}
+.admin .admin-page-heading > .admin-actions:empty {
+  display: none;
 }
 .admin .admin-page-title {
-  @apply text-2xl font-bold tracking-tight;
+  @apply text-2xl font-bold;
   line-height: 28px;
 }
 .admin .admin-page-description {
@@ -202,6 +205,9 @@
   border-radius: 0;
 }
 .admin .admin-detail-panel {
+  outline: none;
+}
+.admin .admin-module-panel {
   outline: none;
 }
 .admin .admin-quick-card {
@@ -247,7 +253,7 @@
   @apply font-medium text-indigo-600;
 }
 .admin .admin-link:hover {
-  @apply text-indigo-800;
+  @apply text-indigo-500;
 }
 .admin .admin-button,
 .admin .admin-button-secondary {
@@ -348,6 +354,9 @@
 .admin .admin-row-actions {
   @apply flex items-center justify-end;
   gap: 16px;
+}
+.admin .admin-row-actions .admin-link:hover {
+  @apply text-indigo-900;
 }
 .admin .admin-row-actions a,
 .admin .admin-row-actions button {
@@ -480,7 +489,11 @@
   line-height: 24px;
 }
 .admin .admin-order-dialog-heading .admin-icon-button {
+  @apply text-gray-400;
   margin: -8px;
+}
+.admin .admin-order-dialog-heading .admin-icon-button:hover {
+  @apply bg-transparent text-gray-500;
 }
 .admin .admin-order-dialog-heading .admin-icon-button:focus {
   outline: 2px solid theme("colors.indigo.600");
@@ -545,6 +558,9 @@
   @apply flex flex-wrap items-center justify-between px-4 py-3 border-t border-gray-200;
   gap: 16px;
 }
+.admin .admin-pagination-summary {
+  @apply text-sm text-gray-700;
+}
 .admin .admin-empty-state {
   @apply text-center px-5 py-12;
 }
@@ -591,6 +607,7 @@
 }
 .admin .admin-editor-section {
   @apply grid pb-10 mb-10 border-b border-gray-200;
+  border-color: color-mix(in srgb, theme("colors.gray.900") 10%, transparent);
   gap: 32px;
 }
 .admin .admin-editor-section:last-child {
@@ -622,6 +639,7 @@
   margin-right: -16px;
   margin-bottom: -24px;
   margin-left: -16px;
+  border-color: color-mix(in srgb, theme("colors.gray.900") 10%, transparent);
 }
 .admin .admin-save-bar {
   @apply sticky bottom-0 z-10 flex items-center bg-white border border-gray-200 rounded-lg px-6 py-4 shadow-sm;
@@ -653,11 +671,20 @@
 }
 .admin .admin-checkbox:disabled {
   @apply border-gray-300 bg-gray-100 cursor-default;
-  opacity: 0.5;
+}
+.admin .admin-checkbox:checked:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='oklch(13%25%200.028%20261.692%20/%200.25)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8L6 11L11 3.5'/%3E%3C/svg%3E");
+}
+.admin .admin-checkbox:indeterminate:disabled {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='oklch(13%25%200.028%20261.692%20/%200.25)' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M3 7H11'/%3E%3C/svg%3E");
 }
 .admin .admin-checkbox-label {
-  @apply flex items-center text-sm text-gray-600;
-  gap: 8px;
+  @apply flex items-start text-sm text-gray-900;
+  gap: 12px;
+  line-height: 24px;
+}
+.admin .admin-checkbox-label > .admin-checkbox {
+  margin-top: 4px;
 }
 .admin .admin-upload {
   @apply border border-dashed rounded-lg px-6 py-10;
@@ -702,8 +729,12 @@
 .admin .admin-description-heading h2 {
   line-height: 28px;
 }
+.admin .admin-description-heading {
+  @apply py-6 border-gray-100;
+}
 .admin .admin-description-heading p {
   line-height: 24px;
+  max-width: 42rem;
 }
 .admin .admin-description-row:last-child {
   @apply border-b-0;
@@ -814,17 +845,29 @@
   @apply mx-4;
 }
 .admin .admin-mobile-menu {
-  @apply fixed bg-gray-900 p-0 border-0;
-  inset: 0 auto 0 0;
-  width: 320px;
-  max-width: calc(100vw - 64px);
+  @apply fixed p-0 border-0;
+  inset: 0;
+  width: 100%;
+  max-width: none;
   height: 100%;
   height: 100dvh;
   max-height: none;
   margin: 0;
+  background: transparent;
 }
-.admin .admin-mobile-menu[open] {
-  @apply flex flex-col;
+.admin .admin-mobile-menu-panel {
+  @apply relative flex flex-col bg-gray-900;
+  width: 320px;
+  max-width: calc(100% - 64px);
+  height: 100%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.admin .admin-mobile-menu-close {
+  @apply absolute flex items-center justify-center text-white cursor-pointer;
+  top: 10px;
+  left: calc(100% + 10px);
+  width: 44px;
+  height: 44px;
 }
 .admin .admin-mobile-menu::backdrop {
   background: color-mix(in srgb, theme("colors.gray.900") 80%, transparent);
@@ -857,8 +900,12 @@
   @apply inline-flex items-center;
   gap: 4px;
 }
+.admin .admin-back-link svg {
+  @apply text-gray-400;
+  margin-left: -4px;
+}
 .admin .admin-back-link a:hover {
-  @apply text-gray-900;
+  @apply text-gray-700;
 }
 .admin .admin-stats {
   display: grid;
@@ -919,6 +966,10 @@
 .admin .admin-page-direction {
   @apply px-2 text-gray-400;
   gap: 8px;
+}
+.admin .admin-page-button.admin-disabled {
+  @apply bg-gray-50 text-gray-400;
+  box-shadow: inset 0 0 0 1px theme("colors.gray.200");
 }
 .admin .admin-page-direction span {
   @apply sr-only;
@@ -1266,6 +1317,12 @@
 }
 
 // Filter tabs, removable badges, switches and checkbox lists from Tailwind Plus.
+.admin .admin-filter-mobile {
+  @apply hidden p-4 border-b border-gray-200;
+}
+.admin .admin-filter-mobile select {
+  @apply py-2;
+}
 .admin .admin-filter-tabs {
   @apply flex px-5 border-b border-gray-200;
   gap: 32px;
@@ -1393,7 +1450,7 @@
   @apply border-t border-b border-gray-200;
 }
 .admin .admin-checkbox-option {
-  @apply flex items-center justify-between pb-4 text-sm font-medium text-gray-900 cursor-pointer;
+  @apply flex items-start justify-between pb-4 text-sm font-medium text-gray-900 cursor-pointer;
   padding-top: 14px;
   gap: 12px;
   line-height: 24px;
@@ -1405,16 +1462,15 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.admin .admin-checkbox-option:hover {
-  @apply bg-gray-50;
-}
-.admin .admin-checkbox-option:focus-within {
-  outline: 2px solid theme("colors.indigo.600");
-  outline-offset: -2px;
+.admin .admin-checkbox-control {
+  @apply flex items-center h-6 flex-shrink-0;
 }
 .admin .admin-upload-current,
 .admin .admin-upload-pending {
   @apply text-center;
+}
+.admin .admin-upload-current > p {
+  line-height: 20px;
 }
 .admin .admin-upload .admin-preview {
   margin-left: auto;
@@ -1430,8 +1486,11 @@
 
 // Short category choices use native radio inputs with the reference's layout.
 .admin .admin-radio-options {
-  @apply flex flex-col mt-4;
+  @apply flex flex-col mt-6;
   gap: 24px;
+}
+.admin .admin-radio-group > .admin-label {
+  @apply mb-0 font-semibold;
 }
 .admin .admin-radio-option {
   @apply flex items-center;
@@ -1447,18 +1506,13 @@
 }
 .admin .admin-radio:checked {
   @apply border-indigo-600 bg-indigo-600;
-  background-image: radial-gradient(circle, white 0, white 2px, transparent 2.5px);
+  background-image: radial-gradient(circle, white 0, white 3px, transparent 3px);
 }
 .admin .admin-radio:disabled {
   @apply border-gray-300 bg-gray-100;
 }
 .admin .admin-radio:checked:disabled {
-  background-image: radial-gradient(
-    circle,
-    theme("colors.gray.400") 0,
-    theme("colors.gray.400") 2px,
-    transparent 2.5px
-  );
+  background-image: radial-gradient(circle, theme("colors.gray.400") 0, theme("colors.gray.400") 3px, transparent 3px);
 }
 .admin .admin-radio[aria-invalid="true"] {
   @apply border-red-500;
@@ -1555,6 +1609,8 @@
   .admin .admin-checkbox,
   .admin .admin-checkbox:checked,
   .admin .admin-checkbox:indeterminate,
+  .admin .admin-checkbox:checked:disabled,
+  .admin .admin-checkbox:indeterminate:disabled,
   .admin .admin-radio,
   .admin .admin-radio:checked,
   .admin select.admin-input:not([multiple]) {
@@ -1609,7 +1665,7 @@
     @apply px-6;
   }
   .admin .admin-page-title {
-    @apply text-3xl;
+    @apply text-3xl tracking-tight;
     line-height: 36px;
   }
   .admin .admin-input,
@@ -1699,7 +1755,11 @@
 }
 @screen md {
   .admin .admin-page-heading {
-    @apply items-center;
+    @apply flex items-center justify-between;
+    gap: 16px;
+  }
+  .admin .admin-page-heading > .admin-actions {
+    @apply mt-0;
   }
   .admin .admin-command-dialog {
     margin: 80px auto;
@@ -1723,7 +1783,7 @@
     @apply px-8 py-10;
   }
   .admin .admin-topbar {
-    @apply px-8;
+    @apply px-8 shadow-none;
   }
   .admin .admin-media-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1752,6 +1812,12 @@
   }
 }
 @media (max-width: 639px) {
+  .admin .admin-filter-enhanced .admin-filter-mobile {
+    @apply block;
+  }
+  .admin .admin-filter-enhanced .admin-filter-tabs {
+    @apply hidden;
+  }
   .admin .admin-confirmation-dialog,
   .admin .admin-order-dialog {
     margin: auto auto 16px;
@@ -1792,7 +1858,11 @@
     margin-left: 0;
   }
   .admin .admin-page-direction {
-    @apply px-3 text-gray-700;
+    @apply px-4 text-gray-700 font-medium;
+  }
+  .admin .admin-page-direction svg,
+  .admin .admin-pagination-summary {
+    @apply hidden;
   }
   .admin .admin-page-direction span {
     @apply not-sr-only;

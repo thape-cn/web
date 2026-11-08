@@ -43,14 +43,11 @@ module Admin::ApplicationHelper
     "pin" => "M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0",
     "search" => "M16 10a6 6 0 1 0-12 0 6 6 0 0 0 12 0 m-2 4 6 6",
     "arrow" => "M5 12h14 m-6-6 6 6-6 6",
-    "chevron-left" => "m15 18-6-6 6-6",
-    "chevron-right" => "m9 6 6 6-6 6",
     "chevron-down" => "m6 9 6 6 6-6",
     "up" => "M12 20V4 m-6 6 6-6 6 6",
     "down" => "M12 4v16 m-6-6 6 6 6-6",
     "grip" => "M9 5h.01 M15 5h.01 M9 12h.01 M15 12h.01 M9 19h.01 M15 19h.01",
     "external" => "M14 3h7v7 M21 3 10 14 M10 3H3v18h18v-7",
-    "plus" => "M12 5v14 M5 12h14",
     "download" => "M12 3v12 m-5-5 5 5 5-5 M4 16v5h16v-5",
     "attachment" => "m21 11-8 8a6 6 0 0 1-8-8l9-9a4 4 0 0 1 6 6l-9 9a2 2 0 0 1-3-3l8-8",
     "menu" => "M4 6h16 M4 12h16 M4 18h16",
@@ -61,7 +58,11 @@ module Admin::ApplicationHelper
     "logout" => "M9 4H3v16h6 M9 12h12 m-5-5 5 5-5 5"
   }.freeze
 
-  FEEDBACK_ICON_PATHS = {
+  SOLID_ICON_PATHS = {
+    "chevron-left" => "M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z",
+    "chevron-right" => "M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z",
+    "plus" => "M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z",
+    "close-small" => "M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z",
     "check-circle" => "M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z",
     "error-circle" => "M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 0 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 0 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"
   }.freeze
@@ -103,9 +104,9 @@ module Admin::ApplicationHelper
   end
 
   def admin_icon(name, **options)
-    if FEEDBACK_ICON_PATHS.key?(name)
+    if SOLID_ICON_PATHS.key?(name)
       return tag.svg(viewBox: "0 0 20 20", fill: "currentColor", aria: {hidden: true}, class: options.fetch(:class, "admin-icon")) do
-        tag.path(d: FEEDBACK_ICON_PATHS.fetch(name), "fill-rule": "evenodd", "clip-rule": "evenodd")
+        tag.path(d: SOLID_ICON_PATHS.fetch(name), "fill-rule": "evenodd", "clip-rule": "evenodd")
       end
     end
     tag.svg(viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 1.5, "stroke-linecap": "round", "stroke-linejoin": "round", aria: {hidden: true}, class: options.fetch(:class, "admin-icon")) do

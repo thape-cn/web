@@ -25,6 +25,7 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Deletion confirmation                           | `overlays/modal-dialogs/05-simple-with-gray-footer.html`                                            |
 | Ordering dialog and arrow controls              | `overlays/modal-dialogs/04-simple-with-dismiss-button.html`, `elements/button-groups/01-basic.html` |
 | Field help text                                 | `forms/input-groups/02-input-with-label-and-help-text.html`                                         |
+| Native multiline editor fields                  | `forms/textareas/01-simple.html`                                                                    |
 | Empty lists and searches                        | `feedback/empty-states/01-simple.html`                                                              |
 | Status and category filters                     | `navigation/tabs/01-tabs-with-underline.html`                                                       |
 | Removable active filters                        | `elements/badges/07-with-border-remove-button.html`                                                 |
@@ -109,6 +110,9 @@ page while retaining the other filters, locale and page size. A hidden field
 carries the selected tab through search submissions. Active filter chips show
 the current search and filter labels, including when the result is empty. Selected
 tabs and view buttons use explicit state classes so PurgeCSS retains their styles.
+Below 640px, enhancement replaces the tab row with the reference's native select.
+Its options use the same URLs as the links, preserving the full list context and
+resetting pagination. Without JavaScript the ordinary tab links remain visible.
 
 Boolean fields use labeled native checkboxes styled as switches, with descriptions
 of their save-time effect. Association fields use checkbox lists with legends;
@@ -182,8 +186,10 @@ metadata. Shared value rendering preserves statuses, previews and file links.
 Only the visible layout participates in keyboard navigation; ordering and action
 controls are rendered once and arranged compactly on phones. From 640px the
 existing columns return. Picture and message tables retain scrolling within
-their cards. Pagination uses arrow buttons on desktop and labeled buttons on phones;
-dashboard totals stack on phones and use two or four columns on larger screens.
+their cards. Pagination uses arrow buttons and medium-weight record totals on
+desktop; phones show only the Previous/Next text buttons, with 16px side padding.
+Unavailable directions use muted text, a gray background and a lighter inset border.
+Dashboard totals stack on phones and use two or four columns on larger screens.
 
 The HTML references define the light-theme component appearance. The Rails
 adaptations retain their spacing, typography, borders and responsive composition:
@@ -246,8 +252,12 @@ and a 24px warning icon.
 
 The sidebar uses a 64px brand row, 24px navigation icons, 8px link padding and
 28px gaps between groups. Its active and hover rows use the template's translucent
-white background. The mobile drawer leaves at least 64px of backdrop visible and retains
-an inside close button. Login uses a 480px card with 48px desktop padding; on
+white background. The mobile drawer leaves at least 64px of backdrop visible and
+places its close button outside the dark panel. The 64px brand row remains above
+the scrolling navigation, and the account stays below it. Backdrop, close-button
+and Escape dismissal restore focus; resizing to desktop closes the dialog.
+The header uses the reference's small shadow below the desktop breakpoint.
+Login uses a 480px card with 48px desktop padding; on
 phones the card spans the viewport with 24px side padding and square corners.
 Selects share the template chevron and reserve space for it in editors, list
 filters and ordering dialogs. Checkboxes share rounded borders and explicit
@@ -396,3 +406,30 @@ IDs against the selected module and current page. Invalid or stale selections
 delete nothing. Locked records are destroyed in one transaction; a failed
 callback rolls back earlier deletions. Selection clears on navigation. There are
 no new database tables, read states, automatic spam actions or dependencies.
+
+## Remaining component audit
+
+The remaining shared admin views were compared with the mapped light-theme HTML
+variants above, including their mobile composition and native control states.
+
+| Area                 | Result                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shell and navigation | Corrected mobile panel/close-button composition and header shadow. Desktop sidebar dimensions, navigation rows, module palette and editor section links retain their mapped spacing.                                                                                                                                                                        |
+| Dashboard            | Removed the extra module-card outline. Quick links, module headings/navigation and statistics retain their reference typography, gutters and shadows. Four statistics and five picture columns reflect the existing admin content counts.                                                                                                                   |
+| Lists and filters    | Corrected mobile filter selection, pagination composition, record-total typography and link hover colors. Resource cards, compact table cells, stacked metadata, filter chips, badges and view groups retain their mapped presentation.                                                                                                                     |
+| Editors and controls | Gallery and city-role fields now share the editor's 640px column breakpoint, 24px column gap and 32px row gap. Corrected wrapped checkbox alignment, disabled checkbox marks, radio legend/dot spacing, upload guidance spacing and translucent form dividers. Inputs, selects, switches, upload buttons and validation keep their shared reference styles. |
+| Headings and details | Actions stack below the title until 768px. Detail headings use 24px vertical padding and a gray-100 divider; descriptions have a 42rem maximum width. Corrected solid navigation/feedback icons and the empty-state create icon. Attachment rows retain their responsive, accessible file links.                                                            |
+| Dialogs and feedback | Completed the v4 shadow sizes for dialogs and corrected ordering-close hover styling. Confirmation composition, alert colors, module search, picture inspection and action menus retain their mapped layouts and focus handling.                                                                                                                            |
+| Login                | The card, labels, fields and responsive padding match the sign-in reference; existing branding and authentication actions remain.                                                                                                                                                                                                                           |
+
+The single-record editor keeps one Rails form and a shared sticky save bar so
+all sections save together. Nested galleries keep uncropped paired JPG/WebP
+previews and upload caches. The native upload input replaces the example's drag
+and drop affordance, and category radios retain the existing blank choice and
+validation. These are functional Rails adaptations rather than new workflows.
+Unused component families in [the inventory](admin-components.md) remain unused.
+
+Browser regressions in `test/system/admin/reference_parity_test.rb` cover the
+mobile shell, tab-select context and JavaScript-free links, heading/detail and
+pagination layouts, multiline checkbox/forced-color states, and nested editor
+spacing. Screenshots are written to `tmp/screenshots/admin/reference-parity/`.

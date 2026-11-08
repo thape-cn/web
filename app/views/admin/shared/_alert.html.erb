@@ -5,5 +5,5 @@
     <% if local_assigns[:message] %><p><%= message %></p><% end %>
     <% if local_assigns[:messages].present? %><ul class="list-disc pl-5 mt-2 space-y-1"><% messages.each do |message| %><li><%= message %></li><% end %></ul><% end %>
   </div>
-  <% if local_assigns[:dismissible] %><button type="button" class="admin-icon-button admin-alert-dismiss" aria-label="关闭提示" data-admin-alert-dismiss hidden><%= admin_icon('close') %><span class="sr-only">关闭提示</span></button><% end %>
+  <% if local_assigns[:dismissible] %><button type="button" class="admin-icon-button admin-alert-dismiss" aria-label="关闭提示" data-admin-alert-dismiss hidden><%= admin_icon('close-small') %><span class="sr-only">关闭提示</span></button><% end %>
 </div>

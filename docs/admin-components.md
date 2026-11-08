@@ -1,10 +1,9 @@
 # Admin component inventory
 
 The local `application-ui-v4/html` library contains 49 families and 364 HTML
-templates. The initial source audit found 23 explicitly mapped families (29
-variants). With record pickers, picture inspection, message workflows, category
-radios, mobile tables and shared headings, 33 families have explicit source
-mappings (41 variants); 7 more have embedded or custom patterns, and 9 remain unused.
+templates. The admin has explicit source mappings for 34 families (42 variants),
+including native textareas verified in the remaining component audit; 6 more
+have embedded or custom patterns, and 9 remain unused.
 
 **Adapted** identifies a documented library reference. **Pattern** means related
 markup exists within another adaptation or custom component, without a separate
@@ -38,7 +37,7 @@ and interactions live under the admin pack.
 | `forms/radio-groups`              |       12 | Adapted — People, news and publication category editors     |
 | `forms/select-menus`              |        7 | Adapted — Editors, filters, ordering and page size          |
 | `forms/sign-in-forms`             |        4 | Adapted — Administrator login                               |
-| `forms/textareas`                 |        5 | Pattern — Native and rich-text editor fields                |
+| `forms/textareas`                 |        5 | Adapted — Native textareas; rich-text enhancement retained  |
 | `forms/toggles`                   |        5 | Adapted — Publication and visibility fields                 |
 | `headings/card-headings`          |        6 | Adapted — Dashboard module cards and record detail headers  |
 | `headings/page-headings`          |        9 | Adapted — Page titles, actions and breadcrumbs              |

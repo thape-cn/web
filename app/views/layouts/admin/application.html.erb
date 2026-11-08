@@ -15,11 +15,11 @@
       <aside class="admin-sidebar hidden lg:flex bg-gray-900">
         <%= render 'admin/shared/navigation' %>
       </aside>
-      <dialog id="admin-navigation" class="admin-mobile-menu bg-gray-900" aria-label="管理菜单">
-        <div class="flex justify-end px-4 pt-3">
-          <button type="button" class="admin-icon-button" data-admin-menu-close aria-label="关闭管理菜单"><%= admin_icon('close') %><span class="sr-only">关闭管理菜单</span></button>
+      <dialog id="admin-navigation" class="admin-mobile-menu" aria-label="管理菜单">
+        <div class="admin-mobile-menu-panel">
+          <button type="button" class="admin-mobile-menu-close" data-admin-menu-close aria-label="关闭管理菜单"><%= admin_icon('close') %><span class="sr-only">关闭管理菜单</span></button>
+          <%= render 'admin/shared/navigation' %>
         </div>
-        <%= render 'admin/shared/navigation' %>
       </dialog>
       <%= render 'admin/shared/module_switcher' %>
       <%= render 'admin/shared/confirmation' %>

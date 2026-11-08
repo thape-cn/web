@@ -3,10 +3,10 @@
     <%= form.fields_for :city_people do |role| %>
       <fieldset class="admin-gallery-item">
         <legend class="text-sm font-semibold px-2"><%= role.object.city.name %></legend>
-        <div class="grid md:grid-cols-2 gap-5">
+        <div class="admin-fields">
           <div><%= role.label :city_title, '中文职位', class: 'admin-label' %><%= role.text_field :city_title, class: 'admin-input' %></div>
           <div><%= role.label :city_en_title, 'English title', class: 'admin-label' %><%= role.text_field :city_en_title, class: 'admin-input' %></div>
-          <div class="flex flex-wrap gap-5 md:col-span-2"><label class="admin-checkbox-label"><%= role.check_box :is_management, class: 'admin-checkbox' %> 管理团队</label><label class="admin-checkbox-label"><%= role.check_box :is_professional, class: 'admin-checkbox' %> 专业团队</label></div>
+          <div class="flex flex-wrap gap-6 sm:col-span-2"><label class="admin-checkbox-label"><%= role.check_box :is_management, class: 'admin-checkbox' %> 管理团队</label><label class="admin-checkbox-label"><%= role.check_box :is_professional, class: 'admin-checkbox' %> 专业团队</label></div>
         </div>
       </fieldset>
     <% end %>
