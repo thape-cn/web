@@ -11,13 +11,16 @@
       <%= button_to t('admin.actions.delete'), admin_picture_path(picture), method: :delete, class: 'admin-danger-link', data: {confirm: admin_delete_confirmation(@resource, picture)} %>
     <% end %>
   </div>
-  <dl class="admin-picture-metadata">
-    <% admin_picture_metadata(picture).each do |key, value| %>
-      <div><dt><%= t("admin.picture_details.#{key}") %></dt><dd><%= value || '—' %></dd></div>
-    <% end %>
-  </dl>
+  <section class="mt-6" aria-label="<%= t('admin.picture_details.information') %>">
+    <h3 class="font-medium"><%= t('admin.picture_details.information') %></h3>
+    <dl class="admin-picture-metadata">
+      <% admin_picture_metadata(picture).each do |key, value| %>
+        <div><dt><%= t("admin.picture_details.#{key}") %></dt><dd><%= value || '—' %></dd></div>
+      <% end %>
+    </dl>
+  </section>
   <section class="mt-6" aria-label="<%= t('admin.picture_usage.title') %>">
-    <h3 class="font-semibold text-sm mb-2"><%= t('admin.picture_usage.title') %></h3>
+    <h3 class="font-medium mb-2"><%= t('admin.picture_usage.title') %></h3>
     <p class="text-sm text-gray-500 mb-4"><%= t('admin.picture_usage.description') %></p>
     <%= render 'admin/shared/picture_usage', picture: picture %>
   </section>

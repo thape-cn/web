@@ -1848,7 +1848,7 @@
   min-height: 36px;
 }
 .admin .admin-picker-options {
-  @apply absolute bg-white rounded-md shadow-lg py-1 text-sm;
+  @apply absolute bg-white rounded-md py-1 text-base;
   z-index: 25;
   width: 100%;
   max-height: 240px;
@@ -1856,14 +1856,23 @@
   margin-top: 4px;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 .admin .admin-picker-options li {
-  @apply px-3 py-2 text-gray-900 cursor-pointer;
-  overflow-wrap: anywhere;
+  @apply flex px-3 py-2 text-gray-900 cursor-pointer select-none;
+}
+.admin .admin-picker-title,
+.admin .admin-picker-secondary {
+  @apply truncate;
+  min-width: 0;
+}
+.admin .admin-picker-title {
+  flex: 0 1 auto;
 }
 .admin .admin-picker-secondary {
-  @apply text-gray-500;
+  @apply text-gray-500 flex-shrink-0;
+  max-width: 60%;
   margin-left: 8px;
 }
 .admin .admin-picker-options li:hover,
@@ -1878,7 +1887,11 @@
   @apply relative flex-shrink-0;
 }
 .admin .admin-action-menu summary {
+  @apply rounded-full text-gray-400;
   list-style: none;
+}
+.admin .admin-action-menu summary:hover {
+  @apply bg-transparent text-gray-600;
 }
 .admin .admin-action-menu summary::-webkit-details-marker {
   display: none;
@@ -1887,31 +1900,39 @@
   stroke-width: 4px;
 }
 .admin .admin-action-menu-items {
-  @apply absolute bg-white rounded-md shadow-lg py-1 text-sm;
+  @apply absolute bg-white rounded-md py-1 text-sm;
   z-index: 45;
   right: 0;
-  width: 192px;
-  min-width: 192px;
+  top: calc(100% + 8px);
+  width: 224px;
   max-width: calc(100vw - 16px);
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 .admin .admin-action-menu-items a,
 .admin .admin-action-menu-items button {
   @apply block w-full text-left px-4 py-2 text-gray-700;
   min-height: 36px;
+  transition: none;
 }
 .admin .admin-action-menu-items .admin-danger-link {
   @apply text-red-700;
 }
 .admin .admin-action-menu-items a:hover,
-.admin .admin-action-menu-items button:hover {
+.admin .admin-action-menu-items button:hover,
+.admin .admin-action-menu-items a:focus-visible,
+.admin .admin-action-menu-items button:focus-visible {
   @apply bg-gray-100;
 }
 .admin .admin-action-menu-items a:focus-visible,
 .admin .admin-action-menu-items button:focus-visible {
-  outline-offset: -2px;
+  @apply text-gray-900;
+  outline: none;
+}
+.admin .admin-action-menu-items .admin-danger-link:focus-visible {
+  @apply text-red-700;
 }
 .admin .admin-picture-drawer {
   position: fixed;
@@ -1930,17 +1951,36 @@
 .admin .admin-picture-drawer::backdrop {
   background: color-mix(in srgb, theme("colors.gray.500") 75%, transparent);
 }
-.admin .admin-picture-drawer-panel {
-  @apply bg-white shadow-xl p-6;
-  width: 448px;
-  max-width: 100%;
+.admin .admin-picture-drawer-shell {
+  position: relative;
+  width: 384px;
+  max-width: calc(100% - 40px);
   height: 100%;
-  overflow-y: auto;
   margin-left: auto;
 }
-.admin .admin-picture-drawer-heading {
-  @apply flex items-center justify-between mb-6;
-  gap: 16px;
+.admin .admin-picture-drawer-close {
+  @apply absolute rounded-md text-gray-300 cursor-pointer;
+  top: 16px;
+  left: -32px;
+  width: 24px;
+  height: 24px;
+}
+.admin .admin-picture-drawer-close::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+.admin .admin-picture-drawer-close:hover {
+  @apply text-white;
+}
+.admin .admin-picture-drawer-close .admin-icon {
+  @apply w-6 h-6;
+}
+.admin .admin-picture-drawer-panel {
+  @apply bg-white p-8;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 96px;
 }
 .admin .admin-picture-page {
   @apply p-6;
@@ -1949,6 +1989,8 @@
 .admin .admin-picture-preview {
   @apply rounded-lg bg-gray-100 overflow-hidden;
   min-height: 160px;
+  outline: 1px solid rgba(0, 0, 0, 0.05);
+  outline-offset: -1px;
 }
 .admin .admin-picture-preview img {
   display: block;
@@ -1962,11 +2004,24 @@
 .admin .admin-picture-preview .admin-media-placeholder {
   min-height: 160px;
 }
+.admin .admin-picture-drawer-panel .admin-picture-preview {
+  aspect-ratio: 10 / 7;
+  min-height: 0;
+}
+.admin .admin-picture-drawer-panel .admin-picture-preview img {
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+.admin .admin-picture-drawer-panel .admin-media-placeholder {
+  height: 100%;
+  min-height: 0;
+}
 .admin .admin-picture-metadata {
-  @apply border-t border-b border-gray-200 mt-6;
+  @apply border-t border-b border-gray-200 mt-2;
 }
 .admin .admin-picture-metadata > div {
-  @apply flex justify-between py-3 text-sm border-b border-gray-200;
+  @apply flex justify-between py-3 text-sm font-medium border-b border-gray-200;
   gap: 16px;
 }
 .admin .admin-picture-metadata > div:last-child {
@@ -1985,11 +2040,20 @@
   overflow: visible;
 }
 .admin .admin-message-selection {
-  @apply flex flex-wrap items-center justify-between px-4 py-5 border-t border-b border-gray-200;
-  gap: 16px 24px;
+  @apply px-4 py-5 border-t border-b border-gray-200;
 }
-.admin .admin-message-selection > div {
-  flex: 1 1 240px;
+.admin .admin-message-selection-heading {
+  @apply text-base font-semibold;
+}
+.admin .admin-message-selection-body {
+  @apply mt-2;
+}
+.admin .admin-message-selection-description {
+  min-width: 0;
+  max-width: 36rem;
+}
+.admin .admin-message-selection-actions {
+  @apply mt-5;
 }
 .admin .admin-message-inbox > li {
   @apply flex px-4 py-5 border-b border-gray-100;
@@ -2013,13 +2077,15 @@
 }
 .admin .admin-message-heading h2 {
   @apply text-sm font-semibold text-gray-900;
+  line-height: 24px;
   overflow-wrap: anywhere;
 }
 .admin .admin-message-heading time {
-  @apply text-xs text-gray-500;
+  @apply text-xs text-gray-600 flex-shrink-0;
 }
 .admin .admin-message-preview {
-  @apply text-sm text-gray-600 mt-2;
+  @apply text-sm text-gray-600 mt-1;
+  line-height: 24px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -2031,15 +2097,31 @@
   gap: 8px 16px;
 }
 @media (min-width: 640px) {
+  .admin .admin-picker-options {
+    @apply text-sm;
+  }
+  .admin .admin-picture-drawer-shell {
+    max-width: calc(100% - 64px);
+  }
+  .admin .admin-picture-drawer-close {
+    left: -40px;
+  }
+  .admin .admin-message-selection {
+    @apply p-6;
+  }
+  .admin .admin-message-selection-body {
+    @apply flex items-start justify-between;
+    gap: 24px;
+  }
+  .admin .admin-message-selection-actions {
+    @apply mt-0 flex-shrink-0;
+  }
   .admin .admin-message-selection,
   .admin .admin-message-inbox > li {
     @apply px-6;
   }
 }
 @media (max-width: 639px) {
-  .admin .admin-picture-drawer-panel {
-    width: 100%;
-  }
   .admin .admin-message-inbox > li {
     gap: 12px;
   }
@@ -2056,5 +2138,10 @@
   }
   .admin .admin-picker-options li[aria-selected="true"] {
     outline: 2px solid Highlight;
+  }
+  .admin .admin-action-menu-items a:focus-visible,
+  .admin .admin-action-menu-items button:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
   }
 }

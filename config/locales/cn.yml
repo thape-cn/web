@@ -56,6 +56,7 @@ cn:
       unpublished: "未发布"
     picture_details:
       title: "图片详情"
+      information: "文件信息"
       filename: "文件名"
       id: "图片 ID"
       file_type: "文件类型"

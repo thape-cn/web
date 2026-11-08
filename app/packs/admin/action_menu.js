@@ -3,10 +3,11 @@ const position = (menu) => {
   const summary = menu.querySelector("summary")
   const panel = menu.querySelector(".admin-action-menu-items")
   const anchor = summary.getBoundingClientRect()
+  const gap = 8
   panel.style.position = "fixed"
   panel.style.right = "auto"
   panel.style.left = `${Math.max(8, Math.min(anchor.right - panel.offsetWidth, innerWidth - panel.offsetWidth - 8))}px`
-  panel.style.top = `${Math.max(8, anchor.bottom + panel.offsetHeight > innerHeight - 8 ? anchor.top - panel.offsetHeight : anchor.bottom)}px`
+  panel.style.top = `${Math.max(8, anchor.bottom + gap + panel.offsetHeight > innerHeight - 8 ? anchor.top - gap - panel.offsetHeight : anchor.bottom + gap)}px`
 }
 
 document.addEventListener(
@@ -50,7 +51,11 @@ document.addEventListener("keydown", (event) => {
         ? 0
         : event.key === "End"
           ? items.length - 1
-          : (current + (event.key === "ArrowDown" ? 1 : -1) + items.length) % items.length
+          : current < 0
+            ? event.key === "ArrowDown"
+              ? 0
+              : items.length - 1
+            : (current + (event.key === "ArrowDown" ? 1 : -1) + items.length) % items.length
     items[index]?.focus()
   }
 })

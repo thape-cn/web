@@ -64,10 +64,12 @@ document.querySelectorAll("[data-admin-record-picker]").forEach((picker) => {
         item.role = "option"
         item.setAttribute("aria-selected", "false")
         const title = document.createElement("span")
+        title.className = "admin-picker-title"
         title.textContent = option.label
         const detail = document.createElement("span")
         detail.className = "admin-picker-secondary"
         detail.textContent = `#${option.id}${option.published === null ? "" : ` · ${option.published ? picker.dataset.published : picker.dataset.unpublished}`}`
+        item.title = `${title.textContent} · ${detail.textContent}`
         item.append(title, detail)
         // Keep focus in the combobox so a pointer selection precedes blur handling.
         item.addEventListener("mousedown", (event) => event.preventDefault())

@@ -668,7 +668,8 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
 
   test "record pickers preserve selections support keyboard clear and block unfinished searches" do
     work = Admin::Work.create!(id: 99501, city_id: cities(:city_1).id, published: false)
-    Admin::Work.translation_class.insert_all!([{id: 99501, work_id: work.id, locale: "cn", project_name: "Picker browser work", created_at: Time.current, updated_at: Time.current}])
+    long_title = "Picker browser work #{"Long project title " * 12}"
+    Admin::Work.translation_class.insert_all!([{id: 99501, work_id: work.id, locale: "cn", project_name: long_title, created_at: Time.current, updated_at: Time.current}])
     home = TailHome.first || TailHome.create!(id: 99501)
     home.update!(new_project_1_id: work.id, new_project_2_id: 999999999)
     visit edit_admin_tail_home_path
@@ -690,11 +691,24 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       find("[data-admin-picker-search]").send_keys(:arrow_down, :enter)
     end
     assert_selector '[data-admin-picker-search][value*="999999999"]'
-    [1400, 390].each do |width|
+    [1400, 640, 390, 320].each do |width|
       resize_viewport(width, 1000)
       within(picker) do
         find("[data-admin-picker-search]").click
         assert_selector '[role="option"]'
+        assert page.evaluate_script(<<~JS), "Long picker titles should stay on one row with their ID and status at #{width}px"
+          (() => {
+            const option = document.querySelector('[role="option"]')
+            const title = option.querySelector('.admin-picker-title')
+            const detail = option.querySelector('.admin-picker-secondary')
+            const bounds = option.getBoundingClientRect()
+            return Math.abs(bounds.height - (innerWidth >= 640 ? 36 : 40)) < 1 &&
+              title.scrollWidth > title.clientWidth && title.textContent === #{long_title.to_json} &&
+              option.title.includes(title.textContent) && detail.textContent.includes('#99501') &&
+              detail.getBoundingClientRect().right <= bounds.right &&
+              getComputedStyle(title).textOverflow === 'ellipsis'
+          })()
+        JS
         screenshot("record-picker-#{width}")
         find("[data-admin-picker-search]").send_keys(:escape)
         assert_no_selector '[role="listbox"]'
@@ -714,7 +728,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     picture.reload
     news = Admin::Info.create!(id: 99511, title: "Inspector owner", introduction: "Intro", content: "<img src='#{picture.image.url}'>")
     visit admin_pictures_path
-    [1400, 390].each do |width|
+    [1400, 640, 390, 320].each do |width|
       resize_viewport(width, 1000)
       within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
       assert_selector "#admin-picture-drawer[open] [data-admin-picture-details]"
@@ -722,14 +736,54 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
         assert_text "missing-inspector.png"
         assert_selector ".admin-picture-usage-links a[href*='/admin/infos/#{news.id}/edit']"
         assert_selector "[data-admin-media-placeholder]", text: "暂无图片"
-        find("summary").click
+        assert_selector "h3", text: "文件信息"
+        assert page.evaluate_script(<<~JS), "The inspector should retain the reference gutter, preview and padding at #{width}px"
+          (() => {
+            const panel = document.querySelector('.admin-picture-drawer-panel')
+            const bounds = panel.getBoundingClientRect()
+            const preview = panel.querySelector('.admin-picture-preview').getBoundingClientRect()
+            const close = document.querySelector('[data-admin-picture-close]').getBoundingClientRect()
+            return Math.abs(bounds.width - Math.min(384, innerWidth - (innerWidth >= 640 ? 64 : 40))) < 1 &&
+              bounds.right === innerWidth && getComputedStyle(panel).paddingLeft === '32px' &&
+              Math.abs(preview.width / preview.height - 10 / 7) < 0.01 &&
+              close.left >= 0 && close.right <= bounds.left &&
+              getComputedStyle(panel.querySelector('.admin-picture-metadata dd')).fontWeight === '500'
+          })()
+        JS
+        find("summary").send_keys(:arrow_up)
         assert_selector "details[open]"
+        assert_selector ".admin-action-menu-items button:focus", text: "删除"
+        menu_layout = page.evaluate_script(<<~JS)
+          (() => {
+            const menu = document.querySelector('#admin-picture-drawer details[open]')
+            const panel = menu.querySelector('.admin-action-menu-items').getBoundingClientRect()
+            const anchor = menu.querySelector('summary').getBoundingClientRect()
+            return {width: panel.width, left: panel.left, right: panel.right,
+              gap: Math.min(Math.abs(panel.top - anchor.bottom), Math.abs(anchor.top - panel.bottom)),
+              focusColor: getComputedStyle(document.activeElement).backgroundColor,
+              expectedFocusColor: getComputedStyle(document.querySelector('.admin-locale')).backgroundColor}
+          })()
+        JS
+        assert_equal 224, menu_layout["width"]
+        assert_operator menu_layout["left"], :>=, 8
+        assert_operator menu_layout["right"], :<=, width - 8
+        assert_in_delta 8, menu_layout["gap"], 1
+        assert_equal menu_layout["expectedFocusColor"], menu_layout["focusColor"]
+        if width == 1400
+          begin
+            page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [{name: "forced-colors", value: "active"}])
+            assert_equal "solid 2px", page.evaluate_script("getComputedStyle(document.activeElement).outlineStyle + ' ' + getComputedStyle(document.activeElement).outlineWidth")
+          ensure
+            page.driver.browser.execute_cdp("Emulation.setEmulatedMedia", features: [])
+          end
+        end
         screenshot("picture-inspector-menu-#{width}")
         page.send_keys(:escape)
         assert_no_selector "details[open]"
         assert_selector "summary:focus"
         assert page.evaluate_script("document.getElementById('admin-picture-drawer').open")
-        find("summary").click
+        find("summary").send_keys(:arrow_down)
+        assert_selector ".admin-action-menu-items a:focus", text: "打开原文件"
         click_button "删除"
       end
       assert_selector "#admin-confirmation[open]"
@@ -739,7 +793,11 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       assert_selector "#admin-picture-drawer[open]"
       page.send_keys(:escape)
       assert_no_selector "#admin-picture-drawer details[open]"
-      page.send_keys(:escape)
+      if width == 320
+        find("[data-admin-picture-close]").click
+      else
+        page.send_keys(:escape)
+      end
       assert_no_selector "#admin-picture-drawer[open]"
       assert_selector "#record-#{picture.id} [data-admin-picture-open]:focus"
       assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
@@ -761,11 +819,21 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
 
   test "message inbox and table selection confirm only current page and clear after navigation" do
     ProjectMessage.insert_all!(3.times.map { |i| {id: 99520 + i, name: "Message sender #{i}", company: "Company", message: "<script>unsafe()</script>" * 20, spam_score: i.zero? ? nil : 8, created_at: Time.current, updated_at: Time.current} })
-    [1400, 390].each do |width|
+    [1400, 640, 390, 320].each do |width|
       resize_viewport(width, 1000)
       visit admin_project_messages_path(per_page: 2)
       assert_selector ".admin-message-inbox > li", count: 2
       assert_no_selector ".admin-message-preview script"
+      assert page.evaluate_script(<<~JS), "Message previews and cleanup actions should follow the reference layout at #{width}px"
+        (() => {
+          const preview = document.querySelector('.admin-message-preview')
+          const description = document.querySelector('.admin-message-selection-description').getBoundingClientRect()
+          const actions = document.querySelector('.admin-message-selection-actions').getBoundingClientRect()
+          return getComputedStyle(preview).lineHeight === '24px' && preview.getBoundingClientRect().height === 48 &&
+            getComputedStyle(document.querySelector('.admin-message-heading h2')).lineHeight === '24px' &&
+            (innerWidth >= 640 ? actions.left >= description.right + 23 : actions.top >= description.bottom + 19)
+        })()
+      JS
       assert_button "删除所选留言", disabled: true
       find('[data-admin-message-select][value="99522"]').check
       assert_text "已选择 1 条留言"

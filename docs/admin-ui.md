@@ -360,11 +360,31 @@ requests provide a full-page link. Escape, Close and backdrop dismissal restore
 focus. Menus support arrows, Home/End and Escape without closing their parent
 dialog. No file metadata is fetched from external services.
 
+Record-picker results use the combobox reference's single flex row: long titles
+truncate while the ID and publication status remain beside them. The complete
+label stays available to assistive technology and in the row's native tooltip.
+Results use 16px text on phones and 14px from 640px. Action menus use the
+dropdown reference's 224px width, 8px anchor gap, two-part shadow and gray keyboard
+focus background. Arrow Up from the trigger selects the last action; Arrow Down
+selects the first. Menus stay within the viewport and can open above the trigger.
+
+The picture inspector uses the file-details drawer's 384px maximum width, 40px
+mobile/64px desktop backdrop gutter, outside close control and 32px content
+padding. Its preview uses a 10:7 crop; the full-page view keeps the uncropped
+preview and original-file link. Information has a separate heading and divided,
+medium-weight metadata rows. The close control, Escape and backdrop dismissal
+restore focus to the original Details link.
+
 Both message modules default to `view=inbox`, with `view=table` available.
 The view survives filtering, pagination and content-language changes. Inbox rows
 show sender initials, company, timestamp, an escaped two-line message preview,
 existing spam score (or Not scored), details and deletion. Full details and
 Export all CSV retain their existing behavior. Selection never changes exports.
+
+Inbox sender names and two-line previews use the stacked-list reference's 24px
+line height. The cleanup panel places the selection heading above its description
+and action row, following the action-panel reference. The delete button sits below
+the selection controls on phones and beside the description from 640px.
 
 Individual message checkboxes work without JavaScript, with a required native
 confirmation checkbox before deletion. Enhancement adds Select
