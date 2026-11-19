@@ -171,7 +171,7 @@ GEM
       marcel (~> 1)
       ruby_llm-schema (~> 0)
       zeitwerk (~> 2)
-    domain_name (0.7.20261031)
+    domain_name (0.7.20261117)
     drb (2.2.3)
     ed25519 (1.4.0)
     enumize (0.2.1)
@@ -293,7 +293,7 @@ GEM
     ostruct (0.6.3)
     package_json (0.2.0)
     parallel (2.3.0)
-    parser (3.3.13.0)
+    parser (3.3.14.0)
       ast (~> 2.4.1)
       racc
     pg (1.7.0)
