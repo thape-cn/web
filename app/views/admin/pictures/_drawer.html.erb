@@ -1,9 +1,13 @@
-<dialog id="admin-picture-drawer" class="admin-picture-drawer" aria-labelledby="admin-picture-drawer-title" data-admin-picture-drawer data-loading="<%= t('admin.picture_details.loading') %>" data-failed="<%= t('admin.picture_details.failed') %>" data-fallback="<%= t('admin.picture_details.full_page') %>">
+<dialog id="admin-picture-drawer" class="admin-picture-drawer" aria-labelledby="admin-picture-drawer-title" data-admin-picture-drawer data-loading="<%= t('admin.picture_details.loading') %>">
   <div class="admin-picture-drawer-shell">
     <button type="button" class="admin-picture-drawer-close" data-admin-picture-close aria-label="<%= t('admin.actions.close') %>" autofocus><%= admin_icon('close') %></button>
     <div class="admin-picture-drawer-panel">
       <h2 id="admin-picture-drawer-title" class="sr-only"><%= t('admin.picture_details.title') %></h2>
       <div data-admin-picture-content aria-live="polite"></div>
+      <template data-admin-picture-error>
+        <%= render 'admin/shared/alert', kind: 'error', message: t('admin.picture_details.failed') %>
+        <a class="admin-link" data-admin-picture-fallback><%= t('admin.picture_details.full_page') %></a>
+      </template>
     </div>
   </div>
 </dialog>

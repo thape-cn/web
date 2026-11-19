@@ -26,7 +26,8 @@
       <div class="admin-workspace">
         <header class="admin-topbar">
           <div class="admin-topbar-search">
-            <button type="button" class="admin-icon-button mr-3 lg:hidden" data-admin-menu-open aria-controls="admin-navigation" aria-expanded="false" aria-label="打开管理菜单"><%= admin_icon('menu') %><span class="sr-only">打开管理菜单</span></button>
+            <button type="button" class="admin-icon-button lg:hidden" data-admin-menu-open aria-controls="admin-navigation" aria-expanded="false" aria-label="打开管理菜单"><%= admin_icon('menu') %><span class="sr-only">打开管理菜单</span></button>
+            <span aria-hidden="true" class="admin-topbar-divider mx-4 sm:mx-6 lg:hidden"></span>
             <button type="button" class="admin-module-search-button" aria-label="搜索管理模块" aria-haspopup="dialog" aria-controls="admin-module-search" aria-keyshortcuts="Control+k Meta+k" data-admin-switcher-open hidden>
               <%= admin_icon('search') %><span>搜索管理模块</span><kbd aria-hidden="true">Ctrl / ⌘ K</kbd>
             </button>

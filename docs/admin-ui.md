@@ -24,12 +24,13 @@ from `/Users/guochunzhong/git/application-ui-v4/html`:
 | Native selects in editors, filters and ordering | `forms/select-menus/01-simple-native.html`                                                          |
 | Deletion confirmation                           | `overlays/modal-dialogs/05-simple-with-gray-footer.html`                                            |
 | Ordering dialog and arrow controls              | `overlays/modal-dialogs/04-simple-with-dismiss-button.html`, `elements/button-groups/01-basic.html` |
+| Resource list search fields                     | `forms/input-groups/07-input-with-leading-icon.html`                                                |
 | Field help text                                 | `forms/input-groups/02-input-with-label-and-help-text.html`                                         |
 | Native multiline editor fields                  | `forms/textareas/01-simple.html`                                                                    |
 | Empty lists and searches                        | `feedback/empty-states/01-simple.html`                                                              |
 | Status and category filters                     | `navigation/tabs/01-tabs-with-underline.html`                                                       |
 | Removable active filters                        | `elements/badges/07-with-border-remove-button.html`                                                 |
-| Picture grid/list buttons                       | `elements/button-groups/01-basic.html`                                                              |
+| Picture and message view switches               | `elements/button-groups/01-basic.html`                                                              |
 | Publication and visibility switches             | `forms/toggles/04-with-left-label-and-description.html`                                             |
 | Project categories and team cities              | `forms/checkboxes/03-list-with-checkbox-on-right.html`                                              |
 | File upload areas and local previews            | `forms/form-layouts/01-stacked.html` (cover photo field)                                            |
@@ -73,7 +74,11 @@ action links; alerts accept a kind, message/list and dismissal state; pagination
 accepts the paginated relation; empty states accept text, icon and an optional
 action; media cards accept an image URL, title, optional subtitle and metadata with a block
 for editor inputs or record actions. Resource-specific search/filter definitions
-live in `Admin::Resource`, rather than in these shared components.
+live in `Admin::Resource`, rather than in these shared components. The shared
+view switch takes a navigation label, total, current view and choices with an
+optional icon. Its links carry the current filters, page, page size and language.
+List search fields reserve 40px for a 20px leading icon on phones. From 640px
+they reserve 36px for a 16px icon.
 
 Card headings accept a heading ID, title, optional description, optional action
 block and a heading level (h2 by default, h3 for dashboard module groups).
@@ -151,9 +156,10 @@ The header module search and Ctrl/Cmd+K open a native dialog containing the same
 destinations as the sidebar. Search covers Chinese labels, resource keys and
 descriptions locally. Arrow keys select links, Enter opens one, and Escape closes
 the dialog and restores focus. Flash messages are manually dismissible, without
-an automatic timeout. Deletion dialogs focus Cancel first and replay the original
-Rails UJS action once after confirmation. If dialog enhancement is unavailable,
-the original `data-confirm` native prompt remains active. No Tailwind Plus custom
+an automatic timeout. Delete controls use `data-admin-delete-confirm` to open
+the dialog and `data-confirm` for the Rails UJS message. The dialog focuses
+Cancel first and replays the Rails UJS action once after confirmation. When
+dialog enhancement is unavailable, Rails UJS shows its native prompt. No Tailwind Plus custom
 elements, CDN scripts or additional JavaScript dependencies are loaded.
 Tab navigation highlights the focused module link as well as arrow-key navigation.
 An empty module search uses the reference's padded icon and message layout.
@@ -284,12 +290,10 @@ retains separate immediate actions for each ordering method. Dashboard totals
 keep labels and values directly inside each description-list group, with a
 stretched label link so the whole card remains clickable and keyboard accessible.
 
-Admin-specific differences remain deliberate: the header opens a module picker
-instead of a global content search; language switching and record actions retain
-their existing Rails routes; four dashboard totals use two/four-column layouts;
-filter tabs remain scrollable links on phones; and a single sticky save bar submits
-all editor sections and nested records together. Dark-mode template variants and
-Tailwind Plus custom-element scripts are not loaded by this application.
+The header opens a module picker. Language switching and record actions use
+their Rails routes. Four dashboard totals use two or four columns on larger
+screens. A single sticky save bar submits all editor sections and nested
+records together. The admin uses light-theme variants and native controls.
 
 After adding utilities, touch the admin stylesheet. With the dev server running,
 let its watcher rebuild the assets and manifest together. Otherwise rebuild with
@@ -366,9 +370,10 @@ existing file, filename, ID, extension, timestamps and saved-content references,
 including localized owner-editor links and separate legacy news associations.
 Its action menu opens the original file, edits the picture or uses the existing
 deletion confirmation. Failed image loads use a placeholder; failed detail
-requests provide a full-page link. Escape, Close and backdrop dismissal restore
-focus. Menus support arrows, Home/End and Escape without closing their parent
-dialog. No file metadata is fetched from external services.
+requests display the shared error alert and a link to the same picture’s full
+page. Escape, Close and backdrop dismissal restore focus. Menus support
+arrows, Home/End and Escape without closing their parent dialog. No file
+metadata is fetched from external services.
 
 Record-picker results use the combobox reference's single flex row: long titles
 truncate while the ID and publication status remain beside them. The complete
@@ -391,6 +396,9 @@ show sender initials, company, timestamp, an escaped two-line message preview,
 existing spam score (or Not scored), details and deletion. Full details and
 Export all CSV retain their existing behavior. Selection never changes exports.
 
+Sender initials are white on gray-500 with a 1px inset outline. The 32px mobile
+avatar uses 14px type and the 40px avatar uses 16px type from 640px.
+Dividers separate adjacent messages. The pagination footer supplies the final border.
 Inbox sender names and two-line previews use the stacked-list reference's 24px
 line height. The cleanup panel places the selection heading above its description
 and action row, following the action-panel reference. The delete button sits below

@@ -128,6 +128,10 @@
 .admin .admin-topbar-search {
   @apply flex items-center flex-1 min-w-0;
 }
+.admin .admin-topbar-divider {
+  @apply h-6 w-px flex-shrink-0;
+  background-color: color-mix(in srgb, theme("colors.gray.900") 10%, transparent);
+}
 .admin .admin-module-search-button {
   @apply flex items-center text-sm text-gray-500 rounded-md cursor-pointer;
   gap: 12px;
@@ -300,9 +304,6 @@
 }
 .admin .admin-search-icon {
   @apply absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400;
-}
-.admin .admin-search-input {
-  padding-left: 2.5rem;
 }
 .admin .admin-table-scroll {
   @apply overflow-x-auto;
@@ -613,6 +614,10 @@
 .admin .admin-editor-section:last-child {
   @apply mb-0 border-b-0;
 }
+.admin [data-wallpaper-slide]:not([hidden]) ~ [data-wallpaper-slide]:not([hidden]) {
+  @apply pt-10 border-t;
+  border-color: color-mix(in srgb, theme("colors.gray.900") 10%, transparent);
+}
 .admin .admin-editor-heading {
   @apply min-w-0 px-4;
 }
@@ -840,6 +845,10 @@
 }
 .admin .admin-login-card {
   @apply bg-white px-6 py-12 mt-10 shadow-sm;
+}
+.admin .admin-login-card .admin-button {
+  padding-block: 6px;
+  line-height: 24px;
 }
 .admin .admin-login-container > .admin-alert {
   @apply mx-4;
@@ -1676,6 +1685,12 @@
   .admin select.admin-input:not([multiple]) {
     background-size: 16px;
   }
+  .admin .admin-input.admin-search-input {
+    padding-left: 36px;
+  }
+  .admin .admin-search-icon svg {
+    @apply h-4 w-4;
+  }
   .admin input.admin-input[aria-invalid="true"] {
     padding-right: 36px;
     background-size: 16px;
@@ -1966,9 +1981,6 @@
 .admin .admin-action-menu summary::-webkit-details-marker {
   display: none;
 }
-.admin .admin-action-menu summary svg {
-  stroke-width: 4px;
-}
 .admin .admin-action-menu-items {
   @apply absolute bg-white rounded-md py-1 text-sm;
   z-index: 45;
@@ -2126,16 +2138,21 @@
   @apply mt-5;
 }
 .admin .admin-message-inbox > li {
-  @apply flex px-4 py-5 border-b border-gray-100;
+  @apply flex px-4 py-5;
   gap: 16px;
+}
+.admin .admin-message-inbox > li + li {
+  @apply border-t border-gray-100;
 }
 .admin .admin-message-inbox > li > input {
   @apply flex-shrink-0 mt-3;
 }
 .admin .admin-message-avatar {
-  @apply flex flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-600 text-sm font-medium;
+  @apply flex flex-shrink-0 items-center justify-center rounded-full bg-gray-500 text-white text-base font-medium;
   width: 40px;
   height: 40px;
+  outline: 1px solid rgba(0, 0, 0, 0.05);
+  outline-offset: -1px;
 }
 .admin .admin-message-body {
   flex: 1 1 0%;
@@ -2196,6 +2213,7 @@
     gap: 12px;
   }
   .admin .admin-message-avatar {
+    @apply text-sm;
     width: 32px;
     height: 32px;
   }

@@ -69,6 +69,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
   end
 
   test "dashboard cards keep reference text rows at narrow desktop and tablet widths" do
+    assert_equal "20px", find(".admin-stats").style("margin-top")["margin-top"]
     [320, 640, 768, 1024, 1280].each do |width|
       resize_viewport(width, 1000)
       assert page.evaluate_script(<<~JS), "Dashboard card labels should fit at #{width}px"
@@ -84,6 +85,9 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       JS
       if width < 1024
         assert_equal "24px", page.evaluate_script("getComputedStyle(document.querySelector('[data-admin-menu-open] svg')).width")
+        assert_selector ".admin-topbar-divider", style: {width: "1px", height: "24px"}
+      else
+        assert_no_selector ".admin-topbar-divider"
       end
       screenshot("dashboard-card-text-#{width}") if [640, 1024].include?(width)
     end
@@ -149,8 +153,11 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       })()
     JS
     screenshot("picture-filters-desktop")
-    [320, 390, 768, 1024, 1274].each do |width|
+    [320, 390, 640, 768, 1024, 1274].each do |width|
       resize_viewport(width, 948)
+      icon_size = (width < 640) ? "20px" : "16px"
+      assert_selector ".admin-search-icon svg", style: {width: icon_size, height: icon_size}
+      assert_selector ".admin-search-input", style: {"padding-left" => (width < 640) ? "40px" : "36px"}
       assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth"), "Picture library should fit at #{width}px"
     end
     resize_viewport(390, 844)
@@ -161,8 +168,14 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_selector ".admin-media-grid > li", count: 25
     assert_selector ".admin-active-filters li", count: 3
     screenshot("picture-filters-mobile")
-    click_link "列表", exact: true
-    assert_selector "tbody tr", count: 25
+    click_link "下一页", exact: true
+    assert_selector ".admin-media-grid > li", count: 1
+    within(".admin-view-switch") do
+      assert_selector 'a[aria-current="true"] svg', count: 1
+      find_link("列表", exact: true).send_keys(:enter)
+    end
+    assert_selector "tbody tr", count: 1
+    assert_equal({"file_type" => "png", "locale" => "cn", "page" => "2", "per_page" => "25", "q" => "grid-library-", "reference_status" => "unreferenced", "view" => "list"}, Rack::Utils.parse_query(URI(page.current_url).query))
     assert_selector 'input[name="q"][value="grid-library-"]'
     assert_selector 'select[name="file_type"] option[selected]', text: "PNG"
     click_link "清除筛选", exact: true
@@ -249,6 +262,7 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     resize_viewport(390, 844)
     7.times { first("[data-wallpaper-remove]").click }
     assert_selector "[data-wallpaper-list] .admin-editor-section", count: 3
+    assert_equal %w[0px 1px 1px], all("[data-wallpaper-slide]", count: 3).map { |slide| slide.style("border-top-width")["border-top-width"] }
     assert_selector "[data-wallpaper-remove]:disabled", count: 3
     assert_selector ".admin-section-navigation a", count: 3
     assert page.evaluate_script("document.documentElement.scrollWidth <= innerWidth")
@@ -823,6 +837,16 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       resize_viewport(width, 1000)
       visit admin_project_messages_path(per_page: 2)
       assert_selector ".admin-message-inbox > li", count: 2
+      assert_selector '.admin-view-switch a[aria-current="true"]', text: "收件箱", count: 1
+      assert_no_selector ".admin-view-switch svg"
+      avatar_size, font_size = (width < 640) ? %w[32px 14px] : %w[40px 16px]
+      assert_selector ".admin-message-avatar", count: 2, style: {
+        "width" => avatar_size, "height" => avatar_size, "font-size" => font_size, "font-weight" => "500",
+        "background-color" => "oklch(0.551 0.027 264.364)", "color" => "rgba(255, 255, 255, 1)",
+        "outline-width" => "1px", "outline-offset" => "-1px"
+      }
+      assert_selector ".admin-message-inbox > li:first-child", style: {"border-top-width" => "0px"}
+      assert_selector ".admin-message-inbox > li:last-child", style: {"border-top-width" => "1px", "border-bottom-width" => "0px"}
       assert_no_selector ".admin-message-preview script"
       assert page.evaluate_script(<<~JS), "Message previews and cleanup actions should follow the reference layout at #{width}px"
         (() => {
@@ -841,12 +865,19 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
       screenshot("message-inbox-#{width}")
       check "选择本页"
       assert_text "已选择 2 条留言"
-      click_button "删除所选留言"
+      delete_button = find_button("删除所选留言")
+      delete_button.hover
+      assert_selector "[data-admin-bulk-delete]:hover", style: {color: "rgba(255, 255, 255, 1)"}
+      page.send_keys(:tab)
+      assert_selector "[data-admin-bulk-delete]:focus-visible", style: {color: "rgba(255, 255, 255, 1)"}
+      page.send_keys(:enter)
       assert_selector "#admin-confirmation", text: "确认删除所选的 2 条留言"
       screenshot("message-bulk-confirm-#{width}")
       within("#admin-confirmation") { click_button "取消" }
+      assert_selector "[data-admin-bulk-delete]:focus", style: {color: "rgba(255, 255, 255, 1)"}
       assert_equal 3, ProjectMessage.where(id: 99520..99522).count
       click_link "表格", exact: true
+      assert_selector '.admin-view-switch a[aria-current="true"]', text: "表格", count: 1
       assert_selector ".admin-table tbody tr", count: 2
       assert_button "删除所选留言", disabled: true
       check "选择本页"
@@ -875,11 +906,27 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     picture.save!(validate: false)
     picture.update_column(:image, "failure.png")
     visit admin_pictures_path
-    page.execute_script("window.fetch = () => Promise.reject(new Error('Offline test'))")
-    within("#record-#{picture.id}") { find("[data-admin-picture-open]").click }
-    within("#admin-picture-drawer") do
-      assert_text "无法加载图片详情。"
-      click_link "打开详情页"
+    page.execute_script("window.fetch = () => new Promise((_resolve, reject) => { window.failPictureRequest = () => reject(new Error('Offline test')) })")
+    [1400, 640, 390].each do |width|
+      resize_viewport(width, 1000)
+      opener = find("#record-#{picture.id} [data-admin-picture-open]")
+      details_url = opener[:href]
+      opener.click
+      within("#admin-picture-drawer") do
+        assert_selector '[aria-live="polite"][aria-busy="true"]', text: I18n.t("admin.picture_details.loading", locale: :cn)
+        page.execute_script("window.failPictureRequest()")
+        assert_selector '[data-admin-alert][role="alert"]', text: "无法加载图片详情。"
+        assert_selector "[data-admin-alert] svg[aria-hidden='true']"
+        assert_no_selector "[aria-busy='true']"
+        assert_link "打开详情页", href: details_url
+        screenshot("picture-inspector-error-#{width}")
+        if width == 390
+          click_link "打开详情页"
+        else
+          page.send_keys(:escape)
+        end
+      end
+      assert_selector "#record-#{picture.id} [data-admin-picture-open]:focus" unless width == 390
     end
     assert_current_path admin_picture_path(picture, locale: :cn)
     assert_selector "[data-admin-picture-details]"
@@ -1009,7 +1056,12 @@ class Admin::ComponentsTest < ApplicationSystemTestCase
     assert_no_selector "#admin-picture-drawer"
 
     ProjectMessage.insert_all!([{id: 99560, name: "Native selection", message: "No script", created_at: Time.current, updated_at: Time.current}])
-    visit admin_project_messages_path
+    visit admin_project_messages_path(per_page: 1, page: 1, locale: :en)
+    within(".admin-view-switch") { click_link "Table", exact: true }
+    assert_current_path admin_project_messages_path(locale: :en, page: 1, per_page: 1, view: :table)
+    within(".admin-view-switch") { click_link "Inbox", exact: true }
+    assert_current_path admin_project_messages_path(locale: :en, page: 1, per_page: 1, view: :inbox)
+    click_link "中文", exact: true
     assert_no_selector "[data-admin-message-count]"
     find('[data-admin-message-select][value="99560"]').check
     find("noscript input[required]").check

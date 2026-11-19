@@ -1,0 +1,11 @@
+<div class="admin-view-toolbar">
+  <span class="text-sm text-gray-500"><%= total %></span>
+  <nav class="admin-view-switch admin-button-group" aria-label="<%= label %>">
+    <% choices.each do |view, text, icon| %>
+      <% current = view == current_view %>
+      <%= link_to admin_list_path(view: view), class: ['admin-button-secondary', ('admin-view-current' if current)], aria: {current: current ? 'true' : nil} do %>
+        <%= admin_icon(icon) if icon %><%= text %>
+      <% end %>
+    <% end %>
+  </nav>
+</div>

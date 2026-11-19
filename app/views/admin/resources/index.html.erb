@@ -36,15 +36,8 @@
   <%= render 'admin/shared/active_filters', filters: admin_active_filters %>
   <% if @resource.messages? %><%= render 'admin/shared/message_toolbar' %><% end %>
   <% if @resource.key == 'pictures' %>
-    <div class="admin-view-toolbar">
-      <span class="text-sm text-gray-500">共 <%= @records.total_count %> 张图片</span>
-      <nav class="admin-view-switch admin-button-group" aria-label="图片浏览方式">
-        <% [['grid', '网格', 'grid'], ['list', '列表', 'menu']].each do |view, label, icon| %>
-          <% current = admin_list_context.fetch('view', 'grid') == view %>
-          <%= link_to admin_list_path(view: view), class: ['admin-button-secondary', ('admin-view-current' if current)], aria: {current: current ? 'true' : nil} do %><%= admin_icon(icon) %><%= label %><% end %>
-        <% end %>
-      </nav>
-    </div>
+    <%= render 'admin/shared/view_switch', label: '图片浏览方式', total: "共 #{@records.total_count} 张图片",
+          choices: [['grid', '网格', 'grid'], ['list', '列表', 'menu']], current_view: admin_list_context.fetch('view', 'grid') %>
   <% end %>
   <% if @records.empty? %>
     <% empty_action = filtered ? {label: '清除筛选', path: admin_clear_filters_path, secondary: true} : (@resource.allows?(:new) ? {label: '新建第一条记录', path: admin_resource_path(@resource, :new)} : nil) %>
@@ -52,7 +45,7 @@
   <% elsif @resource.messages? && admin_list_context.fetch('view', 'inbox') == 'inbox' %>
     <%= render 'admin/shared/message_inbox' %>
   <% elsif @resource.key == 'pictures' && admin_list_context.fetch('view', 'grid') == 'grid' %>
-    <ul class="admin-media-grid" aria-label="图片库">
+    <ul class="admin-media-grid" role="list" aria-label="图片库">
       <% @records.each do |record| %>
         <% filename = record.image.identifier.presence %>
         <li id="record-<%= record.id %>">

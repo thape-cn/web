@@ -1,4 +1,4 @@
-<ul class="admin-message-inbox" aria-label="<%= @resource.label %>">
+<ul class="admin-message-inbox" role="list" aria-label="<%= @resource.label %>">
   <% @records.each do |record| %>
     <li id="record-<%= record.id %>">
       <%= render 'admin/shared/message_selection', record: record %>

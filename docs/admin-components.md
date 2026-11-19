@@ -1,7 +1,7 @@
 # Admin component inventory
 
 The local `application-ui-v4/html` library contains 49 families and 364 HTML
-templates. The admin has explicit source mappings for 34 families (42 variants),
+templates. The admin has explicit source mappings for 34 families (43 variants),
 including native textareas verified in the remaining component audit; 6 more
 have embedded or custom patterns, and 9 remain unused.
 
@@ -24,7 +24,7 @@ and interactions live under the admin pack.
 | `data-display/stats`              |        5 | Adapted — Dashboard totals                                  |
 | `elements/avatars`                |       11 | Adapted — Message sender initials                           |
 | `elements/badges`                 |       16 | Adapted — Status indicators and removable active filters    |
-| `elements/button-groups`          |        5 | Adapted — Ordering arrows and picture/message view switches |
+| `elements/button-groups`          |        5 | Adapted — Ordering arrows and shared list view switches     |
 | `elements/buttons`                |        8 | Adapted — Primary, secondary and upload actions             |
 | `elements/dropdowns`              |        5 | Adapted — Picture and message action menus                  |
 | `feedback/alerts`                 |        6 | Adapted — Flash messages, validation and loading failures   |
@@ -33,7 +33,7 @@ and interactions live under the admin pack.
 | `forms/checkboxes`                |        4 | Adapted — Associations and message selection                |
 | `forms/comboboxes`                |        4 | Adapted — Homepage and picture news record pickers          |
 | `forms/form-layouts`              |        4 | Adapted — Editors, SEO, galleries and upload areas          |
-| `forms/input-groups`              |       21 | Adapted — Labels, hints and inline errors                   |
+| `forms/input-groups`              |       21 | Adapted — List search, labels, hints and inline errors      |
 | `forms/radio-groups`              |       12 | Adapted — People, news and publication category editors     |
 | `forms/select-menus`              |        7 | Adapted — Editors, filters, ordering and page size          |
 | `forms/sign-in-forms`             |        4 | Adapted — Administrator login                               |
@@ -57,7 +57,7 @@ and interactions live under the admin pack.
 | `navigation/pagination`           |        3 | Adapted — Numbered resource pagination                      |
 | `navigation/progress-bars`        |        8 | Unused                                                      |
 | `navigation/sidebar-navigation`   |        5 | Pattern — Embedded in the sidebar-shell reference           |
-| `navigation/tabs`                 |        9 | Adapted — Status and category filters                       |
+| `navigation/tabs`                 |        9 | Adapted — Filter links and enhanced mobile select           |
 | `navigation/vertical-navigation`  |        6 | Adapted — Module groups and editor section anchors          |
 | `overlays/drawers`                |       12 | Adapted — Picture details inspector                         |
 | `overlays/modal-dialogs`          |        6 | Adapted — Deletion confirmation and ordering                |

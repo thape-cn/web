@@ -8,7 +8,7 @@
     <%= render layout: 'admin/shared/action_menu', locals: {label: t('admin.actions.more')} do %>
       <% if picture.image.url.present? %><%= link_to t('admin.actions.open_original'), picture.image.url, target: '_blank', rel: 'noopener' %><% end %>
       <%= link_to t('admin.actions.edit'), edit_admin_picture_path(picture) %>
-      <%= button_to t('admin.actions.delete'), admin_picture_path(picture), method: :delete, class: 'admin-danger-link', data: {confirm: admin_delete_confirmation(@resource, picture)} %>
+      <%= button_to t('admin.actions.delete'), admin_picture_path(picture), method: :delete, class: 'admin-danger-link', data: {admin_delete_confirm: true, confirm: admin_delete_confirmation(@resource, picture)} %>
     <% end %>
   </div>
   <section class="mt-6" aria-label="<%= t('admin.picture_details.information') %>">

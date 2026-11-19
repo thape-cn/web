@@ -35,15 +35,9 @@ if (drawer && typeof drawer.showModal === "function") {
       })
     } catch (error) {
       if (error.name === "AbortError" || current !== generation) return
-      const message = document.createElement("p")
-      message.className = "admin-alert admin-alert-error"
-      message.role = "alert"
-      message.textContent = drawer.dataset.failed
-      const fallback = document.createElement("a")
-      fallback.href = link.href
-      fallback.className = "admin-link"
-      fallback.textContent = drawer.dataset.fallback
-      content.replaceChildren(message, fallback)
+      const failure = drawer.querySelector("[data-admin-picture-error]").content.cloneNode(true)
+      failure.querySelector("[data-admin-picture-fallback]").href = link.href
+      content.replaceChildren(failure)
     } finally {
       if (current === generation) content.removeAttribute("aria-busy")
     }

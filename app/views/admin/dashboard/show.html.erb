@@ -2,8 +2,8 @@
 <%= render 'admin/shared/heading', title: '网站管理', description: '从这里更新天华的作品、动态与品牌内容。', eyebrow: '天华 · 内容管理', badge: "当前内容 · #{admin_locale_label}" %>
 <section aria-labelledby="counts-heading" class="mb-10">
   <h2 id="counts-heading" class="text-base font-semibold mb-2">内容概览</h2>
-  <p class="text-xs text-gray-500 mb-4">全部内容语言的记录总数，包含未发布作品。</p>
-  <dl class="admin-stats">
+  <p class="text-xs text-gray-500">全部内容语言的记录总数，包含未发布作品。</p>
+  <dl class="admin-stats mt-5">
     <% @counts.each do |key, count| %>
       <% resource = Admin::Resource.new(key) %>
       <div class="admin-stat-card">
